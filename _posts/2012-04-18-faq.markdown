@@ -8,7 +8,7 @@ title: FAQ
 wordpress_id: 20
 ---
 
-_This is a continuously updated list of responses to questions I get about the __[main post](http://filedrawer.wordpress.com/2012/04/17/its-the-incentives-structure-people-why-science-reform-must-come-from-the-granting-agencies/) and [Top 8 List](http://filedrawer.wordpress.com/2013/01/16/8-lessons-from-the-reproducibility-crisis/)__, which should be read first._
+_This is a continuously updated list of responses to questions I get about the [main post](/2012/04/17/its-the-incentives-structure-people-why-science-reform-must-come-from-the-granting-agencies/) and [Top 8 List](/2013/01/16/8-lessons-from-the-reproducibility-crisis/), which should be read first._
 
 **Q:** I think scientists need to do X.
 **A:** There's a good chance 'X' is a [collective action problem](http://en.wikipedia.org/wiki/Collective_action%23Collective_action_problem). If all scientists did it, the field as a whole would benefit. But if a single scientist did it alone, he or she would not benefit. These problems can only be fixed if an outside force (e.g. the NIH) adjusts the incentives so that individuals would benefit from doing the action alone.
