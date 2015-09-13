@@ -1,0 +1,18 @@
+---
+author: csaid81
+comments: true
+date: 2013-03-21 13:08:46+00:00
+layout: post
+slug: '165'
+title: Canadian funding models for all
+wordpress_id: 165
+---
+
+The US and Canada have very different systems for funding science. To compare them, I found some of the publicly available data on [NIH R01s](http://report.nih.gov/success_rates/Success_ByIC.cfm) (USA) and [NSERC Individual Discovery Grants](http://www.nserc-crsng.gc.ca/_doc/Funding-Financement/DGStat2012-SDStat2012_eng.pdf) (Canada), and plotted them below. Before describing the results, I should say that comparing NIH to NSERC is a bit like comparing apples to oranges, since NSERC is probably closer to the NSF than to the NIH. Nevertheless, the cross-country trends hold up across agencies, and in any case my goal is not to compare countries (as much as I would like to) but to compare funding models.[
+](http://filedrawer.files.wordpress.com/2013/03/fig.png)
+
+{% include image.html url="/assets/fig2.png" %}
+
+There are two things to notice about the plots. First, the funding rates are clearly higher at NSERC than at NIH. The catch, of course, is that higher rates mean smaller awards. NSERC typically provides $35,000/year, far less than the big awards from NIH. Canadian scientists [love](http://oikosjournal.wordpress.com/2011/05/16/should-granting-agencies-fund-projects-or-people/) their system, valuing the stability it provides more than the possibility of large awards. Quality of life issues aside, a separate question is: Does the NSERC system produce better science? Or do the high success rates waste too much money on low-quality projects? My feeling is that the NSERC system is much better. High-quality NIH proposals are routinely rejected for arbitrary reasons, and the sink-or-swim culture is [directly contributing](http://www.nytimes.com/2012/04/17/science/rise-in-scientific-journal-retractions-prompts-calls-for-reform.html?pagewanted=1&_r=2) to bad research practices. We should move toward a higher rate / smaller award system. And for those who see value in large awards, we can still adjust the size of the award based on the quality of the proposal.
+
+The second thing to notice about the plots is the trends over time. At NIH, more so than at NSERC, the decline in success rates is driven by an increase in the number of applicants, not by a decrease in the number of awards. I don’t think the solution is just “more funding”, especially in the current fiscal climate. We have a denominator problem, not a numerator problem. We should fix the system that rewards programs for producing more PhDs than the system can accommodate. I’ll leave it to actual experts to decide how to do this. But as with most public policy questions, a good place to start is to just copy whatever the Canadians are doing.

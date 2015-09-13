@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      My Insight Data Science Project &middot; The File Drawer
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/hyde.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
+                                 <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+<!--   <body class="theme-base-cps">
+ -->
+  <body>
+
+    <div class="sidebar">
+  <div class="container">
+    <div class="sidebar-about">
+      <h1>
+        <a href="/">
+          The File Drawer
+        </a>
+      </h1>
+      <p class="lead">My name is <a href = "http://www.twitter.com/chris_said">Chris Said</a> and I am a data scientist at Twitter. Before that I worked at Facebook and before that I worked as a neuroscientist.</p>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a class="sidebar-nav-item" href="/">Home</a>
+
+      
+
+      
+      
+        
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/about/">About</a>
+          
+        
+      
+        
+      
+        
+          
+        
+      
+
+      <a class="sidebar-nav-item" href="https://github.com/poole/hyde/archive/v2.1.0.zip">Download</a>
+      <a class="sidebar-nav-item" href="https://github.com/poole/hyde">GitHub project</a>
+      <span class="sidebar-nav-item">Currently v2.1.0</span>
+    </nav>
+
+    <p>&copy; 2015. All rights reserved.</p>
+  </div>
+</div>
+
+
+    <div class="content container">
+      <div class="post">
+  <h1 class="post-title">My Insight Data Science Project</h1>
+  <span class="post-date">12 Oct 2013</span>
+  <p>I just finished an excellent fellowship at <a href="http://insightdatascience.com/">Insight Data Science</a>. During our first few weeks there, each of us designed a website to demo at Insight’s sponsor companies. My website is called <a href="http://www.dealspotter.info">DealSpotter</a>.</p>
+
+<p>This all started earlier this summer when I went to Craigslist to find a used car. There were lots of good deals on Craigslist, but it took way too long to find them. When I searched for a particular model, I got hundreds of hits, but only a few of the hits included the mileage in the posting title. Since I needed the mileage to know whether I was getting a good deal, I had to click on each of the hundreds of listings. Pretty time consuming.</p>
+
+<p><a href="http://www.dealspotter.info"><figure class="image"><img src="/assets/listings.png" alt=""><figcaption></figcaption></figure>
+</a></p>
+
+<p>A larger problem was that even if I clicked on every post, I didn’t always have a sense for what was the best deal. For example, if I had $3,000, was it better to spend it on a 2001 model with 100K miles, or a 2003 model with 140K miles?</p>
+
+<p><a href="http://www.dealspotter.info"><em>DealSpotter</em></a>_ _is a proof-of-concept website that shows how these problems could be solved. DealSpotter grabs all the Craigslist car postings in the San Francisco Bay Area and automatically shows you the best deals. It knows how much each car should be priced, based on the model, year, and mileage. Cars that are priced lower than DealSpotter expects them to be are shown at the top of the list. DealSpotter also presents the same information in a visual format called “Graph” mode, where the best deals are highlighted in blue.</p>
+
+<p><a href="http://www.dealspotter.info"><figure class="image"><img src="/assets/full.png" alt=""><figcaption></figcaption></figure>
+</a></p>
+
+<p>To determine how much each car should be priced, DealSpotter doesn’t use Kelley Blue Book, which tends to overprice cars, especially newer models. Instead, DealSpotter builds its own pricing model based on the actual Craigslist market. In particular, it uses a <a href="http://en.wikipedia.org/wiki/Random_forest">Random Forest</a> pricing model because, unlike smooth parametric models, Random Forests are able to detect sharp discontinuities in prices that may be caused by factors such as manufacturer design overhauls.</p>
+
+<p>By selecting cars that are priced much lower than would be expected based on year and mileage, DealSpotter picks out some incredible deals, as well as the occasional clunker with an accident history. A more elaborate service might find a way to filter for accident history, but for now DealSpotter remains useful because it greatly narrows down the scope of the search for users. Once users are dealing with a handful of posts, they can easily inspect the text of the ad to determine which cars are good deals, and which have a history of accidents.</p>
+
+<p>If you are in the San Francisco Bay Area and are looking for a used car, you should definitely check out my website <em>right now</em>. Many cars are underpriced by thousands of dollars. In the future though, I won’t be updating the listings, which will soon become outdated. Craigslist has a <a href="http://news.cnet.com/8301-1023_3-57479344-93/craigslist-sues-padmapper-for-mass-harvesting-listings/">history of suing</a> other services that try to improve on how their data is presented. Craigslist’s litigiousness is understandable -- they curated the data after all. But it apparently has also <a href="http://bits.blogs.nytimes.com/2012/07/29/when-craigslist-blocks-innovations-disruptions/?_r=0">stifled innovation</a>_. _Craigslist users spend many hours of their time clicking on blue links because the website’s search and UI tools are still stuck in the 90’s. Users are also at higher risk of scams because there is no reputation system. Normally, issues like this would put a company out of business, but a combination of lawsuits and network lock-in effects have kept Craigslist at the top of classifieds services. Hopefully, we will one day get a better Craigslist. In the meantime, if you want to find an incredible deal on a car while the postings are still fresh, you should do so <a href="http://www.dealspotter.info">now</a>.</p>
+
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/2015/09/13/presidential-debates/">
+            2015 Republican Presidential Debates
+            <small>13 Sep 2015</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2015/08/08/10-classic-dialogues/">
+            10 classic dialogues you can find on the internet
+            <small>08 Aug 2015</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2015/05/31/were-getting-better-at-picking-metrics-to-optimize/">
+            Across industries, we’re getting better at picking metrics
+            <small>31 May 2015</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,917 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+ <title>The File Drawer</title>
+ <link href="http://hyde.getpoole.com/atom.xml" rel="self"/>
+ <link href="http://hyde.getpoole.com/"/>
+ <updated>2015-09-13T16:01:01-07:00</updated>
+ <id>http://hyde.getpoole.com</id>
+ <author>
+   <name>Mark Otto</name>
+   <email></email>
+ </author>
+
+ 
+ <entry>
+   <title>2015 Republican Presidential Debates</title>
+   <link href="http://hyde.getpoole.com/2015/09/13/presidential-debates/"/>
+   <updated>2015-09-13T00:00:00-07:00</updated>
+   <id>http://hyde.getpoole.com/2015/09/13/presidential-debates</id>
+   <content type="html">&lt;p&gt;Cum sociis natoque penatibus et magnis &lt;a href=&quot;#&quot;&gt;dis parturient montes&lt;/a&gt;, nascetur ridiculus mus. &lt;em&gt;Aenean eu leo quam.&lt;/em&gt; Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.&lt;/p&gt;
+
+&lt;p&gt;Cum sociis natoque penatibus et magnis &lt;a href=&quot;#&quot;&gt;dis parturient montes&lt;/a&gt;, nascetur ridiculus mus. &lt;em&gt;Aenean eu leo quam.&lt;/em&gt; Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.&lt;/p&gt;
+
+&lt;p&gt;Cum sociis natoque penatibus et magnis &lt;a href=&quot;#&quot;&gt;dis parturient montes&lt;/a&gt;, nascetur ridiculus mus. &lt;em&gt;Aenean eu leo quam.&lt;/em&gt; Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.&lt;/p&gt;
+
+&lt;p&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;/p&gt;
+
+&lt;div id=&quot;debate_graph&quot;&gt;&lt;/div&gt;
+
+&lt;style&gt;
+/*
+#3AC3F2:
+#ED2685:*/
+
+.debate_link {
+  fill: none;
+  stroke: #3AC3F2;
+}
+
+
+.debate_tooltip {
+    border-radius: 5px;
+    background: #ccc;
+    border-color: #555;
+    padding: 5px;
+    /*width: 200px;*/
+    /*height: 150px;*/
+}
+
+.debate_link.resolved {
+  stroke-dasharray: 0,2 1;
+}
+
+circle {
+  fill: #ED2685;
+  stroke: #fff;
+  stroke-width: 1.5px;
+}
+
+text {
+  font: 10px sans-serif;
+  pointer-events: none;
+  text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff;
+}
+
+&lt;/style&gt;
+
+&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js&quot;&gt;&lt;/script&gt;
+
+&lt;!-- &lt;script type=&#39;text/javascript&#39; src=&#39;/javascripts/jquery-2.1.4.min.js&#39;&gt;&lt;/script&gt;
+&lt;script type=&#39;text/javascript&#39; src=&#39;/javascripts/jquery.tipsy.js&#39;&gt;&lt;/script&gt; --&gt;
+
+&lt;!-- &lt;link rel=&quot;stylesheet&quot; href=&quot;/stylesheets/tipsy.css&quot; type=&quot;text/css&quot; /&gt; --&gt;
+
+&lt;script&gt;
+
+var links = [
+  {source: 2, target: 3, mentions: 1},
+  {source: 5, target: 2, mentions: 2},
+  {source: 6, target: 2, mentions: 3},
+  {source: 8, target: 1, mentions: 1},
+  {source: 8, target: 3, mentions: 1},
+];
+
+var nodes = [
+{name: &#39;Bush&#39;, fixed: true, x: 280.0, y: 150.0},
+{name: &#39;Trump&#39;, fixed: true, x: 255.172209269, y: 226.412082798},
+{name: &#39;Walker&#39;, fixed: true, x: 190.172209269, y: 273.637347118},
+{name: &#39;Huckabee&#39;, fixed: true, x: 109.827790731, y: 273.637347118},
+{name: &#39;Carson&#39;, fixed: true, x: 44.8277907313, y: 226.412082798},
+{name: &#39;Cruz&#39;, fixed: true, x: 20.0, y: 150.0},
+{name: &#39;Rubio&#39;, fixed: true, x: 44.8277907313, y: 73.587917202},
+{name: &#39;Paul&#39;, fixed: true, x: 109.827790731, y: 26.3626528816},
+{name: &#39;Christie&#39;, fixed: true, x: 190.172209269, y: 26.3626528816},
+{name: &#39;Kasich&#39;, fixed: true, x: 255.172209269, y: 73.587917202}
+]
+
+// Compute the distinct nodes from the links.
+links.forEach(function(link) {
+  link.source = nodes[link.source] || (nodes[link.source] = {name: link.source});
+  link.target = nodes[link.target] || (nodes[link.target] = {name: link.target});
+});
+
+var width = 600,
+    height = 300;
+
+var force = d3.layout.force()
+    .nodes(d3.values(nodes))
+    .links(links)
+    .size([width, height])
+    .on(&quot;tick&quot;, tick)
+    .start();
+
+var svg = d3.select(&quot;div#debate_graph&quot;).append(&quot;svg&quot;)
+    .attr(&quot;width&quot;, width)
+    .attr(&quot;height&quot;, height);
+
+// Per-type markers, as they don&#39;t inherit styles.
+svg.append(&quot;defs&quot;)
+    .append(&quot;marker&quot;)
+    .attr(&quot;id&quot;, &quot;marker&quot;)
+    .attr(&quot;viewBox&quot;, &quot;0 -5 10 10&quot;) // min-x, min-y, width, height
+    .attr(&quot;refX&quot;, 12) // The reference point. Even though arrow is length 10, using 12 because otherwise would go to center of circle.
+    .attr(&quot;refY&quot;, 0)
+    .attr(&quot;markerWidth&quot;, 14)
+    .attr(&quot;markerHeight&quot;, 14)
+    .attr(&quot;markerUnits&quot;, &quot;userSpaceOnUse&quot;) // makes marker size independent of stroke-width
+    .attr(&quot;orient&quot;, &quot;auto&quot;)
+    .attr(&quot;fill&quot;, &quot;#3AC3F2&quot;)
+  .append(&quot;path&quot;)
+    .attr(&quot;d&quot;, &quot;M0,-5L10,0L0,5&quot;); // Arrow definition. Start at 0,-5. Then draw line to 10, 0. Then draw line to 0, 5
+
+// http://stackoverflow.com/questions/10805184/d3-show-data-on-mouseover-of-circle
+// http://bl.ocks.org/biovisualize/1016860
+var tooltip = d3.select(&quot;div#debate_graph&quot;)
+    .append(&quot;div&quot;)
+    .attr(&quot;class&quot;, &quot;debate_tooltip&quot;)
+    .style(&quot;position&quot;, &quot;absolute&quot;)
+    .style(&quot;z-index&quot;, &quot;10&quot;)
+    .style(&quot;visibility&quot;, &quot;hidden&quot;)
+;
+
+
+var path = svg.append(&quot;g&quot;).selectAll(&quot;path&quot;)
+    .data(force.links())
+  .enter().append(&quot;path&quot;)
+    .attr(&quot;class&quot;, &quot;debate_link&quot;)
+    .attr(&quot;stroke-width&quot;, function(d) { return 2*d.mentions })
+    .attr(&quot;marker-end&quot;, &quot;url(#marker)&quot;) // This just say that the arrow should go at the end of the link, rather than the beginning.
+    .on(&quot;mouseover&quot;, function(d){return tooltip.style(&quot;visibility&quot;, &quot;visible&quot;).text(&quot;Mentions: &quot; + d.mentions)})
+    .on(&quot;mousemove&quot;, function(){return tooltip.style(&quot;top&quot;,
+        (d3.event.pageY-10)+&quot;px&quot;).style(&quot;left&quot;,(d3.event.pageX+10)+&quot;px&quot;);})
+    .on(&quot;mouseout&quot;, function(){return tooltip.style(&quot;visibility&quot;, &quot;hidden&quot;);});
+
+
+var circle = svg.append(&quot;g&quot;).selectAll(&quot;circle&quot;)
+    .data(force.nodes())
+  .enter().append(&quot;circle&quot;)
+    .attr(&quot;r&quot;, 6);
+
+var text = svg.append(&quot;g&quot;).selectAll(&quot;text&quot;)
+    .data(force.nodes())
+  .enter().append(&quot;text&quot;)
+    .attr(&quot;x&quot;, 8)
+    .attr(&quot;y&quot;, &quot;.31em&quot;)
+    .text(function(d) { return d.name; });
+
+
+// Use elliptical arc path segments to doubly-encode directionality.
+function tick() {
+  path.attr(&quot;d&quot;, linkArc);
+  circle.attr(&quot;transform&quot;, transform);
+  text.attr(&quot;transform&quot;, transform);
+}
+
+function linkArc(d) {
+  var dx = d.target.x - d.source.x,
+      dy = d.target.y - d.source.y,
+      dr = Math.sqrt(dx * dx + dy * dy);
+  return &quot;M&quot; + d.source.x + &quot;,&quot; + d.source.y + &quot;A&quot; + dr + &quot;,&quot; + dr + &quot; 0 0,1 &quot; + d.target.x + &quot;,&quot; + d.target.y;
+}
+
+function transform(d) {
+  return &quot;translate(&quot; + d.x + &quot;,&quot; + d.y + &quot;)&quot;;
+}
+
+&lt;/script&gt;
+
+&lt;p&gt;As you can see...&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>10 classic dialogues you can find on the internet</title>
+   <link href="http://hyde.getpoole.com/2015/08/08/10-classic-dialogues/"/>
+   <updated>2015-08-08T15:52:24-07:00</updated>
+   <id>http://hyde.getpoole.com/2015/08/08/10-classic-dialogues</id>
+   <content type="html">&lt;p&gt;Some videos on the internet are so good that I&amp;#39;ve watched them twice. Below is a list of 10 of my favorite interviews and dialogues. Obviously this isn&amp;#39;t an endorsement of all the positions taken. I just think they are very well done and fun to watch. The last four are best watched on 1.4x speed.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://www.dailymotion.com/video/x16z2ff_parkinson-interviews-muhammad-ali-1971-full_news&quot;&gt;1971&lt;/a&gt; Michael Parkinson interviews Muhammad Ali.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://archive.org/details/MuhammadAliParkinsonInterview1974betterSound&quot;&gt;1974&lt;/a&gt; Michael Parkinson interviews Muhammad Ali again, with better sound.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=WxOp5mBY9IY&quot;&gt;1997&lt;/a&gt; Steve Jobs interacting with the audience when announcing the Microsoft deal.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=FF-tKLISfPE&quot;&gt;1997&lt;/a&gt; Steve Jobs interacting with the audience at WWDC.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://thecolbertreport.cc.com/videos/6quypd/better-know-a-district---district-of-columbia---eleanor-holmes-norton&quot;&gt;2006&lt;/a&gt; Stephen Colbert interviews Eleanor Holmes Norton.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://bloggingheads.tv/videos/2326&quot;&gt;2009&lt;/a&gt; Robert Wright and Joel Achenbach&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://bloggingheads.tv/videos/2022&quot;&gt;2009&lt;/a&gt; Tyler Cowen and Peter Singer&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://bloggingheads.tv/videos/2841&quot;&gt;2010&lt;/a&gt; Robert Wright and Mickey Kaus&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://bloggingheads.tv/videos/3254&quot;&gt;2011&lt;/a&gt; Robert Wright and Mickey Kaus&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://bloggingheads.tv/videos/14073&quot;&gt;2012&lt;/a&gt; Glenn Loury and Ann Althouse&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;If I had to recommend just one, it would be &lt;a href=&quot;http://bloggingheads.tv/videos/2022&quot;&gt;Cowen/Singer&lt;/a&gt;.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Across industries, we’re getting better at picking metrics</title>
+   <link href="http://hyde.getpoole.com/2015/05/31/were-getting-better-at-picking-metrics-to-optimize/"/>
+   <updated>2015-05-31T12:21:07-07:00</updated>
+   <id>http://hyde.getpoole.com/2015/05/31/were-getting-better-at-picking-metrics-to-optimize</id>
+   <content type="html">&lt;p&gt;Everywhere I look, I see people optimizing bad metrics. Sometimes people optimize metrics that aren’t in their self interest, like when startups focus entirely on signup counts while forgetting about retention rates. In other cases, people optimize metrics that serve their immediate short term interest but which are bad for social welfare, like when California corrections officers &lt;a href=&quot;http://mic.com/articles/41531/union-of-the-snake-how-california-s-prison-guards-subvert-democracy&quot;&gt;lobby for longer prison sentences&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The good news is that as we become a more data-driven society, there seems to be a broad trend — albeit a very slow one — towards better metrics. Take the media economy, for example. A few years ago, media companies optimized for clicks, and companies like Upworthy thrived by producing low quality content with clickbaity headlines. But now, thanks to a more sustainable &lt;a href=&quot;https://stratechery.com/2015/buzzfeed-important-news-organization-world/&quot;&gt;business model&lt;/a&gt;, companies like Buzzfeed are &lt;a href=&quot;http://www.buzzfeed.com/bensmith/why-buzzfeed-doesnt-do-clickbait&quot;&gt;optimizing for shares rather than clicks&lt;/a&gt;. It’s not perfect, but overall it’s better for consumers.&lt;/p&gt;
+
+&lt;p&gt;In science, researchers used to optimize for publication counts and citation counts, which biased them towards publishing surprising and interesting results that were unlikely to be true. These metrics &lt;a href=&quot;http://www.talyarkoni.org/blog/2013/03/12/the-truth-is-not-optional-five-bad-reasons-and-one-mediocre-one-for-defending-the-status-quo/&quot;&gt;still loom large&lt;/a&gt;, but increasingly scientists are beginning to optimize for other metrics like &lt;a href=&quot;https://twitter.com/lakens/status/603617310298001410&quot;&gt;open data badges&lt;/a&gt; and &lt;a href=&quot;http://sometimesimwrong.typepad.com/wrong/2014/12/why-i-am-optimistic.html&quot;&gt;reproducibility&lt;/a&gt;, although we still have a long way to go before quality metrics are effectively &lt;a href=&quot;http://journal.frontiersin.org/researchtopic/beyond-open-access-visions-for-open-evaluation-of-scientific-papers-by-post-publication-peer-review-137&quot;&gt;measured&lt;/a&gt; and &lt;a href=&quot;https://filedrawer.wordpress.com/2012/04/17/its-the-incentives-structure-people-why-science-reform-must-come-from-the-granting-agencies/&quot;&gt;incentivized&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;In health care, hospitals used to profit by maximizing the quantity of care. Perversely, hospitals benefited whenever patients were readmitted due to infections acquired in the hospital or due to lack of adequate follow-up plan. Now, with &lt;a href=&quot;http://healthaffairs.org/blog/2014/07/24/examining-medicares-hospital-readmissions-reduction-program/&quot;&gt;ACA&lt;/a&gt; &lt;a href=&quot;http://www.hhs.gov/asl/testify/2013/09/t20130924.html&quot;&gt;policies&lt;/a&gt; that penalize hospitals for avoidable readmissions, hospitals are taking &lt;a href=&quot;https://innovations.ahrq.gov/profiles/statewide-all-payer-financial-incentives-significantly-reduce-hospital-acquired-conditions&quot;&gt;real steps&lt;/a&gt; to improve follow-up care and to reduce hospital-acquired infections. While the metrics should &lt;a href=&quot;http://en.wikipedia.org/wiki/Value-added_modeling&quot;&gt;be&lt;/a&gt; &lt;a href=&quot;https://www.aamc.org/download/382516/data/thehospitalreadmissionsprogramaccuracyandaccountabilityactbills.pdf&quot;&gt;adjusted&lt;/a&gt; so that they don’t unfairly penalize low income hospitals, the overall emphasis on quality rather than quantity is moving things &lt;a href=&quot;http://www.cdc.gov/hai/progress-report/index.html&quot;&gt;in the right direction&lt;/a&gt;. &lt;/p&gt;
+
+&lt;p&gt;We still are light years from where we need to be, and bad incentives continue to plague everything from government to finance to education. But slowly, as we get better at measuring and storing data, I think we are getting at picking the right metrics. &lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Independent t-tests and the 83% confidence interval: A useful trick for eyeballing your data.</title>
+   <link href="http://hyde.getpoole.com/2014/11/30/independent-t-tests-and-the-83-confidence-interval-a-useful-trick-for-eyeballing-your-data/"/>
+   <updated>2014-11-30T19:47:37-08:00</updated>
+   <id>http://hyde.getpoole.com/2014/11/30/independent-t-tests-and-the-83-confidence-interval-a-useful-trick-for-eyeballing-your-data</id>
+   <content type="html">&lt;p&gt;Like most people who have analyzed data using frequentist statistics, I have often found myself staring at error bars and trying to guess whether my results are significant. When comparing two independent sample means, this practice is confusing and difficult. The conventions that we use for testing differences between sample means are not aligned with the conventions we use for plotting error bars. As a result, it’s fair to say that there’s a lot of confusion about this issue.&lt;/p&gt;
+
+&lt;p&gt;Some people believe that two independent samples have significantly different means if and only if their standard error bars (68% confidence intervals for large samples) don’t overlap. This belief is incorrect. Two samples can have nonoverlapping standard error bars and still fail to reach statistical significance at $latex \alpha$=.05. Other people believe that two means are significantly different if and only if their 95% confidence intervals overlap. This belief is also incorrect. For one sample t-tests, it is true that significance is reached when the 95% confidence interval crosses the test parameter $latex \mu_0$. But for two-sample t-tests, which are more common in research, statistical significance can occur with overlapping 95% confidence intervals.&lt;/p&gt;
+
+&lt;p&gt;If neither the 68% confidence interval nor the 95% confidence interval tells us anything about statistical significance, what does? In most situations, the answer is the 83.4% confidence interval.&lt;/p&gt;
+
+&lt;figure class=&quot;image&quot;&gt;&lt;img src=&quot;/assets/fig_errorbars1.png&quot; alt=&quot;Figure 1: Two samples with a barely significant difference in means (p=.05). Each panel shows a different type of confidence interval. Only the 83.4% confidence intervals shown in the third panel are barely overlapping, reflecting the barely significant results.&quot;&gt;&lt;figcaption&gt;Figure 1: Two samples with a barely significant difference in means (p=.05). Each panel shows a different type of confidence interval. Only the 83.4% confidence intervals shown in the third panel are barely overlapping, reflecting the barely significant results.&lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;!-- ![](/assets/fig_errorbars1.png)
+*Figure 1: Two samples with a barely significant difference in means (p=.05). Each panel shows a different type of confidence interval. Only the 83.4% confidence intervals shown in the third panel are barely overlapping, reflecting the barely significant results.* --&gt;
+
+&lt;p&gt;To see why, let’s start by defining the t-statistic for two independent samples:&lt;/p&gt;
+
+&lt;p&gt;$latex t = \frac{\overline{X&lt;em&gt;1} - \overline{X&lt;/em&gt;2}}{\sqrt{se&lt;em&gt;1^2 + se&lt;/em&gt;2^2}}$&lt;/p&gt;
+
+&lt;p&gt;where $latex \overline{X&lt;em&gt;1}$ and $latex \overline{X&lt;/em&gt;2}$ are the means of the two samples, and $latex se&lt;em&gt;1$ and $latex se&lt;/em&gt;2$ are their standard errors. By rearranging, we can see that significant results will be barely obtained ($latex p$=.05) if the following condition holds:&lt;/p&gt;
+
+&lt;p&gt;$latex \overline{X&lt;em&gt;1} - \overline{X&lt;/em&gt;2} = 1.96\times\sqrt{se&lt;em&gt;1^2 + se&lt;/em&gt;2^2}$&lt;/p&gt;
+
+&lt;p&gt;where 1.96 is the large sample $latex t$ cutoff for significance. Assuming equal standard errors (more on this later), the equation simplifies to:&lt;/p&gt;
+
+&lt;p&gt;$latex \overline{X&lt;em&gt;1} - \overline{X&lt;/em&gt;2} = 1.96\times{\sqrt{2}}\times{se}$&lt;/p&gt;
+
+&lt;p&gt;On a graph, the quantity $latex \overline{X&lt;em&gt;1} - \overline{X&lt;/em&gt;2}$ is the distance between the means. If we want our error bars to just barely touch each other, we should set the length of the half-error bar to be exactly half of this, or:&lt;/p&gt;
+
+&lt;p&gt;$latex 1.386\times{se}$&lt;/p&gt;
+
+&lt;p&gt;This corresponds to an 83.4% confidence interval on the normal distribution. While this result assumes a large sample size, it remains quite useful for sample sizes as low as 20. The 83.4% confidence interval can also become slightly less useful when the samples have strongly different standard errors, which can stem from very unequal sample sizes or variances. If you really want a solution that generalizes to this situation, you can set your half-error bar on your first sample to:&lt;/p&gt;
+
+&lt;p&gt;$latex \frac{1.96\times{\sqrt{se&lt;em&gt;1^2 + se&lt;/em&gt;2^2}}\times{se&lt;em&gt;1}}{se&lt;/em&gt;1^2 + se_2^2}$&lt;/p&gt;
+
+&lt;p&gt;and make the appropriate substitutions to compute the half-error bar in your second sample. However, this solution has the undesirable property that the error bar for one sample depends on the standard error of the other sample. For most purposes, it&amp;#39;s probably better to just plot the 83% confidence interval. If you are eyeballing data for a project that requires frequentist statistics, it is arguably more useful than plotting the standard error or the 95% confidence interval.&lt;/p&gt;
+
+&lt;p&gt;Update: &lt;a href=&quot;http://www.twitter.com/jeffrouder&quot;&gt;Jeff Rouder&lt;/a&gt; helpfully points me to &lt;a href=&quot;http://www.researchgate.net/publication/11578767_Evaluating_statistical_difference_equivalence_and_indeterminacy_using_inferential_confidence_intervals_an_integrated_alternative_method_of_conducting_null_hypothesis_statistical_tests/file/5046351b1018420f84.pdf&quot;&gt;Tryon and Lewis (2008)&lt;/a&gt;, which presents an error bar that generalizes both to unequal standard errors and small samples. Like the last equation presented above, it has the undesirable property that the size of the error bar around a particular sample depends on both samples. But on the plus side, it&amp;#39;s guaranteed to tell you about significance.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Jumping quickly between deep directories</title>
+   <link href="http://hyde.getpoole.com/2014/10/16/jumping-quickly-between-deep-directories/"/>
+   <updated>2014-10-16T14:11:00-07:00</updated>
+   <id>http://hyde.getpoole.com/2014/10/16/jumping-quickly-between-deep-directories</id>
+   <content type="html">&lt;p&gt;I often need to jump between different directories with very deep paths, like this:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;some/very/deep/directory/project1
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;c&quot;&gt;# do stuff in Project 1&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;different/very/deep/directory/project2
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;c&quot;&gt;# do stuff in Project 2&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;While it only takes a handful of seconds to switch directories, the extra mental effort often derails my train of thought. Some solutions exist, but they all have their limitations. For example, &lt;code&gt;pushd&lt;/code&gt; and &lt;code&gt;popd&lt;/code&gt; don’t work well for directories you haven’t visited in a while. Aliases require you to manually add a new alias to your .bashrc every time you want to save a new directory.&lt;/p&gt;
+
+&lt;p&gt;I recently found a solution, inspired by &lt;a href=&quot;http://jeroenjanssens.com/2013/08/16/quickly-navigate-your-filesystem-from-the-command-line.html&quot;&gt;this post&lt;/a&gt; from &lt;a href=&quot;https://twitter.com/jeroenhjanssens&quot;&gt;Jeroen Janssens&lt;/a&gt;, that works great and feels totally natural. All it takes is a one-time change to your .bashrc that will allow you to easily save directories and switch between them. To save a directory, just use the &lt;code&gt;mark&lt;/code&gt; function:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;pwd&lt;/span&gt;
+some/very/deep/directory/project1
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;mark project1&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;To navigate to a saved directory, just use the &lt;code&gt;cdd&lt;/code&gt; function:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;cdd project1
+&lt;span class=&quot;c&quot;&gt;# do stuff in Project 1&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;cdd project2
+&lt;span class=&quot;c&quot;&gt;# do stuff in Project 2&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;You can display a list of your saved directories with the &lt;code&gt;marks&lt;/code&gt; function, and you can remove a directory from the list with the &lt;code&gt;unmark&lt;/code&gt; function:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;unmark project1&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;For any of this to work, you&amp;#39;ll need to add this to your .bashrc, assuming you have a Mac and use the bash shell.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; cdd &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; -P &lt;span class=&quot;s2&quot;&gt;&amp;quot;$MARKPATH/$1&amp;quot;&lt;/span&gt; 2&amp;gt;/dev/null &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;No such mark: $1&amp;quot;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; mark &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        mkdir -p &lt;span class=&quot;s2&quot;&gt;&amp;quot;$MARKPATH&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; ln -s &lt;span class=&quot;s2&quot;&gt;&amp;quot;$(pwd)&amp;quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;$MARKPATH/$1&amp;quot;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; unmark &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        rm -i &lt;span class=&quot;s2&quot;&gt;&amp;quot;$MARKPATH/$1&amp;quot;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; marks &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;se&quot;&gt;\l&lt;/span&gt;s -l &lt;span class=&quot;s2&quot;&gt;&amp;quot;$MARKPATH&amp;quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; tail -n +2 &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; sed &lt;span class=&quot;s1&quot;&gt;&amp;#39;s/  / /g&amp;#39;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; cut -d&lt;span class=&quot;s1&quot;&gt;&amp;#39; &amp;#39;&lt;/span&gt; -f9- &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; awk -F &lt;span class=&quot;s1&quot;&gt;&amp;#39; -&amp;gt; &amp;#39;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;{printf &amp;quot;%-10s -&amp;gt; %s\n&amp;quot;, $1, $2}&amp;#39;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+    _cdd&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nb&quot;&gt;local &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;cur&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;COMP_WORDS&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[COMP_CWORD]&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;nv&quot;&gt;COMPREPLY&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=(&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;compgen&lt;/span&gt; -W &lt;span class=&quot;s2&quot;&gt;&amp;quot;$( ls $MARKPATH )&amp;quot;&lt;/span&gt; -- &lt;span class=&quot;nv&quot;&gt;$cur&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;complete&lt;/span&gt; -F _cdd cdd&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;This differs from Jeroen’s &lt;a href=&quot;http://jeroenjanssens.com/2013/08/16/quickly-navigate-your-filesystem-from-the-command-line.html&quot;&gt;original&lt;/a&gt; code in a couple of ways. First, to be more brain-friendly, it names the function “cdd” instead of “jump”. Second, the tab completion works &lt;a href=&quot;https://news.ycombinator.com/item?id=6229291&quot;&gt;better&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Update: &lt;a href=&quot;https://twitter.com/johnvmcdonnell&quot;&gt;John McDonnell&lt;/a&gt; points me to &lt;a href=&quot;https://github.com/joelthelion/autojump&quot;&gt;autojump&lt;/a&gt;.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>How failed replications change our effect size estimates</title>
+   <link href="http://hyde.getpoole.com/2014/07/10/how-failed-replications-change-our-effect-size-estimates/"/>
+   <updated>2014-07-10T12:10:32-07:00</updated>
+   <id>http://hyde.getpoole.com/2014/07/10/how-failed-replications-change-our-effect-size-estimates</id>
+   <content type="html">&lt;p&gt;Yesterday I posted a very unscientific &lt;a href=&quot;https://www.surveymonkey.com/s/H7NM96W&quot;&gt;survey&lt;/a&gt; asking researchers to describe how failed replications changed their subjective estimates of effect sizes. The main survey asked for “ballpark estimates” of effect sizes, but an &lt;a href=&quot;http://csaid.shinyapps.io/survey/&quot;&gt;alternative interactive version&lt;/a&gt; allowed researchers to also report their uncertainty by specifying both the mean and variance of their posterior distributions. Thanks to everyone who participated. I won’t be analyzing any new data after this, but it’s never too late to publicly share your estimates!&lt;/p&gt;
+
+&lt;p&gt;Here are the questions. &lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;Question 1&lt;/strong&gt;. A 2009 experiment with 50 subjects (25 per cell) is published in Psych Science. The experiment does not require any special equipment other than a questionnaire. It is not pre-registered. The results show an effect size of d=0.5. Let&amp;#39;s define the true effect size to be the average effect size of an infinite number of replications that the original experimenter would deem &amp;quot;reasonably exact&amp;quot; in advance. Based on this information alone, what is your ballpark subjective estimate of the true effect size?&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;Question 2&lt;/strong&gt;. What if the experiment had been pre-registered? &lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;Question 3&lt;/strong&gt;. Assume again that the experiment was not pre-registered. Now imagine that a pre-registered replication attempt with the same sample size estimated the effect size to be d=0.0. At the time of pre-registration, the original experimenter deemed it &amp;quot;reasonably exact&amp;quot;. Based on this replication and the original experiment, what is your ballpark subjective estimate of the true effect size?&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;Question 4&lt;/strong&gt;. What if the replication attempt had 300 subjects per cell?&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Here are the results.&lt;/p&gt;
+
+&lt;figure class=&quot;image&quot;&gt;&lt;img src=&quot;/assets/results.png&quot; alt=&quot;&quot;&gt;&lt;figcaption&gt;&lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;Keeping in mind all the caveats about sampling bias and other issues, here are a few observations:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;The original study reported an effect size of d=0.5, but the results for Question 1 tell us that most researchers believed the true effect size was closer to d=0.2, which is roughly in line with my own estimate. Had I allowed researchers to &lt;a href=&quot;http://csaid.shinyapps.io/survey/&quot;&gt;state their uncertainty&lt;/a&gt;, I suspect that many would find it quite possible that even the &lt;em&gt;sign&lt;/em&gt; of the effect was wrong. This isn’t really surprising to me, but I think we should take a moment to reflect on what this means. When a scientist reports a result, most other researchers believe it is massively overstated. I know that there are still some researchers who want little or no changes to the status quo, but I’d like to live in a world where people actually believe the claims that scientists make. That’s why I’m a strong supporter of all the attempts to &lt;a href=&quot;http://centerforopenscience.org/&quot;&gt;fundamentally&lt;/a&gt; &lt;a href=&quot;https://pubpeer.com/&quot;&gt;change&lt;/a&gt; &lt;a href=&quot;http://www.talyarkoni.org/blog/2013/03/12/the-truth-is-not-optional-five-bad-reasons-and-one-mediocre-one-for-defending-the-status-quo/&quot;&gt;how&lt;/a&gt; scientists do research.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;If you want people to have more confidence in your findings, pre-registration can make a big difference.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;While it’s not apparent from the plot, almost all respondents reduced their effect size estimate upon hearing about failed replications (Question 3 and 4 compared to Question 1).&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;As some have pointed out, the original experiment falls a bit short of statistical significance. This was an oversight, as I forgot to check the p-value after changing some of the values. I don’t think this is a huge deal, since posterior estimates shouldn’t really depend too much on whether the results cross an arbitrary threshold. But apologies for the error.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;My estimates &lt;a href=&quot;https://twitter.com/Chris_Said/status/487041593422016512&quot;&gt;were&lt;/a&gt; .25, .40, .10, .05.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;I wish I included another question asking what people would have thought of the original study if it was conducted in 2014.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Jason Mitchell's essay</title>
+   <link href="http://hyde.getpoole.com/2014/07/07/jason-mitchells-essay/"/>
+   <updated>2014-07-07T11:16:51-07:00</updated>
+   <id>http://hyde.getpoole.com/2014/07/07/jason-mitchells-essay</id>
+   <content type="html">&lt;p&gt;As of yesterday I thought the debate about replication in psychology was converging on consensus in at least one respect. While there was still some disagreement about tone, &lt;a href=&quot;http://www.spspblog.org/simone-schnall-on-her-experience-with-a-registered-replication-project/&quot;&gt;basically&lt;/a&gt; &lt;a href=&quot;http://www.talyarkoni.org/blog/2013/03/12/the-truth-is-not-optional-five-bad-reasons-and-one-mediocre-one-for-defending-the-status-quo/&quot;&gt;everyone&lt;/a&gt; agreed that there was value in failed replications. But then this morning, Jason Mitchell posted &lt;a href=&quot;http://wjh.harvard.edu/%7Ejmitchel/writing/failed_science.htm&quot;&gt;this essay&lt;/a&gt;, in which he describes his belief that failed replication attempts can contain errors and therefore “cannot contribute to a cumulative understanding of scientific phenomena”. It’s hard to know where to begin when someone comes from a worldview so different from one&amp;#39;s own. Since there&amp;#39;s clearly a communication problem here, I’ll just give two examples to illustrate how I think about science.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Example 1. A rigorous lab conducts an experiment using a measurement device that requires special care. The effect size is d=0.5. Later, a different lab with no experience using the device tries to quickly replicate the experiment and computes an effect size of d=0.0.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Example 2. A small sample experiment in a field with a history of p-hacking shows an effect size of d=0.5. Another lab tries to replicate the study with a much larger sample and computes an effect size of d=0.0.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;In both cases, I’d have subjective beliefs about the true effect size. For the first example, my posterior distribution might peak around d=0.4. For the second example, my posterior distribution might peak around d=0.1. In both cases, the replication would influence my posterior, but to varying degrees. In the first example, it would cause a small shift. In the second, it would cause a big shift. Reasonable people can disagree on the exact positions of the posteriors, but basically everyone ought to agree that our posteriors should incrementally adjust as we acquire new information, and that the size of these shifts should depend on a variety of factors, including the possibility of errors in either the original experiment or in the replication attempt. Maybe it’s because I’m stuck in a worldview, but none of this even seems very hard to understand. &lt;/p&gt;
+
+&lt;p&gt;Jason Mitchell &lt;a href=&quot;http://wjh.harvard.edu/%7Ejmitchel/writing/failed_science.htm&quot;&gt;sees&lt;/a&gt; things differently. For him, all failed replications contain “no meaningful evidentiary value” and “do not constitute scientific output”. I don’t doubt the sincerity of his beliefs, but I suspect that most scientists and nonscientists alike will find these assertions to be pretty bizarre. NHST isn&amp;#39;t the only thing causing the crisis in psychology, but it’s pretty clear that this is what happens when people get too immersed in it. &lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>How I use Twitter</title>
+   <link href="http://hyde.getpoole.com/2014/05/14/how-i-use-twitter/"/>
+   <updated>2014-05-14T07:31:13-07:00</updated>
+   <id>http://hyde.getpoole.com/2014/05/14/how-i-use-twitter</id>
+   <content type="html">&lt;p&gt;Next week I’m going to start a new job as a data scientist at Twitter and I am thrilled. Aside from Google search, no other website has had a more positive impact on my life than Twitter. Twitter is just so much fun, and I have learned so much from it. &lt;/p&gt;
+
+&lt;p&gt;Because my experience has been so good, it saddens me to hear that some people don’t really “get” Twitter. Some people who try it feel frustrated and stop using it. Others use it occasionally but don’t really see what all the fuss is about.&lt;/p&gt;
+
+&lt;p&gt;I want to share my approach to using Twitter so that others can try. There are probably other ways to enjoy it, but this approach has worked well for me:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;I don’t necessarily follow my friends, and I don’t expect them to follow me. I use Twitter for a limited set of interests, and not all of my friends tweet about those interests.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;I generally don’t follow organizations. They tend to tweet too much and their content is often too promotional.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Instead, I follow opinionated people who tweet about a small set of topics that I’m interested in.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;I make sure that my tweet stream is slow enough that I can read every tweet. I do this by limiting the number of people I follow and by making sure that I don’t follow people who tweet too much, even if they have good content.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;That’s it. Follow opinionated strangers who tweet about topics you are interested in. Maybe you have a different approach that works well for you. But if you are still trying to figure out the incredible appeal of Twitter, you might want to give my approach a shot.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>High School STEM curriculum wishlist</title>
+   <link href="http://hyde.getpoole.com/2014/02/22/high-school-stem-curriculum-wishlist/"/>
+   <updated>2014-02-22T14:38:59-08:00</updated>
+   <id>http://hyde.getpoole.com/2014/02/22/high-school-stem-curriculum-wishlist</id>
+   <content type="html">&lt;p&gt;If I had a chance to remake the high school STEM curriculum to reflect the skills that are actually needed in today’s world, my changes might look something like this:&lt;/p&gt;
+
+&lt;figure class=&quot;image&quot;&gt;&lt;img src=&quot;/assets/screen-shot-2014-02-23-at-8-36-37-am.png&quot; alt=&quot;&quot;&gt;&lt;figcaption&gt;&lt;/figcaption&gt;&lt;/figure&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Is your job in another state?</title>
+   <link href="http://hyde.getpoole.com/2014/02/08/is-your-job-in-another-state/"/>
+   <updated>2014-02-08T14:49:08-08:00</updated>
+   <id>http://hyde.getpoole.com/2014/02/08/is-your-job-in-another-state</id>
+   <content type="html">&lt;p&gt;National unemployment is high, but business is booming in some states. Vermont needs teachers. Nevada needs bartenders. North Dakota needs truck drivers and just about everything else.&lt;/p&gt;
+
+&lt;p&gt;Despite these opportunities, Americans &lt;a href=&quot;http://www.washingtonmonthly.com/magazine/november_december_2013/features/stay_put_young_man047332.php?page=all&quot;&gt;aren’t moving much&lt;/a&gt; and unemployment remains high.  One reason for this is that moving can be expensive and disruptive, especially for those with families and roots in their communities. But another reason may just be lack of awareness about the opportunities in other states. That’s why I have made a new website: &lt;a href=&quot;http://www.ismyjobinanotherstate.com&quot;&gt;www.ismyjobinanotherstate.com&lt;/a&gt;. Enter your job skills, and the website will provide an interactive map showing where you are most in demand.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.ismyjobinanotherstate.com&quot;&gt;&lt;figure class=&quot;image&quot;&gt;&lt;img src=&quot;/assets/securityofficer.png&quot; alt=&quot;&quot;&gt;&lt;figcaption&gt;&lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/a&gt;
+States are ranked by their &lt;a href=&quot;https://www.fas.org/sgp/crs/misc/R42943.pdf&quot;&gt;ratio of job postings to unemployment&lt;/a&gt;. This is a pretty good metric, but it isn’t perfect. To understand why, imagine two states with the same posting/unemployed ratio for a particular job. If you are trained for the job, you might have better luck applying in a state where the unemployed population is either untrained or unwilling to take that type of job, even though the two states have the same ratio. There also may be differences across states in the use of Indeed.com. Still, I think my results have reasonably good face validity, and the results for many jobs are close to what you would except. If you average across jobs, you get something pretty close to an independently created measure called the &lt;a href=&quot;http://www.washingtonmonthly.com/magazine/november_december_2013/features/the_2013_opportunity_index047357.php&quot;&gt;“Opportunity Index”&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Job posting data was collected using the &lt;a href=&quot;https://ads.indeed.com/jobroll/xmlfeed&quot;&gt;Indeed.com api&lt;/a&gt;. Unemployment numbers came from the &lt;a href=&quot;http://www.bls.gov/news.release/laus.t03.htm&quot;&gt;Bureau of Labor Statistics&lt;/a&gt;. For more information about how this works, see my the &lt;a href=&quot;https://github.com/csaid/IsMyJobInAnotherState&quot;&gt;GitHub repository&lt;/a&gt;.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>My Insight Data Science Project</title>
+   <link href="http://hyde.getpoole.com/2013/10/12/my-insight-data-science-project/"/>
+   <updated>2013-10-12T13:59:14-07:00</updated>
+   <id>http://hyde.getpoole.com/2013/10/12/my-insight-data-science-project</id>
+   <content type="html">&lt;p&gt;I just finished an excellent fellowship at &lt;a href=&quot;http://insightdatascience.com/&quot;&gt;Insight Data Science&lt;/a&gt;. During our first few weeks there, each of us designed a website to demo at Insight’s sponsor companies. My website is called &lt;a href=&quot;http://www.dealspotter.info&quot;&gt;DealSpotter&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;This all started earlier this summer when I went to Craigslist to find a used car. There were lots of good deals on Craigslist, but it took way too long to find them. When I searched for a particular model, I got hundreds of hits, but only a few of the hits included the mileage in the posting title. Since I needed the mileage to know whether I was getting a good deal, I had to click on each of the hundreds of listings. Pretty time consuming.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.dealspotter.info&quot;&gt;&lt;figure class=&quot;image&quot;&gt;&lt;img src=&quot;/assets/listings.png&quot; alt=&quot;&quot;&gt;&lt;figcaption&gt;&lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;A larger problem was that even if I clicked on every post, I didn’t always have a sense for what was the best deal. For example, if I had $3,000, was it better to spend it on a 2001 model with 100K miles, or a 2003 model with 140K miles?&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.dealspotter.info&quot;&gt;&lt;em&gt;DealSpotter&lt;/em&gt;&lt;/a&gt;_ _is a proof-of-concept website that shows how these problems could be solved. DealSpotter grabs all the Craigslist car postings in the San Francisco Bay Area and automatically shows you the best deals. It knows how much each car should be priced, based on the model, year, and mileage. Cars that are priced lower than DealSpotter expects them to be are shown at the top of the list. DealSpotter also presents the same information in a visual format called “Graph” mode, where the best deals are highlighted in blue.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.dealspotter.info&quot;&gt;&lt;figure class=&quot;image&quot;&gt;&lt;img src=&quot;/assets/full.png&quot; alt=&quot;&quot;&gt;&lt;figcaption&gt;&lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;To determine how much each car should be priced, DealSpotter doesn’t use Kelley Blue Book, which tends to overprice cars, especially newer models. Instead, DealSpotter builds its own pricing model based on the actual Craigslist market. In particular, it uses a &lt;a href=&quot;http://en.wikipedia.org/wiki/Random_forest&quot;&gt;Random Forest&lt;/a&gt; pricing model because, unlike smooth parametric models, Random Forests are able to detect sharp discontinuities in prices that may be caused by factors such as manufacturer design overhauls.&lt;/p&gt;
+
+&lt;p&gt;By selecting cars that are priced much lower than would be expected based on year and mileage, DealSpotter picks out some incredible deals, as well as the occasional clunker with an accident history. A more elaborate service might find a way to filter for accident history, but for now DealSpotter remains useful because it greatly narrows down the scope of the search for users. Once users are dealing with a handful of posts, they can easily inspect the text of the ad to determine which cars are good deals, and which have a history of accidents.&lt;/p&gt;
+
+&lt;p&gt;If you are in the San Francisco Bay Area and are looking for a used car, you should definitely check out my website &lt;em&gt;right now&lt;/em&gt;. Many cars are underpriced by thousands of dollars. In the future though, I won’t be updating the listings, which will soon become outdated. Craigslist has a &lt;a href=&quot;http://news.cnet.com/8301-1023_3-57479344-93/craigslist-sues-padmapper-for-mass-harvesting-listings/&quot;&gt;history of suing&lt;/a&gt; other services that try to improve on how their data is presented. Craigslist’s litigiousness is understandable -- they curated the data after all. But it apparently has also &lt;a href=&quot;http://bits.blogs.nytimes.com/2012/07/29/when-craigslist-blocks-innovations-disruptions/?_r=0&quot;&gt;stifled innovation&lt;/a&gt;_. _Craigslist users spend many hours of their time clicking on blue links because the website’s search and UI tools are still stuck in the 90’s. Users are also at higher risk of scams because there is no reputation system. Normally, issues like this would put a company out of business, but a combination of lawsuits and network lock-in effects have kept Craigslist at the top of classifieds services. Hopefully, we will one day get a better Craigslist. In the meantime, if you want to find an incredible deal on a car while the postings are still fresh, you should do so &lt;a href=&quot;http://www.dealspotter.info&quot;&gt;now&lt;/a&gt;.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>FAQ for www.whichfamouseconomistareyoumostsimilarto.com</title>
+   <link href="http://hyde.getpoole.com/2013/08/19/which-famous-economist/"/>
+   <updated>2013-08-19T11:44:46-07:00</updated>
+   <id>http://hyde.getpoole.com/2013/08/19/which-famous-economist</id>
+   <content type="html">&lt;p&gt;I made a new webpage, http://www.whichfamouseconomistareyoumostsimilarto.com&lt;/p&gt;
+
+&lt;p&gt;Here&amp;#39;s an FAQ for it.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Q.&lt;/strong&gt; What is this and why did you make it?
+&lt;strong&gt;A.&lt;/strong&gt; There is a &lt;a href=&quot;http://www.npr.org/blogs/money/2012/07/19/157047211/six-policies-economists-love-and-politicians-hate&quot;&gt;surprising amount of consensus&lt;/a&gt; among economists on many issues. Progressive consumption taxes and carbon taxes are good. Personal income taxes and corporate taxes are bad. Congestion pricing is good. The mortgage deduction is bad. Marijuana should be legalized. These positions are endorsed by almost every economist, both from the left and the right, but politicians in Washington tend to support the opposite.&lt;/p&gt;
+
+&lt;p&gt;The &lt;a href=&quot;http://www.igmchicago.org/igm-economic-experts-panel&quot;&gt;IGM Forum&lt;/a&gt; surveys an ideologically diverse group of top economists on these and other issues. I wish more people knew about their website. My new webpage, &lt;a href=&quot;http://www.whichfamouseconomistareyoumostsimilarto.com/&quot;&gt;http://www.whichfamouseconomistareyoumostsimilarto.com&lt;/a&gt;, collects responses from the IGM forum and allows users to compare it to their own responses.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Q.&lt;/strong&gt; Why is the economist closest to me on the graph different from the economist who actually is closest to me, according to the text below the graph?
+&lt;strong&gt;A.&lt;/strong&gt; Each economist can be thought of as a point in a massive 105 dimensional space, and unfortunately it’s only possible to display 2 dimensions. While you may appear close to an economist on those 2 dimensions, you may be far apart on the 103 other dimensions that you can’t see.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Q.&lt;/strong&gt; I don’t have the expertise to answer some of these questions. Should I leave them blank or should I click “Neutral”?
+&lt;strong&gt;A.&lt;/strong&gt; You should leave them blank so that they do not enter the calculations. “Neutral” indicates that you have a real opinion somewhere between “Agree” and “Disagree”&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Q.&lt;/strong&gt; Every question I answer makes me move very far on the graph. This seems unreliable.
+&lt;strong&gt;A.&lt;/strong&gt; Do not take your graph position seriously until you have answered at least 20 questions. Your position will gradually converge as you answer more.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Q.&lt;/strong&gt; Responses that “strongly deviate from expert consensus” are highlighted in yellow. What does that mean?
+&lt;strong&gt;A.&lt;/strong&gt; It means that your response deviated more that two standard deviations from the IGM panel average.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Q.&lt;/strong&gt; I just answered a question the exact same way as Economist X. But my position on the graph moved _away _from him/her. Why?
+&lt;strong&gt;A.&lt;/strong&gt; This is a natural consequence of projecting multiple dimensions onto two dimensions. To see why, take a cube-shaped object and trace your finger along the edges from one corner to the opposite corner. Viewed from some angles, your finger might sometimes appear to move away from the destination corner.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Q. &lt;/strong&gt;What do the two principal components represent?
+&lt;strong&gt;A. &lt;/strong&gt;It&amp;#39;s hard so say exactly, but the horizontal axis corresponds pretty closely to the left-right political axis.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Q.&lt;/strong&gt; Why were some IGM panel economists excluded from your webpage?
+&lt;strong&gt;A.&lt;/strong&gt; Economists who answered less than 75% of the questions were excluded.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>New model of binocular rivalry</title>
+   <link href="http://hyde.getpoole.com/2013/03/30/new-model-of-binocular-rivalry/"/>
+   <updated>2013-03-30T08:23:03-07:00</updated>
+   <id>http://hyde.getpoole.com/2013/03/30/new-model-of-binocular-rivalry</id>
+   <content type="html">&lt;p&gt;Binocular rivalry is a visual illusion that occurs when the two eyes are presented with incompatible images. Instead of perceiving a mixture of the two images, most people experience alternations in which only one image is visible at a time. Binocular rivalry works best under controlled laboratory conditions with prisms or mirrors, but if you are lucky you might be able to experience it in the figure below. Try crossing your eyes to align the left boxes and right boxes, so that three boxes are observed rather than two. If you can keep your eyes stable, you might perceive alternations between the two different gratings in the middle box. It helps if you first try to merge the &amp;quot;Merge me!&amp;quot; phrase and then, once that it is stable, focus on the middle box. If you can&amp;#39;t stabilize your eyes enough, don&amp;#39;t worry. You are not alone.&lt;/p&gt;
+
+&lt;p&gt;.&lt;/p&gt;
+
+&lt;figure class=&quot;image&quot;&gt;&lt;img src=&quot;/assets/fig_dichop1.png&quot; alt=&quot;&quot;&gt;&lt;figcaption&gt;&lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;.&lt;/p&gt;
+
+&lt;p&gt;Binocular rivalry is more than just an interesting illusion: it reflects actual inhibitory competition between neurons in the brain, and therefore provides a rare window into neural dynamics. To help us understand these mechanisms, researchers have developed several models of the phenomenon. Yet surprisingly, all of these models make a big incorrect prediction about a type of stimulus known as “binocular plaids”. You can view some binocular plaids by crossing your eyes on the boxes below, or simply by looking at one of the boxes normally.&lt;/p&gt;
+
+&lt;p&gt;.&lt;/p&gt;
+
+&lt;figure class=&quot;image&quot;&gt;&lt;img src=&quot;/assets/fig_binoc.png&quot; alt=&quot;&quot;&gt;&lt;figcaption&gt;&lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;.&lt;/p&gt;
+
+&lt;p&gt;As you can see, a plaid is composed of two gratings, a rightward pointing grating and a leftward pointing grating. The big, incorrect prediction made by previous models of rivalry is that the leftward pointing grating should alternate with the rightward pointing grating, just as it would in the traditional rivalry stimuli shown above. This prediction -- which follows because the same neural inhibition that creates competition in the first figure must necessarily also create competition in the second figure -- is clearly wrong: When viewing the binocular plaid, you probably perceive that the rightward grating remains just as strong as the leftward grating, without any alternations. This failed prediction extends far beyond these toy stimuli. Plaid perception is typically explained by the broad theory of &lt;a href=&quot;http://www.nature.com/nrn/journal/v13/n1/full/nrn3136.html&quot;&gt;divisive normalization&lt;/a&gt;, which also covers a whole host of other inhibitory interactions in cortex. Models of the inhibitory processes in rivalry are thus in tension with models of inhibitory processes that use divisive normalization.&lt;/p&gt;
+
+&lt;p&gt;Together with my advisor &lt;a href=&quot;http://www.cns.nyu.edu/%7Edavid/&quot;&gt;David Heeger&lt;/a&gt;, I developed a &lt;a href=&quot;http://www.ploscompbiol.org/article/info%3Adoi%2F10.1371%2Fjournal.pcbi.1002991&quot;&gt;new model&lt;/a&gt; of rivalry that is able to accommodate plaids, and which I hope reconciles models of rivalry with models of normalization. Finding a solution was not as easy as you might think. When we presented the problem to colleagues, everyone immediately had intuitions for how to solve it, but amazingly none of them worked. We found only one solution that worked, and it is one that I later discovered was once proposed by Randolph Blake. The model makes novel predictions that we confirmed with psychophysical tests. If you want to read more about it, you can find the paper below. The Matlab code is available &lt;a href=&quot;http://www.cns.nyu.edu/%7Ecsaid/code/SaidAndHeeger_model_code.zip&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.ploscompbiol.org/article/info%3Adoi%2F10.1371%2Fjournal.pcbi.1002991&quot;&gt;Said CP &amp;amp; Heeger DJ (2013). A model of binocular rivalry and cross-orientation suppression. &lt;em&gt;PLOS Computational Biology.&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Canadian funding models for all</title>
+   <link href="http://hyde.getpoole.com/2013/03/21/165/"/>
+   <updated>2013-03-21T06:08:46-07:00</updated>
+   <id>http://hyde.getpoole.com/2013/03/21/165</id>
+   <content type="html">&lt;p&gt;The US and Canada have very different systems for funding science. To compare them, I found some of the publicly available data on &lt;a href=&quot;http://report.nih.gov/success_rates/Success_ByIC.cfm&quot;&gt;NIH R01s&lt;/a&gt; (USA) and &lt;a href=&quot;http://www.nserc-crsng.gc.ca/_doc/Funding-Financement/DGStat2012-SDStat2012_eng.pdf&quot;&gt;NSERC Individual Discovery Grants&lt;/a&gt; (Canada), and plotted them below. Before describing the results, I should say that comparing NIH to NSERC is a bit like comparing apples to oranges, since NSERC is probably closer to the NSF than to the NIH. Nevertheless, the cross-country trends hold up across agencies, and in any case my goal is not to compare countries (as much as I would like to) but to compare funding models.&lt;a href=&quot;http://filedrawer.files.wordpress.com/2013/03/fig.png&quot;&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;image&quot;&gt;&lt;img src=&quot;/assets/fig2.png&quot; alt=&quot;&quot;&gt;&lt;figcaption&gt;&lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;There are two things to notice about the plots. First, the funding rates are clearly higher at NSERC than at NIH. The catch, of course, is that higher rates mean smaller awards. NSERC typically provides $35,000/year, far less than the big awards from NIH. Canadian scientists &lt;a href=&quot;http://oikosjournal.wordpress.com/2011/05/16/should-granting-agencies-fund-projects-or-people/&quot;&gt;love&lt;/a&gt; their system, valuing the stability it provides more than the possibility of large awards. Quality of life issues aside, a separate question is: Does the NSERC system produce better science? Or do the high success rates waste too much money on low-quality projects? My feeling is that the NSERC system is much better. High-quality NIH proposals are routinely rejected for arbitrary reasons, and the sink-or-swim culture is &lt;a href=&quot;http://www.nytimes.com/2012/04/17/science/rise-in-scientific-journal-retractions-prompts-calls-for-reform.html?pagewanted=1&amp;amp;_r=2&quot;&gt;directly contributing&lt;/a&gt; to bad research practices. We should move toward a higher rate / smaller award system. And for those who see value in large awards, we can still adjust the size of the award based on the quality of the proposal.&lt;/p&gt;
+
+&lt;p&gt;The second thing to notice about the plots is the trends over time. At NIH, more so than at NSERC, the decline in success rates is driven by an increase in the number of applicants, not by a decrease in the number of awards. I don’t think the solution is just “more funding”, especially in the current fiscal climate. We have a denominator problem, not a numerator problem. We should fix the system that rewards programs for producing more PhDs than the system can accommodate. I’ll leave it to actual experts to decide how to do this. But as with most public policy questions, a good place to start is to just copy whatever the Canadians are doing.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Eight Lessons from the Reproducibility Crisis </title>
+   <link href="http://hyde.getpoole.com/2013/01/15/8-lessons-from-the-reproducibility-crisis/"/>
+   <updated>2013-01-15T16:04:46-08:00</updated>
+   <id>http://hyde.getpoole.com/2013/01/15/8-lessons-from-the-reproducibility-crisis</id>
+   <content type="html">&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;There is a reproducibility crisis in psychology.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Outright fraud is rare. Soft forms of bad practice are the bigger problem.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Most scientists are honest, but soft forms of bad practice emerge through self-deception or lack of awareness. &lt;a href=&quot;http://psr.sagepub.com/content/2/3/196.abstract&quot;&gt;
+&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;The problem is worse in medical research, but that is no excuse for psychologists to resist reforms.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://papers.ssrn.com/sol3/papers.cfm?abstract_id=1850704&quot;&gt;Lists of new regulations&lt;/a&gt; are fine, but the core issue is that career incentive structures are not always aligned with truth discovery.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Some data outcomes are rewarded more than other data outcomes. This is bad.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Journals have little incentive to change this incentive structure themselves.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://filedrawer.wordpress.com/2012/04/17/its-the-incentives-structure-people-why-science-reform-must-come-from-the-granting-agencies/&quot;&gt;But granting agencies can help&lt;/a&gt;, by increasing the grant award probability to scientists who submit to &lt;a href=&quot;http://neurochambers.blogspot.co.uk/2012/10/changing-culture-of-scientific.html&quot;&gt;good&lt;/a&gt; &lt;a href=&quot;http://talyarkoni.org/papers/Yarkoni_FCN_2012.pdf&quot;&gt;practice&lt;/a&gt; &lt;a href=&quot;http://www.plosone.org&quot;&gt;journals&lt;/a&gt;. Can someone at NIH/NSF please do something about this?&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;If you have comments, they might already be addressed in my &lt;a href=&quot;http://filedrawer.wordpress.com/2012/04/18/faq/&quot;&gt;FAQ&lt;/a&gt;.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>In defense of correlation/causation blowhards</title>
+   <link href="http://hyde.getpoole.com/2013/01/09/in-defense-of-correlationcausation-blowhards/"/>
+   <updated>2013-01-09T07:19:10-08:00</updated>
+   <id>http://hyde.getpoole.com/2013/01/09/in-defense-of-correlationcausation-blowhards</id>
+   <content type="html">&lt;p&gt;Let’s get one thing out of the way first: There is not a single scientist or science journalist who doesn’t know that correlation does not equal causation. Most have probably known it since high school.&lt;/p&gt;
+
+&lt;p&gt;That’s why there has been a bit of a backlash against internet commenters who keep pointing it out. The phrase is “common and irritating”, writes Slate’s Daniel Engber in his article &lt;a href=&quot;http://www.slate.com/articles/health_and_science/science/2012/10/correlation_does_not_imply_causation_how_the_internet_fell_in_love_with_a_stats_class_clich_.single.html&quot;&gt;The Internet Blowhard’s Favorite Phrase&lt;/a&gt;. To Engber, correlation≠causation is a “freshman platitude” that professional scientists and journalists don’t need to be reminded of. Scientists are merely &lt;em&gt;suggesting&lt;/em&gt; a causal relationship. They are not claiming it is proven.&lt;/p&gt;
+
+&lt;p&gt;I can see why writers and researchers find it frustrating to be scolded about something they already know. But correlation≠causation is one of those things that has a way of sliding onto the back burner of one’s mental awareness, even among scientists. On one day a research group is acknowledging the limits to their correlational study, but the next day they are advancing policy arguments that depend on a causal relationship. Or more commonly, they are preparing to run yet another correlational study.&lt;/p&gt;
+
+&lt;p&gt;Nowhere does this seem more of an issue than in nutrition science and in education research. In nutrition science, it is much easier to conduct a simple survey on health and eating habits than to organize a large-scale longitudinal randomized control study. Is it any wonder then, that after 50 years of nutrition science &lt;a href=&quot;http://grist.org/scary-food/2011-03-04-low-fat-diet-fad/&quot;&gt;we still don’t know&lt;/a&gt; whether saturated fat is good for you or bad for you? And in education research, it is much easier to run a correlational study on class size and achievement than it is to run a &lt;a href=&quot;http://onlinelibrary.wiley.com/doi/10.1111/1468-0297.00586/abstract&quot;&gt;randomized control study&lt;/a&gt;. Is it any wonder then, that the public policy debate about class size is so muddled?&lt;/p&gt;
+
+&lt;p&gt;Don’t get me wrong -- There is some fantastic causal research coming out of the nutrition and education fields. And there is nothing wrong with running a correlational study either. Correlational studies are a great way for researchers to identify variables that are promising enough to investigate with causal methods.&lt;/p&gt;
+
+&lt;p&gt;But could it be that we have struck the wrong balance between correlational studies and causal studies? Could we be allocating too many resources towards easy but inconclusive studies, and not enough towards costly but more definitive research? I think the answer might be yes, and that internet comment blowhards are an important voice for this point of view.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>New paper on autism</title>
+   <link href="http://hyde.getpoole.com/2012/12/29/new-paper-on-autism/"/>
+   <updated>2012-12-29T14:20:55-08:00</updated>
+   <id>http://hyde.getpoole.com/2012/12/29/new-paper-on-autism</id>
+   <content type="html">&lt;p&gt;If there is one thing I have learned recently, it is that autism is a really, really complicated disorder. Autism is best known for causing repetitive behaviors and problems with social communication, but it is also known to cause issues in sensory perception. Many hypotheses for the underlying neurophysiological basis have been proposed. Among these is the excitation/inhibition (E/I) imbalance hypothesis, which states that levels of cortical excitation and inhibition are disrupted in autism. An imbalance like this could be caused by unusual levels of certain neurotransmitters, such as glutamate and GABA, or by an unusual distribution of synaptic connections. Together with my collaborators (David Heeger, Marlene Behrmann, Nancy Minshew, and Ryan Egan), we tested this theory and report the results in a new &lt;a href=&quot;http://dx.doi.org/10.1016/j.visres.2012.11.002&quot;&gt;paper&lt;/a&gt; published in &lt;em&gt;Vision Research&lt;/em&gt;.&lt;/p&gt;
+
+&lt;figure class=&quot;image&quot;&gt;&lt;img src=&quot;/assets/network1.png&quot; alt=&quot;&quot;&gt;&lt;figcaption&gt;&lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;We chose to test the theory in the visual system because vision is one of the better understood systems in neuroscience and because the E/I imbalance theory has been proposed to explain hypersensitivity to sensory stimuli in autism. Specifically, we conducted two experiments on &lt;a href=&quot;http://en.wikipedia.org/wiki/Binocular_rivalry&quot;&gt;binocular rivalry&lt;/a&gt;, a well-studied phenomenon that depends critically on excitation and inhibition levels in cortex. Using a very simple computational model (a schematic is shown above), we made predictions about how imbalances in excitation and inhibition would affect perception during rivalry. Contrary to our expectations, we found no significant differences between autistic individuals and controls, and no evidence for a relationship between these measurements and the severity of autism. Of course, these results do not conclusively rule out an E/I imbalance in the visual system of those with autism. There are many alternative explanations that we describe in the Discussion section. But these results do seem to suggest that an E/I imbalance, if it exists, is likely to be small in magnitude.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://dx.doi.org/10.1016/j.visres.2012.11.002&quot;&gt;http://dx.doi.org/10.1016/j.visres.2012.11.002&lt;/a&gt;&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Why are contrast response functions linear in fMRI and nonmonotonic in EEG?</title>
+   <link href="http://hyde.getpoole.com/2012/10/04/why-are-contrast-response-functions-linear-in-fmri-and-nonmonotonic-in-eeg/"/>
+   <updated>2012-10-04T08:43:41-07:00</updated>
+   <id>http://hyde.getpoole.com/2012/10/04/why-are-contrast-response-functions-linear-in-fmri-and-nonmonotonic-in-eeg</id>
+   <content type="html">&lt;p&gt;Contrast response functions (CRFs) describe how a neuron’s firing rate depends on the contrast, or intensity, of a visual stimulus. CRFs are really important for testing theories about how the visual system works, and I’ve spent a lot of time over the past few years trying to indirectly measure them in humans, using EEG and fMRI. The problem, however, is that EEG and fMRI give me very different CRFs.&lt;/p&gt;
+
+&lt;p&gt;Typically, individual neurons show sigmoidal CRFs. They don’t fire at all for very low contrasts, but they rapidly increase their firing rate at a middle range of contrast. The midpoint of this range is sometimes called the ‘semisaturation constant’. After that, the firing rate tends to level off, or ‘saturate’.&lt;/p&gt;
+
+&lt;figure class=&quot;image&quot;&gt;&lt;img src=&quot;/assets/fig_intro_neuron2.png&quot; alt=&quot;&quot;&gt;&lt;figcaption&gt;&lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;With fMRI, however, I tend to find that the CRFs are mostly linear, not sigmoidal.&lt;/p&gt;
+
+&lt;figure class=&quot;image&quot;&gt;&lt;img src=&quot;/assets/fig_intro_fmri1.png&quot; alt=&quot;&quot;&gt;&lt;figcaption&gt;&lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;And with EEG, I often find that the CRFs are actually nonmonotonic!&lt;/p&gt;
+
+&lt;figure class=&quot;image&quot;&gt;&lt;img src=&quot;/assets/fig_intro_eeg1.png&quot; alt=&quot;&quot;&gt;&lt;figcaption&gt;&lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;This is weird, and I’m not the first person to notice it. Linear CRFs in fMRI are quite common (e.g. &lt;a href=&quot;http://www.ncbi.nlm.nih.gov/pubmed/9535979&quot;&gt;here&lt;/a&gt; and &lt;a href=&quot;http://www.ncbi.nlm.nih.gov/pubmed/22153378&quot;&gt;here&lt;/a&gt;), as are nonmonotic CRFs in EEG (e.g. &lt;a href=&quot;http://www.nature.com/nature/journal/v321/n6067/abs/321235a0.html&quot;&gt;here&lt;/a&gt;, &lt;a href=&quot;http://www.jneurosci.org/content/21/12/4530.short&quot;&gt;here&lt;/a&gt;, &lt;a href=&quot;http://www.ncbi.nlm.nih.gov/pmc/articles/PMC1192067/&quot;&gt;here&lt;/a&gt;,  and &lt;a href=&quot;http://www.jneurosci.org/content/32/8/2783.short&quot;&gt;here&lt;/a&gt; ). While not all papers show these effects, they certainly seem like real trends. How it is possible that an underlying sigmoidal function in neurons could give rise to such completely different functions measured by fMRI and EEG?&lt;/p&gt;
+
+&lt;p&gt;To explain the linear fMRI responses, one idea is that fMRI takes an average over many different neurons, each with a different semisaturation constant. Some neurons saturate early, some saturate late, and when you average them all together you just get a line.&lt;/p&gt;
+
+&lt;figure class=&quot;image&quot;&gt;&lt;img src=&quot;/assets/fig_fmri1.png&quot; alt=&quot;&quot;&gt;&lt;figcaption&gt;&lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;That seems to make sense. But what about the nonmonotonic CRFs in EEG? One idea is that EEG CRFs might reflect the true contrast response functions of individual neurons, many of which are themselves &lt;a href=&quot;http://ww.w.journalofvision.org/content/7/6/13.short&quot;&gt;nonmonotonic&lt;/a&gt;. While I don’t doubt that this could be a contributing factor, I have trouble believing that this explains all, or even most, of the nonmonotonicity in EEG. Only a small minority of visual cells exhibit this property, and I have seen some _massive _nonmonotonicity in some of my most reliable EEG subjects.&lt;/p&gt;
+
+&lt;p&gt;A different hypothesis is that nonmonotonicity is caused by the cancellation of dipoles across cortical sulci or gyri. EEG dipoles are oriented normal to the cortical surface and, since the cortex has so many folds, many of the electrical signals simply &lt;a href=&quot;http://www.ncbi.nlm.nih.gov/pubmed/19639553&quot;&gt;cancel&lt;/a&gt; each other out.&lt;/p&gt;
+
+&lt;figure class=&quot;image&quot;&gt;&lt;img src=&quot;/assets/fig_dipole1.png&quot; alt=&quot;&quot;&gt;&lt;figcaption&gt;&lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;Here’s where it gets interesting. Different cortical areas (e.g. V1 and V2) have different average semisaturation constants. (They tend to get lower the higher you move up in the visual hierarchy). Imagine that two cortical areas with different semisaturation constants live on opposite sides of a sulcus. At medium contrasts, one area will be active and the other will be mostly silent. But at higher contrasts, &lt;em&gt;both&lt;/em&gt; areas will have kicked in, and so the overall signal (due to cancellation) will be actually _lower _that at medium contrast. This isn’t my idea, but it makes a lot of sense and I think it deserves more attention.&lt;/p&gt;
+
+&lt;figure class=&quot;image&quot;&gt;&lt;img src=&quot;/assets/fig_eeg2.png&quot; alt=&quot;&quot;&gt;&lt;figcaption&gt;&lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;But wait, the fMRI explanation makes sense, and the EEG explanation makes sense, but how can they both be true? After all, the EEG cancellation story only works if each area’s average CRF is nonlinear: If the average responses were linear (as demonstrated by the fMRI explanation), cancellation of opposite CRFs would just result in more straight lines, right?&lt;/p&gt;
+
+&lt;p&gt;Well, yes and no. Using simulations I have found it quite easy to capture both effects. In the fMRI simulation, a perfectly linear CRF emerges only if I assume that the underlying neural semisaturation constants are uniformly distributed, which is quite an unlikely assumption. With any other reasonable distribution (e.g. normal distribution) I get fMRI CRFs that are mostly linear but with a touch of sigmoid. And critically, that touch of sigmoid will drive the dipole cancellation in a way that results in nonmonotonic EEG CRFs.&lt;/p&gt;
+
+&lt;p&gt;Below is some Matlab code showing how this works, just a proof of concept. It makes some very, very simplifying assumptions, and I’m sure that the truth is far more complicated.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-matlab&quot; data-lang=&quot;matlab&quot;&gt;&lt;span class=&quot;k&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;[] &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;crfmodel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;%number of neurons&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;%contrast levels&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;c50_std&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;%stddev of semisaturation constants&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;c50_mean&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;50&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;70&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;%for two visual areas;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;c50&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;nan&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;%loop through two banks of sulcus (two visual areas)&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;idcs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;c50&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;idcs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c50_std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;randn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c50_mean&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;C&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;C50&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;meshgrid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c50&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;R&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;makeLogistic&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;C&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;C50&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;%Each row is a CRF for a particular neuron&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;figure&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;%Single neurons&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;subplot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;%loop through 2 areas&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;plot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;makeLogistic&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c50_mean&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)));&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;hold&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;on&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;ylabel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;Single Neuron Response&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;%fMRI&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;subplot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;%loop through 2 areas&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;CRF_fMRI&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mean&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;R&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;idcs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},:),&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;%average all neurons in each area&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;plot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CRF_fMRI&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;hold&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;on&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;ylabel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;fMRI Response&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;%EEG&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;%Cancellation. Scale factor isn&amp;#39;t necessary but reflects that fact that&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;%some areas are likely to activate more than others.&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;R_EEG&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;abs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;R&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;idcs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},:)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;R&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;idcs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},:));&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;CRF_EEG&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mean&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;R_EEG&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;subplot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;plot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CRF_EEG&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;ylabel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;EEG Response&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;[r] &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;makeLogistic&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;c,c50&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;r&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;1.&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;exp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c50&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))));&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;And here are the results.&lt;/p&gt;
+
+&lt;figure class=&quot;image&quot;&gt;&lt;img src=&quot;/assets/fig_all2.png&quot; alt=&quot;&quot;&gt;&lt;figcaption&gt;&lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;It would be nice if we could go in the opposite direction and reconstruct underlying neural responses from the fMRI and EEG measurements. This seems like a pretty tricky inverse problem, but it might be possible with accurate assumptions about current propagation and the distribution of semisaturation constants.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>National labs for all the sciences</title>
+   <link href="http://hyde.getpoole.com/2012/05/29/national-labs-for-all-the-sciences/"/>
+   <updated>2012-05-29T08:26:00-07:00</updated>
+   <id>http://hyde.getpoole.com/2012/05/29/national-labs-for-all-the-sciences</id>
+   <content type="html">&lt;p&gt;Harvard, MIT, Stanford, and several other elite universities have all recently &lt;a href=&quot;http://www.nytimes.com/2012/05/03/education/harvard-and-mit-team-up-to-offer-free-online-courses.html&quot;&gt;announced&lt;/a&gt; that they will be be offering free online courses. The courses will be massively open, taught by star professors, and supplemented with video lessons, embedded testing, and realtime feedback. This is surely good news for students who might not be able to access these resources otherwise, and it is an overall positive development for education. But what are the implications for scientists who conduct research in universities? And how will these developments affect the progress of scientific research?&lt;/p&gt;
+
+&lt;figure class=&quot;image&quot;&gt;&lt;img src=&quot;/assets/youregonnahaveabadtime.png&quot; alt=&quot;&quot;&gt;&lt;figcaption&gt;&lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;Unless we correctly anticipate the changes, the implications for science might not be good, at least through the medium term. When elite universities offer classes for free, other universities will have difficulty convincing new students to enroll in their own traditional programs. Why sit through an expensive 9AM lecture at your local university when you could get the Harvard lecture for free, whenever you want? Yes, yes, students benefit from being physically present at a university: interactions with professors and other students are often irreplaceable. And yes, many universities will manage to survive in their traditional form. But as a matter of degree the future trends are clear: Online alternatives will become better, and in many cases they will offer real diplomas. As this happens, demand for traditional education at second-tier universities will decline, tuition revenue will dry up, and many excellent scientists could be laid off. In some cases, entire universities may shut down, just as many local newspapers have &lt;a href=&quot;http://newspaperdeathwatch.com/&quot;&gt;succumbed&lt;/a&gt; to competition from online journalism.&lt;/p&gt;
+
+&lt;p&gt;With so many good scientists out of work, the progress of science will slow down. While scientists who work on applied research may find employment in private industry, those who do basic research will not fare as well. Nonprofit research institutes may emerge as places for basic research, but donor-based funding is never guaranteed. Moreover, these nonprofits might only begin operations after a painful transition period.&lt;/p&gt;
+
+&lt;p&gt;This is where government can step in, anticipating the problem and preparing research institutes where scientists can work outside of a university setting. For the biological sciences, let’s start building more &lt;a href=&quot;http://irp.nih.gov/about-us/research-campus-locations&quot;&gt;regional NIH campuses&lt;/a&gt; throughout America. In the physical sciences, let’s expand the &lt;a href=&quot;http://en.wikipedia.org/wiki/United_States_Department_of_Energy_National_Laboratories&quot;&gt;national labs&lt;/a&gt; system. And for all the other sciences, let’s call for regional NSF campuses. Ideally, these initiatives will be paid for by increases in top-line budgets for science agencies. Or, if that is not an option, we could use the money saved in extramural research budgets, which will surely be trimmed as university scientists are laid off. Whatever the details, the larger scientific community must start preparing now for the coming &lt;a href=&quot;http://www.nytimes.com/2012/05/04/opinion/brooks-the-campus-tsunami.html?partner=rssnyt&amp;amp;emc=rss&quot;&gt;tsunami&lt;/a&gt; of online education, before it’s too late.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>FAQ</title>
+   <link href="http://hyde.getpoole.com/2012/04/18/faq/"/>
+   <updated>2012-04-18T10:29:46-07:00</updated>
+   <id>http://hyde.getpoole.com/2012/04/18/faq</id>
+   <content type="html">&lt;p&gt;&lt;em&gt;This is a continuously updated list of responses to questions I get about the _&lt;/em&gt;&lt;a href=&quot;http://filedrawer.wordpress.com/2012/04/17/its-the-incentives-structure-people-why-science-reform-must-come-from-the-granting-agencies/&quot;&gt;main post&lt;/a&gt; and &lt;a href=&quot;http://filedrawer.wordpress.com/2013/01/16/8-lessons-from-the-reproducibility-crisis/&quot;&gt;Top 8 List&lt;/a&gt;_&lt;em&gt;, which should be read first.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Q:&lt;/strong&gt; I think scientists need to do X.
+&lt;strong&gt;A:&lt;/strong&gt; There&amp;#39;s a good chance &amp;#39;X&amp;#39; is a &lt;a href=&quot;http://en.wikipedia.org/wiki/Collective_action%23Collective_action_problem&quot;&gt;collective action problem&lt;/a&gt;. If all scientists did it, the field as a whole would benefit. But if a single scientist did it alone, he or she would not benefit. These problems can only be fixed if an outside force (e.g. the NIH) adjusts the incentives so that individuals would benefit from doing the action alone.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Q:&lt;/strong&gt; I think journals need to do X.
+&lt;strong&gt;A:&lt;/strong&gt; Again, this is probably a collective action problem. See the response above. The NIH can&amp;#39;t tell journals what to do, but it can reward scientists who submit to good-practice journals. This will encourage other journals to change their behavior.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Q:&lt;/strong&gt; What about citation count metrics? Aren’t they biased towards surprising and interesting results?
+&lt;strong&gt;A:&lt;/strong&gt; Citation count metrics should not be used as a factor in grant decisions and should be replaced by one of the quality-based metrics proposed by &lt;a href=&quot;http://futureofscipub.wordpress.com/2009/11/12/open-post-publication-peer-review/&quot;&gt;Niko Kriegeskorte&lt;/a&gt; or &lt;a href=&quot;http://talyarkoni.org/papers/Yarkoni_open_evaluation_03132012.pdf&quot;&gt;Tal Yarkoni&lt;/a&gt;, or some of the other metrics proposed in the &lt;a href=&quot;http://www.frontiersin.org/Journal/SpecialTopicDetail.aspx?name=computational_neuroscience&amp;amp;st=137&amp;amp;sname=Beyond_open_access_visions_for&quot;&gt;special issue&lt;/a&gt; of Frontiers. My only addition to Niko’s proposed metrics is that I would emphasize importance of the research &lt;em&gt;question&lt;/em&gt;, rather than importance of the &lt;em&gt;outcome.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Q: &lt;/strong&gt;Couldn&amp;#39;t quality-based metrics or other aspects of your proposal be gameable, just like the current system?
+&lt;strong&gt;A: &lt;/strong&gt;Yes. All systems are gameable, but some systems are better than others. A more &amp;quot;outcome-unbiased&amp;quot; system will be far better than the current one, which is dysfunctional.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Q:&lt;/strong&gt; Won’t it be hard for granting agencies to determine whether a journal&amp;#39;s incentive structure encourages good practices?
+&lt;strong&gt;A:&lt;/strong&gt; Government agencies make qualitative  judgments all the time. Even a rough first-order approximation would have a huge positive effect on research quality. The status quo is dysfunctional. Moreover, some journals that specialize in simple experiments (e.g. clinical trials) might demonstrate that they are outcome-unbiased by adopting an &lt;a href=&quot;http://www.overcomingbias.com/2010/11/results-blind-peer-review.html&quot;&gt;outcome-&lt;/a&gt;&lt;em&gt;&lt;a href=&quot;http://www.overcomingbias.com/2010/11/results-blind-peer-review.html&quot;&gt;blind&lt;/a&gt; &lt;/em&gt;review system, as Robin Hanson has proposed.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Q:&lt;/strong&gt; What about post-publication review?
+&lt;strong&gt;A:&lt;/strong&gt; In the current system, the only signal of a paper’s quality is the journal’s impact factor. Readers need more information than this. I am generally supportive of post-publication review and would recommend reading the proposals of &lt;a href=&quot;http://futureofscipub.wordpress.com/&quot;&gt;Niko Kriegeskorte&lt;/a&gt; and some of the proposals in the &lt;a href=&quot;http://www.frontiersin.org/Journal/SpecialTopicDetail.aspx?name=computational_neuroscience&amp;amp;st=137&amp;amp;sname=Beyond_open_access_visions_for&quot;&gt;special issue&lt;/a&gt; of Frontiers. Still, I wonder: Will any of these ideas actually be put into practice? Or will scientists just continue to talk about them as they have since the 1970s? It seem like a classic &lt;a href=&quot;http://en.wikipedia.org/wiki/Collective_action%23Collective_action_problem&quot;&gt;collective action problem&lt;/a&gt;. Granting agencies may be needed to provide a nudge.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Q:&lt;/strong&gt; Null results can easily obtained with sloppy research. Won&amp;#39;t outcome-unbiased journals encourage sloppy research?
+&lt;strong&gt;A:&lt;/strong&gt; Yes, it is admittedly a complicated issue. We need to strike a balance between being completely outcome-unbiased on the one hand, and valuing significant results on the other hand. At the moment, the wrong balance has been struck. Null results are disincentivized far too much.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Q: &lt;/strong&gt;Isn&amp;#39;t it good to do exploratory analysis?
+&lt;strong&gt;A: &lt;/strong&gt;Absolutely, but only if it identified as such. &lt;a href=&quot;http://psr.sagepub.com/content/2/3/196.abstract&quot;&gt;HARKing&lt;/a&gt; is misleading, and inflates Type I error.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>It’s the incentive structure, people! Why science reform must come from the granting agencies.</title>
+   <link href="http://hyde.getpoole.com/2012/04/17/its-the-incentives-structure-people-why-science-reform-must-come-from-the-granting-agencies/"/>
+   <updated>2012-04-17T13:35:49-07:00</updated>
+   <id>http://hyde.getpoole.com/2012/04/17/its-the-incentives-structure-people-why-science-reform-must-come-from-the-granting-agencies</id>
+   <content type="html">&lt;p&gt;Another day, another &lt;em&gt;New York Times&lt;/em&gt; &lt;a href=&quot;http://www.nytimes.com/2012/04/17/science/rise-in-scientific-journal-retractions-prompts-calls-for-reform.html?pagewanted=1&amp;amp;_r=2&quot;&gt;report&lt;/a&gt; on bad practice in biomedical science. The growing problems with scientific research are by now well known: Many results in the top journals are cherry picked, methodological weaknesses and other important caveats are often swept under the rug, and a large fraction of findings cannot be replicated. In some rare cases, there is even outright fraud. This waste of resources is unfair to the general public that pays for most of the research.&lt;/p&gt;
+
+&lt;p&gt;The &lt;em&gt;Times&lt;/em&gt; article places the blame for this trend on the sharp competition for grant money and on the increasing pressure to publish in high impact journals. While both of these factors certainly play contributing roles, the &lt;em&gt;Times&lt;/em&gt; article misses the root cause of the problem. The cause is not simply that the competition is too steep. The cause is that the competition is shaped to point scientists in the wrong direction.&lt;/p&gt;
+
+&lt;p&gt;As many other observers have already noted, scientific journals favor surprising, interesting, and statistically significant experimental results. When journal editors give preferences to these types of results, it is not surprising that more false positives will be published by simple &lt;a href=&quot;http://www.plosmedicine.org/article/info:doi/10.1371/journal.pmed.0020124&quot;&gt;selection effects&lt;/a&gt;, and sadly it is not surprising that unscrupulous scientists will manipulate their data to show these types of results. These manipulations include selection from &lt;a href=&quot;http://www.ncbi.nlm.nih.gov/pubmed/3661589&quot;&gt;multiple&lt;/a&gt; &lt;a href=&quot;http://people.psych.cornell.edu/%7Ejec7/pcd%20pubs/simmonsetal11.pdf&quot;&gt;analyses&lt;/a&gt;, selection from &lt;a href=&quot;http://www.talyarkoni.org/blog/tag/file-drawer-problem/&quot;&gt;multiple experiments&lt;/a&gt; (the “file drawer” problem), and the formulation of ‘a priori’ hypotheses after the results are known. While the vast majority of scientists are honest individuals, these biases still emerge in subtle and often subconscious ways.&lt;/p&gt;
+
+&lt;p&gt;Scientists have known about these problems for decades, and there have been several well-intentioned efforts to fix them. &lt;a href=&quot;http://www.jasnh.com/&quot;&gt;The Journal of Articles in Support of the Null Hypothesis&lt;/a&gt; (JASNH) is specifically dedicated to null results. &lt;a href=&quot;http://psychfiledrawer.org/&quot;&gt;The Psych File Drawer&lt;/a&gt; is a nicely designed online archive for failed replications. &lt;a href=&quot;http://www.plosone.org&quot;&gt;PLoS ONE&lt;/a&gt; publishes papers based on the quality of the methods, and allows post-publication commenting so that readers may be alerted about study flaws. Finally, Simmons and colleagues (2011) have proposed &lt;a href=&quot;http://people.psych.cornell.edu/%7Ejec7/pcd%20pubs/simmonsetal11.pdf&quot;&gt;lists of regulations&lt;/a&gt; for other journals to enforce, including minimum sample sizes and requirements for the disclosure of all variables and analyses.&lt;/p&gt;
+
+&lt;p&gt;As well-intentioned as these important (and necessary) initiatives may be, they have all failed to catch on. JANSH publishes a &lt;a href=&quot;http://www.jasnh.com/&quot;&gt;handful&lt;/a&gt; of papers a year, The Psych File Drawer only has &lt;a href=&quot;http://psychfiledrawer.org/view_article_list.php&quot;&gt;nine&lt;/a&gt; submissions, and &lt;a href=&quot;http://www.plosone.org/article/browse.action?field=date&amp;amp;day=1&quot;&gt;hardly anyone&lt;/a&gt; comments on PLoS ONE papers. To my knowledge, no journals have begun enforcing the &lt;a href=&quot;http://people.psych.cornell.edu/%7Ejec7/pcd%20pubs/simmonsetal11.pdf&quot;&gt;lists of regulations&lt;/a&gt; proposed by Simmons et al.&lt;/p&gt;
+
+&lt;p&gt;What is most frustrating is that all of these outcomes were completely predictable. As any economist will tell you, it’s the incentive structure, people! The reason nobody publishes in JASNH is that the rewards for publishing in high-impact journals are larger. The reason nobody puts their failed replications on Psych File Drawer or comments on PLoS ONE is that online archive posts can’t be put on CVs. And the reason individual journals don&amp;#39;t tighten their standards is that scientists can just submit their papers elsewhere. Even if the journals did manage to impose the regulations, wouldn’t it be better if the career incentives of scientists were aligned with the interests of good science? Wouldn’t a more sensible incentive structure make the list of regulations unnecessary?&lt;/p&gt;
+
+&lt;p&gt;This is where the funding agencies need to come in. Or, more to the point, where we as scientists need to ask the funding agencies to come in. Granting agencies should reward scientists who publish in journals that have acceptance criteria that are aligned with good science. In particular, the agencies should favor journals that devote special sections to replications, including failures to replicate. More directly, the agencies should devote more grant money to submissions that specifically propose replications. And finally, I would like to see some preference given to fully “outcome-unbiased” journals that make decisions based on the quality of the experimental design and the importance of the scientific &lt;em&gt;question&lt;/em&gt;, not the &lt;em&gt;outcome&lt;/em&gt; of the experiment. This type of policy naturally eliminates the temptation to manipulate data towards desired outcomes.&lt;/p&gt;
+
+&lt;p&gt;The mechanism could start with granting agencies making modest adjustments to grant scores for scientists who submit to good-practice journals. Over time, as scientists compete to submit to these journals, more of these journals will emerge by market forces. Journals that currently encourage bad practices may adjust their policies if they wish. Under the current system, there is simply no incentive for journals to adjust their policies. Will this transition be easy? No. Will the granting agencies manage this perfectly? Probably not. But it is obvious to me that scientists alone cannot solve problem of publication bias, and that a push from the outside is needed. The proposed system may not be perfect, but it will be vastly better than the dysfunctional system we are working in now.&lt;/p&gt;
+
+&lt;p&gt;If you agree that the cause of bad science is a perverse incentive structure, and if you agree that reform attempts can only work if there is pressure from granting agencies, please pass this article around and contact your funding agency. Within each agency, reform will require coordination among several sub-agencies, so it might make most sense to contact the director. Also, please see the &lt;a href=&quot;http://filedrawer.wordpress.com/2012/04/18/faq/&quot;&gt;FAQ&lt;/a&gt;, above, for continuously updated answers to questions.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Example content</title>
+   <link href="http://hyde.getpoole.com/2012/02/07/example-content/"/>
+   <updated>2012-02-07T00:00:00-08:00</updated>
+   <id>http://hyde.getpoole.com/2012/02/07/example-content</id>
+   <content type="html">&lt;div class=&quot;message&quot;&gt;
+  Howdy! This is an example blog post that shows several types of HTML content supported in this theme.
+&lt;/div&gt;
+
+&lt;p&gt;Cum sociis natoque penatibus et magnis &lt;a href=&quot;#&quot;&gt;dis parturient montes&lt;/a&gt;, nascetur ridiculus mus. &lt;em&gt;Aenean eu leo quam.&lt;/em&gt; Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Curabitur blandit tempus porttitor. Nullam quis risus eget urna mollis ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Etiam porta &lt;strong&gt;sem malesuada magna&lt;/strong&gt; mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.&lt;/p&gt;
+
+&lt;h2&gt;Inline HTML elements&lt;/h2&gt;
+
+&lt;p&gt;HTML defines a long list of available inline tags, a complete list of which can be found on the &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/HTML/Element&quot;&gt;Mozilla Developer Network&lt;/a&gt;.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;To bold text&lt;/strong&gt;, use &lt;code&gt;&amp;lt;strong&amp;gt;&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;To italicize text&lt;/em&gt;, use &lt;code&gt;&amp;lt;em&amp;gt;&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Abbreviations, like &lt;abbr title=&quot;HyperText Markup Langage&quot;&gt;HTML&lt;/abbr&gt; should use &lt;code&gt;&amp;lt;abbr&amp;gt;&lt;/code&gt;, with an optional &lt;code&gt;title&lt;/code&gt; attribute for the full phrase.&lt;/li&gt;
+&lt;li&gt;Citations, like &lt;cite&gt;&amp;mdash; Mark otto&lt;/cite&gt;, should use &lt;code&gt;&amp;lt;cite&amp;gt;&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;del&gt;Deleted&lt;/del&gt; text should use &lt;code&gt;&amp;lt;del&amp;gt;&lt;/code&gt; and &lt;ins&gt;inserted&lt;/ins&gt; text should use &lt;code&gt;&amp;lt;ins&amp;gt;&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Superscript &lt;sup&gt;text&lt;/sup&gt; uses &lt;code&gt;&amp;lt;sup&amp;gt;&lt;/code&gt; and subscript &lt;sub&gt;text&lt;/sub&gt; uses &lt;code&gt;&amp;lt;sub&amp;gt;&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Most of these elements are styled by browsers with few modifications on our part.&lt;/p&gt;
+
+&lt;h2&gt;Heading&lt;/h2&gt;
+
+&lt;p&gt;Vivamus sagittis lacus vel augue rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.&lt;/p&gt;
+
+&lt;h3&gt;Code&lt;/h3&gt;
+
+&lt;p&gt;Cum sociis natoque penatibus et magnis dis &lt;code&gt;code element&lt;/code&gt; montes, nascetur ridiculus mus.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// Example can be run directly in your JavaScript console&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// Create a function that takes two arguments and returns the sum of those arguments&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;adder&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;a&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;b&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;return a + b&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// Call the function&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;adder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// &amp;gt; 8&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.&lt;/p&gt;
+
+&lt;h3&gt;Gists via GitHub Pages&lt;/h3&gt;
+
+&lt;p&gt;Vestibulum id ligula porta felis euismod semper. Nullam quis risus eget urna mollis ornare vel eu leo. Donec sed odio dui.&lt;/p&gt;
+
+&lt;p&gt;&lt;noscript&gt;&lt;pre&gt;400: Invalid request
+&lt;/pre&gt;&lt;/noscript&gt;&lt;script src=&quot;https://gist.github.com/5555251.js?file=gist.md&quot;&gt; &lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec sed odio dui. Vestibulum id ligula porta felis euismod semper.&lt;/p&gt;
+
+&lt;h3&gt;Lists&lt;/h3&gt;
+
+&lt;p&gt;Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Praesent commodo cursus magna, vel scelerisque nisl consectetur et.&lt;/li&gt;
+&lt;li&gt;Donec id elit non mi porta gravida at eget metus.&lt;/li&gt;
+&lt;li&gt;Nulla vitae elit libero, a pharetra augue.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Vestibulum id ligula porta felis euismod semper.&lt;/li&gt;
+&lt;li&gt;Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.&lt;/li&gt;
+&lt;li&gt;Maecenas sed diam eget risus varius blandit sit amet non magna.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at lobortis.&lt;/p&gt;
+
+&lt;dl&gt;
+  &lt;dt&gt;HyperText Markup Language (HTML)&lt;/dt&gt;
+  &lt;dd&gt;The language used to describe and define the content of a Web page&lt;/dd&gt;
+
+  &lt;dt&gt;Cascading Style Sheets (CSS)&lt;/dt&gt;
+  &lt;dd&gt;Used to describe the appearance of Web content&lt;/dd&gt;
+
+  &lt;dt&gt;JavaScript (JS)&lt;/dt&gt;
+  &lt;dd&gt;The programming language used to build advanced Web sites and applications&lt;/dd&gt;
+&lt;/dl&gt;
+
+&lt;p&gt;Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nullam quis risus eget urna mollis ornare vel eu leo.&lt;/p&gt;
+
+&lt;h3&gt;Images&lt;/h3&gt;
+
+&lt;p&gt;Quisque consequat sapien eget quam rhoncus, sit amet laoreet diam tempus. Aliquam aliquam metus erat, a pulvinar turpis suscipit at.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://placehold.it/800x400&quot; alt=&quot;placeholder&quot; title=&quot;Large example image&quot;&gt;
+&lt;img src=&quot;http://placehold.it/400x200&quot; alt=&quot;placeholder&quot; title=&quot;Medium example image&quot;&gt;
+&lt;img src=&quot;http://placehold.it/200x200&quot; alt=&quot;placeholder&quot; title=&quot;Small example image&quot;&gt;&lt;/p&gt;
+
+&lt;h3&gt;Tables&lt;/h3&gt;
+
+&lt;p&gt;Aenean lacinia bibendum nulla sed consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Name&lt;/th&gt;
+      &lt;th&gt;Upvotes&lt;/th&gt;
+      &lt;th&gt;Downvotes&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tfoot&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Totals&lt;/td&gt;
+      &lt;td&gt;21&lt;/td&gt;
+      &lt;td&gt;23&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tfoot&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Alice&lt;/td&gt;
+      &lt;td&gt;10&lt;/td&gt;
+      &lt;td&gt;11&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Bob&lt;/td&gt;
+      &lt;td&gt;4&lt;/td&gt;
+      &lt;td&gt;3&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Charlie&lt;/td&gt;
+      &lt;td&gt;7&lt;/td&gt;
+      &lt;td&gt;9&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Nullam id dolor id nibh ultricies vehicula ut id elit. Sed posuere consectetur est at lobortis. Nullam quis risus eget urna mollis ornare vel eu leo.&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;p&gt;Want to see something else added? &lt;a href=&quot;https://github.com/poole/poole/issues/new&quot;&gt;Open an issue.&lt;/a&gt;&lt;/p&gt;
+</content>
+ </entry>
+ 
+
+</feed>

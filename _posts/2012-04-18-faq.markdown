@@ -1,0 +1,35 @@
+---
+author: csaid81
+comments: true
+date: 2012-04-18 17:29:46+00:00
+layout: post
+slug: faq
+title: FAQ
+wordpress_id: 20
+---
+
+_This is a continuously updated list of responses to questions I get about the __[main post](http://filedrawer.wordpress.com/2012/04/17/its-the-incentives-structure-people-why-science-reform-must-come-from-the-granting-agencies/) and [Top 8 List](http://filedrawer.wordpress.com/2013/01/16/8-lessons-from-the-reproducibility-crisis/)__, which should be read first._
+
+**Q:** I think scientists need to do X.
+**A:** There's a good chance 'X' is a [collective action problem](http://en.wikipedia.org/wiki/Collective_action%23Collective_action_problem). If all scientists did it, the field as a whole would benefit. But if a single scientist did it alone, he or she would not benefit. These problems can only be fixed if an outside force (e.g. the NIH) adjusts the incentives so that individuals would benefit from doing the action alone.
+
+**Q:** I think journals need to do X.
+**A:** Again, this is probably a collective action problem. See the response above. The NIH can't tell journals what to do, but it can reward scientists who submit to good-practice journals. This will encourage other journals to change their behavior.
+
+**Q:** What about citation count metrics? Aren’t they biased towards surprising and interesting results?
+**A:** Citation count metrics should not be used as a factor in grant decisions and should be replaced by one of the quality-based metrics proposed by [Niko Kriegeskorte](http://futureofscipub.wordpress.com/2009/11/12/open-post-publication-peer-review/) or [Tal Yarkoni](http://talyarkoni.org/papers/Yarkoni_open_evaluation_03132012.pdf), or some of the other metrics proposed in the [special issue](http://www.frontiersin.org/Journal/SpecialTopicDetail.aspx?name=computational_neuroscience&st=137&sname=Beyond_open_access_visions_for) of Frontiers. My only addition to Niko’s proposed metrics is that I would emphasize importance of the research _question_, rather than importance of the _outcome._
+
+**Q: **Couldn't quality-based metrics or other aspects of your proposal be gameable, just like the current system?
+**A: **Yes. All systems are gameable, but some systems are better than others. A more "outcome-unbiased" system will be far better than the current one, which is dysfunctional.
+
+**Q:** Won’t it be hard for granting agencies to determine whether a journal's incentive structure encourages good practices?
+**A:** Government agencies make qualitative  judgments all the time. Even a rough first-order approximation would have a huge positive effect on research quality. The status quo is dysfunctional. Moreover, some journals that specialize in simple experiments (e.g. clinical trials) might demonstrate that they are outcome-unbiased by adopting an [outcome-](http://www.overcomingbias.com/2010/11/results-blind-peer-review.html)_[blind](http://www.overcomingbias.com/2010/11/results-blind-peer-review.html) _review system, as Robin Hanson has proposed.
+
+**Q:** What about post-publication review?
+**A:** In the current system, the only signal of a paper’s quality is the journal’s impact factor. Readers need more information than this. I am generally supportive of post-publication review and would recommend reading the proposals of [Niko Kriegeskorte](http://futureofscipub.wordpress.com/) and some of the proposals in the [special issue](http://www.frontiersin.org/Journal/SpecialTopicDetail.aspx?name=computational_neuroscience&st=137&sname=Beyond_open_access_visions_for) of Frontiers. Still, I wonder: Will any of these ideas actually be put into practice? Or will scientists just continue to talk about them as they have since the 1970s? It seem like a classic [collective action problem](http://en.wikipedia.org/wiki/Collective_action%23Collective_action_problem). Granting agencies may be needed to provide a nudge.
+
+**Q:** Null results can easily obtained with sloppy research. Won't outcome-unbiased journals encourage sloppy research?
+**A:** Yes, it is admittedly a complicated issue. We need to strike a balance between being completely outcome-unbiased on the one hand, and valuing significant results on the other hand. At the moment, the wrong balance has been struck. Null results are disincentivized far too much.
+
+**Q: **Isn't it good to do exploratory analysis?
+**A: **Absolutely, but only if it identified as such. [HARKing](http://psr.sagepub.com/content/2/3/196.abstract) is misleading, and inflates Type I error.
