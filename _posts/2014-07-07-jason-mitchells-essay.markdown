@@ -15,11 +15,11 @@ As of yesterday I thought the debate about replication in psychology was converg
 
 
 
-	
-  * Example 1. A rigorous lab conducts an experiment using a measurement device that requires special care. The effect size is d=0.5. Later, a different lab with no experience using the device tries to quickly replicate the experiment and computes an effect size of d=0.0.
 
-	
-  * Example 2. A small sample experiment in a field with a history of p-hacking shows an effect size of d=0.5. Another lab tries to replicate the study with a much larger sample and computes an effect size of d=0.0.
+  * **Example 1**. A rigorous lab conducts an experiment using a measurement device that requires special care. The effect size is d=0.5. Later, a different lab with no experience using the device tries to quickly replicate the experiment and computes an effect size of d=0.0.
+
+
+  * **Example 2**. A small sample experiment in a field with a history of p-hacking shows an effect size of d=0.5. Another lab tries to replicate the study with a much larger sample and computes an effect size of d=0.0.
 
 
 

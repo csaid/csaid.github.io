@@ -42,7 +42,7 @@
           The File Drawer
         </a>
       </h1>
-      <p class="lead">My name is <a href = "http://www.twitter.com/chris_said">Chris Said</a> and I am a data scientist at Twitter. Before that I worked at Facebook and before that I worked as a neuroscientist.</p>
+      <p class="lead">My name is <a href = "http://www.twitter.com/chris_said">Chris Said</a> and I am a data scientist at Twitter. Before that I worked at Facebook and before that I worked as a neuroscientist. Past projects and demos include <a href = "http://whichfamouseconomistareyoumostsimilarto.com/">Which Famous Economist</a>, <a href = "http://www.dealspotter.info">DealSpotter</a>, and <a href = "http://www.ismyjobinanotherstate.com">Is My Job In Another State</a>.</p>
     </div>
 
     <nav class="sidebar-nav">
@@ -58,7 +58,7 @@
       
         
           
-            <a class="sidebar-nav-item" href="/about/">About</a>
+            <a class="sidebar-nav-item" href="/archive/">Archive</a>
           
         
       
@@ -69,12 +69,8 @@
         
       
 
-      <a class="sidebar-nav-item" href="https://github.com/poole/hyde/archive/v2.1.0.zip">Download</a>
-      <a class="sidebar-nav-item" href="https://github.com/poole/hyde">GitHub project</a>
-      <span class="sidebar-nav-item">Currently v2.1.0</span>
     </nav>
 
-    <p>&copy; 2015. All rights reserved.</p>
   </div>
 </div>
 
@@ -87,7 +83,7 @@
 
 <p>Despite these opportunities, Americans <a href="http://www.washingtonmonthly.com/magazine/november_december_2013/features/stay_put_young_man047332.php?page=all">aren’t moving much</a> and unemployment remains high.  One reason for this is that moving can be expensive and disruptive, especially for those with families and roots in their communities. But another reason may just be lack of awareness about the opportunities in other states. That’s why I have made a new website: <a href="http://www.ismyjobinanotherstate.com">www.ismyjobinanotherstate.com</a>. Enter your job skills, and the website will provide an interactive map showing where you are most in demand.</p>
 
-<p><a href="http://www.ismyjobinanotherstate.com"><figure class="image"><img src="/assets/securityofficer.png" alt=""><figcaption></figcaption></figure>
+<p><a href="http://www.ismyjobinanotherstate.com"><figure class="image"><img src="/assets/securityofficer.png" alt="" /></figure>
 </a>
 States are ranked by their <a href="https://www.fas.org/sgp/crs/misc/R42943.pdf">ratio of job postings to unemployment</a>. This is a pretty good metric, but it isn’t perfect. To understand why, imagine two states with the same posting/unemployed ratio for a particular job. If you are trained for the job, you might have better luck applying in a state where the unemployed population is either untrained or unwilling to take that type of job, even though the two states have the same ratio. There also may be differences across states in the use of Indeed.com. Still, I think my results have reasonably good face validity, and the results for many jobs are close to what you would except. If you average across jobs, you get something pretty close to an independently created measure called the <a href="http://www.washingtonmonthly.com/magazine/november_december_2013/features/the_2013_opportunity_index047357.php">“Opportunity Index”</a>.</p>
 
@@ -129,7 +125,37 @@ States are ranked by their <a href="https://www.fas.org/sgp/crs/misc/R42943.pdf"
   </ul>
 </div>
 
+      <div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'csaid';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
     </div>
 
   </body>
 </html>
+
+<!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$']],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  messageStyle: "none",
+  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+});
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>

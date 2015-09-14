@@ -42,7 +42,7 @@
           The File Drawer
         </a>
       </h1>
-      <p class="lead">My name is <a href = "http://www.twitter.com/chris_said">Chris Said</a> and I am a data scientist at Twitter. Before that I worked at Facebook and before that I worked as a neuroscientist.</p>
+      <p class="lead">My name is <a href = "http://www.twitter.com/chris_said">Chris Said</a> and I am a data scientist at Twitter. Before that I worked at Facebook and before that I worked as a neuroscientist. Past projects and demos include <a href = "http://whichfamouseconomistareyoumostsimilarto.com/">Which Famous Economist</a>, <a href = "http://www.dealspotter.info">DealSpotter</a>, and <a href = "http://www.ismyjobinanotherstate.com">Is My Job In Another State</a>.</p>
     </div>
 
     <nav class="sidebar-nav">
@@ -58,7 +58,7 @@
       
         
           
-            <a class="sidebar-nav-item" href="/about/">About</a>
+            <a class="sidebar-nav-item" href="/archive/">Archive</a>
           
         
       
@@ -69,12 +69,8 @@
         
       
 
-      <a class="sidebar-nav-item" href="https://github.com/poole/hyde/archive/v2.1.0.zip">Download</a>
-      <a class="sidebar-nav-item" href="https://github.com/poole/hyde">GitHub project</a>
-      <span class="sidebar-nav-item">Currently v2.1.0</span>
     </nav>
 
-    <p>&copy; 2015. All rights reserved.</p>
   </div>
 </div>
 
@@ -109,7 +105,7 @@ some/very/deep/directory/project1
 
 <div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>unmark project1</code></pre></div>
 
-<p>For any of this to work, you&#39;ll need to add this to your .bashrc, assuming you have a Mac and use the bash shell.</p>
+<p>For any of this to work, you’ll need to add this to your .bashrc, assuming you have a Mac and use the bash shell.</p>
 
 <div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="k">function</span> cdd <span class="o">{</span>
         <span class="nb">cd</span> -P <span class="s2">&quot;$MARKPATH/$1&quot;</span> 2&gt;/dev/null <span class="o">||</span> <span class="nb">echo</span> <span class="s2">&quot;No such mark: $1&quot;</span>
@@ -134,6 +130,7 @@ some/very/deep/directory/project1
 <p>This differs from Jeroen’s <a href="http://jeroenjanssens.com/2013/08/16/quickly-navigate-your-filesystem-from-the-command-line.html">original</a> code in a couple of ways. First, to be more brain-friendly, it names the function “cdd” instead of “jump”. Second, the tab completion works <a href="https://news.ycombinator.com/item?id=6229291">better</a>.</p>
 
 <p>Update: <a href="https://twitter.com/johnvmcdonnell">John McDonnell</a> points me to <a href="https://github.com/joelthelion/autojump">autojump</a>.</p>
+
 
 </div>
 
@@ -171,7 +168,37 @@ some/very/deep/directory/project1
   </ul>
 </div>
 
+      <div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'csaid';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
     </div>
 
   </body>
 </html>
+
+<!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$']],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  messageStyle: "none",
+  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+});
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>

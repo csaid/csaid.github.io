@@ -17,7 +17,7 @@ This all started earlier this summer when I went to Craigslist to find a used ca
 
 A larger problem was that even if I clicked on every post, I didn’t always have a sense for what was the best deal. For example, if I had $3,000, was it better to spend it on a 2001 model with 100K miles, or a 2003 model with 140K miles?
 
-[_DealSpotter_](http://www.dealspotter.info)_ _is a proof-of-concept website that shows how these problems could be solved. DealSpotter grabs all the Craigslist car postings in the San Francisco Bay Area and automatically shows you the best deals. It knows how much each car should be priced, based on the model, year, and mileage. Cars that are priced lower than DealSpotter expects them to be are shown at the top of the list. DealSpotter also presents the same information in a visual format called “Graph” mode, where the best deals are highlighted in blue.
+[_DealSpotter_](http://www.dealspotter.info) is a proof-of-concept website that shows how these problems could be solved. DealSpotter grabs all the Craigslist car postings in the San Francisco Bay Area and automatically shows you the best deals. It knows how much each car should be priced, based on the model, year, and mileage. Cars that are priced lower than DealSpotter expects them to be are shown at the top of the list. DealSpotter also presents the same information in a visual format called “Graph” mode, where the best deals are highlighted in blue.
 
 
 [{% include image.html url="/assets/full.png" %}](http://www.dealspotter.info)

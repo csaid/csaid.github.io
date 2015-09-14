@@ -143,3 +143,4 @@ PLATFORMS
 DEPENDENCIES
   github-linguist
   github-pages
+  kramdown

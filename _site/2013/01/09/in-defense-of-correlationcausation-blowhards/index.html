@@ -42,7 +42,7 @@
           The File Drawer
         </a>
       </h1>
-      <p class="lead">My name is <a href = "http://www.twitter.com/chris_said">Chris Said</a> and I am a data scientist at Twitter. Before that I worked at Facebook and before that I worked as a neuroscientist.</p>
+      <p class="lead">My name is <a href = "http://www.twitter.com/chris_said">Chris Said</a> and I am a data scientist at Twitter. Before that I worked at Facebook and before that I worked as a neuroscientist. Past projects and demos include <a href = "http://whichfamouseconomistareyoumostsimilarto.com/">Which Famous Economist</a>, <a href = "http://www.dealspotter.info">DealSpotter</a>, and <a href = "http://www.ismyjobinanotherstate.com">Is My Job In Another State</a>.</p>
     </div>
 
     <nav class="sidebar-nav">
@@ -58,7 +58,7 @@
       
         
           
-            <a class="sidebar-nav-item" href="/about/">About</a>
+            <a class="sidebar-nav-item" href="/archive/">Archive</a>
           
         
       
@@ -69,12 +69,8 @@
         
       
 
-      <a class="sidebar-nav-item" href="https://github.com/poole/hyde/archive/v2.1.0.zip">Download</a>
-      <a class="sidebar-nav-item" href="https://github.com/poole/hyde">GitHub project</a>
-      <span class="sidebar-nav-item">Currently v2.1.0</span>
     </nav>
 
-    <p>&copy; 2015. All rights reserved.</p>
   </div>
 </div>
 
@@ -91,7 +87,7 @@
 
 <p>Nowhere does this seem more of an issue than in nutrition science and in education research. In nutrition science, it is much easier to conduct a simple survey on health and eating habits than to organize a large-scale longitudinal randomized control study. Is it any wonder then, that after 50 years of nutrition science <a href="http://grist.org/scary-food/2011-03-04-low-fat-diet-fad/">we still don’t know</a> whether saturated fat is good for you or bad for you? And in education research, it is much easier to run a correlational study on class size and achievement than it is to run a <a href="http://onlinelibrary.wiley.com/doi/10.1111/1468-0297.00586/abstract">randomized control study</a>. Is it any wonder then, that the public policy debate about class size is so muddled?</p>
 
-<p>Don’t get me wrong -- There is some fantastic causal research coming out of the nutrition and education fields. And there is nothing wrong with running a correlational study either. Correlational studies are a great way for researchers to identify variables that are promising enough to investigate with causal methods.</p>
+<p>Don’t get me wrong – There is some fantastic causal research coming out of the nutrition and education fields. And there is nothing wrong with running a correlational study either. Correlational studies are a great way for researchers to identify variables that are promising enough to investigate with causal methods.</p>
 
 <p>But could it be that we have struck the wrong balance between correlational studies and causal studies? Could we be allocating too many resources towards easy but inconclusive studies, and not enough towards costly but more definitive research? I think the answer might be yes, and that internet comment blowhards are an important voice for this point of view.</p>
 
@@ -131,7 +127,37 @@
   </ul>
 </div>
 
+      <div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'csaid';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
     </div>
 
   </body>
 </html>
+
+<!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$']],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  messageStyle: "none",
+  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+});
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>

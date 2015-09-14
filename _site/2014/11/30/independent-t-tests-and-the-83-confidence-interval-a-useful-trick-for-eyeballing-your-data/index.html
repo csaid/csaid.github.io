@@ -42,7 +42,7 @@
           The File Drawer
         </a>
       </h1>
-      <p class="lead">My name is <a href = "http://www.twitter.com/chris_said">Chris Said</a> and I am a data scientist at Twitter. Before that I worked at Facebook and before that I worked as a neuroscientist.</p>
+      <p class="lead">My name is <a href = "http://www.twitter.com/chris_said">Chris Said</a> and I am a data scientist at Twitter. Before that I worked at Facebook and before that I worked as a neuroscientist. Past projects and demos include <a href = "http://whichfamouseconomistareyoumostsimilarto.com/">Which Famous Economist</a>, <a href = "http://www.dealspotter.info">DealSpotter</a>, and <a href = "http://www.ismyjobinanotherstate.com">Is My Job In Another State</a>.</p>
     </div>
 
     <nav class="sidebar-nav">
@@ -58,7 +58,7 @@
       
         
           
-            <a class="sidebar-nav-item" href="/about/">About</a>
+            <a class="sidebar-nav-item" href="/archive/">Archive</a>
           
         
       
@@ -69,12 +69,8 @@
         
       
 
-      <a class="sidebar-nav-item" href="https://github.com/poole/hyde/archive/v2.1.0.zip">Download</a>
-      <a class="sidebar-nav-item" href="https://github.com/poole/hyde">GitHub project</a>
-      <span class="sidebar-nav-item">Currently v2.1.0</span>
     </nav>
 
-    <p>&copy; 2015. All rights reserved.</p>
   </div>
 </div>
 
@@ -85,38 +81,55 @@
   <span class="post-date">30 Nov 2014</span>
   <p>Like most people who have analyzed data using frequentist statistics, I have often found myself staring at error bars and trying to guess whether my results are significant. When comparing two independent sample means, this practice is confusing and difficult. The conventions that we use for testing differences between sample means are not aligned with the conventions we use for plotting error bars. As a result, it’s fair to say that there’s a lot of confusion about this issue.</p>
 
-<p>Some people believe that two independent samples have significantly different means if and only if their standard error bars (68% confidence intervals for large samples) don’t overlap. This belief is incorrect. Two samples can have nonoverlapping standard error bars and still fail to reach statistical significance at $latex \alpha$=.05. Other people believe that two means are significantly different if and only if their 95% confidence intervals overlap. This belief is also incorrect. For one sample t-tests, it is true that significance is reached when the 95% confidence interval crosses the test parameter $latex \mu_0$. But for two-sample t-tests, which are more common in research, statistical significance can occur with overlapping 95% confidence intervals.</p>
+<p>Some people believe that two independent samples have significantly different means if and only if their standard error bars (68% confidence intervals for large samples) don’t overlap. This belief is incorrect. Two samples can have nonoverlapping standard error bars and still fail to reach statistical significance at <script type="math/tex"> \alpha=.05 </script>. Other people believe that two means are significantly different if and only if their 95% confidence intervals overlap. This belief is also incorrect. For one sample t-tests, it is true that significance is reached when the 95% confidence interval crosses the test parameter <script type="math/tex"> \mu_0 </script>. But for two-sample t-tests, which are more common in research, statistical significance can occur with overlapping 95% confidence intervals.</p>
 
-<p>If neither the 68% confidence interval nor the 95% confidence interval tells us anything about statistical significance, what does? In most situations, the answer is the 83.4% confidence interval.</p>
+<p>If neither the 68% confidence interval nor the 95% confidence interval tells us anything about statistical significance, what does? In most situations, the answer is the 83.4% confidence interval. This can be seen in the figure below, which shows two samples with a barely significant difference in means (p=.05). Only the 83.4% confidence intervals shown in the third panel are barely overlapping, reflecting the barely significant results.</p>
 
-<figure class="image"><img src="/assets/fig_errorbars1.png" alt="Figure 1: Two samples with a barely significant difference in means (p=.05). Each panel shows a different type of confidence interval. Only the 83.4% confidence intervals shown in the third panel are barely overlapping, reflecting the barely significant results."><figcaption>Figure 1: Two samples with a barely significant difference in means (p=.05). Each panel shows a different type of confidence interval. Only the 83.4% confidence intervals shown in the third panel are barely overlapping, reflecting the barely significant results.</figcaption></figure>
+<figure class="image"><img src="/assets/fig_errorbars1.png" alt="" /></figure>
 
-<!-- ![](/assets/fig_errorbars1.png)
-*Figure 1: Two samples with a barely significant difference in means (p=.05). Each panel shows a different type of confidence interval. Only the 83.4% confidence intervals shown in the third panel are barely overlapping, reflecting the barely significant results.* -->
+<p>To understand why, let’s start by defining the t-statistic for two independent samples:</p>
 
-<p>To see why, let’s start by defining the t-statistic for two independent samples:</p>
+<script type="math/tex; mode=display">
+\begin{align}
+t = \frac{\overline{X_1} - \overline{X_2}}{\sqrt{se_1^2 + se_2^2}}
+\end{align}
+</script>
 
-<p>$latex t = \frac{\overline{X<em>1} - \overline{X</em>2}}{\sqrt{se<em>1^2 + se</em>2^2}}$</p>
+<p>where <script type="math/tex"> \overline{X_1} </script> and <script type="math/tex"> \overline{X_2} </script> are the means of the two samples, and <script type="math/tex"> se_1 </script> and <script type="math/tex"> se_2 </script> are their standard errors. By rearranging, we can see that significant results will be barely obtained (<script type="math/tex"> p=.05 </script>) if the following condition holds:</p>
 
-<p>where $latex \overline{X<em>1}$ and $latex \overline{X</em>2}$ are the means of the two samples, and $latex se<em>1$ and $latex se</em>2$ are their standard errors. By rearranging, we can see that significant results will be barely obtained ($latex p$=.05) if the following condition holds:</p>
+<script type="math/tex; mode=display">
+\begin{align}
+\overline{X_1} - \overline{X_2} = 1.96\times\sqrt{se_1^2 + se_2^2}
+\end{align}
+</script>
 
-<p>$latex \overline{X<em>1} - \overline{X</em>2} = 1.96\times\sqrt{se<em>1^2 + se</em>2^2}$</p>
+<p>where 1.96 is the large sample <script type="math/tex"> t </script> cutoff for significance. Assuming equal standard errors (more on this later), the equation simplifies to:</p>
 
-<p>where 1.96 is the large sample $latex t$ cutoff for significance. Assuming equal standard errors (more on this later), the equation simplifies to:</p>
+<script type="math/tex; mode=display">
+\begin{align}
+\overline{X_1} - \overline{X_2} = 1.96\times{\sqrt{2}}\times{se}
+\end{align}
+</script>
 
-<p>$latex \overline{X<em>1} - \overline{X</em>2} = 1.96\times{\sqrt{2}}\times{se}$</p>
+<p>On a graph, the quantity <script type="math/tex"> \overline{X_1} - \overline{X_2} </script> is the distance between the means. If we want our error bars to just barely touch each other, we should set the length of the half-error bar to be exactly half of this, or:</p>
 
-<p>On a graph, the quantity $latex \overline{X<em>1} - \overline{X</em>2}$ is the distance between the means. If we want our error bars to just barely touch each other, we should set the length of the half-error bar to be exactly half of this, or:</p>
-
-<p>$latex 1.386\times{se}$</p>
+<script type="math/tex; mode=display">
+\begin{align}
+1.386\times{se}
+\end{align}
+</script>
 
 <p>This corresponds to an 83.4% confidence interval on the normal distribution. While this result assumes a large sample size, it remains quite useful for sample sizes as low as 20. The 83.4% confidence interval can also become slightly less useful when the samples have strongly different standard errors, which can stem from very unequal sample sizes or variances. If you really want a solution that generalizes to this situation, you can set your half-error bar on your first sample to:</p>
 
-<p>$latex \frac{1.96\times{\sqrt{se<em>1^2 + se</em>2^2}}\times{se<em>1}}{se</em>1^2 + se_2^2}$</p>
+<script type="math/tex; mode=display">
+\begin{align}
+\frac{1.96\times{\sqrt{se_1^2 + se_2^2}}\times{se_1}}{se_1^2 + se_2^2}
+\end{align}
+</script>
 
-<p>and make the appropriate substitutions to compute the half-error bar in your second sample. However, this solution has the undesirable property that the error bar for one sample depends on the standard error of the other sample. For most purposes, it&#39;s probably better to just plot the 83% confidence interval. If you are eyeballing data for a project that requires frequentist statistics, it is arguably more useful than plotting the standard error or the 95% confidence interval.</p>
+<p>and make the appropriate substitutions to compute the half-error bar in your second sample. However, this solution has the undesirable property that the error bar for one sample depends on the standard error of the other sample. For most purposes, it’s probably better to just plot the 83% confidence interval. If you are eyeballing data for a project that requires frequentist statistics, it is arguably more useful than plotting the standard error or the 95% confidence interval.</p>
 
-<p>Update: <a href="http://www.twitter.com/jeffrouder">Jeff Rouder</a> helpfully points me to <a href="http://www.researchgate.net/publication/11578767_Evaluating_statistical_difference_equivalence_and_indeterminacy_using_inferential_confidence_intervals_an_integrated_alternative_method_of_conducting_null_hypothesis_statistical_tests/file/5046351b1018420f84.pdf">Tryon and Lewis (2008)</a>, which presents an error bar that generalizes both to unequal standard errors and small samples. Like the last equation presented above, it has the undesirable property that the size of the error bar around a particular sample depends on both samples. But on the plus side, it&#39;s guaranteed to tell you about significance.</p>
+<p><strong>Update</strong>: <a href="http://www.twitter.com/jeffrouder">Jeff Rouder</a> helpfully points me to <a href="http://www.researchgate.net/publication/11578767_Evaluating_statistical_difference_equivalence_and_indeterminacy_using_inferential_confidence_intervals_an_integrated_alternative_method_of_conducting_null_hypothesis_statistical_tests/file/5046351b1018420f84.pdf">Tryon and Lewis (2008)</a>, which presents an error bar that generalizes both to unequal standard errors and small samples. Like the last equation presented above, it has the undesirable property that the size of the error bar around a particular sample depends on both samples. But on the plus side, it’s guaranteed to tell you about significance.</p>
 
 </div>
 
@@ -154,7 +167,37 @@
   </ul>
 </div>
 
+      <div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'csaid';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
     </div>
 
   </body>
 </html>
+
+<!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$']],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  messageStyle: "none",
+  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+});
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
