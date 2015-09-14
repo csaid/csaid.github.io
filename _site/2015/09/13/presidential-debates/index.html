@@ -105,6 +105,7 @@
     background: #ccc;
     border-color: #555;
     padding: 5px;
+    font-size: 10px;
     /*width: 200px;*/
     /*height: 150px;*/
 }
@@ -135,24 +136,34 @@ text {
 <script>
 
 var links = [
-  {source: 2, target: 3, mentions: 1},
-  {source: 5, target: 2, mentions: 2},
-  {source: 6, target: 2, mentions: 3},
-  {source: 8, target: 1, mentions: 1},
+  {source: 0, target: 10, mentions: 2},
+  {source: 1, target: 0, mentions: 2},
+  {source: 1, target: 7, mentions: 2},
+  {source: 2, target: 10, mentions: 8},
+  {source: 3, target: 10, mentions: 1},
+  {source: 4, target: 10, mentions: 2},
+  {source: 5, target: 10, mentions: 1},
+  {source: 6, target: 10, mentions: 3},
+  {source: 7, target: 1, mentions: 4},
+  {source: 7, target: 10, mentions: 5},
+  {source: 7, target: 8, mentions: 2},
   {source: 8, target: 3, mentions: 1},
+  {source: 8, target: 7, mentions: 2},
+  {source: 9, target: 1, mentions: 1}
 ];
 
 var nodes = [
-{name: 'Bush', fixed: true, x: 280.0, y: 150.0},
-{name: 'Trump', fixed: true, x: 255.172209269, y: 226.412082798},
-{name: 'Walker', fixed: true, x: 190.172209269, y: 273.637347118},
-{name: 'Huckabee', fixed: true, x: 109.827790731, y: 273.637347118},
-{name: 'Carson', fixed: true, x: 44.8277907313, y: 226.412082798},
-{name: 'Cruz', fixed: true, x: 20.0, y: 150.0},
-{name: 'Rubio', fixed: true, x: 44.8277907313, y: 73.587917202},
-{name: 'Paul', fixed: true, x: 109.827790731, y: 26.3626528816},
-{name: 'Christie', fixed: true, x: 190.172209269, y: 26.3626528816},
-{name: 'Kasich', fixed: true, x: 255.172209269, y: 73.587917202}
+{idx: 0, name: 'Bush', fixed: true, x: 280.0, y: 150.0},
+{idx: 1, name: 'Trump', fixed: true, x: 255.172209269, y: 226.412082798},
+{idx: 2, name: 'Walker', fixed: true, x: 190.172209269, y: 273.637347118},
+{idx: 3, name: 'Huckabee', fixed: true, x: 109.827790731, y: 273.637347118},
+{idx: 4, name: 'Carson', fixed: true, x: 44.8277907313, y: 226.412082798},
+{idx: 5, name: 'Cruz', fixed: true, x: 20.0, y: 150.0},
+{idx: 6, name: 'Rubio', fixed: true, x: 44.8277907313, y: 73.587917202},
+{idx: 7, name: 'Paul', fixed: true, x: 109.827790731, y: 26.3626528816},
+{idx: 8, name: 'Christie', fixed: true, x: 190.172209269, y: 26.3626528816},
+{idx: 9, name: 'Kasich', fixed: true, x: 255.172209269, y: 73.587917202},
+{idx: 10, name: 'Clinton', fixed: true, x: 410, y: 100}
 ]
 
 // Compute the distinct nodes from the links.
@@ -205,7 +216,7 @@ var path = svg.append("g").selectAll("path")
     .data(force.links())
   .enter().append("path")
     .attr("class", "debate_link")
-    .attr("stroke-width", function(d) { return 2*d.mentions })
+    .attr("stroke-width", function(d) { return d.mentions })
     .attr("marker-end", "url(#marker)") // This just say that the arrow should go at the end of the link, rather than the beginning.
     .on("mouseover", function(d){return tooltip.style("visibility", "visible").text("Mentions: " + d.mentions)})
     .on("mousemove", function(){return tooltip.style("top",

@@ -64,7 +64,7 @@ figcaption {
   padding: 2rem 1rem;
   color: rgba(255,255,255,.5);
   background-color: #777;
-  font-size: 1rem;
+  font-size: 0.8rem;
 }
 @media (min-width: 48em) {
   .sidebar {
@@ -72,7 +72,7 @@ figcaption {
     top: 0;
     left: 0;
     bottom: 0;
-    width: 18rem;
+    width: 16rem;
     text-align: left;
   }
 }
@@ -87,7 +87,7 @@ figcaption {
   color: #fff;
   margin-top: 0;
   /*font-family: "Abril Fatface", serif;*/
-  font-size: 1.75rem;
+  font-size: 1.5rem;
 }
 
 /* Sidebar nav */
@@ -136,7 +136,7 @@ a.sidebar-nav-item:focus {
 @media (min-width: 48em) {
   .content {
     max-width: 38rem;
-    margin-left: 20rem;
+    margin-left: 18rem;
     margin-right: 2rem;
   }
 }
@@ -258,9 +258,9 @@ a.sidebar-nav-item:focus {
 
 /* CPS Gray */
 .theme-base-cps .sidebar {
-  background-color: #888;
+  background-color: #777;
 }
 .theme-base-cps .content a,
 .theme-base-cps .related-posts li a:hover {
-  color: #888;
+  color: #777;
 }
