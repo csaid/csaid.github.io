@@ -4,7 +4,7 @@
  <title>The File Drawer</title>
  <link href="http://hyde.getpoole.com/atom.xml" rel="self"/>
  <link href="http://hyde.getpoole.com/"/>
- <updated>2015-09-16T09:25:05-07:00</updated>
+ <updated>2015-09-16T09:27:29-07:00</updated>
  <id>http://hyde.getpoole.com</id>
  <author>
    <name>Mark Otto</name>
@@ -102,8 +102,8 @@ links.forEach(function(link) {
   link.target = nodes[link.target] || (nodes[link.target] = {name: link.target});
 });
 
-var width = 400,
-    height = 400;
+var width = 325,
+    height = 325;
 
 var force = d3.layout.force()
     .nodes(d3.values(nodes))
