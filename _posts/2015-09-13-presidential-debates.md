@@ -11,7 +11,7 @@ Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, na
 
 <meta charset="utf-8">
 
-<div id="debate_graph"></div>
+<div id="debate_graph", class="center"></div>
 
 <style>
 /*
@@ -59,16 +59,9 @@ text {
 <script>
 
 var links = [
-  {source: 0, target: 10, mentions: 2},
   {source: 1, target: 0, mentions: 2},
   {source: 1, target: 7, mentions: 2},
-  {source: 2, target: 10, mentions: 8},
-  {source: 3, target: 10, mentions: 1},
-  {source: 4, target: 10, mentions: 2},
-  {source: 5, target: 10, mentions: 1},
-  {source: 6, target: 10, mentions: 3},
   {source: 7, target: 1, mentions: 4},
-  {source: 7, target: 10, mentions: 5},
   {source: 7, target: 8, mentions: 2},
   {source: 8, target: 3, mentions: 1},
   {source: 8, target: 7, mentions: 2},
@@ -86,7 +79,6 @@ var nodes = [
 {idx: 7, name: 'Paul', fixed: true, x: 109.827790731, y: 26.3626528816},
 {idx: 8, name: 'Christie', fixed: true, x: 190.172209269, y: 26.3626528816},
 {idx: 9, name: 'Kasich', fixed: true, x: 255.172209269, y: 73.587917202},
-{idx: 10, name: 'Clinton', fixed: true, x: 410, y: 100}
 ]
 
 // Compute the distinct nodes from the links.
@@ -95,7 +87,7 @@ links.forEach(function(link) {
   link.target = nodes[link.target] || (nodes[link.target] = {name: link.target});
 });
 
-var width = 600,
+var width = 300,
     height = 300;
 
 var force = d3.layout.force()
