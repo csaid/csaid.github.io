@@ -42,7 +42,7 @@
           The File Drawer
         </a>
       </h1>
-      <p class="lead">My name is <a href = "http://www.twitter.com/chris_said">Chris Said</a> and I am a data scientist at Twitter. Before that I worked at Facebook and before that I worked as a neuroscientist. Past projects and demos include <a href = "http://whichfamouseconomistareyoumostsimilarto.com/">Which Famous Economist</a>, <a href = "http://www.dealspotter.info">DealSpotter</a>, and <a href = "http://www.ismyjobinanotherstate.com">Is My Job In Another State</a>.</p>
+      <p class="lead">My name is <a href = "http://www.twitter.com/chris_said">Chris Said</a> and I am a data scientist at Twitter. Before that I worked at Facebook and before that I worked as a neuroscientist.</p>
     </div>
 
     <nav class="sidebar-nav">
@@ -136,16 +136,9 @@ text {
 <script>
 
 var links = [
-  {source: 0, target: 10, mentions: 2},
   {source: 1, target: 0, mentions: 2},
   {source: 1, target: 7, mentions: 2},
-  {source: 2, target: 10, mentions: 8},
-  {source: 3, target: 10, mentions: 1},
-  {source: 4, target: 10, mentions: 2},
-  {source: 5, target: 10, mentions: 1},
-  {source: 6, target: 10, mentions: 3},
   {source: 7, target: 1, mentions: 4},
-  {source: 7, target: 10, mentions: 5},
   {source: 7, target: 8, mentions: 2},
   {source: 8, target: 3, mentions: 1},
   {source: 8, target: 7, mentions: 2},
@@ -163,7 +156,6 @@ var nodes = [
 {idx: 7, name: 'Paul', fixed: true, x: 109.827790731, y: 26.3626528816},
 {idx: 8, name: 'Christie', fixed: true, x: 190.172209269, y: 26.3626528816},
 {idx: 9, name: 'Kasich', fixed: true, x: 255.172209269, y: 73.587917202},
-{idx: 10, name: 'Clinton', fixed: true, x: 410, y: 100}
 ]
 
 // Compute the distinct nodes from the links.
@@ -172,8 +164,8 @@ links.forEach(function(link) {
   link.target = nodes[link.target] || (nodes[link.target] = {name: link.target});
 });
 
-var width = 600,
-    height = 300;
+var width = 400,
+    height = 400;
 
 var force = d3.layout.force()
     .nodes(d3.values(nodes))
@@ -184,7 +176,8 @@ var force = d3.layout.force()
 
 var svg = d3.select("div#debate_graph").append("svg")
     .attr("width", width)
-    .attr("height", height);
+    .attr("height", height)
+    .attr("class", "center");
 
 // Per-type markers, as they don't inherit styles.
 svg.append("defs")
@@ -257,7 +250,9 @@ function transform(d) {
 
 </script>
 
-<p>As you can see…</p>
+<p>As you can see…
+<figure class="image"><img src="/assets/hillary.png" alt="" /></figure></p>
+
 
 </div>
 

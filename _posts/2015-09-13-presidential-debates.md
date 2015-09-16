@@ -11,7 +11,7 @@ Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, na
 
 <meta charset="utf-8">
 
-<div id="debate_graph", class="center"></div>
+<div id="debate_graph"></div>
 
 <style>
 /*
@@ -87,8 +87,8 @@ links.forEach(function(link) {
   link.target = nodes[link.target] || (nodes[link.target] = {name: link.target});
 });
 
-var width = 300,
-    height = 300;
+var width = 400,
+    height = 400;
 
 var force = d3.layout.force()
     .nodes(d3.values(nodes))
@@ -99,7 +99,8 @@ var force = d3.layout.force()
 
 var svg = d3.select("div#debate_graph").append("svg")
     .attr("width", width)
-    .attr("height", height);
+    .attr("height", height)
+    .attr("class", "center");
 
 // Per-type markers, as they don't inherit styles.
 svg.append("defs")
@@ -172,3 +173,5 @@ function transform(d) {
 
 </script>
 As you can see...
+{% include image.html url="/assets/hillary.png" %}
+

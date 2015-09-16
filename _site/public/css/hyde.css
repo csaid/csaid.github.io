@@ -46,6 +46,12 @@ html {
 }
 
 /*cps*/
+.center {
+  display: block;
+  margin: auto;
+}
+
+/*cps*/
 figcaption {
   font-size: .8rem;
   line-height: 1.2;

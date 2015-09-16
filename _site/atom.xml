@@ -4,7 +4,7 @@
  <title>The File Drawer</title>
  <link href="http://hyde.getpoole.com/atom.xml" rel="self"/>
  <link href="http://hyde.getpoole.com/"/>
- <updated>2015-09-14T08:52:02-07:00</updated>
+ <updated>2015-09-16T09:25:05-07:00</updated>
  <id>http://hyde.getpoole.com</id>
  <author>
    <name>Mark Otto</name>
@@ -74,16 +74,9 @@ text {
 &lt;script&gt;
 
 var links = [
-  {source: 0, target: 10, mentions: 2},
   {source: 1, target: 0, mentions: 2},
   {source: 1, target: 7, mentions: 2},
-  {source: 2, target: 10, mentions: 8},
-  {source: 3, target: 10, mentions: 1},
-  {source: 4, target: 10, mentions: 2},
-  {source: 5, target: 10, mentions: 1},
-  {source: 6, target: 10, mentions: 3},
   {source: 7, target: 1, mentions: 4},
-  {source: 7, target: 10, mentions: 5},
   {source: 7, target: 8, mentions: 2},
   {source: 8, target: 3, mentions: 1},
   {source: 8, target: 7, mentions: 2},
@@ -101,7 +94,6 @@ var nodes = [
 {idx: 7, name: &#39;Paul&#39;, fixed: true, x: 109.827790731, y: 26.3626528816},
 {idx: 8, name: &#39;Christie&#39;, fixed: true, x: 190.172209269, y: 26.3626528816},
 {idx: 9, name: &#39;Kasich&#39;, fixed: true, x: 255.172209269, y: 73.587917202},
-{idx: 10, name: &#39;Clinton&#39;, fixed: true, x: 410, y: 100}
 ]
 
 // Compute the distinct nodes from the links.
@@ -110,8 +102,8 @@ links.forEach(function(link) {
   link.target = nodes[link.target] || (nodes[link.target] = {name: link.target});
 });
 
-var width = 600,
-    height = 300;
+var width = 400,
+    height = 400;
 
 var force = d3.layout.force()
     .nodes(d3.values(nodes))
@@ -122,7 +114,8 @@ var force = d3.layout.force()
 
 var svg = d3.select(&quot;div#debate_graph&quot;).append(&quot;svg&quot;)
     .attr(&quot;width&quot;, width)
-    .attr(&quot;height&quot;, height);
+    .attr(&quot;height&quot;, height)
+    .attr(&quot;class&quot;, &quot;center&quot;);
 
 // Per-type markers, as they don&#39;t inherit styles.
 svg.append(&quot;defs&quot;)
@@ -195,7 +188,9 @@ function transform(d) {
 
 &lt;/script&gt;
 
-&lt;p&gt;As you can see…&lt;/p&gt;
+&lt;p&gt;As you can see…
+&lt;figure class=&quot;image&quot;&gt;&lt;img src=&quot;/assets/hillary.png&quot; alt=&quot;&quot; /&gt;&lt;/figure&gt;&lt;/p&gt;
+
 </content>
  </entry>
  
@@ -812,26 +807,32 @@ States are ranked by their &lt;a href=&quot;https://www.fas.org/sgp/crs/misc/R42
    <id>http://hyde.getpoole.com/2012/04/18/faq</id>
    <content type="html">&lt;p&gt;&lt;em&gt;This is a continuously updated list of responses to questions I get about the &lt;a href=&quot;/2012/04/17/its-the-incentives-structure-people-why-science-reform-must-come-from-the-granting-agencies/&quot;&gt;main post&lt;/a&gt; and &lt;a href=&quot;/2013/01/16/8-lessons-from-the-reproducibility-crisis/&quot;&gt;Top 8 List&lt;/a&gt;, which should be read first.&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Q:&lt;/strong&gt; I think scientists need to do X.
-&lt;strong&gt;A:&lt;/strong&gt; There’s a good chance ‘X’ is a &lt;a href=&quot;http://en.wikipedia.org/wiki/Collective_action%23Collective_action_problem&quot;&gt;collective action problem&lt;/a&gt;. If all scientists did it, the field as a whole would benefit. But if a single scientist did it alone, he or she would not benefit. These problems can only be fixed if an outside force (e.g. the NIH) adjusts the incentives so that individuals would benefit from doing the action alone.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Q:&lt;/strong&gt; I think scientists need to do X.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Q:&lt;/strong&gt; I think journals need to do X.
-&lt;strong&gt;A:&lt;/strong&gt; Again, this is probably a collective action problem. See the response above. The NIH can’t tell journals what to do, but it can reward scientists who submit to good-practice journals. This will encourage other journals to change their behavior.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;A:&lt;/strong&gt; There’s a good chance ‘X’ is a &lt;a href=&quot;http://en.wikipedia.org/wiki/Collective_action%23Collective_action_problem&quot;&gt;collective action problem&lt;/a&gt;. If all scientists did it, the field as a whole would benefit. But if a single scientist did it alone, he or she would not benefit. These problems can only be fixed if an outside force (e.g. the NIH) adjusts the incentives so that individuals would benefit from doing the action alone.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Q:&lt;/strong&gt; What about citation count metrics? Aren’t they biased towards surprising and interesting results?
-&lt;strong&gt;A:&lt;/strong&gt; Citation count metrics should not be used as a factor in grant decisions and should be replaced by one of the quality-based metrics proposed by &lt;a href=&quot;http://futureofscipub.wordpress.com/2009/11/12/open-post-publication-peer-review/&quot;&gt;Niko Kriegeskorte&lt;/a&gt; or &lt;a href=&quot;http://talyarkoni.org/papers/Yarkoni_open_evaluation_03132012.pdf&quot;&gt;Tal Yarkoni&lt;/a&gt;, or some of the other metrics proposed in the &lt;a href=&quot;http://www.frontiersin.org/Journal/SpecialTopicDetail.aspx?name=computational_neuroscience&amp;amp;st=137&amp;amp;sname=Beyond_open_access_visions_for&quot;&gt;special issue&lt;/a&gt; of Frontiers. My only addition to Niko’s proposed metrics is that I would emphasize importance of the research &lt;em&gt;question&lt;/em&gt;, rather than importance of the &lt;em&gt;outcome.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Q:&lt;/strong&gt; I think journals need to do X.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;A:&lt;/strong&gt; Again, this is probably a collective action problem. See the response above. The NIH can’t tell journals what to do, but it can reward scientists who submit to good-practice journals. This will encourage other journals to change their behavior.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Q:&lt;/strong&gt; What about citation count metrics? Aren’t they biased towards surprising and interesting results?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;A:&lt;/strong&gt; Citation count metrics should not be used as a factor in grant decisions and should be replaced by one of the quality-based metrics proposed by &lt;a href=&quot;http://futureofscipub.wordpress.com/2009/11/12/open-post-publication-peer-review/&quot;&gt;Niko Kriegeskorte&lt;/a&gt; or &lt;a href=&quot;http://talyarkoni.org/papers/Yarkoni_open_evaluation_03132012.pdf&quot;&gt;Tal Yarkoni&lt;/a&gt;, or some of the other metrics proposed in the &lt;a href=&quot;http://www.frontiersin.org/Journal/SpecialTopicDetail.aspx?name=computational_neuroscience&amp;amp;st=137&amp;amp;sname=Beyond_open_access_visions_for&quot;&gt;special issue&lt;/a&gt; of Frontiers. My only addition to Niko’s proposed metrics is that I would emphasize importance of the research &lt;em&gt;question&lt;/em&gt;, rather than importance of the &lt;em&gt;outcome.&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Q: &lt;/strong&gt;Couldn’t quality-based metrics or other aspects of your proposal be gameable, just like the current system?
 &lt;strong&gt;A: &lt;/strong&gt;Yes. All systems are gameable, but some systems are better than others. A more “outcome-unbiased” system will be far better than the current one, which is dysfunctional.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Q:&lt;/strong&gt; Won’t it be hard for granting agencies to determine whether a journal’s incentive structure encourages good practices?
-&lt;strong&gt;A:&lt;/strong&gt; Government agencies make qualitative  judgments all the time. Even a rough first-order approximation would have a huge positive effect on research quality. The status quo is dysfunctional. Moreover, some journals that specialize in simple experiments (e.g. clinical trials) might demonstrate that they are outcome-unbiased by adopting an &lt;a href=&quot;http://www.overcomingbias.com/2010/11/results-blind-peer-review.html&quot;&gt;outcome-&lt;/a&gt;_&lt;a href=&quot;http://www.overcomingbias.com/2010/11/results-blind-peer-review.html&quot;&gt;blind&lt;/a&gt; _review system, as Robin Hanson has proposed.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Q:&lt;/strong&gt; Won’t it be hard for granting agencies to determine whether a journal’s incentive structure encourages good practices?&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Q:&lt;/strong&gt; What about post-publication review?
-&lt;strong&gt;A:&lt;/strong&gt; In the current system, the only signal of a paper’s quality is the journal’s impact factor. Readers need more information than this. I am generally supportive of post-publication review and would recommend reading the proposals of &lt;a href=&quot;http://futureofscipub.wordpress.com/&quot;&gt;Niko Kriegeskorte&lt;/a&gt; and some of the proposals in the &lt;a href=&quot;http://www.frontiersin.org/Journal/SpecialTopicDetail.aspx?name=computational_neuroscience&amp;amp;st=137&amp;amp;sname=Beyond_open_access_visions_for&quot;&gt;special issue&lt;/a&gt; of Frontiers. Still, I wonder: Will any of these ideas actually be put into practice? Or will scientists just continue to talk about them as they have since the 1970s? It seem like a classic &lt;a href=&quot;http://en.wikipedia.org/wiki/Collective_action%23Collective_action_problem&quot;&gt;collective action problem&lt;/a&gt;. Granting agencies may be needed to provide a nudge.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;A:&lt;/strong&gt; Government agencies make qualitative  judgments all the time. Even a rough first-order approximation would have a huge positive effect on research quality. The status quo is dysfunctional. Moreover, some journals that specialize in simple experiments (e.g. clinical trials) might demonstrate that they are outcome-unbiased by adopting an &lt;a href=&quot;http://www.overcomingbias.com/2010/11/results-blind-peer-review.html&quot;&gt;outcome-&lt;/a&gt;_&lt;a href=&quot;http://www.overcomingbias.com/2010/11/results-blind-peer-review.html&quot;&gt;blind&lt;/a&gt; _review system, as Robin Hanson has proposed.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Q:&lt;/strong&gt; Null results can easily obtained with sloppy research. Won’t outcome-unbiased journals encourage sloppy research?
-&lt;strong&gt;A:&lt;/strong&gt; Yes, it is admittedly a complicated issue. We need to strike a balance between being completely outcome-unbiased on the one hand, and valuing significant results on the other hand. At the moment, the wrong balance has been struck. Null results are disincentivized far too much.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Q:&lt;/strong&gt; What about post-publication review?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;A:&lt;/strong&gt; In the current system, the only signal of a paper’s quality is the journal’s impact factor. Readers need more information than this. I am generally supportive of post-publication review and would recommend reading the proposals of &lt;a href=&quot;http://futureofscipub.wordpress.com/&quot;&gt;Niko Kriegeskorte&lt;/a&gt; and some of the proposals in the &lt;a href=&quot;http://www.frontiersin.org/Journal/SpecialTopicDetail.aspx?name=computational_neuroscience&amp;amp;st=137&amp;amp;sname=Beyond_open_access_visions_for&quot;&gt;special issue&lt;/a&gt; of Frontiers. Still, I wonder: Will any of these ideas actually be put into practice? Or will scientists just continue to talk about them as they have since the 1970s? It seem like a classic &lt;a href=&quot;http://en.wikipedia.org/wiki/Collective_action%23Collective_action_problem&quot;&gt;collective action problem&lt;/a&gt;. Granting agencies may be needed to provide a nudge.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Q:&lt;/strong&gt; Null results can easily obtained with sloppy research. Won’t outcome-unbiased journals encourage sloppy research?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;A:&lt;/strong&gt; Yes, it is admittedly a complicated issue. We need to strike a balance between being completely outcome-unbiased on the one hand, and valuing significant results on the other hand. At the moment, the wrong balance has been struck. Null results are disincentivized far too much.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Q: &lt;/strong&gt;Isn’t it good to do exploratory analysis?
 &lt;strong&gt;A: &lt;/strong&gt;Absolutely, but only if it identified as such. &lt;a href=&quot;http://psr.sagepub.com/content/2/3/196.abstract&quot;&gt;HARKing&lt;/a&gt; is misleading, and inflates Type I error.&lt;/p&gt;
