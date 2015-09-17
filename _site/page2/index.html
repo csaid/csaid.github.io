@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      The File Drawer &middot; A blog by Chris Said
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/hyde.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
+                                 <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+<!--   <body class="theme-base-cps">
+ -->
+  <body>
+
+    <div class="sidebar">
+  <div class="container">
+    <div class="sidebar-about">
+      <h1>
+        <a href="/">
+          The File Drawer
+        </a>
+      </h1>
+      <p class="lead">My name is <a href = "http://www.twitter.com/chris_said">Chris Said</a> and I am a data scientist at Twitter. Before that I worked at Facebook and before that I worked as a neuroscientist.</p>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a class="sidebar-nav-item" href="/">Home</a>
+
+      
+
+      
+      
+        
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/archive/">Archive</a>
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+
+    </nav>
+
+  </div>
+</div>
+
+
+    <div class="content container">
+      <div class="posts">
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/2013/10/12/my-insight-data-science-project/">
+        My Insight Data Science Project
+      </a>
+    </h1>
+
+    <span class="post-date">12 Oct 2013</span>
+
+    <p>I just finished an excellent fellowship at <a href="http://insightdatascience.com/">Insight Data Science</a>. During our first few weeks there, each of us designed a website to demo at Insight’s sponsor companies. My website is called <a href="http://www.dealspotter.info">DealSpotter</a>.</p>
+
+<p>This all started earlier this summer when I went to Craigslist to find a used car. There were lots of good deals on Craigslist, but it took way too long to find them. When I searched for a particular model, I got hundreds of hits, but only a few of the hits included the mileage in the posting title. Since I needed the mileage to know whether I was getting a good deal, I had to click on each of the hundreds of listings. Pretty time consuming.</p>
+
+<p><a href="http://www.dealspotter.info"><figure class="image"><img src="/assets/listings.png" alt="" /></figure>
+</a></p>
+
+<p>A larger problem was that even if I clicked on every post, I didn’t always have a sense for what was the best deal. For example, if I had $3,000, was it better to spend it on a 2001 model with 100K miles, or a 2003 model with 140K miles?</p>
+
+<p><a href="http://www.dealspotter.info"><em>DealSpotter</em></a> is a proof-of-concept website that shows how these problems could be solved. DealSpotter grabs all the Craigslist car postings in the San Francisco Bay Area and automatically shows you the best deals. It knows how much each car should be priced, based on the model, year, and mileage. Cars that are priced lower than DealSpotter expects them to be are shown at the top of the list. DealSpotter also presents the same information in a visual format called “Graph” mode, where the best deals are highlighted in blue.</p>
+
+<p><a href="http://www.dealspotter.info"><figure class="image"><img src="/assets/full.png" alt="" /></figure>
+</a></p>
+
+<p>To determine how much each car should be priced, DealSpotter doesn’t use Kelley Blue Book, which tends to overprice cars, especially newer models. Instead, DealSpotter builds its own pricing model based on the actual Craigslist market. In particular, it uses a <a href="http://en.wikipedia.org/wiki/Random_forest">Random Forest</a> pricing model because, unlike smooth parametric models, Random Forests are able to detect sharp discontinuities in prices that may be caused by factors such as manufacturer design overhauls.</p>
+
+<p>By selecting cars that are priced much lower than would be expected based on year and mileage, DealSpotter picks out some incredible deals, as well as the occasional clunker with an accident history. A more elaborate service might find a way to filter for accident history, but for now DealSpotter remains useful because it greatly narrows down the scope of the search for users. Once users are dealing with a handful of posts, they can easily inspect the text of the ad to determine which cars are good deals, and which have a history of accidents.</p>
+
+<p>If you are in the San Francisco Bay Area and are looking for a used car, you should definitely check out my website <em>right now</em>. Many cars are underpriced by thousands of dollars. In the future though, I won’t be updating the listings, which will soon become outdated. Craigslist has a <a href="http://news.cnet.com/8301-1023_3-57479344-93/craigslist-sues-padmapper-for-mass-harvesting-listings/">history of suing</a> other services that try to improve on how their data is presented. Craigslist’s litigiousness is understandable – they curated the data after all. But it apparently has also <a href="http://bits.blogs.nytimes.com/2012/07/29/when-craigslist-blocks-innovations-disruptions/?_r=0">stifled innovation</a>_. _Craigslist users spend many hours of their time clicking on blue links because the website’s search and UI tools are still stuck in the 90’s. Users are also at higher risk of scams because there is no reputation system. Normally, issues like this would put a company out of business, but a combination of lawsuits and network lock-in effects have kept Craigslist at the top of classifieds services. Hopefully, we will one day get a better Craigslist. In the meantime, if you want to find an incredible deal on a car while the postings are still fresh, you should do so <a href="http://www.dealspotter.info">now</a>.</p>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/2013/08/19/which-famous-economist/">
+        FAQ for www.whichfamouseconomistareyoumostsimilarto.com
+      </a>
+    </h1>
+
+    <span class="post-date">19 Aug 2013</span>
+
+    <p>I made a new webpage, http://www.whichfamouseconomistareyoumostsimilarto.com</p>
+
+<p>Here’s an FAQ for it.</p>
+
+<p><strong>Q.</strong> What is this and why did you make it?</p>
+
+<p><strong>A.</strong> There is a <a href="http://www.npr.org/blogs/money/2012/07/19/157047211/six-policies-economists-love-and-politicians-hate">surprising amount of consensus</a> among economists on many issues. Progressive consumption taxes and carbon taxes are good. Personal income taxes and corporate taxes are bad. Congestion pricing is good. The mortgage deduction is bad. Marijuana should be legalized. These positions are endorsed by almost every economist, both from the left and the right, but politicians in Washington tend to support the opposite.</p>
+
+<p>The <a href="http://www.igmchicago.org/igm-economic-experts-panel">IGM Forum</a> surveys an ideologically diverse group of top economists on these and other issues. I wish more people knew about their website. My new webpage, <a href="http://www.whichfamouseconomistareyoumostsimilarto.com/">http://www.whichfamouseconomistareyoumostsimilarto.com</a>, collects responses from the IGM forum and allows users to compare it to their own responses.</p>
+
+<p><strong>Q.</strong> Why is the economist closest to me on the graph different from the economist who actually is closest to me, according to the text below the graph?</p>
+
+<p><strong>A.</strong> Each economist can be thought of as a point in a massive 105 dimensional space, and unfortunately it’s only possible to display 2 dimensions. While you may appear close to an economist on those 2 dimensions, you may be far apart on the 103 other dimensions that you can’t see.</p>
+
+<p><strong>Q.</strong> I don’t have the expertise to answer some of these questions. Should I leave them blank or should I click “Neutral”?</p>
+
+<p><strong>A.</strong> You should leave them blank so that they do not enter the calculations. “Neutral” indicates that you have a real opinion somewhere between “Agree” and “Disagree”</p>
+
+<p><strong>Q.</strong> Every question I answer makes me move very far on the graph. This seems unreliable.</p>
+
+<p><strong>A.</strong> Do not take your graph position seriously until you have answered at least 20 questions. Your position will gradually converge as you answer more.</p>
+
+<p><strong>Q.</strong> Responses that “strongly deviate from expert consensus” are highlighted in yellow. What does that mean?</p>
+
+<p><strong>A.</strong> It means that your response deviated more that two standard deviations from the IGM panel average.</p>
+
+<p><strong>Q.</strong> I just answered a question the exact same way as Economist X. But my position on the graph moved _away _from him/her. Why?</p>
+
+<p><strong>A.</strong> This is a natural consequence of projecting multiple dimensions onto two dimensions. To see why, take a cube-shaped object and trace your finger along the edges from one corner to the opposite corner. Viewed from some angles, your finger might sometimes appear to move away from the destination corner.</p>
+
+<p><strong>Q.</strong> What do the two principal components represent?</p>
+
+<p><strong>A.</strong> It’s hard so say exactly, but the horizontal axis corresponds pretty closely to the left-right political axis.</p>
+
+<p><strong>Q.</strong> Why were some IGM panel economists excluded from your webpage?</p>
+
+<p><strong>A.</strong> Economists who answered less than 75% of the questions were excluded.</p>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/2013/03/30/new-model-of-binocular-rivalry/">
+        New model of binocular rivalry
+      </a>
+    </h1>
+
+    <span class="post-date">30 Mar 2013</span>
+
+    <p>Binocular rivalry is a visual illusion that occurs when the two eyes are presented with incompatible images. Instead of perceiving a mixture of the two images, most people experience alternations in which only one image is visible at a time. Binocular rivalry works best under controlled laboratory conditions with prisms or mirrors, but if you are lucky you might be able to experience it in the figure below. Try crossing your eyes to align the left boxes and right boxes, so that three boxes are observed rather than two. If you can keep your eyes stable, you might perceive alternations between the two different gratings in the middle box. It helps if you first try to merge the “Merge me!” phrase and then, once that it is stable, focus on the middle box. If you can’t stabilize your eyes enough, don’t worry. You are not alone.</p>
+
+<p>.</p>
+
+<figure class="image"><img src="/assets/fig_dichop1.png" alt="" /></figure>
+
+<p>.</p>
+
+<p>Binocular rivalry is more than just an interesting illusion: it reflects actual inhibitory competition between neurons in the brain, and therefore provides a rare window into neural dynamics. To help us understand these mechanisms, researchers have developed several models of the phenomenon. Yet surprisingly, all of these models make a big incorrect prediction about a type of stimulus known as “binocular plaids”. You can view some binocular plaids by crossing your eyes on the boxes below, or simply by looking at one of the boxes normally.</p>
+
+<p>.</p>
+
+<figure class="image"><img src="/assets/fig_binoc.png" alt="" /></figure>
+
+<p>.</p>
+
+<p>As you can see, a plaid is composed of two gratings, a rightward pointing grating and a leftward pointing grating. The big, incorrect prediction made by previous models of rivalry is that the leftward pointing grating should alternate with the rightward pointing grating, just as it would in the traditional rivalry stimuli shown above. This prediction – which follows because the same neural inhibition that creates competition in the first figure must necessarily also create competition in the second figure – is clearly wrong: When viewing the binocular plaid, you probably perceive that the rightward grating remains just as strong as the leftward grating, without any alternations. This failed prediction extends far beyond these toy stimuli. Plaid perception is typically explained by the broad theory of <a href="http://www.nature.com/nrn/journal/v13/n1/full/nrn3136.html">divisive normalization</a>, which also covers a whole host of other inhibitory interactions in cortex. Models of the inhibitory processes in rivalry are thus in tension with models of inhibitory processes that use divisive normalization.</p>
+
+<p>Together with my advisor <a href="http://www.cns.nyu.edu/~david/">David Heeger</a>, I developed a <a href="http://www.ploscompbiol.org/article/info%3Adoi%2F10.1371%2Fjournal.pcbi.1002991">new model</a> of rivalry that is able to accommodate plaids, and which I hope reconciles models of rivalry with models of normalization. Finding a solution was not as easy as you might think. When we presented the problem to colleagues, everyone immediately had intuitions for how to solve it, but amazingly none of them worked. We found only one solution that worked, and it is one that I later discovered was once proposed by Randolph Blake. The model makes novel predictions that we confirmed with psychophysical tests. If you want to read more about it, you can find the paper below. The Matlab code is available <a href="http://www.cns.nyu.edu/~csaid/code/SaidAndHeeger_model_code.zip">here</a>.</p>
+
+<p><a href="http://www.ploscompbiol.org/article/info%3Adoi%2F10.1371%2Fjournal.pcbi.1002991">Said CP &amp; Heeger DJ (2013). A model of binocular rivalry and cross-orientation suppression. <em>PLOS Computational Biology.</em></a></p>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/2013/03/21/165/">
+        Canadian funding models for all
+      </a>
+    </h1>
+
+    <span class="post-date">21 Mar 2013</span>
+
+    <p>The US and Canada have very different systems for funding science. To compare them, I found some of the publicly available data on <a href="http://report.nih.gov/success_rates/Success_ByIC.cfm">NIH R01s</a> (USA) and <a href="http://www.nserc-crsng.gc.ca/_doc/Funding-Financement/DGStat2012-SDStat2012_eng.pdf">NSERC Individual Discovery Grants</a> (Canada), and plotted them below. Before describing the results, I should say that comparing NIH to NSERC is a bit like comparing apples to oranges, since NSERC is probably closer to the NSF than to the NIH. Nevertheless, the cross-country trends hold up across agencies, and in any case my goal is not to compare countries (as much as I would like to) but to compare funding models.</p>
+
+<figure class="image"><img src="/assets/fig2.png" alt="" /></figure>
+
+<p>There are two things to notice about the plots. First, the funding rates are clearly higher at NSERC than at NIH. The catch, of course, is that higher rates mean smaller awards. NSERC typically provides $35,000/year, far less than the big awards from NIH. Canadian scientists <a href="http://oikosjournal.wordpress.com/2011/05/16/should-granting-agencies-fund-projects-or-people/">love</a> their system, valuing the stability it provides more than the possibility of large awards. Quality of life issues aside, a separate question is: Does the NSERC system produce better science? Or do the high success rates waste too much money on low-quality projects? My feeling is that the NSERC system is much better. High-quality NIH proposals are routinely rejected for arbitrary reasons, and the sink-or-swim culture is <a href="http://www.nytimes.com/2012/04/17/science/rise-in-scientific-journal-retractions-prompts-calls-for-reform.html?pagewanted=1&amp;_r=2">directly contributing</a> to bad research practices. We should move toward a higher rate / smaller award system. And for those who see value in large awards, we can still adjust the size of the award based on the quality of the proposal.</p>
+
+<p>The second thing to notice about the plots is the trends over time. At NIH, more so than at NSERC, the decline in success rates is driven by an increase in the number of applicants, not by a decrease in the number of awards. I don’t think the solution is just “more funding”, especially in the current fiscal climate. We have a denominator problem, not a numerator problem. We should fix the system that rewards programs for producing more PhDs than the system can accommodate. I’ll leave it to actual experts to decide how to do this. But as with most public policy questions, a good place to start is to just copy whatever the Canadians are doing.</p>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/2013/01/15/8-lessons-from-the-reproducibility-crisis/">
+        Eight Lessons from the Reproducibility Crisis 
+      </a>
+    </h1>
+
+    <span class="post-date">15 Jan 2013</span>
+
+    <ol>
+  <li>
+    <p>There is a reproducibility crisis in psychology.</p>
+  </li>
+  <li>
+    <p>Outright fraud is rare. Soft forms of bad practice are the bigger problem.</p>
+  </li>
+  <li>
+    <p>Most scientists are honest, but soft forms of bad practice emerge through self-deception or lack of awareness. <a href="http://psr.sagepub.com/content/2/3/196.abstract">
+</a></p>
+  </li>
+  <li>
+    <p>The problem is worse in medical research, but that is no excuse for psychologists to resist reforms.</p>
+  </li>
+  <li>
+    <p><a href="http://papers.ssrn.com/sol3/papers.cfm?abstract_id=1850704">Lists of new regulations</a> are fine, but the core issue is that career incentive structures are not always aligned with truth discovery.</p>
+  </li>
+  <li>
+    <p>Some data outcomes are rewarded more than other data outcomes. This is bad.</p>
+  </li>
+  <li>
+    <p>Journals have little incentive to change this incentive structure themselves.</p>
+  </li>
+  <li>
+    <p><a href="/2012/04/17/its-the-incentives-structure-people-why-science-reform-must-come-from-the-granting-agencies/">But granting agencies can help</a>, by increasing the grant award probability to scientists who submit to <a href="http://neurochambers.blogspot.co.uk/2012/10/changing-culture-of-scientific.html">good</a> <a href="http://talyarkoni.org/papers/Yarkoni_FCN_2012.pdf">practice</a> <a href="http://www.plosone.org">journals</a>. Can someone at NIH/NSF please do something about this?</p>
+  </li>
+</ol>
+
+<p>If you have comments, they might already be addressed in my <a href="/2012/04/18/faq/">FAQ</a>.</p>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/2013/01/09/in-defense-of-correlationcausation-blowhards/">
+        In defense of correlation/causation blowhards
+      </a>
+    </h1>
+
+    <span class="post-date">09 Jan 2013</span>
+
+    <p>Let’s get one thing out of the way first: There is not a single scientist or science journalist who doesn’t know that correlation does not equal causation. Most have probably known it since high school.</p>
+
+<p>That’s why there has been a bit of a backlash against internet commenters who keep pointing it out. The phrase is “common and irritating”, writes Slate’s Daniel Engber in his article <a href="http://www.slate.com/articles/health_and_science/science/2012/10/correlation_does_not_imply_causation_how_the_internet_fell_in_love_with_a_stats_class_clich_.single.html">The Internet Blowhard’s Favorite Phrase</a>. To Engber, correlation≠causation is a “freshman platitude” that professional scientists and journalists don’t need to be reminded of. Scientists are merely <em>suggesting</em> a causal relationship. They are not claiming it is proven.</p>
+
+<p>I can see why writers and researchers find it frustrating to be scolded about something they already know. But correlation≠causation is one of those things that has a way of sliding onto the back burner of one’s mental awareness, even among scientists. On one day a research group is acknowledging the limits to their correlational study, but the next day they are advancing policy arguments that depend on a causal relationship. Or more commonly, they are preparing to run yet another correlational study.</p>
+
+<p>Nowhere does this seem more of an issue than in nutrition science and in education research. In nutrition science, it is much easier to conduct a simple survey on health and eating habits than to organize a large-scale longitudinal randomized control study. Is it any wonder then, that after 50 years of nutrition science <a href="http://grist.org/scary-food/2011-03-04-low-fat-diet-fad/">we still don’t know</a> whether saturated fat is good for you or bad for you? And in education research, it is much easier to run a correlational study on class size and achievement than it is to run a <a href="http://onlinelibrary.wiley.com/doi/10.1111/1468-0297.00586/abstract">randomized control study</a>. Is it any wonder then, that the public policy debate about class size is so muddled?</p>
+
+<p>Don’t get me wrong – There is some fantastic causal research coming out of the nutrition and education fields. And there is nothing wrong with running a correlational study either. Correlational studies are a great way for researchers to identify variables that are promising enough to investigate with causal methods.</p>
+
+<p>But could it be that we have struck the wrong balance between correlational studies and causal studies? Could we be allocating too many resources towards easy but inconclusive studies, and not enough towards costly but more definitive research? I think the answer might be yes, and that internet comment blowhards are an important voice for this point of view.</p>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/2012/12/29/new-paper-on-autism/">
+        New paper on autism
+      </a>
+    </h1>
+
+    <span class="post-date">29 Dec 2012</span>
+
+    <p>If there is one thing I have learned recently, it is that autism is a really, really complicated disorder. Autism is best known for causing repetitive behaviors and problems with social communication, but it is also known to cause issues in sensory perception. Many hypotheses for the underlying neurophysiological basis have been proposed. Among these is the excitation/inhibition (E/I) imbalance hypothesis, which states that levels of cortical excitation and inhibition are disrupted in autism. An imbalance like this could be caused by unusual levels of certain neurotransmitters, such as glutamate and GABA, or by an unusual distribution of synaptic connections. Together with my collaborators (David Heeger, Marlene Behrmann, Nancy Minshew, and Ryan Egan), we tested this theory and report the results in a new <a href="http://dx.doi.org/10.1016/j.visres.2012.11.002">paper</a> published in <em>Vision Research</em>.</p>
+
+<figure class="image"><img src="/assets/network1.png" alt="" /></figure>
+
+<p>We chose to test the theory in the visual system because vision is one of the better understood systems in neuroscience and because the E/I imbalance theory has been proposed to explain hypersensitivity to sensory stimuli in autism. Specifically, we conducted two experiments on <a href="http://en.wikipedia.org/wiki/Binocular_rivalry">binocular rivalry</a>, a well-studied phenomenon that depends critically on excitation and inhibition levels in cortex. Using a very simple computational model (a schematic is shown above), we made predictions about how imbalances in excitation and inhibition would affect perception during rivalry. Contrary to our expectations, we found no significant differences between autistic individuals and controls, and no evidence for a relationship between these measurements and the severity of autism. Of course, these results do not conclusively rule out an E/I imbalance in the visual system of those with autism. There are many alternative explanations that we describe in the Discussion section. But these results do seem to suggest that an E/I imbalance, if it exists, is likely to be small in magnitude.</p>
+
+<p><a href="http://dx.doi.org/10.1016/j.visres.2012.11.002">http://dx.doi.org/10.1016/j.visres.2012.11.002</a></p>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/2012/10/04/why-are-contrast-response-functions-linear-in-fmri-and-nonmonotonic-in-eeg/">
+        Why are contrast response functions linear in fMRI and nonmonotonic in EEG?
+      </a>
+    </h1>
+
+    <span class="post-date">04 Oct 2012</span>
+
+    <p>Contrast response functions (CRFs) describe how a neuron’s firing rate depends on the contrast, or intensity, of a visual stimulus. CRFs are really important for testing theories about how the visual system works, and I’ve spent a lot of time over the past few years trying to indirectly measure them in humans, using EEG and fMRI. The problem, however, is that EEG and fMRI give me very different CRFs.</p>
+
+<p>Typically, individual neurons show sigmoidal CRFs. They don’t fire at all for very low contrasts, but they rapidly increase their firing rate at a middle range of contrast. The midpoint of this range is sometimes called the ‘semisaturation constant’. After that, the firing rate tends to level off, or ‘saturate’.</p>
+
+<figure class="image"><img src="/assets/fig_intro_neuron2.png" alt="" /></figure>
+
+<p>With fMRI, however, I tend to find that the CRFs are mostly linear, not sigmoidal.</p>
+
+<figure class="image"><img src="/assets/fig_intro_fmri1.png" alt="" /></figure>
+
+<p>And with EEG, I often find that the CRFs are actually nonmonotonic!</p>
+
+<figure class="image"><img src="/assets/fig_intro_eeg1.png" alt="" /></figure>
+
+<p>This is weird, and I’m not the first person to notice it. Linear CRFs in fMRI are quite common (e.g. <a href="http://www.ncbi.nlm.nih.gov/pubmed/9535979">here</a> and <a href="http://www.ncbi.nlm.nih.gov/pubmed/22153378">here</a>), as are nonmonotic CRFs in EEG (e.g. <a href="http://www.nature.com/nature/journal/v321/n6067/abs/321235a0.html">here</a>, <a href="http://www.jneurosci.org/content/21/12/4530.short">here</a>, <a href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC1192067/">here</a>,  and <a href="http://www.jneurosci.org/content/32/8/2783.short">here</a> ). While not all papers show these effects, they certainly seem like real trends. How it is possible that an underlying sigmoidal function in neurons could give rise to such completely different functions measured by fMRI and EEG?</p>
+
+<p>To explain the linear fMRI responses, one idea is that fMRI takes an average over many different neurons, each with a different semisaturation constant. Some neurons saturate early, some saturate late, and when you average them all together you just get a line.</p>
+
+<figure class="image"><img src="/assets/fig_fmri1.png" alt="" /></figure>
+
+<p>That seems to make sense. But what about the nonmonotonic CRFs in EEG? One idea is that EEG CRFs might reflect the true contrast response functions of individual neurons, many of which are themselves <a href="http://ww.w.journalofvision.org/content/7/6/13.short">nonmonotonic</a>. While I don’t doubt that this could be a contributing factor, I have trouble believing that this explains all, or even most, of the nonmonotonicity in EEG. Only a small minority of visual cells exhibit this property, and I have seen some _massive _nonmonotonicity in some of my most reliable EEG subjects.</p>
+
+<p>A different hypothesis is that nonmonotonicity is caused by the cancellation of dipoles across cortical sulci or gyri. EEG dipoles are oriented normal to the cortical surface and, since the cortex has so many folds, many of the electrical signals simply <a href="http://www.ncbi.nlm.nih.gov/pubmed/19639553">cancel</a> each other out.</p>
+
+<figure class="image"><img src="/assets/fig_dipole1.png" alt="" /></figure>
+
+<p>Here’s where it gets interesting. Different cortical areas (e.g. V1 and V2) have different average semisaturation constants. (They tend to get lower the higher you move up in the visual hierarchy). Imagine that two cortical areas with different semisaturation constants live on opposite sides of a sulcus. At medium contrasts, one area will be active and the other will be mostly silent. But at higher contrasts, <em>both</em> areas will have kicked in, and so the overall signal (due to cancellation) will be actually _lower _that at medium contrast. This isn’t my idea, but it makes a lot of sense and I think it deserves more attention.</p>
+
+<figure class="image"><img src="/assets/fig_eeg2.png" alt="" /></figure>
+
+<p>But wait, the fMRI explanation makes sense, and the EEG explanation makes sense, but how can they both be true? After all, the EEG cancellation story only works if each area’s average CRF is nonlinear: If the average responses were linear (as demonstrated by the fMRI explanation), cancellation of opposite CRFs would just result in more straight lines, right?</p>
+
+<p>Well, yes and no. Using simulations I have found it quite easy to capture both effects. In the fMRI simulation, a perfectly linear CRF emerges only if I assume that the underlying neural semisaturation constants are uniformly distributed, which is quite an unlikely assumption. With any other reasonable distribution (e.g. normal distribution) I get fMRI CRFs that are mostly linear but with a touch of sigmoid. And critically, that touch of sigmoid will drive the dipole cancellation in a way that results in nonmonotonic EEG CRFs.</p>
+
+<p>Below is some Matlab code showing how this works, just a proof of concept. It makes some very, very simplifying assumptions, and I’m sure that the truth is far more complicated.</p>
+
+<div class="highlight"><pre><code class="language-matlab" data-lang="matlab"><span class="k">function</span><span class="w"> </span>[] <span class="p">=</span><span class="w"> </span><span class="nf">crfmodel</span><span class="p">()</span><span class="w"></span>
+
+<span class="n">n</span> <span class="p">=</span> <span class="mi">1000</span><span class="p">;</span> <span class="c">%number of neurons</span>
+<span class="n">c</span> <span class="p">=</span> <span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="mi">100</span><span class="p">;</span> <span class="c">%contrast levels</span>
+<span class="n">c50_std</span> <span class="p">=</span> <span class="mi">30</span><span class="p">;</span> <span class="c">%stddev of semisaturation constants</span>
+<span class="n">c50_mean</span> <span class="p">=</span> <span class="p">[</span><span class="mi">50</span> <span class="mi">70</span><span class="p">];</span> <span class="c">%for two visual areas;</span>
+<span class="n">c50</span> <span class="p">=</span> <span class="nb">nan</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">);</span>
+<span class="k">for</span> <span class="nb">i</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">2</span> <span class="c">%loop through two banks of sulcus (two visual areas)</span>
+  <span class="n">idcs</span><span class="p">{</span><span class="nb">i</span><span class="p">}</span> <span class="p">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">n</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="nb">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">n</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+  <span class="n">c50</span><span class="p">(</span><span class="n">idcs</span><span class="p">{</span><span class="nb">i</span><span class="p">})</span> <span class="p">=</span> <span class="n">c50_std</span><span class="o">*</span><span class="nb">randn</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="n">c50_mean</span><span class="p">(</span><span class="nb">i</span><span class="p">);</span>
+<span class="k">end</span>
+<span class="p">[</span><span class="n">C</span> <span class="n">C50</span><span class="p">]</span> <span class="p">=</span> <span class="nb">meshgrid</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">c50</span><span class="p">);</span>
+<span class="n">R</span> <span class="p">=</span> <span class="n">makeLogistic</span><span class="p">(</span><span class="n">C</span><span class="p">,</span><span class="n">C50</span><span class="p">);</span> <span class="c">%Each row is a CRF for a particular neuron</span>
+<span class="n">figure</span>
+
+<span class="c">%Single neurons</span>
+<span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">for</span> <span class="nb">i</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">2</span> <span class="c">%loop through 2 areas</span>
+   <span class="n">plot</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">makeLogistic</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">c50_mean</span><span class="p">(</span><span class="nb">i</span><span class="p">)));</span>
+   <span class="n">hold</span> <span class="n">on</span>
+<span class="k">end</span>
+<span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;Single Neuron Response&#39;</span><span class="p">)</span>
+
+<span class="c">%fMRI</span>
+<span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
+<span class="k">for</span> <span class="nb">i</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">2</span> <span class="c">%loop through 2 areas</span>
+  <span class="n">CRF_fMRI</span><span class="p">{</span><span class="nb">i</span><span class="p">}</span> <span class="p">=</span> <span class="n">mean</span><span class="p">(</span><span class="n">R</span><span class="p">(</span><span class="n">idcs</span><span class="p">{</span><span class="nb">i</span><span class="p">},:),</span><span class="mi">1</span><span class="p">);</span> <span class="c">%average all neurons in each area</span>
+  <span class="n">plot</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">CRF_fMRI</span><span class="p">{</span><span class="nb">i</span><span class="p">})</span>
+  <span class="n">hold</span> <span class="n">on</span>
+<span class="k">end</span>
+<span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;fMRI Response&#39;</span><span class="p">)</span>
+
+<span class="c">%EEG</span>
+<span class="c">%Cancellation. Scale factor isn&#39;t necessary but reflects that fact that</span>
+<span class="c">%some areas are likely to activate more than others.</span>
+<span class="n">R_EEG</span> <span class="p">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">R</span><span class="p">(</span><span class="n">idcs</span><span class="p">{</span><span class="mi">1</span><span class="p">},:)</span><span class="o">-</span><span class="p">.</span><span class="mi">7</span><span class="o">*</span><span class="n">R</span><span class="p">(</span><span class="n">idcs</span><span class="p">{</span><span class="mi">2</span><span class="p">},:));</span>
+<span class="n">CRF_EEG</span> <span class="p">=</span> <span class="n">mean</span><span class="p">(</span><span class="n">R_EEG</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">CRF_EEG</span><span class="p">)</span>
+<span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;EEG Response&#39;</span><span class="p">)</span>
+
+<span class="k">function</span><span class="w"> </span>[r] <span class="p">=</span><span class="w"> </span><span class="nf">makeLogistic</span><span class="p">(</span>c,c50<span class="p">)</span><span class="w"></span>
+<span class="n">r</span> <span class="p">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="mf">1.</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="nb">exp</span><span class="p">(.</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">c</span><span class="o">-</span><span class="n">c50</span><span class="p">))));</span></code></pre></div>
+
+<p>And here are the results.</p>
+
+<figure class="image"><img src="/assets/fig_all2.png" alt="" /></figure>
+
+<p>It would be nice if we could go in the opposite direction and reconstruct underlying neural responses from the fMRI and EEG measurements. This seems like a pretty tricky inverse problem, but it might be possible with accurate assumptions about current propagation and the distribution of semisaturation constants.</p>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/2012/05/29/national-labs-for-all-the-sciences/">
+        National labs for all the sciences
+      </a>
+    </h1>
+
+    <span class="post-date">29 May 2012</span>
+
+    <p>Harvard, MIT, Stanford, and several other elite universities have all recently <a href="http://www.nytimes.com/2012/05/03/education/harvard-and-mit-team-up-to-offer-free-online-courses.html">announced</a> that they will be be offering free online courses. The courses will be massively open, taught by star professors, and supplemented with video lessons, embedded testing, and realtime feedback. This is surely good news for students who might not be able to access these resources otherwise, and it is an overall positive development for education. But what are the implications for scientists who conduct research in universities? And how will these developments affect the progress of scientific research?</p>
+
+<figure class="image"><img src="/assets/youregonnahaveabadtime.png" alt="" /></figure>
+
+<p>Unless we correctly anticipate the changes, the implications for science might not be good, at least through the medium term. When elite universities offer classes for free, other universities will have difficulty convincing new students to enroll in their own traditional programs. Why sit through an expensive 9AM lecture at your local university when you could get the Harvard lecture for free, whenever you want? Yes, yes, students benefit from being physically present at a university: interactions with professors and other students are often irreplaceable. And yes, many universities will manage to survive in their traditional form. But as a matter of degree the future trends are clear: Online alternatives will become better, and in many cases they will offer real diplomas. As this happens, demand for traditional education at second-tier universities will decline, tuition revenue will dry up, and many excellent scientists could be laid off. In some cases, entire universities may shut down, just as many local newspapers have <a href="http://newspaperdeathwatch.com/">succumbed</a> to competition from online journalism.</p>
+
+<p>With so many good scientists out of work, the progress of science will slow down. While scientists who work on applied research may find employment in private industry, those who do basic research will not fare as well. Nonprofit research institutes may emerge as places for basic research, but donor-based funding is never guaranteed. Moreover, these nonprofits might only begin operations after a painful transition period.</p>
+
+<p>This is where government can step in, anticipating the problem and preparing research institutes where scientists can work outside of a university setting. For the biological sciences, let’s start building more <a href="http://irp.nih.gov/about-us/research-campus-locations">regional NIH campuses</a> throughout America. In the physical sciences, let’s expand the <a href="http://en.wikipedia.org/wiki/United_States_Department_of_Energy_National_Laboratories">national labs</a> system. And for all the other sciences, let’s call for regional NSF campuses. Ideally, these initiatives will be paid for by increases in top-line budgets for science agencies. Or, if that is not an option, we could use the money saved in extramural research budgets, which will surely be trimmed as university scientists are laid off. Whatever the details, the larger scientific community must start preparing now for the coming <a href="http://www.nytimes.com/2012/05/04/opinion/brooks-the-campus-tsunami.html?partner=rssnyt&amp;emc=rss">tsunami</a> of online education, before it’s too late.</p>
+
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/2012/04/18/faq/">
+        FAQ
+      </a>
+    </h1>
+
+    <span class="post-date">18 Apr 2012</span>
+
+    <p><em>This is a continuously updated list of responses to questions I get about the <a href="/2012/04/17/its-the-incentives-structure-people-why-science-reform-must-come-from-the-granting-agencies/">main post</a> and <a href="/2013/01/16/8-lessons-from-the-reproducibility-crisis/">Top 8 List</a>, which should be read first.</em></p>
+
+<p><strong>Q:</strong> I think scientists need to do X.</p>
+
+<p><strong>A:</strong> There’s a good chance ‘X’ is a <a href="http://en.wikipedia.org/wiki/Collective_action%23Collective_action_problem">collective action problem</a>. If all scientists did it, the field as a whole would benefit. But if a single scientist did it alone, he or she would not benefit. These problems can only be fixed if an outside force (e.g. the NIH) adjusts the incentives so that individuals would benefit from doing the action alone.</p>
+
+<p><strong>Q:</strong> I think journals need to do X.</p>
+
+<p><strong>A:</strong> Again, this is probably a collective action problem. See the response above. The NIH can’t tell journals what to do, but it can reward scientists who submit to good-practice journals. This will encourage other journals to change their behavior.</p>
+
+<p><strong>Q:</strong> What about citation count metrics? Aren’t they biased towards surprising and interesting results?</p>
+
+<p><strong>A:</strong> Citation count metrics should not be used as a factor in grant decisions and should be replaced by one of the quality-based metrics proposed by <a href="http://futureofscipub.wordpress.com/2009/11/12/open-post-publication-peer-review/">Niko Kriegeskorte</a> or <a href="http://talyarkoni.org/papers/Yarkoni_open_evaluation_03132012.pdf">Tal Yarkoni</a>, or some of the other metrics proposed in the <a href="http://www.frontiersin.org/Journal/SpecialTopicDetail.aspx?name=computational_neuroscience&amp;st=137&amp;sname=Beyond_open_access_visions_for">special issue</a> of Frontiers. My only addition to Niko’s proposed metrics is that I would emphasize importance of the research <em>question</em>, rather than importance of the <em>outcome.</em></p>
+
+<p><strong>Q: </strong>Couldn’t quality-based metrics or other aspects of your proposal be gameable, just like the current system?
+<strong>A: </strong>Yes. All systems are gameable, but some systems are better than others. A more “outcome-unbiased” system will be far better than the current one, which is dysfunctional.</p>
+
+<p><strong>Q:</strong> Won’t it be hard for granting agencies to determine whether a journal’s incentive structure encourages good practices?</p>
+
+<p><strong>A:</strong> Government agencies make qualitative  judgments all the time. Even a rough first-order approximation would have a huge positive effect on research quality. The status quo is dysfunctional. Moreover, some journals that specialize in simple experiments (e.g. clinical trials) might demonstrate that they are outcome-unbiased by adopting an <a href="http://www.overcomingbias.com/2010/11/results-blind-peer-review.html">outcome-</a>_<a href="http://www.overcomingbias.com/2010/11/results-blind-peer-review.html">blind</a> _review system, as Robin Hanson has proposed.</p>
+
+<p><strong>Q:</strong> What about post-publication review?</p>
+
+<p><strong>A:</strong> In the current system, the only signal of a paper’s quality is the journal’s impact factor. Readers need more information than this. I am generally supportive of post-publication review and would recommend reading the proposals of <a href="http://futureofscipub.wordpress.com/">Niko Kriegeskorte</a> and some of the proposals in the <a href="http://www.frontiersin.org/Journal/SpecialTopicDetail.aspx?name=computational_neuroscience&amp;st=137&amp;sname=Beyond_open_access_visions_for">special issue</a> of Frontiers. Still, I wonder: Will any of these ideas actually be put into practice? Or will scientists just continue to talk about them as they have since the 1970s? It seem like a classic <a href="http://en.wikipedia.org/wiki/Collective_action%23Collective_action_problem">collective action problem</a>. Granting agencies may be needed to provide a nudge.</p>
+
+<p><strong>Q:</strong> Null results can easily obtained with sloppy research. Won’t outcome-unbiased journals encourage sloppy research?</p>
+
+<p><strong>A:</strong> Yes, it is admittedly a complicated issue. We need to strike a balance between being completely outcome-unbiased on the one hand, and valuing significant results on the other hand. At the moment, the wrong balance has been struck. Null results are disincentivized far too much.</p>
+
+<p><strong>Q: </strong>Isn’t it good to do exploratory analysis?
+<strong>A: </strong>Absolutely, but only if it identified as such. <a href="http://psr.sagepub.com/content/2/3/196.abstract">HARKing</a> is misleading, and inflates Type I error.</p>
+
+  </div>
+  
+</div>
+
+<div class="pagination">
+  
+    <a class="pagination-item older" href="/page3">Older</a>
+  
+  
+    
+      <a class="pagination-item newer" href="/">Newer</a>
+    
+  
+</div>
+
+      <div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'csaid';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+    </div>
+
+  </body>
+</html>
+
+<!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$']],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  messageStyle: "none",
+  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+});
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>

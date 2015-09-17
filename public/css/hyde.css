@@ -47,7 +47,7 @@ html {
 
 /*cps*/
 .center {
-  display: block;
+  display: inline-block;
   margin: auto;
 }
 

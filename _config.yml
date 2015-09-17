@@ -9,16 +9,16 @@ relative_permalinks: true
 
 # Setup
 title:            The File Drawer
-tagline:          'A Jekyll theme'
+tagline:          'A blog by Chris Said'
 description:      'My name is <a href = "http://www.twitter.com/chris_said">Chris Said</a> and I am a data scientist at Twitter. Before that I worked at Facebook and before that I worked as a neuroscientist.'
-url:              http://hyde.getpoole.com
+url:              http://www.twitter.com/Chris_Said
 baseurl:          /
 
 author:
-  name:           'Mark Otto'
-  url:            https://twitter.com/mdo
+  name:           'Chris Said'
+  url:            http://www.twitter.com/Chris_Said
 
-paginate:         25
+paginate:         10
 
 # Custom vars
 version:          2.1.0
