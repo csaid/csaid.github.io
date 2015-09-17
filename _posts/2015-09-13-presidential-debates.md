@@ -8,7 +8,7 @@ In last night's Republican presidential debate, the CNN moderators tried very ha
 While CNN wanted to generate controversy, the disputes it tried to initiate were not necessarily the disputes that the candidates strategically wanted to have. To get a better sense for this, I tallied up two things:
 
 1. **Moderator Prompts**. These were episodes where the moderators prompted one candidate to challenge another.
-2. **Real Challenges**. These were episodes where either (a) the prompted candidate took the bait and attacked the other candidate or (b) a candidate launched an unprompted attack on another candidate. I did not include episodes where a prompted candidate acknowledged a disagreement with another candidate in a nonconfrontational way.
+2. **Real Challenges**. These were episodes where either (a) the candidate took the bait from a Moderator Prompt and attacked the other candidate or (b) a candidate launched an unprompted attack on another candidate. I did not include episodes where a prompted candidate acknowledged a disagreement with another candidate in a nonconfrontational way.
 
 The results are below. In the first graph, an arrow from one candidate to another indicates that the moderator asked the first candidate to challenge the second. The next graph shows real challenges. In both graphs, the boldness of the curve indicates how many times the event occurred.
 
@@ -30,6 +30,8 @@ Some observations:
 It's also interesting to look at how many times each of the candidates challenged Hillary Clinton, who was not on the stage. Jeb Bush mentioned her on five separate occassions, whereas Donald Trump never mentioned her at all. It's just a few data points, but it's consistent with Jeb's larger focus on the general election.
 
 {% include image.html url="/assets/hillary.png" %}
+
+I doubt any of this data is very predicitive of election outcomes, but it definitely seems to be related to current polling trends. Either way, it's pretty interesting to look at. I might make these plots for some of the other debates to see how these relationships change over time.
 
 <style>
 
