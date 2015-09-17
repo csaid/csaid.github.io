@@ -25,7 +25,7 @@ Some observations:
 * The graph of Moderator Prompts is much denser than the graph of Real Challenges. As was clear to anyone watching the debate, the moderators wanted to generate more controversy than the candidates wanted.
 * Most of the real action in the second graph was in the Trump-Bush-Paul Triangle of Controversy.
 * The moderators tried to prompt several challenges to Ben Carson but nobody took the bait. Conversely, the moderators paid relatively little attention to Rand Paul, and yet he was part of several real disputes.
-* A lot of activity is directed towards Donald Trump in both graphs.
+* A lot of activity was around Donald Trump. At least this time around, most of the attacks were inbound, not outbound.
 
 It's also interesting to look at how many times each of the candidates challenged Hillary Clinton, who was not on the stage. Jeb Bush mentioned her on five separate occassions, whereas Donald Trump never mentioned her at all. It's just a few data points, but it's consistent with Jeb's larger focus on the general election.
 
