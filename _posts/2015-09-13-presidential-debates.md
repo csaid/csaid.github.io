@@ -22,10 +22,9 @@ The results are below. In the first graph, an arrow from one candidate to anothe
 
 Some observations:
 
-* The graph of moderator prompts is much denser than the graph of direct challenges. The moderators wanted to generate more controversy than the candidates wanted.
+* The graph of Moderator Prompts is much denser than the graph of Direct Challenges. As was cleaer to anyone watching the debate, the moderators wanted to generate more controversy than the candidates wanted.
 * Most of the real action in the second graph was in the Trump-Bush-Paul Triangle of Controversy.
-* The moderators tried to prompt several challenges to Ben Carson but nobody took the bait.
-* Conversely, the moderators paid relatively little attention to Rand Paul, and yet he was part of several real disputes.
+* The moderators tried to prompt several challenges to Ben Carson but nobody took the bait. Conversely, the moderators paid relatively little attention to Rand Paul, and yet he was part of several real disputes.
 * As a surprise to no one, the interests of Donald Trump and CNN are pretty well aligned. There is high density around him in both graphs.
 
 It's also interesting to look at how many times each of the candidates challenged Hillary Clinton, who was not on the stage. Jeb Bush mentioned her on four separate occassions, whereas Donald Trump never mentioned her at all. It's just a few data points, but it's consistent with Jeb's larger focus on the general election.
