@@ -4,7 +4,7 @@
  <title>The File Drawer</title>
  <link href="http://www.twitter.com/Chris_Said/atom.xml" rel="self"/>
  <link href="http://www.twitter.com/Chris_Said/"/>
- <updated>2015-09-17T01:26:14-07:00</updated>
+ <updated>2015-09-17T07:13:47-07:00</updated>
  <id>http://www.twitter.com/Chris_Said</id>
  <author>
    <name>Chris Said</name>
@@ -14,16 +14,16 @@
  
  <entry>
    <title>The debate CNN wanted and the debate the candidates wanted</title>
-   <link href="http://www.twitter.com/Chris_Said/2015/09/13/presidential-debates/"/>
-   <updated>2015-09-13T00:00:00-07:00</updated>
-   <id>http://www.twitter.com/Chris_Said/2015/09/13/presidential-debates</id>
+   <link href="http://www.twitter.com/Chris_Said/2015/09/17/presidential-debates/"/>
+   <updated>2015-09-17T00:00:00-07:00</updated>
+   <id>http://www.twitter.com/Chris_Said/2015/09/17/presidential-debates</id>
    <content type="html">&lt;p&gt;In last night’s Republican presidential debate, the CNN moderators tried very hard to pit individual candidates against each other. Pretty much every question was along the lines of: “Candidate A, what do you think about Candidate B’s attacks on you?”&lt;/p&gt;
 
 &lt;p&gt;While CNN wanted to generate controversy, the disputes it tried to initiate were not necessarily the disputes that the candidates strategically wanted to have. To get a better sense for this, I tallied up two things:&lt;/p&gt;
 
 &lt;ol&gt;
   &lt;li&gt;&lt;strong&gt;Moderator Prompts&lt;/strong&gt;. These were episodes where the moderators prompted one candidate to challenge another.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Real Challenges&lt;/strong&gt;. These were episodes where either (a) the prompted candidate took the bait and attacked the other candidate or (b) a candidate launched an unprompted attack on another candidate. I did not include episodes where a prompted candidate acknowledged a disagreement with another candidate in a nonconfrontational way.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Real Challenges&lt;/strong&gt;. These were episodes where either (a) the candidate took the bait from a Moderator Prompt and attacked the other candidate or (b) a candidate launched an unprompted attack on another candidate. I did not include episodes where a prompted candidate acknowledged a disagreement with another candidate in a nonconfrontational way.&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;p&gt;The results are below. In the first graph, an arrow from one candidate to another indicates that the moderator asked the first candidate to challenge the second. The next graph shows real challenges. In both graphs, the boldness of the curve indicates how many times the event occurred.&lt;/p&gt;
@@ -47,6 +47,8 @@
 &lt;p&gt;It’s also interesting to look at how many times each of the candidates challenged Hillary Clinton, who was not on the stage. Jeb Bush mentioned her on five separate occassions, whereas Donald Trump never mentioned her at all. It’s just a few data points, but it’s consistent with Jeb’s larger focus on the general election.&lt;/p&gt;
 
 &lt;figure class=&quot;image&quot;&gt;&lt;img src=&quot;/assets/hillary.png&quot; alt=&quot;&quot; /&gt;&lt;/figure&gt;
+
+&lt;p&gt;I doubt any of this data is very predicitive of election outcomes, but it definitely seems to be related to current polling trends. Either way, it’s pretty interesting to look at. I might make these plots for some of the other debates to see how these relationships change over time.&lt;/p&gt;
 
 &lt;style&gt;
 
