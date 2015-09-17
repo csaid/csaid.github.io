@@ -7,7 +7,7 @@ In last night's Republican presidential debate, the CNN moderators tried very ha
 
 While CNN wanted to generate controversy, the disputes it tried to initiate were not necessarily the disputes that the candidates strategically wanted to have. To get a better sense for this, I tallied up two things:
 
-1. **Moderator Prompts**. These were episodes where the moderators attempted to generate a dispute between two candidates.
+1. **Moderator Prompts**. These were episodes where the moderators prompted one candidate to challenge another.
 2. **Real Challenges**. These were episodes where either (a) the prompted candidate took the bait and attacked the other candidate or (b) a candidate launched an unprompted attack on another candidate. I did not include episodes where a prompted candidate acknowledged a disagreement with another candidate in a nonconfrontational way.
 
 The results are below. In the first graph, an arrow from one candidate to another indicates that the moderator asked the first candidate to challenge the second. The next graph shows real challenges. In both graphs, the boldness of the curve indicates how many times the event occurred.
