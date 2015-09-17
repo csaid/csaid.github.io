@@ -4,7 +4,7 @@
  <title>The File Drawer</title>
  <link href="http://www.twitter.com/Chris_Said/atom.xml" rel="self"/>
  <link href="http://www.twitter.com/Chris_Said/"/>
- <updated>2015-09-17T00:37:27-07:00</updated>
+ <updated>2015-09-17T00:44:10-07:00</updated>
  <id>http://www.twitter.com/Chris_Said</id>
  <author>
    <name>Chris Said</name>
@@ -13,7 +13,7 @@
 
  
  <entry>
-   <title>The debate CNN wanted and the debate the candidates wanted.</title>
+   <title>The debate CNN wanted and the debate the candidates wanted</title>
    <link href="http://www.twitter.com/Chris_Said/2015/09/13/presidential-debates/"/>
    <updated>2015-09-13T00:00:00-07:00</updated>
    <id>http://www.twitter.com/Chris_Said/2015/09/13/presidential-debates</id>
@@ -23,7 +23,7 @@
 
 &lt;ol&gt;
   &lt;li&gt;&lt;strong&gt;Moderator Prompts&lt;/strong&gt;. These were episodes where the moderators attempted to generate a dispute between two candidates.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Direct challenges&lt;/strong&gt;. These were episodes where either (a) the prompted candidate took the bait and attacked the other candidate or (b) a candidate launched an unprompted attack on another candidate. I did not include episodes where a prompted candidate acknowledged a disagreement with another candidate in a nonconfrontational way.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Real Challenges&lt;/strong&gt;. These were episodes where either (a) the prompted candidate took the bait and attacked the other candidate or (b) a candidate launched an unprompted attack on another candidate. I did not include episodes where a prompted candidate acknowledged a disagreement with another candidate in a nonconfrontational way.&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;p&gt;The results are below. In the first graph, an arrow from one candidate to another indicates that the moderator asked the first candidate to challenge the second. The second graph shows real challenges. In both graphs, the boldness of the curve represents a count.&lt;/p&gt;
@@ -38,7 +38,7 @@
 &lt;p&gt;Some observations:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;The graph of Moderator Prompts is much denser than the graph of Direct Challenges. As was clear to anyone watching the debate, the moderators wanted to generate more controversy than the candidates wanted.&lt;/li&gt;
+  &lt;li&gt;The graph of Moderator Prompts is much denser than the graph of Real Challenges. As was clear to anyone watching the debate, the moderators wanted to generate more controversy than the candidates wanted.&lt;/li&gt;
   &lt;li&gt;Most of the real action in the second graph was in the Trump-Bush-Paul Triangle of Controversy.&lt;/li&gt;
   &lt;li&gt;The moderators tried to prompt several challenges to Ben Carson but nobody took the bait. Conversely, the moderators paid relatively little attention to Rand Paul, and yet he was part of several real disputes.&lt;/li&gt;
   &lt;li&gt;As a surprise to no one, the interests of Donald Trump and CNN are pretty well aligned. There is high density around him in both graphs.&lt;/li&gt;
@@ -283,7 +283,7 @@ function makeGraph(links, nodes, id, interactionType) {
 
 
 makeGraph(mod_links, mod_nodes, &quot;debate_graph1&quot;, &quot;Moderator Prompts&quot;);
-makeGraph(challenge_links, challenge_nodes, &quot;debate_graph2&quot;, &quot;Direct Challenges&quot;);
+makeGraph(challenge_links, challenge_nodes, &quot;debate_graph2&quot;, &quot;Real Challenges&quot;);
 
 &lt;/script&gt;
 

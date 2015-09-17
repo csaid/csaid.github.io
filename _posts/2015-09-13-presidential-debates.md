@@ -1,6 +1,6 @@
 ---
 layout: post
-title: The debate CNN wanted and the debate the candidates wanted.
+title: The debate CNN wanted and the debate the candidates wanted
 ---
 
 In last night's Republican presidential debate, the CNN moderators tried very hard to pit individual candidates against each other. Pretty much every question was along the lines of: "Candidate A, what do you think about Candidate B's attacks on you?"
@@ -8,7 +8,7 @@ In last night's Republican presidential debate, the CNN moderators tried very ha
 While CNN wanted to generate controversy, the disputes it tried to initiate were not necessarily the disputes that the candidates strategically wanted to have. To get a better sense for this, I tallied up two things:
 
 1. **Moderator Prompts**. These were episodes where the moderators attempted to generate a dispute between two candidates.
-2. **Direct challenges**. These were episodes where either (a) the prompted candidate took the bait and attacked the other candidate or (b) a candidate launched an unprompted attack on another candidate. I did not include episodes where a prompted candidate acknowledged a disagreement with another candidate in a nonconfrontational way.
+2. **Real Challenges**. These were episodes where either (a) the prompted candidate took the bait and attacked the other candidate or (b) a candidate launched an unprompted attack on another candidate. I did not include episodes where a prompted candidate acknowledged a disagreement with another candidate in a nonconfrontational way.
 
 The results are below. In the first graph, an arrow from one candidate to another indicates that the moderator asked the first candidate to challenge the second. The second graph shows real challenges. In both graphs, the boldness of the curve represents a count.
 
@@ -22,7 +22,7 @@ The results are below. In the first graph, an arrow from one candidate to anothe
 
 Some observations:
 
-* The graph of Moderator Prompts is much denser than the graph of Direct Challenges. As was clear to anyone watching the debate, the moderators wanted to generate more controversy than the candidates wanted.
+* The graph of Moderator Prompts is much denser than the graph of Real Challenges. As was clear to anyone watching the debate, the moderators wanted to generate more controversy than the candidates wanted.
 * Most of the real action in the second graph was in the Trump-Bush-Paul Triangle of Controversy.
 * The moderators tried to prompt several challenges to Ben Carson but nobody took the bait. Conversely, the moderators paid relatively little attention to Rand Paul, and yet he was part of several real disputes.
 * As a surprise to no one, the interests of Donald Trump and CNN are pretty well aligned. There is high density around him in both graphs.
@@ -265,7 +265,7 @@ function makeGraph(links, nodes, id, interactionType) {
 
 
 makeGraph(mod_links, mod_nodes, "debate_graph1", "Moderator Prompts");
-makeGraph(challenge_links, challenge_nodes, "debate_graph2", "Direct Challenges");
+makeGraph(challenge_links, challenge_nodes, "debate_graph2", "Real Challenges");
 
 </script>
 
