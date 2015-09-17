@@ -4,7 +4,7 @@
  <title>The File Drawer</title>
  <link href="http://www.twitter.com/Chris_Said/atom.xml" rel="self"/>
  <link href="http://www.twitter.com/Chris_Said/"/>
- <updated>2015-09-17T07:15:44-07:00</updated>
+ <updated>2015-09-17T08:58:09-07:00</updated>
  <id>http://www.twitter.com/Chris_Said</id>
  <author>
    <name>Chris Said</name>
@@ -41,7 +41,7 @@
   &lt;li&gt;The graph of Moderator Prompts is much denser than the graph of Real Challenges. As was clear to anyone watching the debate, the moderators wanted to generate more controversy than the candidates wanted.&lt;/li&gt;
   &lt;li&gt;Most of the real action in the second graph was in the Trump-Bush-Paul Triangle of Controversy.&lt;/li&gt;
   &lt;li&gt;The moderators tried to prompt several challenges to Ben Carson but nobody took the bait. Conversely, the moderators paid relatively little attention to Rand Paul, and yet he was part of several real disputes.&lt;/li&gt;
-  &lt;li&gt;A lot of activity is directed towards Donald Trump in both graphs.&lt;/li&gt;
+  &lt;li&gt;A lot of activity was around Donald Trump. At least this time around, most of the attacks were inbound, not outbound.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;It’s also interesting to look at how many times each of the candidates challenged Hillary Clinton, who was not on the stage. Jeb Bush mentioned her on five separate occassions, whereas Donald Trump never mentioned her at all. It’s just a few data points, but it’s consistent with Jeb’s larger focus on the general election.&lt;/p&gt;
@@ -49,6 +49,8 @@
 &lt;figure class=&quot;image&quot;&gt;&lt;img src=&quot;/assets/hillary.png&quot; alt=&quot;&quot; /&gt;&lt;/figure&gt;
 
 &lt;p&gt;I doubt any of this data is very predicitive of election outcomes, but it definitely seems to be related to current polling trends. Either way, it’s pretty interesting to look at. I might make these plots for some of the other debates to see how these relationships change over time.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Update:&lt;/strong&gt; Coincidentally, the New York Times just released a &lt;a href=&quot;http://www.nytimes.com/interactive/2015/09/17/us/politics/gop-debate-trump-attacks-speaking-time.html&quot;&gt;similar analysis with similar graphics&lt;/a&gt;. For the most part, their conclusions were similar to mine, although it looks like they counted more attacks on Donald Trump than I did.&lt;/p&gt;
 
 &lt;style&gt;
 

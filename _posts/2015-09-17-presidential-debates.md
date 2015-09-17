@@ -33,6 +33,8 @@ It's also interesting to look at how many times each of the candidates challenge
 
 I doubt any of this data is very predicitive of election outcomes, but it definitely seems to be related to current polling trends. Either way, it's pretty interesting to look at. I might make these plots for some of the other debates to see how these relationships change over time.
 
+**Update:** Coincidentally, the New York Times just released a [similar analysis with similar graphics](http://www.nytimes.com/interactive/2015/09/17/us/politics/gop-debate-trump-attacks-speaking-time.html). For the most part, their conclusions were similar to mine, although it looks like they counted more attacks on Donald Trump than I did.
+
 <style>
 
 .debate_link {
