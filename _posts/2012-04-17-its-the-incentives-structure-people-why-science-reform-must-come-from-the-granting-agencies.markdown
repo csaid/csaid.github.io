@@ -6,7 +6,7 @@ layout: post
 slug: its-the-incentives-structure-people-why-science-reform-must-come-from-the-granting-agencies
 title: It’s the incentive structure, people! Why science reform must come from the
   granting agencies.
-wordpress_id: 3
+
 ---
 
 Another day, another _New York Times_ [report](http://www.nytimes.com/2012/04/17/science/rise-in-scientific-journal-retractions-prompts-calls-for-reform.html?pagewanted=1&_r=2) on bad practice in biomedical science. The growing problems with scientific research are by now well known: Many results in the top journals are cherry picked, methodological weaknesses and other important caveats are often swept under the rug, and a large fraction of findings cannot be replicated. In some rare cases, there is even outright fraud. This waste of resources is unfair to the general public that pays for most of the research.
