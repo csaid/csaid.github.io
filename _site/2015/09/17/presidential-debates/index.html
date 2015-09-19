@@ -128,7 +128,6 @@
   stroke: #3AC3F2;
 }
 
-
 .debate_tooltip {
     border-radius: 5px;
     background: #ccc;
@@ -148,6 +147,15 @@ circle {
   stroke: #fff;
   stroke-width: 1.5px;
 }
+
+path.unselected {
+  opacity: 0.1;
+}
+
+circle.unselected {
+  fill: #ED86C5;
+}
+
 
 text {
   font: 10px sans-serif;
@@ -269,6 +277,8 @@ function makeGraph(links, nodes, id, interactionType) {
     return "translate(" + d.x + "," + d.y + ")";
   }
 
+  // Mark each node with chart id
+  nodes.forEach(function(d) {d.id=id});
 
   // Compute the distinct nodes from the links.
   links.forEach(function(link) {
@@ -328,12 +338,27 @@ function makeGraph(links, nodes, id, interactionType) {
           (d3.event.pageY-10)+"px").style("left",(d3.event.pageX+10)+"px");})
       .on("mouseout", function(){return tooltip.style("visibility", "hidden");});
 
+  function nodeMouseOver(node) {
+    d3.selectAll("#" + node.id + " circle")
+      .classed("unselected", function(d) { return d != node;});
+    d3.selectAll("#" + node.id + " .debate_link")
+      .classed("unselected", function(d) {return d.source != node;});
+  }
 
+  function nodeMouseOut(node) {
+    d3.selectAll("#" + node.id + " circle")
+      .classed("unselected", false);
+    d3.selectAll("#" + node.id + " .debate_link")
+      .classed("unselected", false);
+  }
+  // "g" is to SVG as "div" is to HTML
   var circle = svg.append("g").selectAll("circle")
       .data(force.nodes())
     .enter().append("circle")
       .attr("r", 8)
-      .call(force.drag);
+      .call(force.drag)
+      .on("mouseover", nodeMouseOver)
+      .on("mouseout", nodeMouseOut);
 
 
   var text = svg.append("g").selectAll("text")
