@@ -7,6 +7,7 @@ slug: independent-t-tests-and-the-83-confidence-interval-a-useful-trick-for-eyeb
 title: 'Independent t-tests and the 83% confidence interval: A useful trick for eyeballing
   your data.'
 wordpress_id: 356
+disqus_identifier: 356 http://filedrawer.wordpress.com/?p=356
 ---
 
 Like most people who have analyzed data using frequentist statistics, I have often found myself staring at error bars and trying to guess whether my results are significant. When comparing two independent sample means, this practice is confusing and difficult. The conventions that we use for testing differences between sample means are not aligned with the conventions we use for plotting error bars. As a result, it’s fair to say that there’s a lot of confusion about this issue.
