@@ -51,6 +51,24 @@ html {
   margin: auto;
 }
 
+
+/* The next two classes are a good way to center a div. Just put the .inner div inside the .wrapper div */
+/*cps*/
+.wrapper {
+  text-align: center;
+}
+
+/*cps*/
+.inner {
+  display: inline-block;
+}
+
+/*cps*/
+.contact-button {
+  padding-left: .3rem;
+  padding-right: .3rem;
+}
+
 /*cps*/
 figcaption {
   font-size: .8rem;
@@ -68,8 +86,8 @@ figcaption {
 .sidebar {
   text-align: center;
   padding: 2rem 1rem;
-  color: rgba(255,255,255,.5);
-  background-color: #777;
+  color: rgba(255,255,255,.6);
+  background-color: #888;
   font-size: 0.8rem;
 }
 @media (min-width: 48em) {
