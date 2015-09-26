@@ -28,6 +28,7 @@ github:
 
 
 pages_list:
+  Home: '/'
   Archive: '/archive'
   Feed: '/atom.xml'
 

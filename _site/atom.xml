@@ -4,7 +4,7 @@
  <title>The File Drawer</title>
  <link href="http://www.chris-said.io/atom.xml" rel="self"/>
  <link href="http://www.chris-said.io/"/>
- <updated>2015-09-26T11:13:50-07:00</updated>
+ <updated>2015-09-26T13:31:07-07:00</updated>
  <id>http://www.chris-said.io</id>
  <author>
    <name>Chris Said</name>
@@ -316,6 +316,21 @@ makeGraph(challenge_links, challenge_nodes, &quot;debate_graph2&quot;, &quot;Rea
 
 &lt;/script&gt;
 
+</content>
+ </entry>
+ 
+ <entry>
+   <title>New Blog Address</title>
+   <link href="http://www.chris-said.io/2015/09/16/new-blog-address/"/>
+   <updated>2015-09-16T00:00:00-07:00</updated>
+   <id>http://www.chris-said.io/2015/09/16/new-blog-address</id>
+   <content type="html">&lt;p&gt;Welcome to the new location for The File Drawer! This blog is now hosted on &lt;a href=&quot;https://pages.github.com/&quot;&gt;Github Pages&lt;/a&gt; and powered by &lt;a href=&quot;https://jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt;. My old blog at &lt;a href=&quot;http://filedrawer.wordpress.com&quot;&gt;filedrawer.wordpress.com&lt;/a&gt; will be shutting down soon.&lt;/p&gt;
+
+&lt;p&gt;I actually really liked WordPress, but I wanted to have a little bit more control over what I can put in my posts. In particular, I wanted to be able to insert my own JavaScript animations, for example in &lt;a href=&quot;http://chris-said.io/2015/09/17/presidential-debates/&quot;&gt;this post&lt;/a&gt; on the recent presidential debates.&lt;/p&gt;
+
+&lt;p&gt;It was pretty fun to migrate everything over from WordPress – which is not to say there weren’t some hiccups along the way – but I was able to do so by following some nice instructions in &lt;a href=&quot;http://joshualande.com/jekyll-github-pages-poole/&quot;&gt;this post by Joshua Lande&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;For those of you using RSS, the feed for &lt;a href=&quot;http://chris-said.io/&quot;&gt;www.chris-said.io&lt;/a&gt; should be searchable in your RSS readers, but please let me know if it’s not.&lt;/p&gt;
 </content>
  </entry>
  
