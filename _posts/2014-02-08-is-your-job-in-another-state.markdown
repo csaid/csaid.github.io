@@ -5,6 +5,7 @@ date: 2014-02-08 22:49:08+00:00
 layout: post
 slug: is-your-job-in-another-state
 title: Is your job in another state?
+disqus_identifier: 239 http://filedrawer.wordpress.com/?p=239
 ---
 
 National unemployment is high, but business is booming in some states. Vermont needs teachers. Nevada needs bartenders. North Dakota needs truck drivers and just about everything else.

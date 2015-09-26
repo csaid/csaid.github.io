@@ -6,6 +6,7 @@ layout: post
 slug: my-insight-data-science-project
 title: My Insight Data Science Project
 wordpress_id: 206
+disqus_identifier: 206 http://filedrawer.wordpress.com/?p=206
 ---
 
 I just finished an excellent fellowship at [Insight Data Science](http://insightdatascience.com/). During our first few weeks there, each of us designed a website to demo at Insight’s sponsor companies. My website is called [DealSpotter](http://www.dealspotter.info).

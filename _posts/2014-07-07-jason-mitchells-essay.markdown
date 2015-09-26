@@ -6,6 +6,7 @@ layout: post
 slug: jason-mitchells-essay
 title: Jason Mitchell's essay
 wordpress_id: 273
+disqus_identifier: 273 http://filedrawer.wordpress.com/?p=273
 ---
 
 As of yesterday I thought the debate about replication in psychology was converging on consensus in at least one respect. While there was still some disagreement about tone, [basically](http://www.spspblog.org/simone-schnall-on-her-experience-with-a-registered-replication-project/) [everyone](http://www.talyarkoni.org/blog/2013/03/12/the-truth-is-not-optional-five-bad-reasons-and-one-mediocre-one-for-defending-the-status-quo/) agreed that there was value in failed replications. But then this morning, Jason Mitchell posted [this essay](http://wjh.harvard.edu/~jmitchel/writing/failed_science.htm), in which he describes his belief that failed replication attempts can contain errors and therefore “cannot contribute to a cumulative understanding of scientific phenomena”. It’s hard to know where to begin when someone comes from a worldview so different from one's own. Since there's clearly a communication problem here, I’ll just give two examples to illustrate how I think about science.

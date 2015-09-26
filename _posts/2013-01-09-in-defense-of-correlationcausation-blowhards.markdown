@@ -6,6 +6,7 @@ layout: post
 slug: in-defense-of-correlationcausation-blowhards
 title: In defense of correlation/causation blowhards
 wordpress_id: 143
+disqus_identifier: 143 http://filedrawer.wordpress.com/?p=143
 ---
 
 Let’s get one thing out of the way first: There is not a single scientist or science journalist who doesn’t know that correlation does not equal causation. Most have probably known it since high school.

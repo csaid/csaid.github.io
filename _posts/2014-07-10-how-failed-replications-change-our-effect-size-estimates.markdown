@@ -6,6 +6,7 @@ layout: post
 slug: how-failed-replications-change-our-effect-size-estimates
 title: How failed replications change our effect size estimates
 wordpress_id: 294
+disqus_identifer: 294 http://filedrawer.wordpress.com/?p=294
 ---
 
 Yesterday I posted a very unscientific [survey](https://www.surveymonkey.com/s/H7NM96W) asking researchers to describe how failed replications changed their subjective estimates of effect sizes. The main survey asked for “ballpark estimates” of effect sizes, but an [alternative interactive version](http://csaid.shinyapps.io/survey/) allowed researchers to also report their uncertainty by specifying both the mean and variance of their posterior distributions. Thanks to everyone who participated. I won’t be analyzing any new data after this, but it’s never too late to publicly share your estimates!

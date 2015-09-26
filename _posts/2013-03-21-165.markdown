@@ -6,6 +6,7 @@ layout: post
 slug: '165'
 title: Canadian funding models for all
 wordpress_id: 165
+disqus_identifier: 165 http://filedrawer.wordpress.com/?p=165
 ---
 
 The US and Canada have very different systems for funding science. To compare them, I found some of the publicly available data on [NIH R01s](http://report.nih.gov/success_rates/Success_ByIC.cfm) (USA) and [NSERC Individual Discovery Grants](http://www.nserc-crsng.gc.ca/_doc/Funding-Financement/DGStat2012-SDStat2012_eng.pdf) (Canada), and plotted them below. Before describing the results, I should say that comparing NIH to NSERC is a bit like comparing apples to oranges, since NSERC is probably closer to the NSF than to the NIH. Nevertheless, the cross-country trends hold up across agencies, and in any case my goal is not to compare countries (as much as I would like to) but to compare funding models.

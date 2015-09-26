@@ -6,6 +6,7 @@ layout: post
 slug: which-famous-economist
 title: FAQ for www.whichfamouseconomistareyoumostsimilarto.com
 wordpress_id: 192
+disqus_identifier: 192 http://filedrawer.wordpress.com/?p=192
 ---
 
 I made a new webpage, http://www.whichfamouseconomistareyoumostsimilarto.com

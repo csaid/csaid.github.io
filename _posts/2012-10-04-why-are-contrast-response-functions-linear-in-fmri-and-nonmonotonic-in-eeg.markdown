@@ -6,6 +6,7 @@ layout: post
 slug: why-are-contrast-response-functions-linear-in-fmri-and-nonmonotonic-in-eeg
 title: Why are contrast response functions linear in fMRI and nonmonotonic in EEG?
 wordpress_id: 82
+disqus_identifier: 82 http://filedrawer.wordpress.com/?p=82
 ---
 
 Contrast response functions (CRFs) describe how a neuron’s firing rate depends on the contrast, or intensity, of a visual stimulus. CRFs are really important for testing theories about how the visual system works, and I’ve spent a lot of time over the past few years trying to indirectly measure them in humans, using EEG and fMRI. The problem, however, is that EEG and fMRI give me very different CRFs.

@@ -6,6 +6,7 @@ layout: post
 slug: national-labs-for-all-the-sciences
 title: National labs for all the sciences
 wordpress_id: 67
+disqus_identifier: 67 http://filedrawer.wordpress.com/?p=67
 ---
 
 Harvard, MIT, Stanford, and several other elite universities have all recently [announced](http://www.nytimes.com/2012/05/03/education/harvard-and-mit-team-up-to-offer-free-online-courses.html) that they will be be offering free online courses. The courses will be massively open, taught by star professors, and supplemented with video lessons, embedded testing, and realtime feedback. This is surely good news for students who might not be able to access these resources otherwise, and it is an overall positive development for education. But what are the implications for scientists who conduct research in universities? And how will these developments affect the progress of scientific research?
