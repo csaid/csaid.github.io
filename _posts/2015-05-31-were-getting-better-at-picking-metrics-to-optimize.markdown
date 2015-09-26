@@ -8,7 +8,7 @@ title: Across industries, we’re getting better at picking metrics
 wordpress_id: 465
 ---
 
-Everywhere I look, I see people optimizing bad metrics. Sometimes people optimize metrics that aren’t in their self interest, like when startups focus entirely on signup counts while forgetting about retention rates. In other cases, people optimize metrics that serve their immediate short term interest but which are bad for social welfare, like when California corrections officers [lobby for longer prison sentences](http://mic.com/articles/41531/union-of-the-snake-how-california-s-prison-guards-subvert-democracy).
+Everywhere you look, people are optimizing bad metrics. Sometimes people optimize metrics that aren’t in their self interest, like when startups focus entirely on signup counts while forgetting about retention rates. In other cases, people optimize metrics that serve their immediate short term interest but which are bad for social welfare, like when California corrections officers [lobby for longer prison sentences](http://mic.com/articles/41531/union-of-the-snake-how-california-s-prison-guards-subvert-democracy).
 
 
 
