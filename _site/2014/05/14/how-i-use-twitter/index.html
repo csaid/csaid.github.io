@@ -97,6 +97,17 @@
 
 <p>That’s it. Follow opinionated strangers who tweet about topics you are interested in. Maybe you have a different approach that works well for you. But if you are still trying to figure out the incredible appeal of Twitter, you might want to give my approach a shot.</p>
 
+  <div>
+    <a class="twitter-share-button"
+      href="https://twitter.com/share"
+      data-url=""
+      data-via="Chris_Said"
+      data-size="large"
+      data-count="none">
+    Tweet
+    </a>
+</div>
+
   <div id="disqus_thread"></div>
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
@@ -170,3 +181,21 @@ MathJax.Hub.Config({
 });
 </script>
 <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+
+
+<script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));</script>
