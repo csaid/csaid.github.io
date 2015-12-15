@@ -11,7 +11,7 @@ disqus_identifier: 192 http://filedrawer.wordpress.com/?p=192
 
 I made a new webpage: [http://www.whichfamouseconomistareyoumostsimilarto.com](http://www.whichfamouseconomistareyoumostsimilarto.com/)
 
-Here's an FAQ for it.
+Here's an FAQ for it *[updated on December 14th, 2015]*.
 
 **Q.** What is this and why did you make it?
 
