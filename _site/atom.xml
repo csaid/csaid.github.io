@@ -4,7 +4,7 @@
  <title>The File Drawer</title>
  <link href="http://www.chris-said.io/atom.xml" rel="self"/>
  <link href="http://www.chris-said.io/"/>
- <updated>2015-09-26T18:34:18-07:00</updated>
+ <updated>2015-12-14T22:08:30-08:00</updated>
  <id>http://www.chris-said.io</id>
  <author>
    <name>Chris Said</name>
@@ -670,7 +670,7 @@ States are ranked by their &lt;a href=&quot;https://www.fas.org/sgp/crs/misc/R42
  </entry>
  
  <entry>
-   <title>FAQ for www.whichfamouseconomistareyoumostsimilarto.com</title>
+   <title>FAQ for Which Famous Economist</title>
    <link href="http://www.chris-said.io/2013/08/19/which-famous-economist/"/>
    <updated>2013-08-19T11:44:46-07:00</updated>
    <id>http://www.chris-said.io/2013/08/19/which-famous-economist</id>
@@ -711,6 +711,10 @@ States are ranked by their &lt;a href=&quot;https://www.fas.org/sgp/crs/misc/R42
 &lt;p&gt;&lt;strong&gt;Q.&lt;/strong&gt; Why were some IGM panel economists excluded from your webpage?&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;A.&lt;/strong&gt; Economists who answered less than 75% of the questions were excluded.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Q.&lt;/strong&gt; Has there been any academic study on the responses to the IGM poll questions?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;A.&lt;/strong&gt; Yes, the responses to the IGM poll have been analyzed in a &lt;a href=&quot;http://faculty.chicagobooth.edu/luigi.zingales/papers/research/Economic-Experts-vs-Average-Americans.pdf&quot;&gt;paper&lt;/a&gt; by Paola Sapienza and Luigi Zingales. The paper, along with other analyses of the polls, was &lt;a href=&quot;http://www.aeaweb.org/webcasts/2013/kashyap/&quot;&gt;discussed&lt;/a&gt; during the 2013 American Economic Association annual meeting.&lt;/p&gt;
 </content>
  </entry>
  

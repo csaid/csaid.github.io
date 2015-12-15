@@ -4,7 +4,7 @@ comments: true
 date: 2013-08-19 18:44:46+00:00
 layout: post
 slug: which-famous-economist
-title: FAQ for www.whichfamouseconomistareyoumostsimilarto.com
+title: FAQ for Which Famous Economist
 wordpress_id: 192
 disqus_identifier: 192 http://filedrawer.wordpress.com/?p=192
 ---
@@ -46,3 +46,7 @@ The [IGM Forum](http://www.igmchicago.org/igm-economic-experts-panel) surveys an
 **Q.** Why were some IGM panel economists excluded from your webpage?
 
 **A.** Economists who answered less than 75% of the questions were excluded.
+
+**Q.** Has there been any academic study on the responses to the IGM poll questions?
+
+**A.** Yes, the responses to the IGM poll have been analyzed in a [paper](http://faculty.chicagobooth.edu/luigi.zingales/papers/research/Economic-Experts-vs-Average-Americans.pdf) by Paola Sapienza and Luigi Zingales. The paper, along with other analyses of the polls, was [discussed](http://www.aeaweb.org/webcasts/2013/kashyap/) during the 2013 American Economic Association annual meeting.
