@@ -9,9 +9,11 @@ wordpress_id: 192
 disqus_identifier: 192 http://filedrawer.wordpress.com/?p=192
 ---
 
+**[Continuously updated. Last update December 14th, 2015]**
+
 I made a new webpage: [http://www.whichfamouseconomistareyoumostsimilarto.com](http://www.whichfamouseconomistareyoumostsimilarto.com/)
 
-Here's an FAQ for it *[updated on December 14th, 2015]*.
+Here's an FAQ for it.
 
 **Q.** What is this and why did you make it?
 
