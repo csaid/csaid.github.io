@@ -4,7 +4,7 @@
  <title>The File Drawer</title>
  <link href="http://www.chris-said.io/atom.xml" rel="self"/>
  <link href="http://www.chris-said.io/"/>
- <updated>2015-12-14T22:08:30-08:00</updated>
+ <updated>2015-12-15T10:05:00-08:00</updated>
  <id>http://www.chris-said.io</id>
  <author>
    <name>Chris Said</name>
@@ -674,7 +674,7 @@ States are ranked by their &lt;a href=&quot;https://www.fas.org/sgp/crs/misc/R42
    <link href="http://www.chris-said.io/2013/08/19/which-famous-economist/"/>
    <updated>2013-08-19T11:44:46-07:00</updated>
    <id>http://www.chris-said.io/2013/08/19/which-famous-economist</id>
-   <content type="html">&lt;p&gt;I made a new webpage, http://www.whichfamouseconomistareyoumostsimilarto.com&lt;/p&gt;
+   <content type="html">&lt;p&gt;I made a new webpage: &lt;a href=&quot;http://www.whichfamouseconomistareyoumostsimilarto.com/&quot;&gt;http://www.whichfamouseconomistareyoumostsimilarto.com&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Here’s an FAQ for it.&lt;/p&gt;
 
@@ -686,7 +686,7 @@ States are ranked by their &lt;a href=&quot;https://www.fas.org/sgp/crs/misc/R42
 
 &lt;p&gt;&lt;strong&gt;Q.&lt;/strong&gt; Why is the economist closest to me on the graph different from the economist who actually is closest to me, according to the text below the graph?&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;A.&lt;/strong&gt; Each economist can be thought of as a point in a massive 105 dimensional space, and unfortunately it’s only possible to display 2 dimensions. While you may appear close to an economist on those 2 dimensions, you may be far apart on the 103 other dimensions that you can’t see.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;A.&lt;/strong&gt; Each economist can be thought of as a point in a 30 dimensional space, where each dimension corresponds to a question, and unfortunately it’s only possible to display 2 dimensions. While you may appear close to an economist on those 2 dimensions, you may be far apart on the 28 other dimensions that you can’t see.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Q.&lt;/strong&gt; I don’t have the expertise to answer some of these questions. Should I leave them blank or should I click “Neutral”?&lt;/p&gt;
 
@@ -700,7 +700,7 @@ States are ranked by their &lt;a href=&quot;https://www.fas.org/sgp/crs/misc/R42
 
 &lt;p&gt;&lt;strong&gt;A.&lt;/strong&gt; It means that your response deviated more that two standard deviations from the IGM panel average.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Q.&lt;/strong&gt; I just answered a question the exact same way as Economist X. But my position on the graph moved _away _from him/her. Why?&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Q.&lt;/strong&gt; I just answered a question the exact same way as Economist X. But my position on the graph moved &lt;em&gt;away&lt;/em&gt; from him/her. Why?&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;A.&lt;/strong&gt; This is a natural consequence of projecting multiple dimensions onto two dimensions. To see why, take a cube-shaped object and trace your finger along the edges from one corner to the opposite corner. Viewed from some angles, your finger might sometimes appear to move away from the destination corner.&lt;/p&gt;
 

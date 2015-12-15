@@ -9,7 +9,7 @@ wordpress_id: 192
 disqus_identifier: 192 http://filedrawer.wordpress.com/?p=192
 ---
 
-I made a new webpage, http://www.whichfamouseconomistareyoumostsimilarto.com
+I made a new webpage: [http://www.whichfamouseconomistareyoumostsimilarto.com](http://www.whichfamouseconomistareyoumostsimilarto.com/)
 
 Here's an FAQ for it.
 
@@ -21,7 +21,7 @@ The [IGM Forum](http://www.igmchicago.org/igm-economic-experts-panel) surveys an
 
 **Q.** Why is the economist closest to me on the graph different from the economist who actually is closest to me, according to the text below the graph?
 
-**A.** Each economist can be thought of as a point in a massive 105 dimensional space, and unfortunately it’s only possible to display 2 dimensions. While you may appear close to an economist on those 2 dimensions, you may be far apart on the 103 other dimensions that you can’t see.
+**A.** Each economist can be thought of as a point in a 30 dimensional space, where each dimension corresponds to a question, and unfortunately it’s only possible to display 2 dimensions. While you may appear close to an economist on those 2 dimensions, you may be far apart on the 28 other dimensions that you can’t see.
 
 **Q.** I don’t have the expertise to answer some of these questions. Should I leave them blank or should I click “Neutral”?
 
@@ -35,7 +35,7 @@ The [IGM Forum](http://www.igmchicago.org/igm-economic-experts-panel) surveys an
 
 **A.** It means that your response deviated more that two standard deviations from the IGM panel average.
 
-**Q.** I just answered a question the exact same way as Economist X. But my position on the graph moved _away _from him/her. Why?
+**Q.** I just answered a question the exact same way as Economist X. But my position on the graph moved *away* from him/her. Why?
 
 **A.** This is a natural consequence of projecting multiple dimensions onto two dimensions. To see why, take a cube-shaped object and trace your finger along the edges from one corner to the opposite corner. Viewed from some angles, your finger might sometimes appear to move away from the destination corner.
 
