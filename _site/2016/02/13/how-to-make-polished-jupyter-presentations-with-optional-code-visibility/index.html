@@ -103,7 +103,7 @@
     </div>
 </div>
 
-<p>To make the code optionally visible, available at the click of a button, include a raw cell at the beginning of your notebook containing the JavaScript and HTML below. This code sample is inspired by <a href="http://stackoverflow.com/questions/27934885/how-to-hide-code-from-cells-in-ipython-notebook-visualized-with-nbviewer">this Stack Overflow post</a>, but makes a few improvements such as using a raw cell so that the button position stays fixed, changing the button text depending on state, and displaying gradual transitions so the user understands what is happening.</p>
+<p>To make the code optionally visible, available at the click of a button, include a raw cell at the beginning of your notebook containing the JavaScript and HTML below. This code sample is inspired by a <a href="http://stackoverflow.com/questions/27934885/how-to-hide-code-from-cells-in-ipython-notebook-visualized-with-nbviewer">Stack Overflow post</a>, but makes a few improvements such as using a raw cell so that the button position stays fixed, changing the button text depending on state, and displaying gradual transitions so the user understands what is happening.</p>
 
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;script&gt;</span>
   <span class="kd">function</span> <span class="nx">code_toggle</span><span class="p">()</span> <span class="p">{</span>
@@ -124,7 +124,7 @@
 <span class="nt">&lt;/script&gt;</span>
 <span class="nt">&lt;form</span> <span class="na">action=</span><span class="s">&quot;javascript:code_toggle()&quot;</span><span class="nt">&gt;&lt;input</span> <span class="na">type=</span><span class="s">&quot;submit&quot;</span> <span class="na">id=</span><span class="s">&quot;toggleButton&quot;</span> <span class="na">value=</span><span class="s">&quot;Show Code&quot;</span><span class="nt">&gt;&lt;/form&gt;</span></code></pre></div>
 
-<p>To remove the extra elements, include a raw cell at the end of your notebook with some more JavaScript:</p>
+<p>It’s pretty straightforward to remove the extra elements like the header, footer, and prompt numbers. Just include a raw cell at the end of your notebook with some more JavaScript:</p>
 
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;script&gt;</span>
 <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
@@ -136,7 +136,7 @@
 <span class="p">});</span>
 <span class="nt">&lt;/script&gt;</span></code></pre></div>
 
-<p>One shortcoming with what we have so far is that users may still see some code or other unwanted elements while the page is loading. This can be an especially big problem if you have a long presentation with many plots. To avoid this, add a raw cell at the very top of you notebook containing a preloader. This example pre-loader includes an animation that signals to users that the page is still loading. It heavily inspired by <a href="http://codepen.io/mimoYmima/pen/fisgL">this preloader</a> created by <a href="https://twitter.com/@mimoYmima">@mimoYmima</a>.</p>
+<p>One shortcoming with what we have so far is that users may still see some code or other unwanted elements while the page is loading. This can be especially problematic if you have a long presentation with many plots. To avoid this problem, add a raw cell at the very top of you notebook containing a preloader. This example pre-loader includes an animation that signals to users that the page is still loading. It heavily inspired by <a href="http://codepen.io/mimoYmima/pen/fisgL">this preloader</a> created by <a href="https://twitter.com/@mimoYmima">@mimoYmima</a>.</p>
 
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;script&gt;</span>
   <span class="nx">jQuery</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">$</span><span class="p">)</span> <span class="p">{</span>

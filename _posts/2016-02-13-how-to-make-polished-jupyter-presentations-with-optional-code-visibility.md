@@ -35,8 +35,7 @@ On the left is a typical Jupyter presentation with code and some extra elements.
 </div>
 
 
-
-To make the code optionally visible, available at the click of a button, include a raw cell at the beginning of your notebook containing the JavaScript and HTML below. This code sample is inspired by [this Stack Overflow post](http://stackoverflow.com/questions/27934885/how-to-hide-code-from-cells-in-ipython-notebook-visualized-with-nbviewer), but makes a few improvements such as using a raw cell so that the button position stays fixed, changing the button text depending on state, and displaying gradual transitions so the user understands what is happening.
+To make the code optionally visible, available at the click of a button, include a raw cell at the beginning of your notebook containing the JavaScript and HTML below. This code sample is inspired by a [Stack Overflow post](http://stackoverflow.com/questions/27934885/how-to-hide-code-from-cells-in-ipython-notebook-visualized-with-nbviewer), but makes a few improvements such as using a raw cell so that the button position stays fixed, changing the button text depending on state, and displaying gradual transitions so the user understands what is happening.
 
 {% highlight html %}
 <script>
@@ -59,7 +58,7 @@ To make the code optionally visible, available at the click of a button, include
 <form action="javascript:code_toggle()"><input type="submit" id="toggleButton" value="Show Code"></form>
 {% endhighlight %}
 
-To remove the extra elements, include a raw cell at the end of your notebook with some more JavaScript:
+It's pretty straightforward to remove the extra elements like the header, footer, and prompt numbers. Just include a raw cell at the end of your notebook with some more JavaScript:
 
 {% highlight html %}
 <script>
@@ -73,7 +72,7 @@ $(document).ready(function(){
 </script>
 {% endhighlight %}
 
-One shortcoming with what we have so far is that users may still see some code or other unwanted elements while the page is loading. This can be an especially big problem if you have a long presentation with many plots. To avoid this, add a raw cell at the very top of you notebook containing a preloader. This example pre-loader includes an animation that signals to users that the page is still loading. It heavily inspired by [this preloader](http://codepen.io/mimoYmima/pen/fisgL) created by [@mimoYmima](https://twitter.com/@mimoYmima).
+One shortcoming with what we have so far is that users may still see some code or other unwanted elements while the page is loading. This can be especially problematic if you have a long presentation with many plots. To avoid this problem, add a raw cell at the very top of you notebook containing a preloader. This example pre-loader includes an animation that signals to users that the page is still loading. It heavily inspired by [this preloader](http://codepen.io/mimoYmima/pen/fisgL) created by [@mimoYmima](https://twitter.com/@mimoYmima).
 
 {% highlight html %}
 <script>
