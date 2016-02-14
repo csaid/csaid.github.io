@@ -5,33 +5,17 @@ title: How to make polished Jupyter presentations with optional code visibility
 
 One of the great things about Jupyter notebooks is that they allow you to present reports with figures and code in a single file, making it easier for others to reproduce your results. Sometimes though, you may want to present a cleaner looking report to an audience who may not care about the code. This post shows how to make code visibility optional, and how to remove various Jupyter elements to get a cleaner presentation.
 
-On the left is a typical Jupyter presentation with code and some extra elements. On the right is a more polished version that removes some of the extra elements and makes code visibility optional with a button.
+On the top is a typical Jupyter presentation with code and some extra elements. Below that is a more polished version that removes some of the extra elements and makes code visibility optional with a button.
 
-
-
-<style>
-    div.image_container {
-        position: relative;
-        width: 510px;
-        height: 420px;
-    }
-
-    div.in_container {
-        position: absolute;
-    }
-</style>
-
-<div class="image_container">
-    <div class="in_container" style="position:absolute top:0px; left:0px">
-      <a href = "http://nbviewer.jupyter.org/github/csaid/polished_notebooks/blob/master/notebook_original.ipynb" target="_blank">
-        <img src="/assets/fig_unpolished_small.png" border="2">
-      </a>
-    </div>
-    <div class="in_container" style="position:absolute top:0px; left:260px">
-      <a href = "http://nbviewer.jupyter.org/github/csaid/polished_notebooks/blob/master/notebook_polished.ipynb" target="_blank">
-        <img src="/assets/fig_polished_small.png" border="2">
-      </a>
-    </div>
+<div class="wrapper">
+    <a class="inner" href = "http://nbviewer.jupyter.org/github/csaid/polished_notebooks/blob/master/notebook_polished.ipynb" target="_blank">
+        {% include image_with_border.html url="/assets/fig_unpolished_small.png" %}
+    </a>
+</div>
+<div class="wrapper">
+    <a class="inner" href = "http://nbviewer.jupyter.org/github/csaid/polished_notebooks/blob/master/notebook_original.ipynb" target="_blank">
+        {% include image_with_border.html url="/assets/fig_polished_small.png" %}
+    </a>
 </div>
 
 

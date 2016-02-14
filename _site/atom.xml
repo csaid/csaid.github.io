@@ -4,7 +4,7 @@
  <title>The File Drawer</title>
  <link href="http://www.chris-said.io/atom.xml" rel="self"/>
  <link href="http://www.chris-said.io/"/>
- <updated>2016-02-14T10:27:47-08:00</updated>
+ <updated>2016-02-14T11:16:34-08:00</updated>
  <id>http://www.chris-said.io</id>
  <author>
    <name>Chris Said</name>
@@ -19,31 +19,19 @@
    <id>http://www.chris-said.io/2016/02/13/how-to-make-polished-jupyter-presentations-with-optional-code-visibility</id>
    <content type="html">&lt;p&gt;One of the great things about Jupyter notebooks is that they allow you to present reports with figures and code in a single file, making it easier for others to reproduce your results. Sometimes though, you may want to present a cleaner looking report to an audience who may not care about the code. This post shows how to make code visibility optional, and how to remove various Jupyter elements to get a cleaner presentation.&lt;/p&gt;
 
-&lt;p&gt;On the left is a typical Jupyter presentation with code and some extra elements. On the right is a more polished version that removes some of the extra elements and makes code visibility optional with a button.&lt;/p&gt;
+&lt;p&gt;On the top is a typical Jupyter presentation with code and some extra elements. Below that is a more polished version that removes some of the extra elements and makes code visibility optional with a button.&lt;/p&gt;
 
-&lt;style&gt;
-    div.image_container {
-        position: relative;
-        width: 510px;
-        height: 420px;
-    }
+&lt;div class=&quot;wrapper&quot;&gt;
+    &lt;a class=&quot;inner&quot; href=&quot;http://nbviewer.jupyter.org/github/csaid/polished_notebooks/blob/master/notebook_polished.ipynb&quot; target=&quot;_blank&quot;&gt;
+        &lt;figure class=&quot;image&quot;&gt;&lt;img src=&quot;/assets/fig_unpolished_small.png&quot; alt=&quot;&quot; border=&quot;2px&quot; /&gt;&lt;/figure&gt;
 
-    div.in_container {
-        position: absolute;
-    }
-&lt;/style&gt;
+    &lt;/a&gt;
+&lt;/div&gt;
+&lt;div class=&quot;wrapper&quot;&gt;
+    &lt;a class=&quot;inner&quot; href=&quot;http://nbviewer.jupyter.org/github/csaid/polished_notebooks/blob/master/notebook_original.ipynb&quot; target=&quot;_blank&quot;&gt;
+        &lt;figure class=&quot;image&quot;&gt;&lt;img src=&quot;/assets/fig_polished_small.png&quot; alt=&quot;&quot; border=&quot;2px&quot; /&gt;&lt;/figure&gt;
 
-&lt;div class=&quot;image_container&quot;&gt;
-    &lt;div class=&quot;in_container&quot; style=&quot;position:absolute top:0px; left:0px&quot;&gt;
-      &lt;a href=&quot;http://nbviewer.jupyter.org/github/csaid/polished_notebooks/blob/master/notebook_original.ipynb&quot; target=&quot;_blank&quot;&gt;
-        &lt;img src=&quot;/assets/fig_unpolished_small.png&quot; border=&quot;2&quot; /&gt;
-      &lt;/a&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;in_container&quot; style=&quot;position:absolute top:0px; left:260px&quot;&gt;
-      &lt;a href=&quot;http://nbviewer.jupyter.org/github/csaid/polished_notebooks/blob/master/notebook_polished.ipynb&quot; target=&quot;_blank&quot;&gt;
-        &lt;img src=&quot;/assets/fig_polished_small.png&quot; border=&quot;2&quot; /&gt;
-      &lt;/a&gt;
-    &lt;/div&gt;
+    &lt;/a&gt;
 &lt;/div&gt;
 
 &lt;p&gt;To make the code optionally visible, available at the click of a button, include a raw cell at the beginning of your notebook containing the JavaScript and HTML below. This code sample is inspired by a &lt;a href=&quot;http://stackoverflow.com/questions/27934885/how-to-hide-code-from-cells-in-ipython-notebook-visualized-with-nbviewer&quot;&gt;Stack Overflow post&lt;/a&gt;, but makes a few improvements such as using a raw cell so that the button position stays fixed, changing the button text depending on state, and displaying gradual transitions so the user understands what is happening.&lt;/p&gt;
