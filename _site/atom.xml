@@ -4,7 +4,7 @@
  <title>The File Drawer</title>
  <link href="http://www.chris-said.io/atom.xml" rel="self"/>
  <link href="http://www.chris-said.io/"/>
- <updated>2016-02-14T11:16:34-08:00</updated>
+ <updated>2016-02-14T11:20:41-08:00</updated>
  <id>http://www.chris-said.io</id>
  <author>
    <name>Chris Said</name>
@@ -22,13 +22,13 @@
 &lt;p&gt;On the top is a typical Jupyter presentation with code and some extra elements. Below that is a more polished version that removes some of the extra elements and makes code visibility optional with a button.&lt;/p&gt;
 
 &lt;div class=&quot;wrapper&quot;&gt;
-    &lt;a class=&quot;inner&quot; href=&quot;http://nbviewer.jupyter.org/github/csaid/polished_notebooks/blob/master/notebook_polished.ipynb&quot; target=&quot;_blank&quot;&gt;
+    &lt;a class=&quot;inner&quot; href=&quot;http://nbviewer.jupyter.org/github/csaid/polished_notebooks/blob/master/notebook_original.ipynb&quot; target=&quot;_blank&quot;&gt;
         &lt;figure class=&quot;image&quot;&gt;&lt;img src=&quot;/assets/fig_unpolished_small.png&quot; alt=&quot;&quot; border=&quot;2px&quot; /&gt;&lt;/figure&gt;
 
     &lt;/a&gt;
 &lt;/div&gt;
 &lt;div class=&quot;wrapper&quot;&gt;
-    &lt;a class=&quot;inner&quot; href=&quot;http://nbviewer.jupyter.org/github/csaid/polished_notebooks/blob/master/notebook_original.ipynb&quot; target=&quot;_blank&quot;&gt;
+    &lt;a class=&quot;inner&quot; href=&quot;http://nbviewer.jupyter.org/github/csaid/polished_notebooks/blob/master/notebook_polished.ipynb&quot; target=&quot;_blank&quot;&gt;
         &lt;figure class=&quot;image&quot;&gt;&lt;img src=&quot;/assets/fig_polished_small.png&quot; alt=&quot;&quot; border=&quot;2px&quot; /&gt;&lt;/figure&gt;
 
     &lt;/a&gt;

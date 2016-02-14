@@ -8,12 +8,12 @@ One of the great things about Jupyter notebooks is that they allow you to presen
 On the top is a typical Jupyter presentation with code and some extra elements. Below that is a more polished version that removes some of the extra elements and makes code visibility optional with a button.
 
 <div class="wrapper">
-    <a class="inner" href = "http://nbviewer.jupyter.org/github/csaid/polished_notebooks/blob/master/notebook_polished.ipynb" target="_blank">
+    <a class="inner" href = "http://nbviewer.jupyter.org/github/csaid/polished_notebooks/blob/master/notebook_original.ipynb" target="_blank">
         {% include image_with_border.html url="/assets/fig_unpolished_small.png" %}
     </a>
 </div>
 <div class="wrapper">
-    <a class="inner" href = "http://nbviewer.jupyter.org/github/csaid/polished_notebooks/blob/master/notebook_original.ipynb" target="_blank">
+    <a class="inner" href = "http://nbviewer.jupyter.org/github/csaid/polished_notebooks/blob/master/notebook_polished.ipynb" target="_blank">
         {% include image_with_border.html url="/assets/fig_polished_small.png" %}
     </a>
 </div>
