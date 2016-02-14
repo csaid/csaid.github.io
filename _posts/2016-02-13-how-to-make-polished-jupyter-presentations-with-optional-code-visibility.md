@@ -3,7 +3,7 @@ layout: post
 title: How to make polished Jupyter presentations with optional code visibility
 ---
 
-Jupyter notebooks are great because they allow you to easily present interactive figures. To make it easier for others to reproduce your results, they present the figures and code in a single file. Sometimes though, you may want to present a cleaner looking report to an audience who may not care about the code. This post shows how to make code visibility optional, and how to remove various Jupyter elements to get a cleaner presentation.
+Jupyter notebooks are great because they allow you to easily present interactive figures. In addition, these notebooks include the figures and code in a single file, making it easy for others to reproduce your results. Sometimes though, you may want to present a cleaner looking report to an audience who may not care about the code. This blog post shows how to make code visibility optional, and how to remove various Jupyter elements to get a cleaner presentation.
 
 On the top is a typical Jupyter presentation with code and some extra elements. Below that is a more polished version that removes some of the extra elements and makes code visibility optional with a button.
 
