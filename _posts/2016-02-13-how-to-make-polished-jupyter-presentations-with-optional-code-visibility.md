@@ -56,7 +56,7 @@ $(document).ready(function(){
 </script>
 {% endhighlight %}
 
-One shortcoming with what we have so far is that users may still see some code or other unwanted elements while the page is loading. This can be especially problematic if you have a long presentation with many plots. To avoid this problem, add a raw cell at the very top of you notebook containing a preloader. This example pre-loader includes an animation that signals to users that the page is still loading. It heavily inspired by [this preloader](http://codepen.io/mimoYmima/pen/fisgL) created by [@mimoYmima](https://twitter.com/@mimoYmima).
+One shortcoming with what we have so far is that users may still see some code or other unwanted elements while the page is loading. This can be especially problematic if you have a long presentation with many plots. To avoid this problem, add a raw cell at the very top of your notebook containing a preloader. This example preloader includes an animation that signals to users that the page is still loading. It heavily inspired by [this preloader](http://codepen.io/mimoYmima/pen/fisgL) created by [@mimoYmima](https://twitter.com/@mimoYmima).
 
 {% highlight html %}
 <script>
