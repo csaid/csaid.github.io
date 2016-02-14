@@ -4,7 +4,7 @@
  <title>The File Drawer</title>
  <link href="http://www.chris-said.io/atom.xml" rel="self"/>
  <link href="http://www.chris-said.io/"/>
- <updated>2016-02-14T09:38:29-08:00</updated>
+ <updated>2016-02-14T10:05:43-08:00</updated>
  <id>http://www.chris-said.io</id>
  <author>
    <name>Chris Said</name>
@@ -36,12 +36,12 @@
 &lt;div class=&quot;image_container&quot;&gt;
     &lt;div class=&quot;in_container&quot; style=&quot;position:absolute top:0px; left:0px&quot;&gt;
       &lt;a href=&quot;http://nbviewer.jupyter.org/github/csaid/polished_notebooks/blob/master/notebook_original.ipynb&quot; target=&quot;_blank&quot;&gt;
-        &lt;img src=&quot;assets/fig_unpolished_small.png&quot; border=&quot;2&quot; /&gt;
+        &lt;img src=&quot;/assets/fig_unpolished_small.png&quot; border=&quot;2&quot; /&gt;
       &lt;/a&gt;
     &lt;/div&gt;
     &lt;div class=&quot;in_container&quot; style=&quot;position:absolute top:0px; left:260px&quot;&gt;
       &lt;a href=&quot;http://nbviewer.jupyter.org/github/csaid/polished_notebooks/blob/master/notebook_polished.ipynb&quot; target=&quot;_blank&quot;&gt;
-        &lt;img src=&quot;assets/fig_polished_small.png&quot; border=&quot;2&quot; /&gt;
+        &lt;img src=&quot;/assets/fig_polished_small.png&quot; border=&quot;2&quot; /&gt;
       &lt;/a&gt;
     &lt;/div&gt;
 &lt;/div&gt;

@@ -24,12 +24,12 @@ On the left is a typical Jupyter presentation with code and some extra elements.
 <div class="image_container">
     <div class="in_container" style="position:absolute top:0px; left:0px">
       <a href = "http://nbviewer.jupyter.org/github/csaid/polished_notebooks/blob/master/notebook_original.ipynb" target="_blank">
-        <img src="assets/fig_unpolished_small.png" border="2">
+        <img src="/assets/fig_unpolished_small.png" border="2">
       </a>
     </div>
     <div class="in_container" style="position:absolute top:0px; left:260px">
       <a href = "http://nbviewer.jupyter.org/github/csaid/polished_notebooks/blob/master/notebook_polished.ipynb" target="_blank">
-        <img src="assets/fig_polished_small.png" border="2">
+        <img src="/assets/fig_polished_small.png" border="2">
       </a>
     </div>
 </div>
