@@ -42,17 +42,21 @@ To make the code optionally visible, available at the click of a button, include
 <form action="javascript:code_toggle()"><input type="submit" id="toggleButton" value="Show Code"></form>
 {% endhighlight %}
 
-It's pretty straightforward to remove the extra elements like the header, footer, and prompt numbers. Just include a raw cell at the end of your notebook with some more JavaScript:
+It's pretty straightforward to remove the extra elements like the header, footer, and prompt numbers. That being said, you may want to still include some attribution to the Jupyter project and to your free hosting service. To do all of this, just include a raw cell at the end of your notebook with some more JavaScript.
 
 {% highlight html %}
+<footer id="attribution" style="float:right; color:#999; background:#fff;">
+Created with <a style="color:#337ab7" href="http://jupyter.org/">Jupyter</a>, delivered by <a style="color:#337ab7" href="http://www.fastly.com">Fastly</a>, rendered by <a style="color:#337ab7" href="https://developer.rackspace.com/?nbviewer=awesome">Rackspace</a>.
+</footer>
+
 <script>
-$(document).ready(function(){
+  $(document).ready(function(){
     $('div.prompt').hide();
     $('div.back-to-top').hide();
     $('nav#menubar').hide();
     $('.breadcrumb').hide();
-    $('footer').hide();
-});
+    $('.hidden-print').hide();
+  });
 </script>
 {% endhighlight %}
 

@@ -112,16 +112,20 @@
 <span class="nt">&lt;/script&gt;</span>
 <span class="nt">&lt;form</span> <span class="na">action=</span><span class="s">&quot;javascript:code_toggle()&quot;</span><span class="nt">&gt;&lt;input</span> <span class="na">type=</span><span class="s">&quot;submit&quot;</span> <span class="na">id=</span><span class="s">&quot;toggleButton&quot;</span> <span class="na">value=</span><span class="s">&quot;Show Code&quot;</span><span class="nt">&gt;&lt;/form&gt;</span></code></pre></div>
 
-<p>It’s pretty straightforward to remove the extra elements like the header, footer, and prompt numbers. Just include a raw cell at the end of your notebook with some more JavaScript:</p>
+<p>It’s pretty straightforward to remove the extra elements like the header, footer, and prompt numbers. That being said, you may want to still include some attribution to the Jupyter project and to your free hosting service. To do all of this, just include a raw cell at the end of your notebook with some more JavaScript.</p>
 
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;script&gt;</span>
-<span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;footer</span> <span class="na">id=</span><span class="s">&quot;attribution&quot;</span> <span class="na">style=</span><span class="s">&quot;float:right; color:#999; background:#fff;&quot;</span><span class="nt">&gt;</span>
+Created with <span class="nt">&lt;a</span> <span class="na">style=</span><span class="s">&quot;color:#337ab7&quot;</span> <span class="na">href=</span><span class="s">&quot;http://jupyter.org/&quot;</span><span class="nt">&gt;</span>Jupyter<span class="nt">&lt;/a&gt;</span>, delivered by <span class="nt">&lt;a</span> <span class="na">style=</span><span class="s">&quot;color:#337ab7&quot;</span> <span class="na">href=</span><span class="s">&quot;http://www.fastly.com&quot;</span><span class="nt">&gt;</span>Fastly<span class="nt">&lt;/a&gt;</span>, rendered by <span class="nt">&lt;a</span> <span class="na">style=</span><span class="s">&quot;color:#337ab7&quot;</span> <span class="na">href=</span><span class="s">&quot;https://developer.rackspace.com/?nbviewer=awesome&quot;</span><span class="nt">&gt;</span>Rackspace<span class="nt">&lt;/a&gt;</span>.
+<span class="nt">&lt;/footer&gt;</span>
+
+<span class="nt">&lt;script&gt;</span>
+  <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
     <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;div.prompt&#39;</span><span class="p">).</span><span class="nx">hide</span><span class="p">();</span>
     <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;div.back-to-top&#39;</span><span class="p">).</span><span class="nx">hide</span><span class="p">();</span>
     <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;nav#menubar&#39;</span><span class="p">).</span><span class="nx">hide</span><span class="p">();</span>
     <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.breadcrumb&#39;</span><span class="p">).</span><span class="nx">hide</span><span class="p">();</span>
-    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;footer&#39;</span><span class="p">).</span><span class="nx">hide</span><span class="p">();</span>
-<span class="p">});</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.hidden-print&#39;</span><span class="p">).</span><span class="nx">hide</span><span class="p">();</span>
+  <span class="p">});</span>
 <span class="nt">&lt;/script&gt;</span></code></pre></div>
 
 <p>One shortcoming with what we have so far is that users may still see some code or other unwanted elements while the page is loading. This can be especially problematic if you have a long presentation with many plots. To avoid this problem, add a raw cell at the very top of your notebook containing a preloader. This example preloader includes an animation that signals to users that the page is still loading. It heavily inspired by <a href="http://codepen.io/mimoYmima/pen/fisgL">this preloader</a> created by <a href="https://twitter.com/@mimoYmima">@mimoYmima</a>.</p>
