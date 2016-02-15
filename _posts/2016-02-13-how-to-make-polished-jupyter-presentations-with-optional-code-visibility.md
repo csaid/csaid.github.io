@@ -1,6 +1,7 @@
 ---
 layout: post
 title: How to make polished Jupyter presentations with optional code visibility
+description: How to make polished Jupyter presentations with optional code visibility.
 ---
 
 Jupyter notebooks are great because they allow you to easily present interactive figures. In addition, these notebooks include the figures and code in a single file, making it easy for others to reproduce your results. Sometimes though, you may want to present a cleaner looking report to an audience who may not care about the code. This blog post shows how to make code visibility optional, and how to remove various Jupyter elements to get a cleaner presentation.
@@ -47,7 +48,7 @@ It's pretty straightforward to remove the extra elements like the header, footer
 {% highlight html %}
 <!-- If you find a way to simplify the footer styling that actually works, I'd love to hear about it. -->
 <footer id="attribution" style="float:right; color:#999; background:#fff;">
-Created with <a style="color:#337ab7" href="http://jupyter.org/">Jupyter</a>, delivered by <a style="color:#337ab7" href="http://www.fastly.com">Fastly</a>, rendered by <a style="color:#337ab7" href="https://developer.rackspace.com/?nbviewer=awesome">Rackspace</a>.
+Created with Jupyter, delivered by Fastly, rendered by Rackspace.
 </footer>
 
 <script>
@@ -85,20 +86,9 @@ One shortcoming with what we have so far is that users may still see some code o
       background: #fff url('http://preloaders.net/preloaders/720/Moving%20line.gif') no-repeat center center;
   }
 
-  div#preloader_text {
-      font-size: 250%;
-      color: gray;
-      text-align: center;
-      line-height: 250px;
-   }
-
 </style>
 
-<div id="preloader">
-  <div id="preloader_text">
-    Please allow a few seconds for page to load...
-  </div>
-</div>
+<div id="preloader"></div>
 {% endhighlight %}
 
 <meta charset="utf-8">
