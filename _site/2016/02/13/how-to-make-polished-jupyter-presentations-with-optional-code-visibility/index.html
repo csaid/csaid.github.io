@@ -11,7 +11,6 @@
   <!-- Enable responsiveness on mobile devices-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-  <!-- SEO-->
   
     <meta name="description" content="How to make polished Jupyter presentations with optional code visibility.">
   
@@ -119,9 +118,8 @@
 
 <p>It’s pretty straightforward to remove the extra elements like the header, footer, and prompt numbers. That being said, you may want to still include some attribution to the Jupyter project and to your free hosting service. To do all of this, just include a raw cell at the end of your notebook with some more JavaScript.</p>
 
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- If you find a way to simplify the footer styling that actually works, I&#39;d love to hear about it. --&gt;</span>
-<span class="nt">&lt;footer</span> <span class="na">id=</span><span class="s">&quot;attribution&quot;</span> <span class="na">style=</span><span class="s">&quot;float:right; color:#999; background:#fff;&quot;</span><span class="nt">&gt;</span>
-Created with <span class="nt">&lt;a</span> <span class="na">style=</span><span class="s">&quot;color:#337ab7&quot;</span> <span class="na">href=</span><span class="s">&quot;http://jupyter.org/&quot;</span><span class="nt">&gt;</span>Jupyter<span class="nt">&lt;/a&gt;</span>, delivered by <span class="nt">&lt;a</span> <span class="na">style=</span><span class="s">&quot;color:#337ab7&quot;</span> <span class="na">href=</span><span class="s">&quot;http://www.fastly.com&quot;</span><span class="nt">&gt;</span>Fastly<span class="nt">&lt;/a&gt;</span>, rendered by <span class="nt">&lt;a</span> <span class="na">style=</span><span class="s">&quot;color:#337ab7&quot;</span> <span class="na">href=</span><span class="s">&quot;https://developer.rackspace.com/?nbviewer=awesome&quot;</span><span class="nt">&gt;</span>Rackspace<span class="nt">&lt;/a&gt;</span>.
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;footer</span> <span class="na">id=</span><span class="s">&quot;attribution&quot;</span> <span class="na">style=</span><span class="s">&quot;float:right; color:#999; background:#fff;&quot;</span><span class="nt">&gt;</span>
+Created with Jupyter, delivered by Fastly, rendered by Rackspace.
 <span class="nt">&lt;/footer&gt;</span>
 
 <span class="nt">&lt;script&gt;</span>
@@ -157,20 +155,9 @@ Created with <span class="nt">&lt;a</span> <span class="na">style=</span><span c
       <span class="k">background</span><span class="o">:</span> <span class="m">#fff</span> <span class="sx">url(&#39;http://preloaders.net/preloaders/720/Moving%20line.gif&#39;)</span> <span class="k">no-repeat</span> <span class="k">center</span> <span class="k">center</span><span class="p">;</span>
   <span class="p">}</span>
 
-  <span class="nt">div</span><span class="nf">#preloader_text</span> <span class="p">{</span>
-      <span class="k">font-size</span><span class="o">:</span> <span class="m">250%</span><span class="p">;</span>
-      <span class="k">color</span><span class="o">:</span> <span class="nb">gray</span><span class="p">;</span>
-      <span class="k">text-align</span><span class="o">:</span> <span class="k">center</span><span class="p">;</span>
-      <span class="k">line-height</span><span class="o">:</span> <span class="m">250px</span><span class="p">;</span>
-   <span class="p">}</span>
-
 <span class="nt">&lt;/style&gt;</span>
 
-<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;preloader&quot;</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;preloader_text&quot;</span><span class="nt">&gt;</span>
-    Please allow a few seconds for page to load...
-  <span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;/div&gt;</span></code></pre></div>
+<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;preloader&quot;</span><span class="nt">&gt;&lt;/div&gt;</span></code></pre></div>
 
 <meta charset="utf-8" />
 
