@@ -46,7 +46,6 @@ To make the code optionally visible, available at the click of a button, include
 It's pretty straightforward to remove the extra elements like the header, footer, and prompt numbers. That being said, you may want to still include some attribution to the Jupyter project and to your free hosting service. To do all of this, just include a raw cell at the end of your notebook with some more JavaScript.
 
 {% highlight html %}
-<!-- If you find a way to simplify the footer styling that actually works, I'd love to hear about it. -->
 <footer id="attribution" style="float:right; color:#999; background:#fff;">
 Created with Jupyter, delivered by Fastly, rendered by Rackspace.
 </footer>
