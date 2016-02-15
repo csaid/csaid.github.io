@@ -4,7 +4,7 @@
  <title>The File Drawer</title>
  <link href="http://www.chris-said.io/atom.xml" rel="self"/>
  <link href="http://www.chris-said.io/"/>
- <updated>2016-02-15T08:30:52-08:00</updated>
+ <updated>2016-02-15T10:50:21-08:00</updated>
  <id>http://www.chris-said.io</id>
  <author>
    <name>Chris Said</name>
@@ -743,21 +743,21 @@ States are ranked by their &lt;a href=&quot;https://www.fas.org/sgp/crs/misc/R42
 
 &lt;p&gt;This all started earlier this summer when I went to Craigslist to find a used car. There were lots of good deals on Craigslist, but it took way too long to find them. When I searched for a particular model, I got hundreds of hits, but only a few of the hits included the mileage in the posting title. Since I needed the mileage to know whether I was getting a good deal, I had to click on each of the hundreds of listings. Pretty time consuming.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;http://www.dealspotter.info&quot;&gt;&lt;figure class=&quot;image&quot;&gt;&lt;img src=&quot;/assets/listings.png&quot; alt=&quot;&quot; /&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.dealspotter.info&quot;&gt;&lt;figure class=&quot;image&quot;&gt;&lt;img src=&quot;/assets/listings.png&quot; alt=&quot;&quot; border=&quot;2px&quot; /&gt;&lt;/figure&gt;
 &lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;A larger problem was that even if I clicked on every post, I didn’t always have a sense for what was the best deal. For example, if I had $3,000, was it better to spend it on a 2001 model with 100K miles, or a 2003 model with 140K miles?&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;http://www.dealspotter.info&quot;&gt;&lt;em&gt;DealSpotter&lt;/em&gt;&lt;/a&gt; is a proof-of-concept website that shows how these problems could be solved. DealSpotter grabs all the Craigslist car postings in the San Francisco Bay Area and automatically shows you the best deals. It knows how much each car should be priced, based on the model, year, and mileage. Cars that are priced lower than DealSpotter expects them to be are shown at the top of the list. DealSpotter also presents the same information in a visual format called “Graph” mode, where the best deals are highlighted in blue.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;http://www.dealspotter.info&quot;&gt;&lt;figure class=&quot;image&quot;&gt;&lt;img src=&quot;/assets/full.png&quot; alt=&quot;&quot; /&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.dealspotter.info&quot;&gt;&lt;figure class=&quot;image&quot;&gt;&lt;img src=&quot;/assets/full.png&quot; alt=&quot;&quot; border=&quot;2px&quot; /&gt;&lt;/figure&gt;
 &lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;To determine how much each car should be priced, DealSpotter doesn’t use Kelley Blue Book, which tends to overprice cars, especially newer models. Instead, DealSpotter builds its own pricing model based on the actual Craigslist market. In particular, it uses a &lt;a href=&quot;http://en.wikipedia.org/wiki/Random_forest&quot;&gt;Random Forest&lt;/a&gt; pricing model because, unlike smooth parametric models, Random Forests are able to detect sharp discontinuities in prices that may be caused by factors such as manufacturer design overhauls.&lt;/p&gt;
 
 &lt;p&gt;By selecting cars that are priced much lower than would be expected based on year and mileage, DealSpotter picks out some incredible deals, as well as the occasional clunker with an accident history. A more elaborate service might find a way to filter for accident history, but for now DealSpotter remains useful because it greatly narrows down the scope of the search for users. Once users are dealing with a handful of posts, they can easily inspect the text of the ad to determine which cars are good deals, and which have a history of accidents.&lt;/p&gt;
 
-&lt;p&gt;If you are in the San Francisco Bay Area and are looking for a used car, you should definitely check out my website &lt;em&gt;right now&lt;/em&gt;. Many cars are underpriced by thousands of dollars. In the future though, I won’t be updating the listings, which will soon become outdated. Craigslist has a &lt;a href=&quot;http://news.cnet.com/8301-1023_3-57479344-93/craigslist-sues-padmapper-for-mass-harvesting-listings/&quot;&gt;history of suing&lt;/a&gt; other services that try to improve on how their data is presented. Craigslist’s litigiousness is understandable – they curated the data after all. But it apparently has also &lt;a href=&quot;http://bits.blogs.nytimes.com/2012/07/29/when-craigslist-blocks-innovations-disruptions/?_r=0&quot;&gt;stifled innovation&lt;/a&gt;_. _Craigslist users spend many hours of their time clicking on blue links because the website’s search and UI tools are still stuck in the 90’s. Users are also at higher risk of scams because there is no reputation system. Normally, issues like this would put a company out of business, but a combination of lawsuits and network lock-in effects have kept Craigslist at the top of classifieds services. Hopefully, we will one day get a better Craigslist. In the meantime, if you want to find an incredible deal on a car while the postings are still fresh, you should do so &lt;a href=&quot;http://www.dealspotter.info&quot;&gt;now&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;If you are in the San Francisco Bay Area and are looking for a used car, you should definitely check out my website &lt;em&gt;right now&lt;/em&gt;. Many cars are underpriced by thousands of dollars. In the future though, I won’t be updating the listings, which will soon become outdated. Craigslist has a &lt;a href=&quot;http://news.cnet.com/8301-1023_3-57479344-93/craigslist-sues-padmapper-for-mass-harvesting-listings/&quot;&gt;history of suing&lt;/a&gt; other services that try to improve on how their data is presented. Craigslist’s litigiousness is understandable – they curated the data after all. But it apparently has also &lt;a href=&quot;http://bits.blogs.nytimes.com/2012/07/29/when-craigslist-blocks-innovations-disruptions/?_r=0&quot;&gt;stifled innovation&lt;/a&gt;. Craigslist users spend many hours of their time clicking on blue links because the website’s search and UI tools are still stuck in the 90’s. Users are also at higher risk of scams because there is no reputation system. Normally, issues like this would put a company out of business, but a combination of lawsuits and network lock-in effects have kept Craigslist at the top of classifieds services. Hopefully, we will one day get a better Craigslist. In the meantime, if you want to find an incredible deal on a car while the postings are still fresh, you should do so &lt;a href=&quot;http://www.dealspotter.info&quot;&gt;now&lt;/a&gt;.&lt;/p&gt;
 </content>
  </entry>
  
