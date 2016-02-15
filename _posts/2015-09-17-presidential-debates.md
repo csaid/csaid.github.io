@@ -1,6 +1,7 @@
 ---
 layout: post
 title: The debate CNN wanted and the debate the candidates wanted
+description: Some interactive graphics showing who challenged who in the Republican debate.
 ---
 
 In last night's Republican presidential debate, the CNN moderators tried very hard to pit individual candidates against each other. Pretty much every question was along the lines of: "Candidate A, what do you think about Candidate B's attacks on you?"
