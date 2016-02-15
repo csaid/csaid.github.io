@@ -4,7 +4,7 @@ title: How to make polished Jupyter presentations with optional code visibility
 description: How to make polished Jupyter presentations with optional code visibility.
 ---
 
-Jupyter notebooks are great because they allow you to easily present interactive figures. In addition, these notebooks include the figures and code in a single file, making it easy for others to reproduce your results. Sometimes though, you may want to present a cleaner looking report to an audience who may not care about the code. This blog post shows how to make code visibility optional, and how to remove various Jupyter elements to get a cleaner presentation.
+Jupyter notebooks are great because they allow you to easily present interactive figures. In addition, these notebooks include the figures and code in a single file, making it easy for others to reproduce your results. Sometimes though, you may want to present a cleaner report to an audience who may not care about the code. This blog post shows how to make code visibility optional, and how to remove various Jupyter elements to get a clean presentation.
 
 On the top is a typical Jupyter presentation with code and some extra elements. Below that is a more polished version that removes some of the extra elements and makes code visibility optional with a button.
 
@@ -46,10 +46,6 @@ To make the code optionally visible, available at the click of a button, include
 It's pretty straightforward to remove the extra elements like the header, footer, and prompt numbers. That being said, you may want to still include some attribution to the Jupyter project and to your free hosting service. To do all of this, just include a raw cell at the end of your notebook with some more JavaScript.
 
 {% highlight html %}
-<footer id="attribution" style="float:right; color:#999; background:#fff;">
-Created with Jupyter, delivered by Fastly, rendered by Rackspace.
-</footer>
-
 <script>
   $(document).ready(function(){
     $('div.prompt').hide();
@@ -59,6 +55,10 @@ Created with Jupyter, delivered by Fastly, rendered by Rackspace.
     $('.hidden-print').hide();
   });
 </script>
+
+<footer id="attribution" style="float:right; color:#999; background:#fff;">
+Created with Jupyter, delivered by Fastly, rendered by Rackspace.
+</footer>
 {% endhighlight %}
 
 One shortcoming with what we have so far is that users may still see some code or other unwanted elements while the page is loading. This can be especially problematic if you have a long presentation with many plots. To avoid this problem, add a raw cell at the very top of your notebook containing a preloader. This example preloader includes an animation that signals to users that the page is still loading. It heavily inspired by [this preloader](http://codepen.io/mimoYmima/pen/fisgL) created by [@mimoYmima](https://twitter.com/@mimoYmima).
