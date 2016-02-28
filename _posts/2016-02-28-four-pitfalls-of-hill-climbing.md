@@ -58,7 +58,7 @@ While all of the criticisms of hill climbing have obvious validity, I think it i
 - The space is high dimensional. Even if your product is at a local maximum in one dimension, there are many other dimensions to explore and measure.
 - We may overestimate the causal relationship between bold product moves and company success. Investors often observe that companies who don't make bold changes are doomed to fail. While I don't doubt that there is some causation here, I think there is also some reverse causation. Bold changes require lots of resources. Maybe it's mostly the success-bound companies who have enough resources to afford the bold changes.
 
-Special thanks to [John McDonnell](https://twitter.com/johnvmcdonnell) and [Alex Rosner](https://twitter.com/alexrosner) for comments on a draft of this post.
+Special thanks to Marika Inhoff, [John McDonnell](https://twitter.com/johnvmcdonnell) and [Alex Rosner](https://twitter.com/alexrosner) for comments on a draft of this post.
 <style>
 
 circle {
