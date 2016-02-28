@@ -80,51 +80,51 @@
   <span class="post-date">16 Oct 2014</span>
   <p>I often need to jump between different directories with very deep paths, like this:</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span><span class="nb">cd </span>some/very/deep/directory/project1
-<span class="nv">$ </span><span class="c"># do stuff in Project 1</span>
-<span class="nv">$ </span><span class="nb">cd </span>different/very/deep/directory/project2
-<span class="nv">$ </span><span class="c"># do stuff in Project 2</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span><span class="nb">cd </span>some/very/deep/directory/project1
+<span class="gp">$ </span><span class="c"># do stuff in Project 1</span>
+<span class="gp">$ </span><span class="nb">cd </span>different/very/deep/directory/project2
+<span class="gp">$ </span><span class="c"># do stuff in Project 2</span></code></pre></figure>
 
-<p>While it only takes a handful of seconds to switch directories, the extra mental effort often derails my train of thought. Some solutions exist, but they all have their limitations. For example, <code>pushd</code> and <code>popd</code> don’t work well for directories you haven’t visited in a while. Aliases require you to manually add a new alias to your .bashrc every time you want to save a new directory.</p>
+<p>While it only takes a handful of seconds to switch directories, the extra mental effort often derails my train of thought. Some solutions exist, but they all have their limitations. For example, <code class="highlighter-rouge">pushd</code> and <code class="highlighter-rouge">popd</code> don’t work well for directories you haven’t visited in a while. Aliases require you to manually add a new alias to your .bashrc every time you want to save a new directory.</p>
 
-<p>I recently found a solution, inspired by <a href="http://jeroenjanssens.com/2013/08/16/quickly-navigate-your-filesystem-from-the-command-line.html">this post</a> from <a href="https://twitter.com/jeroenhjanssens">Jeroen Janssens</a>, that works great and feels totally natural. All it takes is a one-time change to your .bashrc that will allow you to easily save directories and switch between them. To save a directory, just use the <code>mark</code> function:</p>
+<p>I recently found a solution, inspired by <a href="http://jeroenjanssens.com/2013/08/16/quickly-navigate-your-filesystem-from-the-command-line.html">this post</a> from <a href="https://twitter.com/jeroenhjanssens">Jeroen Janssens</a>, that works great and feels totally natural. All it takes is a one-time change to your .bashrc that will allow you to easily save directories and switch between them. To save a directory, just use the <code class="highlighter-rouge">mark</code> function:</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span><span class="nb">pwd</span>
-some/very/deep/directory/project1
-<span class="nv">$ </span>mark project1</code></pre></div>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span><span class="nb">pwd
+</span>some/very/deep/directory/project1
+<span class="gp">$ </span>mark project1</code></pre></figure>
 
-<p>To navigate to a saved directory, just use the <code>cdd</code> function:</p>
+<p>To navigate to a saved directory, just use the <code class="highlighter-rouge">cdd</code> function:</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>cdd project1
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>cdd project1
 <span class="c"># do stuff in Project 1</span>
-<span class="nv">$ </span>cdd project2
-<span class="c"># do stuff in Project 2</span></code></pre></div>
+<span class="gp">$ </span>cdd project2
+<span class="c"># do stuff in Project 2</span></code></pre></figure>
 
-<p>You can display a list of your saved directories with the <code>marks</code> function, and you can remove a directory from the list with the <code>unmark</code> function:</p>
+<p>You can display a list of your saved directories with the <code class="highlighter-rouge">marks</code> function, and you can remove a directory from the list with the <code class="highlighter-rouge">unmark</code> function:</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>unmark project1</code></pre></div>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>unmark project1</code></pre></figure>
 
 <p>For any of this to work, you’ll need to add this to your .bashrc, assuming you have a Mac and use the bash shell.</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="k">function</span> cdd <span class="o">{</span>
-        <span class="nb">cd</span> -P <span class="s2">&quot;$MARKPATH/$1&quot;</span> 2&gt;/dev/null <span class="o">||</span> <span class="nb">echo</span> <span class="s2">&quot;No such mark: $1&quot;</span>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">    <span class="k">function </span>cdd <span class="o">{</span>
+        <span class="nb">cd</span> -P <span class="s2">"</span><span class="nv">$MARKPATH</span><span class="s2">/</span><span class="nv">$1</span><span class="s2">"</span> 2&gt;/dev/null <span class="o">||</span> <span class="nb">echo</span> <span class="s2">"No such mark: </span><span class="nv">$1</span><span class="s2">"</span>
     <span class="o">}</span>
-    <span class="k">function</span> mark <span class="o">{</span>
-        mkdir -p <span class="s2">&quot;$MARKPATH&quot;</span><span class="p">;</span> ln -s <span class="s2">&quot;$(pwd)&quot;</span> <span class="s2">&quot;$MARKPATH/$1&quot;</span>
+    <span class="k">function </span>mark <span class="o">{</span>
+        mkdir -p <span class="s2">"</span><span class="nv">$MARKPATH</span><span class="s2">"</span>; ln -s <span class="s2">"</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span><span class="s2">"</span> <span class="s2">"</span><span class="nv">$MARKPATH</span><span class="s2">/</span><span class="nv">$1</span><span class="s2">"</span>
     <span class="o">}</span>
-    <span class="k">function</span> unmark <span class="o">{</span>
-        rm -i <span class="s2">&quot;$MARKPATH/$1&quot;</span>
+    <span class="k">function </span>unmark <span class="o">{</span>
+        rm -i <span class="s2">"</span><span class="nv">$MARKPATH</span><span class="s2">/</span><span class="nv">$1</span><span class="s2">"</span>
     <span class="o">}</span>
-    <span class="k">function</span> marks <span class="o">{</span>
-        <span class="se">\l</span>s -l <span class="s2">&quot;$MARKPATH&quot;</span> <span class="p">|</span> tail -n +2 <span class="p">|</span> sed <span class="s1">&#39;s/  / /g&#39;</span> <span class="p">|</span> cut -d<span class="s1">&#39; &#39;</span> -f9- <span class="p">|</span> awk -F <span class="s1">&#39; -&gt; &#39;</span> <span class="s1">&#39;{printf &quot;%-10s -&gt; %s\n&quot;, $1, $2}&#39;</span>
+    <span class="k">function </span>marks <span class="o">{</span>
+        <span class="se">\l</span>s -l <span class="s2">"</span><span class="nv">$MARKPATH</span><span class="s2">"</span> | tail -n +2 | sed <span class="s1">'s/  / /g'</span> | cut -d<span class="s1">' '</span> -f9- | awk -F <span class="s1">' -&gt; '</span> <span class="s1">'{printf "%-10s -&gt; %s\n", $1, $2}'</span>
     <span class="o">}</span>
 
     _cdd<span class="o">()</span>
     <span class="o">{</span>
         <span class="nb">local </span><span class="nv">cur</span><span class="o">=</span><span class="k">${</span><span class="nv">COMP_WORDS</span><span class="p">[COMP_CWORD]</span><span class="k">}</span>
-        <span class="nv">COMPREPLY</span><span class="o">=(</span> <span class="k">$(</span><span class="nb">compgen</span> -W <span class="s2">&quot;$( ls $MARKPATH )&quot;</span> -- <span class="nv">$cur</span><span class="k">)</span> <span class="o">)</span>
+        <span class="nv">COMPREPLY</span><span class="o">=(</span> <span class="k">$(</span><span class="nb">compgen</span> -W <span class="s2">"</span><span class="k">$(</span> ls <span class="nv">$MARKPATH</span> <span class="k">)</span><span class="s2">"</span> -- <span class="nv">$cur</span><span class="k">)</span> <span class="o">)</span>
     <span class="o">}</span>
-    <span class="nb">complete</span> -F _cdd cdd</code></pre></div>
+    <span class="nb">complete</span> -F _cdd cdd</code></pre></figure>
 
 <p>This differs from Jeroen’s <a href="http://jeroenjanssens.com/2013/08/16/quickly-navigate-your-filesystem-from-the-command-line.html">original</a> code in a couple of ways. First, to be more brain-friendly, it names the function “cdd” instead of “jump”. Second, the tab completion works <a href="https://news.ycombinator.com/item?id=6229291">better</a>.</p>
 
@@ -166,6 +166,15 @@ some/very/deep/directory/project1
     
       <li>
         <h3>
+          <a href="/2016/02/28/an-animated-look-at-local-maxima/">
+            An animated look at local maxima and product space
+            <small>28 Feb 2016</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
           <a href="/2016/02/13/how-to-make-polished-jupyter-presentations-with-optional-code-visibility/">
             How to make polished Jupyter presentations with optional code visibility
             <small>13 Feb 2016</small>
@@ -178,15 +187,6 @@ some/very/deep/directory/project1
           <a href="/2015/09/17/presidential-debates/">
             The debate CNN wanted and the debate the candidates wanted
             <small>17 Sep 2015</small>
-          </a>
-        </h3>
-      </li>
-    
-      <li>
-        <h3>
-          <a href="/2015/09/16/new-blog-address/">
-            New Blog Address
-            <small>16 Sep 2015</small>
           </a>
         </h3>
       </li>

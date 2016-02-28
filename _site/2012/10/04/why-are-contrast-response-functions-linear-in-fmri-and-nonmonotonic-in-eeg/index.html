@@ -114,49 +114,49 @@
 
 <p>Below is some Matlab code showing how this works, just a proof of concept. It makes some very, very simplifying assumptions, and I’m sure that the truth is far more complicated.</p>
 
-<div class="highlight"><pre><code class="language-matlab" data-lang="matlab"><span class="k">function</span><span class="w"> </span>[] <span class="p">=</span><span class="w"> </span><span class="nf">crfmodel</span><span class="p">()</span><span class="w"></span>
+<figure class="highlight"><pre><code class="language-matlab" data-lang="matlab"><span class="k">function</span> <span class="p">[]</span> <span class="o">=</span> <span class="n">crfmodel</span><span class="p">()</span>
 
-<span class="n">n</span> <span class="p">=</span> <span class="mi">1000</span><span class="p">;</span> <span class="c">%number of neurons</span>
-<span class="n">c</span> <span class="p">=</span> <span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="mi">100</span><span class="p">;</span> <span class="c">%contrast levels</span>
-<span class="n">c50_std</span> <span class="p">=</span> <span class="mi">30</span><span class="p">;</span> <span class="c">%stddev of semisaturation constants</span>
-<span class="n">c50_mean</span> <span class="p">=</span> <span class="p">[</span><span class="mi">50</span> <span class="mi">70</span><span class="p">];</span> <span class="c">%for two visual areas;</span>
-<span class="n">c50</span> <span class="p">=</span> <span class="nb">nan</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">);</span>
-<span class="k">for</span> <span class="nb">i</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">2</span> <span class="c">%loop through two banks of sulcus (two visual areas)</span>
-  <span class="n">idcs</span><span class="p">{</span><span class="nb">i</span><span class="p">}</span> <span class="p">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">n</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="nb">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">n</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
-  <span class="n">c50</span><span class="p">(</span><span class="n">idcs</span><span class="p">{</span><span class="nb">i</span><span class="p">})</span> <span class="p">=</span> <span class="n">c50_std</span><span class="o">*</span><span class="nb">randn</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="n">c50_mean</span><span class="p">(</span><span class="nb">i</span><span class="p">);</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">;</span> <span class="c1">%number of neurons</span>
+<span class="n">c</span> <span class="o">=</span> <span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="mi">100</span><span class="p">;</span> <span class="c1">%contrast levels</span>
+<span class="n">c50_std</span> <span class="o">=</span> <span class="mi">30</span><span class="p">;</span> <span class="c1">%stddev of semisaturation constants</span>
+<span class="n">c50_mean</span> <span class="o">=</span> <span class="p">[</span><span class="mi">50</span> <span class="mi">70</span><span class="p">];</span> <span class="c1">%for two visual areas;</span>
+<span class="n">c50</span> <span class="o">=</span> <span class="nb">nan</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">);</span>
+<span class="k">for</span> <span class="nb">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">2</span> <span class="c1">%loop through two banks of sulcus (two visual areas)</span>
+  <span class="n">idcs</span><span class="p">{</span><span class="nb">i</span><span class="p">}</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">n</span><span class="p">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="nb">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">n</span><span class="p">/</span><span class="mi">2</span><span class="p">;</span>
+  <span class="n">c50</span><span class="p">(</span><span class="n">idcs</span><span class="p">{</span><span class="nb">i</span><span class="p">})</span> <span class="o">=</span> <span class="n">c50_std</span><span class="o">*</span><span class="nb">randn</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">/</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="n">c50_mean</span><span class="p">(</span><span class="nb">i</span><span class="p">);</span>
 <span class="k">end</span>
-<span class="p">[</span><span class="n">C</span> <span class="n">C50</span><span class="p">]</span> <span class="p">=</span> <span class="nb">meshgrid</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">c50</span><span class="p">);</span>
-<span class="n">R</span> <span class="p">=</span> <span class="n">makeLogistic</span><span class="p">(</span><span class="n">C</span><span class="p">,</span><span class="n">C50</span><span class="p">);</span> <span class="c">%Each row is a CRF for a particular neuron</span>
-<span class="n">figure</span>
+<span class="p">[</span><span class="n">C</span> <span class="n">C50</span><span class="p">]</span> <span class="o">=</span> <span class="nb">meshgrid</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">c50</span><span class="p">);</span>
+<span class="n">R</span> <span class="o">=</span> <span class="n">makeLogistic</span><span class="p">(</span><span class="n">C</span><span class="p">,</span><span class="n">C50</span><span class="p">);</span> <span class="c1">%Each row is a CRF for a particular neuron</span>
+<span class="nb">figure</span>
 
-<span class="c">%Single neurons</span>
-<span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="k">for</span> <span class="nb">i</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">2</span> <span class="c">%loop through 2 areas</span>
-   <span class="n">plot</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">makeLogistic</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">c50_mean</span><span class="p">(</span><span class="nb">i</span><span class="p">)));</span>
-   <span class="n">hold</span> <span class="n">on</span>
+<span class="c1">%Single neurons</span>
+<span class="nb">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">for</span> <span class="nb">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">2</span> <span class="c1">%loop through 2 areas</span>
+   <span class="nb">plot</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">makeLogistic</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">c50_mean</span><span class="p">(</span><span class="nb">i</span><span class="p">)));</span>
+   <span class="nb">hold</span> <span class="n">on</span>
 <span class="k">end</span>
-<span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;Single Neuron Response&#39;</span><span class="p">)</span>
+<span class="nb">ylabel</span><span class="p">(</span><span class="s1">'Single Neuron Response'</span><span class="p">)</span>
 
-<span class="c">%fMRI</span>
-<span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
-<span class="k">for</span> <span class="nb">i</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">2</span> <span class="c">%loop through 2 areas</span>
-  <span class="n">CRF_fMRI</span><span class="p">{</span><span class="nb">i</span><span class="p">}</span> <span class="p">=</span> <span class="n">mean</span><span class="p">(</span><span class="n">R</span><span class="p">(</span><span class="n">idcs</span><span class="p">{</span><span class="nb">i</span><span class="p">},:),</span><span class="mi">1</span><span class="p">);</span> <span class="c">%average all neurons in each area</span>
-  <span class="n">plot</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">CRF_fMRI</span><span class="p">{</span><span class="nb">i</span><span class="p">})</span>
-  <span class="n">hold</span> <span class="n">on</span>
+<span class="c1">%fMRI</span>
+<span class="nb">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
+<span class="k">for</span> <span class="nb">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">2</span> <span class="c1">%loop through 2 areas</span>
+  <span class="n">CRF_fMRI</span><span class="p">{</span><span class="nb">i</span><span class="p">}</span> <span class="o">=</span> <span class="nb">mean</span><span class="p">(</span><span class="n">R</span><span class="p">(</span><span class="n">idcs</span><span class="p">{</span><span class="nb">i</span><span class="p">},:),</span><span class="mi">1</span><span class="p">);</span> <span class="c1">%average all neurons in each area</span>
+  <span class="nb">plot</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">CRF_fMRI</span><span class="p">{</span><span class="nb">i</span><span class="p">})</span>
+  <span class="nb">hold</span> <span class="n">on</span>
 <span class="k">end</span>
-<span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;fMRI Response&#39;</span><span class="p">)</span>
+<span class="nb">ylabel</span><span class="p">(</span><span class="s1">'fMRI Response'</span><span class="p">)</span>
 
-<span class="c">%EEG</span>
-<span class="c">%Cancellation. Scale factor isn&#39;t necessary but reflects that fact that</span>
-<span class="c">%some areas are likely to activate more than others.</span>
-<span class="n">R_EEG</span> <span class="p">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">R</span><span class="p">(</span><span class="n">idcs</span><span class="p">{</span><span class="mi">1</span><span class="p">},:)</span><span class="o">-</span><span class="p">.</span><span class="mi">7</span><span class="o">*</span><span class="n">R</span><span class="p">(</span><span class="n">idcs</span><span class="p">{</span><span class="mi">2</span><span class="p">},:));</span>
-<span class="n">CRF_EEG</span> <span class="p">=</span> <span class="n">mean</span><span class="p">(</span><span class="n">R_EEG</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
-<span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">CRF_EEG</span><span class="p">)</span>
-<span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;EEG Response&#39;</span><span class="p">)</span>
+<span class="c1">%EEG</span>
+<span class="c1">%Cancellation. Scale factor isn't necessary but reflects that fact that</span>
+<span class="c1">%some areas are likely to activate more than others.</span>
+<span class="n">R_EEG</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">R</span><span class="p">(</span><span class="n">idcs</span><span class="p">{</span><span class="mi">1</span><span class="p">},:)</span><span class="o">-.</span><span class="mi">7</span><span class="o">*</span><span class="n">R</span><span class="p">(</span><span class="n">idcs</span><span class="p">{</span><span class="mi">2</span><span class="p">},:));</span>
+<span class="n">CRF_EEG</span> <span class="o">=</span> <span class="nb">mean</span><span class="p">(</span><span class="n">R_EEG</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+<span class="nb">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">CRF_EEG</span><span class="p">)</span>
+<span class="nb">ylabel</span><span class="p">(</span><span class="s1">'EEG Response'</span><span class="p">)</span>
 
-<span class="k">function</span><span class="w"> </span>[r] <span class="p">=</span><span class="w"> </span><span class="nf">makeLogistic</span><span class="p">(</span>c,c50<span class="p">)</span><span class="w"></span>
-<span class="n">r</span> <span class="p">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="mf">1.</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="nb">exp</span><span class="p">(.</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">c</span><span class="o">-</span><span class="n">c50</span><span class="p">))));</span></code></pre></div>
+<span class="k">function</span> <span class="p">[</span><span class="n">r</span><span class="p">]</span> <span class="o">=</span> <span class="n">makeLogistic</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">c50</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="mf">1.</span><span class="p">/(</span><span class="mi">1</span><span class="o">+</span><span class="nb">exp</span><span class="p">(</span><span class="o">.</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">c</span><span class="o">-</span><span class="n">c50</span><span class="p">))));</span></code></pre></figure>
 
 <p>And here are the results.</p>
 
@@ -199,6 +199,15 @@
     
       <li>
         <h3>
+          <a href="/2016/02/28/an-animated-look-at-local-maxima/">
+            An animated look at local maxima and product space
+            <small>28 Feb 2016</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
           <a href="/2016/02/13/how-to-make-polished-jupyter-presentations-with-optional-code-visibility/">
             How to make polished Jupyter presentations with optional code visibility
             <small>13 Feb 2016</small>
@@ -211,15 +220,6 @@
           <a href="/2015/09/17/presidential-debates/">
             The debate CNN wanted and the debate the candidates wanted
             <small>17 Sep 2015</small>
-          </a>
-        </h3>
-      </li>
-    
-      <li>
-        <h3>
-          <a href="/2015/09/16/new-blog-address/">
-            New Blog Address
-            <small>16 Sep 2015</small>
           </a>
         </h3>
       </li>
