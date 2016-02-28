@@ -100,7 +100,7 @@
 
 <p>The diagram above describes how an intermediate version of a product may be worse than more fully realized extremes. This idea is wrapped up in concerns about <em>incrementalism</em>: If a product only explores small local changes, it may never find the much bigger change that could lead to larger reward.</p>
 
-<p>Sometimes people use the term “local maximum” to describe concerns about <em>short-termism</em>: By running short A/B tests, you might not realize that a change that initially seems bad may be good in the long run. This idea, which is distinct from concerns about incrementalism, can be described with a dynamic reward function animation. As before, the horizontal axis is product space, and each video frame represents a time step.</p>
+<p>Sometimes people use the term “local maximum” to describe concerns about <em>short-termism</em>: By running short A/B tests, you might not realize that a change that initially seems bad may be good in the long run. This idea, which is distinct from concerns about incrementalism, can be described with a dynamic reward function animation. As before, the horizontal axis is product space, each video frame represents a time step, and the vertical axis represents immediate, measurable reward.</p>
 
 <div class="wrapper">
   <div class="inner" id="plot2"></div>
@@ -121,9 +121,9 @@
   <span id="plot5"></span>
 </div>
 
-<p>You can think of an industry as a dynamic ecosystem where each company has its own reward function. When one company moves, it changes its own reward function as well as the reward functions of other companies. If this sounds like ecology, you’re not mistaken. The dynamics here are very similar to evolutionary <a href="http://www.randalolson.com/2014/04/17/visualizing-evolution-in-action-dynamic-fitness-landscapes/">fitness landscapes</a>.</p>
+<p>You can think of an industry as a dynamic ecosystem where each company has its own reward function. When one company moves, it changes its own reward function as well as the reward functions of other companies. If this sounds like biology, you’re not mistaken. The dynamics here are very similar to evolutionary <a href="http://www.randalolson.com/2014/04/17/visualizing-evolution-in-action-dynamic-fitness-landscapes/">fitness landscapes</a>.</p>
 
-<p>While all of the criticisms of incrementalism and short-termism have obvious validity, I think it is very easy for people to take them too seriously. So here are some caveats:</p>
+<p>While all of the criticisms of incrementalism and short-termism have obvious validity, I think it is very easy for people to overreact to them. So here are some caveats:</p>
 
 <ul>
   <li>The plots above probably exaggerate the magnitude and frequency with which reward functions change.</li>
@@ -389,7 +389,7 @@ makeObjectiveGraph("plot1", get_dot_x, objective1, "Local and global maxima", fa
 
 
 var objective2 = function(t, x){
-  var left_scale  = soft_motion(t, 0.6, 0.2, 0.95, 0.15);
+  var left_scale  = soft_motion(t, 0.6, 0.2, 0.95, 0.10);
   var right_scale = soft_motion(t, 0.6, 0.0, 0.95, 0.3);
   var sd = 0.2
 
