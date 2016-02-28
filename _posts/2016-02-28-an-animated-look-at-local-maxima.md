@@ -50,6 +50,11 @@ While all of the criticisms of incrementalism and short-termism have obvious val
 
 <style>
 
+circle {
+  stroke: #fff;
+  stroke-width: 1.5px;
+}
+
 circle.you {
   fill: #ED2685;
 }
