@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Four pitfalls of hill climbing: An animated look
+title: Four pitfalls of hill climbing
 description: An animated look at local maxima, novelty effects, differentiation, emergent maxima.
 ---
 
