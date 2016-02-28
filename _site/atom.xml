@@ -4,7 +4,7 @@
  <title>The File Drawer</title>
  <link href="http://www.chris-said.io/atom.xml" rel="self"/>
  <link href="http://www.chris-said.io/"/>
- <updated>2016-02-28T10:43:48-08:00</updated>
+ <updated>2016-02-28T11:38:12-08:00</updated>
  <id>http://www.chris-said.io</id>
  <author>
    <name>Chris Said</name>
@@ -13,25 +13,29 @@
 
  
  <entry>
-   <title>An animated look at local maxima and product space</title>
+   <title>Four pitfalls of hill climbing</title>
    <link href="http://www.chris-said.io/2016/02/28/an-animated-look-at-local-maxima/"/>
    <updated>2016-02-28T00:00:00-08:00</updated>
    <id>http://www.chris-said.io/2016/02/28/an-animated-look-at-local-maxima</id>
    <content type="html">&lt;meta charset=&quot;utf-8&quot; /&gt;
 
-&lt;p&gt;If you spend any time in the tech industry, you are bound to hear someone say that a product could be in a “local maximum”. In a local maximum, small changes to a product seem to make it worse, and it’s hard to make the big change that could bring you to a global maximum.&lt;/p&gt;
+&lt;p&gt;One of the great developments in product design has been the adoption of A/B testing. Instead of just guessing what is best for your customers, you can offer a product variant to a subset of customers and measure how well it works. While undeniably useful, A/B testing is sometimes said to encourage too much “hill climbing”, an incremental and short-sighted style of product development that emphasizes easy and immediate wins.&lt;/p&gt;
 
-&lt;p&gt;The term “local maximum” is often used a bit loosely. In this post, I want to show some animations that describe how the term is sometimes used to express two totally different ideas. I then want to use these animations to describe some other popular ideas in product design.&lt;/p&gt;
+&lt;p&gt;Discussion around hill climbing can sometimes get a bit vague, so I thought I would make some animations that describe four distinct pitfalls.&lt;/p&gt;
 
-&lt;p&gt;Local maxima can be illustrated with hill diagrams like the one below. Each video frame is a time step. The horizontal axis is not time, but instead represents product space collapsed into a single dimension. In reality, of course, there are many dimensions that a product could explore.&lt;/p&gt;
+&lt;h4 id=&quot;local-maxima&quot;&gt;Local maxima&lt;/h4&gt;
+
+&lt;p&gt;If you incrementally hill climb around a local maximum, you may never find the global maximum that could lead to much bigger reward. This can happen when intermediate versions of a product are worse than more fully realized extremes.&lt;/p&gt;
+
+&lt;p&gt;Local maxima and global maxima can be illustrated with hill diagrams like the one below. Each video frame is a time step. The horizontal axis is not time, but instead represents product space collapsed into a single dimension. In reality, of course, there are many dimensions that a product could explore.&lt;/p&gt;
 
 &lt;div class=&quot;wrapper&quot;&gt;
   &lt;div class=&quot;inner&quot; id=&quot;plot1&quot;&gt;&lt;/div&gt;
 &lt;/div&gt;
 
-&lt;p&gt;The diagram above describes how an intermediate version of a product may be worse than more fully realized extremes. This idea is wrapped up in concerns about &lt;em&gt;incrementalism&lt;/em&gt;: If a product only explores small local changes, it may never find the much bigger change that could lead to larger reward.&lt;/p&gt;
+&lt;h4 id=&quot;emergent-maxima&quot;&gt;Emergent maxima&lt;/h4&gt;
 
-&lt;p&gt;Sometimes people use the term “local maximum” to describe concerns about &lt;em&gt;short-termism&lt;/em&gt;: By running short A/B tests, you might not realize that a change that initially seems bad may be good in the long run. This idea, which is distinct from concerns about incrementalism, can be described with a dynamic reward function animation. As before, the horizontal axis is product space, each video frame represents a time step, and the vertical axis represents immediate, measurable reward.&lt;/p&gt;
+&lt;p&gt;If you run short A/B tests, or A/B tests that do not fully capture network effects, you might not realize that a change that initially seems bad may be good in the long run. This idea, which is distinct from concerns about incrementalism, can be described with a dynamic reward function animation. As before, the horizontal axis is product space, each video frame represents a time step, and the vertical axis represents immediate, measurable reward.&lt;/p&gt;
 
 &lt;div class=&quot;wrapper&quot;&gt;
   &lt;div class=&quot;inner&quot; id=&quot;plot2&quot;&gt;&lt;/div&gt;
@@ -39,11 +43,15 @@
 
 &lt;p&gt;When a product changes, the intial effect is negative. But eventually, customers begin to enjoy the new version. By waiting at a position that initially seemed negative, you are able to discover an emergent mountain, and receive greater reward than you would have from short-term optimization.&lt;/p&gt;
 
+&lt;h4 id=&quot;novelty-effects&quot;&gt;Novelty effects&lt;/h4&gt;
+
 &lt;p&gt;Short-term optimization can be bad, not only because it prevents discovery of emergent mountains, but also because some hills can be transient. One way a hill can disappear is through &lt;em&gt;novelty effects&lt;/em&gt;, where a shiny new feature can be engaging to customers in the short term, but uninteresting or even negative in the long term.&lt;/p&gt;
 
 &lt;div class=&quot;wrapper&quot;&gt;
   &lt;div class=&quot;inner&quot; id=&quot;plot3&quot;&gt;&lt;/div&gt;
 &lt;/div&gt;
+
+&lt;h4 id=&quot;loss-of-differentiation&quot;&gt;Loss of differentiation&lt;/h4&gt;
 
 &lt;p&gt;Another way a hill can disappear is through loss of differentiation from more dominant competitors. Your product may occupy a market niche. If you try to copy your competitor, you may initially see some benefits. But at some point, your customers may leave because not much separates you from your more dominant competitor. Differentiation matters in some dimensions more than others.&lt;/p&gt;
 
@@ -54,7 +62,9 @@
 
 &lt;p&gt;You can think of an industry as a dynamic ecosystem where each company has its own reward function. When one company moves, it changes its own reward function as well as the reward functions of other companies. If this sounds like biology, you’re not mistaken. The dynamics here are very similar to evolutionary &lt;a href=&quot;http://www.randalolson.com/2014/04/17/visualizing-evolution-in-action-dynamic-fitness-landscapes/&quot;&gt;fitness landscapes&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;While all of the criticisms of incrementalism and short-termism have obvious validity, I think it is very easy for people to overreact to them. So here are some caveats:&lt;/p&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;While all of the criticisms of hill climbing have obvious validity, I think it is very easy for people to overreact to them. Here are some caveats in defense of hill climbing:&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;The plots above probably exaggerate the magnitude and frequency with which reward functions change.&lt;/li&gt;
@@ -316,7 +326,7 @@ var objective1 = function(x){
   return gauss(x, left_scale, left_pos, sd) + gauss(x, right_scale, right_pos, sd)
 }
 
-makeObjectiveGraph(&quot;plot1&quot;, get_dot_x, objective1, &quot;Local and global maxima&quot;, false, &quot;you&quot;)
+makeObjectiveGraph(&quot;plot1&quot;, get_dot_x, objective1, &quot;&quot;, false, &quot;you&quot;)
 
 
 var objective2 = function(t, x){
@@ -327,7 +337,7 @@ var objective2 = function(t, x){
   return gauss(x, left_scale, left_pos, sd) + gauss(x, right_scale, right_pos, sd)
 };
 
-makeObjectiveGraph(&quot;plot2&quot;, get_dot_x, objective2, &quot;Dynamic maxima&quot;, true, &quot;you&quot;)
+makeObjectiveGraph(&quot;plot2&quot;, get_dot_x, objective2, &quot;&quot;, true, &quot;you&quot;)
 
 
 var objective3 = function(t, x){
@@ -337,7 +347,7 @@ var objective3 = function(t, x){
   return gauss(x, left_scale, left_pos, .25) + gauss(x, right_scale, right_pos, .3)
 };
 
-makeObjectiveGraph(&quot;plot3&quot;, get_dot_x, objective3, &quot;Novelty effects&quot;, true, &quot;you&quot;)
+makeObjectiveGraph(&quot;plot3&quot;, get_dot_x, objective3, &quot;&quot;, true, &quot;you&quot;)
 
 var objective4 = function(t, x){
   var left_scale  = soft_motion(t, 0.6, 0.15, 0.95, 0.15);

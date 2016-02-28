@@ -1,24 +1,28 @@
 ---
 layout: post
-title: An animated look at local maxima and product space
-description: An animated look at local maxima, novelty effects, hill climbing, and differentiation.
+title: Four pitfalls of hill climbing
+description: An animated look at local maxima, novelty effects, differentiation, emergent maxima.
 ---
 
 <meta charset="utf-8">
 
-If you spend any time in the tech industry, you are bound to hear someone say that a product could be in a “local maximum”. In a local maximum, small changes to a product seem to make it worse, and it’s hard to make the big change that could bring you to a global maximum.
+One of the great developments in product design has been the adoption of A/B testing. Instead of just guessing what is best for your customers, you can offer a product variant to a subset of customers and measure how well it works. While undeniably useful, A/B testing is sometimes said to encourage too much "hill climbing", an incremental and short-sighted style of product development that emphasizes easy and immediate wins.
 
-The term “local maximum” is often used a bit loosely. In this post, I want to show some animations that describe how the term is sometimes used to express two totally different ideas. I then want to use these animations to describe some other popular ideas in product design.
+Discussion around hill climbing can sometimes get a bit vague, so I thought I would make some animations that describe four distinct pitfalls.
 
-Local maxima can be illustrated with hill diagrams like the one below. Each video frame is a time step. The horizontal axis is not time, but instead represents product space collapsed into a single dimension. In reality, of course, there are many dimensions that a product could explore.
+#### Local maxima
+
+If you incrementally hill climb around a local maximum, you may never find the global maximum that could lead to much bigger reward. This can happen when intermediate versions of a product are worse than more fully realized extremes.
+
+Local maxima and global maxima can be illustrated with hill diagrams like the one below. Each video frame is a time step. The horizontal axis is not time, but instead represents product space collapsed into a single dimension. In reality, of course, there are many dimensions that a product could explore.
 
 <div class="wrapper">
   <div class="inner" id="plot1"></div>
 </div>
 
-The diagram above describes how an intermediate version of a product may be worse than more fully realized extremes. This idea is wrapped up in concerns about *incrementalism*: If a product only explores small local changes, it may never find the much bigger change that could lead to larger reward.
+#### Emergent maxima
 
-Sometimes people use the term “local maximum” to describe concerns about *short-termism*: By running short A/B tests, you might not realize that a change that initially seems bad may be good in the long run. This idea, which is distinct from concerns about incrementalism, can be described with a dynamic reward function animation. As before, the horizontal axis is product space, each video frame represents a time step, and the vertical axis represents immediate, measurable reward.
+If you run short A/B tests, or A/B tests that do not fully capture network effects, you might not realize that a change that initially seems bad may be good in the long run. This idea, which is distinct from concerns about incrementalism, can be described with a dynamic reward function animation. As before, the horizontal axis is product space, each video frame represents a time step, and the vertical axis represents immediate, measurable reward.
 
 <div class="wrapper">
   <div class="inner" id="plot2"></div>
@@ -26,11 +30,15 @@ Sometimes people use the term “local maximum” to describe concerns about *sh
 
 When a product changes, the intial effect is negative. But eventually, customers begin to enjoy the new version. By waiting at a position that initially seemed negative, you are able to discover an emergent mountain, and receive greater reward than you would have from short-term optimization.
 
+#### Novelty effects
+
 Short-term optimization can be bad, not only because it prevents discovery of emergent mountains, but also because some hills can be transient. One way a hill can disappear is through *novelty effects*, where a shiny new feature can be engaging to customers in the short term, but uninteresting or even negative in the long term.
 
 <div class="wrapper">
   <div class="inner" id="plot3"></div>
 </div>
+
+#### Loss of differentiation
 
 Another way a hill can disappear is through loss of differentiation from more dominant competitors. Your product may occupy a market niche. If you try to copy your competitor, you may initially see some benefits. But at some point, your customers may leave because not much separates you from your more dominant competitor. Differentiation matters in some dimensions more than others.
 
@@ -41,7 +49,9 @@ Another way a hill can disappear is through loss of differentiation from more do
 
 You can think of an industry as a dynamic ecosystem where each company has its own reward function. When one company moves, it changes its own reward function as well as the reward functions of other companies. If this sounds like biology, you're not mistaken. The dynamics here are very similar to evolutionary [fitness landscapes](http://www.randalolson.com/2014/04/17/visualizing-evolution-in-action-dynamic-fitness-landscapes/).
 
-While all of the criticisms of incrementalism and short-termism have obvious validity, I think it is very easy for people to overreact to them. So here are some caveats:
+***
+
+While all of the criticisms of hill climbing have obvious validity, I think it is very easy for people to overreact to them. Here are some caveats in defense of hill climbing:
 
 - The plots above probably exaggerate the magnitude and frequency with which reward functions change.
 - There is huge uncertainty and disagreement about what future landscapes will look like. In most cases, it's better to explore regions that increase (rather than decrease) reward, making sure to run long term experiments when needed.
@@ -301,7 +311,7 @@ var objective1 = function(x){
   return gauss(x, left_scale, left_pos, sd) + gauss(x, right_scale, right_pos, sd)
 }
 
-makeObjectiveGraph("plot1", get_dot_x, objective1, "Local and global maxima", false, "you")
+makeObjectiveGraph("plot1", get_dot_x, objective1, "", false, "you")
 
 
 var objective2 = function(t, x){
@@ -312,7 +322,7 @@ var objective2 = function(t, x){
   return gauss(x, left_scale, left_pos, sd) + gauss(x, right_scale, right_pos, sd)
 };
 
-makeObjectiveGraph("plot2", get_dot_x, objective2, "Dynamic maxima", true, "you")
+makeObjectiveGraph("plot2", get_dot_x, objective2, "", true, "you")
 
 
 var objective3 = function(t, x){
@@ -322,7 +332,7 @@ var objective3 = function(t, x){
   return gauss(x, left_scale, left_pos, .25) + gauss(x, right_scale, right_pos, .3)
 };
 
-makeObjectiveGraph("plot3", get_dot_x, objective3, "Novelty effects", true, "you")
+makeObjectiveGraph("plot3", get_dot_x, objective3, "", true, "you")
 
 var objective4 = function(t, x){
   var left_scale  = soft_motion(t, 0.6, 0.15, 0.95, 0.15);
