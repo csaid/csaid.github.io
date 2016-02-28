@@ -4,7 +4,7 @@
  <title>The File Drawer</title>
  <link href="http://www.chris-said.io/atom.xml" rel="self"/>
  <link href="http://www.chris-said.io/"/>
- <updated>2016-02-28T11:38:12-08:00</updated>
+ <updated>2016-02-28T11:40:29-08:00</updated>
  <id>http://www.chris-said.io</id>
  <author>
    <name>Chris Said</name>
@@ -14,9 +14,9 @@
  
  <entry>
    <title>Four pitfalls of hill climbing</title>
-   <link href="http://www.chris-said.io/2016/02/28/an-animated-look-at-local-maxima/"/>
+   <link href="http://www.chris-said.io/2016/02/28/four-pitfalls-of-hill-climbing/"/>
    <updated>2016-02-28T00:00:00-08:00</updated>
-   <id>http://www.chris-said.io/2016/02/28/an-animated-look-at-local-maxima</id>
+   <id>http://www.chris-said.io/2016/02/28/four-pitfalls-of-hill-climbing</id>
    <content type="html">&lt;meta charset=&quot;utf-8&quot; /&gt;
 
 &lt;p&gt;One of the great developments in product design has been the adoption of A/B testing. Instead of just guessing what is best for your customers, you can offer a product variant to a subset of customers and measure how well it works. While undeniably useful, A/B testing is sometimes said to encourage too much “hill climbing”, an incremental and short-sighted style of product development that emphasizes easy and immediate wins.&lt;/p&gt;
