@@ -4,7 +4,7 @@
  <title>The File Drawer</title>
  <link href="http://www.chris-said.io/atom.xml" rel="self"/>
  <link href="http://www.chris-said.io/"/>
- <updated>2016-02-28T09:31:49-08:00</updated>
+ <updated>2016-02-28T10:33:43-08:00</updated>
  <id>http://www.chris-said.io</id>
  <author>
    <name>Chris Said</name>
@@ -23,7 +23,7 @@
 
 &lt;p&gt;The term “local maximum” is often used a bit loosely. In this post, I want to show some animations that describe how the term is sometimes used to express two totally different ideas. I then want to use these animations to describe some other popular ideas in product design.&lt;/p&gt;
 
-&lt;p&gt;Local maxima are often illustrated with hill diagrams like the one below. For simplicity, product space is collapsed into a single dimension (the horizontal axis). In reality, of course, there are many dimensions that a product could explore.&lt;/p&gt;
+&lt;p&gt;Local maxima can be illustrated with hill diagrams like the one below. Each video frame is a time step. The horizontal axis is not time, but instead represents product space collapsed into a single dimension. In reality, of course, there are many dimensions that a product could explore.&lt;/p&gt;
 
 &lt;div class=&quot;wrapper&quot;&gt;
   &lt;div class=&quot;inner&quot; id=&quot;plot1&quot;&gt;&lt;/div&gt;
@@ -31,7 +31,7 @@
 
 &lt;p&gt;The diagram above describes how an intermediate version of a product may be worse than more fully realized extremes. This idea is wrapped up in concerns about &lt;em&gt;incrementalism&lt;/em&gt;: If a product only explores small local changes, it may never find the much bigger change that could lead to larger reward.&lt;/p&gt;
 
-&lt;p&gt;Sometimes people use the term “local maximum” to describe concerns about &lt;em&gt;short-termism&lt;/em&gt;: By running short A/B tests, you might not realize that a change that initially seems bad may be good in the long run. This idea, which is distinct from concerns about incrementalism, can be described with a dynamic reward function animation.&lt;/p&gt;
+&lt;p&gt;Sometimes people use the term “local maximum” to describe concerns about &lt;em&gt;short-termism&lt;/em&gt;: By running short A/B tests, you might not realize that a change that initially seems bad may be good in the long run. This idea, which is distinct from concerns about incrementalism, can be described with a dynamic reward function animation. As before, the horizontal axis is product space, and each video frame represents a time step.&lt;/p&gt;
 
 &lt;div class=&quot;wrapper&quot;&gt;
   &lt;div class=&quot;inner&quot; id=&quot;plot2&quot;&gt;&lt;/div&gt;
@@ -58,7 +58,7 @@
 
 &lt;ul&gt;
   &lt;li&gt;The plots above probably exaggerate the magnitude and frequency with which reward functions change.&lt;/li&gt;
-  &lt;li&gt;There is huge uncertainty and disagreement about what future landscapes will look like. In most cases, it may be better to explore regions that show immediate and objectively measurable reward, making sure to run long term experiments when needed.&lt;/li&gt;
+  &lt;li&gt;There is huge uncertainty and disagreement about what future landscapes will look like. In most cases, it’s better to explore regions that increase (rather than decrease) reward, making sure to run long term experiments when needed.&lt;/li&gt;
   &lt;li&gt;The space is high dimensional. Even if your product is at a local maximum in one dimension, there are many other dimensions to explore and measure.&lt;/li&gt;
   &lt;li&gt;We may overestimate the causal relationship between bold product moves and company success. Investors often observe that companies who don’t make bold changes are doomed to fail. While I don’t doubt that there is some causation here, I think there is also some reverse causation. Bold changes require lots of resources. Maybe it’s mostly the success-bound companies who have enough resources to afford the bold changes.&lt;/li&gt;
 &lt;/ul&gt;
