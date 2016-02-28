@@ -4,7 +4,7 @@
  <title>The File Drawer</title>
  <link href="http://www.chris-said.io/atom.xml" rel="self"/>
  <link href="http://www.chris-said.io/"/>
- <updated>2016-02-28T11:40:29-08:00</updated>
+ <updated>2016-02-28T12:00:23-08:00</updated>
  <id>http://www.chris-said.io</id>
  <author>
    <name>Chris Said</name>
@@ -27,11 +27,11 @@
 
 &lt;p&gt;If you incrementally hill climb around a local maximum, you may never find the global maximum that could lead to much bigger reward. This can happen when intermediate versions of a product are worse than more fully realized extremes.&lt;/p&gt;
 
-&lt;p&gt;Local maxima and global maxima can be illustrated with hill diagrams like the one below. Each video frame is a time step. The horizontal axis is not time, but instead represents product space collapsed into a single dimension. In reality, of course, there are many dimensions that a product could explore.&lt;/p&gt;
-
 &lt;div class=&quot;wrapper&quot;&gt;
   &lt;div class=&quot;inner&quot; id=&quot;plot1&quot;&gt;&lt;/div&gt;
 &lt;/div&gt;
+
+&lt;p&gt;Local maxima and global maxima can be illustrated with hill diagrams like the one above. Each video frame is a time step. The horizontal axis represents product space collapsed into a single dimension. In reality, of course, there are many dimensions that a product could explore.&lt;/p&gt;
 
 &lt;h4 id=&quot;emergent-maxima&quot;&gt;Emergent maxima&lt;/h4&gt;
 
@@ -305,6 +305,10 @@ var get_dot_x = function(t) {
   return soft_motion(t, .2, .2, .8, .8)
 };
 
+var get_dot_x_local_max = function(t) {
+  return soft_motion(t, .2, .35, .8, .2)
+};
+
 // The horizontal position of your competitor&#39;s dot
 var get_competitor_dot_x = function(t) {
   return 0.8;
@@ -326,7 +330,7 @@ var objective1 = function(x){
   return gauss(x, left_scale, left_pos, sd) + gauss(x, right_scale, right_pos, sd)
 }
 
-makeObjectiveGraph(&quot;plot1&quot;, get_dot_x, objective1, &quot;&quot;, false, &quot;you&quot;)
+makeObjectiveGraph(&quot;plot1&quot;, get_dot_x_local_max, objective1, &quot;&quot;, false, &quot;you&quot;)
 
 
 var objective2 = function(t, x){

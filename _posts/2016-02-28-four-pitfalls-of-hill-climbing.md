@@ -14,11 +14,11 @@ Discussion around hill climbing can sometimes get a bit vague, so I thought I wo
 
 If you incrementally hill climb around a local maximum, you may never find the global maximum that could lead to much bigger reward. This can happen when intermediate versions of a product are worse than more fully realized extremes.
 
-Local maxima and global maxima can be illustrated with hill diagrams like the one below. Each video frame is a time step. The horizontal axis is not time, but instead represents product space collapsed into a single dimension. In reality, of course, there are many dimensions that a product could explore.
-
 <div class="wrapper">
   <div class="inner" id="plot1"></div>
 </div>
+
+Local maxima and global maxima can be illustrated with hill diagrams like the one above. Each video frame is a time step. The horizontal axis represents product space collapsed into a single dimension. In reality, of course, there are many dimensions that a product could explore.
 
 #### Emergent maxima
 
@@ -290,6 +290,10 @@ var get_dot_x = function(t) {
   return soft_motion(t, .2, .2, .8, .8)
 };
 
+var get_dot_x_local_max = function(t) {
+  return soft_motion(t, .2, .35, .8, .2)
+};
+
 // The horizontal position of your competitor's dot
 var get_competitor_dot_x = function(t) {
   return 0.8;
@@ -311,7 +315,7 @@ var objective1 = function(x){
   return gauss(x, left_scale, left_pos, sd) + gauss(x, right_scale, right_pos, sd)
 }
 
-makeObjectiveGraph("plot1", get_dot_x, objective1, "", false, "you")
+makeObjectiveGraph("plot1", get_dot_x_local_max, objective1, "", false, "you")
 
 
 var objective2 = function(t, x){
