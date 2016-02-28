@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<link rel="stylesheet" href="/public/font-awesome-4.4.0/css/font-awesome.min.css">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  
+    <meta name="description" content="My name is Chris Said and I am a data scientist at Twitter. This blog is mostly about tech, stats, and science.">
+  
+
+  <title>
+    
+      The File Drawer &middot; A blog by Chris Said
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/hyde.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
+                                 <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+<!--   <body class="theme-base-cps">
+ -->
+  <body>
+
+    <div class="sidebar">
+  <div class="container">
+    <div class="sidebar-about">
+      <h1>
+        <a href="/">
+          The File Drawer
+        </a>
+      </h1>
+      <p class="lead">My name is Chris Said and I am a data scientist at Twitter. This blog is mostly about tech, stats, and science.</p>
+
+    </div>
+
+    <nav class="sidebar-nav">
+
+      
+        <a class="sidebar-nav-item" href="/">Home</a>
+      
+        <a class="sidebar-nav-item" href="/archive">Archive</a>
+      
+        <a class="sidebar-nav-item" href="/atom.xml">Feed</a>
+      
+
+    </nav>
+
+    <div class="wrapper">
+      <div class="inner">
+        <a href = "http://www.twitter.com/Chris_Said" class="contact-button"><i class="fa fa-twitter fa-2x"></i></a>
+        <a href = "https://www.linkedin.com/pub/chris-said/6b/86b/979" class="contact-button"><i class="fa fa-linkedin-square fa-2x"></i></a>
+        <a href = "mailto:chris.said@gmail.com" class="contact-button"><i class="fa fa-envelope fa-2x"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <div class="content container">
+      <div class="posts">
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/2013/03/30/new-model-of-binocular-rivalry/">
+        New model of binocular rivalry
+      </a>
+    </h1>
+
+    <span class="post-date">30 Mar 2013</span>
+
+    <p>Binocular rivalry is a visual illusion that occurs when the two eyes are presented with incompatible images. Instead of perceiving a mixture of the two images, most people experience alternations in which only one image is visible at a time. Binocular rivalry works best under controlled laboratory conditions with prisms or mirrors, but if you are lucky you might be able to experience it in the figure below. Try crossing your eyes to align the left boxes and right boxes, so that three boxes are observed rather than two. If you can keep your eyes stable, you might perceive alternations between the two different gratings in the middle box. It helps if you first try to merge the “Merge me!” phrase and then, once that it is stable, focus on the middle box. If you can’t stabilize your eyes enough, don’t worry. You are not alone.</p>
+
+<p>.</p>
+
+<figure class="image"><img src="/assets/fig_dichop1.png" alt="" /></figure>
+
+<p>.</p>
+
+<p>Binocular rivalry is more than just an interesting illusion: it reflects actual inhibitory competition between neurons in the brain, and therefore provides a rare window into neural dynamics. To help us understand these mechanisms, researchers have developed several models of the phenomenon. Yet surprisingly, all of these models make a big incorrect prediction about a type of stimulus known as “binocular plaids”. You can view some binocular plaids by crossing your eyes on the boxes below, or simply by looking at one of the boxes normally.</p>
+
+<p>.</p>
+
+<figure class="image"><img src="/assets/fig_binoc.png" alt="" /></figure>
+
+<p>.</p>
+
+<p>As you can see, a plaid is composed of two gratings, a rightward pointing grating and a leftward pointing grating. The big, incorrect prediction made by previous models of rivalry is that the leftward pointing grating should alternate with the rightward pointing grating, just as it would in the traditional rivalry stimuli shown above. This prediction – which follows because the same neural inhibition that creates competition in the first figure must necessarily also create competition in the second figure – is clearly wrong: When viewing the binocular plaid, you probably perceive that the rightward grating remains just as strong as the leftward grating, without any alternations. This failed prediction extends far beyond these toy stimuli. Plaid perception is typically explained by the broad theory of <a href="http://www.nature.com/nrn/journal/v13/n1/full/nrn3136.html">divisive normalization</a>, which also covers a whole host of other inhibitory interactions in cortex. Models of the inhibitory processes in rivalry are thus in tension with models of inhibitory processes that use divisive normalization.</p>
+
+<p>Together with my advisor <a href="http://www.cns.nyu.edu/~david/">David Heeger</a>, I developed a <a href="http://www.ploscompbiol.org/article/info%3Adoi%2F10.1371%2Fjournal.pcbi.1002991">new model</a> of rivalry that is able to accommodate plaids, and which I hope reconciles models of rivalry with models of normalization. Finding a solution was not as easy as you might think. When we presented the problem to colleagues, everyone immediately had intuitions for how to solve it, but amazingly none of them worked. We found only one solution that worked, and it is one that I later discovered was once proposed by Randolph Blake. The model makes novel predictions that we confirmed with psychophysical tests. If you want to read more about it, you can find the paper below. The Matlab code is available <a href="http://www.cns.nyu.edu/~csaid/code/SaidAndHeeger_model_code.zip">here</a>.</p>
+
+<p><a href="http://www.ploscompbiol.org/article/info%3Adoi%2F10.1371%2Fjournal.pcbi.1002991">Said CP &amp; Heeger DJ (2013). A model of binocular rivalry and cross-orientation suppression. <em>PLOS Computational Biology.</em></a></p>
+
+
+    <div>
+        <i class="fa fa-comment"></i> <a href="http://www.chris-said.io/2013/03/30/new-model-of-binocular-rivalry/#disqus_thread" data-disqus-identifier="http://www.chris-said.io/2013/03/30/new-model-of-binocular-rivalry/"></a>
+        <span>&nbsp; &nbsp;</span>
+        <span>
+            <a class="twitter-share-button"
+              href="https://twitter.com/share"
+              data-url="http://www.chris-said.io/2013/03/30/new-model-of-binocular-rivalry/"
+              data-via="Chris_Said"
+              data-count="none"
+              data-text="New model of binocular rivalry">
+            Tweet
+            </a>
+        </span>
+
+    </div>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/2013/03/21/165/">
+        Canadian funding models for all
+      </a>
+    </h1>
+
+    <span class="post-date">21 Mar 2013</span>
+
+    <p>The US and Canada have very different systems for funding science. To compare them, I found some of the publicly available data on <a href="http://report.nih.gov/success_rates/Success_ByIC.cfm">NIH R01s</a> (USA) and <a href="http://www.nserc-crsng.gc.ca/_doc/Funding-Financement/DGStat2012-SDStat2012_eng.pdf">NSERC Individual Discovery Grants</a> (Canada), and plotted them below. Before describing the results, I should say that comparing NIH to NSERC is a bit like comparing apples to oranges, since NSERC is probably closer to the NSF than to the NIH. Nevertheless, the cross-country trends hold up across agencies, and in any case my goal is not to compare countries (as much as I would like to) but to compare funding models.</p>
+
+<figure class="image"><img src="/assets/fig2.png" alt="" /></figure>
+
+<p>There are two things to notice about the plots. First, the funding rates are clearly higher at NSERC than at NIH. The catch, of course, is that higher rates mean smaller awards. NSERC typically provides $35,000/year, far less than the big awards from NIH. Canadian scientists <a href="http://oikosjournal.wordpress.com/2011/05/16/should-granting-agencies-fund-projects-or-people/">love</a> their system, valuing the stability it provides more than the possibility of large awards. Quality of life issues aside, a separate question is: Does the NSERC system produce better science? Or do the high success rates waste too much money on low-quality projects? My feeling is that the NSERC system is much better. High-quality NIH proposals are routinely rejected for arbitrary reasons, and the sink-or-swim culture is <a href="http://www.nytimes.com/2012/04/17/science/rise-in-scientific-journal-retractions-prompts-calls-for-reform.html?pagewanted=1&amp;_r=2">directly contributing</a> to bad research practices. We should move toward a higher rate / smaller award system. And for those who see value in large awards, we can still adjust the size of the award based on the quality of the proposal.</p>
+
+<p>The second thing to notice about the plots is the trends over time. At NIH, more so than at NSERC, the decline in success rates is driven by an increase in the number of applicants, not by a decrease in the number of awards. I don’t think the solution is just “more funding”, especially in the current fiscal climate. We have a denominator problem, not a numerator problem. We should fix the system that rewards programs for producing more PhDs than the system can accommodate. I’ll leave it to actual experts to decide how to do this. But as with most public policy questions, a good place to start is to just copy whatever the Canadians are doing.</p>
+
+
+    <div>
+        <i class="fa fa-comment"></i> <a href="http://www.chris-said.io/2013/03/21/165/#disqus_thread" data-disqus-identifier="165 http://filedrawer.wordpress.com/?p=165"></a>
+        <span>&nbsp; &nbsp;</span>
+        <span>
+            <a class="twitter-share-button"
+              href="https://twitter.com/share"
+              data-url="http://www.chris-said.io/2013/03/21/165/"
+              data-via="Chris_Said"
+              data-count="none"
+              data-text="Canadian funding models for all">
+            Tweet
+            </a>
+        </span>
+
+    </div>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/2013/01/15/8-lessons-from-the-reproducibility-crisis/">
+        Eight Lessons from the Reproducibility Crisis 
+      </a>
+    </h1>
+
+    <span class="post-date">15 Jan 2013</span>
+
+    <ol>
+  <li>
+    <p>There is a reproducibility crisis in psychology.</p>
+  </li>
+  <li>
+    <p>Outright fraud is rare. Soft forms of bad practice are the bigger problem.</p>
+  </li>
+  <li>
+    <p>Most scientists are honest, but soft forms of bad practice emerge through self-deception or lack of awareness. <a href="http://psr.sagepub.com/content/2/3/196.abstract">
+</a></p>
+  </li>
+  <li>
+    <p>The problem is worse in medical research, but that is no excuse for psychologists to resist reforms.</p>
+  </li>
+  <li>
+    <p><a href="http://papers.ssrn.com/sol3/papers.cfm?abstract_id=1850704">Lists of new regulations</a> are fine, but the core issue is that career incentive structures are not always aligned with truth discovery.</p>
+  </li>
+  <li>
+    <p>Some data outcomes are rewarded more than other data outcomes. This is bad.</p>
+  </li>
+  <li>
+    <p>Journals have little incentive to change this incentive structure themselves.</p>
+  </li>
+  <li>
+    <p><a href="/2012/04/17/its-the-incentives-structure-people-why-science-reform-must-come-from-the-granting-agencies/">But granting agencies can help</a>, by increasing the grant award probability to scientists who submit to <a href="http://neurochambers.blogspot.co.uk/2012/10/changing-culture-of-scientific.html">good</a> <a href="http://talyarkoni.org/papers/Yarkoni_FCN_2012.pdf">practice</a> <a href="http://www.plosone.org">journals</a>. Can someone at NIH/NSF please do something about this?</p>
+  </li>
+</ol>
+
+<p>If you have comments, they might already be addressed in my <a href="/2012/04/18/faq/">FAQ</a>.</p>
+
+
+    <div>
+        <i class="fa fa-comment"></i> <a href="http://www.chris-said.io/2013/01/15/8-lessons-from-the-reproducibility-crisis/#disqus_thread" data-disqus-identifier="http://www.chris-said.io/2013/01/15/8-lessons-from-the-reproducibility-crisis/"></a>
+        <span>&nbsp; &nbsp;</span>
+        <span>
+            <a class="twitter-share-button"
+              href="https://twitter.com/share"
+              data-url="http://www.chris-said.io/2013/01/15/8-lessons-from-the-reproducibility-crisis/"
+              data-via="Chris_Said"
+              data-count="none"
+              data-text="Eight Lessons from the Reproducibility Crisis ">
+            Tweet
+            </a>
+        </span>
+
+    </div>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/2013/01/09/in-defense-of-correlationcausation-blowhards/">
+        In defense of correlation/causation blowhards
+      </a>
+    </h1>
+
+    <span class="post-date">09 Jan 2013</span>
+
+    <p>Let’s get one thing out of the way first: There is not a single scientist or science journalist who doesn’t know that correlation does not equal causation. Most have probably known it since high school.</p>
+
+<p>That’s why there has been a bit of a backlash against internet commenters who keep pointing it out. The phrase is “common and irritating”, writes Slate’s Daniel Engber in his article <a href="http://www.slate.com/articles/health_and_science/science/2012/10/correlation_does_not_imply_causation_how_the_internet_fell_in_love_with_a_stats_class_clich_.single.html">The Internet Blowhard’s Favorite Phrase</a>. To Engber, correlation≠causation is a “freshman platitude” that professional scientists and journalists don’t need to be reminded of. Scientists are merely <em>suggesting</em> a causal relationship. They are not claiming it is proven.</p>
+
+<p>I can see why writers and researchers find it frustrating to be scolded about something they already know. But correlation≠causation is one of those things that has a way of sliding onto the back burner of one’s mental awareness, even among scientists. On one day a research group is acknowledging the limits to their correlational study, but the next day they are advancing policy arguments that depend on a causal relationship. Or more commonly, they are preparing to run yet another correlational study.</p>
+
+<p>Nowhere does this seem more of an issue than in nutrition science and in education research. In nutrition science, it is much easier to conduct a simple survey on health and eating habits than to organize a large-scale longitudinal randomized control study. Is it any wonder then, that after 50 years of nutrition science <a href="http://grist.org/scary-food/2011-03-04-low-fat-diet-fad/">we still don’t know</a> whether saturated fat is good for you or bad for you? And in education research, it is much easier to run a correlational study on class size and achievement than it is to run a <a href="http://onlinelibrary.wiley.com/doi/10.1111/1468-0297.00586/abstract">randomized control study</a>. Is it any wonder then, that the public policy debate about class size is so muddled?</p>
+
+<p>Don’t get me wrong – There is some fantastic causal research coming out of the nutrition and education fields. And there is nothing wrong with running a correlational study either. Correlational studies are a great way for researchers to identify variables that are promising enough to investigate with causal methods.</p>
+
+<p>But could it be that we have struck the wrong balance between correlational studies and causal studies? Could we be allocating too many resources towards easy but inconclusive studies, and not enough towards costly but more definitive research? I think the answer might be yes, and that internet comment blowhards are an important voice for this point of view.</p>
+
+
+    <div>
+        <i class="fa fa-comment"></i> <a href="http://www.chris-said.io/2013/01/09/in-defense-of-correlationcausation-blowhards/#disqus_thread" data-disqus-identifier="143 http://filedrawer.wordpress.com/?p=143"></a>
+        <span>&nbsp; &nbsp;</span>
+        <span>
+            <a class="twitter-share-button"
+              href="https://twitter.com/share"
+              data-url="http://www.chris-said.io/2013/01/09/in-defense-of-correlationcausation-blowhards/"
+              data-via="Chris_Said"
+              data-count="none"
+              data-text="In defense of correlation/causation blowhards">
+            Tweet
+            </a>
+        </span>
+
+    </div>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/2012/12/29/new-paper-on-autism/">
+        New paper on autism
+      </a>
+    </h1>
+
+    <span class="post-date">29 Dec 2012</span>
+
+    <p>If there is one thing I have learned recently, it is that autism is a really, really complicated disorder. Autism is best known for causing repetitive behaviors and problems with social communication, but it is also known to cause issues in sensory perception. Many hypotheses for the underlying neurophysiological basis have been proposed. Among these is the excitation/inhibition (E/I) imbalance hypothesis, which states that levels of cortical excitation and inhibition are disrupted in autism. An imbalance like this could be caused by unusual levels of certain neurotransmitters, such as glutamate and GABA, or by an unusual distribution of synaptic connections. Together with my collaborators (David Heeger, Marlene Behrmann, Nancy Minshew, and Ryan Egan), we tested this theory and report the results in a new <a href="http://dx.doi.org/10.1016/j.visres.2012.11.002">paper</a> published in <em>Vision Research</em>.</p>
+
+<figure class="image"><img src="/assets/network1.png" alt="" /></figure>
+
+<p>We chose to test the theory in the visual system because vision is one of the better understood systems in neuroscience and because the E/I imbalance theory has been proposed to explain hypersensitivity to sensory stimuli in autism. Specifically, we conducted two experiments on <a href="http://en.wikipedia.org/wiki/Binocular_rivalry">binocular rivalry</a>, a well-studied phenomenon that depends critically on excitation and inhibition levels in cortex. Using a very simple computational model (a schematic is shown above), we made predictions about how imbalances in excitation and inhibition would affect perception during rivalry. Contrary to our expectations, we found no significant differences between autistic individuals and controls, and no evidence for a relationship between these measurements and the severity of autism. Of course, these results do not conclusively rule out an E/I imbalance in the visual system of those with autism. There are many alternative explanations that we describe in the Discussion section. But these results do seem to suggest that an E/I imbalance, if it exists, is likely to be small in magnitude.</p>
+
+<p><a href="http://dx.doi.org/10.1016/j.visres.2012.11.002">http://dx.doi.org/10.1016/j.visres.2012.11.002</a></p>
+
+
+    <div>
+        <i class="fa fa-comment"></i> <a href="http://www.chris-said.io/2012/12/29/new-paper-on-autism/#disqus_thread" data-disqus-identifier="http://www.chris-said.io/2012/12/29/new-paper-on-autism/"></a>
+        <span>&nbsp; &nbsp;</span>
+        <span>
+            <a class="twitter-share-button"
+              href="https://twitter.com/share"
+              data-url="http://www.chris-said.io/2012/12/29/new-paper-on-autism/"
+              data-via="Chris_Said"
+              data-count="none"
+              data-text="New paper on autism">
+            Tweet
+            </a>
+        </span>
+
+    </div>
+
+  </div>
+  
+</div>
+
+<div class="pagination">
+  
+    <a class="pagination-item older" href="/page5">Older</a>
+  
+  
+    
+      <a class="pagination-item newer" href="/page3">Newer</a>
+    
+  
+</div>
+
+<script type="text/javascript">
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  var disqus_shortname = 'csaid81'; // required: replace example with your forum shortname
+
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function () {
+  var s = document.createElement('script'); s.async = true;
+  s.type = 'text/javascript';
+  s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+  }());
+</script>
+
+
+    </div>
+
+  </body>
+</html>
+
+<!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$']],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  messageStyle: "none",
+  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+});
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+
+
+<script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));</script>

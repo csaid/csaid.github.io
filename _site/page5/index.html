@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<link rel="stylesheet" href="/public/font-awesome-4.4.0/css/font-awesome.min.css">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  
+    <meta name="description" content="My name is Chris Said and I am a data scientist at Twitter. This blog is mostly about tech, stats, and science.">
+  
+
+  <title>
+    
+      The File Drawer &middot; A blog by Chris Said
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/hyde.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
+                                 <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+<!--   <body class="theme-base-cps">
+ -->
+  <body>
+
+    <div class="sidebar">
+  <div class="container">
+    <div class="sidebar-about">
+      <h1>
+        <a href="/">
+          The File Drawer
+        </a>
+      </h1>
+      <p class="lead">My name is Chris Said and I am a data scientist at Twitter. This blog is mostly about tech, stats, and science.</p>
+
+    </div>
+
+    <nav class="sidebar-nav">
+
+      
+        <a class="sidebar-nav-item" href="/">Home</a>
+      
+        <a class="sidebar-nav-item" href="/archive">Archive</a>
+      
+        <a class="sidebar-nav-item" href="/atom.xml">Feed</a>
+      
+
+    </nav>
+
+    <div class="wrapper">
+      <div class="inner">
+        <a href = "http://www.twitter.com/Chris_Said" class="contact-button"><i class="fa fa-twitter fa-2x"></i></a>
+        <a href = "https://www.linkedin.com/pub/chris-said/6b/86b/979" class="contact-button"><i class="fa fa-linkedin-square fa-2x"></i></a>
+        <a href = "mailto:chris.said@gmail.com" class="contact-button"><i class="fa fa-envelope fa-2x"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <div class="content container">
+      <div class="posts">
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/2012/10/04/why-are-contrast-response-functions-linear-in-fmri-and-nonmonotonic-in-eeg/">
+        Why are contrast response functions linear in fMRI and nonmonotonic in EEG?
+      </a>
+    </h1>
+
+    <span class="post-date">04 Oct 2012</span>
+
+    <p>Contrast response functions (CRFs) describe how a neuron’s firing rate depends on the contrast, or intensity, of a visual stimulus. CRFs are really important for testing theories about how the visual system works, and I’ve spent a lot of time over the past few years trying to indirectly measure them in humans, using EEG and fMRI. The problem, however, is that EEG and fMRI give me very different CRFs.</p>
+
+<p>Typically, individual neurons show sigmoidal CRFs. They don’t fire at all for very low contrasts, but they rapidly increase their firing rate at a middle range of contrast. The midpoint of this range is sometimes called the ‘semisaturation constant’. After that, the firing rate tends to level off, or ‘saturate’.</p>
+
+<figure class="image"><img src="/assets/fig_intro_neuron2.png" alt="" /></figure>
+
+<p>With fMRI, however, I tend to find that the CRFs are mostly linear, not sigmoidal.</p>
+
+<figure class="image"><img src="/assets/fig_intro_fmri1.png" alt="" /></figure>
+
+<p>And with EEG, I often find that the CRFs are actually nonmonotonic!</p>
+
+<figure class="image"><img src="/assets/fig_intro_eeg1.png" alt="" /></figure>
+
+<p>This is weird, and I’m not the first person to notice it. Linear CRFs in fMRI are quite common (e.g. <a href="http://www.ncbi.nlm.nih.gov/pubmed/9535979">here</a> and <a href="http://www.ncbi.nlm.nih.gov/pubmed/22153378">here</a>), as are nonmonotic CRFs in EEG (e.g. <a href="http://www.nature.com/nature/journal/v321/n6067/abs/321235a0.html">here</a>, <a href="http://www.jneurosci.org/content/21/12/4530.short">here</a>, <a href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC1192067/">here</a>,  and <a href="http://www.jneurosci.org/content/32/8/2783.short">here</a> ). While not all papers show these effects, they certainly seem like real trends. How it is possible that an underlying sigmoidal function in neurons could give rise to such completely different functions measured by fMRI and EEG?</p>
+
+<p>To explain the linear fMRI responses, one idea is that fMRI takes an average over many different neurons, each with a different semisaturation constant. Some neurons saturate early, some saturate late, and when you average them all together you just get a line.</p>
+
+<figure class="image"><img src="/assets/fig_fmri1.png" alt="" /></figure>
+
+<p>That seems to make sense. But what about the nonmonotonic CRFs in EEG? One idea is that EEG CRFs might reflect the true contrast response functions of individual neurons, many of which are themselves <a href="http://ww.w.journalofvision.org/content/7/6/13.short">nonmonotonic</a>. While I don’t doubt that this could be a contributing factor, I have trouble believing that this explains all, or even most, of the nonmonotonicity in EEG. Only a small minority of visual cells exhibit this property, and I have seen some _massive _nonmonotonicity in some of my most reliable EEG subjects.</p>
+
+<p>A different hypothesis is that nonmonotonicity is caused by the cancellation of dipoles across cortical sulci or gyri. EEG dipoles are oriented normal to the cortical surface and, since the cortex has so many folds, many of the electrical signals simply <a href="http://www.ncbi.nlm.nih.gov/pubmed/19639553">cancel</a> each other out.</p>
+
+<figure class="image"><img src="/assets/fig_dipole1.png" alt="" /></figure>
+
+<p>Here’s where it gets interesting. Different cortical areas (e.g. V1 and V2) have different average semisaturation constants. (They tend to get lower the higher you move up in the visual hierarchy). Imagine that two cortical areas with different semisaturation constants live on opposite sides of a sulcus. At medium contrasts, one area will be active and the other will be mostly silent. But at higher contrasts, <em>both</em> areas will have kicked in, and so the overall signal (due to cancellation) will be actually _lower _that at medium contrast. This isn’t my idea, but it makes a lot of sense and I think it deserves more attention.</p>
+
+<figure class="image"><img src="/assets/fig_eeg2.png" alt="" /></figure>
+
+<p>But wait, the fMRI explanation makes sense, and the EEG explanation makes sense, but how can they both be true? After all, the EEG cancellation story only works if each area’s average CRF is nonlinear: If the average responses were linear (as demonstrated by the fMRI explanation), cancellation of opposite CRFs would just result in more straight lines, right?</p>
+
+<p>Well, yes and no. Using simulations I have found it quite easy to capture both effects. In the fMRI simulation, a perfectly linear CRF emerges only if I assume that the underlying neural semisaturation constants are uniformly distributed, which is quite an unlikely assumption. With any other reasonable distribution (e.g. normal distribution) I get fMRI CRFs that are mostly linear but with a touch of sigmoid. And critically, that touch of sigmoid will drive the dipole cancellation in a way that results in nonmonotonic EEG CRFs.</p>
+
+<p>Below is some Matlab code showing how this works, just a proof of concept. It makes some very, very simplifying assumptions, and I’m sure that the truth is far more complicated.</p>
+
+<figure class="highlight"><pre><code class="language-matlab" data-lang="matlab"><span class="k">function</span> <span class="p">[]</span> <span class="o">=</span> <span class="n">crfmodel</span><span class="p">()</span>
+
+<span class="n">n</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">;</span> <span class="c1">%number of neurons</span>
+<span class="n">c</span> <span class="o">=</span> <span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="mi">100</span><span class="p">;</span> <span class="c1">%contrast levels</span>
+<span class="n">c50_std</span> <span class="o">=</span> <span class="mi">30</span><span class="p">;</span> <span class="c1">%stddev of semisaturation constants</span>
+<span class="n">c50_mean</span> <span class="o">=</span> <span class="p">[</span><span class="mi">50</span> <span class="mi">70</span><span class="p">];</span> <span class="c1">%for two visual areas;</span>
+<span class="n">c50</span> <span class="o">=</span> <span class="nb">nan</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">);</span>
+<span class="k">for</span> <span class="nb">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">2</span> <span class="c1">%loop through two banks of sulcus (two visual areas)</span>
+  <span class="n">idcs</span><span class="p">{</span><span class="nb">i</span><span class="p">}</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">n</span><span class="p">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="nb">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">n</span><span class="p">/</span><span class="mi">2</span><span class="p">;</span>
+  <span class="n">c50</span><span class="p">(</span><span class="n">idcs</span><span class="p">{</span><span class="nb">i</span><span class="p">})</span> <span class="o">=</span> <span class="n">c50_std</span><span class="o">*</span><span class="nb">randn</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">/</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="n">c50_mean</span><span class="p">(</span><span class="nb">i</span><span class="p">);</span>
+<span class="k">end</span>
+<span class="p">[</span><span class="n">C</span> <span class="n">C50</span><span class="p">]</span> <span class="o">=</span> <span class="nb">meshgrid</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">c50</span><span class="p">);</span>
+<span class="n">R</span> <span class="o">=</span> <span class="n">makeLogistic</span><span class="p">(</span><span class="n">C</span><span class="p">,</span><span class="n">C50</span><span class="p">);</span> <span class="c1">%Each row is a CRF for a particular neuron</span>
+<span class="nb">figure</span>
+
+<span class="c1">%Single neurons</span>
+<span class="nb">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">for</span> <span class="nb">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">2</span> <span class="c1">%loop through 2 areas</span>
+   <span class="nb">plot</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">makeLogistic</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">c50_mean</span><span class="p">(</span><span class="nb">i</span><span class="p">)));</span>
+   <span class="nb">hold</span> <span class="n">on</span>
+<span class="k">end</span>
+<span class="nb">ylabel</span><span class="p">(</span><span class="s1">'Single Neuron Response'</span><span class="p">)</span>
+
+<span class="c1">%fMRI</span>
+<span class="nb">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
+<span class="k">for</span> <span class="nb">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">2</span> <span class="c1">%loop through 2 areas</span>
+  <span class="n">CRF_fMRI</span><span class="p">{</span><span class="nb">i</span><span class="p">}</span> <span class="o">=</span> <span class="nb">mean</span><span class="p">(</span><span class="n">R</span><span class="p">(</span><span class="n">idcs</span><span class="p">{</span><span class="nb">i</span><span class="p">},:),</span><span class="mi">1</span><span class="p">);</span> <span class="c1">%average all neurons in each area</span>
+  <span class="nb">plot</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">CRF_fMRI</span><span class="p">{</span><span class="nb">i</span><span class="p">})</span>
+  <span class="nb">hold</span> <span class="n">on</span>
+<span class="k">end</span>
+<span class="nb">ylabel</span><span class="p">(</span><span class="s1">'fMRI Response'</span><span class="p">)</span>
+
+<span class="c1">%EEG</span>
+<span class="c1">%Cancellation. Scale factor isn't necessary but reflects that fact that</span>
+<span class="c1">%some areas are likely to activate more than others.</span>
+<span class="n">R_EEG</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">R</span><span class="p">(</span><span class="n">idcs</span><span class="p">{</span><span class="mi">1</span><span class="p">},:)</span><span class="o">-.</span><span class="mi">7</span><span class="o">*</span><span class="n">R</span><span class="p">(</span><span class="n">idcs</span><span class="p">{</span><span class="mi">2</span><span class="p">},:));</span>
+<span class="n">CRF_EEG</span> <span class="o">=</span> <span class="nb">mean</span><span class="p">(</span><span class="n">R_EEG</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+<span class="nb">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">CRF_EEG</span><span class="p">)</span>
+<span class="nb">ylabel</span><span class="p">(</span><span class="s1">'EEG Response'</span><span class="p">)</span>
+
+<span class="k">function</span> <span class="p">[</span><span class="n">r</span><span class="p">]</span> <span class="o">=</span> <span class="n">makeLogistic</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">c50</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="mf">1.</span><span class="p">/(</span><span class="mi">1</span><span class="o">+</span><span class="nb">exp</span><span class="p">(</span><span class="o">.</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">c</span><span class="o">-</span><span class="n">c50</span><span class="p">))));</span></code></pre></figure>
+
+<p>And here are the results.</p>
+
+<figure class="image"><img src="/assets/fig_all2.png" alt="" /></figure>
+
+<p>It would be nice if we could go in the opposite direction and reconstruct underlying neural responses from the fMRI and EEG measurements. This seems like a pretty tricky inverse problem, but it might be possible with accurate assumptions about current propagation and the distribution of semisaturation constants.</p>
+
+
+    <div>
+        <i class="fa fa-comment"></i> <a href="http://www.chris-said.io/2012/10/04/why-are-contrast-response-functions-linear-in-fmri-and-nonmonotonic-in-eeg/#disqus_thread" data-disqus-identifier="82 http://filedrawer.wordpress.com/?p=82"></a>
+        <span>&nbsp; &nbsp;</span>
+        <span>
+            <a class="twitter-share-button"
+              href="https://twitter.com/share"
+              data-url="http://www.chris-said.io/2012/10/04/why-are-contrast-response-functions-linear-in-fmri-and-nonmonotonic-in-eeg/"
+              data-via="Chris_Said"
+              data-count="none"
+              data-text="Why are contrast response functions linear in fMRI and nonmonotonic in EEG?">
+            Tweet
+            </a>
+        </span>
+
+    </div>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/2012/05/29/national-labs-for-all-the-sciences/">
+        National labs for all the sciences
+      </a>
+    </h1>
+
+    <span class="post-date">29 May 2012</span>
+
+    <p>Harvard, MIT, Stanford, and several other elite universities have all recently <a href="http://www.nytimes.com/2012/05/03/education/harvard-and-mit-team-up-to-offer-free-online-courses.html">announced</a> that they will be be offering free online courses. The courses will be massively open, taught by star professors, and supplemented with video lessons, embedded testing, and realtime feedback. This is surely good news for students who might not be able to access these resources otherwise, and it is an overall positive development for education. But what are the implications for scientists who conduct research in universities? And how will these developments affect the progress of scientific research?</p>
+
+<figure class="image"><img src="/assets/youregonnahaveabadtime.png" alt="" /></figure>
+
+<p>Unless we correctly anticipate the changes, the implications for science might not be good, at least through the medium term. When elite universities offer classes for free, other universities will have difficulty convincing new students to enroll in their own traditional programs. Why sit through an expensive 9AM lecture at your local university when you could get the Harvard lecture for free, whenever you want? Yes, yes, students benefit from being physically present at a university: interactions with professors and other students are often irreplaceable. And yes, many universities will manage to survive in their traditional form. But as a matter of degree the future trends are clear: Online alternatives will become better, and in many cases they will offer real diplomas. As this happens, demand for traditional education at second-tier universities will decline, tuition revenue will dry up, and many excellent scientists could be laid off. In some cases, entire universities may shut down, just as many local newspapers have <a href="http://newspaperdeathwatch.com/">succumbed</a> to competition from online journalism.</p>
+
+<p>With so many good scientists out of work, the progress of science will slow down. While scientists who work on applied research may find employment in private industry, those who do basic research will not fare as well. Nonprofit research institutes may emerge as places for basic research, but donor-based funding is never guaranteed. Moreover, these nonprofits might only begin operations after a painful transition period.</p>
+
+<p>This is where government can step in, anticipating the problem and preparing research institutes where scientists can work outside of a university setting. For the biological sciences, let’s start building more <a href="http://irp.nih.gov/about-us/research-campus-locations">regional NIH campuses</a> throughout America. In the physical sciences, let’s expand the <a href="http://en.wikipedia.org/wiki/United_States_Department_of_Energy_National_Laboratories">national labs</a> system. And for all the other sciences, let’s call for regional NSF campuses. Ideally, these initiatives will be paid for by increases in top-line budgets for science agencies. Or, if that is not an option, we could use the money saved in extramural research budgets, which will surely be trimmed as university scientists are laid off. Whatever the details, the larger scientific community must start preparing now for the coming <a href="http://www.nytimes.com/2012/05/04/opinion/brooks-the-campus-tsunami.html?partner=rssnyt&amp;emc=rss">tsunami</a> of online education, before it’s too late.</p>
+
+
+
+    <div>
+        <i class="fa fa-comment"></i> <a href="http://www.chris-said.io/2012/05/29/national-labs-for-all-the-sciences/#disqus_thread" data-disqus-identifier="67 http://filedrawer.wordpress.com/?p=67"></a>
+        <span>&nbsp; &nbsp;</span>
+        <span>
+            <a class="twitter-share-button"
+              href="https://twitter.com/share"
+              data-url="http://www.chris-said.io/2012/05/29/national-labs-for-all-the-sciences/"
+              data-via="Chris_Said"
+              data-count="none"
+              data-text="National labs for all the sciences">
+            Tweet
+            </a>
+        </span>
+
+    </div>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/2012/04/18/faq/">
+        FAQ
+      </a>
+    </h1>
+
+    <span class="post-date">18 Apr 2012</span>
+
+    <p><em>This is a continuously updated list of responses to questions I get about the <a href="/2012/04/17/its-the-incentives-structure-people-why-science-reform-must-come-from-the-granting-agencies/">main post</a> and <a href="/2013/01/16/8-lessons-from-the-reproducibility-crisis/">Top 8 List</a>, which should be read first.</em></p>
+
+<p><strong>Q:</strong> I think scientists need to do X.</p>
+
+<p><strong>A:</strong> There’s a good chance ‘X’ is a <a href="http://en.wikipedia.org/wiki/Collective_action%23Collective_action_problem">collective action problem</a>. If all scientists did it, the field as a whole would benefit. But if a single scientist did it alone, he or she would not benefit. These problems can only be fixed if an outside force (e.g. the NIH) adjusts the incentives so that individuals would benefit from doing the action alone.</p>
+
+<p><strong>Q:</strong> I think journals need to do X.</p>
+
+<p><strong>A:</strong> Again, this is probably a collective action problem. See the response above. The NIH can’t tell journals what to do, but it can reward scientists who submit to good-practice journals. This will encourage other journals to change their behavior.</p>
+
+<p><strong>Q:</strong> What about citation count metrics? Aren’t they biased towards surprising and interesting results?</p>
+
+<p><strong>A:</strong> Citation count metrics should not be used as a factor in grant decisions and should be replaced by one of the quality-based metrics proposed by <a href="http://futureofscipub.wordpress.com/2009/11/12/open-post-publication-peer-review/">Niko Kriegeskorte</a> or <a href="http://talyarkoni.org/papers/Yarkoni_open_evaluation_03132012.pdf">Tal Yarkoni</a>, or some of the other metrics proposed in the <a href="http://www.frontiersin.org/Journal/SpecialTopicDetail.aspx?name=computational_neuroscience&amp;st=137&amp;sname=Beyond_open_access_visions_for">special issue</a> of Frontiers. My only addition to Niko’s proposed metrics is that I would emphasize importance of the research <em>question</em>, rather than importance of the <em>outcome.</em></p>
+
+<p><strong>Q: </strong>Couldn’t quality-based metrics or other aspects of your proposal be gameable, just like the current system?
+<strong>A: </strong>Yes. All systems are gameable, but some systems are better than others. A more “outcome-unbiased” system will be far better than the current one, which is dysfunctional.</p>
+
+<p><strong>Q:</strong> Won’t it be hard for granting agencies to determine whether a journal’s incentive structure encourages good practices?</p>
+
+<p><strong>A:</strong> Government agencies make qualitative  judgments all the time. Even a rough first-order approximation would have a huge positive effect on research quality. The status quo is dysfunctional. Moreover, some journals that specialize in simple experiments (e.g. clinical trials) might demonstrate that they are outcome-unbiased by adopting an <a href="http://www.overcomingbias.com/2010/11/results-blind-peer-review.html">outcome-</a>_<a href="http://www.overcomingbias.com/2010/11/results-blind-peer-review.html">blind</a> _review system, as Robin Hanson has proposed.</p>
+
+<p><strong>Q:</strong> What about post-publication review?</p>
+
+<p><strong>A:</strong> In the current system, the only signal of a paper’s quality is the journal’s impact factor. Readers need more information than this. I am generally supportive of post-publication review and would recommend reading the proposals of <a href="http://futureofscipub.wordpress.com/">Niko Kriegeskorte</a> and some of the proposals in the <a href="http://www.frontiersin.org/Journal/SpecialTopicDetail.aspx?name=computational_neuroscience&amp;st=137&amp;sname=Beyond_open_access_visions_for">special issue</a> of Frontiers. Still, I wonder: Will any of these ideas actually be put into practice? Or will scientists just continue to talk about them as they have since the 1970s? It seem like a classic <a href="http://en.wikipedia.org/wiki/Collective_action%23Collective_action_problem">collective action problem</a>. Granting agencies may be needed to provide a nudge.</p>
+
+<p><strong>Q:</strong> Null results can easily obtained with sloppy research. Won’t outcome-unbiased journals encourage sloppy research?</p>
+
+<p><strong>A:</strong> Yes, it is admittedly a complicated issue. We need to strike a balance between being completely outcome-unbiased on the one hand, and valuing significant results on the other hand. At the moment, the wrong balance has been struck. Null results are disincentivized far too much.</p>
+
+<p><strong>Q: </strong>Isn’t it good to do exploratory analysis?
+<strong>A: </strong>Absolutely, but only if it identified as such. <a href="http://psr.sagepub.com/content/2/3/196.abstract">HARKing</a> is misleading, and inflates Type I error.</p>
+
+
+    <div>
+        <i class="fa fa-comment"></i> <a href="http://www.chris-said.io/2012/04/18/faq/#disqus_thread" data-disqus-identifier="http://www.chris-said.io/2012/04/18/faq/"></a>
+        <span>&nbsp; &nbsp;</span>
+        <span>
+            <a class="twitter-share-button"
+              href="https://twitter.com/share"
+              data-url="http://www.chris-said.io/2012/04/18/faq/"
+              data-via="Chris_Said"
+              data-count="none"
+              data-text="FAQ">
+            Tweet
+            </a>
+        </span>
+
+    </div>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/2012/04/17/its-the-incentives-structure-people-why-science-reform-must-come-from-the-granting-agencies/">
+        It’s the incentive structure, people! Why science reform must come from the granting agencies.
+      </a>
+    </h1>
+
+    <span class="post-date">17 Apr 2012</span>
+
+    <p>Another day, another <em>New York Times</em> <a href="http://www.nytimes.com/2012/04/17/science/rise-in-scientific-journal-retractions-prompts-calls-for-reform.html?pagewanted=1&amp;_r=2">report</a> on bad practice in biomedical science. The growing problems with scientific research are by now well known: Many results in the top journals are cherry picked, methodological weaknesses and other important caveats are often swept under the rug, and a large fraction of findings cannot be replicated. In some rare cases, there is even outright fraud. This waste of resources is unfair to the general public that pays for most of the research.</p>
+
+<p>The <em>Times</em> article places the blame for this trend on the sharp competition for grant money and on the increasing pressure to publish in high impact journals. While both of these factors certainly play contributing roles, the <em>Times</em> article misses the root cause of the problem. The cause is not simply that the competition is too steep. The cause is that the competition is shaped to point scientists in the wrong direction.</p>
+
+<p>As many other observers have already noted, scientific journals favor surprising, interesting, and statistically significant experimental results. When journal editors give preferences to these types of results, it is not surprising that more false positives will be published by simple <a href="http://www.plosmedicine.org/article/info:doi/10.1371/journal.pmed.0020124">selection effects</a>, and sadly it is not surprising that unscrupulous scientists will manipulate their data to show these types of results. These manipulations include selection from <a href="http://www.ncbi.nlm.nih.gov/pubmed/3661589">multiple</a> <a href="http://people.psych.cornell.edu/~jec7/pcd%20pubs/simmonsetal11.pdf">analyses</a>, selection from <a href="http://www.talyarkoni.org/blog/tag/file-drawer-problem/">multiple experiments</a> (the “file drawer” problem), and the formulation of ‘a priori’ hypotheses after the results are known. While the vast majority of scientists are honest individuals, these biases still emerge in subtle and often subconscious ways.</p>
+
+<p>Scientists have known about these problems for decades, and there have been several well-intentioned efforts to fix them. <a href="http://www.jasnh.com/">The Journal of Articles in Support of the Null Hypothesis</a> (JASNH) is specifically dedicated to null results. <a href="http://psychfiledrawer.org/">The Psych File Drawer</a> is a nicely designed online archive for failed replications. <a href="http://www.plosone.org">PLoS ONE</a> publishes papers based on the quality of the methods, and allows post-publication commenting so that readers may be alerted about study flaws. Finally, Simmons and colleagues (2011) have proposed <a href="http://people.psych.cornell.edu/~jec7/pcd%20pubs/simmonsetal11.pdf">lists of regulations</a> for other journals to enforce, including minimum sample sizes and requirements for the disclosure of all variables and analyses.</p>
+
+<p>As well-intentioned as these important (and necessary) initiatives may be, they have all failed to catch on. JANSH publishes a <a href="http://www.jasnh.com/">handful</a> of papers a year, The Psych File Drawer only has <a href="http://psychfiledrawer.org/view_article_list.php">nine</a> submissions, and <a href="http://www.plosone.org/article/browse.action?field=date&amp;day=1">hardly anyone</a> comments on PLoS ONE papers. To my knowledge, no journals have begun enforcing the <a href="http://people.psych.cornell.edu/~jec7/pcd%20pubs/simmonsetal11.pdf">lists of regulations</a> proposed by Simmons et al.</p>
+
+<p>What is most frustrating is that all of these outcomes were completely predictable. As any economist will tell you, it’s the incentive structure, people! The reason nobody publishes in JASNH is that the rewards for publishing in high-impact journals are larger. The reason nobody puts their failed replications on Psych File Drawer or comments on PLoS ONE is that online archive posts can’t be put on CVs. And the reason individual journals don’t tighten their standards is that scientists can just submit their papers elsewhere. Even if the journals did manage to impose the regulations, wouldn’t it be better if the career incentives of scientists were aligned with the interests of good science? Wouldn’t a more sensible incentive structure make the list of regulations unnecessary?</p>
+
+<p>This is where the funding agencies need to come in. Or, more to the point, where we as scientists need to ask the funding agencies to come in. Granting agencies should reward scientists who publish in journals that have acceptance criteria that are aligned with good science. In particular, the agencies should favor journals that devote special sections to replications, including failures to replicate. More directly, the agencies should devote more grant money to submissions that specifically propose replications. And finally, I would like to see some preference given to fully “outcome-unbiased” journals that make decisions based on the quality of the experimental design and the importance of the scientific <em>question</em>, not the <em>outcome</em> of the experiment. This type of policy naturally eliminates the temptation to manipulate data towards desired outcomes.</p>
+
+<p>The mechanism could start with granting agencies making modest adjustments to grant scores for scientists who submit to good-practice journals. Over time, as scientists compete to submit to these journals, more of these journals will emerge by market forces. Journals that currently encourage bad practices may adjust their policies if they wish. Under the current system, there is simply no incentive for journals to adjust their policies. Will this transition be easy? No. Will the granting agencies manage this perfectly? Probably not. But it is obvious to me that scientists alone cannot solve problem of publication bias, and that a push from the outside is needed. The proposed system may not be perfect, but it will be vastly better than the dysfunctional system we are working in now.</p>
+
+<p>If you agree that the cause of bad science is a perverse incentive structure, and if you agree that reform attempts can only work if there is pressure from granting agencies, please pass this article around and contact your funding agency. Within each agency, reform will require coordination among several sub-agencies, so it might make most sense to contact the director. Also, please see the <a href="/2012/04/18/faq/">FAQ</a>, above, for continuously updated answers to questions.</p>
+
+
+    <div>
+        <i class="fa fa-comment"></i> <a href="http://www.chris-said.io/2012/04/17/its-the-incentives-structure-people-why-science-reform-must-come-from-the-granting-agencies/#disqus_thread" data-disqus-identifier="6 http://saidlab.wordpress.com/2012/04/17/its-the-incentives-structure-people-why-science-reform-must-come-from-the-granting-agencies/"></a>
+        <span>&nbsp; &nbsp;</span>
+        <span>
+            <a class="twitter-share-button"
+              href="https://twitter.com/share"
+              data-url="http://www.chris-said.io/2012/04/17/its-the-incentives-structure-people-why-science-reform-must-come-from-the-granting-agencies/"
+              data-via="Chris_Said"
+              data-count="none"
+              data-text="It’s the incentive structure, people! Why science reform must come from the granting agencies.">
+            Tweet
+            </a>
+        </span>
+
+    </div>
+
+  </div>
+  
+</div>
+
+<div class="pagination">
+  
+    <span class="pagination-item older">Older</span>
+  
+  
+    
+      <a class="pagination-item newer" href="/page4">Newer</a>
+    
+  
+</div>
+
+<script type="text/javascript">
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  var disqus_shortname = 'csaid81'; // required: replace example with your forum shortname
+
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function () {
+  var s = document.createElement('script'); s.async = true;
+  s.type = 'text/javascript';
+  s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+  }());
+</script>
+
+
+    </div>
+
+  </body>
+</html>
+
+<!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$']],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  messageStyle: "none",
+  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+});
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+
+
+<script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));</script>
