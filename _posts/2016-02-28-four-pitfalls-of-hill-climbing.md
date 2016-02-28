@@ -28,7 +28,7 @@ If you run short A/B tests, or A/B tests that do not fully capture network effec
   <div class="inner" id="plot2"></div>
 </div>
 
-When a product changes, the intial effect is negative. But eventually, customers begin to enjoy the new version. By waiting at a position that initially seemed negative, you are able to discover an emergent mountain, and receive greater reward than you would have from short-term optimization.
+When a product changes, the intial effect is negative. But eventually, customers begin to enjoy the new version, as shown by changes in the reward function. By waiting at a position that initially seemed negative, you are able to discover an emergent mountain, and receive greater reward than you would have from short-term optimization.
 
 #### Novelty effects
 
@@ -58,6 +58,7 @@ While all of the criticisms of hill climbing have obvious validity, I think it i
 - The space is high dimensional. Even if your product is at a local maximum in one dimension, there are many other dimensions to explore and measure.
 - We may overestimate the causal relationship between bold product moves and company success. Investors often observe that companies who don't make bold changes are doomed to fail. While I don't doubt that there is some causation here, I think there is also some reverse causation. Bold changes require lots of resources. Maybe it's mostly the success-bound companies who have enough resources to afford the bold changes.
 
+Special thanks to [John McDonnell](https://twitter.com/johnvmcdonnell) and [Alex Rosner](https://twitter.com/alexrosner) for comments on a draft of this post.
 <style>
 
 circle {

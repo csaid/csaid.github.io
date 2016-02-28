@@ -4,7 +4,7 @@
  <title>The File Drawer</title>
  <link href="http://www.chris-said.io/atom.xml" rel="self"/>
  <link href="http://www.chris-said.io/"/>
- <updated>2016-02-28T12:34:35-08:00</updated>
+ <updated>2016-02-28T12:45:22-08:00</updated>
  <id>http://www.chris-said.io</id>
  <author>
    <name>Chris Said</name>
@@ -41,7 +41,7 @@
   &lt;div class=&quot;inner&quot; id=&quot;plot2&quot;&gt;&lt;/div&gt;
 &lt;/div&gt;
 
-&lt;p&gt;When a product changes, the intial effect is negative. But eventually, customers begin to enjoy the new version. By waiting at a position that initially seemed negative, you are able to discover an emergent mountain, and receive greater reward than you would have from short-term optimization.&lt;/p&gt;
+&lt;p&gt;When a product changes, the intial effect is negative. But eventually, customers begin to enjoy the new version, as shown by changes in the reward function. By waiting at a position that initially seemed negative, you are able to discover an emergent mountain, and receive greater reward than you would have from short-term optimization.&lt;/p&gt;
 
 &lt;h4 id=&quot;novelty-effects&quot;&gt;Novelty effects&lt;/h4&gt;
 
@@ -73,6 +73,7 @@
   &lt;li&gt;We may overestimate the causal relationship between bold product moves and company success. Investors often observe that companies who don’t make bold changes are doomed to fail. While I don’t doubt that there is some causation here, I think there is also some reverse causation. Bold changes require lots of resources. Maybe it’s mostly the success-bound companies who have enough resources to afford the bold changes.&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;p&gt;Special thanks to &lt;a href=&quot;https://twitter.com/johnvmcdonnell&quot;&gt;John McDonnell&lt;/a&gt; and &lt;a href=&quot;https://twitter.com/alexrosner&quot;&gt;Alex Rosner&lt;/a&gt; for comments on a draft of this post.&lt;/p&gt;
 &lt;style&gt;
 
 circle {
