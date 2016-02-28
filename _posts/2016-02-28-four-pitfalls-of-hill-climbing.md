@@ -18,11 +18,11 @@ If you climb hills incrementally, you may end up in a local maximum and miss out
   <div class="inner" id="plot1"></div>
 </div>
 
-Local maxima and global maxima can be illustrated with hill diagrams like the one above. Each video frame is a time step. The horizontal axis represents product space collapsed into a single dimension. In reality, of course, there are many dimensions that a product could explore.
+Local maxima and global maxima can be illustrated with hill diagrams like the one above. The horizontal axis represents product space collapsed into a single dimension. In reality, of course, there are many dimensions that a product could explore.
 
 #### Emergent maxima
 
-If you run short A/B tests, or A/B tests that do not fully capture network effects, you might not realize that a change that initially seems bad may be good in the long run. This idea, which is distinct from concerns about incrementalism, can be described with a dynamic reward function animation. As before, the horizontal axis is product space, each video frame represents a time step, and the vertical axis represents immediate, measurable reward.
+If you run short A/B tests, or A/B tests that do not fully capture network effects, you might not realize that a change that initially seems bad may be good in the long run. This idea, which is distinct from concerns about incrementalism, can be described with a dynamic reward function animation. As before, the horizontal axis is product space. Each video frame represents a time step, and the vertical axis represents immediate, measurable reward.
 
 <div class="wrapper">
   <div class="inner" id="plot2"></div>

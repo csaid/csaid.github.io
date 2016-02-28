@@ -4,7 +4,7 @@
  <title>The File Drawer</title>
  <link href="http://www.chris-said.io/atom.xml" rel="self"/>
  <link href="http://www.chris-said.io/"/>
- <updated>2016-02-28T12:21:04-08:00</updated>
+ <updated>2016-02-28T12:34:35-08:00</updated>
  <id>http://www.chris-said.io</id>
  <author>
    <name>Chris Said</name>
@@ -31,11 +31,11 @@
   &lt;div class=&quot;inner&quot; id=&quot;plot1&quot;&gt;&lt;/div&gt;
 &lt;/div&gt;
 
-&lt;p&gt;Local maxima and global maxima can be illustrated with hill diagrams like the one above. Each video frame is a time step. The horizontal axis represents product space collapsed into a single dimension. In reality, of course, there are many dimensions that a product could explore.&lt;/p&gt;
+&lt;p&gt;Local maxima and global maxima can be illustrated with hill diagrams like the one above. The horizontal axis represents product space collapsed into a single dimension. In reality, of course, there are many dimensions that a product could explore.&lt;/p&gt;
 
 &lt;h4 id=&quot;emergent-maxima&quot;&gt;Emergent maxima&lt;/h4&gt;
 
-&lt;p&gt;If you run short A/B tests, or A/B tests that do not fully capture network effects, you might not realize that a change that initially seems bad may be good in the long run. This idea, which is distinct from concerns about incrementalism, can be described with a dynamic reward function animation. As before, the horizontal axis is product space, each video frame represents a time step, and the vertical axis represents immediate, measurable reward.&lt;/p&gt;
+&lt;p&gt;If you run short A/B tests, or A/B tests that do not fully capture network effects, you might not realize that a change that initially seems bad may be good in the long run. This idea, which is distinct from concerns about incrementalism, can be described with a dynamic reward function animation. As before, the horizontal axis is product space. Each video frame represents a time step, and the vertical axis represents immediate, measurable reward.&lt;/p&gt;
 
 &lt;div class=&quot;wrapper&quot;&gt;
   &lt;div class=&quot;inner&quot; id=&quot;plot2&quot;&gt;&lt;/div&gt;
