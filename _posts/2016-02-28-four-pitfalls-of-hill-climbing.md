@@ -8,11 +8,11 @@ description: An animated look at local maxima, novelty effects, differentiation,
 
 One of the great developments in product design has been the adoption of A/B testing. Instead of just guessing what is best for your customers, you can offer a product variant to a subset of customers and measure how well it works. While undeniably useful, A/B testing is sometimes said to encourage too much "hill climbing", an incremental and short-sighted style of product development that emphasizes easy and immediate wins.
 
-Discussion around hill climbing can sometimes get a bit vague, so I thought I would make some animations that describe four distinct pitfalls.
+Discussion around hill climbing can sometimes get a bit vague, so I thought I would make some animations that describe four distinct pitfalls that can emerge from an overreliance on hill climbing.
 
 #### Local maxima
 
-If you incrementally hill climb around a local maximum, you may never find the global maximum that could lead to much bigger reward. This can happen when intermediate versions of a product are worse than more fully realized extremes.
+If you climb hills incrementally, you may end up in a local maximum and miss out on an opportunity to land on a global maximum with much bigger reward. Concerns about local maxima are often wrapped up in critiques of *incrementalism*.
 
 <div class="wrapper">
   <div class="inner" id="plot1"></div>
@@ -47,11 +47,11 @@ Another way a hill can disappear is through loss of differentiation from more do
   <span id="plot5"></span>
 </div>
 
-You can think of an industry as a dynamic ecosystem where each company has its own reward function. When one company moves, it changes its own reward function as well as the reward functions of other companies. If this sounds like biology, you're not mistaken. The dynamics here are very similar to evolutionary [fitness landscapes](http://www.randalolson.com/2014/04/17/visualizing-evolution-in-action-dynamic-fitness-landscapes/).
+You can think of an industry as a dynamic ecosystem where each company has its own reward function. When one company moves, it changes its own reward function as well as the reward functions of other companies. If this sounds like biology, you're not mistaken. The dynamics here are similar to evolutionary [fitness landscapes](http://www.randalolson.com/2014/04/17/visualizing-evolution-in-action-dynamic-fitness-landscapes/).
 
 ***
 
-While all of the criticisms of hill climbing have obvious validity, I think it is very easy for people to overreact to them. Here are some caveats in defense of hill climbing:
+While all of the criticisms of hill climbing have obvious validity, I think it is easy for people to overreact to them. Here are some caveats in defense of hill climbing:
 
 - The plots above probably exaggerate the magnitude and frequency with which reward functions change.
 - There is huge uncertainty and disagreement about what future landscapes will look like. In most cases, it's better to explore regions that increase (rather than decrease) reward, making sure to run long term experiments when needed.
