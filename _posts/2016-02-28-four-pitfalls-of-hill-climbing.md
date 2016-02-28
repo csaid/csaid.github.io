@@ -10,7 +10,7 @@ One of the great developments in product design has been the adoption of A/B tes
 
 Discussion around hill climbing can sometimes get a bit vague, so I thought I would make some animations that describe four distinct pitfalls that can emerge from an overreliance on hill climbing.
 
-#### Local maxima
+#### 1. Local maxima
 
 If you climb hills incrementally, you may end up in a local maximum and miss out on an opportunity to land on a global maximum with much bigger reward. Concerns about local maxima are often wrapped up in critiques of *incrementalism*.
 
@@ -20,7 +20,7 @@ If you climb hills incrementally, you may end up in a local maximum and miss out
 
 Local maxima and global maxima can be illustrated with hill diagrams like the one above. The horizontal axis represents product space collapsed into a single dimension. In reality, of course, there are many dimensions that a product could explore.
 
-#### Emergent maxima
+#### 2. Emergent maxima
 
 If you run short A/B tests, or A/B tests that do not fully capture network effects, you might not realize that a change that initially seems bad may be good in the long run. This idea, which is distinct from concerns about incrementalism, can be described with a dynamic reward function animation. As before, the horizontal axis is product space. Each video frame represents a time step, and the vertical axis represents immediate, measurable reward.
 
@@ -30,7 +30,7 @@ If you run short A/B tests, or A/B tests that do not fully capture network effec
 
 When a product changes, the intial effect is negative. But eventually, customers begin to enjoy the new version, as shown by changes in the reward function. By waiting at a position that initially seemed negative, you are able to discover an emergent mountain, and receive greater reward than you would have from short-term optimization.
 
-#### Novelty effects
+#### 3. Novelty effects
 
 Short-term optimization can be bad, not only because it prevents discovery of emergent mountains, but also because some hills can be transient. One way a hill can disappear is through *novelty effects*, where a shiny new feature can be engaging to customers in the short term, but uninteresting or even negative in the long term.
 
@@ -38,7 +38,7 @@ Short-term optimization can be bad, not only because it prevents discovery of em
   <div class="inner" id="plot3"></div>
 </div>
 
-#### Loss of differentiation
+#### 4. Loss of differentiation
 
 Another way a hill can disappear is through loss of differentiation from more dominant competitors. Your product may occupy a market niche. If you try to copy your competitor, you may initially see some benefits. But at some point, your customers may leave because not much separates you from your more dominant competitor. Differentiation matters in some dimensions more than others.
 
