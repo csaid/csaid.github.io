@@ -4,7 +4,7 @@
  <title>The File Drawer</title>
  <link href="http://www.chris-said.io/atom.xml" rel="self"/>
  <link href="http://www.chris-said.io/"/>
- <updated>2016-04-10T14:30:52-07:00</updated>
+ <updated>2016-04-10T14:34:20-07:00</updated>
  <id>http://www.chris-said.io</id>
  <author>
    <name>Chris Said</name>
@@ -65,7 +65,9 @@
 &quot;relative&quot; to any parent it has who has either absolute or relative positioning.
 The #econ_scatter parent would by default be static, so I have to change it to
 relative --&gt;
-&lt;div id=&quot;econ_scatter&quot; style=&quot;position:relative&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;div id=&quot;econ_scatter&quot; class=&quot;inner&quot; style=&quot;position:relative&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
 
 &lt;script src=&quot;http://d3js.org/d3.v3.min.js&quot;&gt;&lt;/script&gt;
 
@@ -247,7 +249,7 @@ var tooltip = d3.select(&quot;#econ_scatter&quot;).append(&quot;div&quot;)
       .data(survey_results)
     .enter().append(&quot;circle&quot;)
       .attr(&quot;class&quot;, &quot;survey_dot&quot;)
-      .attr(&quot;r&quot;, 12)
+      .attr(&quot;r&quot;, 10)
       .attr(&quot;cx&quot;, xMap)
       .attr(&quot;cy&quot;, yMap)
       .on(&quot;mouseover&quot;, mouseover)

@@ -52,7 +52,9 @@ I've created some figures from the data that I think are easier to read than tab
 "relative" to any parent it has who has either absolute or relative positioning.
 The #econ_scatter parent would by default be static, so I have to change it to
 relative -->
-<div id="econ_scatter" style="position:relative"></div>
+<div class="wrapper">
+  <div id="econ_scatter" class="inner" style="position:relative"></div>
+</div>
 
 <script src="http://d3js.org/d3.v3.min.js"></script>
 
@@ -234,7 +236,7 @@ var tooltip = d3.select("#econ_scatter").append("div")
       .data(survey_results)
     .enter().append("circle")
       .attr("class", "survey_dot")
-      .attr("r", 12)
+      .attr("r", 10)
       .attr("cx", xMap)
       .attr("cy", yMap)
       .on("mouseover", mouseover)
