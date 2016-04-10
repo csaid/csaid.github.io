@@ -98,8 +98,8 @@
 
 <style>
 
-.econ-axis path,
-.econ-axis line {
+.axis path,
+.axis line {
   fill: none; /* chance go none */
   stroke: #000;
   shape-rendering: crispEdges;
@@ -295,22 +295,22 @@ var tooltip = d3.select("#econ_scatter").append("div")
 
   // x-axis
   svg.append("g")
-      .attr("class", "x econ-axis")
+      .attr("class", "x axis")
       .attr("transform", "translate(0," + height + ")")
       .call(xAxis);
 
   // y-axis
   svg.append("g")
-      .attr("class", "y econ-axis")
+      .attr("class", "y axis")
       .call(yAxis);
 
   // x-label
-  // svg.append("text")
-  //     .attr("x", width/2)
-  //     .attr("y", height + 40)
-  //     .style("text-anchor", "middle")
-  //     .style("font-size", "14px")
-  //     .text("Expert Agreement (%)");
+  svg.append("text")
+      .attr("x", width/2)
+      .attr("y", height + 40)
+      .style("text-anchor", "middle")
+      .style("font-size", "14px")
+      .text("Expert Agreement (%)");
 
   // y-label
   svg.append("text")

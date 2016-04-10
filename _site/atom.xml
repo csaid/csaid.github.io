@@ -4,7 +4,7 @@
  <title>The File Drawer</title>
  <link href="http://www.chris-said.io/atom.xml" rel="self"/>
  <link href="http://www.chris-said.io/"/>
- <updated>2016-04-10T14:46:21-07:00</updated>
+ <updated>2016-04-10T14:56:54-07:00</updated>
  <id>http://www.chris-said.io</id>
  <author>
    <name>Chris Said</name>
@@ -29,8 +29,8 @@
 
 &lt;style&gt;
 
-.econ-axis path,
-.econ-axis line {
+.axis path,
+.axis line {
   fill: none; /* chance go none */
   stroke: #000;
   shape-rendering: crispEdges;
@@ -226,22 +226,22 @@ var tooltip = d3.select(&quot;#econ_scatter&quot;).append(&quot;div&quot;)
 
   // x-axis
   svg.append(&quot;g&quot;)
-      .attr(&quot;class&quot;, &quot;x econ-axis&quot;)
+      .attr(&quot;class&quot;, &quot;x axis&quot;)
       .attr(&quot;transform&quot;, &quot;translate(0,&quot; + height + &quot;)&quot;)
       .call(xAxis);
 
   // y-axis
   svg.append(&quot;g&quot;)
-      .attr(&quot;class&quot;, &quot;y econ-axis&quot;)
+      .attr(&quot;class&quot;, &quot;y axis&quot;)
       .call(yAxis);
 
   // x-label
-  // svg.append(&quot;text&quot;)
-  //     .attr(&quot;x&quot;, width/2)
-  //     .attr(&quot;y&quot;, height + 40)
-  //     .style(&quot;text-anchor&quot;, &quot;middle&quot;)
-  //     .style(&quot;font-size&quot;, &quot;14px&quot;)
-  //     .text(&quot;Expert Agreement (%)&quot;);
+  svg.append(&quot;text&quot;)
+      .attr(&quot;x&quot;, width/2)
+      .attr(&quot;y&quot;, height + 40)
+      .style(&quot;text-anchor&quot;, &quot;middle&quot;)
+      .style(&quot;font-size&quot;, &quot;14px&quot;)
+      .text(&quot;Expert Agreement (%)&quot;);
 
   // y-label
   svg.append(&quot;text&quot;)
