@@ -4,7 +4,7 @@
  <title>The File Drawer</title>
  <link href="http://www.chris-said.io/atom.xml" rel="self"/>
  <link href="http://www.chris-said.io/"/>
- <updated>2016-04-10T15:13:02-07:00</updated>
+ <updated>2016-04-10T15:34:22-07:00</updated>
  <id>http://www.chris-said.io</id>
  <author>
    <name>Chris Said</name>
@@ -431,9 +431,6 @@ function makeObjectiveGraph(id, get_dot_x, objective, title, is_dynamic, company
   var yAxisPitfalls = d3.svg.axis()
       .scale(y)
       .orient(&quot;left&quot;)
-      .tickSize(-width)
-      .tickFormat(function(d, i) { return i &amp; 1 ? null : tickFormat(d); })
-      .tickPadding(8);
 
   var x = d3.scale.linear()
       .domain([0, 1])
@@ -442,9 +439,6 @@ function makeObjectiveGraph(id, get_dot_x, objective, title, is_dynamic, company
   var xAxisPitfalls = d3.svg.axis()
       .scale(x)
       .orient(&quot;bottom&quot;)
-      .tickSize(-height)
-      .tickFormat(function(d, i) { return i &amp; 1 ? null : tickFormat(d); })
-      .tickPadding(8);
 
   var path = d3.svg.line();
 
@@ -831,8 +825,6 @@ circle.unselected {
 
 text {
   font: 10px sans-serif;
-  pointer-events: none;
-  text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff;
 }
 
 &lt;/style&gt;

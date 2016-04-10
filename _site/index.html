@@ -521,9 +521,6 @@ function makeObjectiveGraph(id, get_dot_x, objective, title, is_dynamic, company
   var yAxisPitfalls = d3.svg.axis()
       .scale(y)
       .orient("left")
-      .tickSize(-width)
-      .tickFormat(function(d, i) { return i & 1 ? null : tickFormat(d); })
-      .tickPadding(8);
 
   var x = d3.scale.linear()
       .domain([0, 1])
@@ -532,9 +529,6 @@ function makeObjectiveGraph(id, get_dot_x, objective, title, is_dynamic, company
   var xAxisPitfalls = d3.svg.axis()
       .scale(x)
       .orient("bottom")
-      .tickSize(-height)
-      .tickFormat(function(d, i) { return i & 1 ? null : tickFormat(d); })
-      .tickPadding(8);
 
   var path = d3.svg.line();
 
@@ -963,8 +957,6 @@ circle.unselected {
 
 text {
   font: 10px sans-serif;
-  pointer-events: none;
-  text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff;
 }
 
 </style>
