@@ -159,10 +159,19 @@ var survey_results = [
   }
   ]
 
+if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+  var full_width = 400
+  var full_height = 200;
+  var r = 10
+} else {
+  var full_width = 550
+  var full_height = 400;
+  var r = 12
+}
 
 var margin = {top: 30, right: 20, bottom: 50, left: 60},
-    width = 450 - margin.left - margin.right,
-    height = 300 - margin.top - margin.bottom;
+    width = full_width - margin.left - margin.right,
+    height = full_height - margin.top - margin.bottom;
 
 /*
  * value accessor - returns the value to encode for a given data object.
@@ -199,7 +208,7 @@ var tooltip = d3.select("#econ_scatter").append("div")
 
 
   // don't want dots overlapping axis, so add in buffer to data domain
-  xScale.domain([-5, 100]);
+  xScale.domain([-5, 105]);
   yScale.domain([15, 85]);
 
   // x-axis
@@ -236,7 +245,7 @@ var tooltip = d3.select("#econ_scatter").append("div")
       .data(survey_results)
     .enter().append("circle")
       .attr("class", "survey_dot")
-      .attr("r", 10)
+      .attr("r", r)
       .attr("cx", xMap)
       .attr("cy", yMap)
       .on("mouseover", mouseover)
