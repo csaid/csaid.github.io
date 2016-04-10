@@ -165,7 +165,7 @@ var survey_results = [
 
 if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
   var full_width = 400
-  var full_height = 250;
+  var full_height = 300;
   var r = 10
 } else {
   var full_width = 550
