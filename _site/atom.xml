@@ -4,7 +4,7 @@
  <title>The File Drawer</title>
  <link href="http://www.chris-said.io/atom.xml" rel="self"/>
  <link href="http://www.chris-said.io/"/>
- <updated>2016-04-10T14:21:32-07:00</updated>
+ <updated>2016-04-10T14:30:52-07:00</updated>
  <id>http://www.chris-said.io</id>
  <author>
    <name>Chris Said</name>
@@ -171,9 +171,9 @@ var survey_results = [
   ]
 
 
-var margin = {top: 30, right: 40, bottom: 50, left: 60},
-    width = 600 - margin.left - margin.right,
-    height = 400 - margin.top - margin.bottom;
+var margin = {top: 30, right: 20, bottom: 50, left: 60},
+    width = 450 - margin.left - margin.right,
+    height = 300 - margin.top - margin.bottom;
 
 /*
  * value accessor - returns the value to encode for a given data object.
