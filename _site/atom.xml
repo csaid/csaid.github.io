@@ -4,7 +4,7 @@
  <title>The File Drawer</title>
  <link href="http://www.chris-said.io/atom.xml" rel="self"/>
  <link href="http://www.chris-said.io/"/>
- <updated>2016-04-10T16:53:59-07:00</updated>
+ <updated>2016-04-10T16:58:21-07:00</updated>
  <id>http://www.chris-said.io</id>
  <author>
    <name>Chris Said</name>
@@ -50,9 +50,9 @@
 
 &lt;/style&gt;
 
-&lt;p&gt;Last week on Marginal Revolution, there was a link to a wonderful paper comparing the policy opinions of economic experts to the policy opinions of the general public. The &lt;a href=&quot;http://faculty.chicagobooth.edu/luigi.zingales/papers/research/economic-experts-vs-average-americans.pdf&quot;&gt;paper&lt;/a&gt;, by Paola Sapienza and Luigi Zingales, found some pretty significant discrepancies between the two groups. The authors attributed this difference to the degree of trust each group put in the implicit assumptions embedded into the economists’ answers. It’s an excellent and fascinating read. However, like pretty much all academic economics papers, it displays its data in cumbersome text tables rather than figures.&lt;/p&gt;
+&lt;p&gt;Last week on Marginal Revolution, there was a link to a wonderful paper comparing the policy opinions of economic experts to the policy opinions of the general public. The &lt;a href=&quot;http://faculty.chicagobooth.edu/luigi.zingales/papers/research/economic-experts-vs-average-americans.pdf&quot;&gt;paper&lt;/a&gt;, by Paola Sapienza and Luigi Zingales, found some pretty significant discrepancies between the two groups. The authors attributed this difference to the degree of trust each group put in the implicit assumptions embedded into the economists’ answers. It’s an excellent and fascinating read. However, like pretty much all academic economics papers, it displays its data in cumbersome text tables rather than figures. In this blog post, I’ve created some figures from the data that I think are easier to read than tables.&lt;/p&gt;
 
-&lt;p&gt;I’ve created some figures from the data that I think are easier to read than tables. For each policy question, the paper provides two numbers. One is the percentage of economic experts who agree with the policy position. The second is the percentage of general public respondents who agree with the policy position. This sounds like a good opportunity for a scatter plot:&lt;/p&gt;
+&lt;p&gt;For each policy question, the paper provides two numbers. One is the percentage of economic experts who agree with the policy position. The second is the percentage of general public respondents who agree with the policy position. This sounds like a good opportunity for a scatter plot:&lt;/p&gt;
 
 &lt;!-- The tooltip has absolute positioning, which means it is positioned
 &quot;relative&quot; to any parent it has who has either absolute or relative positioning.
