@@ -4,7 +4,7 @@
  <title>The File Drawer</title>
  <link href="http://www.chris-said.io/atom.xml" rel="self"/>
  <link href="http://www.chris-said.io/"/>
- <updated>2016-04-10T15:03:55-07:00</updated>
+ <updated>2016-04-10T15:13:02-07:00</updated>
  <id>http://www.chris-said.io</id>
  <author>
    <name>Chris Said</name>
@@ -188,7 +188,7 @@ if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
 
 var margin = {top: 30, right: 20, bottom: 50, left: 60},
     width = full_width - margin.left - margin.right,
-    height = full_height - margin.top - margin.bottom;
+    econ_survey_height = full_height - margin.top - margin.bottom;
 
 /*
  * value accessor - returns the value to encode for a given data object.
@@ -205,7 +205,7 @@ var xValue = function(d) { return d.expert_agreement;}, // data -&gt; value
 
 // setup y
 var yValue = function(d) { return d.public_agreement;}, // data -&gt; value
-    yScale = d3.scale.linear().range([height, 0]), // value -&gt; display
+    yScale = d3.scale.linear().range([econ_survey_height, 0]), // value -&gt; display
     yMap = function(d) { return yScale(yValue(d));}, // data -&gt; display
     yAxisEconSurvey = d3.svg.axis().scale(yScale).orient(&quot;left&quot;);
 
@@ -213,7 +213,7 @@ var yValue = function(d) { return d.public_agreement;}, // data -&gt; value
 // add the graph canvas to the #econ_scatter of the webpage
 var svg = d3.select(&quot;#econ_scatter&quot;).append(&quot;svg&quot;)
     .attr(&quot;width&quot;, width + margin.left + margin.right)
-    .attr(&quot;height&quot;, height + margin.top + margin.bottom)
+    .attr(&quot;height&quot;, econ_survey_height + margin.top + margin.bottom)
   .append(&quot;g&quot;)
     .attr(&quot;transform&quot;, &quot;translate(&quot; + margin.left + &quot;,&quot; + margin.top + &quot;)&quot;);
 
@@ -231,7 +231,7 @@ var tooltip = d3.select(&quot;#econ_scatter&quot;).append(&quot;div&quot;)
   // x-axis
   svg.append(&quot;g&quot;)
       .attr(&quot;class&quot;, &quot;x axis&quot;)
-      .attr(&quot;transform&quot;, &quot;translate(0,&quot; + height + &quot;)&quot;)
+      .attr(&quot;transform&quot;, &quot;translate(0,&quot; + econ_survey_height + &quot;)&quot;)
       .call(xAxisEconSurvey);
 
   // y-axis
@@ -242,7 +242,7 @@ var tooltip = d3.select(&quot;#econ_scatter&quot;).append(&quot;div&quot;)
   // x-label
   svg.append(&quot;text&quot;)
       .attr(&quot;x&quot;, width/2)
-      .attr(&quot;y&quot;, height + 40)
+      .attr(&quot;y&quot;, econ_survey_height + 40)
       .style(&quot;text-anchor&quot;, &quot;middle&quot;)
       .style(&quot;font-size&quot;, &quot;14px&quot;)
       .text(&quot;Expert Agreement (%)&quot;);
@@ -250,7 +250,7 @@ var tooltip = d3.select(&quot;#econ_scatter&quot;).append(&quot;div&quot;)
   // y-label
   svg.append(&quot;text&quot;)
       .attr(&quot;transform&quot;, &quot;rotate(-90)&quot;)
-      .attr(&quot;x&quot;, -height/2)
+      .attr(&quot;x&quot;, -econ_survey_height/2)
       .attr(&quot;y&quot;, -45)
       .attr(&quot;dy&quot;, &quot;.71em&quot;)
       .style(&quot;text-anchor&quot;, &quot;middle&quot;)
