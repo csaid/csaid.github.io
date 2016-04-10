@@ -6,14 +6,6 @@ description: Visualizationing the data in Sapienza and Zingales (2013)
 
 <meta charset="utf-8">
 
-Last week on Marginal Revolution, there was a link to a wonderful paper comparing the policy opinions of economic experts to the policy opinions of the general public. The [paper](http://faculty.chicagobooth.edu/luigi.zingales/papers/research/economic-experts-vs-average-americans.pdf), by Paola Sapienza and Luigi Zingales, found some pretty significant discrepancies between the two groups. The authors attributed this difference to the degree of trust each group put in the implicit assumptions embedded into the economists’ answers. It's an excellent and fascinating read. However, like pretty much all academic economics papers, it displays its data in cumbersome text tables rather than figures.
-
-I've created some figures from the data that I think are easier to read than tables. For each policy question, the paper provides two numbers. One is the percentage of economic experts who agree with the policy position. The second is the percentage of general public respondents who agree with the policy position. This sounds like a good opportunity for a scatter plot:
-
-<meta charset="utf-8">
-
-<!-- Example based on http://bl.ocks.org/weiglemc/6185069 -->
-
 <style>
 
 .axis path,
@@ -36,7 +28,6 @@ I've created some figures from the data that I think are easier to read than tab
   position: absolute;
   text-align: left;
   width: 150px;
-  /*height: 30px;*/
   padding: 8px;
   margin-top: -20px;
   font: 10px sans-serif;
@@ -44,13 +35,12 @@ I've created some figures from the data that I think are easier to read than tab
   pointer-events: none;
 }
 
-/*.tooltip {
-  position: absolute;
-  width: 200px;
-  height: 28px;
-  pointer-events: none;
-}*/
 </style>
+
+
+Last week on Marginal Revolution, there was a link to a wonderful paper comparing the policy opinions of economic experts to the policy opinions of the general public. The [paper](http://faculty.chicagobooth.edu/luigi.zingales/papers/research/economic-experts-vs-average-americans.pdf), by Paola Sapienza and Luigi Zingales, found some pretty significant discrepancies between the two groups. The authors attributed this difference to the degree of trust each group put in the implicit assumptions embedded into the economists’ answers. It's an excellent and fascinating read. However, like pretty much all academic economics papers, it displays its data in cumbersome text tables rather than figures.
+
+I've created some figures from the data that I think are easier to read than tables. For each policy question, the paper provides two numbers. One is the percentage of economic experts who agree with the policy position. The second is the percentage of general public respondents who agree with the policy position. This sounds like a good opportunity for a scatter plot:
 
 <!-- The tooltip has absolute positioning, which means it is positioned
 "relative" to any parent it has who has either absolute or relative positioning.
@@ -60,9 +50,23 @@ relative -->
   <div id="econ_scatter" class="inner" style="position:relative"></div>
 </div>
 
+There's a light negative correlation (*r* = -0.47) between how much economic experts and the general public agree with these positions. As shown in the bottom right, the vast majority of economists prefer a carbon tax to car emissions standards, whereas the vast majority of the general public prefers the reverse. As shown in the top left, the vast majority of the general public believes that requiring the government to "Buy American" is an effective way to improve manufacturing employment, whereas the majority of economists do not. For the exact wording of the questions, see the [Appendix](http://docplayer.net/9302120-Economic-experts-vs-average-americans-online-appendix.html) to the original paper.
+
+Another way to visualize the same data is with a [slopegraph](http://charliepark.org/slopegraphs/). Below, the left column shows all the policy positions ranked by agreement from economic experts. The right column shows the same policy positions ranked by agreement from the general public.
+{% include image.html url="/assets/fig_econ_poll.png" %}
+
+Slopegraphs are useful in this context because they create less text overlap than scatter plots. With the scatter plot above, I had to use interactive mouseover events to selectively show the text for individual data points. This wouldn't be possible in a publication, since most economics journals still require static PDFs.
+
+Even with a slopegraph, there is still some risk of overlapping text. To keep this from happening, I added some light repulsion to the data points.
+
+For those interested, the experts in this dataset come from the [Economic Expert Panel](http://www.igmchicago.org/igm-economic-experts-panel), a diverse set of economists comprising Democrats, Republicans, and Independents. This panel is the same panel that generates the data used in my [Which Famous Economist](http://whichfamouseconomistareyoumostsimilarto.com/) website.
+
+
+
 <script src="http://d3js.org/d3.v3.min.js"></script>
 
 <script>
+<!-- Example based on http://bl.ocks.org/weiglemc/6185069 -->
 
 
 var survey_results = [
@@ -173,7 +177,7 @@ if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
   var r = 12
 }
 
-var margin = {top: 30, right: 20, bottom: 50, left: 60},
+var margin = {top: 30, right: 20, bottom: 50, left: 50},
     width = full_width - margin.left - margin.right,
     econ_survey_height = full_height - margin.top - margin.bottom;
 
@@ -276,12 +280,3 @@ var tooltip = d3.select("#econ_scatter").append("div")
   }
 
 </script>
-
-There's a light negative correlation (*r* = -0.47) between how much economic experts and the general public agree with these positions. As shown in the bottom right, the vast majority of economists prefer a carbon tax to car emissions standards, whereas the vast majority of the general public prefers the reverse. As shown in the top left, the vast majority of the general public believes that requiring the government to "Buy American" is an effective way to improve manufacturing employment, whereas the majority of economists do not. For the exact wording of the questions, see the [Appendix](http://docplayer.net/9302120-Economic-experts-vs-average-americans-online-appendix.html) to the original paper.
-
-Since the text on the scatter plot takes up so much space, it's necessary to display the text only upon mouseover. Most economic journals still use PDFs, so this isn't really an option for published papers. Instead, a good static alternative is a [slopegraph](http://charliepark.org/slopegraphs/). Below, the left column shows all the policy positions ranked by agreement from economic experts. The right column shows the same policy positions ranked by agreement from the general public.
-{% include image.html url="/assets/fig_econ_poll.png" %}
-
-To keep the text from overalapping, I've added some light repulsion to the data points. The chart was created with Python's matplotlib libary ([code](https://gist.github.com/csaid/21677bb64c1579f9e9d4852529331ac2)).
-
-For those interested, the experts come from the [Economic Expert Panel](http://www.igmchicago.org/igm-economic-experts-panel), a diverse set of economists comprising Democrats, Republicans, and Independents. This panel is the same panel that generates the data used in my [Which Famous Economist](http://whichfamouseconomistareyoumostsimilarto.com/) website.
