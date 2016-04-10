@@ -78,13 +78,6 @@ circle.competitor {
   fill: #e7e7e7;
 }
 
-.axis path,
-.axis line {
-  fill: none;
-  stroke: #fff;
-  shape-rendering: crispEdges;
-}
-
 .axis .tick:nth-child(2n) {
   stroke-opacity: 0.5;
 }

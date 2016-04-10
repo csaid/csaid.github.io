@@ -4,13 +4,287 @@
  <title>The File Drawer</title>
  <link href="http://www.chris-said.io/atom.xml" rel="self"/>
  <link href="http://www.chris-said.io/"/>
- <updated>2016-02-28T12:45:22-08:00</updated>
+ <updated>2016-04-10T14:21:32-07:00</updated>
  <id>http://www.chris-said.io</id>
  <author>
    <name>Chris Said</name>
    <email></email>
  </author>
 
+ 
+ <entry>
+   <title>Comparing the opinions of economic experts and the general public</title>
+   <link href="http://www.chris-said.io/2016/04/10/comparing-the-opinions-of-economic-experts/"/>
+   <updated>2016-04-10T00:00:00-07:00</updated>
+   <id>http://www.chris-said.io/2016/04/10/comparing-the-opinions-of-economic-experts</id>
+   <content type="html">&lt;meta charset=&quot;utf-8&quot; /&gt;
+
+&lt;p&gt;Last week on Marginal Revolution, there was a link to a wonderful paper comparing the policy opinions of economic experts to the policy opinions of the general public. The &lt;a href=&quot;http://faculty.chicagobooth.edu/luigi.zingales/papers/research/economic-experts-vs-average-americans.pdf&quot;&gt;paper&lt;/a&gt;, by Paola Sapienza and Luigi Zingales, found some pretty significant discrepancies between the two groups. The authors attributed this difference to the degree of trust each group put in the implicit assumptions embedded into the economists’ answers. It’s an excellent and fascinating read. However, like pretty much all academic economics papers, it displays its data in cumbersome text tables rather than figures.&lt;/p&gt;
+
+&lt;p&gt;I’ve created some figures from the data that I think are easier to read than tables. For each policy question, the paper provides two numbers. One is the percentage of economic experts who agree with the policy position. The second is the percentage of general public respondents who agree with the policy position. This sounds like a good opportunity for a scatter plot:&lt;/p&gt;
+
+&lt;meta charset=&quot;utf-8&quot; /&gt;
+
+&lt;!-- Example based on http://bl.ocks.org/weiglemc/6185069 --&gt;
+
+&lt;style&gt;
+
+.econ-axis path,
+.econ-axis line {
+  fill: none; /* chance go none */
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.survey_dot {
+  stroke: #fff;
+  fill: #f58032;
+}
+
+.tooltip {
+  position: absolute;
+  text-align: left;
+  width: 150px;
+  /*height: 30px;*/
+  padding: 8px;
+  margin-top: -20px;
+  font: 10px sans-serif;
+  background: rgba(200, 200, 200, 0.9);
+  pointer-events: none;
+}
+
+/*.tooltip {
+  position: absolute;
+  width: 200px;
+  height: 28px;
+  pointer-events: none;
+}*/
+&lt;/style&gt;
+
+&lt;!-- The tooltip has absolute positioning, which means it is positioned
+&quot;relative&quot; to any parent it has who has either absolute or relative positioning.
+The #econ_scatter parent would by default be static, so I have to change it to
+relative --&gt;
+&lt;div id=&quot;econ_scatter&quot; style=&quot;position:relative&quot;&gt;&lt;/div&gt;
+
+&lt;script src=&quot;http://d3js.org/d3.v3.min.js&quot;&gt;&lt;/script&gt;
+
+&lt;script&gt;
+
+
+var survey_results = [
+  {
+    &quot;issue&quot;: &quot;Moving education funding to school vouchers would benefit students&quot;,
+    &quot;public_agreement&quot;: 56.2,
+    &quot;expert_agreement&quot;: 51.4
+  },
+  {
+    &quot;issue&quot;: &quot;Benefits of automakers bailouts will exceed their cost&quot;,
+    &quot;public_agreement&quot;: 51.9,
+    &quot;expert_agreement&quot;: 57.5
+  },
+  {
+    &quot;issue&quot;: &quot;To reduce student loan risk, link college eligibility to performance&quot;,
+    &quot;public_agreement&quot;: 61.0,
+    &quot;expert_agreement&quot;: 69.7
+  },
+  {
+    &quot;issue&quot;: &quot;2009 Stimulus: benefits will exceed its costs&quot;,
+    &quot;public_agreement&quot;: 43.4,
+    &quot;expert_agreement&quot;: 52.7
+  },
+  {
+    &quot;issue&quot;: &quot;Large banks are big mostly for efficiency gains, not for political power&quot;,
+    &quot;public_agreement&quot;: 39.4,
+    &quot;expert_agreement&quot;: 17.9
+  },
+  {
+    &quot;issue&quot;: &quot;CEOs are paid more than the value they add to firms&quot;,
+    &quot;public_agreement&quot;: 66.8,
+    &quot;expert_agreement&quot;: 39.3
+  },
+  {
+    &quot;issue&quot;: &quot;2010 unemployment rate was lower thanks to automaker bailout&quot;,
+    &quot;public_agreement&quot;: 54.8,
+    &quot;expert_agreement&quot;: 84.8
+  },
+  {
+    &quot;issue&quot;: &quot;2008 bank bailouts: benefits outweighed costs&quot;,
+    &quot;public_agreement&quot;: 38.7,
+    &quot;expert_agreement&quot;: 69.7
+  },
+  {
+    &quot;issue&quot;: &quot;Raising taxes on the rich would increase tax revenue&quot;,
+    &quot;public_agreement&quot;: 66.3,
+    &quot;expert_agreement&quot;: 97.4
+  },
+  {
+    &quot;issue&quot;: &quot;Large banks would be smaller without government support&quot;,
+    &quot;public_agreement&quot;: 65.2,
+    &quot;expert_agreement&quot;: 33.3
+  },
+  {
+    &quot;issue&quot;: &quot;Fannie &amp; Freddie do not rebate subsidies through lower interest rates&quot;,
+    &quot;public_agreement&quot;: 66.7,
+    &quot;expert_agreement&quot;: 31.4
+  },
+  {
+    &quot;issue&quot;: &quot;Changes in US gasoline prices are mainly due to market factors&quot;,
+    &quot;public_agreement&quot;: 54.3,
+    &quot;expert_agreement&quot;: 92.3
+  },
+  {
+    &quot;issue&quot;: &quot;It is hard to predict stock prices&quot;,
+    &quot;public_agreement&quot;: 55.2,
+    &quot;expert_agreement&quot;: 100.0
+  },
+  {
+    &quot;issue&quot;: &quot;2009 ARRA lowered unemployment rate&quot;,
+    &quot;public_agreement&quot;: 45.6,
+    &quot;expert_agreement&quot;: 91.6
+  },
+  {
+    &quot;issue&quot;: &quot;NAFTA increased welfare&quot;,
+    &quot;public_agreement&quot;: 46.1,
+    &quot;expert_agreement&quot;: 94.5
+  },
+  {
+    &quot;issue&quot;: &quot;Eliminating mortgage deduction improves individual finance efficiency&quot;,
+    &quot;public_agreement&quot;: 35.6,
+    &quot;expert_agreement&quot;: 89.4
+  },
+  {
+    &quot;issue&quot;: &quot;\&quot;Buy American\&quot; has significant impact on manufacturing employment&quot;,
+    &quot;public_agreement&quot;: 75.6,
+    &quot;expert_agreement&quot;: 11.4
+  },
+  {
+    &quot;issue&quot;: &quot;US economy is sustainable w/o healthcare cuts or tax hikes&quot;,
+    &quot;public_agreement&quot;: 67.6,
+    &quot;expert_agreement&quot;: 0.00
+  },
+  {
+    &quot;issue&quot;: &quot;A carbon tax is more efficient than car emission standards&quot;,
+    &quot;public_agreement&quot;: 22.5,
+    &quot;expert_agreement&quot;: 92.5
+  }
+  ]
+
+
+var margin = {top: 30, right: 40, bottom: 50, left: 60},
+    width = 600 - margin.left - margin.right,
+    height = 400 - margin.top - margin.bottom;
+
+/*
+ * value accessor - returns the value to encode for a given data object.
+ * scale - maps value to a visual display encoding, such as a pixel position.
+ * map function - maps from data value to display value
+ * axis - sets up axis
+ */
+
+// setup x
+var xValue = function(d) { return d.expert_agreement;}, // data -&gt; value
+    xScale = d3.scale.linear().range([0, width]), // value -&gt; display
+    xMap = function(d) { return xScale(xValue(d));}, // data -&gt; display
+    xAxis = d3.svg.axis().scale(xScale).orient(&quot;bottom&quot;);
+
+// setup y
+var yValue = function(d) { return d.public_agreement;}, // data -&gt; value
+    yScale = d3.scale.linear().range([height, 0]), // value -&gt; display
+    yMap = function(d) { return yScale(yValue(d));}, // data -&gt; display
+    yAxis = d3.svg.axis().scale(yScale).orient(&quot;left&quot;);
+
+
+// add the graph canvas to the #econ_scatter of the webpage
+var svg = d3.select(&quot;#econ_scatter&quot;).append(&quot;svg&quot;)
+    .attr(&quot;width&quot;, width + margin.left + margin.right)
+    .attr(&quot;height&quot;, height + margin.top + margin.bottom)
+  .append(&quot;g&quot;)
+    .attr(&quot;transform&quot;, &quot;translate(&quot; + margin.left + &quot;,&quot; + margin.top + &quot;)&quot;);
+
+// add the tooltip area to the webpage
+var tooltip = d3.select(&quot;#econ_scatter&quot;).append(&quot;div&quot;)
+    .attr(&quot;class&quot;, &quot;tooltip&quot;)
+    .style(&quot;display&quot;, &quot;none&quot;)
+    // .style(&quot;opacity&quot;, 0);
+
+
+  // don&#39;t want dots overlapping axis, so add in buffer to data domain
+  xScale.domain([-5, 100]);
+  yScale.domain([15, 85]);
+
+  // x-axis
+  svg.append(&quot;g&quot;)
+      .attr(&quot;class&quot;, &quot;x econ-axis&quot;)
+      .attr(&quot;transform&quot;, &quot;translate(0,&quot; + height + &quot;)&quot;)
+      .call(xAxis);
+
+  // y-axis
+  svg.append(&quot;g&quot;)
+      .attr(&quot;class&quot;, &quot;y econ-axis&quot;)
+      .call(yAxis);
+
+  // x-label
+  svg.append(&quot;text&quot;)
+      .attr(&quot;x&quot;, width/2)
+      .attr(&quot;y&quot;, height + 40)
+      .style(&quot;text-anchor&quot;, &quot;middle&quot;)
+      .style(&quot;font-size&quot;, &quot;14px&quot;)
+      .text(&quot;Expert Agreement (%)&quot;);
+
+  // y-label
+  svg.append(&quot;text&quot;)
+      .attr(&quot;transform&quot;, &quot;rotate(-90)&quot;)
+      .attr(&quot;x&quot;, -height/2)
+      .attr(&quot;y&quot;, -45)
+      .attr(&quot;dy&quot;, &quot;.71em&quot;)
+      .style(&quot;text-anchor&quot;, &quot;middle&quot;)
+      .style(&quot;font-size&quot;, &quot;14px&quot;)
+      .text(&quot;Public Agreement (%)&quot;);
+
+  // draw dots
+  svg.selectAll(&quot;.survey_dot&quot;)
+      .data(survey_results)
+    .enter().append(&quot;circle&quot;)
+      .attr(&quot;class&quot;, &quot;survey_dot&quot;)
+      .attr(&quot;r&quot;, 12)
+      .attr(&quot;cx&quot;, xMap)
+      .attr(&quot;cy&quot;, yMap)
+      .on(&quot;mouseover&quot;, mouseover)
+      .on(&quot;mousemove&quot;, mousemove)
+      .on(&quot;mouseout&quot;, mouseout);
+
+
+  function mouseover(d) {
+    tooltip.style(&quot;display&quot;, &quot;inline&quot;)
+      .style(&quot;position&quot;, &quot;absolute&quot;);
+  }
+
+  function mousemove(d) {
+    tooltip
+        .text(d.issue)
+        .style(&quot;position&quot;, &quot;absolute&quot;)
+        .style(&quot;left&quot;, (xMap(d)) + &quot;px&quot;)
+        .style(&quot;top&quot;, (yMap(d)) + &quot;px&quot;);
+  }
+
+  function mouseout(d) {
+    tooltip.style(&quot;display&quot;, &quot;none&quot;)
+    .style(&quot;position&quot;, &quot;absolute&quot;);
+  }
+
+&lt;/script&gt;
+
+&lt;p&gt;There’s a light negative correlation (&lt;em&gt;r&lt;/em&gt; = -0.47) between how much economic experts and the general public agree with these positions. As shown in the bottom right, the vast majority of economists prefer a carbon tax to car emissions standards, whereas the vast majority of the general public prefers the reverse. As shown in the top left, the vast majority of the general public believes that requiring the government to “Buy American” is an effective way to improve manufacturing employment, whereas the majority of economists do not. For the exact wording of the questions, see the &lt;a href=&quot;http://docplayer.net/9302120-Economic-experts-vs-average-americans-online-appendix.html&quot;&gt;Appendix&lt;/a&gt; to the original paper.&lt;/p&gt;
+
+&lt;p&gt;Since the text on the scatter plot takes up so much space, it’s necessary to display the text only upon mouseover. Most economic journals still use PDFs, so this isn’t really an option for published papers. Instead, a good static alternative is a &lt;a href=&quot;http://charliepark.org/slopegraphs/&quot;&gt;slopegraph&lt;/a&gt;. Below, the left column shows all the policy positions ranked by agreement from economic experts. The right column shows the same policy positions ranked by agreement from the general public.&lt;/p&gt;
+&lt;figure class=&quot;image&quot;&gt;&lt;img src=&quot;/assets/fig_econ_poll.png&quot; alt=&quot;&quot; /&gt;&lt;/figure&gt;
+
+&lt;p&gt;To keep the text from overalapping, I’ve added some light repulsion to the data points. The chart was created with Python’s matplotlib libary (&lt;a href=&quot;https://gist.github.com/csaid/21677bb64c1579f9e9d4852529331ac2&quot;&gt;code&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;For those interested, the experts come from the &lt;a href=&quot;http://www.igmchicago.org/igm-economic-experts-panel&quot;&gt;Economic Expert Panel&lt;/a&gt;, a diverse set of economists comprising Democrats, Republicans, and Independents. This panel is the same panel that generates the data used in my &lt;a href=&quot;http://whichfamouseconomistareyoumostsimilarto.com/&quot;&gt;Which Famous Economist&lt;/a&gt; website.&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Four pitfalls of hill climbing</title>
@@ -23,7 +297,7 @@
 
 &lt;p&gt;Discussion around hill climbing can sometimes get a bit vague, so I thought I would make some animations that describe four distinct pitfalls that can emerge from an overreliance on hill climbing.&lt;/p&gt;
 
-&lt;h4 id=&quot;local-maxima&quot;&gt;Local maxima&lt;/h4&gt;
+&lt;h4 id=&quot;local-maxima&quot;&gt;1. Local maxima&lt;/h4&gt;
 
 &lt;p&gt;If you climb hills incrementally, you may end up in a local maximum and miss out on an opportunity to land on a global maximum with much bigger reward. Concerns about local maxima are often wrapped up in critiques of &lt;em&gt;incrementalism&lt;/em&gt;.&lt;/p&gt;
 
@@ -33,7 +307,7 @@
 
 &lt;p&gt;Local maxima and global maxima can be illustrated with hill diagrams like the one above. The horizontal axis represents product space collapsed into a single dimension. In reality, of course, there are many dimensions that a product could explore.&lt;/p&gt;
 
-&lt;h4 id=&quot;emergent-maxima&quot;&gt;Emergent maxima&lt;/h4&gt;
+&lt;h4 id=&quot;emergent-maxima&quot;&gt;2. Emergent maxima&lt;/h4&gt;
 
 &lt;p&gt;If you run short A/B tests, or A/B tests that do not fully capture network effects, you might not realize that a change that initially seems bad may be good in the long run. This idea, which is distinct from concerns about incrementalism, can be described with a dynamic reward function animation. As before, the horizontal axis is product space. Each video frame represents a time step, and the vertical axis represents immediate, measurable reward.&lt;/p&gt;
 
@@ -43,7 +317,7 @@
 
 &lt;p&gt;When a product changes, the intial effect is negative. But eventually, customers begin to enjoy the new version, as shown by changes in the reward function. By waiting at a position that initially seemed negative, you are able to discover an emergent mountain, and receive greater reward than you would have from short-term optimization.&lt;/p&gt;
 
-&lt;h4 id=&quot;novelty-effects&quot;&gt;Novelty effects&lt;/h4&gt;
+&lt;h4 id=&quot;novelty-effects&quot;&gt;3. Novelty effects&lt;/h4&gt;
 
 &lt;p&gt;Short-term optimization can be bad, not only because it prevents discovery of emergent mountains, but also because some hills can be transient. One way a hill can disappear is through &lt;em&gt;novelty effects&lt;/em&gt;, where a shiny new feature can be engaging to customers in the short term, but uninteresting or even negative in the long term.&lt;/p&gt;
 
@@ -51,7 +325,7 @@
   &lt;div class=&quot;inner&quot; id=&quot;plot3&quot;&gt;&lt;/div&gt;
 &lt;/div&gt;
 
-&lt;h4 id=&quot;loss-of-differentiation&quot;&gt;Loss of differentiation&lt;/h4&gt;
+&lt;h4 id=&quot;loss-of-differentiation&quot;&gt;4. Loss of differentiation&lt;/h4&gt;
 
 &lt;p&gt;Another way a hill can disappear is through loss of differentiation from more dominant competitors. Your product may occupy a market niche. If you try to copy your competitor, you may initially see some benefits. But at some point, your customers may leave because not much separates you from your more dominant competitor. Differentiation matters in some dimensions more than others.&lt;/p&gt;
 
@@ -73,7 +347,7 @@
   &lt;li&gt;We may overestimate the causal relationship between bold product moves and company success. Investors often observe that companies who don’t make bold changes are doomed to fail. While I don’t doubt that there is some causation here, I think there is also some reverse causation. Bold changes require lots of resources. Maybe it’s mostly the success-bound companies who have enough resources to afford the bold changes.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Special thanks to &lt;a href=&quot;https://twitter.com/johnvmcdonnell&quot;&gt;John McDonnell&lt;/a&gt; and &lt;a href=&quot;https://twitter.com/alexrosner&quot;&gt;Alex Rosner&lt;/a&gt; for comments on a draft of this post.&lt;/p&gt;
+&lt;p&gt;Special thanks to Marika Inhoff, &lt;a href=&quot;https://twitter.com/johnvmcdonnell&quot;&gt;John McDonnell&lt;/a&gt; and &lt;a href=&quot;https://twitter.com/alexrosner&quot;&gt;Alex Rosner&lt;/a&gt; for comments on a draft of this post.&lt;/p&gt;
 &lt;style&gt;
 
 circle {
@@ -91,13 +365,6 @@ circle.competitor {
 
 .background {
   fill: #e7e7e7;
-}
-
-.axis path,
-.axis line {
-  fill: none;
-  stroke: #fff;
-  shape-rendering: crispEdges;
 }
 
 .axis .tick:nth-child(2n) {

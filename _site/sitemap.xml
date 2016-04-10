@@ -3,6 +3,21 @@
   
     
     <url>
+      <loc>http://www.chris-said.io/2016/04/10/comparing-the-opinions-of-economic-experts/</loc>
+      
+        <lastmod>2016-04-10T00:00:00-07:00</lastmod>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.5</priority>
+      
+    </url>
+    
+  
+    
+    <url>
       <loc>http://www.chris-said.io/2016/02/28/four-pitfalls-of-hill-climbing/</loc>
       
         <lastmod>2016-02-28T00:00:00-08:00</lastmod>
@@ -370,7 +385,7 @@
     <url>
       <loc>http://www.chris-said.io404.html</loc>
       
-        <lastmod>2016-02-28T12:45:22-08:00</lastmod>
+        <lastmod>2016-04-10T14:21:32-07:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -398,7 +413,7 @@
     <url>
       <loc>http://www.chris-said.io</loc>
       
-        <lastmod>2016-02-28T12:45:22-08:00</lastmod>
+        <lastmod>2016-04-10T14:21:32-07:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -421,7 +436,7 @@
     <url>
       <loc>http://www.chris-said.io</loc>
       
-        <lastmod>2016-02-28T12:45:22-08:00</lastmod>
+        <lastmod>2016-04-10T14:21:32-07:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -439,7 +454,7 @@
     <url>
       <loc>http://www.chris-said.io</loc>
       
-        <lastmod>2016-02-28T12:45:22-08:00</lastmod>
+        <lastmod>2016-04-10T14:21:32-07:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -457,7 +472,7 @@
     <url>
       <loc>http://www.chris-said.io</loc>
       
-        <lastmod>2016-02-28T12:45:22-08:00</lastmod>
+        <lastmod>2016-04-10T14:21:32-07:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -475,7 +490,7 @@
     <url>
       <loc>http://www.chris-said.io</loc>
       
-        <lastmod>2016-02-28T12:45:22-08:00</lastmod>
+        <lastmod>2016-04-10T14:21:32-07:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -793,6 +808,19 @@
           <loc>http://www.chris-said.io/2016/02/28/four-pitfalls-of-hill-climbing/</loc>
           
             <lastmod>2016-02-28T00:00:00-08:00</lastmod>
+          
+          
+            <changefreq>monthly</changefreq>
+          
+          
+            <priority>0.3</priority>
+          
+        </url>
+      
+        <url>
+          <loc>http://www.chris-said.io/2016/04/10/comparing-the-opinions-of-economic-experts/</loc>
+          
+            <lastmod>2016-04-10T00:00:00-07:00</lastmod>
           
           
             <changefreq>monthly</changefreq>

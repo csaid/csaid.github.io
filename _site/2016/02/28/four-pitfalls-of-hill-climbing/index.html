@@ -84,7 +84,7 @@
 
 <p>Discussion around hill climbing can sometimes get a bit vague, so I thought I would make some animations that describe four distinct pitfalls that can emerge from an overreliance on hill climbing.</p>
 
-<h4 id="local-maxima">Local maxima</h4>
+<h4 id="local-maxima">1. Local maxima</h4>
 
 <p>If you climb hills incrementally, you may end up in a local maximum and miss out on an opportunity to land on a global maximum with much bigger reward. Concerns about local maxima are often wrapped up in critiques of <em>incrementalism</em>.</p>
 
@@ -94,7 +94,7 @@
 
 <p>Local maxima and global maxima can be illustrated with hill diagrams like the one above. The horizontal axis represents product space collapsed into a single dimension. In reality, of course, there are many dimensions that a product could explore.</p>
 
-<h4 id="emergent-maxima">Emergent maxima</h4>
+<h4 id="emergent-maxima">2. Emergent maxima</h4>
 
 <p>If you run short A/B tests, or A/B tests that do not fully capture network effects, you might not realize that a change that initially seems bad may be good in the long run. This idea, which is distinct from concerns about incrementalism, can be described with a dynamic reward function animation. As before, the horizontal axis is product space. Each video frame represents a time step, and the vertical axis represents immediate, measurable reward.</p>
 
@@ -104,7 +104,7 @@
 
 <p>When a product changes, the intial effect is negative. But eventually, customers begin to enjoy the new version, as shown by changes in the reward function. By waiting at a position that initially seemed negative, you are able to discover an emergent mountain, and receive greater reward than you would have from short-term optimization.</p>
 
-<h4 id="novelty-effects">Novelty effects</h4>
+<h4 id="novelty-effects">3. Novelty effects</h4>
 
 <p>Short-term optimization can be bad, not only because it prevents discovery of emergent mountains, but also because some hills can be transient. One way a hill can disappear is through <em>novelty effects</em>, where a shiny new feature can be engaging to customers in the short term, but uninteresting or even negative in the long term.</p>
 
@@ -112,7 +112,7 @@
   <div class="inner" id="plot3"></div>
 </div>
 
-<h4 id="loss-of-differentiation">Loss of differentiation</h4>
+<h4 id="loss-of-differentiation">4. Loss of differentiation</h4>
 
 <p>Another way a hill can disappear is through loss of differentiation from more dominant competitors. Your product may occupy a market niche. If you try to copy your competitor, you may initially see some benefits. But at some point, your customers may leave because not much separates you from your more dominant competitor. Differentiation matters in some dimensions more than others.</p>
 
@@ -134,7 +134,7 @@
   <li>We may overestimate the causal relationship between bold product moves and company success. Investors often observe that companies who don’t make bold changes are doomed to fail. While I don’t doubt that there is some causation here, I think there is also some reverse causation. Bold changes require lots of resources. Maybe it’s mostly the success-bound companies who have enough resources to afford the bold changes.</li>
 </ul>
 
-<p>Special thanks to <a href="https://twitter.com/johnvmcdonnell">John McDonnell</a> and <a href="https://twitter.com/alexrosner">Alex Rosner</a> for comments on a draft of this post.</p>
+<p>Special thanks to Marika Inhoff, <a href="https://twitter.com/johnvmcdonnell">John McDonnell</a> and <a href="https://twitter.com/alexrosner">Alex Rosner</a> for comments on a draft of this post.</p>
 <style>
 
 circle {
@@ -152,13 +152,6 @@ circle.competitor {
 
 .background {
   fill: #e7e7e7;
-}
-
-.axis path,
-.axis line {
-  fill: none;
-  stroke: #fff;
-  shape-rendering: crispEdges;
 }
 
 .axis .tick:nth-child(2n) {
@@ -473,6 +466,15 @@ makeObjectiveGraph("plot5", get_competitor_dot_x, objective5, "Dominant competit
     
       <li>
         <h3>
+          <a href="/2016/04/10/comparing-the-opinions-of-economic-experts/">
+            Comparing the opinions of economic experts and the general public
+            <small>10 Apr 2016</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
           <a href="/2016/02/13/how-to-make-polished-jupyter-presentations-with-optional-code-visibility/">
             How to make polished Jupyter presentations with optional code visibility
             <small>13 Feb 2016</small>
@@ -485,15 +487,6 @@ makeObjectiveGraph("plot5", get_competitor_dot_x, objective5, "Dominant competit
           <a href="/2015/09/17/presidential-debates/">
             The debate CNN wanted and the debate the candidates wanted
             <small>17 Sep 2015</small>
-          </a>
-        </h3>
-      </li>
-    
-      <li>
-        <h3>
-          <a href="/2015/09/16/new-blog-address/">
-            New Blog Address
-            <small>16 Sep 2015</small>
           </a>
         </h3>
       </li>
