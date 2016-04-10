@@ -161,7 +161,7 @@ var survey_results = [
 
 if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
   var full_width = 400
-  var full_height = 200;
+  var full_height = 250;
   var r = 10
 } else {
   var full_width = 550
@@ -223,12 +223,12 @@ var tooltip = d3.select("#econ_scatter").append("div")
       .call(yAxis);
 
   // x-label
-  svg.append("text")
-      .attr("x", width/2)
-      .attr("y", height + 40)
-      .style("text-anchor", "middle")
-      .style("font-size", "14px")
-      .text("Expert Agreement (%)");
+  // svg.append("text")
+  //     .attr("x", width/2)
+  //     .attr("y", height + 40)
+  //     .style("text-anchor", "middle")
+  //     .style("font-size", "14px")
+  //     .text("Expert Agreement (%)");
 
   // y-label
   svg.append("text")
