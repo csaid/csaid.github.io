@@ -4,7 +4,7 @@
  <title>The File Drawer</title>
  <link href="http://www.chris-said.io/atom.xml" rel="self"/>
  <link href="http://www.chris-said.io/"/>
- <updated>2016-04-10T14:56:54-07:00</updated>
+ <updated>2016-04-10T15:03:55-07:00</updated>
  <id>http://www.chris-said.io</id>
  <author>
    <name>Chris Said</name>
@@ -34,6 +34,10 @@
   fill: none; /* chance go none */
   stroke: #000;
   shape-rendering: crispEdges;
+}
+
+.axis text {
+  font: 12px sans-serif;
 }
 
 .survey_dot {
@@ -197,13 +201,13 @@ var margin = {top: 30, right: 20, bottom: 50, left: 60},
 var xValue = function(d) { return d.expert_agreement;}, // data -&gt; value
     xScale = d3.scale.linear().range([0, width]), // value -&gt; display
     xMap = function(d) { return xScale(xValue(d));}, // data -&gt; display
-    xAxis = d3.svg.axis().scale(xScale).orient(&quot;bottom&quot;);
+    xAxisEconSurvey = d3.svg.axis().scale(xScale).orient(&quot;bottom&quot;);
 
 // setup y
 var yValue = function(d) { return d.public_agreement;}, // data -&gt; value
     yScale = d3.scale.linear().range([height, 0]), // value -&gt; display
     yMap = function(d) { return yScale(yValue(d));}, // data -&gt; display
-    yAxis = d3.svg.axis().scale(yScale).orient(&quot;left&quot;);
+    yAxisEconSurvey = d3.svg.axis().scale(yScale).orient(&quot;left&quot;);
 
 
 // add the graph canvas to the #econ_scatter of the webpage
@@ -228,12 +232,12 @@ var tooltip = d3.select(&quot;#econ_scatter&quot;).append(&quot;div&quot;)
   svg.append(&quot;g&quot;)
       .attr(&quot;class&quot;, &quot;x axis&quot;)
       .attr(&quot;transform&quot;, &quot;translate(0,&quot; + height + &quot;)&quot;)
-      .call(xAxis);
+      .call(xAxisEconSurvey);
 
   // y-axis
   svg.append(&quot;g&quot;)
       .attr(&quot;class&quot;, &quot;y axis&quot;)
-      .call(yAxis);
+      .call(yAxisEconSurvey);
 
   // x-label
   svg.append(&quot;text&quot;)
@@ -424,7 +428,7 @@ function makeObjectiveGraph(id, get_dot_x, objective, title, is_dynamic, company
       .domain([0, 1])
       .range([height, 0]);
 
-  var yAxis = d3.svg.axis()
+  var yAxisPitfalls = d3.svg.axis()
       .scale(y)
       .orient(&quot;left&quot;)
       .tickSize(-width)
@@ -435,7 +439,7 @@ function makeObjectiveGraph(id, get_dot_x, objective, title, is_dynamic, company
       .domain([0, 1])
       .range([0, width]);
 
-  var xAxis = d3.svg.axis()
+  var xAxisPitfalls = d3.svg.axis()
       .scale(x)
       .orient(&quot;bottom&quot;)
       .tickSize(-height)

@@ -200,7 +200,7 @@ function makeObjectiveGraph(id, get_dot_x, objective, title, is_dynamic, company
       .domain([0, 1])
       .range([height, 0]);
 
-  var yAxis = d3.svg.axis()
+  var yAxisPitfalls = d3.svg.axis()
       .scale(y)
       .orient("left")
       .tickSize(-width)
@@ -211,7 +211,7 @@ function makeObjectiveGraph(id, get_dot_x, objective, title, is_dynamic, company
       .domain([0, 1])
       .range([0, width]);
 
-  var xAxis = d3.svg.axis()
+  var xAxisPitfalls = d3.svg.axis()
       .scale(x)
       .orient("bottom")
       .tickSize(-height)
