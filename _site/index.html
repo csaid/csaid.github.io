@@ -135,13 +135,18 @@ relative -->
 
 <p>Another way to visualize the same data is with a <a href="http://charliepark.org/slopegraphs/">slopegraph</a>. Below, the left column shows all the policy positions ranked by agreement from economic experts. The right column shows the same policy positions ranked by agreement from the general public. This type of plot vividly shows how unanimous the experts are on a few beliefs: It’s very hard to predict the stock market, we’re on the left side of the Laffer Curve, and the US economy is fiscally unsustainable without healthcare cuts or taxes hikes.</p>
 
-<figure class="image"><img src="/assets/fig_econ_poll.png" alt="" /></figure>
+<p><a href="http://www.dealspotter.info"><figure class="image"><img src="/assets/listings.png" alt="" border="2px" /></figure>
+</a>
+<a href="http://chris-said.io/assets/fig_econ_poll.png"><figure class="image"><img src="/assets/fig_econ_poll.png" alt="" /></figure>
+</a></p>
 
 <p>Slopegraphs are useful in this context because they create less text overlap than scatter plots. With the scatter plot above, I had to use interactive mouseover events to selectively show the text for individual data points. This wouldn’t be possible in a publication, since most economics journals still require static PDFs.</p>
 
 <p>Even with a slopegraph, there is still some risk of overlapping text. To keep this from happening, I added some light repulsion to the data points.</p>
 
 <p>For those interested, the experts in this dataset come from the <a href="http://www.igmchicago.org/igm-economic-experts-panel">Economic Expert Panel</a>, a diverse set of economists comprising Democrats, Republicans, and Independents. This panel is the same panel that generates the data used in my <a href="http://whichfamouseconomistareyoumostsimilarto.com/">Which Famous Economist</a> website.</p>
+
+<p>[Python <a href="https://gist.github.com/csaid/21677bb64c1579f9e9d4852529331ac2">code</a> for the slope graph; Scatter plot is in page source]</p>
 
 <script src="http://d3js.org/d3.v3.min.js"></script>
 
