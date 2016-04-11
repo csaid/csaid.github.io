@@ -54,7 +54,6 @@ There's a light negative correlation (*r* = -0.47) between how much economic exp
 
 Another way to visualize the same data is with a [slopegraph](http://charliepark.org/slopegraphs/). Below, the left column shows all the policy positions ranked by agreement from economic experts. The right column shows the same policy positions ranked by agreement from the general public. This type of plot vividly shows how unanimous the experts are on a few beliefs: It's very hard to predict the stock market, we're on the left side of the Laffer Curve, and the US economy is fiscally unsustainable without healthcare cuts or taxes hikes.
 
-[{% include image_with_border.html url="/assets/listings.png" %}](http://www.dealspotter.info)
 [{% include image.html url="/assets/fig_econ_poll.png" %}](http://chris-said.io/assets/fig_econ_poll.png)
 
 Slopegraphs are useful in this context because they create less text overlap than scatter plots. With the scatter plot above, I had to use interactive mouseover events to selectively show the text for individual data points. This wouldn't be possible in a publication, since most economics journals still require static PDFs.
