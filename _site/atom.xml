@@ -4,7 +4,7 @@
  <title>The File Drawer</title>
  <link href="http://www.chris-said.io/atom.xml" rel="self"/>
  <link href="http://www.chris-said.io/"/>
- <updated>2016-04-10T20:37:31-07:00</updated>
+ <updated>2016-04-10T20:51:36-07:00</updated>
  <id>http://www.chris-said.io</id>
  <author>
    <name>Chris Said</name>
@@ -75,7 +75,7 @@ relative --&gt;
 
 &lt;p&gt;For those interested, the experts in this dataset come from the &lt;a href=&quot;http://www.igmchicago.org/igm-economic-experts-panel&quot;&gt;Economic Expert Panel&lt;/a&gt;, a diverse set of economists comprising Democrats, Republicans, and Independents. This panel is the same panel that generates the data used in my &lt;a href=&quot;http://whichfamouseconomistareyoumostsimilarto.com/&quot;&gt;Which Famous Economist&lt;/a&gt; website.&lt;/p&gt;
 
-&lt;p&gt;[Python &lt;a href=&quot;https://gist.github.com/csaid/21677bb64c1579f9e9d4852529331ac2&quot;&gt;code&lt;/a&gt; for the slope graph; Scatter plot is in page source]&lt;/p&gt;
+&lt;p&gt;[Python &lt;a href=&quot;https://gist.github.com/csaid/21677bb64c1579f9e9d4852529331ac2&quot;&gt;code&lt;/a&gt; for the slope graph. Scatter plot is in page source.]&lt;/p&gt;
 
 &lt;script src=&quot;http://d3js.org/d3.v3.min.js&quot;&gt;&lt;/script&gt;
 

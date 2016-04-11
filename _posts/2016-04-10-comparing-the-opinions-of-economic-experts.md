@@ -62,7 +62,7 @@ Even with a slopegraph, there is still some risk of overlapping text. To keep th
 
 For those interested, the experts in this dataset come from the [Economic Expert Panel](http://www.igmchicago.org/igm-economic-experts-panel), a diverse set of economists comprising Democrats, Republicans, and Independents. This panel is the same panel that generates the data used in my [Which Famous Economist](http://whichfamouseconomistareyoumostsimilarto.com/) website.
 
-\[Python [code](https://gist.github.com/csaid/21677bb64c1579f9e9d4852529331ac2) for the slope graph; Scatter plot is in page source\]
+\[Python [code](https://gist.github.com/csaid/21677bb64c1579f9e9d4852529331ac2) for the slope graph. Scatter plot is in page source.\]
 
 
 
