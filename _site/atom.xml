@@ -4,7 +4,7 @@
  <title>The File Drawer</title>
  <link href="http://www.chris-said.io/atom.xml" rel="self"/>
  <link href="http://www.chris-said.io/"/>
- <updated>2016-04-11T07:20:30-07:00</updated>
+ <updated>2016-05-01T10:37:02-07:00</updated>
  <id>http://www.chris-said.io</id>
  <author>
    <name>Chris Said</name>
@@ -399,7 +399,7 @@ circle.competitor {
 
 &lt;/style&gt;
 
-&lt;script src=&quot;//d3js.org/d3.v3.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;http://d3js.org/d3.v3.min.js&quot;&gt;&lt;/script&gt;
 
 &lt;!-- I think Markdown doesn&#39;t like two script tags in a row --&gt;
 &lt;div&gt;&lt;/div&gt;
@@ -826,11 +826,8 @@ text {
 
 &lt;/style&gt;
 
-&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;http://d3js.org/d3.v3.min.js&quot;&gt;&lt;/script&gt;
 
-&lt;!-- &lt;script type=&#39;text/javascript&#39; src=&#39;/javascripts/jquery-2.1.4.min.js&#39;&gt;&lt;/script&gt;
-&lt;script type=&#39;text/javascript&#39; src=&#39;/javascripts/jquery.tipsy.js&#39;&gt;&lt;/script&gt; --&gt;
-&lt;!-- &lt;link rel=&quot;stylesheet&quot; href=&quot;/stylesheets/tipsy.css&quot; type=&quot;text/css&quot; /&gt; --&gt;
 &lt;script&gt;
 
 var mod_links = [
