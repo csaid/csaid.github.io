@@ -43,7 +43,7 @@ text {
 
 </style>
 
-*[Content warning: Long and possible very boring.]*
+*[Content warning: Long and possibly very boring.]*
 
 As a data scientist, a big part of my job involves picking metrics to optimize, and thinking about how to do things as efficiently as possible. With these types of questions on my mind, I recently discovered a totally fascinating book about about economic problems in the USSR and the team of data-driven economists and computer scientists who wanted to solve them. The book is called [*Red Plenty*](http://www.amazon.com/Red-Plenty-Francis-Spufford/dp/1555976042). It’s actually written as a novel, weirdly, but it nevertheless presents an accurate economic history of the USSR. It draws heavily on an earlier book from 1973 called [*Planning Problems in the USSR*](http://www.amazon.com/Planning-Problems-USSR-Contribution-Mathematical/dp/0521202493), which I also picked up. As I read these books, I couldn’t help but notice some parallels with planning in any modern organization. In what will be familiar to any data scientist today, the second book even includes a quote from a researcher who complained that 90% of his time was spent cleaning the data, and only 10% of his time was spent doing actual modeling!
 
