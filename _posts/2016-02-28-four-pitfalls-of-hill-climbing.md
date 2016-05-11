@@ -98,8 +98,6 @@ circle.competitor {
 
 </style>
 
-<script src="http://d3js.org/d3.v3.min.js"></script>
-
 <!-- I think Markdown doesn't like two script tags in a row -->
 <div></div>
 

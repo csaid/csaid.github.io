@@ -3,6 +3,21 @@
   
     
     <url>
+      <loc>http://www.chris-said.io/2016/05/11/optimizing-things-in-the-ussr/</loc>
+      
+        <lastmod>2016-05-11T00:00:00-07:00</lastmod>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.5</priority>
+      
+    </url>
+    
+  
+    
+    <url>
       <loc>http://www.chris-said.io/2016/04/10/comparing-the-opinions-of-economic-experts/</loc>
       
         <lastmod>2016-04-10T00:00:00-07:00</lastmod>
@@ -385,7 +400,7 @@
     <url>
       <loc>http://www.chris-said.io404.html</loc>
       
-        <lastmod>2016-05-01T10:37:02-07:00</lastmod>
+        <lastmod>2016-05-11T10:19:53-07:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -413,7 +428,7 @@
     <url>
       <loc>http://www.chris-said.io</loc>
       
-        <lastmod>2016-05-01T10:37:02-07:00</lastmod>
+        <lastmod>2016-05-11T10:19:53-07:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -436,7 +451,7 @@
     <url>
       <loc>http://www.chris-said.io</loc>
       
-        <lastmod>2016-05-01T10:37:02-07:00</lastmod>
+        <lastmod>2016-05-11T10:19:53-07:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -454,7 +469,7 @@
     <url>
       <loc>http://www.chris-said.io</loc>
       
-        <lastmod>2016-05-01T10:37:02-07:00</lastmod>
+        <lastmod>2016-05-11T10:19:53-07:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -472,7 +487,7 @@
     <url>
       <loc>http://www.chris-said.io</loc>
       
-        <lastmod>2016-05-01T10:37:02-07:00</lastmod>
+        <lastmod>2016-05-11T10:19:53-07:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -490,7 +505,25 @@
     <url>
       <loc>http://www.chris-said.io</loc>
       
-        <lastmod>2016-05-01T10:37:02-07:00</lastmod>
+        <lastmod>2016-05-11T10:19:53-07:00</lastmod>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    
+
+    
+    <url>
+      <loc>http://www.chris-said.io</loc>
+      
+        <lastmod>2016-05-11T10:19:53-07:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -821,6 +854,19 @@
           <loc>http://www.chris-said.io/2016/04/10/comparing-the-opinions-of-economic-experts/</loc>
           
             <lastmod>2016-04-10T00:00:00-07:00</lastmod>
+          
+          
+            <changefreq>monthly</changefreq>
+          
+          
+            <priority>0.3</priority>
+          
+        </url>
+      
+        <url>
+          <loc>http://www.chris-said.io/2016/05/11/optimizing-things-in-the-ussr/</loc>
+          
+            <lastmod>2016-05-11T00:00:00-07:00</lastmod>
           
           
             <changefreq>monthly</changefreq>

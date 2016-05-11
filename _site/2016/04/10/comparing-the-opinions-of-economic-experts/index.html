@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en-us">
 
+<!--
+It's bad to import d3 in every post separatly (https://groups.google.com/forum/#!topic/d3-js/bwdNirt2uEU).
+Importing it globally here.
+Putting this up at the top, according to this controversial stack overflow answer
+http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
+ -->
+<script src="http://d3js.org/d3.v3.min.js"></script>
+
 <link rel="stylesheet" href="/public/font-awesome-4.4.0/css/font-awesome.min.css">
 
   <head>
@@ -137,8 +145,6 @@ relative -->
 <p>For those interested, the experts in this dataset come from the <a href="http://www.igmchicago.org/igm-economic-experts-panel">Economic Expert Panel</a>, a diverse set of economists comprising Democrats, Republicans, and Independents. This panel is the same panel that generates the data used in my <a href="http://whichfamouseconomistareyoumostsimilarto.com/">Which Famous Economist</a> website.</p>
 
 <p>[Python <a href="https://gist.github.com/csaid/21677bb64c1579f9e9d4852529331ac2">code</a> for the slope graph. Scatter plot is in page source.]</p>
-
-<script src="http://d3js.org/d3.v3.min.js"></script>
 
 <script>
 <!-- Example based on http://bl.ocks.org/weiglemc/6185069 -->
@@ -392,6 +398,15 @@ var tooltip = d3.select("#econ_scatter").append("div")
     
       <li>
         <h3>
+          <a href="/2016/05/11/optimizing-things-in-the-ussr/">
+            Optimizing things in the USSR
+            <small>11 May 2016</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
           <a href="/2016/02/28/four-pitfalls-of-hill-climbing/">
             Four pitfalls of hill climbing
             <small>28 Feb 2016</small>
@@ -404,15 +419,6 @@ var tooltip = d3.select("#econ_scatter").append("div")
           <a href="/2016/02/13/how-to-make-polished-jupyter-presentations-with-optional-code-visibility/">
             How to make polished Jupyter presentations with optional code visibility
             <small>13 Feb 2016</small>
-          </a>
-        </h3>
-      </li>
-    
-      <li>
-        <h3>
-          <a href="/2015/09/17/presidential-debates/">
-            The debate CNN wanted and the debate the candidates wanted
-            <small>17 Sep 2015</small>
           </a>
         </h3>
       </li>

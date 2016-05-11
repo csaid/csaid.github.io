@@ -4,13 +4,298 @@
  <title>The File Drawer</title>
  <link href="http://www.chris-said.io/atom.xml" rel="self"/>
  <link href="http://www.chris-said.io/"/>
- <updated>2016-05-01T10:37:02-07:00</updated>
+ <updated>2016-05-11T10:19:53-07:00</updated>
  <id>http://www.chris-said.io</id>
  <author>
    <name>Chris Said</name>
    <email></email>
  </author>
 
+ 
+ <entry>
+   <title>Optimizing things in the USSR</title>
+   <link href="http://www.chris-said.io/2016/05/11/optimizing-things-in-the-ussr/"/>
+   <updated>2016-05-11T00:00:00-07:00</updated>
+   <id>http://www.chris-said.io/2016/05/11/optimizing-things-in-the-ussr</id>
+   <content type="html">&lt;meta charset=&quot;utf-8&quot; /&gt;
+
+&lt;style&gt;
+
+.node rect {
+  cursor: move;
+  fill-opacity: .9;
+  shape-rendering: crispEdges;
+}
+
+.node text {
+  pointer-events: none;
+  text-shadow: 0 1px 0 #fff;
+}
+
+.link {
+  fill: none;
+  stroke: #000;
+  stroke-opacity: .2;
+}
+
+.link:hover {
+  stroke-opacity: .5;
+}
+
+.caption {
+  font-style: italic;
+  font-size: 75%;
+  text-align: left;
+  line-height: 130%;
+}
+
+text {
+  font: 10px sans-serif;
+}
+
+
+&lt;/style&gt;
+
+&lt;p&gt;&lt;em&gt;[Content warning: Long and possible very boring.]&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;As a data scientist, a big part of my job involves picking metrics to optimize, and thinking about how to do things as efficiently as possible. With these types of questions on my mind, I recently discovered a totally fascinating book about about economic problems in the USSR and the team of data-driven economists and computer scientists who wanted to solve them. The book is called &lt;a href=&quot;http://www.amazon.com/Red-Plenty-Francis-Spufford/dp/1555976042&quot;&gt;&lt;em&gt;Red Plenty&lt;/em&gt;&lt;/a&gt;. It’s actually written as a novel, weirdly, but it nevertheless presents an accurate economic history of the USSR. It draws heavily on an earlier book from 1973 called &lt;a href=&quot;http://www.amazon.com/Planning-Problems-USSR-Contribution-Mathematical/dp/0521202493&quot;&gt;&lt;em&gt;Planning Problems in the USSR&lt;/em&gt;&lt;/a&gt;, which I also picked up. As I read these books, I couldn’t help but notice some parallels with planning in any modern organization. In what will be familiar to any data scientist today, the second book even includes a quote from a researcher who complained that 90% of his time was spent cleaning the data, and only 10% of his time was spent doing actual modeling!&lt;/p&gt;
+
+&lt;p&gt;Beyond all the interesting parallels to modern data science and operations research, these books helped me understand a lot of interesting things I previously knew very little about, such as linear programming, price equilibria, and Soviet history. This blog post is about I learned, and ends with some surprising-to-me speculation about whether the technical challenges that the brought down the Soviet Union would be as much of a problem in the future.&lt;/p&gt;
+
+&lt;h4 style=&quot;text-align: center;&quot;&gt;Balance sheets and manual calculation: Kind of a trainwreck&lt;/h4&gt;
+
+&lt;p&gt;The main task in the centrally planned Soviet economy was to allocate resources so that a desired assortment of goods and services was produced. Every year, certain target outputs for each good were established. Armed with estimates of the available input resources, central administrators used balance sheets to set plans for every factory, specifying exactly how much input commodities each factory would receive, and how much output it should produce. Up through the 1960s, this was always done by manual calculation. Since there were hundreds of thousands of commodities, and since the supply chains had many dependency steps, it was impossible to compute the full balance sheets for the economy. The administrators therefore decided to make some simplifying assumptions. As a result of these these simplifying assumptions, resource allocation became a bit of a trainwreck. Below are a few of the simplifications and their consequences.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Dimensionality reduction by removing variables.&lt;/strong&gt; Because there were too many commodities to track, administrators often limited their analysis to the 10,000 most important commodities in the economy. But when the production of those commodities were planned, there was often a hidden shortage of commodities whose output was not planned centrally but which were used as inputs to one of the 10,000 planned products. Factories that depended on those commodities often sat idle for months as they waited for the shortages to end.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Dimensionality reduction by aggregation.&lt;/strong&gt; Apparently, steel tubes can come in thousands of different types. They can come in different lengths, different shapes, and different compositions. To reduce the dimensionality of the problem, administrators would often track the total tonnage of a few broad classes of steel tubes in the models, rather than using a more detailed classification scheme. While their models successfully balanced the tonnage of tubes for the broad categories (the output in tons of tube-producing factories matched the input requirements in tons of tube-consuming factories), there were constant surpluses of some specific types of tubes, and shortages of other specific types of tubes. In particular, since tonnage was used as a metric, tube-producing factories were overly incentivized to make easy-to-produce thick tubes. As a result, thin tubes were always in short supply.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Propagating adjustments only a few degrees back.&lt;/strong&gt; Let’s say that during balance calculations, the administrators realized they needed to bump up the target output of one commodity. If they did that, it was also necessary to bump up the output targets of commodities that were input into the target commodity. But if they did &lt;em&gt;that&lt;/em&gt;, they also needed to bump up the output targets of commodities that fed into those commodities, and so on! This involved a crazy amount of extra hand calculations every time they needed make an adjustment. To simplify things, the administrators typically made adjustments to the first-order suppliers, without making the necessary adjustments to the suppliers of the suppliers. This of course led to critical shortages of input commodities, which again led to idle factories.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- The tooltip has absolute positioning, which means it is positioned
+&quot;relative&quot; to any parent it has who has either absolute or relative positioning.
+The #econ_scatter parent would by default be static, so I have to change it to
+relative --&gt;
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;div id=&quot;chart&quot; class=&quot;inner&quot; style=&quot;position:relative&quot;&gt;&lt;/div&gt;
+  &lt;!-- &lt;div id=&quot;econ_scatter&quot; class=&quot;inner&quot; style=&quot;position:relative&quot;&gt;&lt;/div&gt; --&gt;
+  &lt;div class=&quot;caption&quot;&gt;
+&lt;strong&gt;Figure 1.&lt;/strong&gt; Some example inputs and outputs in the Soviet economy in 1951, described in units of weight. This summary shows an extreme dimensionality reduction, more extreme than was ever used in planning. In this diagram, most commodities are excluded and each displayed commodity collapses across multiple different product types. Multiple steps in the supply chain are collapsed into a single step. (Source: &lt;a href=&quot;http://www.foia.cia.gov/sites/default/files/document_conversions/89801/DOC_0000380738.pdf&quot;&gt;CIA&lt;/a&gt;)
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;Even if the administrators could get the accounting correct, which they couldn’t, their attempts to allocate resources would still be far from optimal. In the steel industry, for example, some factories were better at producing some types of tubes whereas others were better at producing other types of tubes. Since there were thousands of different factories and tube types, it was non-trivial to decide how to best distribute resources and output requirements, and it was not immediately obvious which factories should be expanded and which should be closed down.&lt;/p&gt;
+
+&lt;h4 style=&quot;text-align: center;&quot;&gt;Supply chain optimizations&lt;/h4&gt;
+
+&lt;p&gt;In the late 1960’s, a group of economists and computer scientists known as the “optimal planners” began to push for a better way of doing things. The group argued that a technique called &lt;a href=&quot;https://www.math.ucla.edu/~tom/LP.pdf&quot;&gt;linear programming&lt;/a&gt;, invented by &lt;a href=&quot;https://en.wikipedia.org/wiki/Leonid_Kantorovich&quot;&gt;Leonid Kantorovich&lt;/a&gt;, could optimally solve the problems with the supply chain. At a minimum, since the process could be computerized, it would be possible to perform more detailed calculations than could be done by hand, with less dimensionality reduction. But more importantly, linear programming allowed you to optimize arbitrary objective functions given certain constraints. In the case of the supply chain, it showed you how to efficiently allocate resources, identifying efficient factories that should get more input commodities, and inefficient factories that should be shut down.&lt;/p&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;img src=&quot;/assets/kantorovich.jpg&quot; height=&quot;300&quot; class=&quot;inner&quot; style=&quot;position:relative&quot; /&gt;
+  &lt;div class=&quot;caption&quot;&gt;
+    &lt;strong&gt;Figure 2.&lt;/strong&gt; Leonid Kantorovich, inventor of linear programming and winner of the 1975 Nobel Prize in Economics.
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;The optimal planners had some success here. For example, in the steel industry, about 60,000 consumers requested 10,000 different types of products from 500 producers. The producers were not equally efficient in their production. Some producers were efficient for some types of steel products, but less efficient for other types of steel products. Given the total amount of each product requested, and given the constraints of how much each factory can produce, the goal was decide how much each factory should produce of each type of product. If we simplify the problem by just asking how much each factory should produce without considering how the products will be distributed to the consuming factories, this becomes a straightforward application of the &lt;a href=&quot;https://www.math.ucla.edu/~tom/LP.pdf&quot;&gt;Optimal Assignment Problem&lt;/a&gt;, a well-studied example in linear programming. If we additionally want to optimize distribution, taking into account the distance-dependent costs of shipments from one factory to another, the problem becomes more complicated but is still doable. The problem becomes similar to the &lt;a href=&quot;https://www.math.ucla.edu/~tom/LP.pdf&quot;&gt;Transportation Problem&lt;/a&gt;, another well-studied example in linear programming, but in this case generalized to multiple commodities instead of just one.&lt;/p&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;img src=&quot;/assets/steel_tubes.jpg&quot; height=&quot;200&quot; class=&quot;inner&quot; style=&quot;position:relative&quot; /&gt;
+&lt;/div&gt;
+
+&lt;p&gt;By introducing linear programming, the optimal planners were modestly successful at improving the efficiency of some industries, but their effect was limited. First, political considerations prevented many of the recommendations surfaced by the model from being implemented. Cement factories that were known to be too inefficient or too far away from consumers were allowed to remain open even though the optimal solution recommended that they be closed. Second, since the planners were only allowed to work in certain narrow parts of the economy, they never had an opportunity to propagate their recommendations back in the supply chain, although one could imagine extending the models to do so. Third, and perhaps most importantly, the value of each commodity was set by old-school administrators in an unprincipled way, and so the optimal planners were forced to optimize objective functions that didn’t even make sense.&lt;/p&gt;
+
+&lt;h4 style=&quot;text-align: center;&quot;&gt;Ideas about optimizing the entire economy&lt;/h4&gt;
+
+&lt;p&gt;While the optimal planners were able to improve the efficiency of a few industries, they had more ambitious plans. They believed they could use linear programming to optimize the entire economy and outperform capitalist societies. Doing so involved more than just scaling out the supply chain optimizations adopted by certain industries. It involved shadow prices and interest rates, and a few other things I’ll admit I don’t totally understand. But while I don’t really understand the implementation, I feel like the broader goal of the planners is easier to understand and explain:&lt;/p&gt;
+
+&lt;p&gt;Basically, in a completely free market, at least under &lt;a href=&quot;https://en.wikipedia.org/wiki/Arrow%E2%80%93Debreu_model&quot;&gt;certain assumptions&lt;/a&gt;, prices are supposed to converge to what’s called a General Equilibrium. The equilibrium prices have a some nice properties. They balance aggregate supply and demand, so that no commodities are in shortage or surplus. They are also &lt;a href=&quot;https://en.wikipedia.org/wiki/Pareto_efficiency&quot;&gt;Pareto efficient&lt;/a&gt;, which means that nobody in the economy can be made better off without making someone else worse off.&lt;/p&gt;
+
+&lt;p&gt;The optimal planners thought that they could do better. In particular, they pointed to two problems with capitalism: First, prices in a capitalist society were determined by individual agents using trial and error to guess the best price. Surely these agents, who had imperfect information, were not picking the exactly optimal prices. In contrast, a central planner using optimal computerized methods could pick prices that hit the equilibrium more exactly. Second, and more importantly, capitalism targeted an objective function that — while Pareto efficient — was not socially optimal. Because of huge differences in wealth, some people were able to obtain far more goods and services than other people. The optimal planners proposed using linear programming to optimize an objective function that would be more socially optimal. For example, it could aim to distribute goods more equitably. It could prioritize certain socially valuable goods (e.g. books) over socially destructive goods (e.g. alcohol). It could prioritize sectors that provide benefits over longer time horizons (e.g. heavy industry). And it could include constraints to ensure full employment.&lt;/p&gt;
+
+&lt;h4 style=&quot;text-align: center;&quot;&gt;What happened&lt;/h4&gt;
+&lt;p&gt;None of this ever really happened. The ambitious ideas of the optimal planners were never adopted, and by the 1970s it was clear that living standards in the USSR were falling further behind those of the West. Perhaps things would have been better if the optimal planners got their way, but it seems like the consensus is that their plans would have failed even if they were implemented. Below are some of the main problems that would have been encountered.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Computational complexity.&lt;/strong&gt; As described in a &lt;a href=&quot;http://crookedtimber.org/2012/05/30/in-soviet-union-optimization-problem-solves-you/&quot;&gt;wonderful blog post by Cosma Shalizi&lt;/a&gt;, the number of calculations needed to solve a linear programming problem is: &lt;script type=&quot;math/tex&quot;&gt;(m+n)^{3/2} n^2 log(1/h)&lt;/script&gt;, where &lt;script type=&quot;math/tex&quot;&gt;n&lt;/script&gt; is the number of products, &lt;script type=&quot;math/tex&quot;&gt;m&lt;/script&gt; is the number of constraints, and &lt;script type=&quot;math/tex&quot;&gt;h&lt;/script&gt; is how much error you are willing to tolerate. Since the number of products, &lt;script type=&quot;math/tex&quot;&gt;n&lt;/script&gt;, was in the millions, and since the complexity was proportional to &lt;script type=&quot;math/tex&quot;&gt;n^{3.5}&lt;/script&gt;, it would have been practically impossible for the Soviets to compute a solution to their planning problem with sufficient detail (although see below). Any attempt to reduce the dimensionality would lead to the same perverse incentives and shortages that bedeviled earlier systems driven by hand calculations.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Data quality.&lt;/strong&gt; The optimal planners thought that optimal computer methods could find prices that more exactly approximated equilibrium than could be done in a market economy, where fallible human actors guessed at prices by trial and error. The reality, however, would have been the exact opposite. Individual actors in a market economy understand their local needs and constraints pretty well, whereas central planners have basically no idea what’s going on. For example, central planners don’t have good information on when a factory fails to receive a shipment and they don’t have an accurate sense for how much more efficient some devices are than others. Even worse, in order to obtain more resources, factory managers in the USSR routinely &lt;em&gt;lied&lt;/em&gt; to the central planners about their production capabilities. The situation became so bad that, &lt;a href=&quot;https://books.google.com/books?id=Jlmm9GZqxkoC&amp;amp;printsec=frontcover#v=onepage&amp;amp;q&amp;amp;f=false&quot;&gt;according to&lt;/a&gt; &lt;a href=&quot;http://crookedtimber.org/2012/05/30/in-soviet-union-optimization-problem-solves-you/#comment-416126&quot;&gt;one of the deep state secrets&lt;/a&gt; of the USSR, central planners preferred to use the CIA’s analyses of certain Russian commodities rather than reports from local Party bosses!   This is especially crazy if you consider that the CIA described its own data as being of &lt;a href=&quot;http://www.foia.cia.gov/sites/default/files/document_conversions/89801/DOC_0000380738.pdf&quot;&gt;“debilitatingly”&lt;/a&gt; poor quality.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Nonlinearities.&lt;/strong&gt; The optimal planners assumed linearity, such that the cost for a factory producing its 1000th widget was assumed to be the same as the cost for producing its first widget. In the real world, this is obviously false, as there are increasing returns to scale. It’s possible to model increasing returns to scale, but it becomes harder to solve computationally.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Choosing an objective function.&lt;/strong&gt; Choosing what the society should value is really a political problem, and Cosma Shalizi does a very &lt;a href=&quot;http://crookedtimber.org/2012/05/30/in-soviet-union-optimization-problem-solves-you/&quot;&gt;nice job&lt;/a&gt; describing why it would be so hard to come to agreement.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Incentives for innovation.&lt;/strong&gt; The central planners couldn’t determine resource allocation for products that didn’t exist yet, and more importantly neither they nor the factories had much incentive to invent new products. That’s why the Soviet Union remained so focused on the steel/coal/cement economy while Western nations shifted their focus to plastics and microelectronics.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Political resistance.&lt;/strong&gt; As described in a previous example, the model-based recommendations to shut down certain factories were ignored for political reasons. It is likely that many recommendations for the broader economy would have been ignored as well. For example, if a computer recommended that the price of heating oil should be doubled in the winter, how many politicians would let that happen?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 style=&quot;text-align: center;&quot;&gt;Could this work in the future?&lt;/h4&gt;
+
+&lt;p&gt;Had the optimal planners’ ideas been adopted at the time, they would have failed. But what about the future? In a hundred years, could we have the technical capability to pull off a totally planned economy? I did some poking around the internet and found, somewhat to my surprise, that the answer is actually… &lt;em&gt;maybe&lt;/em&gt;. It turns out that two of the most serious problems with central planning could have technological solutions that may seem far-fetched but are perhaps not impossible:&lt;/p&gt;
+
+&lt;p&gt;Let’s start with &lt;strong&gt;computational complexity&lt;/strong&gt;. As described above and in Cosma Shalizi’s post, the number of steps required to solve a linear programming problem with &lt;script type=&quot;math/tex&quot;&gt;n&lt;/script&gt; products and &lt;script type=&quot;math/tex&quot;&gt;m&lt;/script&gt; constraints is proportional &lt;script type=&quot;math/tex&quot;&gt;(m+n)^{3/2} n^2&lt;/script&gt;, which is prohibitively high for a large economy. I can’t believe I’m saying this, but I believe that &lt;a href=&quot;http://crookedtimber.org/2012/05/30/in-soviet-union-optimization-problem-solves-you/#comment-415949&quot;&gt;Cosma Shalizi&lt;/a&gt; &lt;a href=&quot;http://crookedtimber.org/2012/05/30/in-soviet-union-optimization-problem-solves-you/#comment-416096&quot;&gt;is&lt;/a&gt; &lt;a href=&quot;http://crookedtimber.org/2012/05/30/in-soviet-union-optimization-problem-solves-you/#comment-416201&quot;&gt;wrong&lt;/a&gt;. This is because the actual input-output matrix of an economy is actually pretty sparse. Not every product depends on every other product as input. In 1993, Paul Cockshott and Allin Cottrell published a book called &lt;a href=&quot;http://ricardo.ecn.wfu.edu/~cottrell/socialism_book/new_socialism.pdf&quot;&gt;&lt;em&gt;Towards a New Socialism&lt;/em&gt;&lt;/a&gt; in which they described a way to exploit the sparsity of the input-output matrix, bringing the computational complexity down to &lt;script type=&quot;math/tex&quot;&gt;m \times n&lt;/script&gt;. Unfortunately for Communism, the book was published in 1993.&lt;/p&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;img src=&quot;/assets/towards_a_new_socialism.gif&quot; height=&quot;300&quot; class=&quot;inner&quot; style=&quot;position:relative&quot; /&gt;
+&lt;/div&gt;
+
+&lt;p&gt;As described earlier, the second serious issue with a centrally planned economy was &lt;strong&gt;data quality&lt;/strong&gt;: Central planners’ knowledge about the input requirements and output capabilities of individual factories was simply not as good as the people actually working in the factory. While this was certainly the case in the Soviet Union, one can’t help but wonder about technological improvements in supply chain management. Imagine if every product had a GPS device to track its location, with other sensors and cameras to determine product quality. Already Amazon is moving in that direction for pretty much all consumer goods, and one could imagine a world where demand could be measured with the &lt;a href=&quot;https://en.wikipedia.org/wiki/Internet_of_Things&quot;&gt;Internet of Things&lt;/a&gt;. Whether a government would be able to harness this data as competently as Amazon is doubtful, and it’s obviously worth asking whether we would ever want a government to be using that type of data. But from a technical point of view it’s interesting to think about how the data quality issues that destroyed the USSR could be much less serious in the future.&lt;/p&gt;
+
+&lt;p&gt;All that being said, it’s still unclear to me how an objective function could be chosen in way that would democratically satisfy people, how innovation could be incentivized, or how political freedoms could be preserved. In terms of freedom, things were obviously not-so-hot in the Soviet Union. If you’d like to read more about this, you should definitely check out &lt;a href=&quot;http://www.amazon.com/Red-Plenty-Francis-Spufford/dp/1555976042&quot;&gt;Red Plenty&lt;/a&gt;. It was one of the weirdest and most interesting books I have read.&lt;/p&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;img src=&quot;/assets/red_plenty.jpeg&quot; height=&quot;300&quot; class=&quot;inner&quot; style=&quot;position:relative&quot; /&gt;
+&lt;/div&gt;
+
+&lt;script src=&quot;/scripts/sankey.js&quot;&gt;&lt;/script&gt;
+
+&lt;script&gt;
+
+// Names to Index
+var n2i = {
+&#39;petro&#39;: 0,
+&#39;steel&#39;: 1,
+&#39;copper&#39;: 2,
+&#39;aluminum&#39;: 3,
+&#39;ammonia&#39;: 4,
+&#39;food&#39;: 5,
+&#39;textiles&#39;: 6,
+&#39;logging&#39;: 7,
+&#39;automotive&#39;: 8
+}
+
+var commodities = {
+  &quot;nodes&quot;:[
+    {&#39;name&#39;: &#39;Petroleum residuals&#39;},
+    {&#39;name&#39;: &#39;Crude Steel&#39;},
+    {&#39;name&#39;: &#39;Copper&#39;},
+    {&#39;name&#39;: &#39;Aluminum&#39;},
+    {&#39;name&#39;: &#39;Ammonia&#39;},
+    {&#39;name&#39;: &#39;Agriculture and Food&#39;},
+    {&#39;name&#39;: &#39;Textiles and Apparel&#39;},
+    {&#39;name&#39;: &#39;Logging and Paper Products&#39;},
+    {&#39;name&#39;: &#39;Automotive Equipment&#39;}
+  ],
+  &#39;links&#39;:[
+    {&#39;source&#39;:n2i[&#39;petro&#39;],&#39;target&#39;:n2i[&#39;food&#39;],&#39;value&#39;:510},
+    {&#39;source&#39;:n2i[&#39;steel&#39;],&#39;target&#39;:n2i[&#39;food&#39;],&#39;value&#39;:80},
+    {&#39;source&#39;:n2i[&#39;ammonia&#39;],&#39;target&#39;:n2i[&#39;food&#39;],&#39;value&#39;:250},
+    {&#39;source&#39;:n2i[&#39;steel&#39;],&#39;target&#39;:n2i[&#39;textiles&#39;],&#39;value&#39;:10},
+    {&#39;source&#39;:n2i[&#39;ammonia&#39;],&#39;target&#39;:n2i[&#39;textiles&#39;],&#39;value&#39;:10},
+    {&#39;source&#39;:n2i[&#39;petro&#39;],&#39;target&#39;:n2i[&#39;logging&#39;],&#39;value&#39;:30},
+    {&#39;source&#39;:n2i[&#39;steel&#39;],&#39;target&#39;:n2i[&#39;logging&#39;],&#39;value&#39;:40},
+    {&#39;source&#39;:n2i[&#39;ammonia&#39;],&#39;target&#39;:n2i[&#39;logging&#39;],&#39;value&#39;:5},
+    {&#39;source&#39;:n2i[&#39;petro&#39;],&#39;target&#39;:n2i[&#39;automotive&#39;],&#39;value&#39;:60},
+    {&#39;source&#39;:n2i[&#39;steel&#39;],&#39;target&#39;:n2i[&#39;automotive&#39;],&#39;value&#39;:1800},
+    {&#39;source&#39;:n2i[&#39;copper&#39;],&#39;target&#39;:n2i[&#39;automotive&#39;],&#39;value&#39;:14},
+    {&#39;source&#39;:n2i[&#39;aluminum&#39;],&#39;target&#39;:n2i[&#39;automotive&#39;],&#39;value&#39;:3}
+  ]
+}
+
+if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+  var full_width = 400
+  var full_height = 400;
+} else {
+  var full_width = 620
+  var full_height = 500;
+}
+
+var margin = {top: 20, right: 40, bottom: 20, left: 40},
+    width = full_width - margin.left - margin.right,
+    height = full_height - margin.top - margin.bottom;
+
+var formatNumber = d3.format(&quot;,.0f&quot;),
+    format = function(d) { return formatNumber(d) + &quot; Th MT&quot;; },
+    color = d3.scale.category20();
+
+var svg = d3.select(&quot;#chart&quot;).append(&quot;svg&quot;)
+    .attr(&quot;width&quot;, width + margin.left + margin.right)
+    .attr(&quot;height&quot;, height + margin.top + margin.bottom)
+  .append(&quot;g&quot;)
+    .attr(&quot;transform&quot;, &quot;translate(&quot; + margin.left + &quot;,&quot; + margin.top + &quot;)&quot;);
+
+
+var sankey = d3.sankey()
+    .nodeWidth(15)
+    .nodePadding(10)
+    .size([width, height]);
+
+var path = sankey.link();
+
+  sankey
+      .nodes(commodities.nodes)
+      .links(commodities.links)
+      .layout(32);
+
+  var link = svg.append(&quot;g&quot;).selectAll(&quot;.link&quot;)
+      .data(commodities.links)
+    .enter().append(&quot;path&quot;)
+      .attr(&quot;class&quot;, &quot;link&quot;)
+      .attr(&quot;d&quot;, path)
+      .style(&quot;stroke-width&quot;, function(d) { return Math.max(1, d.dy); })
+      .sort(function(a, b) { return b.dy - a.dy; });
+
+  link.append(&quot;title&quot;)
+      .text(function(d) { return d.source.name + &quot; → &quot; + d.target.name + &quot;\n&quot; + format(d.value); });
+
+  var node = svg.append(&quot;g&quot;).selectAll(&quot;.node&quot;)
+      .data(commodities.nodes)
+    .enter().append(&quot;g&quot;)
+      .attr(&quot;class&quot;, &quot;node&quot;)
+      .attr(&quot;transform&quot;, function(d) { return &quot;translate(&quot; + d.x + &quot;,&quot; + d.y + &quot;)&quot;; })
+    .call(d3.behavior.drag()
+      .origin(function(d) { return d; })
+      .on(&quot;dragstart&quot;, function() { this.parentNode.appendChild(this); })
+      .on(&quot;drag&quot;, dragmove));
+
+  node.append(&quot;rect&quot;)
+      .attr(&quot;height&quot;, function(d) { return d.dy; })
+      .attr(&quot;width&quot;, sankey.nodeWidth())
+      .style(&quot;fill&quot;, function(d) { return d.color = color(d.name.replace(/ .*/, &quot;&quot;)); })
+      .style(&quot;stroke&quot;, function(d) { return d3.rgb(d.color).darker(2); })
+    .append(&quot;title&quot;)
+      .text(function(d) { return d.name + &quot;\n&quot; + format(d.value); });
+
+  node.append(&quot;text&quot;)
+      .attr(&quot;x&quot;, -6)
+      .attr(&quot;y&quot;, function(d) { return d.dy / 2; })
+      .attr(&quot;dy&quot;, &quot;.35em&quot;)
+      .attr(&quot;text-anchor&quot;, &quot;end&quot;)
+      .attr(&quot;transform&quot;, null)
+      .text(function(d) { return d.name; })
+    .filter(function(d) { return d.x &lt; width / 2; })
+      .attr(&quot;x&quot;, 6 + sankey.nodeWidth())
+      .attr(&quot;text-anchor&quot;, &quot;start&quot;);
+
+
+  // Input label
+  svg.append(&quot;text&quot;)
+      .attr(&quot;transform&quot;, &quot;rotate(-90)&quot;)
+      .attr(&quot;x&quot;, -height/2)
+      .attr(&quot;y&quot;, -20)
+      .attr(&quot;dy&quot;, &quot;.71em&quot;)
+      .style(&quot;text-anchor&quot;, &quot;middle&quot;)
+      .style(&quot;font-size&quot;, &quot;16px&quot;)
+      .text(&quot;Inputs&quot;);
+
+  // Output label
+  svg.append(&quot;text&quot;)
+      .attr(&quot;transform&quot;, &quot;rotate(-90)&quot;)
+      .attr(&quot;x&quot;, -height/2)
+      .attr(&quot;y&quot;, width+10)
+      .attr(&quot;dy&quot;, &quot;.71em&quot;)
+      .style(&quot;text-anchor&quot;, &quot;middle&quot;)
+      .style(&quot;font-size&quot;, &quot;16px&quot;)
+      .text(&quot;Outputs&quot;);
+
+
+
+  function dragmove(d) {
+    d3.select(this).attr(&quot;transform&quot;, &quot;translate(&quot; + d.x + &quot;,&quot; + (d.y = Math.max(0, Math.min(height - d.dy, d3.event.y))) + &quot;)&quot;);
+    sankey.relayout();
+    link.attr(&quot;d&quot;, path);
+  }
+// });
+&lt;/script&gt;
+
+</content>
+ </entry>
  
  <entry>
    <title>Comparing the opinions of economic experts and the general public</title>
@@ -76,8 +361,6 @@ relative --&gt;
 &lt;p&gt;For those interested, the experts in this dataset come from the &lt;a href=&quot;http://www.igmchicago.org/igm-economic-experts-panel&quot;&gt;Economic Expert Panel&lt;/a&gt;, a diverse set of economists comprising Democrats, Republicans, and Independents. This panel is the same panel that generates the data used in my &lt;a href=&quot;http://whichfamouseconomistareyoumostsimilarto.com/&quot;&gt;Which Famous Economist&lt;/a&gt; website.&lt;/p&gt;
 
 &lt;p&gt;[Python &lt;a href=&quot;https://gist.github.com/csaid/21677bb64c1579f9e9d4852529331ac2&quot;&gt;code&lt;/a&gt; for the slope graph. Scatter plot is in page source.]&lt;/p&gt;
-
-&lt;script src=&quot;http://d3js.org/d3.v3.min.js&quot;&gt;&lt;/script&gt;
 
 &lt;script&gt;
 &lt;!-- Example based on http://bl.ocks.org/weiglemc/6185069 --&gt;
@@ -398,8 +681,6 @@ circle.competitor {
 }
 
 &lt;/style&gt;
-
-&lt;script src=&quot;http://d3js.org/d3.v3.min.js&quot;&gt;&lt;/script&gt;
 
 &lt;!-- I think Markdown doesn&#39;t like two script tags in a row --&gt;
 &lt;div&gt;&lt;/div&gt;
@@ -826,8 +1107,6 @@ text {
 
 &lt;/style&gt;
 
-&lt;script src=&quot;http://d3js.org/d3.v3.min.js&quot;&gt;&lt;/script&gt;
-
 &lt;script&gt;
 
 var mod_links = [
@@ -1014,7 +1293,6 @@ function makeGraph(links, nodes, id, interactionType) {
       .data(force.nodes())
     .enter().append(&quot;circle&quot;)
       .attr(&quot;r&quot;, 8)
-      .call(force.drag)
       .on(&quot;mouseover&quot;, nodeMouseOver)
       .on(&quot;mouseout&quot;, nodeMouseOut);
 

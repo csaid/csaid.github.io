@@ -65,9 +65,6 @@ For those interested, the experts in this dataset come from the [Economic Expert
 \[Python [code](https://gist.github.com/csaid/21677bb64c1579f9e9d4852529331ac2) for the slope graph. Scatter plot is in page source.\]
 
 
-
-<script src="http://d3js.org/d3.v3.min.js"></script>
-
 <script>
 <!-- Example based on http://bl.ocks.org/weiglemc/6185069 -->
 

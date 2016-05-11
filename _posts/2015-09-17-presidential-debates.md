@@ -78,8 +78,6 @@ text {
 
 </style>
 
-<script src="http://d3js.org/d3.v3.min.js"></script>
-
 <script>
 
 var mod_links = [
@@ -266,7 +264,6 @@ function makeGraph(links, nodes, id, interactionType) {
       .data(force.nodes())
     .enter().append("circle")
       .attr("r", 8)
-      .call(force.drag)
       .on("mouseover", nodeMouseOver)
       .on("mouseout", nodeMouseOut);
 
