@@ -33,3 +33,6 @@ pages_list:
   Archive: '/archive'
   Feed: '/atom.xml'
 
+# So I can date posts in the future and still have them appear now.
+future: true
+

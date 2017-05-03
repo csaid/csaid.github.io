@@ -20,7 +20,7 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
   
-    <meta name="description" content="My name is Chris Said and I am a data scientist at Twitter. This blog is mostly about tech, stats, and science.">
+    <meta name="description" content="My name is Chris Said and I am a data scientist at Opendoor. This blog is mostly about tech, stats, and science.">
   
 
   <title>
@@ -55,7 +55,7 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
           The File Drawer
         </a>
       </h1>
-      <p class="lead">My name is Chris Said and I am a data scientist at Twitter. This blog is mostly about tech, stats, and science.</p>
+      <p class="lead">My name is Chris Said and I am a data scientist at Opendoor. This blog is mostly about tech, stats, and science.</p>
 
     </div>
 
@@ -84,6 +84,87 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
 
     <div class="content container">
       <div class="posts">
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/2014/10/16/jumping-quickly-between-deep-directories/">
+        Jumping quickly between deep directories
+      </a>
+    </h1>
+
+    <span class="post-date">16 Oct 2014</span>
+
+    <p>I often need to jump between different directories with very deep paths, like this:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span><span class="nb">cd </span>some/very/deep/directory/project1
+<span class="gp">$ </span><span class="c"># do stuff in Project 1</span>
+<span class="gp">$ </span><span class="nb">cd </span>different/very/deep/directory/project2
+<span class="gp">$ </span><span class="c"># do stuff in Project 2</span></code></pre></figure>
+
+<p>While it only takes a handful of seconds to switch directories, the extra mental effort often derails my train of thought. Some solutions exist, but they all have their limitations. For example, <code class="highlighter-rouge">pushd</code> and <code class="highlighter-rouge">popd</code> don’t work well for directories you haven’t visited in a while. Aliases require you to manually add a new alias to your .bashrc every time you want to save a new directory.</p>
+
+<p>I recently found a solution, inspired by <a href="http://jeroenjanssens.com/2013/08/16/quickly-navigate-your-filesystem-from-the-command-line.html">this post</a> from <a href="https://twitter.com/jeroenhjanssens">Jeroen Janssens</a>, that works great and feels totally natural. All it takes is a one-time change to your .bashrc that will allow you to easily save directories and switch between them. To save a directory, just use the <code class="highlighter-rouge">mark</code> function:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span><span class="nb">pwd
+</span>some/very/deep/directory/project1
+<span class="gp">$ </span>mark project1</code></pre></figure>
+
+<p>To navigate to a saved directory, just use the <code class="highlighter-rouge">cdd</code> function:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>cdd project1
+<span class="c"># do stuff in Project 1</span>
+<span class="gp">$ </span>cdd project2
+<span class="c"># do stuff in Project 2</span></code></pre></figure>
+
+<p>You can display a list of your saved directories with the <code class="highlighter-rouge">marks</code> function, and you can remove a directory from the list with the <code class="highlighter-rouge">unmark</code> function:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>unmark project1</code></pre></figure>
+
+<p>For any of this to work, you’ll need to add this to your .bashrc, assuming you have a Mac and use the bash shell.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">    <span class="k">function </span>cdd <span class="o">{</span>
+        <span class="nb">cd</span> -P <span class="s2">"</span><span class="nv">$MARKPATH</span><span class="s2">/</span><span class="nv">$1</span><span class="s2">"</span> 2&gt;/dev/null <span class="o">||</span> <span class="nb">echo</span> <span class="s2">"No such mark: </span><span class="nv">$1</span><span class="s2">"</span>
+    <span class="o">}</span>
+    <span class="k">function </span>mark <span class="o">{</span>
+        mkdir -p <span class="s2">"</span><span class="nv">$MARKPATH</span><span class="s2">"</span>; ln -s <span class="s2">"</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span><span class="s2">"</span> <span class="s2">"</span><span class="nv">$MARKPATH</span><span class="s2">/</span><span class="nv">$1</span><span class="s2">"</span>
+    <span class="o">}</span>
+    <span class="k">function </span>unmark <span class="o">{</span>
+        rm -i <span class="s2">"</span><span class="nv">$MARKPATH</span><span class="s2">/</span><span class="nv">$1</span><span class="s2">"</span>
+    <span class="o">}</span>
+    <span class="k">function </span>marks <span class="o">{</span>
+        <span class="se">\l</span>s -l <span class="s2">"</span><span class="nv">$MARKPATH</span><span class="s2">"</span> | tail -n +2 | sed <span class="s1">'s/  / /g'</span> | cut -d<span class="s1">' '</span> -f9- | awk -F <span class="s1">' -&gt; '</span> <span class="s1">'{printf "%-10s -&gt; %s\n", $1, $2}'</span>
+    <span class="o">}</span>
+
+    _cdd<span class="o">()</span>
+    <span class="o">{</span>
+        <span class="nb">local </span><span class="nv">cur</span><span class="o">=</span><span class="k">${</span><span class="nv">COMP_WORDS</span><span class="p">[COMP_CWORD]</span><span class="k">}</span>
+        <span class="nv">COMPREPLY</span><span class="o">=(</span> <span class="k">$(</span><span class="nb">compgen</span> -W <span class="s2">"</span><span class="k">$(</span> ls <span class="nv">$MARKPATH</span> <span class="k">)</span><span class="s2">"</span> -- <span class="nv">$cur</span><span class="k">)</span> <span class="o">)</span>
+    <span class="o">}</span>
+    <span class="nb">complete</span> -F _cdd cdd</code></pre></figure>
+
+<p>This differs from Jeroen’s <a href="http://jeroenjanssens.com/2013/08/16/quickly-navigate-your-filesystem-from-the-command-line.html">original</a> code in a couple of ways. First, to be more brain-friendly, it names the function “cdd” instead of “jump”. Second, the tab completion works <a href="https://news.ycombinator.com/item?id=6229291">better</a>.</p>
+
+<p>Update: <a href="https://twitter.com/johnvmcdonnell">John McDonnell</a> points me to <a href="https://github.com/joelthelion/autojump">autojump</a>.</p>
+
+
+
+    <div>
+        <i class="fa fa-comment"></i> <a href="http://localhost:4000/2014/10/16/jumping-quickly-between-deep-directories/#disqus_thread" data-disqus-identifier="http://localhost:4000/2014/10/16/jumping-quickly-between-deep-directories/"></a>
+        <span>&nbsp; &nbsp;</span>
+        <span>
+            <a class="twitter-share-button"
+              href="https://twitter.com/share"
+              data-url="http://localhost:4000/2014/10/16/jumping-quickly-between-deep-directories/"
+              data-via="Chris_Said"
+              data-count="none"
+              data-text="Jumping quickly between deep directories">
+            Tweet
+            </a>
+        </span>
+
+    </div>
+
+  </div>
   
   <div class="post">
     <h1 class="post-title">
@@ -136,12 +217,12 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
 
 
     <div>
-        <i class="fa fa-comment"></i> <a href="http://www.chris-said.io/2014/07/10/how-failed-replications-change-our-effect-size-estimates/#disqus_thread" data-disqus-identifier="http://www.chris-said.io/2014/07/10/how-failed-replications-change-our-effect-size-estimates/"></a>
+        <i class="fa fa-comment"></i> <a href="http://localhost:4000/2014/07/10/how-failed-replications-change-our-effect-size-estimates/#disqus_thread" data-disqus-identifier="http://localhost:4000/2014/07/10/how-failed-replications-change-our-effect-size-estimates/"></a>
         <span>&nbsp; &nbsp;</span>
         <span>
             <a class="twitter-share-button"
               href="https://twitter.com/share"
-              data-url="http://www.chris-said.io/2014/07/10/how-failed-replications-change-our-effect-size-estimates/"
+              data-url="http://localhost:4000/2014/07/10/how-failed-replications-change-our-effect-size-estimates/"
               data-via="Chris_Said"
               data-count="none"
               data-text="How failed replications change our effect size estimates">
@@ -179,12 +260,12 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
 
 
     <div>
-        <i class="fa fa-comment"></i> <a href="http://www.chris-said.io/2014/07/07/jason-mitchells-essay/#disqus_thread" data-disqus-identifier="273 http://filedrawer.wordpress.com/?p=273"></a>
+        <i class="fa fa-comment"></i> <a href="http://localhost:4000/2014/07/07/jason-mitchells-essay/#disqus_thread" data-disqus-identifier="273 http://filedrawer.wordpress.com/?p=273"></a>
         <span>&nbsp; &nbsp;</span>
         <span>
             <a class="twitter-share-button"
               href="https://twitter.com/share"
-              data-url="http://www.chris-said.io/2014/07/07/jason-mitchells-essay/"
+              data-url="http://localhost:4000/2014/07/07/jason-mitchells-essay/"
               data-via="Chris_Said"
               data-count="none"
               data-text="Jason Mitchell's essay">
@@ -230,12 +311,12 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
 
 
     <div>
-        <i class="fa fa-comment"></i> <a href="http://www.chris-said.io/2014/05/14/how-i-use-twitter/#disqus_thread" data-disqus-identifier="http://www.chris-said.io/2014/05/14/how-i-use-twitter/"></a>
+        <i class="fa fa-comment"></i> <a href="http://localhost:4000/2014/05/14/how-i-use-twitter/#disqus_thread" data-disqus-identifier="http://localhost:4000/2014/05/14/how-i-use-twitter/"></a>
         <span>&nbsp; &nbsp;</span>
         <span>
             <a class="twitter-share-button"
               href="https://twitter.com/share"
-              data-url="http://www.chris-said.io/2014/05/14/how-i-use-twitter/"
+              data-url="http://localhost:4000/2014/05/14/how-i-use-twitter/"
               data-via="Chris_Said"
               data-count="none"
               data-text="How I use Twitter">
@@ -263,53 +344,15 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
 
 
     <div>
-        <i class="fa fa-comment"></i> <a href="http://www.chris-said.io/2014/02/22/high-school-stem-curriculum-wishlist/#disqus_thread" data-disqus-identifier="http://www.chris-said.io/2014/02/22/high-school-stem-curriculum-wishlist/"></a>
+        <i class="fa fa-comment"></i> <a href="http://localhost:4000/2014/02/22/high-school-stem-curriculum-wishlist/#disqus_thread" data-disqus-identifier="http://localhost:4000/2014/02/22/high-school-stem-curriculum-wishlist/"></a>
         <span>&nbsp; &nbsp;</span>
         <span>
             <a class="twitter-share-button"
               href="https://twitter.com/share"
-              data-url="http://www.chris-said.io/2014/02/22/high-school-stem-curriculum-wishlist/"
+              data-url="http://localhost:4000/2014/02/22/high-school-stem-curriculum-wishlist/"
               data-via="Chris_Said"
               data-count="none"
               data-text="High School STEM curriculum wishlist">
-            Tweet
-            </a>
-        </span>
-
-    </div>
-
-  </div>
-  
-  <div class="post">
-    <h1 class="post-title">
-      <a href="/2014/02/08/is-your-job-in-another-state/">
-        Is your job in another state?
-      </a>
-    </h1>
-
-    <span class="post-date">08 Feb 2014</span>
-
-    <p>National unemployment is high, but business is booming in some states. Vermont needs teachers. Nevada needs bartenders. North Dakota needs truck drivers and just about everything else.</p>
-
-<p>Despite these opportunities, Americans <a href="http://www.washingtonmonthly.com/magazine/november_december_2013/features/stay_put_young_man047332.php?page=all">aren’t moving much</a> and unemployment remains high.  One reason for this is that moving can be expensive and disruptive, especially for those with families and roots in their communities. But another reason may just be lack of awareness about the opportunities in other states. That’s why I have made a new website: <a href="http://www.ismyjobinanotherstate.com">www.ismyjobinanotherstate.com</a>. Enter your job skills, and the website will provide an interactive map showing where you are most in demand.</p>
-
-<p><a href="http://www.ismyjobinanotherstate.com"><figure class="image"><img src="/assets/securityofficer.png" alt="" /></figure>
-</a>
-States are ranked by their <a href="https://www.fas.org/sgp/crs/misc/R42943.pdf">ratio of job postings to unemployment</a>. This is a pretty good metric, but it isn’t perfect. To understand why, imagine two states with the same posting/unemployed ratio for a particular job. If you are trained for the job, you might have better luck applying in a state where the unemployed population is either untrained or unwilling to take that type of job, even though the two states have the same ratio. There also may be differences across states in the use of Indeed.com. Still, I think my results have reasonably good face validity, and the results for many jobs are close to what you would except. If you average across jobs, you get something pretty close to an independently created measure called the <a href="http://www.washingtonmonthly.com/magazine/november_december_2013/features/the_2013_opportunity_index047357.php">“Opportunity Index”</a>.</p>
-
-<p>Job posting data was collected using the <a href="https://ads.indeed.com/jobroll/xmlfeed">Indeed.com api</a>. Unemployment numbers came from the <a href="http://www.bls.gov/news.release/laus.t03.htm">Bureau of Labor Statistics</a>. For more information about how this works, see my the <a href="https://github.com/csaid/IsMyJobInAnotherState">GitHub repository</a>.</p>
-
-
-    <div>
-        <i class="fa fa-comment"></i> <a href="http://www.chris-said.io/2014/02/08/is-your-job-in-another-state/#disqus_thread" data-disqus-identifier="239 http://filedrawer.wordpress.com/?p=239"></a>
-        <span>&nbsp; &nbsp;</span>
-        <span>
-            <a class="twitter-share-button"
-              href="https://twitter.com/share"
-              data-url="http://www.chris-said.io/2014/02/08/is-your-job-in-another-state/"
-              data-via="Chris_Said"
-              data-count="none"
-              data-text="Is your job in another state?">
             Tweet
             </a>
         </span>
@@ -352,6 +395,8 @@ States are ranked by their <a href="https://www.fas.org/sgp/crs/misc/R42943.pdf"
 
 <!-- mathjax config similar to math.stackexchange -->
 <script type="text/x-mathjax-config">
+
+
 MathJax.Hub.Config({
   jax: ["input/TeX", "output/HTML-CSS"],
   tex2jax: {

@@ -55,7 +55,7 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
           The File Drawer
         </a>
       </h1>
-      <p class="lead">My name is Chris Said and I am a data scientist at Twitter. This blog is mostly about tech, stats, and science.</p>
+      <p class="lead">My name is Chris Said and I am a data scientist at Opendoor. This blog is mostly about tech, stats, and science.</p>
 
     </div>
 
@@ -111,12 +111,6 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
   stroke-opacity: .5;
 }
 
-.caption {
-  font-style: italic;
-  font-size: 75%;
-  text-align: left;
-  line-height: 130%;
-}
 
 text {
   font: 10px sans-serif;
@@ -124,8 +118,6 @@ text {
 
 
 </style>
-
-<p><em>[Content warning: Long and possibly very boring.]</em></p>
 
 <p>As a data scientist, a big part of my job involves picking metrics to optimize, and thinking about how to do things as efficiently as possible. With these types of questions on my mind, I recently discovered a totally fascinating book about about economic problems in the USSR and the team of data-driven economists and computer scientists who wanted to solve them. The book is called <a href="http://www.amazon.com/Red-Plenty-Francis-Spufford/dp/1555976042"><em>Red Plenty</em></a>. It’s actually written as a novel, weirdly, but it nevertheless presents an accurate economic history of the USSR. It draws heavily on an earlier book from 1973 called <a href="http://www.amazon.com/Planning-Problems-USSR-Contribution-Mathematical/dp/0521202493"><em>Planning Problems in the USSR</em></a>, which I also picked up. As I read these books, I couldn’t help but notice some parallels with planning in any modern organization. In what will be familiar to any data scientist today, the second book even includes a quote from a researcher who complained that 90% of his time was spent cleaning the data, and only 10% of his time was spent doing actual modeling!</p>
 
@@ -375,8 +367,8 @@ var path = sankey.link();
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = 'csaid81';
-    var disqus_identifier = 'http://www.chris-said.io/2016/05/11/optimizing-things-in-the-ussr/';
-    var disqus_url = 'http://www.chris-said.io/2016/05/11/optimizing-things-in-the-ussr/';
+    var disqus_identifier = 'http://localhost:4000/2016/05/11/optimizing-things-in-the-ussr/';
+    var disqus_url = 'http://localhost:4000/2016/05/11/optimizing-things-in-the-ussr/';
 
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {
@@ -392,6 +384,15 @@ var path = sankey.link();
 <div class="related">
   <h2>Related Posts</h2>
   <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/2017/05/03/empirical-bayes-for-multiple-sample-sizes/">
+            Empirical Bayes for multiple sample sizes
+            <small>03 May 2017</small>
+          </a>
+        </h3>
+      </li>
     
       <li>
         <h3>
@@ -411,15 +412,6 @@ var path = sankey.link();
         </h3>
       </li>
     
-      <li>
-        <h3>
-          <a href="/2016/02/13/how-to-make-polished-jupyter-presentations-with-optional-code-visibility/">
-            How to make polished Jupyter presentations with optional code visibility
-            <small>13 Feb 2016</small>
-          </a>
-        </h3>
-      </li>
-    
   </ul>
 </div>
 
@@ -431,6 +423,8 @@ var path = sankey.link();
 
 <!-- mathjax config similar to math.stackexchange -->
 <script type="text/x-mathjax-config">
+
+
 MathJax.Hub.Config({
   jax: ["input/TeX", "output/HTML-CSS"],
   tex2jax: {

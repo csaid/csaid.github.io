@@ -70,11 +70,21 @@ html {
 }
 
 /*cps*/
-figcaption {
-  font-size: .8rem;
-  line-height: 1.2;
+.caption {
   font-style: italic;
+  font-size: 75%;
+  text-align: left;
+  line-height: 130%;
 }
+
+/*cps*/
+.box {
+  background:#ddd;
+  margin:40px;
+  padding:40px;
+  font-size: .8rem;
+}
+
 
 /*
  * Sidebar

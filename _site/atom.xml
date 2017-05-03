@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
  <title>The File Drawer</title>
- <link href="http://www.chris-said.io/atom.xml" rel="self"/>
- <link href="http://www.chris-said.io/"/>
- <updated>2016-07-03T20:38:52-07:00</updated>
- <id>http://www.chris-said.io</id>
+ <link href="http://localhost:4000/atom.xml" rel="self"/>
+ <link href="http://localhost:4000/"/>
+ <updated>2017-05-02T21:33:51-07:00</updated>
+ <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
    <email></email>
@@ -13,10 +13,315 @@
 
  
  <entry>
+   <title>Empirical Bayes for multiple sample sizes</title>
+   <link href="http://localhost:4000/2017/05/03/empirical-bayes-for-multiple-sample-sizes/"/>
+   <updated>2017-05-03T00:00:00-07:00</updated>
+   <id>http://localhost:4000/2017/05/03/empirical-bayes-for-multiple-sample-sizes</id>
+   <content type="html">&lt;p&gt;Here’s a data problem I encounter &lt;em&gt;all the time&lt;/em&gt;. Let’s say I’m running a website where users can submit movie ratings on a continuous 1-10 scale. For the sake of argument, let’s say that the users who rate each movie are an unbiased random sample from the population of users. I’d like to compute the average rating for each movie so that I can create a ranked list of the best movies.&lt;/p&gt;
+
+&lt;p&gt;Take a look at my data:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2017_shrinkage/fig_movies.png&quot; /&gt;&lt;/p&gt;
+&lt;div class=&quot;caption&quot;&gt;&lt;strong&gt;Figure 1.&lt;/strong&gt; Each circle represents a movie rating by a user. Diamonds represent sample means for each movie.&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;
+I’ve got two big problems here. First, nobody is using my website. And second, I’m not sure if I can trust these averages. The movie at the top of the rankings was only rated by two users, and I’ve never even heard of it! Maybe the movie really is good. But maybe it just got lucky. Maybe just by chance, the two users who gave it ratings happened to be the users who liked it to an unusual extent. It would be great if there were a way to adjust for this.&lt;/p&gt;
+
+&lt;p&gt;In particular, I would like a method that will give me an estimate closer to the movie’s &lt;em&gt;true mean&lt;/em&gt; (i.e. the mean rating it would get if an infinite number of users rated it). Intuitively, movies with mean ratings at the extremes should be nudged, or “shrunk”, towards the center. And intuitively, movies with low sample sizes should be shrunk more than the movies with large sample sizes.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2017_shrinkage/fig_movies_shrinkage.png&quot; /&gt;&lt;/p&gt;
+&lt;div class=&quot;caption&quot;&gt;&lt;strong&gt;Figure 2.&lt;/strong&gt; Each circle represents a movie rating by a user. Diamonds represent sample means for each movie. Arrows point towards shrunken estimates of each movie's mean rating. Shrunken estimates are obtained using the MSS James-Stein Estimator, described in more detail below.&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;As common a problem as this is, there aren’t a lot of accessible resources describing how to solve it. There are tons of &lt;a href=&quot;http://varianceexplained.org/r/empirical_bayes_baseball/&quot;&gt;excellent blog posts&lt;/a&gt; about the Beta-binomial distribution, which is useful if you wish to estimate the true fraction of an occurrence among some events. This works well in the case of Rotten Tomatoes, where one might want to know the true fraction of “thumbs up” judgments. But in my case, I’m dealing with a continuous 1-10 scale, not thumbs up / thumbs down judgments. The Beta-binomial distribution will be of little use.&lt;/p&gt;
+
+&lt;p&gt;Many resources mention the James-Stein Estimator, which provides a way to shrink the mean estimates only when the variances of those means can be assumed to be equal. That assumption usually only holds when the &lt;em&gt;sample sizes&lt;/em&gt; of each group are equal. But in most real world examples, the sample sizes (and thus the variances of the means) are not equal. When that happens, it’s a lot less clear what to do.&lt;/p&gt;
+
+&lt;p&gt;After doing a lot of digging and &lt;a href=&quot;https://twitter.com/Chris_Said/status/851211601445240832&quot;&gt;asking&lt;/a&gt; some very helpful folks on Twitter, I found several solutions. For many of the solutions, I ran simulations to determine out which worked best. This blog post is my attempt to summarize what I learned. Along the way, we’ll cover the original James-Stein Estimator, two extensions to the James-Stein Estimator, Markov Chain Monte Carlo (MCMC) methods, and several other strategies.&lt;/p&gt;
+
+&lt;p&gt;Before diving in, I want to include a list of symbol definitions I’ll be using because – side rant – it sure would be great if all stats papers did this, given that literally every paper I read used its own idiosyncratic notations! I’ll define everything again in the text, but this is just here for reference:&lt;/p&gt;
+
+&lt;div style=&quot;margin:40px&quot;&gt;
+&lt;table style=&quot;font-size:.7rem&quot;&gt;
+    &lt;tr&gt;
+        &lt;th&gt;Symbol&lt;/th&gt;
+        &lt;th&gt;Definition&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;$ k $&lt;/td&gt;
+        &lt;td&gt;The number of groups.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;$ \theta_i $&lt;/td&gt;
+        &lt;td&gt;The true mean of a group.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;$ x_i $&lt;/td&gt;
+        &lt;td&gt;The sample mean of a group. The MLE estimate of $ \theta_i $.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;$ \epsilon^{2}_i $&lt;/td&gt;
+        &lt;td&gt;The true variance of observations within a group.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;$ \epsilon^2 $&lt;/td&gt;
+        &lt;td&gt;The true variance of observations within a group if we assume all groups have the same variance.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;$ s^{2}_i $&lt;/td&gt;
+        &lt;td&gt;The sample variance of a group. The MLE estimate of $ \epsilon^{2}_i $.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;$ n_i $&lt;/td&gt;
+        &lt;td&gt;The number of observations in a group.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;$ n $&lt;/td&gt;
+        &lt;td&gt;The number of observations in a group, if we assume all groups have the same size.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;$ \sigma^{2}_i $&lt;/td&gt;
+        &lt;td&gt;The true variance of a group's mean. If each group has the same variance of observations, then $ \sigma^{2}_i  = \epsilon^{2} / n_i $. If each group has different variances of observations, then $ \sigma^{2}_i = \epsilon^{2}_i / n_i $.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;$ \sigma^{2} $&lt;/td&gt;
+        &lt;td&gt;Like $ \sigma^{2}_i $, but if we assume all groups had the same variance of the mean. Equal to $ \epsilon^{2} / n $.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;$ \hat{\sigma^{2}_i} $&lt;/td&gt;
+        &lt;td&gt;Estimate of $ \sigma^{2}_i $.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;$ \hat{\sigma^{2}} $&lt;/td&gt;
+        &lt;td&gt;Estimate of $ \sigma^{2} $. 
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;$ \mu $&lt;/td&gt;
+        &lt;td&gt;The true mean of the $ \theta_i $'s (the true group means). The mean of the distribution from which the $ \theta_i $'s are drawn.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;$ \overline{X} $&lt;/td&gt;
+        &lt;td&gt;The sample mean of the sample means.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;$ \tau^{2} $&lt;/td&gt;
+        &lt;td&gt;The true variance of the $ \theta_i $'s (the true group means). The variance of the distribution from which the $ \theta_i $'s are drawn.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;$ \hat{\tau^{2}} $&lt;/td&gt;
+        &lt;td&gt;Estimate of $ \tau^{2} $.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;$ \hat{B} $&lt;/td&gt;
+        &lt;td&gt;Estimate of the best term for weighting $ x_i $ and $ \overline{X} $ when calculating $ \hat{\theta_i} $. Assumes each group has the same $ \sigma^2 $.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;$ \hat{B_i} $&lt;/td&gt;
+        &lt;td&gt;Estimate of the best term for weighting $ x_i $ and $ \overline{X} $ when calculating $ \hat{\theta_i} $. Does not assume that all group's have the same $ \sigma^{2}_i $.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;$ \hat{\theta_i} $&lt;/td&gt;
+        &lt;td&gt;Estimate of a true group means. Its value depends on the method we use.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;$ k_{\Gamma} $&lt;/td&gt;
+        &lt;td&gt;Shape parameter for the Gamma distribution from which sample sizes are drawn.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;$ \theta_{\Gamma} $&lt;/td&gt;
+        &lt;td&gt;Scale parameter for the Gamma distribution from which sample sizes are drawn.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;$ \mu_v $&lt;/td&gt;
+        &lt;td&gt;In simulations in which group observation variances $ \epsilon^{2}_i $ are allowed to vary, this is the mean parameter of the log-normal distribution from which the $ \epsilon^{2}_i $'s are drawn.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;$ \tau^{2}_v $&lt;/td&gt;
+        &lt;td&gt;In simulations in which group observation variances $ \epsilon^{2}_i $ are allowed to vary, this is the variance parameter of the log-normal distribution from which the $ \epsilon^{2}_i $'s are drawn.&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;quick-analytic-solutions&quot;&gt;Quick Analytic Solutions&lt;/h3&gt;
+
+&lt;p&gt;Our goal is to find a better way of estimating $ \theta_i $, the true mean of a group. A &lt;a href=&quot;http://projecteuclid.org/download/pdf_1/euclid.cbms/1462106062&quot;&gt;common&lt;/a&gt; &lt;a href=&quot;https://mathmodelsblog.wordpress.com/2010/02/02/introduction-to-buhlmann-credibility/&quot;&gt;theme&lt;/a&gt; &lt;a href=&quot;https://www.soa.org/files/pdf/c-24-05.pdf&quot;&gt;in&lt;/a&gt; &lt;a href=&quot;http://www.stat.cmu.edu/~acthomas/724/Efron-Morris.pdf&quot;&gt;many&lt;/a&gt; &lt;a href=&quot;http://www.tandfonline.com/doi/abs/10.1080/09332480.2007.10722861&quot;&gt;of&lt;/a&gt; &lt;a href=&quot;http://intlpress.com/site/pub/files/_fulltext/journals/sii/2010/0003/0004/SII-2010-0003-0004-a011.pdf&quot;&gt;the&lt;/a&gt; &lt;a href=&quot;http://conservancy.umn.edu/bitstream/handle/11299/5852/Staffpaper10.pdf;jsessionid=433FD5983CCE7EE49AE0319D9B9FFA02?sequence=1&quot;&gt;papers&lt;/a&gt; I read is that good estimates of $ \theta_i $ are usually weighted averages of the group’s sample mean $ x_i $ and the global mean of all group means $ \overline{X} $. Let’s call this weighting factor $ \hat{B_i} $.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\hat{\theta_i} = \left(1-\hat{B_i}\right) x_i + \hat{B_i} \overline{X}&lt;/script&gt;
+
+&lt;p&gt;This seems very sensible. We want something that is in between the sample mean (which is probably too extreme) and the mean of means. But how do we know what value to use for $ \hat{B_i} $? Different methods exist, and each leads to different results.&lt;/p&gt;
+
+&lt;p&gt;Let’s start by defining $ \sigma^{2}_i $, the true variance of a group’s mean. This is equivalent to $ \epsilon^{2}_i / n_i $, where $ \epsilon^{2}_i $ is the true variance of the observations within that group, and $ n_i $ is the sample size of the group. According to the original James-Stein approach, if we assume that all the group means have the same known variance $ \hat{\sigma^2} $, which would usually only happen if the groups all had the same sample size, then we can define a common $ \hat{B} $ for all groups as:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\hat{B} = \frac{\left(k-3\right)\hat{\sigma^2}}{\sum{\left(x_i - \overline{X}\right)}}&lt;/script&gt;
+
+&lt;p&gt;This formula seems really weird and arbitrary, but it begins to make more sense if we rearrange it a bit and sweep that pesky $ \left(k-3\right) $ under the rug and replace it with a $ (k-1) $. Sorry hardliners!&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{eqnarray} 
+\hat{B} &amp;\approx&amp; \frac{\left(k-1\right)\hat{\sigma^2}}{\sum{\left(x_i - \overline{X}\right)}}\\
+  \\
+  &amp;=&amp; \frac{\hat{\sigma^2}}{\sum{\left(x_i - \overline{X}\right)}/\left(k-1\right)}  \\
+  \\
+  &amp;=&amp; \frac{\hat{\sigma^2}}{\hat{\tau^{2}} + \hat{\sigma^2}}
+
+\end{eqnarray} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;Before getting to why this makes sense, I should explain the last step above. The denominator $ \sum{\left(x_i - \overline{X}\right)}/\left(k-1\right) $ is the observed variance of the observed sample means. This variance comes from two sources: $ \tau^2 $ is true variance in the true means and $ \sigma^2 $ is the true variance caused by the fact that each $ x_i $ is computed from a sample. Since variances add, the total variance of the observed means is $ \tau^{2} + \sigma^{2} $.&lt;/p&gt;
+
+&lt;p&gt;Anyway, back to the result. This result is actually pretty neat. When we estimate a $ \theta_i $, the weight that we place on the global mean $ \overline{X} $ is the fraction of total variance in the means that is caused by within-group sampling variance. In other words, when the sample mean comes with high uncertainty, we should weight the global mean more. When the sample mean comes with low uncertainty, we should weight the global mean less. At least directionally, this makes sense.&lt;/p&gt;
+
+&lt;p&gt;This idea is so widely applicable that many other fields have discovered it independently. In the image processing literature, it is a special case of the &lt;a href=&quot;http://www.dfmf.uned.es/~daniel/www-imagen-dhp/biblio/adaptive-wiener-noisy.pdf&quot;&gt;Wiener Filter&lt;/a&gt;, assuming that both the signal and the additive noise are Gaussian. In the insurance world, actuaries call it the &lt;a href=&quot;https://en.wikipedia.org/wiki/B%C3%BChlmann_model&quot;&gt;Bühlmann model&lt;/a&gt;. And in &lt;a href=&quot;https://en.wikipedia.org/wiki/Charles_Roy_Henderson&quot;&gt;animal breeding&lt;/a&gt;, early researchers called it the Best Unbiased Linear Prediction or &lt;a href=&quot;http://www.public.iastate.edu/~dnett/S511/27BLUP.pdf&quot;&gt;BLUP&lt;/a&gt; (technically the Empirical BLUP). The BLUP approach is so useful, in fact, that it has received the highly coveted endorsement of the &lt;a href=&quot;http://www.nsif.com/guidel/guidelines.htm&quot;&gt;National Swine Improvement Federation&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;While the original James-Stein formula is useful, the big limitation is that it only works when we believe that all groups have the same $ \sigma^2 $. In cases where we have different sample sizes, each group will have it’s own $ \sigma^{2}_i $. (Recall that $ \sigma^{2}_i = \epsilon^{2}_i / n_i $.) We’re going to want to shrink some groups more than others, and the original James-Stein estimator does not allow this. In the following sections, we’ll look at a couple of extensions to the James-Stein estimator. These extensions have analogues in the Bühlmann model and BLUP literature.&lt;/p&gt;
+
+&lt;h4 id=&quot;the-multi-sample-size-james-stein-estimator&quot;&gt;The Multi Sample Size James-Stein Estimator&lt;/h4&gt;
+
+&lt;p&gt;The most natural extension of James-Stein is to define each group’s $ \hat{\sigma^{2}_i} $ as the squared standard error of the group’s mean. This allows us to estimate a weighting factor $ \hat{B_i} $ tailored to each group. Let’s call this the Multi Sample Size James-Stein Estimator, or MSS James-Stein Estimator.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\hat{B_i} = \frac{\hat{\sigma^{2}_i}}{\hat{\tau^{2}} + \hat{\sigma^{2}_i}}&lt;/script&gt;
+
+&lt;p&gt;The denominator can just be estimated as the variance across group sample means.&lt;/p&gt;
+
+&lt;p&gt;As reasonable as this approach sounds, it somehow didn’t feel totally kosher to me. But when I looked into the literature, it seems like most researchers basically said “&lt;a href=&quot;http://projecteuclid.org/download/pdf_1/euclid.cbms/1462106062&quot;&gt;yup&lt;/a&gt;, &lt;a href=&quot;https://mathmodelsblog.wordpress.com/2010/02/02/introduction-to-buhlmann-credibility/&quot;&gt;that sounds&lt;/a&gt; &lt;a href=&quot;https://www.soa.org/files/pdf/c-24-05.pdf&quot;&gt;pretty reasonable&lt;/a&gt;”.&lt;/p&gt;
+
+&lt;p&gt;To test this approach, I ran some &lt;a href=&quot;https://github.com/csaid/empirical_bayes/blob/master/simulations.ipynb&quot;&gt;simulations&lt;/a&gt; on 1000 artificial datasets. Each dataset involved 25 groups with sample sizes drawn from a Gamma distribution $ \Gamma(k_{\Gamma}=1.5,\theta_{\Gamma}=10) $. True group means ($ \theta_i $’s) were sampled from a Normal distribution $ \mathcal{N}(\mu, \tau^2) $. Observations within each group were sampled from $ \mathcal{N}(\theta_i, \epsilon^2) $, where $ \epsilon $ was shared between groups.&lt;/p&gt;
+
+&lt;p&gt;For each dataset I computed the Mean Squared Error (MSE) between the vector of true group means and the vector of estimated group means. I then averaged the MSEs across datasets. This process was repeated for a variety of different values of $ \epsilon $ and for two different estimators: The MSS James-Stein Estimator and the Maximum Likelihood Estimator (MLE). To compute the MLE, I just used $ x_i $ as my $ \hat{\theta_i} $ estimate.&lt;/p&gt;
+
+&lt;figure class=&quot;image&quot;&gt;&lt;img src=&quot;/assets/2017_shrinkage/fig_shared_2.png&quot; alt=&quot;&quot; /&gt;&lt;/figure&gt;
+
+&lt;div class=&quot;caption&quot;&gt;&lt;strong&gt;Figure 3.&lt;/strong&gt; Mean Squared Error between true group means and estimated group means. In this simulation, the $ \epsilon $ parameter for within-group variance of observations is shared by all groups.&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;
+As expected, the MSS James-Stein Estimator outperformed the MLE, with lower MSEs particularly for high values of $ \epsilon $. This make sense. When the raw sample means are noisy, the MLE should be especially untrustworthy and it makes sense to pull extreme estimates back towards the global mean.&lt;/p&gt;
+
+&lt;h4 id=&quot;the-multi-sample-size-pooled-james-stein-estimator&quot;&gt;The Multi Sample Size Pooled James-Stein Estimator&lt;/h4&gt;
+
+&lt;p&gt;One thing that’s a little weird about the MSS James-Stein Estimator is that even though we know all the groups should have the same within-group variance $ \epsilon^2 $, we still estimate each group’s standard error separately. Given what we know, it might make more sense to &lt;a href=&quot;https://en.wikipedia.org/wiki/Pooled_variance&quot;&gt;pool&lt;/a&gt; the data from all groups to estimate a common $ \epsilon^2 $. Then we can estimate each group’s $ \sigma^{2}_i $ as $ \epsilon^2 / n_i $. Let’s call this approach the MSS Pooled James-Stein Estimator.&lt;/p&gt;
+
+&lt;figure class=&quot;image&quot;&gt;&lt;img src=&quot;/assets/2017_shrinkage/fig_shared_3.png&quot; alt=&quot;&quot; /&gt;&lt;/figure&gt;
+
+&lt;div class=&quot;caption&quot;&gt;&lt;strong&gt;Figure 4.&lt;/strong&gt; Mean Squared Error between true group means and estimated group means. In this simulation, the $ \epsilon $ parameter for within-group variance of observations is shared by all groups.&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;
+This works a bit better. By obtaining more accurate estimates of each group’s $ \sigma^{2}_i $, we are able to find a more appropriate shrinking factor $ B_i $ for each group.&lt;/p&gt;
+
+&lt;p&gt;Of course, this only works better because we created the simulation data in such a way that all groups have the same $ \epsilon^2 $. But if we run a different set of simulations, in which each group’s $ \epsilon_i $ is drawn from a log-normal distribution $ ln\mathcal{N}\left(\mu_v, \tau^{2}_v\right) $, we obtain the reverse results. The MSS James-Stein Estimator, which estimates a separate $ \hat{\epsilon^{2}_i} $ for each group, does a better job than the  MSS Pooled James-Stein Estimator. This makes sense.&lt;/p&gt;
+
+&lt;figure class=&quot;image&quot;&gt;&lt;img src=&quot;/assets/2017_shrinkage/fig_unshared_3.png&quot; alt=&quot;&quot; /&gt;&lt;/figure&gt;
+
+&lt;div class=&quot;caption&quot;&gt;&lt;strong&gt;Figure 5.&lt;/strong&gt; Mean Squared Error between true group means and estimated group means. In this simulation, each group has its own variance parameter $ \epsilon^2 $ for the observations within the group. These parameters are sampled from a log-normal distribution $ ln\mathcal{N}\left(\mu_v, \tau^{2}_v\right) $. For simplicity, the two parameters of this distribution are always set to be identical, and are shown on the horizontal axis. &lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;Which method you choose should depend on whether you think your groups have similar or different variances of their observations. Here’s an interim summary of the methods covered so far.&lt;/p&gt;
+
+&lt;div class=&quot;box&quot;&gt;
+&lt;h4 style=&quot;margin-top:0rem&quot;&gt;Summary of analytic solutions&lt;/h4&gt;
+All of these estimators define $ \hat{\theta_i} $ as a weighted average of the group sample mean $ x_i $ and the mean of group sample means $ \overline{X} $.
+$$ \hat{\theta_i} = \left(1-\hat{B}\right) x_i + \hat{B_i} \overline{X} $$
+
+Make sure to clip $ \hat{B_i} $ to the range [0, 1].&lt;br /&gt;&lt;br /&gt;
+
+&lt;ol&gt;
+    &lt;li style=&quot;margin-bottom: 10px&quot;&gt;
+        &lt;div&gt;&lt;strong&gt;Maximum Likelihood Estimation (MLE)&lt;/strong&gt;&lt;/div&gt;
+        &lt;div style=&quot;margin-top: 0px; line-height: 5.7em&quot;&gt; $ \hat{B_i} = 0 $&lt;/div&gt;
+    &lt;/li&gt;
+
+    &lt;li style=&quot;margin-bottom: 20px&quot;&gt;
+        &lt;div&gt;&lt;strong&gt;MSS James-Stein Estimator&lt;/strong&gt;&lt;/div&gt;
+        &lt;div style=&quot;margin-top: 0px; line-height: 5.7em&quot;&gt; $ \hat{B_i} = \frac{s^{2}_i/n_i}{\sum\frac{(x_i - \overline{X})^2}{k-1}} $&lt;/div&gt;
+        where $ s_i $ is the standard deviation of observations with a group.&lt;br /&gt;
+    &lt;/li&gt;
+
+    &lt;li&gt;
+        &lt;div&gt;&lt;strong&gt;MSS Pooled James-Stein Estimator&lt;/strong&gt;&lt;/div&gt;
+        &lt;div style=&quot;margin-top: 0px; line-height: 5.7em&quot;&gt; $ \hat{B_i} = \frac{s^{2}_p/n_i}{\sum\frac{(x_i - \overline{X})^2}{k-1}} $&lt;/div&gt;
+        where $ s^{2}_p $ is the &lt;a href=&quot;https://en.wikipedia.org/wiki/Pooled_variance&quot;&gt;pooled&lt;/a&gt; estimate of variance.
+    &lt;/li&gt;
+&lt;/ol&gt;
+Implementations in Python and R are available &lt;a href=&quot;https://github.com/csaid/empirical_bayes&quot;&gt;here&lt;/a&gt;.
+&lt;/div&gt;
+
+&lt;h4 id=&quot;a-bayesian-interpretation-of-the-analytic-solutions&quot;&gt;A Bayesian interpretation of the analytic solutions&lt;/h4&gt;
+
+&lt;p&gt;So far, the analytic approaches make sense directionally. As described above, our estimate of $ \theta_i $ should be a weighted average of $ x_i $ and $ \overline{X} $, where the weight depends on the ratio of sample mean variance to total variance of the means.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\theta_i = \left(1 - \frac{\hat{\sigma^{2}_i}}{\hat{\tau^{2}} + \hat{\sigma^{2}_i}}\right) x_i + \left(\frac{\hat{\sigma^{2}_i}}{\hat{\tau^{2}} + \hat{\sigma^{2}_i}}\right) \overline{X}&lt;/script&gt;
+
+&lt;p&gt;But is this really the best weighting? Why use a ratio of variances instead of, say, a ratio of standard deviations? Why not use something else entirely?&lt;/p&gt;
+
+&lt;p&gt;It turns out this formula falls out naturally from Bayes Law. Imagine for a moment that we already know the prior distribution $ \mathcal{N}\left(\mu, \tau^2\right) $ over the $ \theta_i $’s. And imagine we know the likelihood function for a group mean is $ \mathcal{N}\left(x_i, \epsilon^{2}_i/n_i\right) $. According to the Wikipedia page on &lt;a href=&quot;https://en.wikipedia.org/wiki/Conjugate_prior#Continuous_distributions&quot;&gt;conjugate priors&lt;/a&gt;, the posterior distribution for the group mean is itself a Gaussian distribution with mean:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\hat{\theta_i} = \frac{\frac{x_i n_i}{\epsilon^{2}_i} + \frac{\mu}{\tau^{2}}}{\frac{1}{\tau^2} + \frac{n_i}{\epsilon^{2}_i}}&lt;/script&gt;
+
+&lt;p&gt;(Note that the Wikipedia &lt;a href=&quot;https://en.wikipedia.org/wiki/Conjugate_prior#Continuous_distributions&quot;&gt;page&lt;/a&gt; uses the symbol ‘$ x_i $’ to refer to observations, whereas this blog post will always use the term to refer to the sample mean, including in the equation above. Also note that Wikipedia refers to the variance of observations within a group as ‘$ \sigma^2 $’ whereas this blog post uses $ \epsilon^{2}_i $.)&lt;/p&gt;
+
+&lt;p&gt;If we multiply all terms in the numerator and denominator by $ \frac{\tau^2 \epsilon^{2}_i}{n_i} $, we get:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\hat{\theta_i} = \frac{\tau^2 x_i + \mu \sigma^{2}_i}{\sigma^{2}_i + \tau^2}&lt;/script&gt;
+
+&lt;p&gt;Or equivalently,&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\hat{\theta_i} = \left(1-B\right) x_i + B \mu&lt;/script&gt;
+
+&lt;p&gt;where&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;B = \frac{\sigma^{2}_i}{\sigma^{2}_i + \tau^2}&lt;/script&gt;
+
+&lt;p&gt;This looks familiar! It is basically the MSS James-Stein estimator. The only difference is that in the pure Bayesian approach you must somehow know $ \mu $, $ \tau^2 $, and $ \sigma^{2}_i $ in advance. In the MSS James-Stein approach, you estimate those parameters from the data itself. This is the key insight in Empirical Bayes: Use priors to keep your estimates under control, but obtain the priors &lt;em&gt;empirically&lt;/em&gt; from the data itself.&lt;/p&gt;
+
+&lt;h3 id=&quot;hierarchical-modeling-with-mcmc&quot;&gt;Hierarchical Modeling with MCMC&lt;/h3&gt;
+
+&lt;p&gt;In previous sections we looked at some analytic solutions. While these solutions have the advantage of being quick to calculate, they have the disadvantage of being less accurate than they could be. For more accuracy, we can turn to Hierarchical Model estimation using Markov Chain Monte Carlo (MCMC) methods. MCMC is an iterative process for approximate Bayesian inference. While it is slower than analytical approximations, it tends to be more accurate and has the added benefit of giving you the full posterior distribution. I’m not an expert in how it works internally, but &lt;a href=&quot;http://twiecki.github.io/blog/2015/11/10/mcmc-sampling/&quot;&gt;this post&lt;/a&gt; looks like a good place to start.&lt;/p&gt;
+
+&lt;p&gt;To implement this, I first defined a &lt;a href=&quot;http://mc-stan.org/documentation/case-studies/radon.html&quot;&gt;Hierarchical Model&lt;/a&gt; of my data. The model is a description of how I think the data is generated: True means are sampled from a normal distribution, and observations are sampled from a normal distribution centered around the true mean of each group. Of course, I know exactly how my data was generated, because I was the one who generated it! The key thing to understand though is that the Hierarchical Model does not contain any information about the value of the parameters. It’s the MCMC’s job to figure that out. In particular, I used &lt;a href=&quot;https://pystan.readthedocs.io/en/latest/&quot;&gt;PyStan’s&lt;/a&gt; MCMC implementation to fit the parameters of the model based on my data.&lt;/p&gt;
+
+&lt;figure class=&quot;image&quot;&gt;&lt;img src=&quot;/assets/2017_shrinkage/fig_shared_4.png&quot; alt=&quot;&quot; /&gt;&lt;/figure&gt;
+
+&lt;div class=&quot;caption&quot;&gt;&lt;strong&gt;Figure 6.&lt;/strong&gt; Mean Squared Error between true group means and estimated group means. In this simulation, the $ \epsilon $ parameter for within-group variance of observations is shared by all groups.&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;For simulated data with shared $ \epsilon^2 $, MCMC did well, outperforming both the MSS James-Stein estimator and the MSS Pooled James-Stein estimator.&lt;/p&gt;
+
+&lt;p&gt;If you don’t care about speed and are willing to write the Stan code, then this is probably your best option. It’s also good to learn about MCMC methods, since they can be applied to more complicated models with multiple variables. But if you just want a quick estimate of group means, then one of the analytic solutions above makes more sense.&lt;/p&gt;
+
+&lt;h3 id=&quot;other-solutions&quot;&gt;Other solutions&lt;/h3&gt;
+
+&lt;p&gt;There are several other solutions that I did not include in my simulations.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://twitter.com/seanjtaylor/status/851227324796157953&quot;&gt;Regularization&lt;/a&gt;. Pick the set of $ \hat{\theta_i} $’s that minimize &lt;script type=&quot;math/tex&quot;&gt;\sum{(\hat{\theta_i} - x_i)^2} + \lambda \sum{(\hat{\theta_i} - \overline{X})^2}&lt;/script&gt;. Use cross-validation to choose the best $ \lambda $. This will probably work pretty well, although it takes a bit more work and time than the analytic solutions described above.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;http://www.bodowinter.com/tutorial/bw_LME_tutorial2.pdf&quot;&gt;Mixed Models&lt;/a&gt;. Over in Mixed Models World, there’s a whole ’nother literature on how to shrink estimates depending on sample size. I don’t really understand the math behind Mixed Models, but I was able to use &lt;a href=&quot;https://cran.r-project.org/web/packages/lme4/lme4.pdf&quot;&gt;lme4&lt;/a&gt; to estimate group means in simulated data under the assumption that the group means are a random effect. This gave me slightly different results compared to the James-Stein / Empirical Bayes approach. I would love if some expert who understood this could write an accessible and authoritative blog post on the differences between Mixed Models and Empirical Bayes. The closest I could find was &lt;a href=&quot;http://projecteuclid.org/download/pdf_1/euclid.ss/1177011928&quot;&gt;this comment&lt;/a&gt; by David Harville.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;http://www.stat.cmu.edu/~acthomas/724/Efron-Morris.pdf&quot;&gt;Efron and Morris&lt;/a&gt;’ generalization of James-Stein to unequal sample sizes (Section 3 of their paper). I thought this paper was difficult to read. A more accessible presentation can be found at the end of &lt;a href=&quot;http://www.tandfonline.com/doi/abs/10.1080/09332480.2007.10722861&quot;&gt;this column&lt;/a&gt;. The Efron and Morris approach is a numerical solution that seemed to work reasonably well when I played around with it, but I didn’t take it very far. If you want to implement it, be sure to prevent any variance estimates from falling below zero. If one of them does, just set it to zero and then compute your estimates of the means. That being said, I feel like if you’re going to go with a numerical solution, you may as well just go with MCMC.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;http://intlpress.com/site/pub/files/_fulltext/journals/sii/2010/0003/0004/SII-2010-0003-0004-a011.pdf&quot;&gt;Double Shrinkage&lt;/a&gt;. When we think that different groups not only have different sample sizes, but also different $ \epsilon_i $’s, we are faced with an interesting conundrum. As shown above, the MSS James-Stein Estimator outperforms the MSS Pooled James-Stein Estimator, because it computes $ \hat{\epsilon_i} $’s specific to each group. However, these estimates of group variances are probably noisy! Just like we don’t trust the raw estimates of group sample means, why should we trust the raw estimates of group sample variances? One way to address this is to use Zhao’s Double Shinkage Estimator, which not only shrinks the means, but also shrinks the variances.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://www.jstor.org/stable/2284137?seq=1#fndtn-page_scan_tab_contents&quot;&gt;Kleinman’s weighted moment estimator&lt;/a&gt;. Apparently this was motivated by groups of proportions (i.e. the Rotten Tomatoes case), but the estimator can be applied generally.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
+&lt;p&gt;Which method you choose depends on your situation. If you want a simple and computationally fast estimate, and if you don’t want to assume that the group variances $ \epsilon^{2}_i $ are identical, I would recommend either the MSS James-Stein Estimator or the Double Shrinkage Estimator if you can get it to work. If you want a fast estimate and can assume all groups share the same $ \epsilon^{2} $, I’d recommend the MSS Pooled James-Stein Estimator. If you don’t care about speed or code complexity, I’d recommend MCMC, Mixed Models, or regularization with a cross-validated penalty term.&lt;/p&gt;
+
+&lt;h3 id=&quot;acknowledgements&quot;&gt;Acknowledgements&lt;/h3&gt;
+&lt;p&gt;Special thanks to the many people who responded to my &lt;a href=&quot;https://twitter.com/Chris_Said/status/851211601445240832&quot;&gt;original question on Twitter&lt;/a&gt;, including: &lt;a href=&quot;https://twitter.com/seanjtaylor&quot;&gt;Sean Taylor&lt;/a&gt;, &lt;a href=&quot;https://twitter.com/johnmyleswhite&quot;&gt;John Myles White&lt;/a&gt;, &lt;a href=&quot;https://twitter.com/drob&quot;&gt;David Robinson&lt;/a&gt;, &lt;a href=&quot;https://twitter.com/stat110&quot;&gt;Joe Blitzstein&lt;/a&gt;, &lt;a href=&quot;https://twitter.com/NeuroStats&quot;&gt;Manjari Narayan&lt;/a&gt;, &lt;a href=&quot;https://twitter.com/oldjacket&quot;&gt;Otis Anderson&lt;/a&gt;, &lt;a href=&quot;https://twitter.com/alex_peys&quot;&gt;Alex Peysakhovich&lt;/a&gt;, &lt;a href=&quot;https://twitter.com/bechhof&quot;&gt;Nathaniel Bechhofer&lt;/a&gt;, &lt;a href=&quot;https://twitter.com/jamneuf&quot;&gt;James Neufeld&lt;/a&gt;, &lt;a href=&quot;https://twitter.com/awmercer&quot;&gt;Andrew Mercer&lt;/a&gt;, &lt;a href=&quot;https://twitter.com/ptrckprry&quot;&gt;Patrick Perry&lt;/a&gt;, &lt;a href=&quot;https://twitter.com/RichmanRonald&quot;&gt;Ronald Richman&lt;/a&gt;, &lt;a href=&quot;https://twitter.com/Hacktuarial&quot;&gt;Timothy Sweetster&lt;/a&gt;, and &lt;a href=&quot;https://twitter.com/AlxCoventry&quot;&gt;Alex Coventry&lt;/a&gt;. Special thanks also to Marika Inhoff and Leo Pekelis for many discussions.&lt;/p&gt;
+
+&lt;p&gt;All code used in this blog post is available on &lt;a href=&quot;https://github.com/csaid/empirical_bayes&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
    <title>Optimizing things in the USSR</title>
-   <link href="http://www.chris-said.io/2016/05/11/optimizing-things-in-the-ussr/"/>
+   <link href="http://localhost:4000/2016/05/11/optimizing-things-in-the-ussr/"/>
    <updated>2016-05-11T00:00:00-07:00</updated>
-   <id>http://www.chris-said.io/2016/05/11/optimizing-things-in-the-ussr</id>
+   <id>http://localhost:4000/2016/05/11/optimizing-things-in-the-ussr</id>
    <content type="html">&lt;meta charset=&quot;utf-8&quot; /&gt;
 
 &lt;style&gt;
@@ -42,12 +347,6 @@
   stroke-opacity: .5;
 }
 
-.caption {
-  font-style: italic;
-  font-size: 75%;
-  text-align: left;
-  line-height: 130%;
-}
 
 text {
   font: 10px sans-serif;
@@ -55,8 +354,6 @@ text {
 
 
 &lt;/style&gt;
-
-&lt;p&gt;&lt;em&gt;[Content warning: Long and possibly very boring.]&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;As a data scientist, a big part of my job involves picking metrics to optimize, and thinking about how to do things as efficiently as possible. With these types of questions on my mind, I recently discovered a totally fascinating book about about economic problems in the USSR and the team of data-driven economists and computer scientists who wanted to solve them. The book is called &lt;a href=&quot;http://www.amazon.com/Red-Plenty-Francis-Spufford/dp/1555976042&quot;&gt;&lt;em&gt;Red Plenty&lt;/em&gt;&lt;/a&gt;. It’s actually written as a novel, weirdly, but it nevertheless presents an accurate economic history of the USSR. It draws heavily on an earlier book from 1973 called &lt;a href=&quot;http://www.amazon.com/Planning-Problems-USSR-Contribution-Mathematical/dp/0521202493&quot;&gt;&lt;em&gt;Planning Problems in the USSR&lt;/em&gt;&lt;/a&gt;, which I also picked up. As I read these books, I couldn’t help but notice some parallels with planning in any modern organization. In what will be familiar to any data scientist today, the second book even includes a quote from a researcher who complained that 90% of his time was spent cleaning the data, and only 10% of his time was spent doing actual modeling!&lt;/p&gt;
 
@@ -145,42 +442,42 @@ relative --&gt;
 
 // Names to Index
 var n2i = {
-&#39;petro&#39;: 0,
-&#39;steel&#39;: 1,
-&#39;copper&#39;: 2,
-&#39;aluminum&#39;: 3,
-&#39;ammonia&#39;: 4,
-&#39;food&#39;: 5,
-&#39;textiles&#39;: 6,
-&#39;logging&#39;: 7,
-&#39;automotive&#39;: 8
+'petro': 0,
+'steel': 1,
+'copper': 2,
+'aluminum': 3,
+'ammonia': 4,
+'food': 5,
+'textiles': 6,
+'logging': 7,
+'automotive': 8
 }
 
 var commodities = {
   &quot;nodes&quot;:[
-    {&#39;name&#39;: &#39;Petroleum residuals&#39;},
-    {&#39;name&#39;: &#39;Crude Steel&#39;},
-    {&#39;name&#39;: &#39;Copper&#39;},
-    {&#39;name&#39;: &#39;Aluminum&#39;},
-    {&#39;name&#39;: &#39;Ammonia&#39;},
-    {&#39;name&#39;: &#39;Agriculture and Food&#39;},
-    {&#39;name&#39;: &#39;Textiles and Apparel&#39;},
-    {&#39;name&#39;: &#39;Logging and Paper Products&#39;},
-    {&#39;name&#39;: &#39;Automotive Equipment&#39;}
+    {'name': 'Petroleum residuals'},
+    {'name': 'Crude Steel'},
+    {'name': 'Copper'},
+    {'name': 'Aluminum'},
+    {'name': 'Ammonia'},
+    {'name': 'Agriculture and Food'},
+    {'name': 'Textiles and Apparel'},
+    {'name': 'Logging and Paper Products'},
+    {'name': 'Automotive Equipment'}
   ],
-  &#39;links&#39;:[
-    {&#39;source&#39;:n2i[&#39;petro&#39;],&#39;target&#39;:n2i[&#39;food&#39;],&#39;value&#39;:510},
-    {&#39;source&#39;:n2i[&#39;steel&#39;],&#39;target&#39;:n2i[&#39;food&#39;],&#39;value&#39;:80},
-    {&#39;source&#39;:n2i[&#39;ammonia&#39;],&#39;target&#39;:n2i[&#39;food&#39;],&#39;value&#39;:250},
-    {&#39;source&#39;:n2i[&#39;steel&#39;],&#39;target&#39;:n2i[&#39;textiles&#39;],&#39;value&#39;:10},
-    {&#39;source&#39;:n2i[&#39;ammonia&#39;],&#39;target&#39;:n2i[&#39;textiles&#39;],&#39;value&#39;:10},
-    {&#39;source&#39;:n2i[&#39;petro&#39;],&#39;target&#39;:n2i[&#39;logging&#39;],&#39;value&#39;:30},
-    {&#39;source&#39;:n2i[&#39;steel&#39;],&#39;target&#39;:n2i[&#39;logging&#39;],&#39;value&#39;:40},
-    {&#39;source&#39;:n2i[&#39;ammonia&#39;],&#39;target&#39;:n2i[&#39;logging&#39;],&#39;value&#39;:5},
-    {&#39;source&#39;:n2i[&#39;petro&#39;],&#39;target&#39;:n2i[&#39;automotive&#39;],&#39;value&#39;:60},
-    {&#39;source&#39;:n2i[&#39;steel&#39;],&#39;target&#39;:n2i[&#39;automotive&#39;],&#39;value&#39;:1800},
-    {&#39;source&#39;:n2i[&#39;copper&#39;],&#39;target&#39;:n2i[&#39;automotive&#39;],&#39;value&#39;:14},
-    {&#39;source&#39;:n2i[&#39;aluminum&#39;],&#39;target&#39;:n2i[&#39;automotive&#39;],&#39;value&#39;:3}
+  'links':[
+    {'source':n2i['petro'],'target':n2i['food'],'value':510},
+    {'source':n2i['steel'],'target':n2i['food'],'value':80},
+    {'source':n2i['ammonia'],'target':n2i['food'],'value':250},
+    {'source':n2i['steel'],'target':n2i['textiles'],'value':10},
+    {'source':n2i['ammonia'],'target':n2i['textiles'],'value':10},
+    {'source':n2i['petro'],'target':n2i['logging'],'value':30},
+    {'source':n2i['steel'],'target':n2i['logging'],'value':40},
+    {'source':n2i['ammonia'],'target':n2i['logging'],'value':5},
+    {'source':n2i['petro'],'target':n2i['automotive'],'value':60},
+    {'source':n2i['steel'],'target':n2i['automotive'],'value':1800},
+    {'source':n2i['copper'],'target':n2i['automotive'],'value':14},
+    {'source':n2i['aluminum'],'target':n2i['automotive'],'value':3}
   ]
 }
 
@@ -295,9 +592,9 @@ var path = sankey.link();
  
  <entry>
    <title>Comparing the opinions of economic experts and the general public</title>
-   <link href="http://www.chris-said.io/2016/04/10/comparing-the-opinions-of-economic-experts/"/>
+   <link href="http://localhost:4000/2016/04/10/comparing-the-opinions-of-economic-experts/"/>
    <updated>2016-04-10T00:00:00-07:00</updated>
-   <id>http://www.chris-said.io/2016/04/10/comparing-the-opinions-of-economic-experts</id>
+   <id>http://localhost:4000/2016/04/10/comparing-the-opinions-of-economic-experts</id>
    <content type="html">&lt;meta charset=&quot;utf-8&quot; /&gt;
 
 &lt;style&gt;
@@ -508,7 +805,7 @@ var tooltip = d3.select(&quot;#econ_scatter&quot;).append(&quot;div&quot;)
     // .style(&quot;opacity&quot;, 0);
 
 
-  // don&#39;t want dots overlapping axis, so add in buffer to data domain
+  // don't want dots overlapping axis, so add in buffer to data domain
   xScale.domain([-5, 105]);
   yScale.domain([15, 85]);
 
@@ -579,16 +876,16 @@ var tooltip = d3.select(&quot;#econ_scatter&quot;).append(&quot;div&quot;)
  
  <entry>
    <title>Four pitfalls of hill climbing</title>
-   <link href="http://www.chris-said.io/2016/02/28/four-pitfalls-of-hill-climbing/"/>
+   <link href="http://localhost:4000/2016/02/28/four-pitfalls-of-hill-climbing/"/>
    <updated>2016-02-28T00:00:00-08:00</updated>
-   <id>http://www.chris-said.io/2016/02/28/four-pitfalls-of-hill-climbing</id>
+   <id>http://localhost:4000/2016/02/28/four-pitfalls-of-hill-climbing</id>
    <content type="html">&lt;meta charset=&quot;utf-8&quot; /&gt;
 
 &lt;p&gt;One of the great developments in product design has been the adoption of A/B testing. Instead of just guessing what is best for your customers, you can offer a product variant to a subset of customers and measure how well it works. While undeniably useful, A/B testing is sometimes said to encourage too much “hill climbing”, an incremental and short-sighted style of product development that emphasizes easy and immediate wins.&lt;/p&gt;
 
 &lt;p&gt;Discussion around hill climbing can sometimes get a bit vague, so I thought I would make some animations that describe four distinct pitfalls that can emerge from an overreliance on hill climbing.&lt;/p&gt;
 
-&lt;h4 id=&quot;local-maxima&quot;&gt;1. Local maxima&lt;/h4&gt;
+&lt;h4 id=&quot;1-local-maxima&quot;&gt;1. Local maxima&lt;/h4&gt;
 
 &lt;p&gt;If you climb hills incrementally, you may end up in a local maximum and miss out on an opportunity to land on a global maximum with much bigger reward. Concerns about local maxima are often wrapped up in critiques of &lt;em&gt;incrementalism&lt;/em&gt;.&lt;/p&gt;
 
@@ -598,7 +895,7 @@ var tooltip = d3.select(&quot;#econ_scatter&quot;).append(&quot;div&quot;)
 
 &lt;p&gt;Local maxima and global maxima can be illustrated with hill diagrams like the one above. The horizontal axis represents product space collapsed into a single dimension. In reality, of course, there are many dimensions that a product could explore.&lt;/p&gt;
 
-&lt;h4 id=&quot;emergent-maxima&quot;&gt;2. Emergent maxima&lt;/h4&gt;
+&lt;h4 id=&quot;2-emergent-maxima&quot;&gt;2. Emergent maxima&lt;/h4&gt;
 
 &lt;p&gt;If you run short A/B tests, or A/B tests that do not fully capture network effects, you might not realize that a change that initially seems bad may be good in the long run. This idea, which is distinct from concerns about incrementalism, can be described with a dynamic reward function animation. As before, the horizontal axis is product space. Each video frame represents a time step, and the vertical axis represents immediate, measurable reward.&lt;/p&gt;
 
@@ -608,7 +905,7 @@ var tooltip = d3.select(&quot;#econ_scatter&quot;).append(&quot;div&quot;)
 
 &lt;p&gt;When a product changes, the intial effect is negative. But eventually, customers begin to enjoy the new version, as shown by changes in the reward function. By waiting at a position that initially seemed negative, you are able to discover an emergent mountain, and receive greater reward than you would have from short-term optimization.&lt;/p&gt;
 
-&lt;h4 id=&quot;novelty-effects&quot;&gt;3. Novelty effects&lt;/h4&gt;
+&lt;h4 id=&quot;3-novelty-effects&quot;&gt;3. Novelty effects&lt;/h4&gt;
 
 &lt;p&gt;Short-term optimization can be bad, not only because it prevents discovery of emergent mountains, but also because some hills can be transient. One way a hill can disappear is through &lt;em&gt;novelty effects&lt;/em&gt;, where a shiny new feature can be engaging to customers in the short term, but uninteresting or even negative in the long term.&lt;/p&gt;
 
@@ -616,7 +913,7 @@ var tooltip = d3.select(&quot;#econ_scatter&quot;).append(&quot;div&quot;)
   &lt;div class=&quot;inner&quot; id=&quot;plot3&quot;&gt;&lt;/div&gt;
 &lt;/div&gt;
 
-&lt;h4 id=&quot;loss-of-differentiation&quot;&gt;4. Loss of differentiation&lt;/h4&gt;
+&lt;h4 id=&quot;4-loss-of-differentiation&quot;&gt;4. Loss of differentiation&lt;/h4&gt;
 
 &lt;p&gt;Another way a hill can disappear is through loss of differentiation from more dominant competitors. Your product may occupy a market niche. If you try to copy your competitor, you may initially see some benefits. But at some point, your customers may leave because not much separates you from your more dominant competitor. Differentiation matters in some dimensions more than others.&lt;/p&gt;
 
@@ -678,7 +975,7 @@ circle.competitor {
 
 &lt;/style&gt;
 
-&lt;!-- I think Markdown doesn&#39;t like two script tags in a row --&gt;
+&lt;!-- I think Markdown doesn't like two script tags in a row --&gt;
 &lt;div&gt;&lt;/div&gt;
 
 &lt;script&gt;
@@ -860,7 +1157,7 @@ var get_dot_x_local_max = function(t) {
   return soft_motion(t, .2, .35, .8, .2)
 };
 
-// The horizontal position of your competitor&#39;s dot
+// The horizontal position of your competitor's dot
 var get_competitor_dot_x = function(t) {
   return 0.8;
 };
@@ -931,9 +1228,9 @@ makeObjectiveGraph(&quot;plot5&quot;, get_competitor_dot_x, objective5, &quot;Do
  
  <entry>
    <title>How to make polished Jupyter presentations with optional code visibility</title>
-   <link href="http://www.chris-said.io/2016/02/13/how-to-make-polished-jupyter-presentations-with-optional-code-visibility/"/>
+   <link href="http://localhost:4000/2016/02/13/how-to-make-polished-jupyter-presentations-with-optional-code-visibility/"/>
    <updated>2016-02-13T00:00:00-08:00</updated>
-   <id>http://www.chris-said.io/2016/02/13/how-to-make-polished-jupyter-presentations-with-optional-code-visibility</id>
+   <id>http://localhost:4000/2016/02/13/how-to-make-polished-jupyter-presentations-with-optional-code-visibility</id>
    <content type="html">&lt;p&gt;Jupyter notebooks are great because they allow you to easily present interactive figures. In addition, these notebooks include the figures and code in a single file, making it easy for others to reproduce your results. Sometimes though, you may want to present a cleaner report to an audience who may not care about the code. This blog post shows how to make code visibility optional, and how to remove various Jupyter elements to get a clean presentation.&lt;/p&gt;
 
 &lt;p&gt;On the top is a typical Jupyter presentation with code and some extra elements. Below that is a more polished version that removes some of the extra elements and makes code visibility optional with a button.&lt;/p&gt;
@@ -956,18 +1253,18 @@ makeObjectiveGraph(&quot;plot5&quot;, get_competitor_dot_x, objective5, &quot;Do
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;script&amp;gt;&lt;/span&gt;
   &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;code_toggle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;code_shown&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-      &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;div.input&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hide&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;500&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-      &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;#toggleButton&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;Show Code&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'div.input'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hide&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'500'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'#toggleButton'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Show Code'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
     &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;div.input&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;show&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;500&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-      &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;#toggleButton&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;Hide Code&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'div.input'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;show&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'500'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'#toggleButton'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Hide Code'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
     &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
     &lt;span class=&quot;nx&quot;&gt;code_shown&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;code_shown&lt;/span&gt;
   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 
   &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ready&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
     &lt;span class=&quot;nx&quot;&gt;code_shown&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;div.input&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hide&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'div.input'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hide&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
   &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;form&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;action=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;javascript:code_toggle()&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;submit&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;toggleButton&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Show Code&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/form&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
@@ -976,11 +1273,11 @@ makeObjectiveGraph(&quot;plot5&quot;, get_competitor_dot_x, objective5, &quot;Do
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;script&amp;gt;&lt;/span&gt;
   &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ready&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;div.prompt&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hide&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;div.back-to-top&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hide&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;nav#menubar&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hide&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;.breadcrumb&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hide&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;.hidden-print&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hide&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'div.prompt'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hide&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'div.back-to-top'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hide&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'nav#menubar'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hide&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'.breadcrumb'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hide&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'.hidden-print'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hide&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
   &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
 
@@ -994,7 +1291,7 @@ Created with Jupyter, delivered by Fastly, rendered by Rackspace.
   &lt;span class=&quot;nx&quot;&gt;jQuery&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ready&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
 
   &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;load&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;#preloader&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fadeOut&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;slow&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;remove&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();});&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'#preloader'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fadeOut&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'slow'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;remove&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();});&lt;/span&gt;
   &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
 
   &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
@@ -1008,7 +1305,7 @@ Created with Jupyter, delivered by Fastly, rendered by Rackspace.
       &lt;span class=&quot;nl&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
       &lt;span class=&quot;nl&quot;&gt;height&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
       &lt;span class=&quot;nl&quot;&gt;overflow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;visible&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-      &lt;span class=&quot;nl&quot;&gt;background&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#fff&lt;/span&gt; &lt;span class=&quot;sx&quot;&gt;url(&#39;http://preloaders.net/preloaders/720/Moving%20line.gif&#39;)&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;no-repeat&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;center&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;center&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+      &lt;span class=&quot;nl&quot;&gt;background&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#fff&lt;/span&gt; &lt;span class=&quot;sx&quot;&gt;url('http://preloaders.net/preloaders/720/Moving%20line.gif')&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;no-repeat&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;center&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;center&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;/style&amp;gt;&lt;/span&gt;
@@ -1023,9 +1320,9 @@ Created with Jupyter, delivered by Fastly, rendered by Rackspace.
  
  <entry>
    <title>The debate CNN wanted and the debate the candidates wanted</title>
-   <link href="http://www.chris-said.io/2015/09/17/presidential-debates/"/>
+   <link href="http://localhost:4000/2015/09/17/presidential-debates/"/>
    <updated>2015-09-17T00:00:00-07:00</updated>
-   <id>http://www.chris-said.io/2015/09/17/presidential-debates</id>
+   <id>http://localhost:4000/2015/09/17/presidential-debates</id>
    <content type="html">&lt;p&gt;In last night’s Republican presidential debate, the CNN moderators tried very hard to pit individual candidates against each other. Pretty much every question was along the lines of: “Candidate A, what do you think about Candidate B’s attacks on you?”&lt;/p&gt;
 
 &lt;p&gt;While CNN wanted to generate controversy, the disputes it tried to initiate were not necessarily the disputes that the candidates strategically wanted to have. To get a better sense for this, I tallied up two things:&lt;/p&gt;
@@ -1137,17 +1434,17 @@ var mod_links = [
 ];
 
 var mod_nodes = [
-{idx: 0, name: &#39;Bush&#39;, fixed: true, x: 235.0, y: 135.0},
-{idx: 1, name: &#39;Trump&#39;, fixed: true, x: 219.125353283, y: 189.064081746},
-{idx: 2, name: &#39;Walker&#39;, fixed: true, x: 176.5415013, y: 225.963199535},
-{idx: 3, name: &#39;Huckabee&#39;, fixed: true, x: 120.768516173, y: 233.982144188},
-{idx: 4, name: &#39;Carson&#39;, fixed: true, x: 69.5139266055, y: 210.574957435},
-{idx: 5, name: &#39;Cruz&#39;, fixed: true, x: 39.0507026386, y: 163.173255684},
-{idx: 6, name: &#39;Rubio&#39;, fixed: true, x: 39.0507026386, y: 106.826744316},
-{idx: 7, name: &#39;Paul&#39;, fixed: true, x: 69.5139266055, y: 59.4250425646},
-{idx: 8, name: &#39;Christie&#39;, fixed: true, x: 120.768516173, y: 36.0178558119},
-{idx: 9, name: &#39;Kasich&#39;, fixed: true, x: 176.5415013, y: 44.0368004645},
-{idx: 10, name: &#39;Fiorina&#39;, fixed: true, x: 219.125353283, y: 80.9359182544},
+{idx: 0, name: 'Bush', fixed: true, x: 235.0, y: 135.0},
+{idx: 1, name: 'Trump', fixed: true, x: 219.125353283, y: 189.064081746},
+{idx: 2, name: 'Walker', fixed: true, x: 176.5415013, y: 225.963199535},
+{idx: 3, name: 'Huckabee', fixed: true, x: 120.768516173, y: 233.982144188},
+{idx: 4, name: 'Carson', fixed: true, x: 69.5139266055, y: 210.574957435},
+{idx: 5, name: 'Cruz', fixed: true, x: 39.0507026386, y: 163.173255684},
+{idx: 6, name: 'Rubio', fixed: true, x: 39.0507026386, y: 106.826744316},
+{idx: 7, name: 'Paul', fixed: true, x: 69.5139266055, y: 59.4250425646},
+{idx: 8, name: 'Christie', fixed: true, x: 120.768516173, y: 36.0178558119},
+{idx: 9, name: 'Kasich', fixed: true, x: 176.5415013, y: 44.0368004645},
+{idx: 10, name: 'Fiorina', fixed: true, x: 219.125353283, y: 80.9359182544},
 ]
 
 
@@ -1175,17 +1472,17 @@ var challenge_links = [
 
 
 var challenge_nodes = [
-{idx: 0, name: &#39;Bush&#39;, fixed: true, x: 235.0, y: 135.0},
-{idx: 1, name: &#39;Trump&#39;, fixed: true, x: 219.125353283, y: 189.064081746},
-{idx: 2, name: &#39;Walker&#39;, fixed: true, x: 176.5415013, y: 225.963199535},
-{idx: 3, name: &#39;Huckabee&#39;, fixed: true, x: 120.768516173, y: 233.982144188},
-{idx: 4, name: &#39;Carson&#39;, fixed: true, x: 69.5139266055, y: 210.574957435},
-{idx: 5, name: &#39;Cruz&#39;, fixed: true, x: 39.0507026386, y: 163.173255684},
-{idx: 6, name: &#39;Rubio&#39;, fixed: true, x: 39.0507026386, y: 106.826744316},
-{idx: 7, name: &#39;Paul&#39;, fixed: true, x: 69.5139266055, y: 59.4250425646},
-{idx: 8, name: &#39;Christie&#39;, fixed: true, x: 120.768516173, y: 36.0178558119},
-{idx: 9, name: &#39;Kasich&#39;, fixed: true, x: 176.5415013, y: 44.0368004645},
-{idx: 10, name: &#39;Fiorina&#39;, fixed: true, x: 219.125353283, y: 80.9359182544},
+{idx: 0, name: 'Bush', fixed: true, x: 235.0, y: 135.0},
+{idx: 1, name: 'Trump', fixed: true, x: 219.125353283, y: 189.064081746},
+{idx: 2, name: 'Walker', fixed: true, x: 176.5415013, y: 225.963199535},
+{idx: 3, name: 'Huckabee', fixed: true, x: 120.768516173, y: 233.982144188},
+{idx: 4, name: 'Carson', fixed: true, x: 69.5139266055, y: 210.574957435},
+{idx: 5, name: 'Cruz', fixed: true, x: 39.0507026386, y: 163.173255684},
+{idx: 6, name: 'Rubio', fixed: true, x: 39.0507026386, y: 106.826744316},
+{idx: 7, name: 'Paul', fixed: true, x: 69.5139266055, y: 59.4250425646},
+{idx: 8, name: 'Christie', fixed: true, x: 120.768516173, y: 36.0178558119},
+{idx: 9, name: 'Kasich', fixed: true, x: 176.5415013, y: 44.0368004645},
+{idx: 10, name: 'Fiorina', fixed: true, x: 219.125353283, y: 80.9359182544},
 ]
 
 
@@ -1234,7 +1531,7 @@ function makeGraph(links, nodes, id, interactionType) {
       .attr(&quot;height&quot;, height);
       // .attr(&quot;class&quot;, &quot;center&quot;);
 
-  // Per-type markers, as they don&#39;t inherit styles.
+  // Per-type markers, as they don't inherit styles.
   svg.append(&quot;defs&quot;)
       .append(&quot;marker&quot;)
       .attr(&quot;id&quot;, &quot;marker&quot;)
@@ -1322,9 +1619,9 @@ makeGraph(challenge_links, challenge_nodes, &quot;debate_graph2&quot;, &quot;Rea
  
  <entry>
    <title>New Blog Address</title>
-   <link href="http://www.chris-said.io/2015/09/16/new-blog-address/"/>
+   <link href="http://localhost:4000/2015/09/16/new-blog-address/"/>
    <updated>2015-09-16T00:00:00-07:00</updated>
-   <id>http://www.chris-said.io/2015/09/16/new-blog-address</id>
+   <id>http://localhost:4000/2015/09/16/new-blog-address</id>
    <content type="html">&lt;p&gt;Welcome to the new location for The File Drawer! This blog is now hosted on &lt;a href=&quot;https://pages.github.com/&quot;&gt;Github Pages&lt;/a&gt; and powered by &lt;a href=&quot;https://jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt;. My old blog at &lt;a href=&quot;http://filedrawer.wordpress.com&quot;&gt;filedrawer.wordpress.com&lt;/a&gt; will be shutting down soon.&lt;/p&gt;
 
 &lt;p&gt;I actually really liked WordPress, but I wanted to have a little bit more control over what I can put in my posts. In particular, I wanted to be able to insert my own JavaScript animations, for example in &lt;a href=&quot;http://chris-said.io/2015/09/17/presidential-debates/&quot;&gt;this post&lt;/a&gt; on the recent presidential debates.&lt;/p&gt;
@@ -1337,9 +1634,9 @@ makeGraph(challenge_links, challenge_nodes, &quot;debate_graph2&quot;, &quot;Rea
  
  <entry>
    <title>10 classic dialogues you can find on the internet</title>
-   <link href="http://www.chris-said.io/2015/08/08/10-classic-dialogues/"/>
+   <link href="http://localhost:4000/2015/08/08/10-classic-dialogues/"/>
    <updated>2015-08-08T15:52:24-07:00</updated>
-   <id>http://www.chris-said.io/2015/08/08/10-classic-dialogues</id>
+   <id>http://localhost:4000/2015/08/08/10-classic-dialogues</id>
    <content type="html">&lt;p&gt;Some videos on the internet are so good that I’ve watched them twice. Below is a list of 10 of my favorite interviews and dialogues. Obviously this isn’t an endorsement of all the positions taken. I just think they are very well done and fun to watch. The last four are best watched on 1.4x speed.&lt;/p&gt;
 
 &lt;ol&gt;
@@ -1381,9 +1678,9 @@ makeGraph(challenge_links, challenge_nodes, &quot;debate_graph2&quot;, &quot;Rea
  
  <entry>
    <title>Across industries, we’re getting better at picking metrics</title>
-   <link href="http://www.chris-said.io/2015/05/31/were-getting-better-at-picking-metrics-to-optimize/"/>
+   <link href="http://localhost:4000/2015/05/31/were-getting-better-at-picking-metrics-to-optimize/"/>
    <updated>2015-05-31T12:21:07-07:00</updated>
-   <id>http://www.chris-said.io/2015/05/31/were-getting-better-at-picking-metrics-to-optimize</id>
+   <id>http://localhost:4000/2015/05/31/were-getting-better-at-picking-metrics-to-optimize</id>
    <content type="html">&lt;p&gt;Everywhere you look, people are optimizing bad metrics. Sometimes people optimize metrics that aren’t in their self interest, like when startups focus entirely on signup counts while forgetting about retention rates. In other cases, people optimize metrics that serve their immediate short term interest but which are bad for social welfare, like when California corrections officers &lt;a href=&quot;http://mic.com/articles/41531/union-of-the-snake-how-california-s-prison-guards-subvert-democracy&quot;&gt;lobby for longer prison sentences&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;The good news is that as we become a more data-driven society, there seems to be a broad trend — albeit a very slow one — towards better metrics. Take the media economy, for example. A few years ago, media companies optimized for clicks, and companies like Upworthy thrived by producing low quality content with clickbaity headlines. But now, thanks to a more sustainable &lt;a href=&quot;https://stratechery.com/2015/buzzfeed-important-news-organization-world/&quot;&gt;business model&lt;/a&gt;, companies like Buzzfeed are &lt;a href=&quot;http://www.buzzfeed.com/bensmith/why-buzzfeed-doesnt-do-clickbait&quot;&gt;optimizing for shares rather than clicks&lt;/a&gt;. It’s not perfect, but overall it’s better for consumers.&lt;/p&gt;
@@ -1398,9 +1695,9 @@ makeGraph(challenge_links, challenge_nodes, &quot;debate_graph2&quot;, &quot;Rea
  
  <entry>
    <title>Independent t-tests and the 83% confidence interval: A useful trick for eyeballing your data.</title>
-   <link href="http://www.chris-said.io/2014/11/30/independent-t-tests-and-the-83-confidence-interval-a-useful-trick-for-eyeballing-your-data/"/>
+   <link href="http://localhost:4000/2014/11/30/independent-t-tests-and-the-83-confidence-interval-a-useful-trick-for-eyeballing-your-data/"/>
    <updated>2014-11-30T19:47:37-08:00</updated>
-   <id>http://www.chris-said.io/2014/11/30/independent-t-tests-and-the-83-confidence-interval-a-useful-trick-for-eyeballing-your-data</id>
+   <id>http://localhost:4000/2014/11/30/independent-t-tests-and-the-83-confidence-interval-a-useful-trick-for-eyeballing-your-data</id>
    <content type="html">&lt;p&gt;Like most people who have analyzed data using frequentist statistics, I have often found myself staring at error bars and trying to guess whether my results are significant. When comparing two independent sample means, this practice is confusing and difficult. The conventions that we use for testing differences between sample means are not aligned with the conventions we use for plotting error bars. As a result, it’s fair to say that there’s a lot of confusion about this issue.&lt;/p&gt;
 
 &lt;p&gt;Some people believe that two independent samples have significantly different means if and only if their standard error bars (68% confidence intervals for large samples) don’t overlap. This belief is incorrect. Two samples can have nonoverlapping standard error bars and still fail to reach statistical significance at &lt;script type=&quot;math/tex&quot;&gt;\alpha=.05&lt;/script&gt;. Other people believe that two means are significantly different if and only if their 95% confidence intervals overlap. This belief is also incorrect. For one sample t-tests, it is true that significance is reached when the 95% confidence interval crosses the test parameter &lt;script type=&quot;math/tex&quot;&gt;\mu_0&lt;/script&gt;. But for two-sample t-tests, which are more common in research, statistical significance can occur with overlapping 95% confidence intervals.&lt;/p&gt;
@@ -1447,9 +1744,9 @@ t = \frac{\overline{X_1} - \overline{X_2}}{\sqrt{se_1^2 + se_2^2}}
  
  <entry>
    <title>Jumping quickly between deep directories</title>
-   <link href="http://www.chris-said.io/2014/10/16/jumping-quickly-between-deep-directories/"/>
+   <link href="http://localhost:4000/2014/10/16/jumping-quickly-between-deep-directories/"/>
    <updated>2014-10-16T14:11:00-07:00</updated>
-   <id>http://www.chris-said.io/2014/10/16/jumping-quickly-between-deep-directories</id>
+   <id>http://localhost:4000/2014/10/16/jumping-quickly-between-deep-directories</id>
    <content type="html">&lt;p&gt;I often need to jump between different directories with very deep paths, like this:&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;some/very/deep/directory/project1
@@ -1488,7 +1785,7 @@ t = \frac{\overline{X_1} - \overline{X_2}}{\sqrt{se_1^2 + se_2^2}}
         rm -i &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$MARKPATH&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
     &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;function &lt;/span&gt;marks &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;se&quot;&gt;\l&lt;/span&gt;s -l &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$MARKPATH&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; | tail -n +2 | sed &lt;span class=&quot;s1&quot;&gt;&#39;s/  / /g&#39;&lt;/span&gt; | cut -d&lt;span class=&quot;s1&quot;&gt;&#39; &#39;&lt;/span&gt; -f9- | awk -F &lt;span class=&quot;s1&quot;&gt;&#39; -&amp;gt; &#39;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;{printf &quot;%-10s -&amp;gt; %s\n&quot;, $1, $2}&#39;&lt;/span&gt;
+        &lt;span class=&quot;se&quot;&gt;\l&lt;/span&gt;s -l &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$MARKPATH&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; | tail -n +2 | sed &lt;span class=&quot;s1&quot;&gt;'s/  / /g'&lt;/span&gt; | cut -d&lt;span class=&quot;s1&quot;&gt;' '&lt;/span&gt; -f9- | awk -F &lt;span class=&quot;s1&quot;&gt;' -&amp;gt; '&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'{printf &quot;%-10s -&amp;gt; %s\n&quot;, $1, $2}'&lt;/span&gt;
     &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 
     _cdd&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
@@ -1507,9 +1804,9 @@ t = \frac{\overline{X_1} - \overline{X_2}}{\sqrt{se_1^2 + se_2^2}}
  
  <entry>
    <title>How failed replications change our effect size estimates</title>
-   <link href="http://www.chris-said.io/2014/07/10/how-failed-replications-change-our-effect-size-estimates/"/>
+   <link href="http://localhost:4000/2014/07/10/how-failed-replications-change-our-effect-size-estimates/"/>
    <updated>2014-07-10T12:10:32-07:00</updated>
-   <id>http://www.chris-said.io/2014/07/10/how-failed-replications-change-our-effect-size-estimates</id>
+   <id>http://localhost:4000/2014/07/10/how-failed-replications-change-our-effect-size-estimates</id>
    <content type="html">&lt;p&gt;Yesterday I posted a very unscientific &lt;a href=&quot;https://www.surveymonkey.com/s/H7NM96W&quot;&gt;survey&lt;/a&gt; asking researchers to describe how failed replications changed their subjective estimates of effect sizes. The main survey asked for “ballpark estimates” of effect sizes, but an &lt;a href=&quot;http://csaid.shinyapps.io/survey/&quot;&gt;alternative interactive version&lt;/a&gt; allowed researchers to also report their uncertainty by specifying both the mean and variance of their posterior distributions. Thanks to everyone who participated. I won’t be analyzing any new data after this, but it’s never too late to publicly share your estimates!&lt;/p&gt;
 
 &lt;p&gt;Here are the questions. &lt;/p&gt;
@@ -1554,9 +1851,9 @@ t = \frac{\overline{X_1} - \overline{X_2}}{\sqrt{se_1^2 + se_2^2}}
  
  <entry>
    <title>Jason Mitchell's essay</title>
-   <link href="http://www.chris-said.io/2014/07/07/jason-mitchells-essay/"/>
+   <link href="http://localhost:4000/2014/07/07/jason-mitchells-essay/"/>
    <updated>2014-07-07T11:16:51-07:00</updated>
-   <id>http://www.chris-said.io/2014/07/07/jason-mitchells-essay</id>
+   <id>http://localhost:4000/2014/07/07/jason-mitchells-essay</id>
    <content type="html">&lt;p&gt;As of yesterday I thought the debate about replication in psychology was converging on consensus in at least one respect. While there was still some disagreement about tone, &lt;a href=&quot;http://www.spspblog.org/simone-schnall-on-her-experience-with-a-registered-replication-project/&quot;&gt;basically&lt;/a&gt; &lt;a href=&quot;http://www.talyarkoni.org/blog/2013/03/12/the-truth-is-not-optional-five-bad-reasons-and-one-mediocre-one-for-defending-the-status-quo/&quot;&gt;everyone&lt;/a&gt; agreed that there was value in failed replications. But then this morning, Jason Mitchell posted &lt;a href=&quot;http://wjh.harvard.edu/~jmitchel/writing/failed_science.htm&quot;&gt;this essay&lt;/a&gt;, in which he describes his belief that failed replication attempts can contain errors and therefore “cannot contribute to a cumulative understanding of scientific phenomena”. It’s hard to know where to begin when someone comes from a worldview so different from one’s own. Since there’s clearly a communication problem here, I’ll just give two examples to illustrate how I think about science.&lt;/p&gt;
 
 &lt;ul&gt;
@@ -1576,9 +1873,9 @@ t = \frac{\overline{X_1} - \overline{X_2}}{\sqrt{se_1^2 + se_2^2}}
  
  <entry>
    <title>How I use Twitter</title>
-   <link href="http://www.chris-said.io/2014/05/14/how-i-use-twitter/"/>
+   <link href="http://localhost:4000/2014/05/14/how-i-use-twitter/"/>
    <updated>2014-05-14T07:31:13-07:00</updated>
-   <id>http://www.chris-said.io/2014/05/14/how-i-use-twitter</id>
+   <id>http://localhost:4000/2014/05/14/how-i-use-twitter</id>
    <content type="html">&lt;p&gt;Next week I’m going to start a new job as a data scientist at Twitter and I am thrilled. Aside from Google search, no other website has had a more positive impact on my life than Twitter. Twitter is just so much fun, and I have learned so much from it. &lt;/p&gt;
 
 &lt;p&gt;Because my experience has been so good, it saddens me to hear that some people don’t really “get” Twitter. Some people who try it feel frustrated and stop using it. Others use it occasionally but don’t really see what all the fuss is about.&lt;/p&gt;
@@ -1606,9 +1903,9 @@ t = \frac{\overline{X_1} - \overline{X_2}}{\sqrt{se_1^2 + se_2^2}}
  
  <entry>
    <title>High School STEM curriculum wishlist</title>
-   <link href="http://www.chris-said.io/2014/02/22/high-school-stem-curriculum-wishlist/"/>
+   <link href="http://localhost:4000/2014/02/22/high-school-stem-curriculum-wishlist/"/>
    <updated>2014-02-22T14:38:59-08:00</updated>
-   <id>http://www.chris-said.io/2014/02/22/high-school-stem-curriculum-wishlist</id>
+   <id>http://localhost:4000/2014/02/22/high-school-stem-curriculum-wishlist</id>
    <content type="html">&lt;p&gt;If I had a chance to remake the high school STEM curriculum to reflect the skills that are actually needed in today’s world, my changes might look something like this:&lt;/p&gt;
 
 &lt;figure class=&quot;image&quot;&gt;&lt;img src=&quot;/assets/screen-shot-2014-02-23-at-8-36-37-am.png&quot; alt=&quot;&quot; /&gt;&lt;/figure&gt;
@@ -1618,9 +1915,9 @@ t = \frac{\overline{X_1} - \overline{X_2}}{\sqrt{se_1^2 + se_2^2}}
  
  <entry>
    <title>Is your job in another state?</title>
-   <link href="http://www.chris-said.io/2014/02/08/is-your-job-in-another-state/"/>
+   <link href="http://localhost:4000/2014/02/08/is-your-job-in-another-state/"/>
    <updated>2014-02-08T14:49:08-08:00</updated>
-   <id>http://www.chris-said.io/2014/02/08/is-your-job-in-another-state</id>
+   <id>http://localhost:4000/2014/02/08/is-your-job-in-another-state</id>
    <content type="html">&lt;p&gt;National unemployment is high, but business is booming in some states. Vermont needs teachers. Nevada needs bartenders. North Dakota needs truck drivers and just about everything else.&lt;/p&gt;
 
 &lt;p&gt;Despite these opportunities, Americans &lt;a href=&quot;http://www.washingtonmonthly.com/magazine/november_december_2013/features/stay_put_young_man047332.php?page=all&quot;&gt;aren’t moving much&lt;/a&gt; and unemployment remains high.  One reason for this is that moving can be expensive and disruptive, especially for those with families and roots in their communities. But another reason may just be lack of awareness about the opportunities in other states. That’s why I have made a new website: &lt;a href=&quot;http://www.ismyjobinanotherstate.com&quot;&gt;www.ismyjobinanotherstate.com&lt;/a&gt;. Enter your job skills, and the website will provide an interactive map showing where you are most in demand.&lt;/p&gt;
@@ -1635,9 +1932,9 @@ States are ranked by their &lt;a href=&quot;https://www.fas.org/sgp/crs/misc/R42
  
  <entry>
    <title>My Insight Data Science Project</title>
-   <link href="http://www.chris-said.io/2013/10/12/my-insight-data-science-project/"/>
+   <link href="http://localhost:4000/2013/10/12/my-insight-data-science-project/"/>
    <updated>2013-10-12T13:59:14-07:00</updated>
-   <id>http://www.chris-said.io/2013/10/12/my-insight-data-science-project</id>
+   <id>http://localhost:4000/2013/10/12/my-insight-data-science-project</id>
    <content type="html">&lt;p&gt;I just finished an excellent fellowship at &lt;a href=&quot;http://insightdatascience.com/&quot;&gt;Insight Data Science&lt;/a&gt;. During our first few weeks there, each of us designed a website to demo at Insight’s sponsor companies. My website is called &lt;a href=&quot;http://www.dealspotter.info&quot;&gt;DealSpotter&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;This all started earlier this summer when I went to Craigslist to find a used car. There were lots of good deals on Craigslist, but it took way too long to find them. When I searched for a particular model, I got hundreds of hits, but only a few of the hits included the mileage in the posting title. Since I needed the mileage to know whether I was getting a good deal, I had to click on each of the hundreds of listings. Pretty time consuming.&lt;/p&gt;
@@ -1662,9 +1959,9 @@ States are ranked by their &lt;a href=&quot;https://www.fas.org/sgp/crs/misc/R42
  
  <entry>
    <title>FAQ for Which Famous Economist</title>
-   <link href="http://www.chris-said.io/2013/08/19/which-famous-economist/"/>
+   <link href="http://localhost:4000/2013/08/19/which-famous-economist/"/>
    <updated>2013-08-19T11:44:46-07:00</updated>
-   <id>http://www.chris-said.io/2013/08/19/which-famous-economist</id>
+   <id>http://localhost:4000/2013/08/19/which-famous-economist</id>
    <content type="html">&lt;p&gt;&lt;strong&gt;[Continuously updated. Last update December 14th, 2015]&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;I made a new webpage: &lt;a href=&quot;http://www.whichfamouseconomistareyoumostsimilarto.com/&quot;&gt;http://www.whichfamouseconomistareyoumostsimilarto.com&lt;/a&gt;&lt;/p&gt;
@@ -1713,9 +2010,9 @@ States are ranked by their &lt;a href=&quot;https://www.fas.org/sgp/crs/misc/R42
  
  <entry>
    <title>New model of binocular rivalry</title>
-   <link href="http://www.chris-said.io/2013/03/30/new-model-of-binocular-rivalry/"/>
+   <link href="http://localhost:4000/2013/03/30/new-model-of-binocular-rivalry/"/>
    <updated>2013-03-30T08:23:03-07:00</updated>
-   <id>http://www.chris-said.io/2013/03/30/new-model-of-binocular-rivalry</id>
+   <id>http://localhost:4000/2013/03/30/new-model-of-binocular-rivalry</id>
    <content type="html">&lt;p&gt;Binocular rivalry is a visual illusion that occurs when the two eyes are presented with incompatible images. Instead of perceiving a mixture of the two images, most people experience alternations in which only one image is visible at a time. Binocular rivalry works best under controlled laboratory conditions with prisms or mirrors, but if you are lucky you might be able to experience it in the figure below. Try crossing your eyes to align the left boxes and right boxes, so that three boxes are observed rather than two. If you can keep your eyes stable, you might perceive alternations between the two different gratings in the middle box. It helps if you first try to merge the “Merge me!” phrase and then, once that it is stable, focus on the middle box. If you can’t stabilize your eyes enough, don’t worry. You are not alone.&lt;/p&gt;
 
 &lt;p&gt;.&lt;/p&gt;
@@ -1742,9 +2039,9 @@ States are ranked by their &lt;a href=&quot;https://www.fas.org/sgp/crs/misc/R42
  
  <entry>
    <title>Canadian funding models for all</title>
-   <link href="http://www.chris-said.io/2013/03/21/165/"/>
+   <link href="http://localhost:4000/2013/03/21/165/"/>
    <updated>2013-03-21T06:08:46-07:00</updated>
-   <id>http://www.chris-said.io/2013/03/21/165</id>
+   <id>http://localhost:4000/2013/03/21/165</id>
    <content type="html">&lt;p&gt;The US and Canada have very different systems for funding science. To compare them, I found some of the publicly available data on &lt;a href=&quot;http://report.nih.gov/success_rates/Success_ByIC.cfm&quot;&gt;NIH R01s&lt;/a&gt; (USA) and &lt;a href=&quot;http://www.nserc-crsng.gc.ca/_doc/Funding-Financement/DGStat2012-SDStat2012_eng.pdf&quot;&gt;NSERC Individual Discovery Grants&lt;/a&gt; (Canada), and plotted them below. Before describing the results, I should say that comparing NIH to NSERC is a bit like comparing apples to oranges, since NSERC is probably closer to the NSF than to the NIH. Nevertheless, the cross-country trends hold up across agencies, and in any case my goal is not to compare countries (as much as I would like to) but to compare funding models.&lt;/p&gt;
 
 &lt;figure class=&quot;image&quot;&gt;&lt;img src=&quot;/assets/fig2.png&quot; alt=&quot;&quot; /&gt;&lt;/figure&gt;
@@ -1757,9 +2054,9 @@ States are ranked by their &lt;a href=&quot;https://www.fas.org/sgp/crs/misc/R42
  
  <entry>
    <title>Eight Lessons from the Reproducibility Crisis </title>
-   <link href="http://www.chris-said.io/2013/01/15/8-lessons-from-the-reproducibility-crisis/"/>
+   <link href="http://localhost:4000/2013/01/15/8-lessons-from-the-reproducibility-crisis/"/>
    <updated>2013-01-15T16:04:46-08:00</updated>
-   <id>http://www.chris-said.io/2013/01/15/8-lessons-from-the-reproducibility-crisis</id>
+   <id>http://localhost:4000/2013/01/15/8-lessons-from-the-reproducibility-crisis</id>
    <content type="html">&lt;ol&gt;
   &lt;li&gt;
     &lt;p&gt;There is a reproducibility crisis in psychology.&lt;/p&gt;
@@ -1794,9 +2091,9 @@ States are ranked by their &lt;a href=&quot;https://www.fas.org/sgp/crs/misc/R42
  
  <entry>
    <title>In defense of correlation/causation blowhards</title>
-   <link href="http://www.chris-said.io/2013/01/09/in-defense-of-correlationcausation-blowhards/"/>
+   <link href="http://localhost:4000/2013/01/09/in-defense-of-correlationcausation-blowhards/"/>
    <updated>2013-01-09T07:19:10-08:00</updated>
-   <id>http://www.chris-said.io/2013/01/09/in-defense-of-correlationcausation-blowhards</id>
+   <id>http://localhost:4000/2013/01/09/in-defense-of-correlationcausation-blowhards</id>
    <content type="html">&lt;p&gt;Let’s get one thing out of the way first: There is not a single scientist or science journalist who doesn’t know that correlation does not equal causation. Most have probably known it since high school.&lt;/p&gt;
 
 &lt;p&gt;That’s why there has been a bit of a backlash against internet commenters who keep pointing it out. The phrase is “common and irritating”, writes Slate’s Daniel Engber in his article &lt;a href=&quot;http://www.slate.com/articles/health_and_science/science/2012/10/correlation_does_not_imply_causation_how_the_internet_fell_in_love_with_a_stats_class_clich_.single.html&quot;&gt;The Internet Blowhard’s Favorite Phrase&lt;/a&gt;. To Engber, correlation≠causation is a “freshman platitude” that professional scientists and journalists don’t need to be reminded of. Scientists are merely &lt;em&gt;suggesting&lt;/em&gt; a causal relationship. They are not claiming it is proven.&lt;/p&gt;
@@ -1813,9 +2110,9 @@ States are ranked by their &lt;a href=&quot;https://www.fas.org/sgp/crs/misc/R42
  
  <entry>
    <title>New paper on autism</title>
-   <link href="http://www.chris-said.io/2012/12/29/new-paper-on-autism/"/>
+   <link href="http://localhost:4000/2012/12/29/new-paper-on-autism/"/>
    <updated>2012-12-29T14:20:55-08:00</updated>
-   <id>http://www.chris-said.io/2012/12/29/new-paper-on-autism</id>
+   <id>http://localhost:4000/2012/12/29/new-paper-on-autism</id>
    <content type="html">&lt;p&gt;If there is one thing I have learned recently, it is that autism is a really, really complicated disorder. Autism is best known for causing repetitive behaviors and problems with social communication, but it is also known to cause issues in sensory perception. Many hypotheses for the underlying neurophysiological basis have been proposed. Among these is the excitation/inhibition (E/I) imbalance hypothesis, which states that levels of cortical excitation and inhibition are disrupted in autism. An imbalance like this could be caused by unusual levels of certain neurotransmitters, such as glutamate and GABA, or by an unusual distribution of synaptic connections. Together with my collaborators (David Heeger, Marlene Behrmann, Nancy Minshew, and Ryan Egan), we tested this theory and report the results in a new &lt;a href=&quot;http://dx.doi.org/10.1016/j.visres.2012.11.002&quot;&gt;paper&lt;/a&gt; published in &lt;em&gt;Vision Research&lt;/em&gt;.&lt;/p&gt;
 
 &lt;figure class=&quot;image&quot;&gt;&lt;img src=&quot;/assets/network1.png&quot; alt=&quot;&quot; /&gt;&lt;/figure&gt;
@@ -1828,9 +2125,9 @@ States are ranked by their &lt;a href=&quot;https://www.fas.org/sgp/crs/misc/R42
  
  <entry>
    <title>Why are contrast response functions linear in fMRI and nonmonotonic in EEG?</title>
-   <link href="http://www.chris-said.io/2012/10/04/why-are-contrast-response-functions-linear-in-fmri-and-nonmonotonic-in-eeg/"/>
+   <link href="http://localhost:4000/2012/10/04/why-are-contrast-response-functions-linear-in-fmri-and-nonmonotonic-in-eeg/"/>
    <updated>2012-10-04T08:43:41-07:00</updated>
-   <id>http://www.chris-said.io/2012/10/04/why-are-contrast-response-functions-linear-in-fmri-and-nonmonotonic-in-eeg</id>
+   <id>http://localhost:4000/2012/10/04/why-are-contrast-response-functions-linear-in-fmri-and-nonmonotonic-in-eeg</id>
    <content type="html">&lt;p&gt;Contrast response functions (CRFs) describe how a neuron’s firing rate depends on the contrast, or intensity, of a visual stimulus. CRFs are really important for testing theories about how the visual system works, and I’ve spent a lot of time over the past few years trying to indirectly measure them in humans, using EEG and fMRI. The problem, however, is that EEG and fMRI give me very different CRFs.&lt;/p&gt;
 
 &lt;p&gt;Typically, individual neurons show sigmoidal CRFs. They don’t fire at all for very low contrasts, but they rapidly increase their firing rate at a middle range of contrast. The midpoint of this range is sometimes called the ‘semisaturation constant’. After that, the firing rate tends to level off, or ‘saturate’.&lt;/p&gt;
@@ -1888,7 +2185,7 @@ States are ranked by their &lt;a href=&quot;https://www.fas.org/sgp/crs/misc/R42
    &lt;span class=&quot;nb&quot;&gt;plot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;makeLogistic&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c50_mean&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)));&lt;/span&gt;
    &lt;span class=&quot;nb&quot;&gt;hold&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;on&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;ylabel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;Single Neuron Response&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;ylabel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Single Neuron Response'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 
 &lt;span class=&quot;c1&quot;&gt;%fMRI&lt;/span&gt;
 &lt;span class=&quot;nb&quot;&gt;subplot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
@@ -1897,16 +2194,16 @@ States are ranked by their &lt;a href=&quot;https://www.fas.org/sgp/crs/misc/R42
   &lt;span class=&quot;nb&quot;&gt;plot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CRF_fMRI&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
   &lt;span class=&quot;nb&quot;&gt;hold&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;on&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;ylabel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;fMRI Response&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;ylabel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'fMRI Response'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 
 &lt;span class=&quot;c1&quot;&gt;%EEG&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;%Cancellation. Scale factor isn&#39;t necessary but reflects that fact that&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;%Cancellation. Scale factor isn't necessary but reflects that fact that&lt;/span&gt;
 &lt;span class=&quot;c1&quot;&gt;%some areas are likely to activate more than others.&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;R_EEG&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;abs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;R&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;idcs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},:)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;R&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;idcs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},:));&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;CRF_EEG&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;mean&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;R_EEG&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 &lt;span class=&quot;nb&quot;&gt;subplot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;nb&quot;&gt;plot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CRF_EEG&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;ylabel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;EEG Response&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;ylabel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'EEG Response'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 
 &lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;makeLogistic&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c50&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;r&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;1.&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;/(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;exp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c50&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))));&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
@@ -1921,9 +2218,9 @@ States are ranked by their &lt;a href=&quot;https://www.fas.org/sgp/crs/misc/R42
  
  <entry>
    <title>National labs for all the sciences</title>
-   <link href="http://www.chris-said.io/2012/05/29/national-labs-for-all-the-sciences/"/>
+   <link href="http://localhost:4000/2012/05/29/national-labs-for-all-the-sciences/"/>
    <updated>2012-05-29T08:26:00-07:00</updated>
-   <id>http://www.chris-said.io/2012/05/29/national-labs-for-all-the-sciences</id>
+   <id>http://localhost:4000/2012/05/29/national-labs-for-all-the-sciences</id>
    <content type="html">&lt;p&gt;Harvard, MIT, Stanford, and several other elite universities have all recently &lt;a href=&quot;http://www.nytimes.com/2012/05/03/education/harvard-and-mit-team-up-to-offer-free-online-courses.html&quot;&gt;announced&lt;/a&gt; that they will be be offering free online courses. The courses will be massively open, taught by star professors, and supplemented with video lessons, embedded testing, and realtime feedback. This is surely good news for students who might not be able to access these resources otherwise, and it is an overall positive development for education. But what are the implications for scientists who conduct research in universities? And how will these developments affect the progress of scientific research?&lt;/p&gt;
 
 &lt;figure class=&quot;image&quot;&gt;&lt;img src=&quot;/assets/youregonnahaveabadtime.png&quot; alt=&quot;&quot; /&gt;&lt;/figure&gt;
@@ -1939,16 +2236,16 @@ States are ranked by their &lt;a href=&quot;https://www.fas.org/sgp/crs/misc/R42
  
  <entry>
    <title>FAQ</title>
-   <link href="http://www.chris-said.io/2012/04/18/faq/"/>
+   <link href="http://localhost:4000/2012/04/18/faq/"/>
    <updated>2012-04-18T10:29:46-07:00</updated>
-   <id>http://www.chris-said.io/2012/04/18/faq</id>
+   <id>http://localhost:4000/2012/04/18/faq</id>
    <content type="html">&lt;p&gt;&lt;em&gt;This is a continuously updated list of responses to questions I get about the &lt;a href=&quot;/2012/04/17/its-the-incentives-structure-people-why-science-reform-must-come-from-the-granting-agencies/&quot;&gt;main post&lt;/a&gt; and &lt;a href=&quot;/2013/01/16/8-lessons-from-the-reproducibility-crisis/&quot;&gt;Top 8 List&lt;/a&gt;, which should be read first.&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Q:&lt;/strong&gt; To solve the replication crisis, scientists need to do X.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;A:&lt;/strong&gt; There’s a good chance ‘X’ is a &lt;a href=&quot;http://en.wikipedia.org/wiki/Collective_action%23Collective_action_problem&quot;&gt;collective action problem&lt;/a&gt;. If all scientists did it, the field as a whole would benefit. But if a single scientist did it alone, he or she would not benefit. These problems can only be fixed if an outside force (e.g. the NIH) adjusts the incentives so that individuals would benefit from doing the action alone.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Q:&lt;/strong&gt; I think journals need to do X.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Q:&lt;/strong&gt; Journals need to do X.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;A:&lt;/strong&gt; Again, this is probably a collective action problem. See the response above. The NIH can’t tell journals what to do, but it can reward scientists who submit to good-practice journals. This will encourage other journals to change their behavior.&lt;/p&gt;
 
@@ -1980,9 +2277,9 @@ States are ranked by their &lt;a href=&quot;https://www.fas.org/sgp/crs/misc/R42
  
  <entry>
    <title>It’s the incentive structure, people! Why science reform must come from the granting agencies.</title>
-   <link href="http://www.chris-said.io/2012/04/17/its-the-incentives-structure-people-why-science-reform-must-come-from-the-granting-agencies/"/>
+   <link href="http://localhost:4000/2012/04/17/its-the-incentives-structure-people-why-science-reform-must-come-from-the-granting-agencies/"/>
    <updated>2012-04-17T13:35:49-07:00</updated>
-   <id>http://www.chris-said.io/2012/04/17/its-the-incentives-structure-people-why-science-reform-must-come-from-the-granting-agencies</id>
+   <id>http://localhost:4000/2012/04/17/its-the-incentives-structure-people-why-science-reform-must-come-from-the-granting-agencies</id>
    <content type="html">&lt;p&gt;Another day, another &lt;em&gt;New York Times&lt;/em&gt; &lt;a href=&quot;http://www.nytimes.com/2012/04/17/science/rise-in-scientific-journal-retractions-prompts-calls-for-reform.html?pagewanted=1&amp;amp;_r=2&quot;&gt;report&lt;/a&gt; on bad practice in biomedical science. The growing problems with scientific research are by now well known: Many results in the top journals are cherry picked, methodological weaknesses and other important caveats are often swept under the rug, and a large fraction of findings cannot be replicated. In some rare cases, there is even outright fraud. This waste of resources is unfair to the general public that pays for most of the research.&lt;/p&gt;
 
 &lt;p&gt;The &lt;em&gt;Times&lt;/em&gt; article places the blame for this trend on the sharp competition for grant money and on the increasing pressure to publish in high impact journals. While both of these factors certainly play contributing roles, the &lt;em&gt;Times&lt;/em&gt; article misses the root cause of the problem. The cause is not simply that the competition is too steep. The cause is that the competition is shaped to point scientists in the wrong direction.&lt;/p&gt;
