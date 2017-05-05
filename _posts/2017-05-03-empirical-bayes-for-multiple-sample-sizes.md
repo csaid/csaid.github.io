@@ -242,7 +242,7 @@ $$ \hat{\theta_i} = \frac{\frac{x_i n_i}{\epsilon^{2}_i} + \frac{\mu}{\tau^{2}}}
 
 If we multiply all terms in the numerator and denominator by $ \frac{\tau^2 \epsilon^{2}_i}{n_i} $, we get:
 
-$$ \hat{\theta_i} = \frac{\tau^2 x_i + \mu \sigma^{2}_i}{\sigma^{2}_i + \tau^2} $$
+$$ \hat{\theta_i} = \frac{\tau^2 x_i + \sigma^{2}_i \mu}{\sigma^{2}_i + \tau^2} $$
 
 Or equivalently,
 
