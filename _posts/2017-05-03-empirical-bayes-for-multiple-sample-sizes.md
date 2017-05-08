@@ -139,22 +139,22 @@ This seems very sensible. We want something that is in between the sample mean (
 
 Let's start by defining $ \sigma^{2}_i $, the true variance of a group's mean. This is equivalent to $ \epsilon^{2}_i / n_i $, where $ \epsilon^{2}_i $ is the true variance of the observations within that group, and $ n_i $ is the sample size of the group. According to the original James-Stein approach, if we assume that all the group means have the same known variance $ \hat{\sigma^2} $, which would usually only happen if the groups all had the same sample size, then we can define a common $ \hat{B} $ for all groups as:
 
-$$ \hat{B} = \frac{\left(k-3\right)\hat{\sigma^2}}{\sum{\left(x_i - \overline{X}\right)}} $$
+$$ \hat{B} = \frac{\left(k-3\right)\hat{\sigma^2}}{\sum{(x_i - \overline{X})^2}} $$
 
 This formula seems really weird and arbitrary, but it begins to make more sense if we rearrange it a bit and sweep that pesky $ \left(k-3\right) $ under the rug and replace it with a $ (k-1) $. Sorry hardliners!
 
 $$
 \begin{eqnarray} 
-\hat{B} &\approx& \frac{\left(k-1\right)\hat{\sigma^2}}{\sum{\left(x_i - \overline{X}\right)}}\\
+\hat{B} &\approx& \frac{\left(k-1\right)\hat{\sigma^2}}{\sum{(x_i - \overline{X})^2}}\\
   \\
-  &=& \frac{\hat{\sigma^2}}{\sum{\left(x_i - \overline{X}\right)}/\left(k-1\right)}  \\
+  &=& \frac{\hat{\sigma^2}}{\sum{(x_i - \overline{X})^2}/\left(k-1\right)}  \\
   \\
   &=& \frac{\hat{\sigma^2}}{\hat{\tau^{2}} + \hat{\sigma^2}}
 
 \end{eqnarray} 
 $$
 
-Before getting to why this makes sense, I should explain the last step above. The denominator $ \sum{\left(x_i - \overline{X}\right)}/\left(k-1\right) $ is the observed variance of the observed sample means. This variance comes from two sources: $ \tau^2 $ is the true variance in the true means and $ \sigma^2 $ is the true variance caused by the fact that each $ x_i $ is computed from a sample. Since variances add, the total variance of the observed means is $ \tau^{2} + \sigma^{2} $.
+Before getting to why this makes sense, I should explain the last step above. The denominator $ \sum{(x_i - \overline{X})^2}/\left(k-1\right) $ is the observed variance of the observed sample means. This variance comes from two sources: $ \tau^2 $ is the true variance in the true means and $ \sigma^2 $ is the true variance caused by the fact that each $ x_i $ is computed from a sample. Since variances add, the total variance of the observed means is $ \tau^{2} + \sigma^{2} $.
 
 Anyway, back to the result. This result is actually pretty neat. When we estimate a $ \theta_i $, the weight that we place on the global mean $ \overline{X} $ is the fraction of total variance in the means that is caused by within-group sampling variance. In other words, when the sample mean comes with high uncertainty, we should weight the global mean more. When the sample mean comes with low uncertainty, we should weight the global mean less. At least directionally, this formula makes sense. Later in this blog post, we'll see how it falls naturally out of Bayes Law.
 
