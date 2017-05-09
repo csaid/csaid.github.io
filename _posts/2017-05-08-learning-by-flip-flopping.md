@@ -3,7 +3,7 @@ layout: post
 title: Learning by flip-flopping
 ---
 
-I recently came across [Artir](https://nintil.com/)'s [Pyramid of Economic Insight and Virtue](https://nintil.com/2016/03/06/the-pyramid-of-economic-insight-and-virtue/). It's not actually a pyramid, but is instead a riff on the Expanding Brain meme.
+I recently came across [Artir](https://nintil.com/)'s [Pyramid of Economic Insight and Virtue](https://nintil.com/2016/03/06/the-pyramid-of-economic-insight-and-virtue/). It's not actually a pyramid, but is instead a riff on the Expanding Brain meme. Check it out:
 <div class='wrapper'>
 <div class='inner'>
 <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">The Pyramid of Economic Insight and Virtue, now in meme form. From <a href="https://t.co/AT148qXSbc">https://t.co/AT148qXSbc</a> <a href="https://t.co/odmXCcUxiV">pic.twitter.com/odmXCcUxiV</a></p>&mdash; Artir (@ArtirKel) <a href="https://twitter.com/ArtirKel/status/843886928135159819">March 20, 2017</a></blockquote>
@@ -35,7 +35,7 @@ Life lesson: When debating someone, don't make strong claims until you know what
 ) [studies](http://irle.berkeley.edu/files/2010/Minimum-Wage-Effects-Across-State-Borders.pdf).  
 
 ### How to deal with a recession
-This one is less related to Artir's Pyramid, but is still quite common. My understanding of macro is pretty weak -- it is mostly cobbled together from [parody rap videos](https://www.youtube.com/watch?v=GTQnarzmTOc) -- so I welcome any additional suggestions for further reading.
+This one is less related to Artir's Pyramid, but is still quite common. My knowledge of macro is pretty weak -- most of it was cobbled together from watching [parody rap battle videos](https://www.youtube.com/watch?v=GTQnarzmTOc) -- so I'm not totally sure how to adjudicate between some of these stages. I welcome any additional suggestions for further reading.
 <div class="wrapper">
   <img src='/assets/2017_learning_by_flip_flopping/fig_recessions.jpg' width="400" class="inner" style="position:relative">
 </div>
@@ -52,7 +52,7 @@ I'd like to keep this blog post as value-judgment free as possible, but I'll mak
 </div>
 
 ### The meaning of life
-[David Chapman](https://meaningness.com/metablog/stem-fluidity-bridge) writes about how STEM-trained people should think about meaning. Extending Robert Kegen's theory of human development, he believes that most STEM-trained people can find meaning in ideological rationalism (Stage 4) but, upon finding that rationality does not provide any meaning, they become in danger of falling into the Nihilism trap (Stage 4.5). Chapman claims that there is a Stage 5, sometimes called meta-rationality or nebulosity, in which meaning can once again be found. To be honest, I don't understand his writing on this at all, but I thought it provided another interesting example of learning by flip-flopping. You can read more about it on his [blog](https://meaningness.com/).
+[David Chapman](https://meaningness.com/metablog/stem-fluidity-bridge) writes about how STEM-trained people should think about meaning. Extending Robert Kegen's theory of human development, he believes that most STEM-trained people can find meaning in ideological rationalism (Stage 4) but, upon finding that rationality does not provide any meaning, they become in danger of falling into the Nihilism trap (Stage 4.5). Chapman claims that there is a Stage 5, sometimes called meta-rationality or nebulosity, in which meaning can once again be found. To be honest, I don't understand his writing on this at all, but I thought it provided another interesting example of learning by flip-flopping. You can read more about it on his [blog](https://meaningness.com/). He might be on to something.
 
 <div class="wrapper">
   <img src='/assets/2017_learning_by_flip_flopping/fig_meaning.png' width="400" class="inner" style="position:relative">
