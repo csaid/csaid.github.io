@@ -35,7 +35,7 @@ Life lesson: When debating someone, don't make strong claims until you know what
 ) [studies](http://irle.berkeley.edu/files/2010/Minimum-Wage-Effects-Across-State-Borders.pdf).  
 
 ### How to deal with a recession
-This one is less related to Artir's Pyramid, but is still quite common. My knowledge of macro is pretty weak -- most of it was cobbled together from watching [parody rap battle videos](https://www.youtube.com/watch?v=GTQnarzmTOc) -- so I'm not totally sure how to adjudicate between some of these stages. I welcome any additional suggestions for further reading.
+This one is less related to Artir's Pyramid, but is still quite common. My knowledge of macro is mostly cobbled together from [parody rap battle videos](https://www.youtube.com/watch?v=GTQnarzmTOc), so I'm not totally sure how to articulate some of the later stages. I welcome any additional suggestions for further reading.
 <div class="wrapper">
   <img src='/assets/2017_learning_by_flip_flopping/fig_recessions.jpg' width="400" class="inner" style="position:relative">
 </div>
