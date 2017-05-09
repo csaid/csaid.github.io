@@ -35,7 +35,7 @@ Life lesson: When debating someone, don't make strong claims until you know what
 ) [studies](http://irle.berkeley.edu/files/2010/Minimum-Wage-Effects-Across-State-Borders.pdf).  
 
 ### How to deal with a recession
-Recession flip-flopping is less related to Artir's Pyramid, but is still quite common. I may be bungling some of the later stages here, as my knowledge of macro is mostly cobbled together from [parody rap battle videos](https://www.youtube.com/watch?v=GTQnarzmTOc), so I welcome any additional suggestions for further reading.
+Recession flip-flopping is less related to Artir's Pyramid, but is still quite common. I may be bungling some of the later stages here, as my macro knowledge is mostly cobbled together from [parody rap videos](https://www.youtube.com/watch?v=GTQnarzmTOc), so I welcome any additional suggestions for further reading.
 <div class="wrapper">
   <img src='/assets/2017_learning_by_flip_flopping/fig_recessions.jpg' width="400" class="inner" style="position:relative">
 </div>
