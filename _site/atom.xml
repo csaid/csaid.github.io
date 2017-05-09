@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
  <title>The File Drawer</title>
- <link href="http://localhost:4000/atom.xml" rel="self"/>
- <link href="http://localhost:4000/"/>
- <updated>2017-05-09T08:20:59-07:00</updated>
- <id>http://localhost:4000</id>
+ <link href="http://www.chris-said.io/atom.xml" rel="self"/>
+ <link href="http://www.chris-said.io/"/>
+ <updated>2017-05-09T08:25:25-07:00</updated>
+ <id>http://www.chris-said.io</id>
  <author>
    <name>Chris Said</name>
    <email></email>
@@ -14,9 +14,9 @@
  
  <entry>
    <title>Learning by flip-flopping</title>
-   <link href="http://localhost:4000/2017/05/08/learning-by-flip-flopping/"/>
+   <link href="http://www.chris-said.io/2017/05/08/learning-by-flip-flopping/"/>
    <updated>2017-05-08T00:00:00-07:00</updated>
-   <id>http://localhost:4000/2017/05/08/learning-by-flip-flopping</id>
+   <id>http://www.chris-said.io/2017/05/08/learning-by-flip-flopping</id>
    <content type="html">&lt;p&gt;I recently came across &lt;a href=&quot;https://nintil.com/&quot;&gt;Artir&lt;/a&gt;’s &lt;a href=&quot;https://nintil.com/2016/03/06/the-pyramid-of-economic-insight-and-virtue/&quot;&gt;Pyramid of Economic Insight and Virtue&lt;/a&gt;. It’s not actually a pyramid, but is instead a riff on the Expanding Brain meme. Check it out:&lt;/p&gt;
 &lt;div class=&quot;wrapper&quot;&gt;
 &lt;div class=&quot;inner&quot;&gt;
@@ -77,9 +77,9 @@
  
  <entry>
    <title>Empirical Bayes for multiple sample sizes</title>
-   <link href="http://localhost:4000/2017/05/03/empirical-bayes-for-multiple-sample-sizes/"/>
+   <link href="http://www.chris-said.io/2017/05/03/empirical-bayes-for-multiple-sample-sizes/"/>
    <updated>2017-05-03T00:00:00-07:00</updated>
-   <id>http://localhost:4000/2017/05/03/empirical-bayes-for-multiple-sample-sizes</id>
+   <id>http://www.chris-said.io/2017/05/03/empirical-bayes-for-multiple-sample-sizes</id>
    <content type="html">&lt;p&gt;Here’s a data problem I encounter &lt;em&gt;all the time&lt;/em&gt;. Let’s say I’m running a website where users can submit movie ratings on a continuous 1-10 scale. For the sake of argument, let’s say that the users who rate each movie are an unbiased random sample from the population of users. I’d like to compute the average rating for each movie so that I can create a ranked list of the best movies.&lt;/p&gt;
 
 &lt;p&gt;Take a look at my data:&lt;/p&gt;
@@ -382,9 +382,9 @@ Implementations in Python and R are available &lt;a href=&quot;https://github.co
  
  <entry>
    <title>Optimizing things in the USSR</title>
-   <link href="http://localhost:4000/2016/05/11/optimizing-things-in-the-ussr/"/>
+   <link href="http://www.chris-said.io/2016/05/11/optimizing-things-in-the-ussr/"/>
    <updated>2016-05-11T00:00:00-07:00</updated>
-   <id>http://localhost:4000/2016/05/11/optimizing-things-in-the-ussr</id>
+   <id>http://www.chris-said.io/2016/05/11/optimizing-things-in-the-ussr</id>
    <content type="html">&lt;meta charset=&quot;utf-8&quot; /&gt;
 
 &lt;style&gt;
@@ -655,9 +655,9 @@ var path = sankey.link();
  
  <entry>
    <title>Comparing the opinions of economic experts and the general public</title>
-   <link href="http://localhost:4000/2016/04/10/comparing-the-opinions-of-economic-experts/"/>
+   <link href="http://www.chris-said.io/2016/04/10/comparing-the-opinions-of-economic-experts/"/>
    <updated>2016-04-10T00:00:00-07:00</updated>
-   <id>http://localhost:4000/2016/04/10/comparing-the-opinions-of-economic-experts</id>
+   <id>http://www.chris-said.io/2016/04/10/comparing-the-opinions-of-economic-experts</id>
    <content type="html">&lt;meta charset=&quot;utf-8&quot; /&gt;
 
 &lt;style&gt;
@@ -939,9 +939,9 @@ var tooltip = d3.select(&quot;#econ_scatter&quot;).append(&quot;div&quot;)
  
  <entry>
    <title>Four pitfalls of hill climbing</title>
-   <link href="http://localhost:4000/2016/02/28/four-pitfalls-of-hill-climbing/"/>
+   <link href="http://www.chris-said.io/2016/02/28/four-pitfalls-of-hill-climbing/"/>
    <updated>2016-02-28T00:00:00-08:00</updated>
-   <id>http://localhost:4000/2016/02/28/four-pitfalls-of-hill-climbing</id>
+   <id>http://www.chris-said.io/2016/02/28/four-pitfalls-of-hill-climbing</id>
    <content type="html">&lt;meta charset=&quot;utf-8&quot; /&gt;
 
 &lt;p&gt;One of the great developments in product design has been the adoption of A/B testing. Instead of just guessing what is best for your customers, you can offer a product variant to a subset of customers and measure how well it works. While undeniably useful, A/B testing is sometimes said to encourage too much “hill climbing”, an incremental and short-sighted style of product development that emphasizes easy and immediate wins.&lt;/p&gt;
@@ -1291,9 +1291,9 @@ makeObjectiveGraph(&quot;plot5&quot;, get_competitor_dot_x, objective5, &quot;Do
  
  <entry>
    <title>How to make polished Jupyter presentations with optional code visibility</title>
-   <link href="http://localhost:4000/2016/02/13/how-to-make-polished-jupyter-presentations-with-optional-code-visibility/"/>
+   <link href="http://www.chris-said.io/2016/02/13/how-to-make-polished-jupyter-presentations-with-optional-code-visibility/"/>
    <updated>2016-02-13T00:00:00-08:00</updated>
-   <id>http://localhost:4000/2016/02/13/how-to-make-polished-jupyter-presentations-with-optional-code-visibility</id>
+   <id>http://www.chris-said.io/2016/02/13/how-to-make-polished-jupyter-presentations-with-optional-code-visibility</id>
    <content type="html">&lt;p&gt;Jupyter notebooks are great because they allow you to easily present interactive figures. In addition, these notebooks include the figures and code in a single file, making it easy for others to reproduce your results. Sometimes though, you may want to present a cleaner report to an audience who may not care about the code. This blog post shows how to make code visibility optional, and how to remove various Jupyter elements to get a clean presentation.&lt;/p&gt;
 
 &lt;p&gt;On the top is a typical Jupyter presentation with code and some extra elements. Below that is a more polished version that removes some of the extra elements and makes code visibility optional with a button.&lt;/p&gt;
@@ -1383,9 +1383,9 @@ Created with Jupyter, delivered by Fastly, rendered by Rackspace.
  
  <entry>
    <title>The debate CNN wanted and the debate the candidates wanted</title>
-   <link href="http://localhost:4000/2015/09/17/presidential-debates/"/>
+   <link href="http://www.chris-said.io/2015/09/17/presidential-debates/"/>
    <updated>2015-09-17T00:00:00-07:00</updated>
-   <id>http://localhost:4000/2015/09/17/presidential-debates</id>
+   <id>http://www.chris-said.io/2015/09/17/presidential-debates</id>
    <content type="html">&lt;p&gt;In last night’s Republican presidential debate, the CNN moderators tried very hard to pit individual candidates against each other. Pretty much every question was along the lines of: “Candidate A, what do you think about Candidate B’s attacks on you?”&lt;/p&gt;
 
 &lt;p&gt;While CNN wanted to generate controversy, the disputes it tried to initiate were not necessarily the disputes that the candidates strategically wanted to have. To get a better sense for this, I tallied up two things:&lt;/p&gt;
@@ -1682,9 +1682,9 @@ makeGraph(challenge_links, challenge_nodes, &quot;debate_graph2&quot;, &quot;Rea
  
  <entry>
    <title>New Blog Address</title>
-   <link href="http://localhost:4000/2015/09/16/new-blog-address/"/>
+   <link href="http://www.chris-said.io/2015/09/16/new-blog-address/"/>
    <updated>2015-09-16T00:00:00-07:00</updated>
-   <id>http://localhost:4000/2015/09/16/new-blog-address</id>
+   <id>http://www.chris-said.io/2015/09/16/new-blog-address</id>
    <content type="html">&lt;p&gt;Welcome to the new location for The File Drawer! This blog is now hosted on &lt;a href=&quot;https://pages.github.com/&quot;&gt;Github Pages&lt;/a&gt; and powered by &lt;a href=&quot;https://jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt;. My old blog at &lt;a href=&quot;http://filedrawer.wordpress.com&quot;&gt;filedrawer.wordpress.com&lt;/a&gt; will be shutting down soon.&lt;/p&gt;
 
 &lt;p&gt;I actually really liked WordPress, but I wanted to have a little bit more control over what I can put in my posts. In particular, I wanted to be able to insert my own JavaScript animations, for example in &lt;a href=&quot;http://chris-said.io/2015/09/17/presidential-debates/&quot;&gt;this post&lt;/a&gt; on the recent presidential debates.&lt;/p&gt;
@@ -1697,9 +1697,9 @@ makeGraph(challenge_links, challenge_nodes, &quot;debate_graph2&quot;, &quot;Rea
  
  <entry>
    <title>10 classic dialogues you can find on the internet</title>
-   <link href="http://localhost:4000/2015/08/08/10-classic-dialogues/"/>
+   <link href="http://www.chris-said.io/2015/08/08/10-classic-dialogues/"/>
    <updated>2015-08-08T15:52:24-07:00</updated>
-   <id>http://localhost:4000/2015/08/08/10-classic-dialogues</id>
+   <id>http://www.chris-said.io/2015/08/08/10-classic-dialogues</id>
    <content type="html">&lt;p&gt;Some videos on the internet are so good that I’ve watched them twice. Below is a list of 10 of my favorite interviews and dialogues. Obviously this isn’t an endorsement of all the positions taken. I just think they are very well done and fun to watch. The last four are best watched on 1.4x speed.&lt;/p&gt;
 
 &lt;ol&gt;
@@ -1741,9 +1741,9 @@ makeGraph(challenge_links, challenge_nodes, &quot;debate_graph2&quot;, &quot;Rea
  
  <entry>
    <title>Across industries, we’re getting better at picking metrics</title>
-   <link href="http://localhost:4000/2015/05/31/were-getting-better-at-picking-metrics-to-optimize/"/>
+   <link href="http://www.chris-said.io/2015/05/31/were-getting-better-at-picking-metrics-to-optimize/"/>
    <updated>2015-05-31T12:21:07-07:00</updated>
-   <id>http://localhost:4000/2015/05/31/were-getting-better-at-picking-metrics-to-optimize</id>
+   <id>http://www.chris-said.io/2015/05/31/were-getting-better-at-picking-metrics-to-optimize</id>
    <content type="html">&lt;p&gt;Everywhere you look, people are optimizing bad metrics. Sometimes people optimize metrics that aren’t in their self interest, like when startups focus entirely on signup counts while forgetting about retention rates. In other cases, people optimize metrics that serve their immediate short term interest but which are bad for social welfare, like when California corrections officers &lt;a href=&quot;http://mic.com/articles/41531/union-of-the-snake-how-california-s-prison-guards-subvert-democracy&quot;&gt;lobby for longer prison sentences&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;The good news is that as we become a more data-driven society, there seems to be a broad trend — albeit a very slow one — towards better metrics. Take the media economy, for example. A few years ago, media companies optimized for clicks, and companies like Upworthy thrived by producing low quality content with clickbaity headlines. But now, thanks to a more sustainable &lt;a href=&quot;https://stratechery.com/2015/buzzfeed-important-news-organization-world/&quot;&gt;business model&lt;/a&gt;, companies like Buzzfeed are &lt;a href=&quot;http://www.buzzfeed.com/bensmith/why-buzzfeed-doesnt-do-clickbait&quot;&gt;optimizing for shares rather than clicks&lt;/a&gt;. It’s not perfect, but overall it’s better for consumers.&lt;/p&gt;
@@ -1758,9 +1758,9 @@ makeGraph(challenge_links, challenge_nodes, &quot;debate_graph2&quot;, &quot;Rea
  
  <entry>
    <title>Independent t-tests and the 83% confidence interval: A useful trick for eyeballing your data.</title>
-   <link href="http://localhost:4000/2014/11/30/independent-t-tests-and-the-83-confidence-interval-a-useful-trick-for-eyeballing-your-data/"/>
+   <link href="http://www.chris-said.io/2014/11/30/independent-t-tests-and-the-83-confidence-interval-a-useful-trick-for-eyeballing-your-data/"/>
    <updated>2014-11-30T19:47:37-08:00</updated>
-   <id>http://localhost:4000/2014/11/30/independent-t-tests-and-the-83-confidence-interval-a-useful-trick-for-eyeballing-your-data</id>
+   <id>http://www.chris-said.io/2014/11/30/independent-t-tests-and-the-83-confidence-interval-a-useful-trick-for-eyeballing-your-data</id>
    <content type="html">&lt;p&gt;Like most people who have analyzed data using frequentist statistics, I have often found myself staring at error bars and trying to guess whether my results are significant. When comparing two independent sample means, this practice is confusing and difficult. The conventions that we use for testing differences between sample means are not aligned with the conventions we use for plotting error bars. As a result, it’s fair to say that there’s a lot of confusion about this issue.&lt;/p&gt;
 
 &lt;p&gt;Some people believe that two independent samples have significantly different means if and only if their standard error bars (68% confidence intervals for large samples) don’t overlap. This belief is incorrect. Two samples can have nonoverlapping standard error bars and still fail to reach statistical significance at &lt;script type=&quot;math/tex&quot;&gt;\alpha=.05&lt;/script&gt;. Other people believe that two means are significantly different if and only if their 95% confidence intervals overlap. This belief is also incorrect. For one sample t-tests, it is true that significance is reached when the 95% confidence interval crosses the test parameter &lt;script type=&quot;math/tex&quot;&gt;\mu_0&lt;/script&gt;. But for two-sample t-tests, which are more common in research, statistical significance can occur with overlapping 95% confidence intervals.&lt;/p&gt;
@@ -1807,9 +1807,9 @@ t = \frac{\overline{X_1} - \overline{X_2}}{\sqrt{se_1^2 + se_2^2}}
  
  <entry>
    <title>Jumping quickly between deep directories</title>
-   <link href="http://localhost:4000/2014/10/16/jumping-quickly-between-deep-directories/"/>
+   <link href="http://www.chris-said.io/2014/10/16/jumping-quickly-between-deep-directories/"/>
    <updated>2014-10-16T14:11:00-07:00</updated>
-   <id>http://localhost:4000/2014/10/16/jumping-quickly-between-deep-directories</id>
+   <id>http://www.chris-said.io/2014/10/16/jumping-quickly-between-deep-directories</id>
    <content type="html">&lt;p&gt;I often need to jump between different directories with very deep paths, like this:&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;some/very/deep/directory/project1
@@ -1867,9 +1867,9 @@ t = \frac{\overline{X_1} - \overline{X_2}}{\sqrt{se_1^2 + se_2^2}}
  
  <entry>
    <title>How failed replications change our effect size estimates</title>
-   <link href="http://localhost:4000/2014/07/10/how-failed-replications-change-our-effect-size-estimates/"/>
+   <link href="http://www.chris-said.io/2014/07/10/how-failed-replications-change-our-effect-size-estimates/"/>
    <updated>2014-07-10T12:10:32-07:00</updated>
-   <id>http://localhost:4000/2014/07/10/how-failed-replications-change-our-effect-size-estimates</id>
+   <id>http://www.chris-said.io/2014/07/10/how-failed-replications-change-our-effect-size-estimates</id>
    <content type="html">&lt;p&gt;Yesterday I posted a very unscientific &lt;a href=&quot;https://www.surveymonkey.com/s/H7NM96W&quot;&gt;survey&lt;/a&gt; asking researchers to describe how failed replications changed their subjective estimates of effect sizes. The main survey asked for “ballpark estimates” of effect sizes, but an &lt;a href=&quot;http://csaid.shinyapps.io/survey/&quot;&gt;alternative interactive version&lt;/a&gt; allowed researchers to also report their uncertainty by specifying both the mean and variance of their posterior distributions. Thanks to everyone who participated. I won’t be analyzing any new data after this, but it’s never too late to publicly share your estimates!&lt;/p&gt;
 
 &lt;p&gt;Here are the questions. &lt;/p&gt;
@@ -1914,9 +1914,9 @@ t = \frac{\overline{X_1} - \overline{X_2}}{\sqrt{se_1^2 + se_2^2}}
  
  <entry>
    <title>Jason Mitchell's essay</title>
-   <link href="http://localhost:4000/2014/07/07/jason-mitchells-essay/"/>
+   <link href="http://www.chris-said.io/2014/07/07/jason-mitchells-essay/"/>
    <updated>2014-07-07T11:16:51-07:00</updated>
-   <id>http://localhost:4000/2014/07/07/jason-mitchells-essay</id>
+   <id>http://www.chris-said.io/2014/07/07/jason-mitchells-essay</id>
    <content type="html">&lt;p&gt;As of yesterday I thought the debate about replication in psychology was converging on consensus in at least one respect. While there was still some disagreement about tone, &lt;a href=&quot;http://www.spspblog.org/simone-schnall-on-her-experience-with-a-registered-replication-project/&quot;&gt;basically&lt;/a&gt; &lt;a href=&quot;http://www.talyarkoni.org/blog/2013/03/12/the-truth-is-not-optional-five-bad-reasons-and-one-mediocre-one-for-defending-the-status-quo/&quot;&gt;everyone&lt;/a&gt; agreed that there was value in failed replications. But then this morning, Jason Mitchell posted &lt;a href=&quot;http://wjh.harvard.edu/~jmitchel/writing/failed_science.htm&quot;&gt;this essay&lt;/a&gt;, in which he describes his belief that failed replication attempts can contain errors and therefore “cannot contribute to a cumulative understanding of scientific phenomena”. It’s hard to know where to begin when someone comes from a worldview so different from one’s own. Since there’s clearly a communication problem here, I’ll just give two examples to illustrate how I think about science.&lt;/p&gt;
 
 &lt;ul&gt;
@@ -1936,9 +1936,9 @@ t = \frac{\overline{X_1} - \overline{X_2}}{\sqrt{se_1^2 + se_2^2}}
  
  <entry>
    <title>How I use Twitter</title>
-   <link href="http://localhost:4000/2014/05/14/how-i-use-twitter/"/>
+   <link href="http://www.chris-said.io/2014/05/14/how-i-use-twitter/"/>
    <updated>2014-05-14T07:31:13-07:00</updated>
-   <id>http://localhost:4000/2014/05/14/how-i-use-twitter</id>
+   <id>http://www.chris-said.io/2014/05/14/how-i-use-twitter</id>
    <content type="html">&lt;p&gt;Next week I’m going to start a new job as a data scientist at Twitter and I am thrilled. Aside from Google search, no other website has had a more positive impact on my life than Twitter. Twitter is just so much fun, and I have learned so much from it. &lt;/p&gt;
 
 &lt;p&gt;Because my experience has been so good, it saddens me to hear that some people don’t really “get” Twitter. Some people who try it feel frustrated and stop using it. Others use it occasionally but don’t really see what all the fuss is about.&lt;/p&gt;
@@ -1966,9 +1966,9 @@ t = \frac{\overline{X_1} - \overline{X_2}}{\sqrt{se_1^2 + se_2^2}}
  
  <entry>
    <title>High School STEM curriculum wishlist</title>
-   <link href="http://localhost:4000/2014/02/22/high-school-stem-curriculum-wishlist/"/>
+   <link href="http://www.chris-said.io/2014/02/22/high-school-stem-curriculum-wishlist/"/>
    <updated>2014-02-22T14:38:59-08:00</updated>
-   <id>http://localhost:4000/2014/02/22/high-school-stem-curriculum-wishlist</id>
+   <id>http://www.chris-said.io/2014/02/22/high-school-stem-curriculum-wishlist</id>
    <content type="html">&lt;p&gt;If I had a chance to remake the high school STEM curriculum to reflect the skills that are actually needed in today’s world, my changes might look something like this:&lt;/p&gt;
 
 &lt;figure class=&quot;image&quot;&gt;&lt;img src=&quot;/assets/screen-shot-2014-02-23-at-8-36-37-am.png&quot; alt=&quot;&quot; /&gt;&lt;/figure&gt;
@@ -1978,9 +1978,9 @@ t = \frac{\overline{X_1} - \overline{X_2}}{\sqrt{se_1^2 + se_2^2}}
  
  <entry>
    <title>Is your job in another state?</title>
-   <link href="http://localhost:4000/2014/02/08/is-your-job-in-another-state/"/>
+   <link href="http://www.chris-said.io/2014/02/08/is-your-job-in-another-state/"/>
    <updated>2014-02-08T14:49:08-08:00</updated>
-   <id>http://localhost:4000/2014/02/08/is-your-job-in-another-state</id>
+   <id>http://www.chris-said.io/2014/02/08/is-your-job-in-another-state</id>
    <content type="html">&lt;p&gt;National unemployment is high, but business is booming in some states. Vermont needs teachers. Nevada needs bartenders. North Dakota needs truck drivers and just about everything else.&lt;/p&gt;
 
 &lt;p&gt;Despite these opportunities, Americans &lt;a href=&quot;http://www.washingtonmonthly.com/magazine/november_december_2013/features/stay_put_young_man047332.php?page=all&quot;&gt;aren’t moving much&lt;/a&gt; and unemployment remains high.  One reason for this is that moving can be expensive and disruptive, especially for those with families and roots in their communities. But another reason may just be lack of awareness about the opportunities in other states. That’s why I have made a new website: &lt;a href=&quot;http://www.ismyjobinanotherstate.com&quot;&gt;www.ismyjobinanotherstate.com&lt;/a&gt;. Enter your job skills, and the website will provide an interactive map showing where you are most in demand.&lt;/p&gt;
@@ -1995,9 +1995,9 @@ States are ranked by their &lt;a href=&quot;https://www.fas.org/sgp/crs/misc/R42
  
  <entry>
    <title>My Insight Data Science Project</title>
-   <link href="http://localhost:4000/2013/10/12/my-insight-data-science-project/"/>
+   <link href="http://www.chris-said.io/2013/10/12/my-insight-data-science-project/"/>
    <updated>2013-10-12T13:59:14-07:00</updated>
-   <id>http://localhost:4000/2013/10/12/my-insight-data-science-project</id>
+   <id>http://www.chris-said.io/2013/10/12/my-insight-data-science-project</id>
    <content type="html">&lt;p&gt;I just finished an excellent fellowship at &lt;a href=&quot;http://insightdatascience.com/&quot;&gt;Insight Data Science&lt;/a&gt;. During our first few weeks there, each of us designed a website to demo at Insight’s sponsor companies. My website is called &lt;a href=&quot;http://www.dealspotter.info&quot;&gt;DealSpotter&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;This all started earlier this summer when I went to Craigslist to find a used car. There were lots of good deals on Craigslist, but it took way too long to find them. When I searched for a particular model, I got hundreds of hits, but only a few of the hits included the mileage in the posting title. Since I needed the mileage to know whether I was getting a good deal, I had to click on each of the hundreds of listings. Pretty time consuming.&lt;/p&gt;
@@ -2022,9 +2022,9 @@ States are ranked by their &lt;a href=&quot;https://www.fas.org/sgp/crs/misc/R42
  
  <entry>
    <title>FAQ for Which Famous Economist</title>
-   <link href="http://localhost:4000/2013/08/19/which-famous-economist/"/>
+   <link href="http://www.chris-said.io/2013/08/19/which-famous-economist/"/>
    <updated>2013-08-19T11:44:46-07:00</updated>
-   <id>http://localhost:4000/2013/08/19/which-famous-economist</id>
+   <id>http://www.chris-said.io/2013/08/19/which-famous-economist</id>
    <content type="html">&lt;p&gt;&lt;strong&gt;[Continuously updated. Last update December 14th, 2015]&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;I made a new webpage: &lt;a href=&quot;http://www.whichfamouseconomistareyoumostsimilarto.com/&quot;&gt;http://www.whichfamouseconomistareyoumostsimilarto.com&lt;/a&gt;&lt;/p&gt;
@@ -2073,9 +2073,9 @@ States are ranked by their &lt;a href=&quot;https://www.fas.org/sgp/crs/misc/R42
  
  <entry>
    <title>New model of binocular rivalry</title>
-   <link href="http://localhost:4000/2013/03/30/new-model-of-binocular-rivalry/"/>
+   <link href="http://www.chris-said.io/2013/03/30/new-model-of-binocular-rivalry/"/>
    <updated>2013-03-30T08:23:03-07:00</updated>
-   <id>http://localhost:4000/2013/03/30/new-model-of-binocular-rivalry</id>
+   <id>http://www.chris-said.io/2013/03/30/new-model-of-binocular-rivalry</id>
    <content type="html">&lt;p&gt;Binocular rivalry is a visual illusion that occurs when the two eyes are presented with incompatible images. Instead of perceiving a mixture of the two images, most people experience alternations in which only one image is visible at a time. Binocular rivalry works best under controlled laboratory conditions with prisms or mirrors, but if you are lucky you might be able to experience it in the figure below. Try crossing your eyes to align the left boxes and right boxes, so that three boxes are observed rather than two. If you can keep your eyes stable, you might perceive alternations between the two different gratings in the middle box. It helps if you first try to merge the “Merge me!” phrase and then, once that it is stable, focus on the middle box. If you can’t stabilize your eyes enough, don’t worry. You are not alone.&lt;/p&gt;
 
 &lt;p&gt;.&lt;/p&gt;
@@ -2102,9 +2102,9 @@ States are ranked by their &lt;a href=&quot;https://www.fas.org/sgp/crs/misc/R42
  
  <entry>
    <title>Canadian funding models for all</title>
-   <link href="http://localhost:4000/2013/03/21/165/"/>
+   <link href="http://www.chris-said.io/2013/03/21/165/"/>
    <updated>2013-03-21T06:08:46-07:00</updated>
-   <id>http://localhost:4000/2013/03/21/165</id>
+   <id>http://www.chris-said.io/2013/03/21/165</id>
    <content type="html">&lt;p&gt;The US and Canada have very different systems for funding science. To compare them, I found some of the publicly available data on &lt;a href=&quot;http://report.nih.gov/success_rates/Success_ByIC.cfm&quot;&gt;NIH R01s&lt;/a&gt; (USA) and &lt;a href=&quot;http://www.nserc-crsng.gc.ca/_doc/Funding-Financement/DGStat2012-SDStat2012_eng.pdf&quot;&gt;NSERC Individual Discovery Grants&lt;/a&gt; (Canada), and plotted them below. Before describing the results, I should say that comparing NIH to NSERC is a bit like comparing apples to oranges, since NSERC is probably closer to the NSF than to the NIH. Nevertheless, the cross-country trends hold up across agencies, and in any case my goal is not to compare countries (as much as I would like to) but to compare funding models.&lt;/p&gt;
 
 &lt;figure class=&quot;image&quot;&gt;&lt;img src=&quot;/assets/fig2.png&quot; alt=&quot;&quot; /&gt;&lt;/figure&gt;
@@ -2117,9 +2117,9 @@ States are ranked by their &lt;a href=&quot;https://www.fas.org/sgp/crs/misc/R42
  
  <entry>
    <title>Eight Lessons from the Reproducibility Crisis </title>
-   <link href="http://localhost:4000/2013/01/15/8-lessons-from-the-reproducibility-crisis/"/>
+   <link href="http://www.chris-said.io/2013/01/15/8-lessons-from-the-reproducibility-crisis/"/>
    <updated>2013-01-15T16:04:46-08:00</updated>
-   <id>http://localhost:4000/2013/01/15/8-lessons-from-the-reproducibility-crisis</id>
+   <id>http://www.chris-said.io/2013/01/15/8-lessons-from-the-reproducibility-crisis</id>
    <content type="html">&lt;ol&gt;
   &lt;li&gt;
     &lt;p&gt;There is a reproducibility crisis in psychology.&lt;/p&gt;
@@ -2154,9 +2154,9 @@ States are ranked by their &lt;a href=&quot;https://www.fas.org/sgp/crs/misc/R42
  
  <entry>
    <title>In defense of correlation/causation blowhards</title>
-   <link href="http://localhost:4000/2013/01/09/in-defense-of-correlationcausation-blowhards/"/>
+   <link href="http://www.chris-said.io/2013/01/09/in-defense-of-correlationcausation-blowhards/"/>
    <updated>2013-01-09T07:19:10-08:00</updated>
-   <id>http://localhost:4000/2013/01/09/in-defense-of-correlationcausation-blowhards</id>
+   <id>http://www.chris-said.io/2013/01/09/in-defense-of-correlationcausation-blowhards</id>
    <content type="html">&lt;p&gt;Let’s get one thing out of the way first: There is not a single scientist or science journalist who doesn’t know that correlation does not equal causation. Most have probably known it since high school.&lt;/p&gt;
 
 &lt;p&gt;That’s why there has been a bit of a backlash against internet commenters who keep pointing it out. The phrase is “common and irritating”, writes Slate’s Daniel Engber in his article &lt;a href=&quot;http://www.slate.com/articles/health_and_science/science/2012/10/correlation_does_not_imply_causation_how_the_internet_fell_in_love_with_a_stats_class_clich_.single.html&quot;&gt;The Internet Blowhard’s Favorite Phrase&lt;/a&gt;. To Engber, correlation≠causation is a “freshman platitude” that professional scientists and journalists don’t need to be reminded of. Scientists are merely &lt;em&gt;suggesting&lt;/em&gt; a causal relationship. They are not claiming it is proven.&lt;/p&gt;
@@ -2173,9 +2173,9 @@ States are ranked by their &lt;a href=&quot;https://www.fas.org/sgp/crs/misc/R42
  
  <entry>
    <title>New paper on autism</title>
-   <link href="http://localhost:4000/2012/12/29/new-paper-on-autism/"/>
+   <link href="http://www.chris-said.io/2012/12/29/new-paper-on-autism/"/>
    <updated>2012-12-29T14:20:55-08:00</updated>
-   <id>http://localhost:4000/2012/12/29/new-paper-on-autism</id>
+   <id>http://www.chris-said.io/2012/12/29/new-paper-on-autism</id>
    <content type="html">&lt;p&gt;If there is one thing I have learned recently, it is that autism is a really, really complicated disorder. Autism is best known for causing repetitive behaviors and problems with social communication, but it is also known to cause issues in sensory perception. Many hypotheses for the underlying neurophysiological basis have been proposed. Among these is the excitation/inhibition (E/I) imbalance hypothesis, which states that levels of cortical excitation and inhibition are disrupted in autism. An imbalance like this could be caused by unusual levels of certain neurotransmitters, such as glutamate and GABA, or by an unusual distribution of synaptic connections. Together with my collaborators (David Heeger, Marlene Behrmann, Nancy Minshew, and Ryan Egan), we tested this theory and report the results in a new &lt;a href=&quot;http://dx.doi.org/10.1016/j.visres.2012.11.002&quot;&gt;paper&lt;/a&gt; published in &lt;em&gt;Vision Research&lt;/em&gt;.&lt;/p&gt;
 
 &lt;figure class=&quot;image&quot;&gt;&lt;img src=&quot;/assets/network1.png&quot; alt=&quot;&quot; /&gt;&lt;/figure&gt;
@@ -2188,9 +2188,9 @@ States are ranked by their &lt;a href=&quot;https://www.fas.org/sgp/crs/misc/R42
  
  <entry>
    <title>Why are contrast response functions linear in fMRI and nonmonotonic in EEG?</title>
-   <link href="http://localhost:4000/2012/10/04/why-are-contrast-response-functions-linear-in-fmri-and-nonmonotonic-in-eeg/"/>
+   <link href="http://www.chris-said.io/2012/10/04/why-are-contrast-response-functions-linear-in-fmri-and-nonmonotonic-in-eeg/"/>
    <updated>2012-10-04T08:43:41-07:00</updated>
-   <id>http://localhost:4000/2012/10/04/why-are-contrast-response-functions-linear-in-fmri-and-nonmonotonic-in-eeg</id>
+   <id>http://www.chris-said.io/2012/10/04/why-are-contrast-response-functions-linear-in-fmri-and-nonmonotonic-in-eeg</id>
    <content type="html">&lt;p&gt;Contrast response functions (CRFs) describe how a neuron’s firing rate depends on the contrast, or intensity, of a visual stimulus. CRFs are really important for testing theories about how the visual system works, and I’ve spent a lot of time over the past few years trying to indirectly measure them in humans, using EEG and fMRI. The problem, however, is that EEG and fMRI give me very different CRFs.&lt;/p&gt;
 
 &lt;p&gt;Typically, individual neurons show sigmoidal CRFs. They don’t fire at all for very low contrasts, but they rapidly increase their firing rate at a middle range of contrast. The midpoint of this range is sometimes called the ‘semisaturation constant’. After that, the firing rate tends to level off, or ‘saturate’.&lt;/p&gt;
@@ -2281,9 +2281,9 @@ States are ranked by their &lt;a href=&quot;https://www.fas.org/sgp/crs/misc/R42
  
  <entry>
    <title>National labs for all the sciences</title>
-   <link href="http://localhost:4000/2012/05/29/national-labs-for-all-the-sciences/"/>
+   <link href="http://www.chris-said.io/2012/05/29/national-labs-for-all-the-sciences/"/>
    <updated>2012-05-29T08:26:00-07:00</updated>
-   <id>http://localhost:4000/2012/05/29/national-labs-for-all-the-sciences</id>
+   <id>http://www.chris-said.io/2012/05/29/national-labs-for-all-the-sciences</id>
    <content type="html">&lt;p&gt;Harvard, MIT, Stanford, and several other elite universities have all recently &lt;a href=&quot;http://www.nytimes.com/2012/05/03/education/harvard-and-mit-team-up-to-offer-free-online-courses.html&quot;&gt;announced&lt;/a&gt; that they will be be offering free online courses. The courses will be massively open, taught by star professors, and supplemented with video lessons, embedded testing, and realtime feedback. This is surely good news for students who might not be able to access these resources otherwise, and it is an overall positive development for education. But what are the implications for scientists who conduct research in universities? And how will these developments affect the progress of scientific research?&lt;/p&gt;
 
 &lt;figure class=&quot;image&quot;&gt;&lt;img src=&quot;/assets/youregonnahaveabadtime.png&quot; alt=&quot;&quot; /&gt;&lt;/figure&gt;
@@ -2299,9 +2299,9 @@ States are ranked by their &lt;a href=&quot;https://www.fas.org/sgp/crs/misc/R42
  
  <entry>
    <title>FAQ</title>
-   <link href="http://localhost:4000/2012/04/18/faq/"/>
+   <link href="http://www.chris-said.io/2012/04/18/faq/"/>
    <updated>2012-04-18T10:29:46-07:00</updated>
-   <id>http://localhost:4000/2012/04/18/faq</id>
+   <id>http://www.chris-said.io/2012/04/18/faq</id>
    <content type="html">&lt;p&gt;&lt;em&gt;This is a continuously updated list of responses to questions I get about the &lt;a href=&quot;/2012/04/17/its-the-incentives-structure-people-why-science-reform-must-come-from-the-granting-agencies/&quot;&gt;main post&lt;/a&gt; and &lt;a href=&quot;/2013/01/16/8-lessons-from-the-reproducibility-crisis/&quot;&gt;Top 8 List&lt;/a&gt;, which should be read first.&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Q:&lt;/strong&gt; To solve the replication crisis, scientists need to do X.&lt;/p&gt;
@@ -2340,9 +2340,9 @@ States are ranked by their &lt;a href=&quot;https://www.fas.org/sgp/crs/misc/R42
  
  <entry>
    <title>It’s the incentive structure, people! Why science reform must come from the granting agencies.</title>
-   <link href="http://localhost:4000/2012/04/17/its-the-incentives-structure-people-why-science-reform-must-come-from-the-granting-agencies/"/>
+   <link href="http://www.chris-said.io/2012/04/17/its-the-incentives-structure-people-why-science-reform-must-come-from-the-granting-agencies/"/>
    <updated>2012-04-17T13:35:49-07:00</updated>
-   <id>http://localhost:4000/2012/04/17/its-the-incentives-structure-people-why-science-reform-must-come-from-the-granting-agencies</id>
+   <id>http://www.chris-said.io/2012/04/17/its-the-incentives-structure-people-why-science-reform-must-come-from-the-granting-agencies</id>
    <content type="html">&lt;p&gt;Another day, another &lt;em&gt;New York Times&lt;/em&gt; &lt;a href=&quot;http://www.nytimes.com/2012/04/17/science/rise-in-scientific-journal-retractions-prompts-calls-for-reform.html?pagewanted=1&amp;amp;_r=2&quot;&gt;report&lt;/a&gt; on bad practice in biomedical science. The growing problems with scientific research are by now well known: Many results in the top journals are cherry picked, methodological weaknesses and other important caveats are often swept under the rug, and a large fraction of findings cannot be replicated. In some rare cases, there is even outright fraud. This waste of resources is unfair to the general public that pays for most of the research.&lt;/p&gt;
 
 &lt;p&gt;The &lt;em&gt;Times&lt;/em&gt; article places the blame for this trend on the sharp competition for grant money and on the increasing pressure to publish in high impact journals. While both of these factors certainly play contributing roles, the &lt;em&gt;Times&lt;/em&gt; article misses the root cause of the problem. The cause is not simply that the competition is too steep. The cause is that the competition is shaped to point scientists in the wrong direction.&lt;/p&gt;
