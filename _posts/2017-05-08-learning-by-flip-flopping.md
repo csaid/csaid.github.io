@@ -29,7 +29,7 @@ I see this a lot. Memorably, I sometimes see a Stage 2 person talking to someone
 </div>
 Life lesson: When debating someone, don't make strong claims until you know what stage they are on.
 
-*Further reading*: [Card and Krueger](http://www.nber.org/papers/w4509
+*Further reading on the minimum wage*: [Card and Krueger](http://www.nber.org/papers/w4509
 ), [criticism](http://www.uvm.edu/~vlrs/doc/min_wage.htm
 ) of Card and Krueger's data, another [case](https://www.forbes.com/sites/timworstall/2015/08/01/why-the-card-and-krueger-paper-on-minimum-wages-rises-and-unemployment-is-wrong) against Card and Krueger, two [better](http://cepr.net/documents/publications/min-wage-2013-02.pdf
 ) [studies](http://irle.berkeley.edu/files/2010/Minimum-Wage-Effects-Across-State-Borders.pdf).  
@@ -40,7 +40,7 @@ This one is less related to Artir's Pyramid, but is still quite common. My knowl
   <img src='/assets/2017_learning_by_flip_flopping/fig_recessions.jpg' width="400" class="inner" style="position:relative">
 </div>
 
-*Further reading*: [The government is not a household](https://www.theguardian.com/money/us-money-blog/2013/mar/26/federal-budget-household-finances-fed
+*Further reading on recessions*: [The government is not a household](https://www.theguardian.com/money/us-money-blog/2013/mar/26/federal-budget-household-finances-fed
 ), [Keynesian economics](https://en.wikipedia.org/wiki/Keynesian_economics
 ), [boom and bust cycles](https://www.youtube.com/watch?v=GTQnarzmTOc
 ), and a [wonderful book](https://www.amazon.com/Undercover-Economist-Strikes-Back-Ruin/dp/1594631409
