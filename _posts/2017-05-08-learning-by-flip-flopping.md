@@ -15,7 +15,7 @@ What's interesting about Artir's Pyramid is that at every step, the position fli
 
 This got me thinking: In what other issues do people go through a sequence of flip-flops as they learn more about it? In this blog post, I'd like to suggest a few. 
 
-Let me stress that in presenting these I don't necessarily think that the "highest" levels in these examples are correct, nor do I think I have anywhere close to a strong understanding on many of these issues. It's just something that's fun to think about.
+Let me stress that in presenting these I don't necessarily think that the "highest" levels in these examples are correct, nor do I think I have a strong understanding on many of these issues. It's just something that's fun to think about.
 
 ### Increasing the minimum wage
 This is arguably a special case of Artir's Pyramid and is probably the canonical example of learning by flip-flopping.
@@ -35,7 +35,7 @@ Life lesson: When debating someone, don't make strong claims until you know what
 ) [studies](http://irle.berkeley.edu/files/2010/Minimum-Wage-Effects-Across-State-Borders.pdf).  
 
 ### How to deal with a recession
-This one is less related to Artir's Pyramid, but is still quite common. My knowledge of macro is mostly cobbled together from [parody rap battle videos](https://www.youtube.com/watch?v=GTQnarzmTOc), so I may be bungling some of the later stages. I welcome any additional suggestions for further reading.
+Recession flip-flopping is less related to Artir's Pyramid, but is still quite common. I may be bungling some of the later stages here, as my knowledge of macro is mostly cobbled together from [parody rap battle videos](https://www.youtube.com/watch?v=GTQnarzmTOc), so I welcome any additional suggestions for further reading.
 <div class="wrapper">
   <img src='/assets/2017_learning_by_flip_flopping/fig_recessions.jpg' width="400" class="inner" style="position:relative">
 </div>
@@ -46,7 +46,7 @@ This one is less related to Artir's Pyramid, but is still quite common. My knowl
 ), and a [wonderful book](https://www.amazon.com/Undercover-Economist-Strikes-Back-Ruin/dp/1594631409
 ) by [Tim Harford](https://twitter.com/TimHarford). 
 ### Twitter's 140 character limit
-I'd like to keep this blog post as value-judgment free as possible, but I'll make a special exception for this one. Stage 3 is the correct stage.
+I'd like to keep this blog post as value-judgment free as possible, but I'll make a special exception for this one. The 140 character limit is no longer a good idea, and Stage 3 is the correct stage.
 <div class="wrapper">
   <img src='/assets/2017_learning_by_flip_flopping/fig_twitter.jpg' width="400" class="inner" style="position:relative">
 </div>
