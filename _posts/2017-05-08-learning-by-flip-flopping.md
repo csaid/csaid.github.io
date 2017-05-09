@@ -58,5 +58,10 @@ I'd like to keep this blog post as value-judgment free as possible, but I'll mak
   <img src='/assets/2017_learning_by_flip_flopping/fig_meaning.png' width="400" class="inner" style="position:relative">
 </div>
 
+### Fun fact
+After I wrote this, [John McDonnell](https://twitter.com/johnvmcdonnell) pointed me to [Hegelian dialectic](https://en.wikipedia.org/wiki/Dialectic#Hegelian_dialectic), which describes an idea's development as consisting of three stages that can be chained together multiple times. A *thesis* is proposed which is then contradicted by an *antitheses*. The tension is resolved by a *synthesis*, which can then become a new thesis and the process can continue. 
+
+For most of the example sequences in this blog post, I prefer the flip-flopping metaphor, since all of the sequences involve alternations between "pro" and "con" positions, a condition that AFAICT is not required for Hegelian dialectic. On the other hand, some of the stage transitions (for example the last stage of the Recessions example) is probably best described as a synthesis of previous stages that is neither "pro" nor "con".
+
 What other examples of learning by flip-flopping are out there?
 

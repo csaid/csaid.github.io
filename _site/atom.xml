@@ -4,7 +4,7 @@
  <title>The File Drawer</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2017-05-08T21:10:15-07:00</updated>
+ <updated>2017-05-09T08:19:22-07:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -64,6 +64,11 @@
 &lt;div class=&quot;wrapper&quot;&gt;
   &lt;img src=&quot;/assets/2017_learning_by_flip_flopping/fig_meaning.png&quot; width=&quot;400&quot; class=&quot;inner&quot; style=&quot;position:relative&quot; /&gt;
 &lt;/div&gt;
+
+&lt;h3 id=&quot;fun-fact&quot;&gt;Fun fact&lt;/h3&gt;
+&lt;p&gt;After I wrote this, &lt;a href=&quot;https://twitter.com/johnvmcdonnell&quot;&gt;John McDonnell&lt;/a&gt; pointed me to &lt;a href=&quot;https://en.wikipedia.org/wiki/Dialectic#Hegelian_dialectic&quot;&gt;Hegelian dialectic&lt;/a&gt;, which describes an idea’s development as consisting of three stages that can be chained together multiple times. A &lt;em&gt;thesis&lt;/em&gt; is proposed which is then contradicted by an &lt;em&gt;antitheses&lt;/em&gt;. The tension is resolved by a &lt;em&gt;synthesis&lt;/em&gt;, which can then become a new thesis and the process can continue.&lt;/p&gt;
+
+&lt;p&gt;For most of the example sequences in this blog post, I prefer the flip-flopping metaphor, since all of the sequences involve alternations between “pro” and “con” positions, a condition that AFAICT is not required for Hegelian dialectic. On the other hand, some of the stage transitions (for example the last stage of the Recessions example) is probably best described as a synthesis of previous stages that is neither “pro” nor “con”.&lt;/p&gt;
 
 &lt;p&gt;What other examples of learning by flip-flopping are out there?&lt;/p&gt;
 
