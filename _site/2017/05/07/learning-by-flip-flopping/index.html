@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<!--
+It's bad to import d3 in every post separatly (https://groups.google.com/forum/#!topic/d3-js/bwdNirt2uEU).
+Importing it globally here.
+Putting this up at the top, according to this controversial stack overflow answer
+http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
+ -->
+<script src="http://d3js.org/d3.v3.min.js"></script>
+
+<link rel="stylesheet" href="/public/font-awesome-4.4.0/css/font-awesome.min.css">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  
+    <meta name="description" content="Learning by flip-flopping">
+  
+
+  <title>
+    
+      Learning by flip-flopping &middot; The File Drawer
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/hyde.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
+                                 <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+<!--   <body class="theme-base-cps">
+ -->
+  <body>
+
+    <div class="sidebar">
+  <div class="container">
+    <div class="sidebar-about">
+      <h1>
+        <a href="/">
+          The File Drawer
+        </a>
+      </h1>
+      <p class="lead">My name is Chris Said and I am a data scientist at Opendoor. This blog is mostly about tech, stats, and science.</p>
+
+    </div>
+
+    <nav class="sidebar-nav">
+
+      
+        <a class="sidebar-nav-item" href="/">Home</a>
+      
+        <a class="sidebar-nav-item" href="/archive">Archive</a>
+      
+        <a class="sidebar-nav-item" href="/atom.xml">Feed</a>
+      
+
+    </nav>
+
+    <div class="wrapper">
+      <div class="inner">
+        <a href = "http://www.twitter.com/Chris_Said" class="contact-button"><i class="fa fa-twitter fa-2x"></i></a>
+        <a href = "https://www.linkedin.com/pub/chris-said/6b/86b/979" class="contact-button"><i class="fa fa-linkedin-square fa-2x"></i></a>
+        <a href = "mailto:chris.said@gmail.com" class="contact-button"><i class="fa fa-envelope fa-2x"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <div class="content container">
+      <div class="post">
+  <h1 class="post-title">Learning by flip-flopping</h1>
+  <span class="post-date">07 May 2017</span>
+  <p>I recently came across <a href="https://nintil.com/">Artir</a>’s <a href="https://nintil.com/2016/03/06/the-pyramid-of-economic-insight-and-virtue/">Pyramid of Economic Insight and Virtue</a>. It’s not actually a pyramid, but is instead a riff on the Expanding Brain meme.</p>
+<div class="wrapper">
+<div class="inner">
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">The Pyramid of Economic Insight and Virtue, now in meme form. From <a href="https://t.co/AT148qXSbc">https://t.co/AT148qXSbc</a> <a href="https://t.co/odmXCcUxiV">pic.twitter.com/odmXCcUxiV</a></p>&mdash; Artir (@ArtirKel) <a href="https://twitter.com/ArtirKel/status/843886928135159819">March 20, 2017</a></blockquote>
+<script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+</div>
+
+<p>What’s interesting about Artir’s Pyramid is that at every step, the position flip-flops from the previous step. This isn’t just a dialogue between two sides. It is a description of the belief sequence that people traverse as they learn more about an issue. We might call this <em>learning by flip-flopping</em>.</p>
+
+<p>This got me thinking: In what other issues do people go through a sequence of flip-flops as they learn more about it? In this blog post, I’d like to suggest a few.</p>
+
+<p>Let me stress that in presenting these I don’t necessarily think that the “highest” levels in these examples are correct, nor do I think I have anywhere close to a strong understanding on many of these issues. It’s just something that’s fun to think about.</p>
+
+<h3 id="increasing-the-minimum-wage">Increasing the minimum wage</h3>
+<p>This is arguably a special case of Artir’s Pyramid and is probably the canonical example of learning by flip-flopping.</p>
+
+<div class="wrapper">
+  <img src="/assets/2017_learning_by_flip_flopping/fig_minimum_wage.png" width="400" class="inner" style="position:relative" />
+</div>
+<p>I see this a lot. Memorably, I sometimes see a Stage 2 person talking to someone they believe is at Stage 1 but who is in fact at Stage 3.</p>
+<div class="wrapper">
+  <img src="/assets/2017_learning_by_flip_flopping/fig_mansplaining.jpg" height="350" class="inner" style="position:relative" />
+</div>
+<p>Life lesson: When debating someone, don’t make strong claims until you know what stage they are on.</p>
+
+<p><em>Further reading</em>: <a href="http://www.nber.org/papers/w4509">Card and Krueger</a>, <a href="http://www.uvm.edu/~vlrs/doc/min_wage.htm">criticism</a> of Card and Krueger’s data, another <a href="https://www.forbes.com/sites/timworstall/2015/08/01/why-the-card-and-krueger-paper-on-minimum-wages-rises-and-unemployment-is-wrong">case</a> against Card and Krueger, two <a href="http://cepr.net/documents/publications/min-wage-2013-02.pdf">better</a> <a href="http://irle.berkeley.edu/files/2010/Minimum-Wage-Effects-Across-State-Borders.pdf">studies</a>.</p>
+
+<h3 id="how-to-deal-with-a-recession">How to deal with a recession</h3>
+<p>This one is less related to Artir’s Pyramid, but is still quite common. My understanding of macro is pretty weak – it is mostly cobbled together from <a href="https://www.youtube.com/watch?v=GTQnarzmTOc">parody rap videos</a> – so I welcome any additional suggestions for further reading.</p>
+<div class="wrapper">
+  <img src="/assets/2017_learning_by_flip_flopping/fig_recessions.jpg" width="400" class="inner" style="position:relative" />
+</div>
+
+<p><em>Further reading</em>: <a href="https://www.theguardian.com/money/us-money-blog/2013/mar/26/federal-budget-household-finances-fed">The government is not a household</a>, <a href="https://en.wikipedia.org/wiki/Keynesian_economics">Keynesian economics</a>, <a href="https://www.youtube.com/watch?v=GTQnarzmTOc">boom and bust cycles</a>, and a <a href="https://www.amazon.com/Undercover-Economist-Strikes-Back-Ruin/dp/1594631409">wonderful book</a> by <a href="https://twitter.com/TimHarford">Tim Harford</a>.</p>
+<h3 id="twitters-140-character-limit">Twitter’s 140 character limit</h3>
+<p>I’d like to keep this blog post as value-judgment free as possible, but I’ll make a special exception for this one. Stage 3 is the correct stage.</p>
+<div class="wrapper">
+  <img src="/assets/2017_learning_by_flip_flopping/fig_twitter.jpg" width="400" class="inner" style="position:relative" />
+</div>
+
+<h3 id="the-meaning-of-life">The meaning of life</h3>
+<p><a href="https://meaningness.com/metablog/stem-fluidity-bridge">David Chapman</a> writes about how STEM-trained people should think about meaning. Extending Robert Kegen’s theory of human development, he believes that most STEM-trained people can find meaning in ideological rationalism (Stage 4) but, upon finding that rationality does not provide any meaning, they become in danger of falling into the Nihilism trap (Stage 4.5). Chapman claims that there is a Stage 5, sometimes called meta-rationality or nebulosity, in which meaning can once again be found. To be honest, I don’t understand his writing on this at all, but I thought it provided another interesting example of learning by flip-flopping. You can read more about it on his <a href="https://meaningness.com/">blog</a>.</p>
+
+<div class="wrapper">
+  <img src="/assets/2017_learning_by_flip_flopping/fig_meaning.png" width="400" class="inner" style="position:relative" />
+</div>
+
+<p>What other examples of learning by flip-flopping are out there?</p>
+
+
+  <div>
+    <a class="twitter-share-button"
+      href="https://twitter.com/share"
+      data-url=""
+      data-via="Chris_Said"
+      data-size="large"
+      data-count="none">
+    Tweet
+    </a>
+</div>
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'csaid81';
+    var disqus_identifier = 'http://localhost:4000/2017/05/07/learning-by-flip-flopping/';
+    var disqus_url = 'http://localhost:4000/2017/05/07/learning-by-flip-flopping/';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/2017/05/03/empirical-bayes-for-multiple-sample-sizes/">
+            Empirical Bayes for multiple sample sizes
+            <small>03 May 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2016/05/11/optimizing-things-in-the-ussr/">
+            Optimizing things in the USSR
+            <small>11 May 2016</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2016/04/10/comparing-the-opinions-of-economic-experts/">
+            Comparing the opinions of economic experts and the general public
+            <small>10 Apr 2016</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+
+    </div>
+
+  </body>
+</html>
+
+<!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+
+
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$']],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  messageStyle: "none",
+  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+});
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+
+
+<script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));</script>

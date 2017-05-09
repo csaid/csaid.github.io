@@ -4,13 +4,71 @@
  <title>The File Drawer</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2017-05-07T19:31:08-07:00</updated>
+ <updated>2017-05-08T15:23:21-07:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
    <email></email>
  </author>
 
+ 
+ <entry>
+   <title>Learning by flip-flopping</title>
+   <link href="http://localhost:4000/2017/05/07/learning-by-flip-flopping/"/>
+   <updated>2017-05-07T00:00:00-07:00</updated>
+   <id>http://localhost:4000/2017/05/07/learning-by-flip-flopping</id>
+   <content type="html">&lt;p&gt;I recently came across &lt;a href=&quot;https://nintil.com/&quot;&gt;Artir&lt;/a&gt;’s &lt;a href=&quot;https://nintil.com/2016/03/06/the-pyramid-of-economic-insight-and-virtue/&quot;&gt;Pyramid of Economic Insight and Virtue&lt;/a&gt;. It’s not actually a pyramid, but is instead a riff on the Expanding Brain meme.&lt;/p&gt;
+&lt;div class=&quot;wrapper&quot;&gt;
+&lt;div class=&quot;inner&quot;&gt;
+&lt;blockquote class=&quot;twitter-tweet&quot; data-lang=&quot;en&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;The Pyramid of Economic Insight and Virtue, now in meme form. From &lt;a href=&quot;https://t.co/AT148qXSbc&quot;&gt;https://t.co/AT148qXSbc&lt;/a&gt; &lt;a href=&quot;https://t.co/odmXCcUxiV&quot;&gt;pic.twitter.com/odmXCcUxiV&lt;/a&gt;&lt;/p&gt;&amp;mdash; Artir (@ArtirKel) &lt;a href=&quot;https://twitter.com/ArtirKel/status/843886928135159819&quot;&gt;March 20, 2017&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async=&quot;&quot; src=&quot;//platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;What’s interesting about Artir’s Pyramid is that at every step, the position flip-flops from the previous step. This isn’t just a dialogue between two sides. It is a description of the belief sequence that people traverse as they learn more about an issue. We might call this &lt;em&gt;learning by flip-flopping&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;This got me thinking: In what other issues do people go through a sequence of flip-flops as they learn more about it? In this blog post, I’d like to suggest a few.&lt;/p&gt;
+
+&lt;p&gt;Let me stress that in presenting these I don’t necessarily think that the “highest” levels in these examples are correct, nor do I think I have anywhere close to a strong understanding on many of these issues. It’s just something that’s fun to think about.&lt;/p&gt;
+
+&lt;h3 id=&quot;increasing-the-minimum-wage&quot;&gt;Increasing the minimum wage&lt;/h3&gt;
+&lt;p&gt;This is arguably a special case of Artir’s Pyramid and is probably the canonical example of learning by flip-flopping.&lt;/p&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;img src=&quot;/assets/2017_learning_by_flip_flopping/fig_minimum_wage.png&quot; width=&quot;400&quot; class=&quot;inner&quot; style=&quot;position:relative&quot; /&gt;
+&lt;/div&gt;
+&lt;p&gt;I see this a lot. Memorably, I sometimes see a Stage 2 person talking to someone they believe is at Stage 1 but who is in fact at Stage 3.&lt;/p&gt;
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;img src=&quot;/assets/2017_learning_by_flip_flopping/fig_mansplaining.jpg&quot; height=&quot;350&quot; class=&quot;inner&quot; style=&quot;position:relative&quot; /&gt;
+&lt;/div&gt;
+&lt;p&gt;Life lesson: When debating someone, don’t make strong claims until you know what stage they are on.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Further reading&lt;/em&gt;: &lt;a href=&quot;http://www.nber.org/papers/w4509&quot;&gt;Card and Krueger&lt;/a&gt;, &lt;a href=&quot;http://www.uvm.edu/~vlrs/doc/min_wage.htm&quot;&gt;criticism&lt;/a&gt; of Card and Krueger’s data, another &lt;a href=&quot;https://www.forbes.com/sites/timworstall/2015/08/01/why-the-card-and-krueger-paper-on-minimum-wages-rises-and-unemployment-is-wrong&quot;&gt;case&lt;/a&gt; against Card and Krueger, two &lt;a href=&quot;http://cepr.net/documents/publications/min-wage-2013-02.pdf&quot;&gt;better&lt;/a&gt; &lt;a href=&quot;http://irle.berkeley.edu/files/2010/Minimum-Wage-Effects-Across-State-Borders.pdf&quot;&gt;studies&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;how-to-deal-with-a-recession&quot;&gt;How to deal with a recession&lt;/h3&gt;
+&lt;p&gt;This one is less related to Artir’s Pyramid, but is still quite common. My understanding of macro is pretty weak – it is mostly cobbled together from &lt;a href=&quot;https://www.youtube.com/watch?v=GTQnarzmTOc&quot;&gt;parody rap videos&lt;/a&gt; – so I welcome any additional suggestions for further reading.&lt;/p&gt;
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;img src=&quot;/assets/2017_learning_by_flip_flopping/fig_recessions.jpg&quot; width=&quot;400&quot; class=&quot;inner&quot; style=&quot;position:relative&quot; /&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;em&gt;Further reading&lt;/em&gt;: &lt;a href=&quot;https://www.theguardian.com/money/us-money-blog/2013/mar/26/federal-budget-household-finances-fed&quot;&gt;The government is not a household&lt;/a&gt;, &lt;a href=&quot;https://en.wikipedia.org/wiki/Keynesian_economics&quot;&gt;Keynesian economics&lt;/a&gt;, &lt;a href=&quot;https://www.youtube.com/watch?v=GTQnarzmTOc&quot;&gt;boom and bust cycles&lt;/a&gt;, and a &lt;a href=&quot;https://www.amazon.com/Undercover-Economist-Strikes-Back-Ruin/dp/1594631409&quot;&gt;wonderful book&lt;/a&gt; by &lt;a href=&quot;https://twitter.com/TimHarford&quot;&gt;Tim Harford&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&quot;twitters-140-character-limit&quot;&gt;Twitter’s 140 character limit&lt;/h3&gt;
+&lt;p&gt;I’d like to keep this blog post as value-judgment free as possible, but I’ll make a special exception for this one. Stage 3 is the correct stage.&lt;/p&gt;
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;img src=&quot;/assets/2017_learning_by_flip_flopping/fig_twitter.jpg&quot; width=&quot;400&quot; class=&quot;inner&quot; style=&quot;position:relative&quot; /&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;the-meaning-of-life&quot;&gt;The meaning of life&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://meaningness.com/metablog/stem-fluidity-bridge&quot;&gt;David Chapman&lt;/a&gt; writes about how STEM-trained people should think about meaning. Extending Robert Kegen’s theory of human development, he believes that most STEM-trained people can find meaning in ideological rationalism (Stage 4) but, upon finding that rationality does not provide any meaning, they become in danger of falling into the Nihilism trap (Stage 4.5). Chapman claims that there is a Stage 5, sometimes called meta-rationality or nebulosity, in which meaning can once again be found. To be honest, I don’t understand his writing on this at all, but I thought it provided another interesting example of learning by flip-flopping. You can read more about it on his &lt;a href=&quot;https://meaningness.com/&quot;&gt;blog&lt;/a&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;img src=&quot;/assets/2017_learning_by_flip_flopping/fig_meaning.png&quot; width=&quot;400&quot; class=&quot;inner&quot; style=&quot;position:relative&quot; /&gt;
+&lt;/div&gt;
+
+&lt;p&gt;What other examples of learning by flip-flopping are out there?&lt;/p&gt;
+
+</content>
+ </entry>
  
  <entry>
    <title>Empirical Bayes for multiple sample sizes</title>
