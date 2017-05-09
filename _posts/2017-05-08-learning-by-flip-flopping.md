@@ -60,3 +60,5 @@ I'd like to keep this blog post as value-judgment free as possible, but I'll mak
 
 What other examples of learning by flip-flopping are out there?
 
+UPDATE: [John McDonnell](https://twitter.com/johnvmcdonnell) points me towards [Hegelian Dialectic](https://en.wikipedia.org/wiki/Dialectic#Hegelian_dialectic)
+
