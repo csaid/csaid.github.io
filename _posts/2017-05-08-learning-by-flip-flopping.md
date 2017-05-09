@@ -25,7 +25,7 @@ This is arguably a special case of Artir's Pyramid and is probably the canonical
 </div>
 I see this a lot. Memorably, I sometimes see a Stage 2 person talking to someone they believe is at Stage 1 but who is in fact at Stage 3.
 <div class="wrapper">
-  <img src='/assets/2017_learning_by_flip_flopping/fig_mansplaining.jpg' height="350" class="inner" style="position:relative">
+  <img src='/assets/2017_learning_by_flip_flopping/fig_mansplaining.jpg' width="400" class="inner" style="position:relative">
 </div>
 Life lesson: When debating someone, don't make strong claims until you know what stage they are on.
 

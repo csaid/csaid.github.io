@@ -4,7 +4,7 @@
  <title>The File Drawer</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2017-05-08T21:02:17-07:00</updated>
+ <updated>2017-05-08T21:05:53-07:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -39,7 +39,7 @@
 &lt;/div&gt;
 &lt;p&gt;I see this a lot. Memorably, I sometimes see a Stage 2 person talking to someone they believe is at Stage 1 but who is in fact at Stage 3.&lt;/p&gt;
 &lt;div class=&quot;wrapper&quot;&gt;
-  &lt;img src=&quot;/assets/2017_learning_by_flip_flopping/fig_mansplaining.jpg&quot; height=&quot;350&quot; class=&quot;inner&quot; style=&quot;position:relative&quot; /&gt;
+  &lt;img src=&quot;/assets/2017_learning_by_flip_flopping/fig_mansplaining.jpg&quot; width=&quot;400&quot; class=&quot;inner&quot; style=&quot;position:relative&quot; /&gt;
 &lt;/div&gt;
 &lt;p&gt;Life lesson: When debating someone, don’t make strong claims until you know what stage they are on.&lt;/p&gt;
 
