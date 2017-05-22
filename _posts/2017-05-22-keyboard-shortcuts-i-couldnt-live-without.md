@@ -60,14 +60,14 @@ For easy window snapping, use the [Spectacle](https://www.spectacleapp.com/) app
 <div class="wrapper">
   <img src='/assets/2017_keyboard_shortcuts/gif_spectacle.gif' width="350" class="inner" style="position:relative; border: #666666 2px solid;" >
   <div class="caption">
-    <strong>Figure 3.</strong> Arranging windows with custom shortcuts in Spectacle.
+    <strong>Figure 2.</strong> Arranging windows with custom shortcuts in Spectacle.
   </div>
 </div>
 
 ### Gmail
 If you're using a mouse on Gmail, you're doing it wrong. With the exception of a few word processing operations, literally everything you do in Gmail should be done with keyboard only. Compose, Reply, Reply All, Forward, Send, Search, Navigate, Open, Inbox, Sent, Drafts, Archive. All of these should be done with the keyboard. To enable these shortcuts, you must go into your Settings and navigate to the General tab. Once shortcuts have been enabled, you can see a list of all them by typing `?`.
 {% include image.html url="/assets/2017_keyboard_shortcuts/fig_gmail_annotated.png" %}
-<div class="caption"><strong>Figure 2.</strong> A small sample of things you can do on Gmail without ever touching your mouse.</div>
+<div class="caption"><strong>Figure 3.</strong> A small sample of things you can do on Gmail without ever touching your mouse.</div>
 
 ### Twitter 
 With shortcuts similar to Gmail's, you can jump to different pages using only the keyboard: `gh` brings you to the Home Timeline and `gu` lets you jump to another user's profile. The most useful shortcut is probably `.`, which loads any new tweets that are waiting for you at the top of the Timeline. You can see a list of all shortcuts by typing `?`.
