@@ -87,8 +87,9 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
   <h1 class="post-title">Keyboard shortcuts I couldn't live without</h1>
   <span class="post-date">22 May 2017</span>
   <p>Keyboard shortcuts are interesting. Even though I know they are almost always worth learning, I often find myself shying away from the uncomfortable task of actually learning them. But after years of clumsily reaching for the mouse while my colleagues looked at me with a kindly sense of pity, I have slowly accumulated enough keyboard tricks that I’d like to share them. This set is probably far from optimal, and different people have their own solutions, but it has worked well for me. Before jumping in, here’s a reference table of key symbols and their common names:</p>
-<div style="margin-left:200px; margin-right:200px">
-<table style="font-size:.7rem">
+
+<div class="wrapper">
+<table style="font-size:.7rem; margin: auto; width: 250px">
     <tr>
         <th>Key Symbol</th>
         <th>Key Name</th>
@@ -128,11 +129,12 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
 </div>
 <p><br /></p>
 
-<h3 id="gmail">Gmail</h3>
-<p>If you’re using a mouse on Gmail, you’re doing it wrong. With the exception of a few word processing operations, literally everything you do in Gmail should be done with keyboard only. Compose, Reply, Reply All, Forward, Send, Search, Navigate, Open, Inbox, Sent, Drafts, Archive. All of these should be done with the keyboard. To enable these shortcuts, you must go into your Settings and navigate to the General tab. Once shortcuts have been enabled, you can see a list of all them by typing <code class="highlighter-rouge">?</code>.</p>
-<figure class="image"><img src="/assets/2017_keyboard_shortcuts/fig_gmail_annotated.png" alt="" /></figure>
+<h3 id="chrome">Chrome</h3>
+<p>With the exception of scrolling and link clicking, everything you do in Chrome should be done with keyboard only. If you’re new to this, I’d recommend starting with <code class="highlighter-rouge">⌘L</code>, <code class="highlighter-rouge">⌘T</code>, <code class="highlighter-rouge">⌘W</code> and then expanding from there. Special bonus:	 if you ever accidentally close a tab, you can reopen it with <code class="highlighter-rouge">⌘⇧T</code>.</p>
 
-<div class="caption"><strong>Figure 2.</strong> A small sample of things you can do on Gmail without ever touching your mouse.</div>
+<figure class="image"><img src="/assets/2017_keyboard_shortcuts/no_touching.png" alt="" /></figure>
+
+<div class="caption"><strong>Figure 4.</strong> The "No Touching" Chrome Zone. Your mouse should never come anywhere near here.</div>
 
 <h3 id="mac-os-x">Mac OS X</h3>
 <p>On Mac OS X, <code class="highlighter-rouge">⌘ Tab</code> switches between applications, and <code>⌘`</code> switches between windows of the same application. The <code class="highlighter-rouge">⌘+</code> and <code class="highlighter-rouge">⌘-</code> shortcuts change the display size of text and other items. You can jump to the beginning of a line with <code class="highlighter-rouge">⌘←</code> or <code class="highlighter-rouge">⌃A</code>, and to the end of a line with <code class="highlighter-rouge">⌘→</code> or <code class="highlighter-rouge">⌃E</code>. In Terminal, you can delete to the beginning of a line with <code class="highlighter-rouge">⌃U</code>.</p>
@@ -146,12 +148,11 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
   </div>
 </div>
 
-<h3 id="chrome">Chrome</h3>
-<p>With the exception of scrolling and link clicking, everything you do in Chrome should be done with keyboard only. If you’re new to this, I’d recommend starting with <code class="highlighter-rouge">⌘L</code>, <code class="highlighter-rouge">⌘T</code>, <code class="highlighter-rouge">⌘W</code> and then expanding from there. Special bonus:	 if you ever accidentally close a tab, you can reopen it with <code class="highlighter-rouge">⌘⇧T</code>.</p>
+<h3 id="gmail">Gmail</h3>
+<p>If you’re using a mouse on Gmail, you’re doing it wrong. With the exception of a few word processing operations, literally everything you do in Gmail should be done with keyboard only. Compose, Reply, Reply All, Forward, Send, Search, Navigate, Open, Inbox, Sent, Drafts, Archive. All of these should be done with the keyboard. To enable these shortcuts, you must go into your Settings and navigate to the General tab. Once shortcuts have been enabled, you can see a list of all them by typing <code class="highlighter-rouge">?</code>.</p>
+<figure class="image"><img src="/assets/2017_keyboard_shortcuts/fig_gmail_annotated.png" alt="" /></figure>
 
-<figure class="image"><img src="/assets/2017_keyboard_shortcuts/no_touching.png" alt="" /></figure>
-
-<div class="caption"><strong>Figure 4.</strong> The "No Touching" Chrome Zone. Your mouse should never come anywhere near here.</div>
+<div class="caption"><strong>Figure 2.</strong> A small sample of things you can do on Gmail without ever touching your mouse.</div>
 
 <h3 id="twitter">Twitter</h3>
 <p>With shortcuts similar to Gmail’s, you can jump to different pages using only the keyboard: <code class="highlighter-rouge">gh</code> brings you to the Home Timeline and <code class="highlighter-rouge">gu</code> lets you jump to another user’s profile. The most useful shortcut is probably <code class="highlighter-rouge">.</code>, which loads any new tweets that are waiting for you at the top of the Timeline. You can see a list of all shortcuts by typing <code class="highlighter-rouge">?</code>.</p>
@@ -163,7 +164,7 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
 <p>Jupyter has tons of <a href="http://jupyter-notebook.readthedocs.io/en/latest/examples/Notebook/Notebook%20Basics.html?highlight=keyboard#Keyboard-Navigation">essential</a> keyboard shortcuts that can be found by typing <code class="highlighter-rouge">?</code> while in command mode. In addition, it’s possible to get Sublime-style text editing by following the instructions described <a href="http://blog.rtwilson.com/how-to-get-sublime-text-style-editing-in-the-ipythonjupyter-notebook/">here</a>.</p>
 
 <div class="wrapper">
-  <img src="/assets/2017_keyboard_shortcuts/gif_jupyter.gif" width="350" class="inner" style="position:relative; border: #ccc 1px solid;" />
+  <img src="/assets/2017_keyboard_shortcuts/gif_jupyter_delayed.gif" width="350" class="inner" style="position:relative; border: #ccc 1px solid;" />
   <div class="caption">
     <strong>Figure 5.</strong> Common Jupyter workflow done entirely with the keyboard, with help from some Sublime-style editing: <code>c</code> and <code>v</code> to copy and paste a cell, <code>⌘D</code> for multiple selection, <code>⌘→</code> to jump to the end of line, <code>dd</code> to delete a cell.
   </div>
