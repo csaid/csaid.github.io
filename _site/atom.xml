@@ -4,7 +4,7 @@
  <title>The File Drawer</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2017-05-22T07:09:44-07:00</updated>
+ <updated>2017-05-22T10:12:09-07:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -95,7 +95,7 @@
 &lt;p&gt;Jupyter has tons of &lt;a href=&quot;http://jupyter-notebook.readthedocs.io/en/latest/examples/Notebook/Notebook%20Basics.html?highlight=keyboard#Keyboard-Navigation&quot;&gt;essential&lt;/a&gt; keyboard shortcuts that can be found by typing &lt;code class=&quot;highlighter-rouge&quot;&gt;?&lt;/code&gt; while in command mode. In addition, it’s possible to get Sublime-style text editing by following the instructions described &lt;a href=&quot;http://blog.rtwilson.com/how-to-get-sublime-text-style-editing-in-the-ipythonjupyter-notebook/&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
 
 &lt;div class=&quot;wrapper&quot;&gt;
-  &lt;img src=&quot;/assets/2017_keyboard_shortcuts/gif_jupyter_delayed.gif&quot; width=&quot;350&quot; class=&quot;inner&quot; style=&quot;position:relative; border: #ccc 1px solid;&quot; /&gt;
+  &lt;img src=&quot;/assets/2017_keyboard_shortcuts/gif_jupyter.gif&quot; width=&quot;350&quot; class=&quot;inner&quot; style=&quot;position:relative; border: #ccc 1px solid;&quot; /&gt;
   &lt;div class=&quot;caption&quot;&gt;
     &lt;strong&gt;Figure 5.&lt;/strong&gt; Common Jupyter workflow done entirely with the keyboard, with help from some Sublime-style editing: &lt;code&gt;c&lt;/code&gt; and &lt;code&gt;v&lt;/code&gt; to copy and paste a cell, &lt;code&gt;⌘D&lt;/code&gt; for multiple selection, &lt;code&gt;⌘→&lt;/code&gt; to jump to the end of line, &lt;code&gt;dd&lt;/code&gt; to delete a cell.
   &lt;/div&gt;

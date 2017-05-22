@@ -79,7 +79,7 @@ JetBrains products like DataGrip, PyCharm, and IntelliJ offer plenty of keyboard
 Jupyter has tons of [essential](http://jupyter-notebook.readthedocs.io/en/latest/examples/Notebook/Notebook%20Basics.html?highlight=keyboard#Keyboard-Navigation) keyboard shortcuts that can be found by typing `?` while in command mode. In addition, it's possible to get Sublime-style text editing by following the instructions described [here](http://blog.rtwilson.com/how-to-get-sublime-text-style-editing-in-the-ipythonjupyter-notebook/).
 
 <div class="wrapper">
-  <img src='/assets/2017_keyboard_shortcuts/gif_jupyter_delayed.gif' width="350" class="inner" style="position:relative; border: #ccc 1px solid;">
+  <img src='/assets/2017_keyboard_shortcuts/gif_jupyter.gif' width="350" class="inner" style="position:relative; border: #ccc 1px solid;">
   <div class="caption">
     <strong>Figure 5.</strong> Common Jupyter workflow done entirely with the keyboard, with help from some Sublime-style editing: <code>c</code> and <code>v</code> to copy and paste a cell, <code>⌘D</code> for multiple selection, <code>⌘→</code> to jump to the end of line, <code>dd</code> to delete a cell.
   </div>
