@@ -4,7 +4,7 @@
  <title>The File Drawer</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2017-05-22T07:08:29-07:00</updated>
+ <updated>2017-05-22T07:09:44-07:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -65,7 +65,7 @@
 
 &lt;figure class=&quot;image&quot;&gt;&lt;img src=&quot;/assets/2017_keyboard_shortcuts/no_touching.png&quot; alt=&quot;&quot; /&gt;&lt;/figure&gt;
 
-&lt;div class=&quot;caption&quot;&gt;&lt;strong&gt;Figure 4.&lt;/strong&gt; The &quot;No Touching&quot; Chrome Zone. Your mouse should never come anywhere near here.&lt;/div&gt;
+&lt;div class=&quot;caption&quot;&gt;&lt;strong&gt;Figure 2.&lt;/strong&gt; The &quot;No Touching&quot; Chrome Zone. Your mouse should never come anywhere near here.&lt;/div&gt;
 
 &lt;h3 id=&quot;mac-os-x&quot;&gt;Mac OS X&lt;/h3&gt;
 &lt;p&gt;On Mac OS X, &lt;code class=&quot;highlighter-rouge&quot;&gt;⌘ Tab&lt;/code&gt; switches between applications, and &lt;code&gt;⌘`&lt;/code&gt; switches between windows of the same application. The &lt;code class=&quot;highlighter-rouge&quot;&gt;⌘+&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;⌘-&lt;/code&gt; shortcuts change the display size of text and other items. You can jump to the beginning of a line with &lt;code class=&quot;highlighter-rouge&quot;&gt;⌘←&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;⌃A&lt;/code&gt;, and to the end of a line with &lt;code class=&quot;highlighter-rouge&quot;&gt;⌘→&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;⌃E&lt;/code&gt;. In Terminal, you can delete to the beginning of a line with &lt;code class=&quot;highlighter-rouge&quot;&gt;⌃U&lt;/code&gt;.&lt;/p&gt;
@@ -75,7 +75,7 @@
 &lt;div class=&quot;wrapper&quot;&gt;
   &lt;img src=&quot;/assets/2017_keyboard_shortcuts/gif_spectacle.gif&quot; width=&quot;350&quot; class=&quot;inner&quot; style=&quot;position:relative; border: #666666 2px solid;&quot; /&gt;
   &lt;div class=&quot;caption&quot;&gt;
-    &lt;strong&gt;Figure 2.&lt;/strong&gt; Arranging windows with custom shortcuts in Spectacle.
+    &lt;strong&gt;Figure 3.&lt;/strong&gt; Arranging windows with custom shortcuts in Spectacle.
   &lt;/div&gt;
 &lt;/div&gt;
 
@@ -83,7 +83,7 @@
 &lt;p&gt;If you’re using a mouse on Gmail, you’re doing it wrong. With the exception of a few word processing operations, literally everything you do in Gmail should be done with keyboard only. Compose, Reply, Reply All, Forward, Send, Search, Navigate, Open, Inbox, Sent, Drafts, Archive. All of these should be done with the keyboard. To enable these shortcuts, you must go into your Settings and navigate to the General tab. Once shortcuts have been enabled, you can see a list of all them by typing &lt;code class=&quot;highlighter-rouge&quot;&gt;?&lt;/code&gt;.&lt;/p&gt;
 &lt;figure class=&quot;image&quot;&gt;&lt;img src=&quot;/assets/2017_keyboard_shortcuts/fig_gmail_annotated.png&quot; alt=&quot;&quot; /&gt;&lt;/figure&gt;
 
-&lt;div class=&quot;caption&quot;&gt;&lt;strong&gt;Figure 3.&lt;/strong&gt; A small sample of things you can do on Gmail without ever touching your mouse.&lt;/div&gt;
+&lt;div class=&quot;caption&quot;&gt;&lt;strong&gt;Figure 4.&lt;/strong&gt; A small sample of things you can do on Gmail without ever touching your mouse.&lt;/div&gt;
 
 &lt;h3 id=&quot;twitter&quot;&gt;Twitter&lt;/h3&gt;
 &lt;p&gt;With shortcuts similar to Gmail’s, you can jump to different pages using only the keyboard: &lt;code class=&quot;highlighter-rouge&quot;&gt;gh&lt;/code&gt; brings you to the Home Timeline and &lt;code class=&quot;highlighter-rouge&quot;&gt;gu&lt;/code&gt; lets you jump to another user’s profile. The most useful shortcut is probably &lt;code class=&quot;highlighter-rouge&quot;&gt;.&lt;/code&gt;, which loads any new tweets that are waiting for you at the top of the Timeline. You can see a list of all shortcuts by typing &lt;code class=&quot;highlighter-rouge&quot;&gt;?&lt;/code&gt;.&lt;/p&gt;
