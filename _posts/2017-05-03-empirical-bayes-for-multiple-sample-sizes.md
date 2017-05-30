@@ -201,7 +201,7 @@ Which method you choose should depend on whether you think your groups have simi
 <div class='box'>
 <h4 style="margin-top:0rem">Summary of analytic solutions</h4>
 All of these estimators define $ \hat{\theta_i} $ as a weighted average of the group sample mean $ x_i $ and the mean of group sample means $ \overline{X} $.
-$$ \hat{\theta_i} = \left(1-\hat{B}\right) x_i + \hat{B_i} \overline{X} $$
+$$ \hat{\theta_i} = \left(1-\hat{B_i}\right) x_i + \hat{B_i} \overline{X} $$
 
 Make sure to clip $ \hat{B_i} $ to the range [0, 1].<br><br>
 
