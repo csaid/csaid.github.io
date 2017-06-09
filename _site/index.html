@@ -29,6 +29,16 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
     
   </title>
 
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-67746868-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+
   <!-- CSS -->
   <link rel="stylesheet" href="/public/css/poole.css">
   <link rel="stylesheet" href="/public/css/syntax.css">
@@ -488,7 +498,7 @@ This works a bit better. By obtaining more accurate estimates of each group’s 
 <div class="box">
 <h4 style="margin-top:0rem">Summary of analytic solutions</h4>
 All of these estimators define $ \hat{\theta_i} $ as a weighted average of the group sample mean $ x_i $ and the mean of group sample means $ \overline{X} $.
-$$ \hat{\theta_i} = \left(1-\hat{B}\right) x_i + \hat{B_i} \overline{X} $$
+$$ \hat{\theta_i} = \left(1-\hat{B_i}\right) x_i + \hat{B_i} \overline{X} $$
 
 Make sure to clip $ \hat{B_i} $ to the range [0, 1].<br /><br />
 

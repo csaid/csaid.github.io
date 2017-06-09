@@ -4,7 +4,7 @@
  <title>The File Drawer</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2017-05-22T10:12:09-07:00</updated>
+ <updated>2017-06-09T08:29:56-07:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -369,7 +369,7 @@ This works a bit better. By obtaining more accurate estimates of each group’s 
 &lt;div class=&quot;box&quot;&gt;
 &lt;h4 style=&quot;margin-top:0rem&quot;&gt;Summary of analytic solutions&lt;/h4&gt;
 All of these estimators define $ \hat{\theta_i} $ as a weighted average of the group sample mean $ x_i $ and the mean of group sample means $ \overline{X} $.
-$$ \hat{\theta_i} = \left(1-\hat{B}\right) x_i + \hat{B_i} \overline{X} $$
+$$ \hat{\theta_i} = \left(1-\hat{B_i}\right) x_i + \hat{B_i} \overline{X} $$
 
 Make sure to clip $ \hat{B_i} $ to the range [0, 1].&lt;br /&gt;&lt;br /&gt;
 
