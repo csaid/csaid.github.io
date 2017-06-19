@@ -4,13 +4,60 @@
  <title>The File Drawer</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2017-06-09T08:29:56-07:00</updated>
+ <updated>2017-06-19T08:34:21-07:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
    <email></email>
  </author>
 
+ 
+ <entry>
+   <title>Three questions for social scientists&#58; Internet virtue edition</title>
+   <link href="http://localhost:4000/2017/06/19/three-questions-for-social-scientists/"/>
+   <updated>2017-06-19T00:00:00-07:00</updated>
+   <id>http://localhost:4000/2017/06/19/three-questions-for-social-scientists</id>
+   <content type="html">&lt;p&gt;This isn’t news to anybody, but the internet is changing our culture. Recently, I’ve been thinking about how it has changed our moral culture, and I realized that most of our beliefs on this topic are weirdly in tension with one another. Below are three questions that I feel are very much unresolved. I don’t have any good answers to them, and so I think they might be good topics for social science research.&lt;/p&gt;
+
+&lt;h4 id=&quot;1-moral-substitution-and-moral-licensing-versus-moral-contagion&quot;&gt;1. Moral Substitution and Moral Licensing versus Moral Contagion&lt;/h4&gt;
+&lt;p&gt;When people do the Ice Bucket Challenge or put a Pride symbol on their profile avatar, they are sometimes accused of &lt;em&gt;virtue signalling&lt;/em&gt;, a derogatory term akin to &lt;em&gt;moral grandstanding&lt;/em&gt;. Virtue signallers are said to care more about showcasing their virtue than about creating real change.&lt;/p&gt;
+
+&lt;p&gt;Virtue signalling is bad, allegedly, for two reasons:
+First, instead of performing truly impactful moral acts, virtue signallers spend more time performing easy and symbolic acts. This could be called &lt;em&gt;moral substitution&lt;/em&gt;.
+Second, after doing something good, people often feel like they’ve earned enough virtue points that they can get away with doing something bad. This well-studied phenomenon is called &lt;em&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Self-licensing&quot;&gt;moral licensing&lt;/a&gt;&lt;/em&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;img src=&quot;/assets/2017_three_questions/fig_kony.jpg&quot; height=&quot;250&quot; class=&quot;inner&quot; style=&quot;position:relative; border: #ccc 1px solid;&quot; /&gt;
+&lt;/div&gt;
+
+&lt;p&gt;While there are some clear ways that virtue signalling can be bad, there is another way in which it is good. Doing good things makes other people more likely to do good things. This process, known as &lt;em&gt;moral contagion&lt;/em&gt;, was famously demonstrated in the Milgram experiments. Participants in those experiments who saw other participants behave morally were &lt;a href=&quot;https://www.saylor.org/site/wp-content/uploads/2011/08/PSYCH202A-3.1.1-Milgram-experiment.pdf&quot;&gt;dramatically more likely&lt;/a&gt; to behave morally as well.&lt;/p&gt;
+
+&lt;p&gt;If the social science research is right, then we can conclude that putting a Pride symbol on your avatar make you behave &lt;em&gt;worse&lt;/em&gt; (via moral licensing and moral substitution), but it makes other people behave &lt;em&gt;better&lt;/em&gt; (via moral contagion). This leaves a couple of open questions:&lt;/p&gt;
+
+&lt;p&gt;First, how do the pros and cons balance out? Perhaps your Pride avatar is net positive if you have a large audience on Facebook, but net negative if you have a small audience. And second, how does moral contagion work with symbolic acts? Does the Pride avatar just make other people add Pride symbols to their avatars? Or does it make them behave more ethically in real and impactful ways?&lt;/p&gt;
+
+&lt;p&gt;We are beginning to get &lt;a href=&quot;http://smart-meter-analytics.de/downloads/papers/Tiefenbeck%20-%20For%20better%20or%20for%20worse.pdf&quot;&gt;some&lt;/a&gt; quantitative answers to these questions. Clever research from &lt;a href=&quot;https://twitter.com/LindaSkitka&quot;&gt;Linda Skitka&lt;/a&gt; and others has &lt;a href=&quot;https://www.researchgate.net/profile/Linda_Skitka/publication/265606809_Morality_in_everyday_life/links/57457f2608ae9f741b410416.pdf&quot;&gt;shown&lt;/a&gt; that committing a moral act makes you about 40% less likely to commit another moral act later in the day, whereas hearing about someone else’s moral act makes you about 25% more likely to commit a moral act later in the day, although the latter finding fell short of statistical significance. More research is needed though, particularly when it comes to social media and symbolic virtue signalling.&lt;/p&gt;
+
+&lt;h4 id=&quot;2-slacktivism-versus-violent-revolution&quot;&gt;2. Slacktivism versus Violent Revolution&lt;/h4&gt;
+
+&lt;p&gt;This question is more for political scientists.&lt;/p&gt;
+
+&lt;p&gt;Many people are concerned that the internet encourages &lt;em&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Slacktivism&quot;&gt;slacktivism&lt;/a&gt;&lt;/em&gt;, a phenomenon closely related to &lt;em&gt;moral substitution&lt;/em&gt;. It’s easier to slap a Pride symbol on your Facebook than to engage in real activism. In this way, the internet is really a tool of the already powerful.&lt;/p&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;img src=&quot;/assets/2017_three_questions/fig_homer.png&quot; height=&quot;250&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid;&quot; /&gt;
+&lt;/div&gt;
+
+&lt;p&gt;On the other hand, some people are concerned that the internet cultivates &lt;em&gt;violent radicalism&lt;/em&gt;. Online filter bubbles create anger and online networks create alliances, ultimately leading to violent rhetoric and homegrown terrorism.  Many observers already sense the undercurrents of violent revolution.&lt;/p&gt;
+
+&lt;p&gt;How can we be worried that the internet is causing &lt;em&gt;both&lt;/em&gt; slacktivism and violent radicalism? One possibility is that we only need to worry about slacktivism, and that the violent rhetoric isn’t actually violent – it’s just rhetoric. But the &lt;a href=&quot;http://firstmonday.org/article/view/3336/2767&quot;&gt;other&lt;/a&gt; possibility is that the internet has made slacktivists out of people who otherwise wouldn’t be doing anything at all, and it has made violent radicals out of people who would otherwise be mere activists. I’m not sure what the answer is, but &lt;a href=&quot;https://www.nytimes.com/2017/05/10/opinion/crisis-or-stasis.html?_r=0&quot;&gt;it would be useful&lt;/a&gt; to understand this more.&lt;/p&gt;
+
+&lt;h4 id=&quot;3-political-correctness-overton-windows-versus-wolf-crying&quot;&gt;3. Political Correctness: Overton Windows versus Wolf Crying&lt;/h4&gt;
+&lt;p&gt;Perhaps because of filter bubbles on both sides of the political spectrum, the term “political correctness” is back with a vengeance. Leaving aside the question of whether political correctness is good or bad, it would be interesting to understand whether it is effective. On the one hand, political correctness may help define an &lt;a href=&quot;https://en.wikipedia.org/wiki/Overton_window&quot;&gt;Overton Window&lt;/a&gt;, setting useful bounds around opinions that can be aired in polite company. But on the other hand, if the enforcers squeeze the boundaries too much, imposing stricter and stricter controls on the range of acceptable discourse, they risk undermining their own credibility by “crying wolf”. For what it’s worth, many internet trolls credit their success to a perception that so-called social justice warriors overplayed their cards. I’m not sure how much to believe them, but it seems possible.&lt;/p&gt;
+
+&lt;p&gt;Just in terms of effectiveness, is there a point at which political correctness starts to backfire? And more broadly, what is the optimal level of political correctness for a society? Neither of these questions seems easy to answer, but I would love to learn more.&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Keyboard shortcuts I couldn't live without</title>
@@ -508,7 +555,7 @@ text {
 
 &lt;/style&gt;
 
-&lt;p&gt;As a data scientist, a big part of my job involves picking metrics to optimize, and thinking about how to do things as efficiently as possible. With these types of questions on my mind, I recently discovered a totally fascinating book about about economic problems in the USSR and the team of data-driven economists and computer scientists who wanted to solve them. The book is called &lt;a href=&quot;http://www.amazon.com/Red-Plenty-Francis-Spufford/dp/1555976042&quot;&gt;&lt;em&gt;Red Plenty&lt;/em&gt;&lt;/a&gt;. It’s actually written as a novel, weirdly, but it nevertheless presents an accurate economic history of the USSR. It draws heavily on an earlier book from 1973 called &lt;a href=&quot;http://www.amazon.com/Planning-Problems-USSR-Contribution-Mathematical/dp/0521202493&quot;&gt;&lt;em&gt;Planning Problems in the USSR&lt;/em&gt;&lt;/a&gt;, which I also picked up. As I read these books, I couldn’t help but notice some parallels with planning in any modern organization. In what will be familiar to any data scientist today, the second book even includes a quote from a researcher who complained that 90% of his time was spent cleaning the data, and only 10% of his time was spent doing actual modeling!&lt;/p&gt;
+&lt;p&gt;As a data scientist, a big part of my job involves picking metrics to optimize and thinking about how to do things as efficiently as possible. With these types of questions on my mind, I recently discovered a totally fascinating book about about economic problems in the USSR and the team of data-driven economists and computer scientists who wanted to solve them. The book is called &lt;a href=&quot;http://www.amazon.com/Red-Plenty-Francis-Spufford/dp/1555976042&quot;&gt;&lt;em&gt;Red Plenty&lt;/em&gt;&lt;/a&gt;. It’s actually written as a novel, weirdly, but it nevertheless presents an accurate economic history of the USSR. It draws heavily on an earlier book from 1973 called &lt;a href=&quot;http://www.amazon.com/Planning-Problems-USSR-Contribution-Mathematical/dp/0521202493&quot;&gt;&lt;em&gt;Planning Problems in the USSR&lt;/em&gt;&lt;/a&gt;, which I also picked up. As I read these books, I couldn’t help but notice some parallels with planning in any modern organization. In what will be familiar to any data scientist today, the second book even includes a quote from a researcher who complained that 90% of his time was spent cleaning the data, and only 10% of his time was spent doing actual modeling!&lt;/p&gt;
 
 &lt;p&gt;Beyond all the interesting parallels to modern data science and operations research, these books helped me understand a lot of interesting things I previously knew very little about, such as linear programming, price equilibria, and Soviet history. This blog post is about I learned, and ends with some surprising-to-me speculation about whether the technical challenges that the brought down the Soviet Union would be as much of a problem in the future.&lt;/p&gt;
 

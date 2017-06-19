@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<!--
+It's bad to import d3 in every post separatly (https://groups.google.com/forum/#!topic/d3-js/bwdNirt2uEU).
+Importing it globally here.
+Putting this up at the top, according to this controversial stack overflow answer
+http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
+ -->
+<script src="http://d3js.org/d3.v3.min.js"></script>
+
+<link rel="stylesheet" href="/public/font-awesome-4.4.0/css/font-awesome.min.css">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  
+    <meta name="description" content="Virtue signalling, moral licensing, moral contagion, political correctness, and slacktivism.">
+  
+
+  <!-- To get a link preview image, just set the image attribute in your _post -->
+  
+    <meta content="/assets/2017_three_questions/fig_kony.jpg" property="og:image">
+  
+  
+  <title>
+    
+      Three questions for social scientists&#58; Internet virtue edition &middot; The File Drawer
+    
+  </title>
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-67746868-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/hyde.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
+                                 <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+<!--   <body class="theme-base-cps">
+ -->
+  <body>
+
+    <div class="sidebar">
+  <div class="container">
+    <div class="sidebar-about">
+      <h1>
+        <a href="/">
+          The File Drawer
+        </a>
+      </h1>
+      <p class="lead">My name is Chris Said and I am a data scientist at Opendoor. This blog is mostly about tech, stats, and science.</p>
+
+    </div>
+
+    <nav class="sidebar-nav">
+
+      
+        <a class="sidebar-nav-item" href="/">Home</a>
+      
+        <a class="sidebar-nav-item" href="/archive">Archive</a>
+      
+        <a class="sidebar-nav-item" href="/atom.xml">Feed</a>
+      
+
+    </nav>
+
+    <div class="wrapper">
+      <div class="inner">
+        <a href = "http://www.twitter.com/Chris_Said" class="contact-button"><i class="fa fa-twitter fa-2x"></i></a>
+        <a href = "https://www.linkedin.com/pub/chris-said/6b/86b/979" class="contact-button"><i class="fa fa-linkedin-square fa-2x"></i></a>
+        <a href = "mailto:chris.said@gmail.com" class="contact-button"><i class="fa fa-envelope fa-2x"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <div class="content container">
+      <div class="post">
+  <h1 class="post-title">Three questions for social scientists&#58; Internet virtue edition</h1>
+  <span class="post-date">19 Jun 2017</span>
+  <p>This isn’t news to anybody, but the internet is changing our culture. Recently, I’ve been thinking about how it has changed our moral culture, and I realized that most of our beliefs on this topic are weirdly in tension with one another. Below are three questions that I feel are very much unresolved. I don’t have any good answers to them, and so I think they might be good topics for social science research.</p>
+
+<h4 id="1-moral-substitution-and-moral-licensing-versus-moral-contagion">1. Moral Substitution and Moral Licensing versus Moral Contagion</h4>
+<p>When people do the Ice Bucket Challenge or put a Pride symbol on their profile avatar, they are sometimes accused of <em>virtue signalling</em>, a derogatory term akin to <em>moral grandstanding</em>. Virtue signallers are said to care more about showcasing their virtue than about creating real change.</p>
+
+<p>Virtue signalling is bad, allegedly, for two reasons:
+First, instead of performing truly impactful moral acts, virtue signallers spend more time performing easy and symbolic acts. This could be called <em>moral substitution</em>.
+Second, after doing something good, people often feel like they’ve earned enough virtue points that they can get away with doing something bad. This well-studied phenomenon is called <em><a href="https://en.wikipedia.org/wiki/Self-licensing">moral licensing</a></em>.</p>
+
+<div class="wrapper">
+  <img src="/assets/2017_three_questions/fig_kony.jpg" height="250" class="inner" style="position:relative; border: #ccc 1px solid;" />
+</div>
+
+<p>While there are some clear ways that virtue signalling can be bad, there is another way in which it is good. Doing good things makes other people more likely to do good things. This process, known as <em>moral contagion</em>, was famously demonstrated in the Milgram experiments. Participants in those experiments who saw other participants behave morally were <a href="https://www.saylor.org/site/wp-content/uploads/2011/08/PSYCH202A-3.1.1-Milgram-experiment.pdf">dramatically more likely</a> to behave morally as well.</p>
+
+<p>If the social science research is right, then we can conclude that putting a Pride symbol on your avatar make you behave <em>worse</em> (via moral licensing and moral substitution), but it makes other people behave <em>better</em> (via moral contagion). This leaves a couple of open questions:</p>
+
+<p>First, how do the pros and cons balance out? Perhaps your Pride avatar is net positive if you have a large audience on Facebook, but net negative if you have a small audience. And second, how does moral contagion work with symbolic acts? Does the Pride avatar just make other people add Pride symbols to their avatars? Or does it make them behave more ethically in real and impactful ways?</p>
+
+<p>We are beginning to get <a href="http://smart-meter-analytics.de/downloads/papers/Tiefenbeck%20-%20For%20better%20or%20for%20worse.pdf">some</a> quantitative answers to these questions. Clever research from <a href="https://twitter.com/LindaSkitka">Linda Skitka</a> and others has <a href="https://www.researchgate.net/profile/Linda_Skitka/publication/265606809_Morality_in_everyday_life/links/57457f2608ae9f741b410416.pdf">shown</a> that committing a moral act makes you about 40% less likely to commit another moral act later in the day, whereas hearing about someone else’s moral act makes you about 25% more likely to commit a moral act later in the day, although the latter finding fell short of statistical significance. More research is needed though, particularly when it comes to social media and symbolic virtue signalling.</p>
+
+<h4 id="2-slacktivism-versus-violent-revolution">2. Slacktivism versus Violent Revolution</h4>
+
+<p>This question is more for political scientists.</p>
+
+<p>Many people are concerned that the internet encourages <em><a href="https://en.wikipedia.org/wiki/Slacktivism">slacktivism</a></em>, a phenomenon closely related to <em>moral substitution</em>. It’s easier to slap a Pride symbol on your Facebook than to engage in real activism. In this way, the internet is really a tool of the already powerful.</p>
+
+<div class="wrapper">
+  <img src="/assets/2017_three_questions/fig_homer.png" height="250" class="inner" style="position:relative border: #222 2px solid;" />
+</div>
+
+<p>On the other hand, some people are concerned that the internet cultivates <em>violent radicalism</em>. Online filter bubbles create anger and online networks create alliances, ultimately leading to violent rhetoric and homegrown terrorism.  Many observers already sense the undercurrents of violent revolution.</p>
+
+<p>How can we be worried that the internet is causing <em>both</em> slacktivism and violent radicalism? One possibility is that we only need to worry about slacktivism, and that the violent rhetoric isn’t actually violent – it’s just rhetoric. But the <a href="http://firstmonday.org/article/view/3336/2767">other</a> possibility is that the internet has made slacktivists out of people who otherwise wouldn’t be doing anything at all, and it has made violent radicals out of people who would otherwise be mere activists. I’m not sure what the answer is, but <a href="https://www.nytimes.com/2017/05/10/opinion/crisis-or-stasis.html?_r=0">it would be useful</a> to understand this more.</p>
+
+<h4 id="3-political-correctness-overton-windows-versus-wolf-crying">3. Political Correctness: Overton Windows versus Wolf Crying</h4>
+<p>Perhaps because of filter bubbles on both sides of the political spectrum, the term “political correctness” is back with a vengeance. Leaving aside the question of whether political correctness is good or bad, it would be interesting to understand whether it is effective. On the one hand, political correctness may help define an <a href="https://en.wikipedia.org/wiki/Overton_window">Overton Window</a>, setting useful bounds around opinions that can be aired in polite company. But on the other hand, if the enforcers squeeze the boundaries too much, imposing stricter and stricter controls on the range of acceptable discourse, they risk undermining their own credibility by “crying wolf”. For what it’s worth, many internet trolls credit their success to a perception that so-called social justice warriors overplayed their cards. I’m not sure how much to believe them, but it seems possible.</p>
+
+<p>Just in terms of effectiveness, is there a point at which political correctness starts to backfire? And more broadly, what is the optimal level of political correctness for a society? Neither of these questions seems easy to answer, but I would love to learn more.</p>
+
+  <div>
+    <a class="twitter-share-button"
+      href="https://twitter.com/share"
+      data-url=""
+      data-via="Chris_Said"
+      data-size="large"
+      data-count="none">
+    Tweet
+    </a>
+</div>
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'csaid81';
+    var disqus_identifier = 'http://localhost:4000/2017/06/19/three-questions-for-social-scientists/';
+    var disqus_url = 'http://localhost:4000/2017/06/19/three-questions-for-social-scientists/';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/2017/05/22/keyboard-shortcuts-i-couldnt-live-without/">
+            Keyboard shortcuts I couldn't live without
+            <small>22 May 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2017/05/08/learning-by-flip-flopping/">
+            Learning by flip-flopping
+            <small>08 May 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2017/05/03/empirical-bayes-for-multiple-sample-sizes/">
+            Empirical Bayes for multiple sample sizes
+            <small>03 May 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+
+    </div>
+
+  </body>
+</html>
+
+<!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+
+
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$']],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  messageStyle: "none",
+  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+});
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+
+
+<script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));</script>

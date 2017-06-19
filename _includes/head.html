@@ -16,6 +16,11 @@
     <meta name="description" content="A blog post by Chris Said">
   {% endif %}
 
+  <!-- To get a link preview image, just set the image attribute in your _post -->
+  {% if page.image %}
+    <meta content="{{ page.image }}" property="og:image">
+  {% endif %}
+  
   <title>
     {% if page.title == "Home" %}
       {{ site.title }} &middot; {{ site.tagline }}
