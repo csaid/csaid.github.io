@@ -2,7 +2,7 @@
 layout: post
 title: Three questions for social scientists&#58; Internet virtue edition
 description: Virtue signalling, moral licensing, moral contagion, political correctness, and slacktivism.
-image: /assets/2017_three_questions/fig_kony.jpg
+image: /assets/2017_three_questions/fig_kony.png
 ---
  
 This isn't news to anybody, but the internet is changing our culture. Recently, I've been thinking about how it has changed our moral culture, and I realized that most of our beliefs on this topic are weirdly in tension with one another. Below are three questions that I feel are very much unresolved. I don't have any good answers to them, and so I think they might be good topics for social science research.
