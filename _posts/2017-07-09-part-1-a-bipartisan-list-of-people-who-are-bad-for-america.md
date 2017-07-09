@@ -1,8 +1,7 @@
 ---
 layout: post
 title: Part 1&#58; A bipartisan list of people who are bad for America
-description: Writers and media personalities who stoke partisan outrage for personal gain
----
+description: Writers and media personalities who cherry pick the worst actions of their ideological opponents
 
 Imagine that alien researchers visited America to learn about our political culture. If they wrote a report to send back to their planet, I imagine it would look something like this:
 
