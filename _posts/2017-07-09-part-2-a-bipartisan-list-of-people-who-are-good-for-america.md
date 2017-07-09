@@ -1,12 +1,12 @@
 ---
 layout: post
-title: Part 2&#58; A bipartisan list of people who are good for America
+title: Part 2&#58; A bipartisan list of people who argue in good faith
 description: Writers and media personalities who make their case in good faith
 ---
 
 In [Part 1](http://127.0.0.1:4000/2017/07/09/part-1-a-bipartisan-list-of-people-who-are-bad-for-america/), I posted a bipartisan list of people who are bad for America. Those people present news stories that cherry pick the worst actions from the other side so that they can get higher TV ratings and more social media points. 
 
-In Part 2, I want to post a list of people who don’t do that. This isn’t a list of centrists. If anything, it is a more politically diverse list than the list in Part 1. This is a list of people who make good-faith attempts to persuade others about their point of view. 
+In Part 2, I want to post a list of people who don’t do that, at least for the most part. This isn’t a list of centrists. If anything, it is a more politically diverse list than the list in Part 1. This is a list of people who usually make good-faith attempts to persuade others about their point of view. 
 
 * **Megan McArdle** ([Twitter](https://twitter.com/asymmetricinfo), [Bloomberg](https://www.bloomberg.com/view/contributors/AQjVOcPejrY/megan-mcardle)) - Moderately libertarian ideas presented to a diverse audience
 * **Noah Smith** ([Twitter](https://twitter.com/Noahpinion), [Bloomberg](https://www.bloomberg.com/view/contributors/AR3OYuAmvcU/noah-smith)) - Center-left economics
