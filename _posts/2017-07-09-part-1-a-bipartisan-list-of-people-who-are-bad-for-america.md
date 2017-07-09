@@ -8,13 +8,13 @@ Imagine that alien researchers visited America to learn about our political cult
 
 >Earthlings in this nation have split themselves up into two opposing political “parties”. Most of the Earthlings who associate with these groups are well-intentioned, but occasionally some members of a party do something bad or say something dumb. Whenever this happens, members of the opposite side feel good about themselves.
 >
->Certain writers and media personalities have learned to exploit this fact for personal gain. They have found that they can maximize their TV ratings and social media points by writing news stories that either cherry pick the worst actions of the other side or which interpret the other side's actions in the least charitable way possible. As a result, selective news reporting has increased. Earthlings  have split into isolated news bubbles, with increasingly distorted beliefs about the other side. Craving a pleasant feeling of righteous outrage, Earthlings seek ever more biased media, leading to even more distorted beliefs. The civic culture of this society is broken.
+>Certain writers and media personalities have learned to exploit this fact for personal gain. They have found that they can maximize their TV ratings and social media points by writing news stories that either cherry pick the worst actions of the other side or which interpret the other side's actions in the least charitable way possible. As a result, selective news reporting has increased. Earthlings  have split into isolated news bubbles, with increasingly distorted beliefs about the other side. Craving a pleasant feeling of righteous outrage, Earthlings seek ever more biased media, leading to even more distorted beliefs. The two sides do not understand each other. The civic culture of the society is broken.
 
 Below is a bipartisan list of people who are stoking partisan outrage for personal gain. Some of them do it for retweets, some of them do it for TV ratings, and some of them -- still culpable -- do it because they have entered a filter bubble themselves, fueling their own distorted and harmful sense of mission. This list is non-exhaustive.
 
-* **Sean Davis** (The Federalist)
-* **Sopan Deb** (New York Times) During the presidential campaign, his feed was just nonstop, “look what this stupid Trump supporter said”.
-* **Stephen Miller** (The Wilderness, ex-NRO)
+* **Sean Davis** (The Federalist) His Twitter account is deliberately uncharitable.
+* **Sopan Deb** (New York Times) During the presidential campaign, his Twitter feed was just nonstop, “look what this stupid Trump supporter said”.
+* **Stephen Miller** (The Wilderness, ex-NRO) His Twitter account is deliberately uncharitable.
 * **Chris Cillizza** (The Washington Post)
 * **Sean Hannity** (Fox News)
 * **Tucker Carlson** (Fox News)
