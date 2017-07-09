@@ -3,6 +3,36 @@
   
     
     <url>
+      <loc>http://localhost:4000/2017/07/09/part-2-a-bipartisan-list-of-people-who-are-good-for-america/</loc>
+      
+        <lastmod>2017-07-09T00:00:00-07:00</lastmod>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.5</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://localhost:4000/2017/07/09/part-1-a-bipartisan-list-of-people-who-are-bad-for-america/</loc>
+      
+        <lastmod>2017-07-09T00:00:00-07:00</lastmod>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.5</priority>
+      
+    </url>
+    
+  
+    
+    <url>
       <loc>http://localhost:4000/2017/06/19/three-questions-for-social-scientists/</loc>
       
         <lastmod>2017-06-19T00:00:00-07:00</lastmod>
@@ -460,7 +490,7 @@
     <url>
       <loc>http://localhost:4000404.html</loc>
       
-        <lastmod>2017-06-19T08:59:43-07:00</lastmod>
+        <lastmod>2017-07-08T20:28:37-07:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -488,7 +518,7 @@
     <url>
       <loc>http://localhost:4000</loc>
       
-        <lastmod>2017-06-19T08:59:43-07:00</lastmod>
+        <lastmod>2017-07-08T20:28:37-07:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -511,7 +541,7 @@
     <url>
       <loc>http://localhost:4000</loc>
       
-        <lastmod>2017-06-19T08:59:43-07:00</lastmod>
+        <lastmod>2017-07-08T20:28:37-07:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -529,7 +559,7 @@
     <url>
       <loc>http://localhost:4000</loc>
       
-        <lastmod>2017-06-19T08:59:43-07:00</lastmod>
+        <lastmod>2017-07-08T20:28:37-07:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -547,7 +577,7 @@
     <url>
       <loc>http://localhost:4000</loc>
       
-        <lastmod>2017-06-19T08:59:43-07:00</lastmod>
+        <lastmod>2017-07-08T20:28:37-07:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -565,7 +595,7 @@
     <url>
       <loc>http://localhost:4000</loc>
       
-        <lastmod>2017-06-19T08:59:43-07:00</lastmod>
+        <lastmod>2017-07-08T20:28:37-07:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -583,7 +613,25 @@
     <url>
       <loc>http://localhost:4000</loc>
       
-        <lastmod>2017-06-19T08:59:43-07:00</lastmod>
+        <lastmod>2017-07-08T20:28:37-07:00</lastmod>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    
+
+    
+    <url>
+      <loc>http://localhost:4000</loc>
+      
+        <lastmod>2017-07-08T20:28:37-07:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -979,6 +1027,32 @@
           <loc>http://localhost:4000/2017/06/19/three-questions-for-social-scientists/</loc>
           
             <lastmod>2017-06-19T00:00:00-07:00</lastmod>
+          
+          
+            <changefreq>monthly</changefreq>
+          
+          
+            <priority>0.3</priority>
+          
+        </url>
+      
+        <url>
+          <loc>http://localhost:4000/2017/07/09/part-1-a-bipartisan-list-of-people-who-are-bad-for-america/</loc>
+          
+            <lastmod>2017-07-09T00:00:00-07:00</lastmod>
+          
+          
+            <changefreq>monthly</changefreq>
+          
+          
+            <priority>0.3</priority>
+          
+        </url>
+      
+        <url>
+          <loc>http://localhost:4000/2017/07/09/part-2-a-bipartisan-list-of-people-who-are-good-for-america/</loc>
+          
+            <lastmod>2017-07-09T00:00:00-07:00</lastmod>
           
           
             <changefreq>monthly</changefreq>

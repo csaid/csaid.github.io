@@ -100,6 +100,92 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
   
   <div class="post">
     <h1 class="post-title">
+      <a href="/2014/02/08/is-your-job-in-another-state/">
+        Is your job in another state?
+      </a>
+    </h1>
+
+    <span class="post-date">08 Feb 2014</span>
+
+    <p>National unemployment is high, but business is booming in some states. Vermont needs teachers. Nevada needs bartenders. North Dakota needs truck drivers and just about everything else.</p>
+
+<p>Despite these opportunities, Americans <a href="http://www.washingtonmonthly.com/magazine/november_december_2013/features/stay_put_young_man047332.php?page=all">aren’t moving much</a> and unemployment remains high.  One reason for this is that moving can be expensive and disruptive, especially for those with families and roots in their communities. But another reason may just be lack of awareness about the opportunities in other states. That’s why I have made a new website: <a href="http://www.ismyjobinanotherstate.com">www.ismyjobinanotherstate.com</a>. Enter your job skills, and the website will provide an interactive map showing where you are most in demand.</p>
+
+<p><a href="http://www.ismyjobinanotherstate.com"><figure class="image"><img src="/assets/securityofficer.png" alt="" /></figure>
+</a>
+States are ranked by their <a href="https://www.fas.org/sgp/crs/misc/R42943.pdf">ratio of job postings to unemployment</a>. This is a pretty good metric, but it isn’t perfect. To understand why, imagine two states with the same posting/unemployed ratio for a particular job. If you are trained for the job, you might have better luck applying in a state where the unemployed population is either untrained or unwilling to take that type of job, even though the two states have the same ratio. There also may be differences across states in the use of Indeed.com. Still, I think my results have reasonably good face validity, and the results for many jobs are close to what you would except. If you average across jobs, you get something pretty close to an independently created measure called the <a href="http://www.washingtonmonthly.com/magazine/november_december_2013/features/the_2013_opportunity_index047357.php">“Opportunity Index”</a>.</p>
+
+<p>Job posting data was collected using the <a href="https://ads.indeed.com/jobroll/xmlfeed">Indeed.com api</a>. Unemployment numbers came from the <a href="http://www.bls.gov/news.release/laus.t03.htm">Bureau of Labor Statistics</a>. For more information about how this works, see my the <a href="https://github.com/csaid/IsMyJobInAnotherState">GitHub repository</a>.</p>
+
+
+    <div>
+        <i class="fa fa-comment"></i> <a href="http://localhost:4000/2014/02/08/is-your-job-in-another-state/#disqus_thread" data-disqus-identifier="239 http://filedrawer.wordpress.com/?p=239"></a>
+        <span>&nbsp; &nbsp;</span>
+        <span>
+            <a class="twitter-share-button"
+              href="https://twitter.com/share"
+              data-url="http://localhost:4000/2014/02/08/is-your-job-in-another-state/"
+              data-via="Chris_Said"
+              data-count="none"
+              data-text="Is your job in another state?">
+            Tweet
+            </a>
+        </span>
+
+    </div>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/2013/10/12/my-insight-data-science-project/">
+        My Insight Data Science Project
+      </a>
+    </h1>
+
+    <span class="post-date">12 Oct 2013</span>
+
+    <p>I just finished an excellent fellowship at <a href="http://insightdatascience.com/">Insight Data Science</a>. During our first few weeks there, each of us designed a website to demo at Insight’s sponsor companies. My website is called <a href="http://www.dealspotter.info">DealSpotter</a>.</p>
+
+<p>This all started earlier this summer when I went to Craigslist to find a used car. There were lots of good deals on Craigslist, but it took way too long to find them. When I searched for a particular model, I got hundreds of hits, but only a few of the hits included the mileage in the posting title. Since I needed the mileage to know whether I was getting a good deal, I had to click on each of the hundreds of listings. Pretty time consuming.</p>
+
+<p><a href="http://www.dealspotter.info"><figure class="image"><img src="/assets/listings.png" alt="" border="2px" /></figure>
+</a></p>
+
+<p>A larger problem was that even if I clicked on every post, I didn’t always have a sense for what was the best deal. For example, if I had $3,000, was it better to spend it on a 2001 model with 100K miles, or a 2003 model with 140K miles?</p>
+
+<p><a href="http://www.dealspotter.info"><em>DealSpotter</em></a> is a proof-of-concept website that shows how these problems could be solved. DealSpotter grabs all the Craigslist car postings in the San Francisco Bay Area and automatically shows you the best deals. It knows how much each car should be priced, based on the model, year, and mileage. Cars that are priced lower than DealSpotter expects them to be are shown at the top of the list. DealSpotter also presents the same information in a visual format called “Graph” mode, where the best deals are highlighted in blue.</p>
+
+<p><a href="http://www.dealspotter.info"><figure class="image"><img src="/assets/full.png" alt="" border="2px" /></figure>
+</a></p>
+
+<p>To determine how much each car should be priced, DealSpotter doesn’t use Kelley Blue Book, which tends to overprice cars, especially newer models. Instead, DealSpotter builds its own pricing model based on the actual Craigslist market. In particular, it uses a <a href="http://en.wikipedia.org/wiki/Random_forest">Random Forest</a> pricing model because, unlike smooth parametric models, Random Forests are able to detect sharp discontinuities in prices that may be caused by factors such as manufacturer design overhauls.</p>
+
+<p>By selecting cars that are priced much lower than would be expected based on year and mileage, DealSpotter picks out some incredible deals, as well as the occasional clunker with an accident history. A more elaborate service might find a way to filter for accident history, but for now DealSpotter remains useful because it greatly narrows down the scope of the search for users. Once users are dealing with a handful of posts, they can easily inspect the text of the ad to determine which cars are good deals, and which have a history of accidents.</p>
+
+<p>If you are in the San Francisco Bay Area and are looking for a used car, you should definitely check out my website <em>right now</em>. Many cars are underpriced by thousands of dollars. In the future though, I won’t be updating the listings, which will soon become outdated. Craigslist has a <a href="http://news.cnet.com/8301-1023_3-57479344-93/craigslist-sues-padmapper-for-mass-harvesting-listings/">history of suing</a> other services that try to improve on how their data is presented. Craigslist’s litigiousness is understandable – they curated the data after all. But it apparently has also <a href="http://bits.blogs.nytimes.com/2012/07/29/when-craigslist-blocks-innovations-disruptions/?_r=0">stifled innovation</a>. Craigslist users spend many hours of their time clicking on blue links because the website’s search and UI tools are still stuck in the 90’s. Users are also at higher risk of scams because there is no reputation system. Normally, issues like this would put a company out of business, but a combination of lawsuits and network lock-in effects have kept Craigslist at the top of classifieds services. Hopefully, we will one day get a better Craigslist. In the meantime, if you want to find an incredible deal on a car while the postings are still fresh, you should do so <a href="http://www.dealspotter.info">now</a>.</p>
+
+
+    <div>
+        <i class="fa fa-comment"></i> <a href="http://localhost:4000/2013/10/12/my-insight-data-science-project/#disqus_thread" data-disqus-identifier="206 http://filedrawer.wordpress.com/?p=206"></a>
+        <span>&nbsp; &nbsp;</span>
+        <span>
+            <a class="twitter-share-button"
+              href="https://twitter.com/share"
+              data-url="http://localhost:4000/2013/10/12/my-insight-data-science-project/"
+              data-via="Chris_Said"
+              data-count="none"
+              data-text="My Insight Data Science Project">
+            Tweet
+            </a>
+        </span>
+
+    </div>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
       <a href="/2013/08/19/which-famous-economist/">
         FAQ for Which Famous Economist
       </a>
@@ -248,104 +334,6 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
               data-via="Chris_Said"
               data-count="none"
               data-text="Canadian funding models for all">
-            Tweet
-            </a>
-        </span>
-
-    </div>
-
-  </div>
-  
-  <div class="post">
-    <h1 class="post-title">
-      <a href="/2013/01/15/8-lessons-from-the-reproducibility-crisis/">
-        Eight Lessons from the Reproducibility Crisis 
-      </a>
-    </h1>
-
-    <span class="post-date">15 Jan 2013</span>
-
-    <ol>
-  <li>
-    <p>There is a reproducibility crisis in psychology.</p>
-  </li>
-  <li>
-    <p>Outright fraud is rare. Soft forms of bad practice are the bigger problem.</p>
-  </li>
-  <li>
-    <p>Most scientists are honest, but soft forms of bad practice emerge through self-deception or lack of awareness. <a href="http://psr.sagepub.com/content/2/3/196.abstract">
-</a></p>
-  </li>
-  <li>
-    <p>The problem is worse in medical research, but that is no excuse for psychologists to resist reforms.</p>
-  </li>
-  <li>
-    <p><a href="http://papers.ssrn.com/sol3/papers.cfm?abstract_id=1850704">Lists of new regulations</a> are fine, but the core issue is that career incentive structures are not always aligned with truth discovery.</p>
-  </li>
-  <li>
-    <p>Some data outcomes are rewarded more than other data outcomes. This is bad.</p>
-  </li>
-  <li>
-    <p>Journals have little incentive to change this incentive structure themselves.</p>
-  </li>
-  <li>
-    <p><a href="/2012/04/17/its-the-incentives-structure-people-why-science-reform-must-come-from-the-granting-agencies/">But granting agencies can help</a>, by increasing the grant award probability to scientists who submit to <a href="http://neurochambers.blogspot.co.uk/2012/10/changing-culture-of-scientific.html">good</a> <a href="http://talyarkoni.org/papers/Yarkoni_FCN_2012.pdf">practice</a> <a href="http://www.plosone.org">journals</a>. Can someone at NIH/NSF please do something about this?</p>
-  </li>
-</ol>
-
-<p>If you have comments, they might already be addressed in my <a href="/2012/04/18/faq/">FAQ</a>.</p>
-
-
-    <div>
-        <i class="fa fa-comment"></i> <a href="http://localhost:4000/2013/01/15/8-lessons-from-the-reproducibility-crisis/#disqus_thread" data-disqus-identifier="http://localhost:4000/2013/01/15/8-lessons-from-the-reproducibility-crisis/"></a>
-        <span>&nbsp; &nbsp;</span>
-        <span>
-            <a class="twitter-share-button"
-              href="https://twitter.com/share"
-              data-url="http://localhost:4000/2013/01/15/8-lessons-from-the-reproducibility-crisis/"
-              data-via="Chris_Said"
-              data-count="none"
-              data-text="Eight Lessons from the Reproducibility Crisis ">
-            Tweet
-            </a>
-        </span>
-
-    </div>
-
-  </div>
-  
-  <div class="post">
-    <h1 class="post-title">
-      <a href="/2013/01/09/in-defense-of-correlationcausation-blowhards/">
-        In defense of correlation/causation blowhards
-      </a>
-    </h1>
-
-    <span class="post-date">09 Jan 2013</span>
-
-    <p>Let’s get one thing out of the way first: There is not a single scientist or science journalist who doesn’t know that correlation does not equal causation. Most have probably known it since high school.</p>
-
-<p>That’s why there has been a bit of a backlash against internet commenters who keep pointing it out. The phrase is “common and irritating”, writes Slate’s Daniel Engber in his article <a href="http://www.slate.com/articles/health_and_science/science/2012/10/correlation_does_not_imply_causation_how_the_internet_fell_in_love_with_a_stats_class_clich_.single.html">The Internet Blowhard’s Favorite Phrase</a>. To Engber, correlation≠causation is a “freshman platitude” that professional scientists and journalists don’t need to be reminded of. Scientists are merely <em>suggesting</em> a causal relationship. They are not claiming it is proven.</p>
-
-<p>I can see why writers and researchers find it frustrating to be scolded about something they already know. But correlation≠causation is one of those things that has a way of sliding onto the back burner of one’s mental awareness, even among scientists. On one day a research group is acknowledging the limits to their correlational study, but the next day they are advancing policy arguments that depend on a causal relationship. Or more commonly, they are preparing to run yet another correlational study.</p>
-
-<p>Nowhere does this seem more of an issue than in nutrition science and in education research. In nutrition science, it is much easier to conduct a simple survey on health and eating habits than to organize a large-scale longitudinal randomized control study. Is it any wonder then, that after 50 years of nutrition science <a href="http://grist.org/scary-food/2011-03-04-low-fat-diet-fad/">we still don’t know</a> whether saturated fat is good for you or bad for you? And in education research, it is much easier to run a correlational study on class size and achievement than it is to run a <a href="http://onlinelibrary.wiley.com/doi/10.1111/1468-0297.00586/abstract">randomized control study</a>. Is it any wonder then, that the public policy debate about class size is so muddled?</p>
-
-<p>Don’t get me wrong – There is some fantastic causal research coming out of the nutrition and education fields. And there is nothing wrong with running a correlational study either. Correlational studies are a great way for researchers to identify variables that are promising enough to investigate with causal methods.</p>
-
-<p>But could it be that we have struck the wrong balance between correlational studies and causal studies? Could we be allocating too many resources towards easy but inconclusive studies, and not enough towards costly but more definitive research? I think the answer might be yes, and that internet comment blowhards are an important voice for this point of view.</p>
-
-
-    <div>
-        <i class="fa fa-comment"></i> <a href="http://localhost:4000/2013/01/09/in-defense-of-correlationcausation-blowhards/#disqus_thread" data-disqus-identifier="143 http://filedrawer.wordpress.com/?p=143"></a>
-        <span>&nbsp; &nbsp;</span>
-        <span>
-            <a class="twitter-share-button"
-              href="https://twitter.com/share"
-              data-url="http://localhost:4000/2013/01/09/in-defense-of-correlationcausation-blowhards/"
-              data-via="Chris_Said"
-              data-count="none"
-              data-text="In defense of correlation/causation blowhards">
             Tweet
             </a>
         </span>

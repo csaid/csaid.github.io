@@ -100,6 +100,155 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
   
   <div class="post">
     <h1 class="post-title">
+      <a href="/2014/10/16/jumping-quickly-between-deep-directories/">
+        Jumping quickly between deep directories
+      </a>
+    </h1>
+
+    <span class="post-date">16 Oct 2014</span>
+
+    <p>I often need to jump between different directories with very deep paths, like this:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span><span class="nb">cd </span>some/very/deep/directory/project1
+<span class="gp">$ </span><span class="c"># do stuff in Project 1</span>
+<span class="gp">$ </span><span class="nb">cd </span>different/very/deep/directory/project2
+<span class="gp">$ </span><span class="c"># do stuff in Project 2</span></code></pre></figure>
+
+<p>While it only takes a handful of seconds to switch directories, the extra mental effort often derails my train of thought. Some solutions exist, but they all have their limitations. For example, <code class="highlighter-rouge">pushd</code> and <code class="highlighter-rouge">popd</code> don’t work well for directories you haven’t visited in a while. Aliases require you to manually add a new alias to your .bashrc every time you want to save a new directory.</p>
+
+<p>I recently found a solution, inspired by <a href="http://jeroenjanssens.com/2013/08/16/quickly-navigate-your-filesystem-from-the-command-line.html">this post</a> from <a href="https://twitter.com/jeroenhjanssens">Jeroen Janssens</a>, that works great and feels totally natural. All it takes is a one-time change to your .bashrc that will allow you to easily save directories and switch between them. To save a directory, just use the <code class="highlighter-rouge">mark</code> function:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span><span class="nb">pwd
+</span>some/very/deep/directory/project1
+<span class="gp">$ </span>mark project1</code></pre></figure>
+
+<p>To navigate to a saved directory, just use the <code class="highlighter-rouge">cdd</code> function:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>cdd project1
+<span class="c"># do stuff in Project 1</span>
+<span class="gp">$ </span>cdd project2
+<span class="c"># do stuff in Project 2</span></code></pre></figure>
+
+<p>You can display a list of your saved directories with the <code class="highlighter-rouge">marks</code> function, and you can remove a directory from the list with the <code class="highlighter-rouge">unmark</code> function:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>unmark project1</code></pre></figure>
+
+<p>For any of this to work, you’ll need to add this to your .bashrc, assuming you have a Mac and use the bash shell.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">    <span class="k">function </span>cdd <span class="o">{</span>
+        <span class="nb">cd</span> -P <span class="s2">"</span><span class="nv">$MARKPATH</span><span class="s2">/</span><span class="nv">$1</span><span class="s2">"</span> 2&gt;/dev/null <span class="o">||</span> <span class="nb">echo</span> <span class="s2">"No such mark: </span><span class="nv">$1</span><span class="s2">"</span>
+    <span class="o">}</span>
+    <span class="k">function </span>mark <span class="o">{</span>
+        mkdir -p <span class="s2">"</span><span class="nv">$MARKPATH</span><span class="s2">"</span>; ln -s <span class="s2">"</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span><span class="s2">"</span> <span class="s2">"</span><span class="nv">$MARKPATH</span><span class="s2">/</span><span class="nv">$1</span><span class="s2">"</span>
+    <span class="o">}</span>
+    <span class="k">function </span>unmark <span class="o">{</span>
+        rm -i <span class="s2">"</span><span class="nv">$MARKPATH</span><span class="s2">/</span><span class="nv">$1</span><span class="s2">"</span>
+    <span class="o">}</span>
+    <span class="k">function </span>marks <span class="o">{</span>
+        <span class="se">\l</span>s -l <span class="s2">"</span><span class="nv">$MARKPATH</span><span class="s2">"</span> | tail -n +2 | sed <span class="s1">'s/  / /g'</span> | cut -d<span class="s1">' '</span> -f9- | awk -F <span class="s1">' -&gt; '</span> <span class="s1">'{printf "%-10s -&gt; %s\n", $1, $2}'</span>
+    <span class="o">}</span>
+
+    _cdd<span class="o">()</span>
+    <span class="o">{</span>
+        <span class="nb">local </span><span class="nv">cur</span><span class="o">=</span><span class="k">${</span><span class="nv">COMP_WORDS</span><span class="p">[COMP_CWORD]</span><span class="k">}</span>
+        <span class="nv">COMPREPLY</span><span class="o">=(</span> <span class="k">$(</span><span class="nb">compgen</span> -W <span class="s2">"</span><span class="k">$(</span> ls <span class="nv">$MARKPATH</span> <span class="k">)</span><span class="s2">"</span> -- <span class="nv">$cur</span><span class="k">)</span> <span class="o">)</span>
+    <span class="o">}</span>
+    <span class="nb">complete</span> -F _cdd cdd</code></pre></figure>
+
+<p>This differs from Jeroen’s <a href="http://jeroenjanssens.com/2013/08/16/quickly-navigate-your-filesystem-from-the-command-line.html">original</a> code in a couple of ways. First, to be more brain-friendly, it names the function “cdd” instead of “jump”. Second, the tab completion works <a href="https://news.ycombinator.com/item?id=6229291">better</a>.</p>
+
+<p>Update: <a href="https://twitter.com/johnvmcdonnell">John McDonnell</a> points me to <a href="https://github.com/joelthelion/autojump">autojump</a>.</p>
+
+
+
+    <div>
+        <i class="fa fa-comment"></i> <a href="http://localhost:4000/2014/10/16/jumping-quickly-between-deep-directories/#disqus_thread" data-disqus-identifier="http://localhost:4000/2014/10/16/jumping-quickly-between-deep-directories/"></a>
+        <span>&nbsp; &nbsp;</span>
+        <span>
+            <a class="twitter-share-button"
+              href="https://twitter.com/share"
+              data-url="http://localhost:4000/2014/10/16/jumping-quickly-between-deep-directories/"
+              data-via="Chris_Said"
+              data-count="none"
+              data-text="Jumping quickly between deep directories">
+            Tweet
+            </a>
+        </span>
+
+    </div>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/2014/07/10/how-failed-replications-change-our-effect-size-estimates/">
+        How failed replications change our effect size estimates
+      </a>
+    </h1>
+
+    <span class="post-date">10 Jul 2014</span>
+
+    <p>Yesterday I posted a very unscientific <a href="https://www.surveymonkey.com/s/H7NM96W">survey</a> asking researchers to describe how failed replications changed their subjective estimates of effect sizes. The main survey asked for “ballpark estimates” of effect sizes, but an <a href="http://csaid.shinyapps.io/survey/">alternative interactive version</a> allowed researchers to also report their uncertainty by specifying both the mean and variance of their posterior distributions. Thanks to everyone who participated. I won’t be analyzing any new data after this, but it’s never too late to publicly share your estimates!</p>
+
+<p>Here are the questions. </p>
+
+<p><em><strong>Question 1</strong>. A 2009 experiment with 50 subjects (25 per cell) is published in Psych Science. The experiment does not require any special equipment other than a questionnaire. It is not pre-registered. The results show an effect size of d=0.5. Let’s define the true effect size to be the average effect size of an infinite number of replications that the original experimenter would deem “reasonably exact” in advance. Based on this information alone, what is your ballpark subjective estimate of the true effect size?</em></p>
+
+<p><em><strong>Question 2</strong>. What if the experiment had been pre-registered? </em></p>
+
+<p><em><strong>Question 3</strong>. Assume again that the experiment was not pre-registered. Now imagine that a pre-registered replication attempt with the same sample size estimated the effect size to be d=0.0. At the time of pre-registration, the original experimenter deemed it “reasonably exact”. Based on this replication and the original experiment, what is your ballpark subjective estimate of the true effect size?</em></p>
+
+<p><em><strong>Question 4</strong>. What if the replication attempt had 300 subjects per cell?</em></p>
+
+<p>Here are the results.</p>
+
+<figure class="image"><img src="/assets/results.png" alt="" /></figure>
+
+<p>Keeping in mind all the caveats about sampling bias and other issues, here are a few observations:</p>
+
+<ul>
+  <li>
+    <p>The original study reported an effect size of d=0.5, but the results for Question 1 tell us that most researchers believed the true effect size was closer to d=0.2, which is roughly in line with my own estimate. Had I allowed researchers to <a href="http://csaid.shinyapps.io/survey/">state their uncertainty</a>, I suspect that many would find it quite possible that even the <em>sign</em> of the effect was wrong. This isn’t really surprising to me, but I think we should take a moment to reflect on what this means. When a scientist reports a result, most other researchers believe it is massively overstated. I know that there are still some researchers who want little or no changes to the status quo, but I’d like to live in a world where people actually believe the claims that scientists make. That’s why I’m a strong supporter of all the attempts to <a href="http://centerforopenscience.org/">fundamentally</a> <a href="https://pubpeer.com/">change</a> <a href="http://www.talyarkoni.org/blog/2013/03/12/the-truth-is-not-optional-five-bad-reasons-and-one-mediocre-one-for-defending-the-status-quo/">how</a> scientists do research.</p>
+  </li>
+  <li>
+    <p>If you want people to have more confidence in your findings, pre-registration can make a big difference.</p>
+  </li>
+  <li>
+    <p>While it’s not apparent from the plot, almost all respondents reduced their effect size estimate upon hearing about failed replications (Question 3 and 4 compared to Question 1).</p>
+  </li>
+  <li>
+    <p>As some have pointed out, the original experiment falls a bit short of statistical significance. This was an oversight, as I forgot to check the p-value after changing some of the values. I don’t think this is a huge deal, since posterior estimates shouldn’t really depend too much on whether the results cross an arbitrary threshold. But apologies for the error.</p>
+  </li>
+  <li>
+    <p>My estimates <a href="https://twitter.com/Chris_Said/status/487041593422016512">were</a> .25, .40, .10, .05.</p>
+  </li>
+  <li>
+    <p>I wish I included another question asking what people would have thought of the original study if it was conducted in 2014.</p>
+  </li>
+</ul>
+
+
+
+    <div>
+        <i class="fa fa-comment"></i> <a href="http://localhost:4000/2014/07/10/how-failed-replications-change-our-effect-size-estimates/#disqus_thread" data-disqus-identifier="http://localhost:4000/2014/07/10/how-failed-replications-change-our-effect-size-estimates/"></a>
+        <span>&nbsp; &nbsp;</span>
+        <span>
+            <a class="twitter-share-button"
+              href="https://twitter.com/share"
+              data-url="http://localhost:4000/2014/07/10/how-failed-replications-change-our-effect-size-estimates/"
+              data-via="Chris_Said"
+              data-count="none"
+              data-text="How failed replications change our effect size estimates">
+            Tweet
+            </a>
+        </span>
+
+    </div>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
       <a href="/2014/07/07/jason-mitchells-essay/">
         Jason Mitchell's essay
       </a>
@@ -217,92 +366,6 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
               data-via="Chris_Said"
               data-count="none"
               data-text="High School STEM curriculum wishlist">
-            Tweet
-            </a>
-        </span>
-
-    </div>
-
-  </div>
-  
-  <div class="post">
-    <h1 class="post-title">
-      <a href="/2014/02/08/is-your-job-in-another-state/">
-        Is your job in another state?
-      </a>
-    </h1>
-
-    <span class="post-date">08 Feb 2014</span>
-
-    <p>National unemployment is high, but business is booming in some states. Vermont needs teachers. Nevada needs bartenders. North Dakota needs truck drivers and just about everything else.</p>
-
-<p>Despite these opportunities, Americans <a href="http://www.washingtonmonthly.com/magazine/november_december_2013/features/stay_put_young_man047332.php?page=all">aren’t moving much</a> and unemployment remains high.  One reason for this is that moving can be expensive and disruptive, especially for those with families and roots in their communities. But another reason may just be lack of awareness about the opportunities in other states. That’s why I have made a new website: <a href="http://www.ismyjobinanotherstate.com">www.ismyjobinanotherstate.com</a>. Enter your job skills, and the website will provide an interactive map showing where you are most in demand.</p>
-
-<p><a href="http://www.ismyjobinanotherstate.com"><figure class="image"><img src="/assets/securityofficer.png" alt="" /></figure>
-</a>
-States are ranked by their <a href="https://www.fas.org/sgp/crs/misc/R42943.pdf">ratio of job postings to unemployment</a>. This is a pretty good metric, but it isn’t perfect. To understand why, imagine two states with the same posting/unemployed ratio for a particular job. If you are trained for the job, you might have better luck applying in a state where the unemployed population is either untrained or unwilling to take that type of job, even though the two states have the same ratio. There also may be differences across states in the use of Indeed.com. Still, I think my results have reasonably good face validity, and the results for many jobs are close to what you would except. If you average across jobs, you get something pretty close to an independently created measure called the <a href="http://www.washingtonmonthly.com/magazine/november_december_2013/features/the_2013_opportunity_index047357.php">“Opportunity Index”</a>.</p>
-
-<p>Job posting data was collected using the <a href="https://ads.indeed.com/jobroll/xmlfeed">Indeed.com api</a>. Unemployment numbers came from the <a href="http://www.bls.gov/news.release/laus.t03.htm">Bureau of Labor Statistics</a>. For more information about how this works, see my the <a href="https://github.com/csaid/IsMyJobInAnotherState">GitHub repository</a>.</p>
-
-
-    <div>
-        <i class="fa fa-comment"></i> <a href="http://localhost:4000/2014/02/08/is-your-job-in-another-state/#disqus_thread" data-disqus-identifier="239 http://filedrawer.wordpress.com/?p=239"></a>
-        <span>&nbsp; &nbsp;</span>
-        <span>
-            <a class="twitter-share-button"
-              href="https://twitter.com/share"
-              data-url="http://localhost:4000/2014/02/08/is-your-job-in-another-state/"
-              data-via="Chris_Said"
-              data-count="none"
-              data-text="Is your job in another state?">
-            Tweet
-            </a>
-        </span>
-
-    </div>
-
-  </div>
-  
-  <div class="post">
-    <h1 class="post-title">
-      <a href="/2013/10/12/my-insight-data-science-project/">
-        My Insight Data Science Project
-      </a>
-    </h1>
-
-    <span class="post-date">12 Oct 2013</span>
-
-    <p>I just finished an excellent fellowship at <a href="http://insightdatascience.com/">Insight Data Science</a>. During our first few weeks there, each of us designed a website to demo at Insight’s sponsor companies. My website is called <a href="http://www.dealspotter.info">DealSpotter</a>.</p>
-
-<p>This all started earlier this summer when I went to Craigslist to find a used car. There were lots of good deals on Craigslist, but it took way too long to find them. When I searched for a particular model, I got hundreds of hits, but only a few of the hits included the mileage in the posting title. Since I needed the mileage to know whether I was getting a good deal, I had to click on each of the hundreds of listings. Pretty time consuming.</p>
-
-<p><a href="http://www.dealspotter.info"><figure class="image"><img src="/assets/listings.png" alt="" border="2px" /></figure>
-</a></p>
-
-<p>A larger problem was that even if I clicked on every post, I didn’t always have a sense for what was the best deal. For example, if I had $3,000, was it better to spend it on a 2001 model with 100K miles, or a 2003 model with 140K miles?</p>
-
-<p><a href="http://www.dealspotter.info"><em>DealSpotter</em></a> is a proof-of-concept website that shows how these problems could be solved. DealSpotter grabs all the Craigslist car postings in the San Francisco Bay Area and automatically shows you the best deals. It knows how much each car should be priced, based on the model, year, and mileage. Cars that are priced lower than DealSpotter expects them to be are shown at the top of the list. DealSpotter also presents the same information in a visual format called “Graph” mode, where the best deals are highlighted in blue.</p>
-
-<p><a href="http://www.dealspotter.info"><figure class="image"><img src="/assets/full.png" alt="" border="2px" /></figure>
-</a></p>
-
-<p>To determine how much each car should be priced, DealSpotter doesn’t use Kelley Blue Book, which tends to overprice cars, especially newer models. Instead, DealSpotter builds its own pricing model based on the actual Craigslist market. In particular, it uses a <a href="http://en.wikipedia.org/wiki/Random_forest">Random Forest</a> pricing model because, unlike smooth parametric models, Random Forests are able to detect sharp discontinuities in prices that may be caused by factors such as manufacturer design overhauls.</p>
-
-<p>By selecting cars that are priced much lower than would be expected based on year and mileage, DealSpotter picks out some incredible deals, as well as the occasional clunker with an accident history. A more elaborate service might find a way to filter for accident history, but for now DealSpotter remains useful because it greatly narrows down the scope of the search for users. Once users are dealing with a handful of posts, they can easily inspect the text of the ad to determine which cars are good deals, and which have a history of accidents.</p>
-
-<p>If you are in the San Francisco Bay Area and are looking for a used car, you should definitely check out my website <em>right now</em>. Many cars are underpriced by thousands of dollars. In the future though, I won’t be updating the listings, which will soon become outdated. Craigslist has a <a href="http://news.cnet.com/8301-1023_3-57479344-93/craigslist-sues-padmapper-for-mass-harvesting-listings/">history of suing</a> other services that try to improve on how their data is presented. Craigslist’s litigiousness is understandable – they curated the data after all. But it apparently has also <a href="http://bits.blogs.nytimes.com/2012/07/29/when-craigslist-blocks-innovations-disruptions/?_r=0">stifled innovation</a>. Craigslist users spend many hours of their time clicking on blue links because the website’s search and UI tools are still stuck in the 90’s. Users are also at higher risk of scams because there is no reputation system. Normally, issues like this would put a company out of business, but a combination of lawsuits and network lock-in effects have kept Craigslist at the top of classifieds services. Hopefully, we will one day get a better Craigslist. In the meantime, if you want to find an incredible deal on a car while the postings are still fresh, you should do so <a href="http://www.dealspotter.info">now</a>.</p>
-
-
-    <div>
-        <i class="fa fa-comment"></i> <a href="http://localhost:4000/2013/10/12/my-insight-data-science-project/#disqus_thread" data-disqus-identifier="206 http://filedrawer.wordpress.com/?p=206"></a>
-        <span>&nbsp; &nbsp;</span>
-        <span>
-            <a class="twitter-share-button"
-              href="https://twitter.com/share"
-              data-url="http://localhost:4000/2013/10/12/my-insight-data-science-project/"
-              data-via="Chris_Said"
-              data-count="none"
-              data-text="My Insight Data Science Project">
             Tweet
             </a>
         </span>
