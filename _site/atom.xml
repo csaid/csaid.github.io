@@ -4,7 +4,7 @@
  <title>The File Drawer</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2017-07-09T08:08:18-07:00</updated>
+ <updated>2017-07-09T08:09:48-07:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -45,16 +45,11 @@
  </entry>
  
  <entry>
-   <title>Part 1 A Bipartisan List Of People Who Are Bad For America</title>
+   <title>Part 1&#58; A bipartisan list of people who are bad for America</title>
    <link href="http://localhost:4000/2017/07/09/part-1-a-bipartisan-list-of-people-who-are-bad-for-america/"/>
    <updated>2017-07-09T00:00:00-07:00</updated>
    <id>http://localhost:4000/2017/07/09/part-1-a-bipartisan-list-of-people-who-are-bad-for-america</id>
-   <content type="html">&lt;hr /&gt;
-&lt;p&gt;layout: post
-title: Part 1: A bipartisan list of people who are bad for America
-description: Writers and media personalities who cherry pick the worst actions of their ideological opponents&lt;/p&gt;
-
-&lt;p&gt;Imagine that alien researchers visited America to learn about our political culture. If they wrote a report to send back to their planet, I imagine it would look something like this:&lt;/p&gt;
+   <content type="html">&lt;p&gt;Imagine that alien researchers visited America to learn about our political culture. If they wrote a report to send back to their planet, I imagine it would look something like this:&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;Earthlings in this nation have split themselves up into two opposing political “parties”. Most of the Earthlings who associate with these groups are well-intentioned, but occasionally some members of a party do something bad or say something dumb. Whenever this happens, members of the opposite side feel good about themselves.&lt;/p&gt;
