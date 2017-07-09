@@ -26,4 +26,4 @@ Below is a bipartisan list of people who are stoking partisan outrage for person
 
 It doesn't matter if some of the people on this list do accurate reporting. What matters is that their reporting is _selective_. It doesn’t matter if some of the people on this list support some good policy ideas. What matters is that listening to them will destroy your brain’s ability to understand where the other side is coming from. And it doesn’t matter if one side is more filter-bubbled than the other. Both sides are badly filter-bubbled. Avoiding the people in this list is a good place to start.
 
-In [Part 2](/2017/07/09/part-2-a-bipartisan-list-of-people-who-are-good-for-america/), I’ll post a bipartisan list of people who are good for America.
+In [Part 2](/2017/07/09/part-2-a-bipartisan-list-of-people-who-are-good-for-america/), I’ll post a bipartisan list of people who argue in good faith.
