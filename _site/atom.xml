@@ -4,7 +4,7 @@
  <title>The File Drawer</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2017-07-08T20:28:37-07:00</updated>
+ <updated>2017-07-09T07:14:53-07:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -25,8 +25,8 @@
   &lt;li&gt;&lt;strong&gt;Megan McArdle&lt;/strong&gt; (&lt;a href=&quot;https://twitter.com/asymmetricinfo&quot;&gt;Twitter&lt;/a&gt;, &lt;a href=&quot;https://www.bloomberg.com/view/contributors/AQjVOcPejrY/megan-mcardle&quot;&gt;Bloomberg&lt;/a&gt;) - Moderately libertarian ideas presented to a diverse audience&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Noah Smith&lt;/strong&gt; (&lt;a href=&quot;https://twitter.com/Noahpinion&quot;&gt;Twitter&lt;/a&gt;, &lt;a href=&quot;https://www.bloomberg.com/view/contributors/AR3OYuAmvcU/noah-smith&quot;&gt;Bloomberg&lt;/a&gt;) - Center-left economics&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Ross Douthat&lt;/strong&gt; (&lt;a href=&quot;https://twitter.com/DouthatNYT&quot;&gt;Twitter&lt;/a&gt;, &lt;a href=&quot;https://www.nytimes.com/column/ross-douthat&quot;&gt;NYT&lt;/a&gt;) - Social conservatism presented to a left-of-center audience&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Conor Friedersdorf&lt;/strong&gt; (&lt;a href=&quot;https://www.theatlantic.com/author/conor-friedersdorf&quot;&gt;The Atlantic&lt;/a&gt;)&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Noam Chomsky&lt;/strong&gt; (&lt;a href=&quot;https://chomsky.info/articles/&quot;&gt;Website&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Conor Friedersdorf&lt;/strong&gt; (&lt;a href=&quot;https://www.theatlantic.com/author/conor-friedersdorf&quot;&gt;The Atlantic&lt;/a&gt;)&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Ben Sasse&lt;/strong&gt; - Has the third-most conservative voting record in the Senate but never caricatures the other side and is very concerned about filter bubbles.&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Julia Galef&lt;/strong&gt; (&lt;a href=&quot;https://twitter.com/juliagalef&quot;&gt;Twitter&lt;/a&gt;) - Has some &lt;a href=&quot;https://twitter.com/juliagalef/status/850126407963262976&quot;&gt;great advice&lt;/a&gt; for understanding the other side&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Nicky Case&lt;/strong&gt; (&lt;a href=&quot;https://twitter.com/ncasenmare&quot;&gt;Twitter&lt;/a&gt;)&lt;/li&gt;
@@ -52,9 +52,9 @@
    <content type="html">&lt;p&gt;Imagine that alien researchers visited America to learn about our political culture. If they wrote a report to send back to their planet, I imagine it would look something like this:&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;Earthlings in this nation have split themselves up into two opposing political “parties”. Most of the Earthlings who associate with these groups are well-intentioned and well-behaved, but occasionally some members of a party do something bad or say something dumb. Whenever this happens, members of the opposite side feel good about themselves.&lt;/p&gt;
+  &lt;p&gt;Earthlings in this nation have split themselves up into two opposing political “parties”. Most of the Earthlings who associate with these groups are well-intentioned, but occasionally some members of a party do something bad or say something dumb. Whenever this happens, members of the opposite side feel good about themselves.&lt;/p&gt;
 
-  &lt;p&gt;Certain writers and media personalities have learned to exploit this fact for personal gain. They have found that they can maximize their TV ratings and social media points by writing news stories that either cherry pick the worst actions of the other side or which interpret the other side’s actions in the least charitable way possible. As a result, selective news reporting has increased. Earthlings  have split into isolated filter bubbles, with increasingly distorted beliefs about reality. Craving a pleasant feeling of righteous outrage, Earthlings seek ever more biased media, leading to even more distorted beliefs. The civic culture of this society is broken.&lt;/p&gt;
+  &lt;p&gt;Certain writers and media personalities have learned to exploit this fact for personal gain. They have found that they can maximize their TV ratings and social media points by writing news stories that either cherry pick the worst actions of the other side or which interpret the other side’s actions in the least charitable way possible. As a result, selective news reporting has increased. Earthlings  have split into isolated news bubbles, with increasingly distorted beliefs about the other side. Craving a pleasant feeling of righteous outrage, Earthlings seek ever more biased media, leading to even more distorted beliefs. The civic culture of this society is broken.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;Below is a bipartisan list of people who are stoking partisan outrage for personal gain. Some of them do it for retweets, some of them do it for TV ratings, and some of them – still culpable – do it because they have entered a filter bubble themselves, fueling their own distorted and harmful sense of mission. This list is non-exhaustive.&lt;/p&gt;
