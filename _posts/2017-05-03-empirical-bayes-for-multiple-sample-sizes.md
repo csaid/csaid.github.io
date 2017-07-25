@@ -246,11 +246,11 @@ $$ \hat{\theta_i} = \frac{\tau^2 x_i + \sigma^{2}_i \mu}{\sigma^{2}_i + \tau^2} 
 
 Or equivalently,
 
-$$ \hat{\theta_i} = \left(1-B\right) x_i + B \mu $$
+$$ \hat{\theta_i} = \left(1-B_{i}\right) x_i + B_{i} \mu $$
 
 where
 
-$$ B = \frac{\sigma^{2}_i}{\sigma^{2}_i + \tau^2} $$
+$$ B_{i} = \frac{\sigma^{2}_i}{\sigma^{2}_i + \tau^2} $$
 
 This looks familiar! It is basically the MSS James-Stein estimator. The only difference is that in the pure Bayesian approach you must somehow know $ \mu $, $ \tau^2 $, and $ \sigma^{2}_i $ in advance. In the MSS James-Stein approach, you estimate those parameters from the data itself. This is the key insight in Empirical Bayes: Use priors to keep your estimates under control, but obtain the priors *empirically* from the data itself.
 

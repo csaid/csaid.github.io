@@ -4,7 +4,7 @@
  <title>The File Drawer</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2017-07-23T07:41:52-07:00</updated>
+ <updated>2017-07-25T08:06:52-07:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -528,11 +528,11 @@ Implementations in Python and R are available &lt;a href=&quot;https://github.co
 
 &lt;p&gt;Or equivalently,&lt;/p&gt;
 
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;\hat{\theta_i} = \left(1-B\right) x_i + B \mu&lt;/script&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\hat{\theta_i} = \left(1-B_{i}\right) x_i + B_{i} \mu&lt;/script&gt;
 
 &lt;p&gt;where&lt;/p&gt;
 
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;B = \frac{\sigma^{2}_i}{\sigma^{2}_i + \tau^2}&lt;/script&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;B_{i} = \frac{\sigma^{2}_i}{\sigma^{2}_i + \tau^2}&lt;/script&gt;
 
 &lt;p&gt;This looks familiar! It is basically the MSS James-Stein estimator. The only difference is that in the pure Bayesian approach you must somehow know $ \mu $, $ \tau^2 $, and $ \sigma^{2}_i $ in advance. In the MSS James-Stein approach, you estimate those parameters from the data itself. This is the key insight in Empirical Bayes: Use priors to keep your estimates under control, but obtain the priors &lt;em&gt;empirically&lt;/em&gt; from the data itself.&lt;/p&gt;
 

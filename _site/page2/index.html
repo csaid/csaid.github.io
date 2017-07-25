@@ -358,11 +358,11 @@ Implementations in Python and R are available <a href="https://github.com/csaid/
 
 <p>Or equivalently,</p>
 
-<script type="math/tex; mode=display">\hat{\theta_i} = \left(1-B\right) x_i + B \mu</script>
+<script type="math/tex; mode=display">\hat{\theta_i} = \left(1-B_{i}\right) x_i + B_{i} \mu</script>
 
 <p>where</p>
 
-<script type="math/tex; mode=display">B = \frac{\sigma^{2}_i}{\sigma^{2}_i + \tau^2}</script>
+<script type="math/tex; mode=display">B_{i} = \frac{\sigma^{2}_i}{\sigma^{2}_i + \tau^2}</script>
 
 <p>This looks familiar! It is basically the MSS James-Stein estimator. The only difference is that in the pure Bayesian approach you must somehow know $ \mu $, $ \tau^2 $, and $ \sigma^{2}_i $ in advance. In the MSS James-Stein approach, you estimate those parameters from the data itself. This is the key insight in Empirical Bayes: Use priors to keep your estimates under control, but obtain the priors <em>empirically</em> from the data itself.</p>
 
