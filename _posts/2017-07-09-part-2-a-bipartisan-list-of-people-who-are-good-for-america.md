@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Part 2&#58; A bipartisan list of people who argue in good faith
-description: Writers and media personalities who make their case in good faith
+description: Writers and media personalities who argue in good faith
 ---
 
 In [Part 1](/2017/07/09/part-1-a-bipartisan-list-of-people-who-are-bad-for-america/), I posted a bipartisan list of people who are bad for America. Those people present news stories that cherry pick the worst actions from the other side so that they can get higher TV ratings and more social media points. 
