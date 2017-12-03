@@ -5,7 +5,7 @@ description: In which I learn about religious surge pricing, religious “softwa
 ---
 I recently came across a magazine that helps pastors manage the financial and operational challenges of church management. The magazine is called _Church Executive_.
 
-Readers concerned about seasonal effects on tithing can learn how to “[sustain generosity](https://churchexecutive.com/archives/church-executive-remote-roundtable-2)” during the the weaker summer months. Technology like [push notifications and text messages](https://churchexecutive.com/archives/church-executive-remote-roundtable-6) is encouraged as a way to remind people to tithe. There is also some emphasis on messaging, as pastors are told to "make sure your [generosity-focused sermons](https://churchexecutive.com/archives/church-executive-remote-roundtable-6) are hitting home with your audience".
+Readers concerned about seasonal effects on tithing can learn how to “[sustain generosity](https://churchexecutive.com/archives/church-executive-remote-roundtable-2)” during the weaker summer months. Technology like [push notifications and text messages](https://churchexecutive.com/archives/church-executive-remote-roundtable-6) is encouraged as a way to remind people to tithe. There is also some emphasis on messaging, as pastors are told to "make sure your [generosity-focused sermons](https://churchexecutive.com/archives/church-executive-remote-roundtable-6) are hitting home with your audience".
 
 
 <div class="wrapper">
