@@ -14,12 +14,10 @@ Readers concerned about seasonal effects on tithing can learn how to “[sustain
 
 Churches need money to stay active, and it’s natural that pastors would want to maintain a healthy cash flow. But the brazen language of _Church Executive_ reminded me of the language of profit-maximizing firms. This got me thinking: What are the other ways in which religions act like a business?
 
-This post is my attempt to understand religions as if they were businesses. This isn't a perfect metaphor. Most religious people are motivated by genuine beliefs, and few religions are motivated primarily by profit. But it can still be instructive to view religions through the lens of business and economics, if only as an exercise. After working through this myself, I feel like I have a better understanding of why religions act the way they do.
+This post is my attempt to understand religions as if they were businesses. This isn't a perfect metaphor. Most religious leaders are motivated by genuine beliefs, and few are motivated primarily by profit. But it can still be instructive to view religions through the lens of business and economics, if only as an exercise. After working through this myself, I feel like I have a better understanding of why religions act the way they do.
 
 ### Competition
-As with any business, one of the most pressing concerns of a religion is competition. According to sociologist Carl Bankston, the set of religions [can be described](https://en.wikipedia.org/wiki/Theory_of_religious_economy) as a marketplace of “competing firms [that vie for] customers who make rational choices among available products". 
-
-Religious consumers can leave one church to go to another. To hedge their bets on the afterlife, some consumers may even belong to several churches simultaneously, in a strategy that has been described as “[portfolio diversification](http://users.clas.ufl.edu/kenwald/pos6292/iannaccone.pdf)”.
+As with any business, one of the most pressing concerns of a religion is competition. According to sociologist Carl Bankston, the set of religions [can be described](https://en.wikipedia.org/wiki/Theory_of_religious_economy) as a marketplace of competing firms that vie for customers. Religious consumers can leave one church to go to another. To hedge their bets on the afterlife, some consumers may even belong to several churches simultaneously, in a strategy that has been described as “[portfolio diversification](http://users.clas.ufl.edu/kenwald/pos6292/iannaccone.pdf)”.
 
 One way that a religion can ward off competitors is to prohibit its members from following them. The Bible is insistent on this point, with [26 separate verses](https://bible.knowing-jesus.com/topics/Avoiding-Idolatry) banning idolatry. Other religions have been able to eliminate competition entirely by forming [state-sponsored monopolies](https://en.wikipedia.org/wiki/Islam_in_Saudi_Arabia#Role_in_the_state_and_society). 
 
