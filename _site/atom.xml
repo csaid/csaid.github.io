@@ -4,7 +4,7 @@
  <title>The File Drawer</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2018-02-04T12:56:25-08:00</updated>
+ <updated>2018-02-04T15:29:21-08:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -118,7 +118,7 @@
 &lt;h5 id=&quot;rationality-of-hyperbolic-discounting-1&quot;&gt;Rationality of hyperbolic discounting&lt;/h5&gt;
 &lt;p&gt;The problem with this story is that it only works if you assume that the interest rate is constant. In the real world, the interest rate fluctuates.&lt;/p&gt;
 
-&lt;p&gt;Before taking on the fluctuating interest rate scenario, let’s first take on a different assumption that is still somewhat simplified. Let’s assume that the interest rate is constant but we don’t know what it is, just as we didn’t know what the hazard rate was in the previous interpretation. With this assumption, the justification for hyperbolic discounting becomes similar to the explanation in the blue and pink plots above. Briefly, the value of a dollar received in the future declines exponentially the further you look in the future, although you don’t know which rate it will follow. In the distant future, the value of a future dollar has probably declined to essentially zero. But if you happen to be in a world where it won’t decline to zero, then you must be living a world where the interest rate is very low. That is, if you live a world where a dollar given to you in 80 years is still worth something, then a dollar given to you in 100 years is probably also still worth something. Thus, the further you look into the future, the more it is dominated by low interest rate scenarios. As a consequence, the further you look into the future, the lower your discount rate should be. This is hyperbolic discounting.&lt;/p&gt;
+&lt;p&gt;Before taking on the fluctuating interest rate scenario, let’s first take on a different assumption that is still somewhat simplified. Let’s assume that the interest rate is constant but we don’t know what it is, just as we didn’t know what the hazard rate was in the previous interpretation. With this assumption, the justification for hyperbolic discounting becomes similar to the explanation in the blue and pink plots above. When you do a probability-weighted average over these decaying exponential curves, you get a hyperbolic function.&lt;/p&gt;
 
 &lt;p&gt;The previous paragraph assumed that the interest rate was constant but unknown. In the real world, the interest rate is known but fluctuates over time. &lt;a href=&quot;https://campuspress.yale.edu/johngeanakoplos/files/2017/07/Hyperbolic-Discounting-is-Rational-Valuing-the-Far-Future-with-Uncertain-Discount-Rates-1uc47ft.pdf&quot;&gt;Farmer and Geanakoplos (2009)&lt;/a&gt; showed that if you assume that interest rate fluctuations follow a &lt;a href=&quot;http://sfb649.wiwi.hu-berlin.de/fedc_homepage/xplore/tutorials/sfehtmlnode21.html&quot;&gt;geometric random walk&lt;/a&gt;, hyperbolic discounting becomes optimal, at least asymptotically as &lt;script type=&quot;math/tex&quot;&gt;\tau \rightarrow \infty&lt;/script&gt;. In the near future, you know the interest rate with reasonable certainty and should therefore discount with an exponential curve. But as you look further into the future, your uncertainty about the interest rate increases and you should therefore discount with a hyperbolic curve.&lt;/p&gt;
 
