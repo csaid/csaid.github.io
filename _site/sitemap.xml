@@ -3,6 +3,21 @@
   
     
     <url>
+      <loc>http://localhost:4000/2018/02/04/hyperbolic-discounting/</loc>
+      
+        <lastmod>2018-02-04T00:00:00-08:00</lastmod>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.5</priority>
+      
+    </url>
+    
+  
+    
+    <url>
       <loc>http://localhost:4000/2017/12/02/religions-as-firms/</loc>
       
         <lastmod>2017-12-02T00:00:00-08:00</lastmod>
@@ -505,7 +520,7 @@
     <url>
       <loc>http://localhost:4000404.html</loc>
       
-        <lastmod>2017-12-11T20:33:06-08:00</lastmod>
+        <lastmod>2018-02-04T12:56:25-08:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -533,7 +548,7 @@
     <url>
       <loc>http://localhost:4000</loc>
       
-        <lastmod>2017-12-11T20:33:06-08:00</lastmod>
+        <lastmod>2018-02-04T12:56:25-08:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -556,7 +571,7 @@
     <url>
       <loc>http://localhost:4000</loc>
       
-        <lastmod>2017-12-11T20:33:06-08:00</lastmod>
+        <lastmod>2018-02-04T12:56:25-08:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -574,7 +589,7 @@
     <url>
       <loc>http://localhost:4000</loc>
       
-        <lastmod>2017-12-11T20:33:06-08:00</lastmod>
+        <lastmod>2018-02-04T12:56:25-08:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -592,7 +607,7 @@
     <url>
       <loc>http://localhost:4000</loc>
       
-        <lastmod>2017-12-11T20:33:06-08:00</lastmod>
+        <lastmod>2018-02-04T12:56:25-08:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -610,7 +625,7 @@
     <url>
       <loc>http://localhost:4000</loc>
       
-        <lastmod>2017-12-11T20:33:06-08:00</lastmod>
+        <lastmod>2018-02-04T12:56:25-08:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -628,7 +643,7 @@
     <url>
       <loc>http://localhost:4000</loc>
       
-        <lastmod>2017-12-11T20:33:06-08:00</lastmod>
+        <lastmod>2018-02-04T12:56:25-08:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -646,7 +661,7 @@
     <url>
       <loc>http://localhost:4000</loc>
       
-        <lastmod>2017-12-11T20:33:06-08:00</lastmod>
+        <lastmod>2018-02-04T12:56:25-08:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -1081,6 +1096,19 @@
           <loc>http://localhost:4000/2017/12/02/religions-as-firms/</loc>
           
             <lastmod>2017-12-02T00:00:00-08:00</lastmod>
+          
+          
+            <changefreq>monthly</changefreq>
+          
+          
+            <priority>0.3</priority>
+          
+        </url>
+      
+        <url>
+          <loc>http://localhost:4000/2018/02/04/hyperbolic-discounting/</loc>
+          
+            <lastmod>2018-02-04T00:00:00-08:00</lastmod>
           
           
             <changefreq>monthly</changefreq>

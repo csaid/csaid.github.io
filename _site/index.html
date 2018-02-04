@@ -107,6 +107,145 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
   
   <div class="post">
     <h1 class="post-title">
+      <a href="/2018/02/04/hyperbolic-discounting/">
+        Hyperbolic discounting — The irrational behavior that might be rational after all
+      </a>
+    </h1>
+
+    <span class="post-date">04 Feb 2018</span>
+
+    <p></p>
+<p>When I was in grad school I occasionally overheard people talk about how humans do something called “hyperbolic discounting”. Apparently, hyperbolic discounting was considered irrational under standard economic theory.</p>
+
+<p>I recently decided to learn what hyperbolic discounting was all about, so I set out to write this blog post. I have to admit that hyperbolic discounting has been pretty hard for me to understand, but I think I now finally have a good enough handle on it to write about it. Along the way, I learned something interesting: Hyperbolic discounting might be rational after all.</p>
+
+<h2 id="rational-and-irrational-discounting">Rational and irrational discounting</h2>
+<p>If I offered you <span class="tex2jax_ignore">$</span>50 now or <span class="tex2jax_ignore">$</span>100 in 6 months, which would you pick? It’s not crazy to choose the <span class="tex2jax_ignore">$</span>50 now. One reason is that it’s a safer bet. If you had chosen the delayed <span class="tex2jax_ignore">$</span>100, there’s a risk that I might forget about the deal when the time came to pay <em>[personal note: I wouldn’t]</em>, and you would never get your money. Another reason is that if you invest the $50 now, you might be able to make up some of the remainder in interest.</p>
+
+<p>Valuing immediate money more than future money is a rational behavior known as discounting. Everybody has their own discount factor. Some people might value money in 6 months at, say, 75% of what they’d value it today. Others might value it at 90%.</p>
+
+<p>In the early 1980s, psychologist George Ainslie discovered something peculiar. He <a href="https://en.wikipedia.org/wiki/Hyperbolic_discounting#Observations">found</a> that while a lot of people would prefer <span class="tex2jax_ignore">$</span>50 immediately rather than <span class="tex2jax_ignore">$</span>100 in 6 months, they would <em>not</em> prefer <span class="tex2jax_ignore">$</span>50 in 3 months rather than <span class="tex2jax_ignore">$</span>100 in 9 months. These two different scenarios are shown in the diagram below, where the green checks indicate the options that people tended to choose.</p>
+
+<div class="wrapper">
+  <img src="/assets/2018_hyperbolic_discounting/timeline_diagram.png" height="400" class="inner" style="position:relative border: #222 2px solid;" />
+</div>
+
+<p>If you think about it, there’s something inconsistent about this behavior. The two scenarios are actually identical, just shifted by 3 months, and yet the same people behave differently depending on when the scenario would be presented. If we waited 3 months and then asked them again if they would prefer <span class="tex2jax_ignore">$</span>50 immediately or <span class="tex2jax_ignore">$</span>100 in 6 months, their original response to Scenario 1 implies they would prefer the fast money (i.e. they would have a high discount rate), but their original response to Scenario 2 implies they would prefer the delayed money (i.e. they would have a low discount rate). In other words, their present self today would make a decision in Scenario 2 that three months from now they will have regretted making. This behavior is <em>time-inconsistent</em> and is therefore considered irrational according to standard economic theory.</p>
+
+<p>The usual way to achieve rational time-consistent discounting is with an exponential discount curve, where the value of receiving something at future time <script type="math/tex">t</script> is a fixed fraction <script type="math/tex">s(t)</script> of its present value, and where <script type="math/tex">\lambda</script> is the constant discount rate.</p>
+
+<script type="math/tex; mode=display">s(t) = e^{-\lambda t}</script>
+
+<p>With an exponential curve, a dollar delayed by six months is always worth the same fixed fraction of a dollar at the baseline date, no matter what the baseline date it is. If you are indifferent between <span class="tex2jax_ignore">$</span>100 now and <span class="tex2jax_ignore">$</span>50 in 6 months, you should also be indifferent between <span class="tex2jax_ignore">$</span>100 in 3 months and <span class="tex2jax_ignore">$</span>50 in 9 months. The discount rate is constant.</p>
+
+<div class="wrapper">
+  <img src="/assets/2018_hyperbolic_discounting/fig_exp_fracs.png" height="300" class="inner" style="position:relative border: #222 2px solid;" />
+</div>
+
+<p>In contrast to an exponential curve, humans tend to show a <a href="https://en.wikipedia.org/wiki/Hyperbolic_discounting">hyperbolic discount curve</a>, which is considered irrational according to standard economic theory. Confusingly, the hyperbolic discount curve is not defined by one of the <a href="https://en.wikipedia.org/wiki/Hyperbolic_function">hyperbolic functions</a> you may remember from high school. Instead, it is defined as follows, where $ \tau $ is the relative time from now:</p>
+
+<script type="math/tex; mode=display">s(\tau) = \frac{1}{1+k \tau}</script>
+
+<p>Whereas an exponential curve has a constant discount rate, a hyperbolic discount curve has a higher discount rate in the near future and lower discount rate in the distant future. That’s why the participants in Ainslie’s experiment cared more about the delay from 0 to 6 months than about the same delay from 3 to 9 months.</p>
+
+<div class="wrapper">
+  <img src="/assets/2018_hyperbolic_discounting/fig_exp_and_hyp.png" height="300" class="inner" style="position:relative border: #222 2px solid;" />
+</div>
+
+<p>The apparent rationality of an exponential function is often presented either with a hazard rate interpretation or an interest rate interpretation. It turns out, however, that both of these interpretations make implausible assumptions about the world. The rest of this blog post describes how if we make some more plausible assumptions, hyperbolic discount function becomes rational.</p>
+
+<h2 id="hazard-rate-interpretation">Hazard Rate interpretation</h2>
+
+<p>According to the hazard-based interpretation of discounting, you should prefer immediate money to future money because there is a risk that the future money will never be delivered. This interpretation is more common in the animal behavior literature. (<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2648524/">Pigeons</a>, <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2648524/">rats</a>, and <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3107575/">monkeys</a> all show hyperbolic discounting.)</p>
+
+<h5 id="apparent-rationality-of-exponential-discounting">Apparent rationality of exponential discounting</h5>
+
+<p>Imagine that there could be an event at some time that could cause you to no longer receive your reward. Perhaps the person who owes you the money could die or lose their assets. Assuming a constant hazard rate (i.e. assuming the event is equally likely to happen at any time), the probability that the event has not happened by time $ \tau $ is:</p>
+
+<script type="math/tex; mode=display">s(\tau) = e^{-\lambda \tau}</script>
+
+<p>The <script type="math/tex">s(\tau)</script> function is called a “survival” function because it describes the probability that the deal is still “alive” by time <script type="math/tex">\tau</script>. The <script type="math/tex">\lambda</script> parameter is the constant hazard rate.</p>
+
+<div class="wrapper">
+  <img src="/assets/2018_hyperbolic_discounting/fig_exp_survival.png" height="300" class="inner" style="position:relative border: #222 2px solid;" />
+</div>
+
+<p>A key insight here is that the survival function can also be interpreted as a discount function. If someone says you can receive your reward at time $ \tau $ if you’re willing to wait for it, and if there’s only a 60% chance you’ll actually receive it, you should value that offer at 60% of the current value of the reward. Since the survival function is exponential, and since the survival function <em>is</em> the discount function, your discount function is also exponential, at least according to standard economic theory.</p>
+
+<h5 id="rationality-of-hyperbolic-discounting">Rationality of hyperbolic discounting</h5>
+
+<p>The problem with assuming an exponential survival function is that it assumes you know the hazard rate $ \lambda $. In most situations, you don’t know exactly what the hazard rate is. Instead you have uncertainty around the parameter. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1689473/pdf/T9KA20YDP8PB1QP4_265_2015.pdf">Souza (2015)</a> proposes an exponential prior distribution over the hazard rate.</p>
+
+<script type="math/tex; mode=display">p(\lambda) = \frac{1}{k} e^{-\frac{\lambda}{k}}</script>
+
+<p>The exponential prior is shown in the graph below. Although this curve looks like a discount function, it is not. It is a distribution over a parameter.</p>
+
+<div class="wrapper">
+  <img src="/assets/2018_hyperbolic_discounting/fig_hazard_prior.png" height="300" class="inner" style="position:relative border: #222 2px solid;" />
+</div>
+
+<p>According to Souza, if you average over all the possible exponential survival functions generated by this prior, you get a hyperbolic survival function, or equivalently, a hyperbolic discount function. I’ll try my best to explain:</p>
+
+<h5 id="explanation">Explanation</h5>
+<p>In the plot below, I’ve drawn 30 exponential survival functions in blue, each with a <script type="math/tex">\lambda</script> sampled from the <script type="math/tex">p(\lambda)</script> prior distribution defined above. The pink curve is the mean of all of them. Notice that whereas the individual survival curves are all exponential, their mean is hyperbolic, with a distant future characterized by a flat slope and relatively high survival values.</p>
+
+<div class="wrapper">
+  <img src="/assets/2018_hyperbolic_discounting/fig_mean_of_exponentials.png" height="300" class="inner" style="position:relative border: #222 2px solid;" />
+</div>
+
+<p>Why do we get a hyperbolic function when we average many exponential functions? To understand why, you first need to know that the instantaneous discount rate of a discount function is the negative of its instantaneous slope divided by its height. This sounds like a mouthful but it actually makes sense if you think about it. At any point in time, the discount rate is the drop in value over one time unit (i.e. the slope), divided by the principal (i.e. the height).</p>
+
+<p>With that in mind, let’s think about time points in the distant future, when almost all of the exponential curves have gone to zero except for the curve with the lowest discount rate. When averaging across these curves in the distant future, the many curves at zero effectively scale down the one remaining curve by the same factor across a broad range of dates. In the figure below, the averaging operation scales down the curve by 86% at two different dates separated by 15 months. When you scale down a curve by a constant factor across a broad range, you scale its height and its slope by the same factor, thus preserving the slope to height ratio (i.e. the discount rate). Therefore, when you average over possible discount functions in the distant future, your resulting discount function is <a href="https://eml.berkeley.edu//~saez/course131/weitzman98.pdf">dominated</a> by the discount rate of the curve with the lowest discount rate.</p>
+
+<div class="wrapper">
+  <img src="/assets/2018_hyperbolic_discounting/fig_mean_of_exponentials_arrows.png" height="300" class="inner" style="position:relative border: #222 2px solid;" />
+</div>
+
+<p>As a consequence, the further you look into the future, the lower your discount rate. This is exactly what hyperbolic discounting is and exactly what humans do. For the choice between <span class="tex2jax_ignore">$</span>50 now and <span class="tex2jax_ignore">$</span>100 in 6 months, we apply a heavy discount rate. For the choice between <span class="tex2jax_ignore">$</span>50 in 3 months and <span class="tex2jax_ignore">$</span>100 in 9 months, we apply a lighter discount rate.</p>
+
+<p>For a more qualitative intuition, you can think of it this way: When you make a deal with someone, you don’t know what the hazard rate is going to be. But if the deal is still alive after 80 months, then your hazard rate is probably favorable and thus the deal is likely to still be alive after 100 months. You can therefore have a light discount rate between 80 months and 100 months.</p>
+
+<h2 id="interest-rate-interpretation">Interest Rate interpretation</h2>
+
+<p>A common justification for discounting is the fact that interest rates exist. A dollar now is worth more than a dollar in a year, because if you take the dollar now and invest it, it will worth more in a year.</p>
+
+<h5 id="apparent-rationality-of-exponential-discounting-1">Apparent rationality of exponential discounting</h5>
+<p>If the interest rate is 5%, you should be indifferent between <span class="tex2jax_ignore">$</span>100 today and <span class="tex2jax_ignore">$</span>105 in a year, since you could just invest the <span class="tex2jax_ignore">$</span>100 today and get the same amount in a year. If the interest rate is constant, the value of the dollar will rise exponentially, according to $ v(\tau) = e^{0.05\tau} $, where $ v $ is the value. To rationally maintain indifference between a dollar and its equivalent value in the future after investment, your discount function should decay exponentially, according to $ s(\tau) = e^{-0.05\tau} $.</p>
+
+<h5 id="rationality-of-hyperbolic-discounting-1">Rationality of hyperbolic discounting</h5>
+<p>The problem with this story is that it only works if you assume that the interest rate is constant. In the real world, the interest rate fluctuates.</p>
+
+<p>Before taking on the fluctuating interest rate scenario, let’s first take on a different assumption that is still somewhat simplified. Let’s assume that the interest rate is constant but we don’t know what it is, just as we didn’t know what the hazard rate was in the previous interpretation. With this assumption, the justification for hyperbolic discounting becomes similar to the explanation in the blue and pink plots above. Briefly, the value of a dollar received in the future declines exponentially the further you look in the future, although you don’t know which rate it will follow. In the distant future, the value of a future dollar has probably declined to essentially zero. But if you happen to be in a world where it won’t decline to zero, then you must be living a world where the interest rate is very low. That is, if you live a world where a dollar given to you in 80 years is still worth something, then a dollar given to you in 100 years is probably also still worth something. Thus, the further you look into the future, the more it is dominated by low interest rate scenarios. As a consequence, the further you look into the future, the lower your discount rate should be. This is hyperbolic discounting.</p>
+
+<p>The previous paragraph assumed that the interest rate was constant but unknown. In the real world, the interest rate is known but fluctuates over time. <a href="https://campuspress.yale.edu/johngeanakoplos/files/2017/07/Hyperbolic-Discounting-is-Rational-Valuing-the-Far-Future-with-Uncertain-Discount-Rates-1uc47ft.pdf">Farmer and Geanakoplos (2009)</a> showed that if you assume that interest rate fluctuations follow a <a href="http://sfb649.wiwi.hu-berlin.de/fedc_homepage/xplore/tutorials/sfehtmlnode21.html">geometric random walk</a>, hyperbolic discounting becomes optimal, at least asymptotically as <script type="math/tex">\tau \rightarrow \infty</script>. In the near future, you know the interest rate with reasonable certainty and should therefore discount with an exponential curve. But as you look further into the future, your uncertainty about the interest rate increases and you should therefore discount with a hyperbolic curve.</p>
+
+<p>Is the geometric random walk a process that was cherry picked by the authors to produce this outcome? Not really. <a href="https://dukespace.lib.duke.edu/dspace/bitstream/handle/10161/7542/NewellPizerDiscountingPew.pdf?sequence=1">Newell and Pizer (2003)</a> studied US bond rates in the 19th and 20th century and found that the geometric random walk provided a better fit than any of the other interest rate models tested.</p>
+
+<h2 id="summary">Summary</h2>
+<p>When interpreting discounting as a survival function, a hyperbolic discounting function is rational if you introduce uncertainty into the hazard parameter via an exponential prior (<a href="https://campuspress.yale.edu/johngeanakoplos/files/2017/07/Hyperbolic-Discounting-is-Rational-Valuing-the-Far-Future-with-Uncertain-Discount-Rates-1uc47ft.pdf">Souza, 2015</a>). When interpreting the discount rate as an interest rate, a hyperbolic discounting function is asymptotically rational if you introduce uncertainty in the interest rate via a geometric random walk (<a href="https://campuspress.yale.edu/johngeanakoplos/files/2017/07/Hyperbolic-Discounting-is-Rational-Valuing-the-Far-Future-with-Uncertain-Discount-Rates-1uc47ft.pdf">Farmer and Geanakoplos, 2009</a>).</p>
+
+
+
+    <div>
+        <i class="fa fa-comment"></i> <a href="http://localhost:4000/2018/02/04/hyperbolic-discounting/#disqus_thread" data-disqus-identifier="http://localhost:4000/2018/02/04/hyperbolic-discounting/"></a>
+        <span>&nbsp; &nbsp;</span>
+        <span>
+            <a class="twitter-share-button"
+              href="https://twitter.com/share"
+              data-url="http://localhost:4000/2018/02/04/hyperbolic-discounting/"
+              data-via="Chris_Said"
+              data-count="none"
+              data-text="Hyperbolic discounting — The irrational behavior that might be rational after all">
+            Tweet
+            </a>
+        </span>
+
+    </div>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
       <a href="/2017/12/02/religions-as-firms/">
         Religions as firms
       </a>
@@ -124,12 +263,10 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
 
 <p>Churches need money to stay active, and it’s natural that pastors would want to maintain a healthy cash flow. But the brazen language of <em>Church Executive</em> reminded me of the language of profit-maximizing firms. This got me thinking: What are the other ways in which religions act like a business?</p>
 
-<p>This post is my attempt to understand religions as if they were businesses. This isn’t a perfect metaphor. Most religious people are motivated by genuine beliefs, and few religions are motivated primarily by profit. But it can still be instructive to view religions through the lens of business and economics, if only as an exercise. After working through this myself, I feel like I have a better understanding of why religions act the way they do.</p>
+<p>This post is my attempt to understand religions as if they were businesses. This isn’t a perfect metaphor. Most religious leaders are motivated by genuine beliefs, and few are motivated primarily by profit. But it can still be instructive to view religions through the lens of business and economics, if only as an exercise. After working through this myself, I feel like I have a better understanding of why religions act the way they do.</p>
 
 <h3 id="competition">Competition</h3>
-<p>As with any business, one of the most pressing concerns of a religion is competition. According to sociologist Carl Bankston, the set of religions <a href="https://en.wikipedia.org/wiki/Theory_of_religious_economy">can be described</a> as a marketplace of “competing firms [that vie for] customers who make rational choices among available products”.</p>
-
-<p>Religious consumers can leave one church to go to another. To hedge their bets on the afterlife, some consumers may even belong to several churches simultaneously, in a strategy that has been described as “<a href="http://users.clas.ufl.edu/kenwald/pos6292/iannaccone.pdf">portfolio diversification</a>”.</p>
+<p>As with any business, one of the most pressing concerns of a religion is competition. According to sociologist Carl Bankston, the set of religions <a href="https://en.wikipedia.org/wiki/Theory_of_religious_economy">can be described</a> as a marketplace of competing firms that vie for customers. Religious consumers can leave one church to go to another. To hedge their bets on the afterlife, some consumers may even belong to several churches simultaneously, in a strategy that has been described as “<a href="http://users.clas.ufl.edu/kenwald/pos6292/iannaccone.pdf">portfolio diversification</a>”.</p>
 
 <p>One way that a religion can ward off competitors is to prohibit its members from following them. The Bible is insistent on this point, with <a href="https://bible.knowing-jesus.com/topics/Avoiding-Idolatry">26 separate verses</a> banning idolatry. Other religions have been able to eliminate competition entirely by forming <a href="https://en.wikipedia.org/wiki/Islam_in_Saudi_Arabia#Role_in_the_state_and_society">state-sponsored monopolies</a>.</p>
 
@@ -387,120 +524,6 @@ Second, after doing something good, people often feel like they’ve earned enou
               data-via="Chris_Said"
               data-count="none"
               data-text="Three questions for social scientists&#58; Internet virtue edition">
-            Tweet
-            </a>
-        </span>
-
-    </div>
-
-  </div>
-  
-  <div class="post">
-    <h1 class="post-title">
-      <a href="/2017/05/22/keyboard-shortcuts-i-couldnt-live-without/">
-        Keyboard shortcuts I couldn't live without
-      </a>
-    </h1>
-
-    <span class="post-date">22 May 2017</span>
-
-    <p>Keyboard shortcuts are interesting. Even though I know they are almost always worth learning, I often find myself shying away from the uncomfortable task of actually learning them. But after years of clumsily reaching for the mouse while my colleagues looked at me with a kindly sense of pity, I have slowly accumulated enough keyboard tricks that I’d like to share them. This set is probably far from optimal, and different people have their own solutions, but it has worked well for me. Before jumping in, here’s a reference table of key symbols and their common names:</p>
-
-<div class="wrapper">
-<table style="font-size:.7rem; margin: auto; width: 250px">
-    <tr>
-        <th>Key Symbol</th>
-        <th>Key Name</th>
-    </tr>
-    <tr>
-        <td align="center">⌘</td>
-        <td>Command</td>
-    </tr>
-    <tr>
-        <td align="center">⇧</td>
-        <td>Shift</td>
-    </tr>
-    <tr>
-        <td align="center">⌃</td>
-        <td>Control</td>
-    </tr>
-    <tr>
-        <td align="center">⌥</td>
-        <td>Alt/Option</td>
-    </tr>
-     <tr>
-        <td align="center">↵</td>
-        <td>Enter</td>
-    </tr>
-</table>
-</div>
-<div class="caption"><strong>Table 1.</strong> Key symbol map.</div>
-
-<h3 id="sublime-text">Sublime Text</h3>
-<p>Sublime has <a href="http://docs.sublimetext.info/en/latest/reference/keyboard_shortcuts_osx.html">lots</a> of great shortcuts. My favorites is <code class="highlighter-rouge">⌘D</code>, which allows you to sequentially select exact matches of highlighted text. Once the matches are selected, you can simultaneously edit them with a multi-cursor. If you want to select all matches simultaneously, rather than sequentially, you can use <code class="highlighter-rouge">⌃⌘G</code>.</p>
-
-<div class="wrapper">
-  <img src="/assets/2017_keyboard_shortcuts/gif_sublime_shining_fast.gif" width="350" class="inner" style="position:relative" />
-  <div class="caption">
-    <strong>Figure 1.</strong> Demonstration of <code>⌘D</code>, <code>⌘←</code>, <code>⌘→</code>, <code>⌘A</code> and <code>⌘KU</code> in Sublime Text.
-  </div>
-</div>
-<p><br /></p>
-
-<h3 id="chrome">Chrome</h3>
-<p>With the exception of scrolling and link clicking, everything you do in Chrome should be done with keyboard only. If you’re new to this, I’d recommend starting with <code class="highlighter-rouge">⌘L</code>, <code class="highlighter-rouge">⌘T</code>, <code class="highlighter-rouge">⌘W</code> and then expanding from there. Special bonus:	 if you ever accidentally close a tab, you can reopen it with <code class="highlighter-rouge">⌘⇧T</code>.</p>
-
-<figure class="image"><img src="/assets/2017_keyboard_shortcuts/no_touching.png" alt="" /></figure>
-
-<div class="caption"><strong>Figure 2.</strong> The "No Touching" Chrome Zone. Your mouse should never come anywhere near here.</div>
-
-<h3 id="mac-os-x">Mac OS X</h3>
-<p>On Mac OS X, <code class="highlighter-rouge">⌘ Tab</code> switches between applications, and <code>⌘`</code> switches between windows of the same application. The <code class="highlighter-rouge">⌘+</code> and <code class="highlighter-rouge">⌘-</code> shortcuts change the display size of text and other items. You can jump to the beginning of a line with <code class="highlighter-rouge">⌘←</code> or <code class="highlighter-rouge">⌃A</code>, and to the end of a line with <code class="highlighter-rouge">⌘→</code> or <code class="highlighter-rouge">⌃E</code>. In Terminal, you can delete to the beginning of a line with <code class="highlighter-rouge">⌃U</code>.</p>
-
-<p>For easy window snapping, use the <a href="https://www.spectacleapp.com/">Spectacle</a> app. Because Spectacle’s default mappings conflict with Chrome’s tab switching shortcuts, I’d recommend setting the four main screen position shortcuts to <code class="highlighter-rouge">⌘⌃←</code>, <code class="highlighter-rouge">⌘⌃→</code>, <code class="highlighter-rouge">⌘⌃↑</code>, <code class="highlighter-rouge">⌘⌃↓</code>, and eliminating all the other shortcuts, except the full screen shortcut, which should be set to <code class="highlighter-rouge">⌘⌃F</code>.</p>
-
-<div class="wrapper">
-  <img src="/assets/2017_keyboard_shortcuts/gif_spectacle.gif" width="350" class="inner" style="position:relative; border: #666666 2px solid;" />
-  <div class="caption">
-    <strong>Figure 3.</strong> Arranging windows with custom shortcuts in Spectacle.
-  </div>
-</div>
-
-<h3 id="gmail">Gmail</h3>
-<p>If you’re using a mouse on Gmail, you’re doing it wrong. With the exception of a few word processing operations, literally everything you do in Gmail should be done with keyboard only. Compose, Reply, Reply All, Forward, Send, Search, Navigate, Open, Inbox, Sent, Drafts, Archive. All of these should be done with the keyboard. To enable these shortcuts, you must go into your Settings and navigate to the General tab. Once shortcuts have been enabled, you can see a list of all them by typing <code class="highlighter-rouge">?</code>.</p>
-<figure class="image"><img src="/assets/2017_keyboard_shortcuts/fig_gmail_annotated.png" alt="" /></figure>
-
-<div class="caption"><strong>Figure 4.</strong> A small sample of things you can do on Gmail without ever touching your mouse.</div>
-
-<h3 id="twitter">Twitter</h3>
-<p>With shortcuts similar to Gmail’s, you can jump to different pages using only the keyboard: <code class="highlighter-rouge">gh</code> brings you to the Home Timeline and <code class="highlighter-rouge">gu</code> lets you jump to another user’s profile. The most useful shortcut is probably <code class="highlighter-rouge">.</code>, which loads any new tweets that are waiting for you at the top of the Timeline. You can see a list of all shortcuts by typing <code class="highlighter-rouge">?</code>.</p>
-
-<h3 id="jetbrains">JetBrains</h3>
-<p>JetBrains products like DataGrip, PyCharm, and IntelliJ offer plenty of keyboard shortcuts. My favorites are <code class="highlighter-rouge">⌃G</code>, for sequential highlighting, and <code class="highlighter-rouge">⌥⌥↓</code> and <code class="highlighter-rouge">⌥⌥↑</code> for <a href="https://www.jetbrains.com/help/idea/2017.1/multicursor.html">multi-line cursors</a>.</p>
-
-<h3 id="jupyter">Jupyter</h3>
-<p>Jupyter has tons of <a href="http://jupyter-notebook.readthedocs.io/en/latest/examples/Notebook/Notebook%20Basics.html?highlight=keyboard#Keyboard-Navigation">essential</a> keyboard shortcuts that can be found by typing <code class="highlighter-rouge">?</code> while in command mode. In addition, it’s possible to get Sublime-style text editing by following the instructions described <a href="http://blog.rtwilson.com/how-to-get-sublime-text-style-editing-in-the-ipythonjupyter-notebook/">here</a>.</p>
-
-<div class="wrapper">
-  <img src="/assets/2017_keyboard_shortcuts/gif_jupyter.gif" width="350" class="inner" style="position:relative; border: #ccc 1px solid;" />
-  <div class="caption">
-    <strong>Figure 5.</strong> Common Jupyter workflow done entirely with the keyboard, with help from some Sublime-style editing: <code>c</code> and <code>v</code> to copy and paste a cell, <code>⌘D</code> for multiple selection, <code>⌘→</code> to jump to the end of line, <code>dd</code> to delete a cell.
-  </div>
-</div>
-<p><br /></p>
-
-
-
-    <div>
-        <i class="fa fa-comment"></i> <a href="http://localhost:4000/2017/05/22/keyboard-shortcuts-i-couldnt-live-without/#disqus_thread" data-disqus-identifier="http://localhost:4000/2017/05/22/keyboard-shortcuts-i-couldnt-live-without/"></a>
-        <span>&nbsp; &nbsp;</span>
-        <span>
-            <a class="twitter-share-button"
-              href="https://twitter.com/share"
-              data-url="http://localhost:4000/2017/05/22/keyboard-shortcuts-i-couldnt-live-without/"
-              data-via="Chris_Said"
-              data-count="none"
-              data-text="Keyboard shortcuts I couldn't live without">
             Tweet
             </a>
         </span>
