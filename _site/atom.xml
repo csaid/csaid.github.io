@@ -4,7 +4,7 @@
  <title>The File Drawer</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2018-02-04T15:35:14-08:00</updated>
+ <updated>2018-02-04T15:39:00-08:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -30,7 +30,7 @@
 &lt;p&gt;In the early 1980s, psychologist George Ainslie discovered something peculiar. He &lt;a href=&quot;https://en.wikipedia.org/wiki/Hyperbolic_discounting#Observations&quot;&gt;found&lt;/a&gt; that while a lot of people would prefer &lt;span class=&quot;tex2jax_ignore&quot;&gt;$&lt;/span&gt;50 immediately rather than &lt;span class=&quot;tex2jax_ignore&quot;&gt;$&lt;/span&gt;100 in 6 months, they would &lt;em&gt;not&lt;/em&gt; prefer &lt;span class=&quot;tex2jax_ignore&quot;&gt;$&lt;/span&gt;50 in 3 months rather than &lt;span class=&quot;tex2jax_ignore&quot;&gt;$&lt;/span&gt;100 in 9 months. These two different scenarios are shown in the diagram below, where the green checks indicate the options that people tended to choose.&lt;/p&gt;
 
 &lt;div class=&quot;wrapper&quot;&gt;
-  &lt;img src=&quot;/assets/2018_hyperbolic_discounting/timeline_diagram.png&quot; height=&quot;400&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid;&quot; /&gt;
+  &lt;img src=&quot;/assets/2018_hyperbolic_discounting/timeline_diagram.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:100%;&quot; /&gt;
 &lt;/div&gt;
 
 &lt;p&gt;If you think about it, there’s something inconsistent about this behavior. The two scenarios are actually identical, just shifted by 3 months, and yet the same people behave differently depending on when the scenario would be presented. If we waited 3 months and then asked them again if they would prefer &lt;span class=&quot;tex2jax_ignore&quot;&gt;$&lt;/span&gt;50 immediately or &lt;span class=&quot;tex2jax_ignore&quot;&gt;$&lt;/span&gt;100 in 6 months, their original response to Scenario 1 implies they would prefer the fast money (i.e. they would have a high discount rate), but their original response to Scenario 2 implies they would prefer the delayed money (i.e. they would have a low discount rate). In other words, their present self today would make a decision in Scenario 2 that three months from now they will have regretted making. This behavior is &lt;em&gt;time-inconsistent&lt;/em&gt; and is therefore considered irrational according to standard economic theory.&lt;/p&gt;
@@ -101,7 +101,7 @@
 &lt;p&gt;With that in mind, let’s think about time points in the distant future, when almost all of the exponential curves have gone to zero except for the curve with the lowest discount rate. When averaging across these curves in the distant future, the many curves at zero effectively scale down the one remaining curve by the same factor across a broad range of dates. In the figure below, the averaging operation scales down the curve by 86% at two different dates separated by 15 months. When you scale down a curve by a constant factor across a broad range, you scale its height and its slope by the same factor, thus preserving the slope to height ratio (i.e. the discount rate). Therefore, when you average over possible discount functions in the distant future, your resulting discount function is &lt;a href=&quot;https://eml.berkeley.edu//~saez/course131/weitzman98.pdf&quot;&gt;dominated&lt;/a&gt; by the discount rate of the curve with the lowest discount rate.&lt;/p&gt;
 
 &lt;div class=&quot;wrapper&quot;&gt;
-  &amp;lt;img src='/assets/2018_hyperbolic_discounting/fig_mean_of_exponentials_arrows.png' width=100% class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid;&quot; &amp;gt;
+  &lt;img src=&quot;/assets/2018_hyperbolic_discounting/fig_mean_of_exponentials_arrows.png&quot; height=&quot;300&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid;&quot; /&gt;
 &lt;/div&gt;
 
 &lt;p&gt;As a consequence, the further you look into the future, the lower your discount rate. This is exactly what hyperbolic discounting is and exactly what humans do. For the choice between &lt;span class=&quot;tex2jax_ignore&quot;&gt;$&lt;/span&gt;50 now and &lt;span class=&quot;tex2jax_ignore&quot;&gt;$&lt;/span&gt;100 in 6 months, we apply a heavy discount rate. For the choice between &lt;span class=&quot;tex2jax_ignore&quot;&gt;$&lt;/span&gt;50 in 3 months and &lt;span class=&quot;tex2jax_ignore&quot;&gt;$&lt;/span&gt;100 in 9 months, we apply a lighter discount rate.&lt;/p&gt;
