@@ -32,7 +32,7 @@ Proselytizing religions like Christianity are [different](http://freakonomics.co
 Like Uber, some religions raise the price during periods of peak demand. While attendance at Jewish synagogue for a regular Shabbat service is normally free, attendance during one of the High Holidays typically [requires a payment](http://www.nytimes.com/2013/09/14/us/selling-holy-day-tickets-is-dilemma-for-synagogues.html) for seating, in part to [ensure space for everyone](https://reformjudaism.org/jewish-holidays/rosh-hashanah/five-things-know-about-attending-high-holiday-services). 
 
 <div class="wrapper">
-  <img src='/assets/2017_religions_as_firms/traffic_synagogue.png' height="200" class="inner" style="position:relative border: #222 2px solid;" >
+  <img src='/assets/2017_religions_as_firms/traffic_synagogue.png' class="inner" style="position:relative border: #222 2px solid; max-width:100%;" >
 </div> 
 
 Surge pricing makes sense for non-proselytizing religions such as Judaism, but it does not make sense for proselytizing religions such as Christianity, which views the higher demand during peak season as an [opportunity](https://www.researchgate.net/profile/Feler_Bose/publication/271328680_Funding_the_Faiths_Toward_a_Theory_of_Religious_Finance/links/54c5b8790cf219bbe4f59dac.pdf) to convert newcomers and to reactivate lapsed members. Thus, Christian churches tend to expand seating and schedule extra services during Christmas and Easter, rather than charging fees.
@@ -64,7 +64,7 @@ A similar thing happened with the Mormon church. By the 20th century, U.S. growt
 The graph below shows similar US and international growth curves for Netflix and the Church of Latter Day Saints.<sup>[[1](https://en.wikipedia.org/wiki/The_Church_of_Jesus_Christ_of_Latter-day_Saints_membership_history),[2](https://rsc.byu.edu/archived/latter-day-saint-social-life-social-research-lds-church-and-its-members/4-vital-statistics),[3](http://www.churchistrue.com/blog/lds-membership-statistics-report-2017/),[4](http://www.businessinsider.com/netflix-subscribers-international-vs-us-earnings-chart-2017-7)]</sup>
 
 <div class="wrapper">
-  <img src='/assets/2017_religions_as_firms/LDS_netflix.png' height="250" class="inner" style="position:relative border: #222 2px solid;" >
+  <img src='/assets/2017_religions_as_firms/LDS_netflix.png' style="position:relative border: #222 2px solid; max-width:100%;" >
 </div> 
 
 

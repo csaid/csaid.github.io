@@ -4,7 +4,7 @@
  <title>The File Drawer</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2018-02-04T15:39:00-08:00</updated>
+ <updated>2018-02-05T08:00:58-08:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -42,7 +42,7 @@
 &lt;p&gt;With an exponential curve, a dollar delayed by six months is always worth the same fixed fraction of a dollar at the baseline date, no matter what the baseline date it is. If you are indifferent between &lt;span class=&quot;tex2jax_ignore&quot;&gt;$&lt;/span&gt;100 now and &lt;span class=&quot;tex2jax_ignore&quot;&gt;$&lt;/span&gt;50 in 6 months, you should also be indifferent between &lt;span class=&quot;tex2jax_ignore&quot;&gt;$&lt;/span&gt;100 in 3 months and &lt;span class=&quot;tex2jax_ignore&quot;&gt;$&lt;/span&gt;50 in 9 months. The discount rate is constant.&lt;/p&gt;
 
 &lt;div class=&quot;wrapper&quot;&gt;
-  &lt;img src=&quot;/assets/2018_hyperbolic_discounting/fig_exp_fracs.png&quot; height=&quot;300&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid;&quot; /&gt;
+  &lt;img src=&quot;/assets/2018_hyperbolic_discounting/fig_exp_fracs.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:100%;&quot; /&gt;
 &lt;/div&gt;
 
 &lt;p&gt;In contrast to an exponential curve, humans tend to show a &lt;a href=&quot;https://en.wikipedia.org/wiki/Hyperbolic_discounting&quot;&gt;hyperbolic discount curve&lt;/a&gt;, which is considered irrational according to standard economic theory. Confusingly, the hyperbolic discount curve is not defined by one of the &lt;a href=&quot;https://en.wikipedia.org/wiki/Hyperbolic_function&quot;&gt;hyperbolic functions&lt;/a&gt; you may remember from high school. Instead, it is defined as follows, where $ \tau $ is the relative time from now:&lt;/p&gt;
@@ -52,7 +52,7 @@
 &lt;p&gt;Whereas an exponential curve has a constant discount rate, a hyperbolic discount curve has a higher discount rate in the near future and lower discount rate in the distant future. That’s why the participants in Ainslie’s experiment cared more about the delay from 0 to 6 months than about the same delay from 3 to 9 months.&lt;/p&gt;
 
 &lt;div class=&quot;wrapper&quot;&gt;
-  &lt;img src=&quot;/assets/2018_hyperbolic_discounting/fig_exp_and_hyp.png&quot; height=&quot;300&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid;&quot; /&gt;
+  &lt;img src=&quot;/assets/2018_hyperbolic_discounting/fig_exp_and_hyp.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:100%;&quot; /&gt;
 &lt;/div&gt;
 
 &lt;p&gt;The apparent rationality of an exponential function is often presented either with a hazard rate interpretation or an interest rate interpretation. It turns out, however, that both of these interpretations make implausible assumptions about the world. The rest of this blog post describes how if we make some more plausible assumptions, hyperbolic discount function becomes rational.&lt;/p&gt;
@@ -70,7 +70,7 @@
 &lt;p&gt;The &lt;script type=&quot;math/tex&quot;&gt;s(\tau)&lt;/script&gt; function is called a “survival” function because it describes the probability that the deal is still “alive” by time &lt;script type=&quot;math/tex&quot;&gt;\tau&lt;/script&gt;. The &lt;script type=&quot;math/tex&quot;&gt;\lambda&lt;/script&gt; parameter is the constant hazard rate.&lt;/p&gt;
 
 &lt;div class=&quot;wrapper&quot;&gt;
-  &lt;img src=&quot;/assets/2018_hyperbolic_discounting/fig_exp_survival.png&quot; height=&quot;300&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid;&quot; /&gt;
+  &lt;img src=&quot;/assets/2018_hyperbolic_discounting/fig_exp_survival.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:100%;&quot; /&gt;
 &lt;/div&gt;
 
 &lt;p&gt;A key insight here is that the survival function can also be interpreted as a discount function. If someone says you can receive your reward at time $ \tau $ if you’re willing to wait for it, and if there’s only a 60% chance you’ll actually receive it, you should value that offer at 60% of the current value of the reward. Since the survival function is exponential, and since the survival function &lt;em&gt;is&lt;/em&gt; the discount function, your discount function is also exponential, at least according to standard economic theory.&lt;/p&gt;
@@ -84,7 +84,7 @@
 &lt;p&gt;The exponential prior is shown in the graph below. Although this curve looks like a discount function, it is not. It is a distribution over a parameter.&lt;/p&gt;
 
 &lt;div class=&quot;wrapper&quot;&gt;
-  &lt;img src=&quot;/assets/2018_hyperbolic_discounting/fig_hazard_prior.png&quot; height=&quot;300&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid;&quot; /&gt;
+  &lt;img src=&quot;/assets/2018_hyperbolic_discounting/fig_hazard_prior.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:100%;&quot; /&gt;
 &lt;/div&gt;
 
 &lt;p&gt;According to Souza, if you average over all the possible exponential survival functions generated by this prior, you get a hyperbolic survival function, or equivalently, a hyperbolic discount function. I’ll try my best to explain:&lt;/p&gt;
@@ -93,7 +93,7 @@
 &lt;p&gt;In the plot below, I’ve drawn 30 exponential survival functions in blue, each with a &lt;script type=&quot;math/tex&quot;&gt;\lambda&lt;/script&gt; sampled from the &lt;script type=&quot;math/tex&quot;&gt;p(\lambda)&lt;/script&gt; prior distribution defined above. The pink curve is the mean of all of them. Notice that whereas the individual survival curves are all exponential, their mean is hyperbolic, with a distant future characterized by a flat slope and relatively high survival values.&lt;/p&gt;
 
 &lt;div class=&quot;wrapper&quot;&gt;
-  &lt;img src=&quot;/assets/2018_hyperbolic_discounting/fig_mean_of_exponentials.png&quot; height=&quot;300&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid;&quot; /&gt;
+  &lt;img src=&quot;/assets/2018_hyperbolic_discounting/fig_mean_of_exponentials.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:100%;&quot; /&gt;
 &lt;/div&gt;
 
 &lt;p&gt;Why do we get a hyperbolic function when we average many exponential functions? To understand why, you first need to know that the instantaneous discount rate of a discount function is the negative of its instantaneous slope divided by its height. This sounds like a mouthful but it actually makes sense if you think about it. At any point in time, the discount rate is the drop in value over one time unit (i.e. the slope), divided by the principal (i.e. the height).&lt;/p&gt;
@@ -101,7 +101,7 @@
 &lt;p&gt;With that in mind, let’s think about time points in the distant future, when almost all of the exponential curves have gone to zero except for the curve with the lowest discount rate. When averaging across these curves in the distant future, the many curves at zero effectively scale down the one remaining curve by the same factor across a broad range of dates. In the figure below, the averaging operation scales down the curve by 86% at two different dates separated by 15 months. When you scale down a curve by a constant factor across a broad range, you scale its height and its slope by the same factor, thus preserving the slope to height ratio (i.e. the discount rate). Therefore, when you average over possible discount functions in the distant future, your resulting discount function is &lt;a href=&quot;https://eml.berkeley.edu//~saez/course131/weitzman98.pdf&quot;&gt;dominated&lt;/a&gt; by the discount rate of the curve with the lowest discount rate.&lt;/p&gt;
 
 &lt;div class=&quot;wrapper&quot;&gt;
-  &lt;img src=&quot;/assets/2018_hyperbolic_discounting/fig_mean_of_exponentials_arrows.png&quot; height=&quot;300&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid;&quot; /&gt;
+  &lt;img src=&quot;/assets/2018_hyperbolic_discounting/fig_mean_of_exponentials_arrows.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:100%;&quot; /&gt;
 &lt;/div&gt;
 
 &lt;p&gt;As a consequence, the further you look into the future, the lower your discount rate. This is exactly what hyperbolic discounting is and exactly what humans do. For the choice between &lt;span class=&quot;tex2jax_ignore&quot;&gt;$&lt;/span&gt;50 now and &lt;span class=&quot;tex2jax_ignore&quot;&gt;$&lt;/span&gt;100 in 6 months, we apply a heavy discount rate. For the choice between &lt;span class=&quot;tex2jax_ignore&quot;&gt;$&lt;/span&gt;50 in 3 months and &lt;span class=&quot;tex2jax_ignore&quot;&gt;$&lt;/span&gt;100 in 9 months, we apply a lighter discount rate.&lt;/p&gt;
@@ -163,7 +163,7 @@
 &lt;p&gt;Like Uber, some religions raise the price during periods of peak demand. While attendance at Jewish synagogue for a regular Shabbat service is normally free, attendance during one of the High Holidays typically &lt;a href=&quot;http://www.nytimes.com/2013/09/14/us/selling-holy-day-tickets-is-dilemma-for-synagogues.html&quot;&gt;requires a payment&lt;/a&gt; for seating, in part to &lt;a href=&quot;https://reformjudaism.org/jewish-holidays/rosh-hashanah/five-things-know-about-attending-high-holiday-services&quot;&gt;ensure space for everyone&lt;/a&gt;.&lt;/p&gt;
 
 &lt;div class=&quot;wrapper&quot;&gt;
-  &lt;img src=&quot;/assets/2017_religions_as_firms/traffic_synagogue.png&quot; height=&quot;200&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid;&quot; /&gt;
+  &lt;img src=&quot;/assets/2017_religions_as_firms/traffic_synagogue.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:100%;&quot; /&gt;
 &lt;/div&gt;
 
 &lt;p&gt;Surge pricing makes sense for non-proselytizing religions such as Judaism, but it does not make sense for proselytizing religions such as Christianity, which views the higher demand during peak season as an &lt;a href=&quot;https://www.researchgate.net/profile/Feler_Bose/publication/271328680_Funding_the_Faiths_Toward_a_Theory_of_Religious_Finance/links/54c5b8790cf219bbe4f59dac.pdf&quot;&gt;opportunity&lt;/a&gt; to convert newcomers and to reactivate lapsed members. Thus, Christian churches tend to expand seating and schedule extra services during Christmas and Easter, rather than charging fees.&lt;/p&gt;
@@ -195,7 +195,7 @@
 &lt;p&gt;The graph below shows similar US and international growth curves for Netflix and the Church of Latter Day Saints.&lt;sup&gt;[&lt;a href=&quot;https://en.wikipedia.org/wiki/The_Church_of_Jesus_Christ_of_Latter-day_Saints_membership_history&quot;&gt;1&lt;/a&gt;,&lt;a href=&quot;https://rsc.byu.edu/archived/latter-day-saint-social-life-social-research-lds-church-and-its-members/4-vital-statistics&quot;&gt;2&lt;/a&gt;,&lt;a href=&quot;http://www.churchistrue.com/blog/lds-membership-statistics-report-2017/&quot;&gt;3&lt;/a&gt;,&lt;a href=&quot;http://www.businessinsider.com/netflix-subscribers-international-vs-us-earnings-chart-2017-7&quot;&gt;4&lt;/a&gt;]&lt;/sup&gt;&lt;/p&gt;
 
 &lt;div class=&quot;wrapper&quot;&gt;
-  &lt;img src=&quot;/assets/2017_religions_as_firms/LDS_netflix.png&quot; height=&quot;250&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid;&quot; /&gt;
+  &lt;img src=&quot;/assets/2017_religions_as_firms/LDS_netflix.png&quot; style=&quot;position:relative border: #222 2px solid; max-width:100%;&quot; /&gt;
 &lt;/div&gt;
 
 &lt;h3 id=&quot;branding&quot;&gt;Branding&lt;/h3&gt;
