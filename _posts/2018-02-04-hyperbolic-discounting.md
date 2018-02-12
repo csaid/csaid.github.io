@@ -101,7 +101,7 @@ For a more qualitative intuition, you can think of it this way: When you make a 
 
 ## Interest Rate interpretation
 
-A common justification for discounting is the fact that interest rates exist. A dollar now is worth more than a dollar in a year, because if you take the dollar now and invest it, it will worth more in a year.
+While hazard functions are one way to explain discounting, another common explanation involves interest rates. A dollar now is worth more than a dollar in a year, because if you take the dollar now and invest it, it will worth more in a year.
 
 ##### Apparent rationality of exponential discounting
 If the interest rate is 5%, you should be indifferent between <span class="tex2jax_ignore">$</span>100 today and <span class="tex2jax_ignore">$</span>105 in a year, since you could just invest the <span class="tex2jax_ignore">$</span>100 today and get the same amount in a year. If the interest rate is constant, the value of the dollar will rise exponentially, according to $ v(\tau) = e^{0.05\tau} $, where $ v $ is the value. To rationally maintain indifference between a dollar and its equivalent value in the future after investment, your discount function should decay exponentially, according to $ s(\tau) = e^{-0.05\tau} $.
