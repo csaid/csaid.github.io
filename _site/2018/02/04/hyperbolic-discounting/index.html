@@ -199,7 +199,7 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
 
 <h2 id="interest-rate-interpretation">Interest Rate interpretation</h2>
 
-<p>A common justification for discounting is the fact that interest rates exist. A dollar now is worth more than a dollar in a year, because if you take the dollar now and invest it, it will worth more in a year.</p>
+<p>While hazard functions are one way to explain discounting, another common explanation involves interest rates. A dollar now is worth more than a dollar in a year, because if you take the dollar now and invest it, it will worth more in a year.</p>
 
 <h5 id="apparent-rationality-of-exponential-discounting-1">Apparent rationality of exponential discounting</h5>
 <p>If the interest rate is 5%, you should be indifferent between <span class="tex2jax_ignore">$</span>100 today and <span class="tex2jax_ignore">$</span>105 in a year, since you could just invest the <span class="tex2jax_ignore">$</span>100 today and get the same amount in a year. If the interest rate is constant, the value of the dollar will rise exponentially, according to $ v(\tau) = e^{0.05\tau} $, where $ v $ is the value. To rationally maintain indifference between a dollar and its equivalent value in the future after investment, your discount function should decay exponentially, according to $ s(\tau) = e^{-0.05\tau} $.</p>
@@ -214,7 +214,7 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
 <p>Is the geometric random walk a process that was cherry picked by the authors to produce this outcome? Not really. <a href="https://dukespace.lib.duke.edu/dspace/bitstream/handle/10161/7542/NewellPizerDiscountingPew.pdf?sequence=1">Newell and Pizer (2003)</a> studied US bond rates in the 19th and 20th century and found that the geometric random walk provided a better fit than any of the other interest rate models tested.</p>
 
 <h2 id="summary">Summary</h2>
-<p>When interpreting discounting as a survival function, a hyperbolic discounting function is rational if you introduce uncertainty into the hazard parameter via an exponential prior (<a href="https://campuspress.yale.edu/johngeanakoplos/files/2017/07/Hyperbolic-Discounting-is-Rational-Valuing-the-Far-Future-with-Uncertain-Discount-Rates-1uc47ft.pdf">Souza, 2015</a>). When interpreting the discount rate as an interest rate, a hyperbolic discounting function is asymptotically rational if you introduce uncertainty in the interest rate via a geometric random walk (<a href="https://campuspress.yale.edu/johngeanakoplos/files/2017/07/Hyperbolic-Discounting-is-Rational-Valuing-the-Far-Future-with-Uncertain-Discount-Rates-1uc47ft.pdf">Farmer and Geanakoplos, 2009</a>).</p>
+<p>When interpreting discounting as a survival function, a hyperbolic discounting function is rational if you introduce uncertainty into the hazard parameter via an exponential prior (<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1689473/pdf/T9KA20YDP8PB1QP4_265_2015.pdf">Souza, 2015</a>). When interpreting the discount rate as an interest rate, a hyperbolic discounting function is asymptotically rational if you introduce uncertainty in the interest rate via a geometric random walk (<a href="https://campuspress.yale.edu/johngeanakoplos/files/2017/07/Hyperbolic-Discounting-is-Rational-Valuing-the-Far-Future-with-Uncertain-Discount-Rates-1uc47ft.pdf">Farmer and Geanakoplos, 2009</a>).</p>
 
 
   <div>

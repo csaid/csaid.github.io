@@ -4,7 +4,7 @@
  <title>The File Drawer</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2018-02-06T08:10:05-08:00</updated>
+ <updated>2018-03-10T20:23:43-08:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -110,7 +110,7 @@
 
 &lt;h2 id=&quot;interest-rate-interpretation&quot;&gt;Interest Rate interpretation&lt;/h2&gt;
 
-&lt;p&gt;A common justification for discounting is the fact that interest rates exist. A dollar now is worth more than a dollar in a year, because if you take the dollar now and invest it, it will worth more in a year.&lt;/p&gt;
+&lt;p&gt;While hazard functions are one way to explain discounting, another common explanation involves interest rates. A dollar now is worth more than a dollar in a year, because if you take the dollar now and invest it, it will worth more in a year.&lt;/p&gt;
 
 &lt;h5 id=&quot;apparent-rationality-of-exponential-discounting-1&quot;&gt;Apparent rationality of exponential discounting&lt;/h5&gt;
 &lt;p&gt;If the interest rate is 5%, you should be indifferent between &lt;span class=&quot;tex2jax_ignore&quot;&gt;$&lt;/span&gt;100 today and &lt;span class=&quot;tex2jax_ignore&quot;&gt;$&lt;/span&gt;105 in a year, since you could just invest the &lt;span class=&quot;tex2jax_ignore&quot;&gt;$&lt;/span&gt;100 today and get the same amount in a year. If the interest rate is constant, the value of the dollar will rise exponentially, according to $ v(\tau) = e^{0.05\tau} $, where $ v $ is the value. To rationally maintain indifference between a dollar and its equivalent value in the future after investment, your discount function should decay exponentially, according to $ s(\tau) = e^{-0.05\tau} $.&lt;/p&gt;
@@ -125,7 +125,7 @@
 &lt;p&gt;Is the geometric random walk a process that was cherry picked by the authors to produce this outcome? Not really. &lt;a href=&quot;https://dukespace.lib.duke.edu/dspace/bitstream/handle/10161/7542/NewellPizerDiscountingPew.pdf?sequence=1&quot;&gt;Newell and Pizer (2003)&lt;/a&gt; studied US bond rates in the 19th and 20th century and found that the geometric random walk provided a better fit than any of the other interest rate models tested.&lt;/p&gt;
 
 &lt;h2 id=&quot;summary&quot;&gt;Summary&lt;/h2&gt;
-&lt;p&gt;When interpreting discounting as a survival function, a hyperbolic discounting function is rational if you introduce uncertainty into the hazard parameter via an exponential prior (&lt;a href=&quot;https://campuspress.yale.edu/johngeanakoplos/files/2017/07/Hyperbolic-Discounting-is-Rational-Valuing-the-Far-Future-with-Uncertain-Discount-Rates-1uc47ft.pdf&quot;&gt;Souza, 2015&lt;/a&gt;). When interpreting the discount rate as an interest rate, a hyperbolic discounting function is asymptotically rational if you introduce uncertainty in the interest rate via a geometric random walk (&lt;a href=&quot;https://campuspress.yale.edu/johngeanakoplos/files/2017/07/Hyperbolic-Discounting-is-Rational-Valuing-the-Far-Future-with-Uncertain-Discount-Rates-1uc47ft.pdf&quot;&gt;Farmer and Geanakoplos, 2009&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;When interpreting discounting as a survival function, a hyperbolic discounting function is rational if you introduce uncertainty into the hazard parameter via an exponential prior (&lt;a href=&quot;https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1689473/pdf/T9KA20YDP8PB1QP4_265_2015.pdf&quot;&gt;Souza, 2015&lt;/a&gt;). When interpreting the discount rate as an interest rate, a hyperbolic discounting function is asymptotically rational if you introduce uncertainty in the interest rate via a geometric random walk (&lt;a href=&quot;https://campuspress.yale.edu/johngeanakoplos/files/2017/07/Hyperbolic-Discounting-is-Rational-Valuing-the-Far-Future-with-Uncertain-Discount-Rates-1uc47ft.pdf&quot;&gt;Farmer and Geanakoplos, 2009&lt;/a&gt;).&lt;/p&gt;
 
 </content>
  </entry>
@@ -2223,51 +2223,51 @@ t = \frac{\overline{X_1} - \overline{X_2}}{\sqrt{se_1^2 + se_2^2}}
    <id>http://localhost:4000/2014/10/16/jumping-quickly-between-deep-directories</id>
    <content type="html">&lt;p&gt;I often need to jump between different directories with very deep paths, like this:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;some/very/deep/directory/project1
-&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;c&quot;&gt;# do stuff in Project 1&lt;/span&gt;
-&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;different/very/deep/directory/project2
-&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;c&quot;&gt;# do stuff in Project 2&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;some/very/deep/directory/project1
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;c&quot;&gt;# do stuff in Project 1&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;different/very/deep/directory/project2
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;c&quot;&gt;# do stuff in Project 2&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;While it only takes a handful of seconds to switch directories, the extra mental effort often derails my train of thought. Some solutions exist, but they all have their limitations. For example, &lt;code class=&quot;highlighter-rouge&quot;&gt;pushd&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;popd&lt;/code&gt; don’t work well for directories you haven’t visited in a while. Aliases require you to manually add a new alias to your .bashrc every time you want to save a new directory.&lt;/p&gt;
 
 &lt;p&gt;I recently found a solution, inspired by &lt;a href=&quot;http://jeroenjanssens.com/2013/08/16/quickly-navigate-your-filesystem-from-the-command-line.html&quot;&gt;this post&lt;/a&gt; from &lt;a href=&quot;https://twitter.com/jeroenhjanssens&quot;&gt;Jeroen Janssens&lt;/a&gt;, that works great and feels totally natural. All it takes is a one-time change to your .bashrc that will allow you to easily save directories and switch between them. To save a directory, just use the &lt;code class=&quot;highlighter-rouge&quot;&gt;mark&lt;/code&gt; function:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;pwd
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;pwd
 &lt;/span&gt;some/very/deep/directory/project1
-&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;mark project1&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;mark project1&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;To navigate to a saved directory, just use the &lt;code class=&quot;highlighter-rouge&quot;&gt;cdd&lt;/code&gt; function:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;cdd project1
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;cdd project1
 &lt;span class=&quot;c&quot;&gt;# do stuff in Project 1&lt;/span&gt;
-&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;cdd project2
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;cdd project2
 &lt;span class=&quot;c&quot;&gt;# do stuff in Project 2&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;You can display a list of your saved directories with the &lt;code class=&quot;highlighter-rouge&quot;&gt;marks&lt;/code&gt; function, and you can remove a directory from the list with the &lt;code class=&quot;highlighter-rouge&quot;&gt;unmark&lt;/code&gt; function:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;unmark project1&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;unmark project1&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;For any of this to work, you’ll need to add this to your .bashrc, assuming you have a Mac and use the bash shell.&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;    &lt;span class=&quot;k&quot;&gt;function &lt;/span&gt;cdd &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; -P &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$MARKPATH&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; 2&amp;gt;/dev/null &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;No such mark: &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+        &lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-P&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$MARKPATH&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; 2&amp;gt;/dev/null &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;No such mark: &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
     &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;function &lt;/span&gt;mark &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        mkdir -p &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$MARKPATH&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;; ln -s &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;pwd&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$MARKPATH&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+        mkdir &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$MARKPATH&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; ln &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;pwd&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$MARKPATH&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
     &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;function &lt;/span&gt;unmark &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        rm -i &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$MARKPATH&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+        rm &lt;span class=&quot;nt&quot;&gt;-i&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$MARKPATH&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
     &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;function &lt;/span&gt;marks &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;se&quot;&gt;\l&lt;/span&gt;s -l &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$MARKPATH&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; | tail -n +2 | sed &lt;span class=&quot;s1&quot;&gt;'s/  / /g'&lt;/span&gt; | cut -d&lt;span class=&quot;s1&quot;&gt;' '&lt;/span&gt; -f9- | awk -F &lt;span class=&quot;s1&quot;&gt;' -&amp;gt; '&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'{printf &quot;%-10s -&amp;gt; %s\n&quot;, $1, $2}'&lt;/span&gt;
+        &lt;span class=&quot;se&quot;&gt;\l&lt;/span&gt;s &lt;span class=&quot;nt&quot;&gt;-l&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$MARKPATH&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; | tail &lt;span class=&quot;nt&quot;&gt;-n&lt;/span&gt; +2 | sed &lt;span class=&quot;s1&quot;&gt;'s/  / /g'&lt;/span&gt; | cut &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;' '&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-f9-&lt;/span&gt; | awk &lt;span class=&quot;nt&quot;&gt;-F&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;' -&amp;gt; '&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'{printf &quot;%-10s -&amp;gt; %s\n&quot;, $1, $2}'&lt;/span&gt;
     &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 
     _cdd&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
     &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
         &lt;span class=&quot;nb&quot;&gt;local &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;cur&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;COMP_WORDS&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[COMP_CWORD]&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;
-        &lt;span class=&quot;nv&quot;&gt;COMPREPLY&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=(&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;compgen&lt;/span&gt; -W &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt; ls &lt;span class=&quot;nv&quot;&gt;$MARKPATH&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; -- &lt;span class=&quot;nv&quot;&gt;$cur&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;nv&quot;&gt;COMPREPLY&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=(&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;compgen&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-W&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;ls&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$MARKPATH&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$cur&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
     &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;nb&quot;&gt;complete&lt;/span&gt; -F _cdd cdd&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+    &lt;span class=&quot;nb&quot;&gt;complete&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-F&lt;/span&gt; _cdd cdd&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;This differs from Jeroen’s &lt;a href=&quot;http://jeroenjanssens.com/2013/08/16/quickly-navigate-your-filesystem-from-the-command-line.html&quot;&gt;original&lt;/a&gt; code in a couple of ways. First, to be more brain-friendly, it names the function “cdd” instead of “jump”. Second, the tab completion works &lt;a href=&quot;https://news.ycombinator.com/item?id=6229291&quot;&gt;better&lt;/a&gt;.&lt;/p&gt;
 
