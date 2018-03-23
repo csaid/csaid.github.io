@@ -190,15 +190,15 @@ var margin = {top: 30, right: 20, bottom: 50, left: 50},
 
 // setup x
 var xValue = function(d) { return d.expert_agreement;}, // data -> value
-    xScale = d3.scale.linear().range([0, width]), // value -> display
+    xScale = d3.scaleLinear().range([0, width]), // value -> display
     xMap = function(d) { return xScale(xValue(d));}, // data -> display
-    xAxisEconSurvey = d3.svg.axis().scale(xScale).orient("bottom");
+    xAxisEconSurvey = d3.axisBottom(xScale);
 
 // setup y
 var yValue = function(d) { return d.public_agreement;}, // data -> value
-    yScale = d3.scale.linear().range([econ_survey_height, 0]), // value -> display
+    yScale = d3.scaleLinear().range([econ_survey_height, 0]), // value -> display
     yMap = function(d) { return yScale(yValue(d));}, // data -> display
-    yAxisEconSurvey = d3.svg.axis().scale(yScale).orient("left");
+    yAxisEconSurvey = d3.axisLeft(yScale);
 
 
 // add the graph canvas to the #econ_scatter of the webpage

@@ -183,21 +183,6 @@
   
     
     <url>
-      <loc>http://localhost:4000/2015/09/17/presidential-debates/</loc>
-      
-        <lastmod>2015-09-17T00:00:00-07:00</lastmod>
-      
-      
-        <changefreq>monthly</changefreq>
-      
-      
-        <priority>0.5</priority>
-      
-    </url>
-    
-  
-    
-    <url>
       <loc>http://localhost:4000/2015/09/16/new-blog-address/</loc>
       
         <lastmod>2015-09-16T00:00:00-07:00</lastmod>
@@ -520,7 +505,7 @@
     <url>
       <loc>http://localhost:4000404.html</loc>
       
-        <lastmod>2018-03-10T20:23:43-08:00</lastmod>
+        <lastmod>2018-03-22T18:03:45-07:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -548,7 +533,7 @@
     <url>
       <loc>http://localhost:4000</loc>
       
-        <lastmod>2018-03-10T20:23:43-08:00</lastmod>
+        <lastmod>2018-03-22T18:03:45-07:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -576,7 +561,7 @@
     <url>
       <loc>http://localhost:4000</loc>
       
-        <lastmod>2018-03-10T20:23:43-08:00</lastmod>
+        <lastmod>2018-03-22T18:03:45-07:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -594,7 +579,7 @@
     <url>
       <loc>http://localhost:4000</loc>
       
-        <lastmod>2018-03-10T20:23:43-08:00</lastmod>
+        <lastmod>2018-03-22T18:03:45-07:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -612,7 +597,7 @@
     <url>
       <loc>http://localhost:4000</loc>
       
-        <lastmod>2018-03-10T20:23:43-08:00</lastmod>
+        <lastmod>2018-03-22T18:03:45-07:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -630,7 +615,7 @@
     <url>
       <loc>http://localhost:4000</loc>
       
-        <lastmod>2018-03-10T20:23:43-08:00</lastmod>
+        <lastmod>2018-03-22T18:03:45-07:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -648,7 +633,7 @@
     <url>
       <loc>http://localhost:4000</loc>
       
-        <lastmod>2018-03-10T20:23:43-08:00</lastmod>
+        <lastmod>2018-03-22T18:03:45-07:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -666,7 +651,7 @@
     <url>
       <loc>http://localhost:4000</loc>
       
-        <lastmod>2018-03-10T20:23:43-08:00</lastmod>
+        <lastmod>2018-03-22T18:03:45-07:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -945,19 +930,6 @@
           <loc>http://localhost:4000/2015/09/16/new-blog-address/</loc>
           
             <lastmod>2015-09-16T00:00:00-07:00</lastmod>
-          
-          
-            <changefreq>monthly</changefreq>
-          
-          
-            <priority>0.3</priority>
-          
-        </url>
-      
-        <url>
-          <loc>http://localhost:4000/2015/09/17/presidential-debates/</loc>
-          
-            <lastmod>2015-09-17T00:00:00-07:00</lastmod>
           
           
             <changefreq>monthly</changefreq>

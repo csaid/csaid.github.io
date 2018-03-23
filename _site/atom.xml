@@ -4,7 +4,7 @@
  <title>The File Drawer</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2018-03-10T20:23:43-08:00</updated>
+ <updated>2018-03-22T18:03:45-07:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -1254,15 +1254,15 @@ var margin = {top: 30, right: 20, bottom: 50, left: 50},
 
 // setup x
 var xValue = function(d) { return d.expert_agreement;}, // data -&gt; value
-    xScale = d3.scale.linear().range([0, width]), // value -&gt; display
+    xScale = d3.scaleLinear().range([0, width]), // value -&gt; display
     xMap = function(d) { return xScale(xValue(d));}, // data -&gt; display
-    xAxisEconSurvey = d3.svg.axis().scale(xScale).orient(&quot;bottom&quot;);
+    xAxisEconSurvey = d3.axisBottom(xScale);
 
 // setup y
 var yValue = function(d) { return d.public_agreement;}, // data -&gt; value
-    yScale = d3.scale.linear().range([econ_survey_height, 0]), // value -&gt; display
+    yScale = d3.scaleLinear().range([econ_survey_height, 0]), // value -&gt; display
     yMap = function(d) { return yScale(yValue(d));}, // data -&gt; display
-    yAxisEconSurvey = d3.svg.axis().scale(yScale).orient(&quot;left&quot;);
+    yAxisEconSurvey = d3.axisLeft(yScale);
 
 
 // add the graph canvas to the #econ_scatter of the webpage
@@ -1469,23 +1469,19 @@ function makeObjectiveGraph(id, get_dot_x, objective, title, is_dynamic, company
 
   var tickFormat = d3.format(&quot;.1f&quot;);
 
-  var y = d3.scale.linear()
+  var y = d3.scaleLinear()
       .domain([0, 1])
       .range([height, 0]);
 
-  var yAxisPitfalls = d3.svg.axis()
-      .scale(y)
-      .orient(&quot;left&quot;)
+  var yAxisPitfalls = d3.axisLeft(y)
 
-  var x = d3.scale.linear()
+  var x = d3.scaleLinear()
       .domain([0, 1])
       .range([0, width]);
 
-  var xAxisPitfalls = d3.svg.axis()
-      .scale(x)
-      .orient(&quot;bottom&quot;)
+  var xAxisPitfalls = d3.axisBottom(x)
 
-  var path = d3.svg.line();
+  var path = d3.line();
 
   var svg = d3.select(&quot;#&quot; + id).append(&quot;svg&quot;)
       .attr(&quot;width&quot;, width + margin.left + margin.right)
@@ -1789,305 +1785,6 @@ Created with Jupyter, delivered by Fastly, rendered by Rackspace.
 &lt;meta charset=&quot;utf-8&quot; /&gt;
 
 &lt;p&gt;To work with these notebooks, you can clone my &lt;a href=&quot;https://github.com/csaid/polished_notebooks&quot;&gt;GitHub repository&lt;/a&gt;. While the notebooks render correctly on nbviewer (&lt;a href=&quot;http://nbviewer.jupyter.org/github/csaid/polished_notebooks/blob/master/notebook_original.ipynb&quot;&gt;unpolished&lt;/a&gt;, &lt;a href=&quot;http://nbviewer.jupyter.org/github/csaid/polished_notebooks/blob/master/notebook_polished.ipynb&quot;&gt;polished&lt;/a&gt;), they do not render correctly on the GitHub viewer.&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>The debate CNN wanted and the debate the candidates wanted</title>
-   <link href="http://localhost:4000/2015/09/17/presidential-debates/"/>
-   <updated>2015-09-17T00:00:00-07:00</updated>
-   <id>http://localhost:4000/2015/09/17/presidential-debates</id>
-   <content type="html">&lt;p&gt;In last night’s Republican presidential debate, the CNN moderators tried very hard to pit individual candidates against each other. Pretty much every question was along the lines of: “Candidate A, what do you think about Candidate B’s attacks on you?”&lt;/p&gt;
-
-&lt;p&gt;While CNN wanted to generate controversy, the disputes it tried to initiate were not necessarily the disputes that the candidates strategically wanted to have. To get a better sense for this, I tallied up two things:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;&lt;strong&gt;Moderator Prompts&lt;/strong&gt;. These were episodes where the moderators prompted one candidate to challenge another.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Real Challenges&lt;/strong&gt;. These were episodes where either (a) the candidate took the bait from a Moderator Prompt and attacked the other candidate or (b) a candidate launched an unprompted attack on another candidate. I did not include episodes where a prompted candidate acknowledged a disagreement with another candidate in a nonconfrontational way.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;The results are below. In the first graph, an arrow from one candidate to another indicates that the moderator asked the first candidate to challenge the second. The next graph shows real challenges. In both graphs, the boldness of the curve indicates how many times the event occurred.&lt;/p&gt;
-
-&lt;meta charset=&quot;utf-8&quot; /&gt;
-
-&lt;div class=&quot;center&quot;&gt;
-  &lt;span id=&quot;debate_graph1&quot;&gt;&lt;/span&gt;
-  &lt;span id=&quot;debate_graph2&quot;&gt;&lt;/span&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Some observations:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;The graph of Moderator Prompts is much denser than the graph of Real Challenges. As was clear to anyone watching the debate, the moderators wanted to generate more controversy than the candidates wanted.&lt;/li&gt;
-  &lt;li&gt;Most of the real action in the second graph was in the Trump-Bush-Paul Triangle of Controversy.&lt;/li&gt;
-  &lt;li&gt;The moderators tried to prompt several challenges to Ben Carson but nobody took the bait. Conversely, the moderators paid relatively little attention to Rand Paul, and yet he was part of several real disputes.&lt;/li&gt;
-  &lt;li&gt;The interests of Donald Trump were pretty well aligned with the interests of CNN. Donald Trump was prompted many times and engaged in many challenges.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;It’s also interesting to look at how many times each of the candidates challenged Hillary Clinton, who was not on the stage. Jeb Bush mentioned her on five separate occassions, whereas Donald Trump never mentioned her at all. It’s just a few data points, but it’s consistent with Jeb’s larger focus on the general election.&lt;/p&gt;
-
-&lt;figure class=&quot;image&quot;&gt;&lt;img src=&quot;/assets/hillary.png&quot; alt=&quot;&quot; /&gt;&lt;/figure&gt;
-
-&lt;p&gt;I doubt any of this data is very predicitive of election outcomes, but it definitely seems to be related to current polling trends. Either way, it’s pretty interesting to look at. I might make these plots for some of the other debates to see how these relationships change over time.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Update:&lt;/strong&gt; Coincidentally, the New York Times just released a &lt;a href=&quot;http://www.nytimes.com/interactive/2015/09/17/us/politics/gop-debate-trump-attacks-speaking-time.html&quot;&gt;similar analysis with similar graphics&lt;/a&gt;. Also, special thanks to &lt;a href=&quot;http://www.twitter.com/trebor&quot;&gt;@trebor&lt;/a&gt; for helping me set up mouseover-triggered transparency.&lt;/p&gt;
-
-&lt;style&gt;
-
-.debate_link {
-  fill: none;
-  stroke: #3AC3F2;
-}
-
-.debate_tooltip {
-    border-radius: 5px;
-    background: #ccc;
-    border-color: #555;
-    padding: 5px;
-    font-size: 10px;
-    /*width: 200px;*/
-    /*height: 150px;*/
-}
-
-.debate_link.resolved {
-  stroke-dasharray: 0,2 1;
-}
-
-circle {
-  fill: #ED2685;
-  stroke: #fff;
-  stroke-width: 1.5px;
-}
-
-path.unselected {
-  opacity: 0.1;
-}
-
-circle.unselected {
-  fill: #ED86C5;
-}
-
-
-text {
-  font: 10px sans-serif;
-}
-
-&lt;/style&gt;
-
-&lt;script&gt;
-
-var mod_links = [
-   {source: 0, target: 1, mentions: 3},
-   {source: 0, target: 2, mentions: 1},
-   {source: 0, target: 3, mentions: 1},
-   {source: 0, target: 5, mentions: 1},
-   {source: 0, target: 7, mentions: 1},
-   {source: 1, target: 0, mentions: 3},
-   {source: 1, target: 6, mentions: 2},
-   {source: 1, target: 8, mentions: 2},
-   {source: 1, target: 10, mentions: 2},
-   {source: 2, target: 4, mentions: 1},
-   {source: 2, target: 10, mentions: 1},
-   {source: 3, target: 0, mentions: 2},
-   {source: 3, target: 1, mentions: 1},
-   {source: 4, target: 1, mentions: 3},
-   {source: 4, target: 2, mentions: 1},
-   {source: 4, target: 5, mentions: 1},
-   {source: 5, target: 0, mentions: 1},
-   {source: 5, target: 4, mentions: 1},
-   {source: 5, target: 9, mentions: 1},
-   {source: 6, target: 1, mentions: 1},
-   {source: 7, target: 2, mentions: 1},
-   {source: 8, target: 1, mentions: 1},
-   {source: 8, target: 4, mentions: 2},
-   {source: 8, target: 6, mentions: 1},
-   {source: 9, target: 1, mentions: 1},
-   {source: 9, target: 5, mentions: 3},
-   {source: 9, target: 10, mentions: 1},
-   {source: 10,target: 1, mentions: 4},
-];
-
-var mod_nodes = [
-{idx: 0, name: 'Bush', fixed: true, x: 235.0, y: 135.0},
-{idx: 1, name: 'Trump', fixed: true, x: 219.125353283, y: 189.064081746},
-{idx: 2, name: 'Walker', fixed: true, x: 176.5415013, y: 225.963199535},
-{idx: 3, name: 'Huckabee', fixed: true, x: 120.768516173, y: 233.982144188},
-{idx: 4, name: 'Carson', fixed: true, x: 69.5139266055, y: 210.574957435},
-{idx: 5, name: 'Cruz', fixed: true, x: 39.0507026386, y: 163.173255684},
-{idx: 6, name: 'Rubio', fixed: true, x: 39.0507026386, y: 106.826744316},
-{idx: 7, name: 'Paul', fixed: true, x: 69.5139266055, y: 59.4250425646},
-{idx: 8, name: 'Christie', fixed: true, x: 120.768516173, y: 36.0178558119},
-{idx: 9, name: 'Kasich', fixed: true, x: 176.5415013, y: 44.0368004645},
-{idx: 10, name: 'Fiorina', fixed: true, x: 219.125353283, y: 80.9359182544},
-]
-
-
-
-var challenge_links = [
-   {source: 0, target: 1, mentions: 4},
-   {source: 0, target: 5, mentions: 1},
-   {source: 1, target: 0, mentions: 4},
-   {source: 1, target: 2, mentions: 1},
-   {source: 1, target: 6, mentions: 1},
-   {source: 1, target: 7, mentions: 3},
-   {source: 1, target: 10, mentions: 1},
-   {source: 2, target: 1, mentions: 1},
-   {source: 7, target: 0, mentions: 3},
-   {source: 7, target: 1, mentions: 1},
-   {source: 7, target: 8, mentions: 1},
-   {source: 8, target: 7, mentions: 1},
-   {source: 8, target: 10, mentions: 1},
-   {source: 10,target: 1, mentions: 2},
-   {source: 10,target: 8, mentions: 1},
-];
-
-
-
-
-
-var challenge_nodes = [
-{idx: 0, name: 'Bush', fixed: true, x: 235.0, y: 135.0},
-{idx: 1, name: 'Trump', fixed: true, x: 219.125353283, y: 189.064081746},
-{idx: 2, name: 'Walker', fixed: true, x: 176.5415013, y: 225.963199535},
-{idx: 3, name: 'Huckabee', fixed: true, x: 120.768516173, y: 233.982144188},
-{idx: 4, name: 'Carson', fixed: true, x: 69.5139266055, y: 210.574957435},
-{idx: 5, name: 'Cruz', fixed: true, x: 39.0507026386, y: 163.173255684},
-{idx: 6, name: 'Rubio', fixed: true, x: 39.0507026386, y: 106.826744316},
-{idx: 7, name: 'Paul', fixed: true, x: 69.5139266055, y: 59.4250425646},
-{idx: 8, name: 'Christie', fixed: true, x: 120.768516173, y: 36.0178558119},
-{idx: 9, name: 'Kasich', fixed: true, x: 176.5415013, y: 44.0368004645},
-{idx: 10, name: 'Fiorina', fixed: true, x: 219.125353283, y: 80.9359182544},
-]
-
-
-
-function makeGraph(links, nodes, id, interactionType) {
-
-  // Use elliptical arc path segments to doubly-encode directionality.
-  function tick() {
-    path.attr(&quot;d&quot;, linkArc);
-    circle.attr(&quot;transform&quot;, transform);
-    text.attr(&quot;transform&quot;, transform);
-  }
-
-  function linkArc(d) {
-    var dx = d.target.x - d.source.x,
-        dy = d.target.y - d.source.y,
-        dr = Math.sqrt(dx * dx + dy * dy);
-    return &quot;M&quot; + d.source.x + &quot;,&quot; + d.source.y + &quot;A&quot; + dr + &quot;,&quot; + dr + &quot; 0 0,1 &quot; + d.target.x + &quot;,&quot; + d.target.y;
-  }
-
-  function transform(d) {
-    return &quot;translate(&quot; + d.x + &quot;,&quot; + d.y + &quot;)&quot;;
-  }
-
-  // Mark each node with chart id
-  nodes.forEach(function(d) {d.id=id});
-
-  // Compute the distinct nodes from the links.
-  links.forEach(function(link) {
-    link.source = nodes[link.source] || (nodes[link.source] = {name: link.source});
-    link.target = nodes[link.target] || (nodes[link.target] = {name: link.target});
-  });
-
-  var width = 270,
-      height = 280;
-
-  var force = d3.layout.force()
-      .nodes(d3.values(nodes))
-      .links(links)
-      .size([width, height])
-      .on(&quot;tick&quot;, tick)
-      .start();
-
-  var svg = d3.select(&quot;span#&quot; + id).append(&quot;svg&quot;)
-      .attr(&quot;width&quot;, width)
-      .attr(&quot;height&quot;, height);
-      // .attr(&quot;class&quot;, &quot;center&quot;);
-
-  // Per-type markers, as they don't inherit styles.
-  svg.append(&quot;defs&quot;)
-      .append(&quot;marker&quot;)
-      .attr(&quot;id&quot;, &quot;marker&quot;)
-      .attr(&quot;viewBox&quot;, &quot;0 -5 10 10&quot;) // min-x, min-y, width, height
-      .attr(&quot;refX&quot;, 17) // The reference point. Even though arrow is length 10, using 12 because otherwise would go to center of circle.
-      .attr(&quot;refY&quot;, 0)
-      .attr(&quot;markerWidth&quot;, 10)
-      .attr(&quot;markerHeight&quot;, 10)
-      .attr(&quot;markerUnits&quot;, &quot;userSpaceOnUse&quot;) // makes marker size independent of stroke-width
-      .attr(&quot;orient&quot;, &quot;auto&quot;)
-      .attr(&quot;fill&quot;, &quot;#3AC3F2&quot;)
-    .append(&quot;path&quot;)
-      .attr(&quot;d&quot;, &quot;M0,-5L10,0L0,5&quot;); // Arrow definition. Start at 0,-5. Then draw line to 10, 0. Then draw line to 0, 5
-
-  // http://stackoverflow.com/questions/10805184/d3-show-data-on-mouseover-of-circle
-  // http://bl.ocks.org/biovisualize/1016860
-  var tooltip = d3.select(&quot;span#&quot; + id)
-      .append(&quot;div&quot;)
-      .attr(&quot;class&quot;, &quot;debate_tooltip&quot;)
-      .style(&quot;position&quot;, &quot;absolute&quot;)
-      .style(&quot;z-index&quot;, &quot;10&quot;)
-      .style(&quot;visibility&quot;, &quot;hidden&quot;)
-  ;
-
-
-  var path = svg.append(&quot;g&quot;).selectAll(&quot;path&quot;)
-      .data(force.links())
-    .enter().append(&quot;path&quot;)
-      .attr(&quot;class&quot;, &quot;debate_link&quot;)
-      .attr(&quot;stroke-width&quot;, function(d) { return d.mentions })
-      .attr(&quot;marker-end&quot;, &quot;url(#marker)&quot;) // This just say that the arrow should go at the end of the link, rather than the beginning.
-      .on(&quot;mouseover&quot;, function(d){return tooltip.style(&quot;visibility&quot;, &quot;visible&quot;).text(interactionType + &quot;: &quot; + d.mentions)})
-      .on(&quot;mousemove&quot;, function(){return tooltip.style(&quot;top&quot;,
-          (d3.event.pageY-10)+&quot;px&quot;).style(&quot;left&quot;,(d3.event.pageX+10)+&quot;px&quot;);})
-      .on(&quot;mouseout&quot;, function(){return tooltip.style(&quot;visibility&quot;, &quot;hidden&quot;);});
-
-  function nodeMouseOver(node) {
-    d3.selectAll(&quot;#&quot; + node.id + &quot; circle&quot;)
-      .classed(&quot;unselected&quot;, function(d) { return d != node;});
-    d3.selectAll(&quot;#&quot; + node.id + &quot; .debate_link&quot;)
-      .classed(&quot;unselected&quot;, function(d) {return d.source != node;});
-  }
-
-  function nodeMouseOut(node) {
-    d3.selectAll(&quot;#&quot; + node.id + &quot; circle&quot;)
-      .classed(&quot;unselected&quot;, false);
-    d3.selectAll(&quot;#&quot; + node.id + &quot; .debate_link&quot;)
-      .classed(&quot;unselected&quot;, false);
-  }
-  // &quot;g&quot; is to SVG as &quot;div&quot; is to HTML
-  var circle = svg.append(&quot;g&quot;).selectAll(&quot;circle&quot;)
-      .data(force.nodes())
-    .enter().append(&quot;circle&quot;)
-      .attr(&quot;r&quot;, 8)
-      .on(&quot;mouseover&quot;, nodeMouseOver)
-      .on(&quot;mouseout&quot;, nodeMouseOut);
-
-
-  var text = svg.append(&quot;g&quot;).selectAll(&quot;text&quot;)
-      .data(force.nodes())
-    .enter().append(&quot;text&quot;)
-      .attr(&quot;x&quot;, 8)
-      .attr(&quot;y&quot;, &quot;.31em&quot;)
-      .text(function(d) { return d.name; });
-
-
-  svg.append(&quot;text&quot;)
-          .attr(&quot;x&quot;, (width / 2))
-          .attr(&quot;y&quot;, 15)
-          .attr(&quot;text-anchor&quot;, &quot;middle&quot;)
-          .style(&quot;font-size&quot;, &quot;16px&quot;)
-          .text(interactionType);
-
-}
-
-
-
-makeGraph(mod_links, mod_nodes, &quot;debate_graph1&quot;, &quot;Moderator Prompts&quot;);
-makeGraph(challenge_links, challenge_nodes, &quot;debate_graph2&quot;, &quot;Real Challenges&quot;);
-
-&lt;/script&gt;
-
 </content>
  </entry>
  

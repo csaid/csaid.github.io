@@ -118,23 +118,19 @@ function makeObjectiveGraph(id, get_dot_x, objective, title, is_dynamic, company
 
   var tickFormat = d3.format(".1f");
 
-  var y = d3.scale.linear()
+  var y = d3.scaleLinear()
       .domain([0, 1])
       .range([height, 0]);
 
-  var yAxisPitfalls = d3.svg.axis()
-      .scale(y)
-      .orient("left")
+  var yAxisPitfalls = d3.axisLeft(y)
 
-  var x = d3.scale.linear()
+  var x = d3.scaleLinear()
       .domain([0, 1])
       .range([0, width]);
 
-  var xAxisPitfalls = d3.svg.axis()
-      .scale(x)
-      .orient("bottom")
+  var xAxisPitfalls = d3.axisBottom(x)
 
-  var path = d3.svg.line();
+  var path = d3.line();
 
   var svg = d3.select("#" + id).append("svg")
       .attr("width", width + margin.left + margin.right)
