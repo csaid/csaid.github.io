@@ -18,10 +18,7 @@
 
   <!-- To get a link preview image, just set the image attribute in your _post -->
   {% if page.image %}
-    <!-- open standard -->
-    <meta content="{{ page.image }}" property="og:image"/>
-    <!-- twitter standard -->
-    <meta name="twitter:image" content="{{ page.image }}" />
+    <meta content="{{ site.url }}{{ page.image }}" property="og:image"/>
   {% endif %}
 
   <!-- twitter standard -->

@@ -3,6 +3,21 @@
   
     
     <url>
+      <loc>http://localhost:4000/2018/08/06/cone-of-confusion/</loc>
+      
+        <lastmod>2018-08-06T00:00:00-07:00</lastmod>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.5</priority>
+      
+    </url>
+    
+  
+    
+    <url>
       <loc>http://localhost:4000/2018/02/04/hyperbolic-discounting/</loc>
       
         <lastmod>2018-02-04T00:00:00-08:00</lastmod>
@@ -505,7 +520,7 @@
     <url>
       <loc>http://localhost:4000404.html</loc>
       
-        <lastmod>2018-03-22T18:03:45-07:00</lastmod>
+        <lastmod>2018-08-06T08:23:26-07:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -533,7 +548,7 @@
     <url>
       <loc>http://localhost:4000</loc>
       
-        <lastmod>2018-03-22T18:03:45-07:00</lastmod>
+        <lastmod>2018-08-06T08:23:26-07:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -561,7 +576,7 @@
     <url>
       <loc>http://localhost:4000</loc>
       
-        <lastmod>2018-03-22T18:03:45-07:00</lastmod>
+        <lastmod>2018-08-06T08:23:26-07:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -579,7 +594,7 @@
     <url>
       <loc>http://localhost:4000</loc>
       
-        <lastmod>2018-03-22T18:03:45-07:00</lastmod>
+        <lastmod>2018-08-06T08:23:26-07:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -597,7 +612,7 @@
     <url>
       <loc>http://localhost:4000</loc>
       
-        <lastmod>2018-03-22T18:03:45-07:00</lastmod>
+        <lastmod>2018-08-06T08:23:26-07:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -615,7 +630,7 @@
     <url>
       <loc>http://localhost:4000</loc>
       
-        <lastmod>2018-03-22T18:03:45-07:00</lastmod>
+        <lastmod>2018-08-06T08:23:26-07:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -633,7 +648,7 @@
     <url>
       <loc>http://localhost:4000</loc>
       
-        <lastmod>2018-03-22T18:03:45-07:00</lastmod>
+        <lastmod>2018-08-06T08:23:26-07:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -651,7 +666,7 @@
     <url>
       <loc>http://localhost:4000</loc>
       
-        <lastmod>2018-03-22T18:03:45-07:00</lastmod>
+        <lastmod>2018-08-06T08:23:26-07:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -1086,6 +1101,19 @@
           <loc>http://localhost:4000/2018/02/04/hyperbolic-discounting/</loc>
           
             <lastmod>2018-02-04T00:00:00-08:00</lastmod>
+          
+          
+            <changefreq>monthly</changefreq>
+          
+          
+            <priority>0.3</priority>
+          
+        </url>
+      
+        <url>
+          <loc>http://localhost:4000/2018/08/06/cone-of-confusion/</loc>
+          
+            <lastmod>2018-08-06T00:00:00-07:00</lastmod>
           
           
             <changefreq>monthly</changefreq>

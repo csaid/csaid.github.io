@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<!--
+It's bad to import d3 in every post separately (https://groups.google.com/forum/#!topic/d3-js/bwdNirt2uEU).
+Importing it globally here.
+Putting this up at the top, according to this controversial stack overflow answer
+http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
+ -->
+<script src="https://d3js.org/d3.v5.min.js"></script>
+
+<link rel="stylesheet" href="/public/font-awesome-4.4.0/css/font-awesome.min.css">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  
+    <meta name="description" content="How the shape of your ears and head help you localize sound">
+  
+
+  <!-- To get a link preview image, just set the image attribute in your _post -->
+  
+    <meta content="http://localhost:4000/assets/2018_cone_of_confusion/cone_and_hrtf.png" property="og:image"/>
+  
+
+  <!-- twitter standard -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@chris_said" />
+  <meta name="twitter:title" content="Using your ears and head to escape the Cone Of Confusion" />
+  <meta name="twitter:description" content="How the shape of your ears and head help you localize sound" />
+
+
+  <title>
+    
+      Using your ears and head to escape the Cone Of Confusion &middot; The File Drawer
+    
+  </title>
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-67746868-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/hyde.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
+                                 <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+<!--   <body class="theme-base-cps">
+ -->
+  <body>
+
+    <div class="sidebar">
+  <div class="container">
+    <div class="sidebar-about">
+      <h1>
+        <a href="/">
+          The File Drawer
+        </a>
+      </h1>
+      <p class="lead">My name is Chris Said and I am a data scientist at Opendoor. This blog is mostly about tech, stats, and science.</p>
+
+    </div>
+
+    <nav class="sidebar-nav">
+
+      
+        <a class="sidebar-nav-item" href="/">Home</a>
+      
+        <a class="sidebar-nav-item" href="/archive">Archive</a>
+      
+        <a class="sidebar-nav-item" href="/atom.xml">Feed</a>
+      
+
+    </nav>
+
+    <div class="wrapper">
+      <div class="inner">
+        <a href = "http://www.twitter.com/Chris_Said" class="contact-button"><i class="fa fa-twitter fa-2x"></i></a>
+        <a href = "https://www.linkedin.com/pub/chris-said/6b/86b/979" class="contact-button"><i class="fa fa-linkedin-square fa-2x"></i></a>
+        <a href = "mailto:chris.said@gmail.com" class="contact-button"><i class="fa fa-envelope fa-2x"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <div class="content container">
+      <div class="post">
+  <h1 class="post-title">Using your ears and head to escape the Cone Of Confusion</h1>
+  <span class="post-date">06 Aug 2018</span>
+  <p>One of coolest things I ever learned about sensory physiology is how the auditory system is able to locate sounds. To determine whether sound is coming from the right or left, the brain uses inter-ear differences in amplitude and timing. As shown in the figure below, if the sound is louder in the right ear compared to the left ear, it’s probably coming from the right side. The smaller that difference is, the closer the sound is to the midline (i.e the vertical plane going from your front to your back). Similarly, if the sound arrives at your right ear before the left ear, it’s probably coming from the right. The smaller the timing difference, the closer it is to the midline. There’s a <a href="https://en.wikipedia.org/wiki/Coincidence_detection_in_neurobiology#Sound_localization">fascinating</a> <a href="https://nba.uth.tmc.edu/homepage/cnjclub/2004spring/McAlpineGrothe2003.pdf">literature</a> on the neural mechanisms behind this.</p>
+<div class="wrapper">
+  <img src="/assets/2018_cone_of_confusion/right_and_front_right.png" class="inner" style="position:relative border: #222 2px solid; max-width:50%;" />
+</div>
+<p>Inter-ear loudness and timing differences are pretty useful, but unfortunately they still leave a lot of ambiguity. For example, a sound from your front right will have the exact same loudness differences and timing differences as a sound from your back right.</p>
+<div class="wrapper">
+  <img src="/assets/2018_cone_of_confusion/front_right_and_back_right.png" class="inner" style="position:relative border: #222 2px solid; max-width:50%;" />
+</div>
+<p>Not only does this system leave ambiguities between front and back, it also leaves ambiguities between top and down. In fact, there is an entire <em>cone of confusion</em> that cannot be disambiguated by this system. Sound from all points along the surface of the cone will have the same inter-ear loudness differences and timing differences.</p>
+<div class="wrapper">
+  <img src="/assets/2018_cone_of_confusion/cone_of_confusion.png" class="inner" style="position:relative border: #222 2px solid; max-width:50%;" />
+</div>
+<p>While this system leaves a cone of confusion, humans are still able to determine the location of sounds from different points on the cone, at least to some extent. How are we able to do this?</p>
+
+<p>Amazingly, we are able to do this because of the shape of our ears and heads. When sound passes through our ears and head, certain frequencies are attenuated more than others. Critically, the attenuation pattern is highly dependent on sound direction.</p>
+
+<p>This location-dependent attenuation pattern is called a <a href="https://en.wikipedia.org/wiki/Head-related_transfer_function">Head-related transfer function</a> (HRTF) and in theory this could be used to disambiguate locations along the cone of confusion. An example of someone’s HRTF is shown below, with frequency on the horizontal axis and polar angle on the vertical axis. Hotter colors represent less attenuation (i.e. more power). If your head and ears gave you this HRTF, you might decide a sound is coming from the front if it has more high frequency power than you’d expect.</p>
+<div class="wrapper">
+  <img src="/assets/2018_cone_of_confusion/cone_and_hrtf.png" class="inner" style="position:relative border: #222 2px solid; max-width:100%;" />
+  <div class="caption">
+    HRTF image from Simon Carlile's <a href="https://sonification.de/handbook/download/TheSonificationHandbook-chapter3.pdf">Psychoacoustics chapter</a> in The Sonification Handbook.
+  </div>
+</div>
+<p><br />
+This system sounds good in theory, but do we actually use these cues in practice? In 1988, Frederic Wightman and Doris Kistler performed an ingenious set of experiments (<a href="http://public.vrac.iastate.edu/~charding/audio/Headphone%20simulation%20of%20free-field%20listening.%20I-%20Stimulus%20synthesis%20-%20J%20Acoust%20Soc%20Am%201989%20-%20Wightman.pdf">1</a>, <a href="http://public.vrac.iastate.edu/~charding/audio/Headphone%20simulation%20of%20free-field%20listening.%20II-%20Psychophysical%20validation%20-%20J%20Acoust%20Soc%20Am%201989%20-%20Wightman.pdf">2</a>) to show that that people really do use HRTFs to infer location. First, they measured the HRTF of each participant by putting a small microphone in their ears and playing sounds from different locations. Next they created a digital filter for each location and each participant. These filters replicated the pattern of filtering from each location. Finally, they placed headphones on the listeners and played sounds to them, each time passing the sound through one of the digital filters. Amazingly, participants were able to correctly guess the “location” of the sound, depending on which filter was used, even though the sound was coming from headphones. They were also much better at sound localization when using their own HRTF, rather than someone else’s HRTF.</p>
+
+<p>Further evidence for this hypothesis comes from <a href="https://doi.org/10.1038/1633">Hofman et al., 1998</a>, who showed that by using putty to reshape people’s ears, they were able to change the HRTFs and thus disrupt sound localization. Interestingly, people were able to quickly relearn how to localize sound with their new HRTFs.</p>
+<div class="wrapper">
+  <img src="/assets/2018_cone_of_confusion/putty.png" class="inner" style="position:relative border: #222 2px solid; max-width:50%;" />
+  <div class="caption">
+    Image from <a href="https://doi.org/10.1038/1633">Hofman et al., 1998</a>.
+  </div>
+</div>
+<p><br /></p>
+
+<p>A final fun fact: to improve the sound localization of humanoid robots, researchers in Japan attached <a href="https://doi.org/10.1007/s10489-014-0544-y">artificial ears to the robot heads</a> and implemented some sophisticated algorithms to infer sound location. Here are some pictures of the robots.</p>
+<div class="wrapper">
+  <img src="/assets/2018_cone_of_confusion/robots.png" class="inner" style="position:relative border: #222 2px solid; max-width:50%;" />
+</div>
+<p>Their paper is kind of ridiculous and has some questionable justifications for not just using microphones in multiple locations, but I thought it was fun to see these principles being applied.</p>
+
+
+  <div>
+    <a class="twitter-share-button"
+      href="https://twitter.com/share"
+      data-url=""
+      data-via="Chris_Said"
+      data-size="large"
+      data-count="none">
+    Tweet
+    </a>
+</div>
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'csaid81';
+    var disqus_identifier = 'http://localhost:4000/2018/08/06/cone-of-confusion/';
+    var disqus_url = 'http://localhost:4000/2018/08/06/cone-of-confusion/';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/2018/02/04/hyperbolic-discounting/">
+            Hyperbolic discounting — The irrational behavior that might be rational after all
+            <small>04 Feb 2018</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2017/12/02/religions-as-firms/">
+            Religions as firms
+            <small>02 Dec 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2017/07/09/part-2-a-bipartisan-list-of-people-who-argue-in-good-faith/">
+            Part 2&#58; A bipartisan list of people who argue in good faith
+            <small>09 Jul 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+    </div>
+
+  </body>
+</html>
+
+<!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$']],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  messageStyle: "none",
+  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+
+
+<script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));</script>

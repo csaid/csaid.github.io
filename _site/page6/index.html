@@ -107,6 +107,56 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
   
   <div class="post">
     <h1 class="post-title">
+      <a href="/2013/03/30/new-model-of-binocular-rivalry/">
+        New model of binocular rivalry
+      </a>
+    </h1>
+
+    <span class="post-date">30 Mar 2013</span>
+
+    <p>Binocular rivalry is a visual illusion that occurs when the two eyes are presented with incompatible images. Instead of perceiving a mixture of the two images, most people experience alternations in which only one image is visible at a time. Binocular rivalry works best under controlled laboratory conditions with prisms or mirrors, but if you are lucky you might be able to experience it in the figure below. Try crossing your eyes to align the left boxes and right boxes, so that three boxes are observed rather than two. If you can keep your eyes stable, you might perceive alternations between the two different gratings in the middle box. It helps if you first try to merge the “Merge me!” phrase and then, once that it is stable, focus on the middle box. If you can’t stabilize your eyes enough, don’t worry. You are not alone.</p>
+
+<p>.</p>
+
+<figure class="image"><img src="/assets/fig_dichop1.png" alt="" /></figure>
+
+<p>.</p>
+
+<p>Binocular rivalry is more than just an interesting illusion: it reflects actual inhibitory competition between neurons in the brain, and therefore provides a rare window into neural dynamics. To help us understand these mechanisms, researchers have developed several models of the phenomenon. Yet surprisingly, all of these models make a big incorrect prediction about a type of stimulus known as “binocular plaids”. You can view some binocular plaids by crossing your eyes on the boxes below, or simply by looking at one of the boxes normally.</p>
+
+<p>.</p>
+
+<figure class="image"><img src="/assets/fig_binoc.png" alt="" /></figure>
+
+<p>.</p>
+
+<p>As you can see, a plaid is composed of two gratings, a rightward pointing grating and a leftward pointing grating. The big, incorrect prediction made by previous models of rivalry is that the leftward pointing grating should alternate with the rightward pointing grating, just as it would in the traditional rivalry stimuli shown above. This prediction – which follows because the same neural inhibition that creates competition in the first figure must necessarily also create competition in the second figure – is clearly wrong: When viewing the binocular plaid, you probably perceive that the rightward grating remains just as strong as the leftward grating, without any alternations. This failed prediction extends far beyond these toy stimuli. Plaid perception is typically explained by the broad theory of <a href="http://www.nature.com/nrn/journal/v13/n1/full/nrn3136.html">divisive normalization</a>, which also covers a whole host of other inhibitory interactions in cortex. Models of the inhibitory processes in rivalry are thus in tension with models of inhibitory processes that use divisive normalization.</p>
+
+<p>Together with my advisor <a href="http://www.cns.nyu.edu/~david/">David Heeger</a>, I developed a <a href="http://www.ploscompbiol.org/article/info%3Adoi%2F10.1371%2Fjournal.pcbi.1002991">new model</a> of rivalry that is able to accommodate plaids, and which I hope reconciles models of rivalry with models of normalization. Finding a solution was not as easy as you might think. When we presented the problem to colleagues, everyone immediately had intuitions for how to solve it, but amazingly none of them worked. We found only one solution that worked, and it is one that I later discovered was once proposed by Randolph Blake. The model makes novel predictions that we confirmed with psychophysical tests. If you want to read more about it, you can find the paper below. The Matlab code is available <a href="http://www.cns.nyu.edu/~csaid/code/SaidAndHeeger_model_code.zip">here</a>.</p>
+
+<p><a href="http://www.ploscompbiol.org/article/info%3Adoi%2F10.1371%2Fjournal.pcbi.1002991">Said CP &amp; Heeger DJ (2013). A model of binocular rivalry and cross-orientation suppression. <em>PLOS Computational Biology.</em></a></p>
+
+
+    <div>
+        <i class="fa fa-comment"></i> <a href="http://localhost:4000/2013/03/30/new-model-of-binocular-rivalry/#disqus_thread" data-disqus-identifier="http://localhost:4000/2013/03/30/new-model-of-binocular-rivalry/"></a>
+        <span>&nbsp; &nbsp;</span>
+        <span>
+            <a class="twitter-share-button"
+              href="https://twitter.com/share"
+              data-url="http://localhost:4000/2013/03/30/new-model-of-binocular-rivalry/"
+              data-via="Chris_Said"
+              data-count="none"
+              data-text="New model of binocular rivalry">
+            Tweet
+            </a>
+        </span>
+
+    </div>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
       <a href="/2013/03/21/165/">
         Canadian funding models for all
       </a>
@@ -267,120 +317,6 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
               data-via="Chris_Said"
               data-count="none"
               data-text="New paper on autism">
-            Tweet
-            </a>
-        </span>
-
-    </div>
-
-  </div>
-  
-  <div class="post">
-    <h1 class="post-title">
-      <a href="/2012/10/04/why-are-contrast-response-functions-linear-in-fmri-and-nonmonotonic-in-eeg/">
-        Why are contrast response functions linear in fMRI and nonmonotonic in EEG?
-      </a>
-    </h1>
-
-    <span class="post-date">04 Oct 2012</span>
-
-    <p>Contrast response functions (CRFs) describe how a neuron’s firing rate depends on the contrast, or intensity, of a visual stimulus. CRFs are really important for testing theories about how the visual system works, and I’ve spent a lot of time over the past few years trying to indirectly measure them in humans, using EEG and fMRI. The problem, however, is that EEG and fMRI give me very different CRFs.</p>
-
-<p>Typically, individual neurons show sigmoidal CRFs. They don’t fire at all for very low contrasts, but they rapidly increase their firing rate at a middle range of contrast. The midpoint of this range is sometimes called the ‘semisaturation constant’. After that, the firing rate tends to level off, or ‘saturate’.</p>
-
-<figure class="image"><img src="/assets/fig_intro_neuron2.png" alt="" /></figure>
-
-<p>With fMRI, however, I tend to find that the CRFs are mostly linear, not sigmoidal.</p>
-
-<figure class="image"><img src="/assets/fig_intro_fmri1.png" alt="" /></figure>
-
-<p>And with EEG, I often find that the CRFs are actually nonmonotonic!</p>
-
-<figure class="image"><img src="/assets/fig_intro_eeg1.png" alt="" /></figure>
-
-<p>This is weird, and I’m not the first person to notice it. Linear CRFs in fMRI are quite common (e.g. <a href="http://www.ncbi.nlm.nih.gov/pubmed/9535979">here</a> and <a href="http://www.ncbi.nlm.nih.gov/pubmed/22153378">here</a>), as are nonmonotic CRFs in EEG (e.g. <a href="http://www.nature.com/nature/journal/v321/n6067/abs/321235a0.html">here</a>, <a href="http://www.jneurosci.org/content/21/12/4530.short">here</a>, <a href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC1192067/">here</a>,  and <a href="http://www.jneurosci.org/content/32/8/2783.short">here</a> ). While not all papers show these effects, they certainly seem like real trends. How it is possible that an underlying sigmoidal function in neurons could give rise to such completely different functions measured by fMRI and EEG?</p>
-
-<p>To explain the linear fMRI responses, one idea is that fMRI takes an average over many different neurons, each with a different semisaturation constant. Some neurons saturate early, some saturate late, and when you average them all together you just get a line.</p>
-
-<figure class="image"><img src="/assets/fig_fmri1.png" alt="" /></figure>
-
-<p>That seems to make sense. But what about the nonmonotonic CRFs in EEG? One idea is that EEG CRFs might reflect the true contrast response functions of individual neurons, many of which are themselves <a href="http://ww.w.journalofvision.org/content/7/6/13.short">nonmonotonic</a>. While I don’t doubt that this could be a contributing factor, I have trouble believing that this explains all, or even most, of the nonmonotonicity in EEG. Only a small minority of visual cells exhibit this property, and I have seen some _massive _nonmonotonicity in some of my most reliable EEG subjects.</p>
-
-<p>A different hypothesis is that nonmonotonicity is caused by the cancellation of dipoles across cortical sulci or gyri. EEG dipoles are oriented normal to the cortical surface and, since the cortex has so many folds, many of the electrical signals simply <a href="http://www.ncbi.nlm.nih.gov/pubmed/19639553">cancel</a> each other out.</p>
-
-<figure class="image"><img src="/assets/fig_dipole1.png" alt="" /></figure>
-
-<p>Here’s where it gets interesting. Different cortical areas (e.g. V1 and V2) have different average semisaturation constants. (They tend to get lower the higher you move up in the visual hierarchy). Imagine that two cortical areas with different semisaturation constants live on opposite sides of a sulcus. At medium contrasts, one area will be active and the other will be mostly silent. But at higher contrasts, <em>both</em> areas will have kicked in, and so the overall signal (due to cancellation) will be actually _lower _that at medium contrast. This isn’t my idea, but it makes a lot of sense and I think it deserves more attention.</p>
-
-<figure class="image"><img src="/assets/fig_eeg2.png" alt="" /></figure>
-
-<p>But wait, the fMRI explanation makes sense, and the EEG explanation makes sense, but how can they both be true? After all, the EEG cancellation story only works if each area’s average CRF is nonlinear: If the average responses were linear (as demonstrated by the fMRI explanation), cancellation of opposite CRFs would just result in more straight lines, right?</p>
-
-<p>Well, yes and no. Using simulations I have found it quite easy to capture both effects. In the fMRI simulation, a perfectly linear CRF emerges only if I assume that the underlying neural semisaturation constants are uniformly distributed, which is quite an unlikely assumption. With any other reasonable distribution (e.g. normal distribution) I get fMRI CRFs that are mostly linear but with a touch of sigmoid. And critically, that touch of sigmoid will drive the dipole cancellation in a way that results in nonmonotonic EEG CRFs.</p>
-
-<p>Below is some Matlab code showing how this works, just a proof of concept. It makes some very, very simplifying assumptions, and I’m sure that the truth is far more complicated.</p>
-
-<figure class="highlight"><pre><code class="language-matlab" data-lang="matlab"><span class="k">function</span> <span class="p">[]</span> <span class="o">=</span> <span class="n">crfmodel</span><span class="p">()</span>
-
-<span class="n">n</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">;</span> <span class="c1">%number of neurons</span>
-<span class="n">c</span> <span class="o">=</span> <span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="mi">100</span><span class="p">;</span> <span class="c1">%contrast levels</span>
-<span class="n">c50_std</span> <span class="o">=</span> <span class="mi">30</span><span class="p">;</span> <span class="c1">%stddev of semisaturation constants</span>
-<span class="n">c50_mean</span> <span class="o">=</span> <span class="p">[</span><span class="mi">50</span> <span class="mi">70</span><span class="p">];</span> <span class="c1">%for two visual areas;</span>
-<span class="n">c50</span> <span class="o">=</span> <span class="nb">nan</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">);</span>
-<span class="k">for</span> <span class="nb">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">2</span> <span class="c1">%loop through two banks of sulcus (two visual areas)</span>
-  <span class="n">idcs</span><span class="p">{</span><span class="nb">i</span><span class="p">}</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">n</span><span class="p">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="nb">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">n</span><span class="p">/</span><span class="mi">2</span><span class="p">;</span>
-  <span class="n">c50</span><span class="p">(</span><span class="n">idcs</span><span class="p">{</span><span class="nb">i</span><span class="p">})</span> <span class="o">=</span> <span class="n">c50_std</span><span class="o">*</span><span class="nb">randn</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">/</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="n">c50_mean</span><span class="p">(</span><span class="nb">i</span><span class="p">);</span>
-<span class="k">end</span>
-<span class="p">[</span><span class="n">C</span> <span class="n">C50</span><span class="p">]</span> <span class="o">=</span> <span class="nb">meshgrid</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">c50</span><span class="p">);</span>
-<span class="n">R</span> <span class="o">=</span> <span class="n">makeLogistic</span><span class="p">(</span><span class="n">C</span><span class="p">,</span><span class="n">C50</span><span class="p">);</span> <span class="c1">%Each row is a CRF for a particular neuron</span>
-<span class="nb">figure</span>
-
-<span class="c1">%Single neurons</span>
-<span class="nb">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="k">for</span> <span class="nb">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">2</span> <span class="c1">%loop through 2 areas</span>
-   <span class="nb">plot</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">makeLogistic</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">c50_mean</span><span class="p">(</span><span class="nb">i</span><span class="p">)));</span>
-   <span class="nb">hold</span> <span class="n">on</span>
-<span class="k">end</span>
-<span class="nb">ylabel</span><span class="p">(</span><span class="s1">'Single Neuron Response'</span><span class="p">)</span>
-
-<span class="c1">%fMRI</span>
-<span class="nb">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
-<span class="k">for</span> <span class="nb">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">2</span> <span class="c1">%loop through 2 areas</span>
-  <span class="n">CRF_fMRI</span><span class="p">{</span><span class="nb">i</span><span class="p">}</span> <span class="o">=</span> <span class="nb">mean</span><span class="p">(</span><span class="n">R</span><span class="p">(</span><span class="n">idcs</span><span class="p">{</span><span class="nb">i</span><span class="p">},:),</span><span class="mi">1</span><span class="p">);</span> <span class="c1">%average all neurons in each area</span>
-  <span class="nb">plot</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">CRF_fMRI</span><span class="p">{</span><span class="nb">i</span><span class="p">})</span>
-  <span class="nb">hold</span> <span class="n">on</span>
-<span class="k">end</span>
-<span class="nb">ylabel</span><span class="p">(</span><span class="s1">'fMRI Response'</span><span class="p">)</span>
-
-<span class="c1">%EEG</span>
-<span class="c1">%Cancellation. Scale factor isn't necessary but reflects that fact that</span>
-<span class="c1">%some areas are likely to activate more than others.</span>
-<span class="n">R_EEG</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">R</span><span class="p">(</span><span class="n">idcs</span><span class="p">{</span><span class="mi">1</span><span class="p">},:)</span><span class="o">-.</span><span class="mi">7</span><span class="o">*</span><span class="n">R</span><span class="p">(</span><span class="n">idcs</span><span class="p">{</span><span class="mi">2</span><span class="p">},:));</span>
-<span class="n">CRF_EEG</span> <span class="o">=</span> <span class="nb">mean</span><span class="p">(</span><span class="n">R_EEG</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
-<span class="nb">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
-<span class="nb">plot</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">CRF_EEG</span><span class="p">)</span>
-<span class="nb">ylabel</span><span class="p">(</span><span class="s1">'EEG Response'</span><span class="p">)</span>
-
-<span class="k">function</span> <span class="p">[</span><span class="n">r</span><span class="p">]</span> <span class="o">=</span> <span class="n">makeLogistic</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">c50</span><span class="p">)</span>
-<span class="n">r</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="mf">1.</span><span class="p">/(</span><span class="mi">1</span><span class="o">+</span><span class="nb">exp</span><span class="p">(</span><span class="o">.</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">c</span><span class="o">-</span><span class="n">c50</span><span class="p">))));</span></code></pre></figure>
-
-<p>And here are the results.</p>
-
-<figure class="image"><img src="/assets/fig_all2.png" alt="" /></figure>
-
-<p>It would be nice if we could go in the opposite direction and reconstruct underlying neural responses from the fMRI and EEG measurements. This seems like a pretty tricky inverse problem, but it might be possible with accurate assumptions about current propagation and the distribution of semisaturation constants.</p>
-
-
-    <div>
-        <i class="fa fa-comment"></i> <a href="http://localhost:4000/2012/10/04/why-are-contrast-response-functions-linear-in-fmri-and-nonmonotonic-in-eeg/#disqus_thread" data-disqus-identifier="82 http://filedrawer.wordpress.com/?p=82"></a>
-        <span>&nbsp; &nbsp;</span>
-        <span>
-            <a class="twitter-share-button"
-              href="https://twitter.com/share"
-              data-url="http://localhost:4000/2012/10/04/why-are-contrast-response-functions-linear-in-fmri-and-nonmonotonic-in-eeg/"
-              data-via="Chris_Said"
-              data-count="none"
-              data-text="Why are contrast response functions linear in fMRI and nonmonotonic in EEG?">
             Tweet
             </a>
         </span>
