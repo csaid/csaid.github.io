@@ -2,7 +2,7 @@
 layout: post
 title: Using your ears and head to escape the Cone Of Confusion
 description: How the shape of your ears and head help you localize sound
-image: /assets/2018_cone_of_confusion/cone_and_hrtf.png
+image: /assets/2018_cone_of_confusion/cone_of_confusion.png
 ---
 
 

@@ -4,7 +4,7 @@
  <title>The File Drawer</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2018-08-06T08:28:01-07:00</updated>
+ <updated>2018-08-06T08:29:31-07:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -17,55 +17,6 @@
    <link href="http://localhost:4000/2018/08/06/cone-of-confusion/"/>
    <updated>2018-08-06T00:00:00-07:00</updated>
    <id>http://localhost:4000/2018/08/06/cone-of-confusion</id>
-   <content type="html">&lt;p&gt;One of coolest things I ever learned about sensory physiology is how the auditory system is able to locate sounds. To determine whether sound is coming from the right or left, the brain uses inter-ear differences in amplitude and timing. As shown in the figure below, if the sound is louder in the right ear compared to the left ear, it’s probably coming from the right side. The smaller that difference is, the closer the sound is to the midline (i.e the vertical plane going from your front to your back). Similarly, if the sound arrives at your right ear before the left ear, it’s probably coming from the right. The smaller the timing difference, the closer it is to the midline. There’s a &lt;a href=&quot;https://en.wikipedia.org/wiki/Coincidence_detection_in_neurobiology#Sound_localization&quot;&gt;fascinating&lt;/a&gt; &lt;a href=&quot;https://nba.uth.tmc.edu/homepage/cnjclub/2004spring/McAlpineGrothe2003.pdf&quot;&gt;literature&lt;/a&gt; on the neural mechanisms behind this.&lt;/p&gt;
-&lt;div class=&quot;wrapper&quot;&gt;
-  &lt;img src=&quot;/assets/2018_cone_of_confusion/right_and_front_right.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:50%;&quot; /&gt;
-&lt;/div&gt;
-&lt;p&gt;Inter-ear loudness and timing differences are pretty useful, but unfortunately they still leave a lot of ambiguity. For example, a sound from your front right will have the exact same loudness differences and timing differences as a sound from your back right.&lt;/p&gt;
-&lt;div class=&quot;wrapper&quot;&gt;
-  &lt;img src=&quot;/assets/2018_cone_of_confusion/front_right_and_back_right.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:50%;&quot; /&gt;
-&lt;/div&gt;
-&lt;p&gt;Not only does this system leave ambiguities between front and back, it also leaves ambiguities between top and down. In fact, there is an entire &lt;em&gt;cone of confusion&lt;/em&gt; that cannot be disambiguated by this system. Sound from all points along the surface of the cone will have the same inter-ear loudness differences and timing differences.&lt;/p&gt;
-&lt;div class=&quot;wrapper&quot;&gt;
-  &lt;img src=&quot;/assets/2018_cone_of_confusion/cone_of_confusion.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:50%;&quot; /&gt;
-&lt;/div&gt;
-&lt;p&gt;While this system leaves a cone of confusion, humans are still able to determine the location of sounds from different points on the cone, at least to some extent. How are we able to do this?&lt;/p&gt;
-
-&lt;p&gt;Amazingly, we are able to do this because of the shape of our ears and heads. When sound passes through our ears and head, certain frequencies are attenuated more than others. Critically, the attenuation pattern is highly dependent on sound direction.&lt;/p&gt;
-
-&lt;p&gt;This location-dependent attenuation pattern is called a &lt;a href=&quot;https://en.wikipedia.org/wiki/Head-related_transfer_function&quot;&gt;Head-related transfer function&lt;/a&gt; (HRTF) and in theory this could be used to disambiguate locations along the cone of confusion. An example of someone’s HRTF is shown below, with frequency on the horizontal axis and polar angle on the vertical axis. Hotter colors represent less attenuation (i.e. more power). If your head and ears gave you this HRTF, you might decide a sound is coming from the front if it has more high frequency power than you’d expect.&lt;/p&gt;
-&lt;div class=&quot;wrapper&quot;&gt;
-  &lt;img src=&quot;/assets/2018_cone_of_confusion/cone_and_hrtf.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:100%;&quot; /&gt;
-  &lt;div class=&quot;caption&quot;&gt;
-    HRTF image from Simon Carlile's &lt;a href=&quot;https://sonification.de/handbook/download/TheSonificationHandbook-chapter3.pdf&quot;&gt;Psychoacoustics chapter&lt;/a&gt; in The Sonification Handbook.
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;&lt;br /&gt;
-This system sounds good in theory, but do we actually use these cues in practice? In 1988, Frederic Wightman and Doris Kistler performed an ingenious set of experiments (&lt;a href=&quot;http://public.vrac.iastate.edu/~charding/audio/Headphone%20simulation%20of%20free-field%20listening.%20I-%20Stimulus%20synthesis%20-%20J%20Acoust%20Soc%20Am%201989%20-%20Wightman.pdf&quot;&gt;1&lt;/a&gt;, &lt;a href=&quot;http://public.vrac.iastate.edu/~charding/audio/Headphone%20simulation%20of%20free-field%20listening.%20II-%20Psychophysical%20validation%20-%20J%20Acoust%20Soc%20Am%201989%20-%20Wightman.pdf&quot;&gt;2&lt;/a&gt;) to show that that people really do use HRTFs to infer location. First, they measured the HRTF of each participant by putting a small microphone in their ears and playing sounds from different locations. Next they created a digital filter for each location and each participant. These filters replicated the pattern of filtering from each location. Finally, they placed headphones on the listeners and played sounds to them, each time passing the sound through one of the digital filters. Amazingly, participants were able to correctly guess the “location” of the sound, depending on which filter was used, even though the sound was coming from headphones. They were also much better at sound localization when using their own HRTF, rather than someone else’s HRTF.&lt;/p&gt;
-
-&lt;p&gt;Further evidence for this hypothesis comes from &lt;a href=&quot;https://doi.org/10.1038/1633&quot;&gt;Hofman et al., 1998&lt;/a&gt;, who showed that by using putty to reshape people’s ears, they were able to change the HRTFs and thus disrupt sound localization. Interestingly, people were able to quickly relearn how to localize sound with their new HRTFs.&lt;/p&gt;
-&lt;div class=&quot;wrapper&quot;&gt;
-  &lt;img src=&quot;/assets/2018_cone_of_confusion/putty.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:50%;&quot; /&gt;
-  &lt;div class=&quot;caption&quot;&gt;
-    Image from &lt;a href=&quot;https://doi.org/10.1038/1633&quot;&gt;Hofman et al., 1998&lt;/a&gt;.
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;A final fun fact: to improve the sound localization of humanoid robots, researchers in Japan attached &lt;a href=&quot;https://doi.org/10.1007/s10489-014-0544-y&quot;&gt;artificial ears to the robot heads&lt;/a&gt; and implemented some sophisticated algorithms to infer sound location. Here are some pictures of the robots.&lt;/p&gt;
-&lt;div class=&quot;wrapper&quot;&gt;
-  &lt;img src=&quot;/assets/2018_cone_of_confusion/robots.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:50%;&quot; /&gt;
-&lt;/div&gt;
-&lt;p&gt;Their paper is kind of ridiculous and has some questionable justifications for not just using microphones in multiple locations, but I thought it was fun to see these principles being applied.&lt;/p&gt;
-
-</content>
- </entry>
- 
- <entry>
-   <title>Using your ears and head to escape the Cone Of Confusion</title>
-   <link href="http://localhost:4000/2018/08/05/cone-of-confusion/"/>
-   <updated>2018-08-05T00:00:00-07:00</updated>
-   <id>http://localhost:4000/2018/08/05/cone-of-confusion</id>
    <content type="html">&lt;p&gt;One of coolest things I ever learned about sensory physiology is how the auditory system is able to locate sounds. To determine whether sound is coming from the right or left, the brain uses inter-ear differences in amplitude and timing. As shown in the figure below, if the sound is louder in the right ear compared to the left ear, it’s probably coming from the right side. The smaller that difference is, the closer the sound is to the midline (i.e the vertical plane going from your front to your back). Similarly, if the sound arrives at your right ear before the left ear, it’s probably coming from the right. The smaller the timing difference, the closer it is to the midline. There’s a &lt;a href=&quot;https://en.wikipedia.org/wiki/Coincidence_detection_in_neurobiology#Sound_localization&quot;&gt;fascinating&lt;/a&gt; &lt;a href=&quot;https://nba.uth.tmc.edu/homepage/cnjclub/2004spring/McAlpineGrothe2003.pdf&quot;&gt;literature&lt;/a&gt; on the neural mechanisms behind this.&lt;/p&gt;
 &lt;div class=&quot;wrapper&quot;&gt;
   &lt;img src=&quot;/assets/2018_cone_of_confusion/right_and_front_right.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:50%;&quot; /&gt;
