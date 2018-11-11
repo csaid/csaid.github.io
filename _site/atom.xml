@@ -4,7 +4,7 @@
  <title>The File Drawer</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2018-08-06T08:31:24-07:00</updated>
+ <updated>2018-11-10T19:45:36-08:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -41,7 +41,7 @@
   &lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;&lt;br /&gt;
-This system sounds good in theory, but do we actually use these cues in practice? In 1988, Frederic Wightman and Doris Kistler performed an ingenious set of experiments (&lt;a href=&quot;http://public.vrac.iastate.edu/~charding/audio/Headphone%20simulation%20of%20free-field%20listening.%20I-%20Stimulus%20synthesis%20-%20J%20Acoust%20Soc%20Am%201989%20-%20Wightman.pdf&quot;&gt;1&lt;/a&gt;, &lt;a href=&quot;http://public.vrac.iastate.edu/~charding/audio/Headphone%20simulation%20of%20free-field%20listening.%20II-%20Psychophysical%20validation%20-%20J%20Acoust%20Soc%20Am%201989%20-%20Wightman.pdf&quot;&gt;2&lt;/a&gt;) to show that that people really do use HRTFs to infer location. First, they measured the HRTF of each participant by putting a small microphone in their ears and playing sounds from different locations. Next they created a digital filter for each location and each participant. These filters replicated the pattern of filtering from each location. Finally, they placed headphones on the listeners and played sounds to them, each time passing the sound through one of the digital filters. Amazingly, participants were able to correctly guess the “location” of the sound, depending on which filter was used, even though the sound was coming from headphones. They were also much better at sound localization when using their own HRTF, rather than someone else’s HRTF.&lt;/p&gt;
+This system sounds good in theory, but do we actually use these cues in practice? In 1988, Frederic Wightman and Doris Kistler performed an ingenious set of experiments (&lt;a href=&quot;http://public.vrac.iastate.edu/~charding/audio/Headphone%20simulation%20of%20free-field%20listening.%20I-%20Stimulus%20synthesis%20-%20J%20Acoust%20Soc%20Am%201989%20-%20Wightman.pdf&quot;&gt;1&lt;/a&gt;, &lt;a href=&quot;http://public.vrac.iastate.edu/~charding/audio/Headphone%20simulation%20of%20free-field%20listening.%20II-%20Psychophysical%20validation%20-%20J%20Acoust%20Soc%20Am%201989%20-%20Wightman.pdf&quot;&gt;2&lt;/a&gt;) to show that that people really do use HRTFs to infer location. First, they measured the HRTF of each participant by putting a small microphone in their ears and playing sounds from different locations. Next they created a digital filter for each location and each participant. That is to say, these filters implemented each participant’s HRTF. Finally, they placed headphones on the listeners and played sounds to them, each time passing the sound through one of the digital filters. Amazingly, participants were able to correctly guess the “location” of the sound, depending on which filter was used, even though the sound was coming from headphones. They were also much better at sound localization when using their own HRTF, rather than someone else’s HRTF.&lt;/p&gt;
 
 &lt;p&gt;Further evidence for this hypothesis comes from &lt;a href=&quot;https://doi.org/10.1038/1633&quot;&gt;Hofman et al., 1998&lt;/a&gt;, who showed that by using putty to reshape people’s ears, they were able to change the HRTFs and thus disrupt sound localization. Interestingly, people were able to quickly relearn how to localize sound with their new HRTFs.&lt;/p&gt;
 &lt;div class=&quot;wrapper&quot;&gt;
@@ -360,7 +360,7 @@ Second, after doing something good, people often feel like they’ve earned enou
 
 &lt;p&gt;First, how do the pros and cons balance out? Perhaps your Pride avatar is net positive if you have a large audience on Facebook, but net negative if you have a small audience. And second, how does moral contagion work with symbolic acts? Does the Pride avatar just make other people add Pride symbols to their avatars? Or does it make them behave more ethically in real and impactful ways?&lt;/p&gt;
 
-&lt;p&gt;We are beginning to get &lt;a href=&quot;http://smart-meter-analytics.de/downloads/papers/Tiefenbeck%20-%20For%20better%20or%20for%20worse.pdf&quot;&gt;some&lt;/a&gt; quantitative answers to these questions. Clever research from &lt;a href=&quot;https://twitter.com/LindaSkitka&quot;&gt;Linda Skitka&lt;/a&gt; and others has &lt;a href=&quot;https://www.researchgate.net/profile/Linda_Skitka/publication/265606809_Morality_in_everyday_life/links/57457f2608ae9f741b410416.pdf&quot;&gt;shown&lt;/a&gt; that committing a moral act makes you about 40% less likely to commit another moral act later in the day, whereas hearing about someone else’s moral act makes you about 25% more likely to commit a moral act later in the day, although the latter finding fell short of statistical significance. More research is needed though, particularly when it comes to social media and symbolic virtue signalling.&lt;/p&gt;
+&lt;p&gt;We are beginning to get &lt;a href=&quot;http://smart-meter-analytics.de/downloads/papers/Tiefenbeck%20-%20For%20better%20or%20for%20worse.pdf&quot;&gt;some&lt;/a&gt; quantitative answers to these questions. Clever research from &lt;a href=&quot;https://twitter.com/LindaSkitka&quot;&gt;Linda Skitka&lt;/a&gt; and others has &lt;a href=&quot;https://www.researchgate.net/profile/Linda_Skitka/publication/265606809_Morality_in_everyday_life/links/57457f2608ae9f741b410416.pdf&quot;&gt;shown&lt;/a&gt; that committing a moral act makes you about 40% &lt;em&gt;less&lt;/em&gt; likely to commit another moral act later in the day (moral licensing), whereas hearing about someone else’s moral act makes you about 25% &lt;em&gt;more&lt;/em&gt; likely to commit a moral act later in the day (moral contagion), although the latter finding fell short of statistical significance. More research is needed though, particularly when it comes to social media and symbolic virtue signalling.&lt;/p&gt;
 
 &lt;h4 id=&quot;2-slacktivism-versus-violent-revolution&quot;&gt;2. Slacktivism versus Violent Revolution&lt;/h4&gt;
 
@@ -1018,7 +1018,7 @@ var margin = {top: 20, right: 40, bottom: 20, left: 40},
 
 var formatNumber = d3.format(&quot;,.0f&quot;),
     format = function(d) { return formatNumber(d) + &quot; Th MT&quot;; },
-    color = d3.scale.category20();
+    color = d3.scaleOrdinal(d3.schemeCategory10);
 
 var svg = d3.select(&quot;#chart&quot;).append(&quot;svg&quot;)
     .attr(&quot;width&quot;, width + margin.left + margin.right)
@@ -1054,11 +1054,7 @@ var path = sankey.link();
       .data(commodities.nodes)
     .enter().append(&quot;g&quot;)
       .attr(&quot;class&quot;, &quot;node&quot;)
-      .attr(&quot;transform&quot;, function(d) { return &quot;translate(&quot; + d.x + &quot;,&quot; + d.y + &quot;)&quot;; })
-    .call(d3.behavior.drag()
-      .origin(function(d) { return d; })
-      .on(&quot;dragstart&quot;, function() { this.parentNode.appendChild(this); })
-      .on(&quot;drag&quot;, dragmove));
+      .attr(&quot;transform&quot;, function(d) { return &quot;translate(&quot; + d.x + &quot;,&quot; + d.y + &quot;)&quot;; });
 
   node.append(&quot;rect&quot;)
       .attr(&quot;height&quot;, function(d) { return d.dy; })
@@ -1100,13 +1096,6 @@ var path = sankey.link();
       .style(&quot;font-size&quot;, &quot;16px&quot;)
       .text(&quot;Outputs&quot;);
 
-
-
-  function dragmove(d) {
-    d3.select(this).attr(&quot;transform&quot;, &quot;translate(&quot; + d.x + &quot;,&quot; + (d.y = Math.max(0, Math.min(height - d.dy, d3.event.y))) + &quot;)&quot;);
-    sankey.relayout();
-    link.attr(&quot;d&quot;, path);
-  }
 // });
 &lt;/script&gt;
 

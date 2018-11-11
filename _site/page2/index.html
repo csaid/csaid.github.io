@@ -133,7 +133,7 @@ Second, after doing something good, people often feel like they’ve earned enou
 
 <p>First, how do the pros and cons balance out? Perhaps your Pride avatar is net positive if you have a large audience on Facebook, but net negative if you have a small audience. And second, how does moral contagion work with symbolic acts? Does the Pride avatar just make other people add Pride symbols to their avatars? Or does it make them behave more ethically in real and impactful ways?</p>
 
-<p>We are beginning to get <a href="http://smart-meter-analytics.de/downloads/papers/Tiefenbeck%20-%20For%20better%20or%20for%20worse.pdf">some</a> quantitative answers to these questions. Clever research from <a href="https://twitter.com/LindaSkitka">Linda Skitka</a> and others has <a href="https://www.researchgate.net/profile/Linda_Skitka/publication/265606809_Morality_in_everyday_life/links/57457f2608ae9f741b410416.pdf">shown</a> that committing a moral act makes you about 40% less likely to commit another moral act later in the day, whereas hearing about someone else’s moral act makes you about 25% more likely to commit a moral act later in the day, although the latter finding fell short of statistical significance. More research is needed though, particularly when it comes to social media and symbolic virtue signalling.</p>
+<p>We are beginning to get <a href="http://smart-meter-analytics.de/downloads/papers/Tiefenbeck%20-%20For%20better%20or%20for%20worse.pdf">some</a> quantitative answers to these questions. Clever research from <a href="https://twitter.com/LindaSkitka">Linda Skitka</a> and others has <a href="https://www.researchgate.net/profile/Linda_Skitka/publication/265606809_Morality_in_everyday_life/links/57457f2608ae9f741b410416.pdf">shown</a> that committing a moral act makes you about 40% <em>less</em> likely to commit another moral act later in the day (moral licensing), whereas hearing about someone else’s moral act makes you about 25% <em>more</em> likely to commit a moral act later in the day (moral contagion), although the latter finding fell short of statistical significance. More research is needed though, particularly when it comes to social media and symbolic virtue signalling.</p>
 
 <h4 id="2-slacktivism-versus-violent-revolution">2. Slacktivism versus Violent Revolution</h4>
 
@@ -875,7 +875,7 @@ var margin = {top: 20, right: 40, bottom: 20, left: 40},
 
 var formatNumber = d3.format(",.0f"),
     format = function(d) { return formatNumber(d) + " Th MT"; },
-    color = d3.scale.category20();
+    color = d3.scaleOrdinal(d3.schemeCategory10);
 
 var svg = d3.select("#chart").append("svg")
     .attr("width", width + margin.left + margin.right)
@@ -911,11 +911,7 @@ var path = sankey.link();
       .data(commodities.nodes)
     .enter().append("g")
       .attr("class", "node")
-      .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; })
-    .call(d3.behavior.drag()
-      .origin(function(d) { return d; })
-      .on("dragstart", function() { this.parentNode.appendChild(this); })
-      .on("drag", dragmove));
+      .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
 
   node.append("rect")
       .attr("height", function(d) { return d.dy; })
@@ -957,13 +953,6 @@ var path = sankey.link();
       .style("font-size", "16px")
       .text("Outputs");
 
-
-
-  function dragmove(d) {
-    d3.select(this).attr("transform", "translate(" + d.x + "," + (d.y = Math.max(0, Math.min(height - d.dy, d3.event.y))) + ")");
-    sankey.relayout();
-    link.attr("d", path);
-  }
 // });
 </script>
 
