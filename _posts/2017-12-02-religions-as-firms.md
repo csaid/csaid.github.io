@@ -43,11 +43,11 @@ Just as business consumers will [pay](https://books.google.com/books/about/Acts_
 Of course, not all religious consumers will prefer the cheap promises of the prosperity gospel. For many religions, product quality is defined primarily by community, a sense of meaning, and in some cases the promise of an afterlife.
 
 ### Software Updates
-A good business should be constantly updating its product to fix bugs and to respond to changes in consumer preference or government regulation. Some religions do the same thing, via the process of [continuous revelation](https://en.wikipedia.org/wiki/Continuous_revelation) from their deity. Perhaps no church exemplifies this better than the Church of Jesus Christ of Latter-day Saints (LDS).
+A good business should be constantly updating its product to fix bugs and to respond to changes in consumer preference or government regulation. Some religions do the same thing, via the process of [continuous revelation](https://en.wikipedia.org/wiki/Continuous_revelation) from their deity. Perhaps no church exemplifies this better than the Church of Latter Day Saints.
 
-For most of the history of the LDS Church, individuals of African descent were prohibited from serving as priests. By the 1960s, as civil rights protests against the church received media attention, the policy became increasingly untenable. On June 1, 1978, LDS leaders reported that God had instructed them to update the policy and allow black priests. This event was known as the [1978 Revelation on the Priesthood](https://en.wikipedia.org/wiki/1978_Revelation_on_Priesthood).
+For most of the history of the Mormon Church, individuals of African descent were prohibited from serving as priests. By the 1960s, as civil rights protests against the church received media attention, the policy became increasingly untenable. On June 1, 1978, Mormon leaders reported that God had instructed them to update the policy and allow black priests. This event was known as the [1978 Revelation on the Priesthood](https://en.wikipedia.org/wiki/1978_Revelation_on_Priesthood).
 
-In the late 19th Century, when the LDS Church was under intense pressure from the US Government regarding polygamy, the Church president claimed to receive a revelation from Jesus Christ asking him to prohibit it. This revelation, known as the [1890 Revelation](https://en.wikipedia.org/wiki/1890_Manifesto), overturned the previous [1843 Revelation](https://en.wikipedia.org/wiki/Origin_of_Latter_Day_Saint_polygamy#1843_revelation) which allowed polygamy.
+In the late 19th Century, when the Mormon Church was under intense pressure from the US Government regarding polygamy, the Church president claimed to receive a revelation from Jesus Christ asking him to prohibit it. This revelation, known as the [1890 Revelation](https://en.wikipedia.org/wiki/1890_Manifesto), overturned the previous [1843 Revelation](https://en.wikipedia.org/wiki/Origin_of_Latter_Day_Saint_polygamy#1843_revelation) which allowed polygamy.
 
 While frequent updates usually make sense in business, they don't always make sense in religion. Most religions have a fairly static doctrine, as the prospect of future updates undermines the authority of current doctrine.
 
@@ -59,9 +59,9 @@ Christianity's concept of a heaven and hell encouraged its members to convert th
 ### International expansion
 Facebook and Netflix both experienced rapid adoption, starting with a U.S. audience. But as U.S. growth began to slow down, both companies needed to look towards international expansion. 
 
-A similar thing happened with the LDS church. By the 20th century, U.S. growth was driven only by increasing family sizes, so the church turned towards international expansion.
+A similar thing happened with the Mormon church. By the 20th century, U.S. growth was driven only by increasing family sizes, so the church turned towards international expansion.
 
-The graph below shows similar US and international growth curves for Netflix and the Church of Jesus Christ of Latter-day Saints.<sup>[[1](https://en.wikipedia.org/wiki/The_Church_of_Jesus_Christ_of_Latter-day_Saints_membership_history),[2](https://rsc.byu.edu/archived/latter-day-saint-social-life-social-research-lds-church-and-its-members/4-vital-statistics),[3](http://www.churchistrue.com/blog/lds-membership-statistics-report-2017/),[4](http://www.businessinsider.com/netflix-subscribers-international-vs-us-earnings-chart-2017-7)]</sup>
+The graph below shows similar US and international growth curves for Netflix and the Church of Latter Day Saints.<sup>[[1](https://en.wikipedia.org/wiki/The_Church_of_Jesus_Christ_of_Latter-day_Saints_membership_history),[2](https://rsc.byu.edu/archived/latter-day-saint-social-life-social-research-lds-church-and-its-members/4-vital-statistics),[3](http://www.churchistrue.com/blog/lds-membership-statistics-report-2017/),[4](http://www.businessinsider.com/netflix-subscribers-international-vs-us-earnings-chart-2017-7)]</sup>
 
 <div class="wrapper">
   <img src='/assets/2017_religions_as_firms/LDS_netflix.png' style="position:relative border: #222 2px solid; max-width:100%;" >
@@ -69,7 +69,7 @@ The graph below shows similar US and international growth curves for Netflix and
 
 
 ### Branding
-Like any company, most religions try to maintain a good brand. But unlike businesses, most religions do not have brand protection, and thus their brands can be co-opted by other religions. Marketing from the LDS Church and from Jehovah’s Witnesses tends to [emphasize](https://www.jw.org/en/jehovahs-witnesses/faq/jehovah-witness-beliefs/) the good brand of Jesus Christ, even though most mainstream Christians regard these churches as heretical.
+Like any company, most religions try to maintain a good brand. But unlike businesses, most religions do not have brand protection, and thus their brands can be co-opted by other religions. Marketing from Mormons and from Jehovah’s Witnesses tends to [emphasize](https://www.jw.org/en/jehovahs-witnesses/faq/jehovah-witness-beliefs/) the good brand of Jesus Christ, even though most mainstream Christians regard these churches as heretical.
 
 <div class="wrapper">
   <img src='/assets/2017_religions_as_firms/follow_the_christ.jpg' height="250" class="inner" style="position:relative border: #222 2px solid;" >
