@@ -2,11 +2,11 @@
 layout: post
 title: Variance after scaling and summing&#58; One of the most useful facts from statistics
 description:
-image:
+image: /assets/2019_variance/inverse_variance/main_fig.png
 ---
 
 
-What do $ R^2 $, laboratory error analysis, ensemble learning, meta-analysis, and financial portfolio risk have in common? The answer is that they all depend on a fundamental principle of statistics that is not as widely known as it should be. Once this principle is understood, a lot of stuff starts to make more sense. 
+What do $ R^2 $, laboratory error analysis, ensemble learning, meta-analysis, and financial portfolio risk all have in common? The answer is that they all depend on a fundamental principle of statistics that is not as widely known as it should be. Once this principle is understood, a lot of stuff starts to make more sense. 
 
 Here's a sneak peek at what the principle is. 
 

@@ -4,7 +4,7 @@
  <title>The File Drawer</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2019-05-18T15:55:30-07:00</updated>
+ <updated>2019-05-18T16:22:23-07:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -17,7 +17,7 @@
    <link href="http://localhost:4000/2019/05/18/variance_after_scaling_and_summing/"/>
    <updated>2019-05-18T00:00:00-07:00</updated>
    <id>http://localhost:4000/2019/05/18/variance_after_scaling_and_summing</id>
-   <content type="html">&lt;p&gt;What do $ R^2 $, laboratory error analysis, ensemble learning, meta-analysis, and financial portfolio risk have in common? The answer is that they all depend on a fundamental principle of statistics that is not as widely known as it should be. Once this principle is understood, a lot of stuff starts to make more sense.&lt;/p&gt;
+   <content type="html">&lt;p&gt;What do $ R^2 $, laboratory error analysis, ensemble learning, meta-analysis, and financial portfolio risk all have in common? The answer is that they all depend on a fundamental principle of statistics that is not as widely known as it should be. Once this principle is understood, a lot of stuff starts to make more sense.&lt;/p&gt;
 
 &lt;p&gt;Here’s a sneak peek at what the principle is.&lt;/p&gt;
 
