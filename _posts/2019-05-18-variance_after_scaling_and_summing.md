@@ -28,7 +28,6 @@ To demonstrate this, I’ve written some Python code that generates three arrays
 
 ```python
 from numpy.random import randn
-from numpy import sqrt
 import numpy as np
 n = 1000000
 x1 = np.sqrt(9) * randn(n) # 1M samples from normal distribution with variance=9
@@ -103,15 +102,18 @@ where $ \sigma^2 $ is the variance of $ X $.
 This means that if a random variable is scaled, its variance will scale _quadratically_. Let’s see this in code.
 
 ```python
+from numpy.random import randn
+import numpy as np
 n = 1000000
-x1 = sqrt(10) * randn(n) # Array of 1M samples from normal distribution with variance=10
-print(x1.var()) # 10
+baseline_var = 10
 w = 0.7
+x1 = np.sqrt(baseline_var) * randn(n) # Array of 1M samples from normal distribution with variance=10
+print(x1.var()) # 10
 xp = w * x1 # Scale this by w=0.7
-print(w**2 * 10) # 4.9 (predicted variance)
+print(w**2 * baseline_var) # 4.9 (predicted variance)
 print(xp.var()) # 4.9 (empirical variance) 
 ```
-To gain some intuition for this, it’s helpful to think about outliers. We know that outliers have a huge effect on variance. That’s because the variance formula squares all the deviations, and we get really big numbers when we square large deviations. With that as background, let’s think about what happens if we scale our data by 2. The outliers will spread out twice as far, which means they will have even more than twice as much impact on the variance. Similarly, if we multiply our data by 0.5, we will squash the most “damaging” part of the outliers, and so we will reduce our variance by more than a factor of two.
+To gain some intuition for this, it’s helpful to think about outliers. We know that outliers have a huge effect on variance. That’s because the formula used to compute variance, $ \sum{\frac{(x_i - \bar{x})^2}{n-1}} $, squares all the deviations, and so we get really big variances when we square large deviations. With that as background, let’s think about what happens if we scale our data by 2. The outliers will spread out twice as far, which means they will have even more than twice as much impact on the variance. Similarly, if we multiply our data by 0.5, we will squash the most “damaging” part of the outliers, and so we will reduce our variance by more than a factor of two.
 
 While the above principle is pretty simple, things start to get interesting when you combine it with the Bienaymé Formula in Part I:
 
@@ -132,6 +134,8 @@ Imagine that you have built two separate models to predict car prices. While the
 A valuable insight from machine learning is that you can often create a better model by simply averaging the predictions of other models. Let’s demonstrate this with simulations below. 
 
 ```python
+from numpy.random import randn
+import numpy as np
 n = 1000000
 actual = 20000 + 5000 * randn(n)
 errors1 = np.sqrt(1000) * randn(n)
@@ -146,7 +150,7 @@ preds2 = actual + errors2
 preds_ensemble = 0.5 * preds1 + 0.5 * preds2
 errors_ensemble = preds_ensemble - actual
 
-print(errors_ensemble.var()) # 750
+print(errors_ensemble.var()) # 750. Lower than variance of component models!
 ```
 
 As shown in the code above, even though a good model (Model 1) was averaged with an inferior model (Model 2), the resulting Ensemble model’s MSE of \\$750 is better than either of the models individually. 

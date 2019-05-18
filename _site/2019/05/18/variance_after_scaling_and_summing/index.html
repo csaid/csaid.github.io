@@ -129,7 +129,6 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
 <p>To demonstrate this, I’ve written some Python code that generates three arrays, each of length 1 million. The first two arrays contain samples from two normal distributions with variances 9 and 16, respectively. The third array is the sum of the first two arrays. As shown in the simulation, its variance is 25, which is equal to the sum of the variances of the first two arrays (9 + 16).</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">numpy.random</span> <span class="kn">import</span> <span class="n">randn</span>
-<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">sqrt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
 <span class="n">n</span> <span class="o">=</span> <span class="mi">1000000</span>
 <span class="n">x1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span> <span class="o">*</span> <span class="n">randn</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="c"># 1M samples from normal distribution with variance=9</span>
@@ -204,15 +203,18 @@ where $ \sigma^2 $ is the variance of $ X $.
 
 <p>This means that if a random variable is scaled, its variance will scale <em>quadratically</em>. Let’s see this in code.</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">n</span> <span class="o">=</span> <span class="mi">1000000</span>
-<span class="n">x1</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="o">*</span> <span class="n">randn</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="c"># Array of 1M samples from normal distribution with variance=10</span>
-<span class="k">print</span><span class="p">(</span><span class="n">x1</span><span class="o">.</span><span class="n">var</span><span class="p">())</span> <span class="c"># 10</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">numpy.random</span> <span class="kn">import</span> <span class="n">randn</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">1000000</span>
+<span class="n">baseline_var</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="n">w</span> <span class="o">=</span> <span class="mf">0.7</span>
+<span class="n">x1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">baseline_var</span><span class="p">)</span> <span class="o">*</span> <span class="n">randn</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="c"># Array of 1M samples from normal distribution with variance=10</span>
+<span class="k">print</span><span class="p">(</span><span class="n">x1</span><span class="o">.</span><span class="n">var</span><span class="p">())</span> <span class="c"># 10</span>
 <span class="n">xp</span> <span class="o">=</span> <span class="n">w</span> <span class="o">*</span> <span class="n">x1</span> <span class="c"># Scale this by w=0.7</span>
-<span class="k">print</span><span class="p">(</span><span class="n">w</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="mi">10</span><span class="p">)</span> <span class="c"># 4.9 (predicted variance)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">w</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">baseline_var</span><span class="p">)</span> <span class="c"># 4.9 (predicted variance)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">xp</span><span class="o">.</span><span class="n">var</span><span class="p">())</span> <span class="c"># 4.9 (empirical variance) </span>
 </code></pre></div></div>
-<p>To gain some intuition for this, it’s helpful to think about outliers. We know that outliers have a huge effect on variance. That’s because the variance formula squares all the deviations, and we get really big numbers when we square large deviations. With that as background, let’s think about what happens if we scale our data by 2. The outliers will spread out twice as far, which means they will have even more than twice as much impact on the variance. Similarly, if we multiply our data by 0.5, we will squash the most “damaging” part of the outliers, and so we will reduce our variance by more than a factor of two.</p>
+<p>To gain some intuition for this, it’s helpful to think about outliers. We know that outliers have a huge effect on variance. That’s because the formula used to compute variance, $ \sum{\frac{(x_i - \bar{x})^2}{n-1}} $, squares all the deviations, and so we get really big variances when we square large deviations. With that as background, let’s think about what happens if we scale our data by 2. The outliers will spread out twice as far, which means they will have even more than twice as much impact on the variance. Similarly, if we multiply our data by 0.5, we will squash the most “damaging” part of the outliers, and so we will reduce our variance by more than a factor of two.</p>
 
 <p>While the above principle is pretty simple, things start to get interesting when you combine it with the Bienaymé Formula in Part I:</p>
 
@@ -232,7 +234,9 @@ where each $ w_i $ is a weight on $ X_i $, and each $ X_i $ has its own variance
 
 <p>A valuable insight from machine learning is that you can often create a better model by simply averaging the predictions of other models. Let’s demonstrate this with simulations below.</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">n</span> <span class="o">=</span> <span class="mi">1000000</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">numpy.random</span> <span class="kn">import</span> <span class="n">randn</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">1000000</span>
 <span class="n">actual</span> <span class="o">=</span> <span class="mi">20000</span> <span class="o">+</span> <span class="mi">5000</span> <span class="o">*</span> <span class="n">randn</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
 <span class="n">errors1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span> <span class="o">*</span> <span class="n">randn</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">errors1</span><span class="o">.</span><span class="n">var</span><span class="p">())</span> <span class="c"># 1000</span>
@@ -246,7 +250,7 @@ where each $ w_i $ is a weight on $ X_i $, and each $ X_i $ has its own variance
 <span class="n">preds_ensemble</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">preds1</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">preds2</span>
 <span class="n">errors_ensemble</span> <span class="o">=</span> <span class="n">preds_ensemble</span> <span class="o">-</span> <span class="n">actual</span>
 
-<span class="k">print</span><span class="p">(</span><span class="n">errors_ensemble</span><span class="o">.</span><span class="n">var</span><span class="p">())</span> <span class="c"># 750</span>
+<span class="k">print</span><span class="p">(</span><span class="n">errors_ensemble</span><span class="o">.</span><span class="n">var</span><span class="p">())</span> <span class="c"># 750. Lower than variance of component models!</span>
 </code></pre></div></div>
 
 <p>As shown in the code above, even though a good model (Model 1) was averaged with an inferior model (Model 2), the resulting Ensemble model’s MSE of \$750 is better than either of the models individually.</p>
