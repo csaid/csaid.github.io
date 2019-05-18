@@ -173,7 +173,7 @@ var margin = {top: 20, right: 40, bottom: 20, left: 40},
 
 var formatNumber = d3.format(",.0f"),
     format = function(d) { return formatNumber(d) + " Th MT"; },
-    color = d3.scale.category20();
+    color = d3.scaleOrdinal(d3.schemeCategory10);
 
 var svg = d3.select("#chart").append("svg")
     .attr("width", width + margin.left + margin.right)
@@ -209,11 +209,7 @@ var path = sankey.link();
       .data(commodities.nodes)
     .enter().append("g")
       .attr("class", "node")
-      .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; })
-    .call(d3.behavior.drag()
-      .origin(function(d) { return d; })
-      .on("dragstart", function() { this.parentNode.appendChild(this); })
-      .on("drag", dragmove));
+      .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
 
   node.append("rect")
       .attr("height", function(d) { return d.dy; })
@@ -255,12 +251,5 @@ var path = sankey.link();
       .style("font-size", "16px")
       .text("Outputs");
 
-
-
-  function dragmove(d) {
-    d3.select(this).attr("transform", "translate(" + d.x + "," + (d.y = Math.max(0, Math.min(height - d.dy, d3.event.y))) + ")");
-    sankey.relayout();
-    link.attr("d", path);
-  }
 // });
 </script>

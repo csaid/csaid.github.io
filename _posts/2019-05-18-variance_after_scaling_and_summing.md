@@ -2,7 +2,7 @@
 layout: post
 title: Variance after scaling and summing&#58; One of the most useful facts from statistics
 description:
-image: /assets/2019_variance/inverse_variance/main_fig.png
+image:
 ---
 
 

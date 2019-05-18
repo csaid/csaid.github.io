@@ -18,21 +18,6 @@
   
     
     <url>
-      <loc>http://localhost:4000/2019/05/05/variance_after_scaling_and_summing/</loc>
-      
-        <lastmod>2019-05-05T00:00:00-07:00</lastmod>
-      
-      
-        <changefreq>monthly</changefreq>
-      
-      
-        <priority>0.5</priority>
-      
-    </url>
-    
-  
-    
-    <url>
       <loc>http://localhost:4000/2018/08/06/cone-of-confusion/</loc>
       
         <lastmod>2018-08-06T00:00:00-07:00</lastmod>
@@ -64,21 +49,6 @@
     
     <url>
       <loc>http://localhost:4000/2017/12/02/religions-as-firms/</loc>
-      
-        <lastmod>2017-12-02T00:00:00-08:00</lastmod>
-      
-      
-        <changefreq>monthly</changefreq>
-      
-      
-        <priority>0.5</priority>
-      
-    </url>
-    
-  
-    
-    <url>
-      <loc>http://localhost:4000/2017/12/02/religions-as-firms-(chris-said-od-mac's-conflicted-copy-2019-02-09)/</loc>
       
         <lastmod>2017-12-02T00:00:00-08:00</lastmod>
       
@@ -184,21 +154,6 @@
     
     <url>
       <loc>http://localhost:4000/2016/05/11/optimizing-things-in-the-ussr/</loc>
-      
-        <lastmod>2016-05-11T00:00:00-07:00</lastmod>
-      
-      
-        <changefreq>monthly</changefreq>
-      
-      
-        <priority>0.5</priority>
-      
-    </url>
-    
-  
-    
-    <url>
-      <loc>http://localhost:4000/2016/05/11/optimizing-things-in-the-ussr-(chris-said-od-mac's-conflicted-copy-2019-02-09)/</loc>
       
         <lastmod>2016-05-11T00:00:00-07:00</lastmod>
       
@@ -580,7 +535,7 @@
     <url>
       <loc>http://localhost:4000404.html</loc>
       
-        <lastmod>2019-05-18T15:25:27-07:00</lastmod>
+        <lastmod>2019-05-18T15:43:22-07:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -608,7 +563,7 @@
     <url>
       <loc>http://localhost:4000</loc>
       
-        <lastmod>2019-05-18T15:25:27-07:00</lastmod>
+        <lastmod>2019-05-18T15:43:22-07:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -636,7 +591,7 @@
     <url>
       <loc>http://localhost:4000</loc>
       
-        <lastmod>2019-05-18T15:25:27-07:00</lastmod>
+        <lastmod>2019-05-18T15:43:22-07:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -654,7 +609,7 @@
     <url>
       <loc>http://localhost:4000</loc>
       
-        <lastmod>2019-05-18T15:25:27-07:00</lastmod>
+        <lastmod>2019-05-18T15:43:22-07:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -672,7 +627,7 @@
     <url>
       <loc>http://localhost:4000</loc>
       
-        <lastmod>2019-05-18T15:25:27-07:00</lastmod>
+        <lastmod>2019-05-18T15:43:22-07:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -690,7 +645,7 @@
     <url>
       <loc>http://localhost:4000</loc>
       
-        <lastmod>2019-05-18T15:25:27-07:00</lastmod>
+        <lastmod>2019-05-18T15:43:22-07:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -708,7 +663,7 @@
     <url>
       <loc>http://localhost:4000</loc>
       
-        <lastmod>2019-05-18T15:25:27-07:00</lastmod>
+        <lastmod>2019-05-18T15:43:22-07:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -726,25 +681,7 @@
     <url>
       <loc>http://localhost:4000</loc>
       
-        <lastmod>2019-05-18T15:25:27-07:00</lastmod>
-      
-      
-        <changefreq>monthly</changefreq>
-      
-      
-        <priority>0.3</priority>
-      
-    </url>
-    
-  
-    
-    
-
-    
-    <url>
-      <loc>http://localhost:4000</loc>
-      
-        <lastmod>2019-05-18T15:25:27-07:00</lastmod>
+        <lastmod>2019-05-18T15:43:22-07:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -1072,19 +1009,6 @@
         </url>
       
         <url>
-          <loc>http://localhost:4000/2016/05/11/optimizing-things-in-the-ussr-(chris-said-od-mac's-conflicted-copy-2019-02-09)/</loc>
-          
-            <lastmod>2016-05-11T00:00:00-07:00</lastmod>
-          
-          
-            <changefreq>monthly</changefreq>
-          
-          
-            <priority>0.3</priority>
-          
-        </url>
-      
-        <url>
           <loc>http://localhost:4000/2016/05/11/optimizing-things-in-the-ussr/</loc>
           
             <lastmod>2016-05-11T00:00:00-07:00</lastmod>
@@ -1176,19 +1100,6 @@
         </url>
       
         <url>
-          <loc>http://localhost:4000/2017/12/02/religions-as-firms-(chris-said-od-mac's-conflicted-copy-2019-02-09)/</loc>
-          
-            <lastmod>2017-12-02T00:00:00-08:00</lastmod>
-          
-          
-            <changefreq>monthly</changefreq>
-          
-          
-            <priority>0.3</priority>
-          
-        </url>
-      
-        <url>
           <loc>http://localhost:4000/2017/12/02/religions-as-firms/</loc>
           
             <lastmod>2017-12-02T00:00:00-08:00</lastmod>
@@ -1218,19 +1129,6 @@
           <loc>http://localhost:4000/2018/08/06/cone-of-confusion/</loc>
           
             <lastmod>2018-08-06T00:00:00-07:00</lastmod>
-          
-          
-            <changefreq>monthly</changefreq>
-          
-          
-            <priority>0.3</priority>
-          
-        </url>
-      
-        <url>
-          <loc>http://localhost:4000/2019/05/05/variance_after_scaling_and_summing/</loc>
-          
-            <lastmod>2019-05-05T00:00:00-07:00</lastmod>
           
           
             <changefreq>monthly</changefreq>

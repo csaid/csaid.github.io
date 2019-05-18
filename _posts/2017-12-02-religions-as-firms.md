@@ -43,7 +43,7 @@ Just as business consumers will [pay](https://books.google.com/books/about/Acts_
 Of course, not all religious consumers will prefer the cheap promises of the prosperity gospel. For many religions, product quality is defined primarily by community, a sense of meaning, and in some cases the promise of an afterlife.
 
 ### Software Updates
-A good business should be constantly updating its product to fix bugs and to respond to changes in consumer preference or government regulation. Some religions do the same thing, via the process of [continuous revelation](https://en.wikipedia.org/wiki/Continuous_revelation) from their deity. Perhaps no church exemplifies this better than the Church of Latter Day Saints.
+A good business should be constantly updating its product to fix bugs and to respond to changes in consumer preference or government regulation. Some religions do the same thing, via the process of [continuous revelation](https://en.wikipedia.org/wiki/Continuous_revelation) from their deity. Perhaps no church exemplifies this better than the Church of Jesus Christ of Latter-day Saints.
 
 For most of the history of the Mormon Church, individuals of African descent were prohibited from serving as priests. By the 1960s, as civil rights protests against the church received media attention, the policy became increasingly untenable. On June 1, 1978, Mormon leaders reported that God had instructed them to update the policy and allow black priests. This event was known as the [1978 Revelation on the Priesthood](https://en.wikipedia.org/wiki/1978_Revelation_on_Priesthood).
 
@@ -61,7 +61,7 @@ Facebook and Netflix both experienced rapid adoption, starting with a U.S. audie
 
 A similar thing happened with the Mormon church. By the 20th century, U.S. growth was driven only by increasing family sizes, so the church turned towards international expansion.
 
-The graph below shows similar US and international growth curves for Netflix and the Church of Latter Day Saints.<sup>[[1](https://en.wikipedia.org/wiki/The_Church_of_Jesus_Christ_of_Latter-day_Saints_membership_history),[2](https://rsc.byu.edu/archived/latter-day-saint-social-life-social-research-lds-church-and-its-members/4-vital-statistics),[3](http://www.churchistrue.com/blog/lds-membership-statistics-report-2017/),[4](http://www.businessinsider.com/netflix-subscribers-international-vs-us-earnings-chart-2017-7)]</sup>
+The graph below shows similar US and international growth curves for Netflix and the Church of Jesus Christ of Latter-day Saints.<sup>[[1](https://en.wikipedia.org/wiki/The_Church_of_Jesus_Christ_of_Latter-day_Saints_membership_history),[2](https://rsc.byu.edu/archived/latter-day-saint-social-life-social-research-lds-church-and-its-members/4-vital-statistics),[3](http://www.churchistrue.com/blog/lds-membership-statistics-report-2017/),[4](http://www.businessinsider.com/netflix-subscribers-international-vs-us-earnings-chart-2017-7)]</sup>
 
 <div class="wrapper">
   <img src='/assets/2017_religions_as_firms/LDS_netflix.png' style="position:relative border: #222 2px solid; max-width:100%;" >

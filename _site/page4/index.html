@@ -107,524 +107,6 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
   
   <div class="post">
     <h1 class="post-title">
-      <a href="/2016/02/28/four-pitfalls-of-hill-climbing/">
-        Four pitfalls of hill climbing
-      </a>
-    </h1>
-
-    <span class="post-date">28 Feb 2016</span>
-
-    <meta charset="utf-8" />
-
-<p>One of the great developments in product design has been the adoption of A/B testing. Instead of just guessing what is best for your customers, you can offer a product variant to a subset of customers and measure how well it works. While undeniably useful, A/B testing is sometimes said to encourage too much “hill climbing”, an incremental and short-sighted style of product development that emphasizes easy and immediate wins.</p>
-
-<p>Discussion around hill climbing can sometimes get a bit vague, so I thought I would make some animations that describe four distinct pitfalls that can emerge from an overreliance on hill climbing.</p>
-
-<h4 id="1-local-maxima">1. Local maxima</h4>
-
-<p>If you climb hills incrementally, you may end up in a local maximum and miss out on an opportunity to land on a global maximum with much bigger reward. Concerns about local maxima are often wrapped up in critiques of <em>incrementalism</em>.</p>
-
-<div class="wrapper">
-  <div class="inner" id="plot1"></div>
-</div>
-
-<p>Local maxima and global maxima can be illustrated with hill diagrams like the one above. The horizontal axis represents product space collapsed into a single dimension. In reality, of course, there are many dimensions that a product could explore.</p>
-
-<h4 id="2-emergent-maxima">2. Emergent maxima</h4>
-
-<p>If you run short A/B tests, or A/B tests that do not fully capture network effects, you might not realize that a change that initially seems bad may be good in the long run. This idea, which is distinct from concerns about incrementalism, can be described with a dynamic reward function animation. As before, the horizontal axis is product space. Each video frame represents a time step, and the vertical axis represents immediate, measurable reward.</p>
-
-<div class="wrapper">
-  <div class="inner" id="plot2"></div>
-</div>
-
-<p>When a product changes, the intial effect is negative. But eventually, customers begin to enjoy the new version, as shown by changes in the reward function. By waiting at a position that initially seemed negative, you are able to discover an emergent mountain, and receive greater reward than you would have from short-term optimization.</p>
-
-<h4 id="3-novelty-effects">3. Novelty effects</h4>
-
-<p>Short-term optimization can be bad, not only because it prevents discovery of emergent mountains, but also because some hills can be transient. One way a hill can disappear is through <em>novelty effects</em>, where a shiny new feature can be engaging to customers in the short term, but uninteresting or even negative in the long term.</p>
-
-<div class="wrapper">
-  <div class="inner" id="plot3"></div>
-</div>
-
-<h4 id="4-loss-of-differentiation">4. Loss of differentiation</h4>
-
-<p>Another way a hill can disappear is through loss of differentiation from more dominant competitors. Your product may occupy a market niche. If you try to copy your competitor, you may initially see some benefits. But at some point, your customers may leave because not much separates you from your more dominant competitor. Differentiation matters in some dimensions more than others.</p>
-
-<div class="wrapper">
-  <span id="plot4"></span>
-  <span id="plot5"></span>
-</div>
-
-<p>You can think of an industry as a dynamic ecosystem where each company has its own reward function. When one company moves, it changes its own reward function as well as the reward functions of other companies. If this sounds like biology, you’re not mistaken. The dynamics here are similar to evolutionary <a href="http://www.randalolson.com/2014/04/17/visualizing-evolution-in-action-dynamic-fitness-landscapes/">fitness landscapes</a>.</p>
-
-<hr />
-
-<p>While all of the criticisms of hill climbing have obvious validity, I think it is easy for people to overreact to them. Here are some caveats in defense of hill climbing:</p>
-
-<ul>
-  <li>The plots above probably exaggerate the magnitude and frequency with which reward functions change.</li>
-  <li>There is huge uncertainty and disagreement about what future landscapes will look like. In most cases, it’s better to explore regions that increase (rather than decrease) reward, making sure to run long term experiments when needed.</li>
-  <li>The space is high dimensional. Even if your product is at a local maximum in one dimension, there are many other dimensions to explore and measure.</li>
-  <li>We may overestimate the causal relationship between bold product moves and company success. Investors often observe that companies who don’t make bold changes are doomed to fail. While I don’t doubt that there is some causation here, I think there is also some reverse causation. Bold changes require lots of resources. Maybe it’s mostly the success-bound companies who have enough resources to afford the bold changes.</li>
-</ul>
-
-<p>Special thanks to Marika Inhoff, <a href="https://twitter.com/johnvmcdonnell">John McDonnell</a> and <a href="https://twitter.com/alexrosner">Alex Rosner</a> for comments on a draft of this post.</p>
-<style>
-
-circle {
-  stroke: #fff;
-  stroke-width: 1.5px;
-}
-
-circle.you {
-  fill: #ED2685;
-}
-
-circle.competitor {
-  fill: #3AC3F2;
-}
-
-.background {
-  fill: #e7e7e7;
-}
-
-.axis .tick:nth-child(2n) {
-  stroke-opacity: 0.5;
-}
-
-.axis text {
-  font: 12px sans-serif;
-}
-
-.line path {
-  fill: none;
-  stroke: #000;
-  stroke-width: 2px;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-}
-
-</style>
-
-<!-- I think Markdown doesn't like two script tags in a row -->
-<div></div>
-
-<script>
-
-
-
-
-
-function makeObjectiveGraph(id, get_dot_x, objective, title, is_dynamic, company) {
-
-  // Dot radius
-  var r = 11;
-
-  var margin = {top: 20, right: 20, bottom: 20, left: 20},
-      width = 270 - margin.left - margin.right,
-      height = 270 - margin.top - margin.bottom;
-
-  var tickFormat = d3.format(".1f");
-
-  var y = d3.scaleLinear()
-      .domain([0, 1])
-      .range([height, 0]);
-
-  var yAxisPitfalls = d3.axisLeft(y)
-
-  var x = d3.scaleLinear()
-      .domain([0, 1])
-      .range([0, width]);
-
-  var xAxisPitfalls = d3.axisBottom(x)
-
-  var path = d3.line();
-
-  var svg = d3.select("#" + id).append("svg")
-      .attr("width", width + margin.left + margin.right)
-      .attr("height", height + margin.top + margin.bottom)
-    .append("g")
-      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-  svg.append("rect")
-      .attr("class", "background")
-      .attr("width", width)
-      .attr("height", height);
-
-  var line = svg.append("g")
-      .attr("class", "line")
-    .append("path");
-
-  var dot = svg.append("circle")
-      .attr("r", r-1)
-      .attr("class", company);
-
-  // For X- and Y- labels.
-  if (company == "competitor"){
-    var prefix = "Competitor ";
-  } else {
-    var prefix = "";
-  }
-
-  // Title
-  svg.append("text")
-      .attr("class", "x label")
-      .attr("text-anchor", "middle")
-      .attr("x", width/2)
-      .attr("y", -8)
-      .style("font-size", "14px")
-      .style("font-weight", "bold")
-      .text(title);
-
-  // X-Label
-  svg.append("text")
-      .attr("class", "x label")
-      .attr("text-anchor", "middle")
-      .attr("x", width/2)
-      .attr("y", height + 14)
-      .style("font-size", "12px")
-      .text(prefix + "Product Space");
-
-  // Y-Label
-  svg.append("text")
-      .attr("class", "y label")
-      .attr("text-anchor", "middle")
-      .attr("x", -width/2)
-      .attr("y", -14)
-      .attr("dy", ".75em")
-      .attr("transform", "rotate(-90)")
-      .style("font-size", "12px")
-      .text(prefix + "Reward");
-
-
-  if (!is_dynamic){
-    line.attr("d", path(d3.range(0, 1, .002).concat(1).map(function(xo) {
-      return [x(xo), y(objective(xo))];
-    })));
-  }
-
-
-  // Provide pixel coordinates of small segment of curve.
-  // Returns pixel coordinates just above segment.
-  function get_adjusted_dot_coords(start_x, start_y, end_x, end_y) {
-    var center_x = (start_x + end_x) / 2;
-    var center_y = (start_y + end_y) / 2;
-    var rise = (end_y - start_y);
-    var run = (end_x - start_x);
-    var k = Math.sqrt(Math.pow(r, 2)/(Math.pow(run, 2) + Math.pow(rise, 2)));
-    var dx = k * rise;
-    var dy = k * run;
-
-    return [center_x + dx, center_y - dy]
-
-  };
-
-  // Functions x and y return pixel units.
-  // Var xo is in graph coordinates from 0 to 1.
-  // Var t is from 0 to 1.
-  d3.timer(function(elapsed) {
-    var t = (elapsed % 3000) / 3000; // will range from 0 to 1.
-    var dot_xo = get_dot_x(t) // make this a function
-
-    if (is_dynamic) {
-
-      dot_coords = get_adjusted_dot_coords(
-                                           x(dot_xo-.001),
-                                           y(objective(t, dot_xo-.001)),
-                                           x(dot_xo+.001),
-                                           y(objective(t, dot_xo+.001))
-                                           );
-
-      // dot_coords = [x(dot_xo), y(objective(t, dot_xo))]
-
-      dot.attr("cx", dot_coords[0]).attr("cy", dot_coords[1]);
-
-      // dot.attr("cx", x(t)).attr("cy", y(objective(t, t))-12); // The 12 is in pixel world. Subtracting because pixel 0 is at top.
-
-      line.attr("d", path(d3.range(0, 1, .002).concat(1).map(function(xo) {
-        return [x(xo), y(objective(t, xo))];
-      })));
-    } else {
-
-      dot_coords = get_adjusted_dot_coords(x(dot_xo-.001), y(objective(dot_xo-.001)), x(dot_xo+.001), y(objective(dot_xo+.001)))
-      dot.attr("cx", dot_coords[0]).attr("cy", dot_coords[1]);
-    }
-
-
-  });
-
-  d3.select(self.frameElement).style("height", height + margin.top + margin.bottom + "px");
-}
-
-var left_pos  = 0.20;
-var mid_pos   = 0.50;
-var right_pos = 0.80;
-var mu = 0.25
-
-
-// Provides soft trajectory, given starting and stopping times and locations.
-// Generally the first agrument will be time t, but using x
-// internally here so I can think about the functions visually.
-var soft_motion = function(x, start_x, start_y, end_x, end_y) {
-  var period = 2 * (end_x - start_x);
-  var scale = (end_y - start_y)/2;
-  var intercept = start_y + scale;
-
-  if (x < start_x) { return start_y } else
-  if (x < end_x) { return -scale * Math.cos(2*Math.PI/period * (x-start_x)) + intercept} else
-  return end_y
-};
-
-// The horizontal position of your dot
-var get_dot_x = function(t) {
-  return soft_motion(t, .2, .2, .8, .8)
-};
-
-var get_dot_x_local_max = function(t) {
-  return soft_motion(t, .2, .35, .8, .2)
-};
-
-// The horizontal position of your competitor's dot
-var get_competitor_dot_x = function(t) {
-  return 0.8;
-};
-
-// Gaussian function. For dynamics, call repeatedly with different scale values.
-function gauss(x, scale, mu, sig) {
-  var coef = scale / (sig* Math.sqrt(2 * Math.PI));
-  var numer = Math.pow((x-mu), 2)
-  var denom = 2*Math.pow(sig, 2)
-  return coef * Math.exp(-numer/denom);
-};
-
-
-var objective1 = function(x){
-  var left_scale = 0.2;
-  var right_scale = 0.3;
-  var sd = 0.2
-  return gauss(x, left_scale, left_pos, sd) + gauss(x, right_scale, right_pos, sd)
-}
-
-makeObjectiveGraph("plot1", get_dot_x_local_max, objective1, "", false, "you")
-
-
-var objective2 = function(t, x){
-  var left_scale  = soft_motion(t, 0.6, 0.2, 0.95, 0.10);
-  var right_scale = soft_motion(t, 0.6, 0.0, 0.95, 0.3);
-  var sd = 0.2
-
-  return gauss(x, left_scale, left_pos, sd) + gauss(x, right_scale, right_pos, sd)
-};
-
-makeObjectiveGraph("plot2", get_dot_x, objective2, "", true, "you")
-
-
-var objective3 = function(t, x){
-  var left_scale  = soft_motion(t, 0.6, 0.15, 0.95, 0.15);
-  var right_scale = soft_motion(t, 0.6, 0.30, 0.95, 0.15);
-
-  return gauss(x, left_scale, left_pos, .25) + gauss(x, right_scale, right_pos, .3)
-};
-
-makeObjectiveGraph("plot3", get_dot_x, objective3, "", true, "you")
-
-var objective4 = function(t, x){
-  var left_scale  = soft_motion(t, 0.6, 0.15, 0.95, 0.15);
-  var right_scale = soft_motion(t, 0.6, 0.30, 0.95, 0.15);
-
-  return gauss(x, left_scale, left_pos, .25) + gauss(x, right_scale, right_pos, .3)
-};
-
-makeObjectiveGraph("plot4", get_dot_x, objective4, "Losing differentiation", true, "you")
-
-// Competitor
-var objective5 = function(t, x){
-  var left_scale  = soft_motion(t, 0.6, 0.05, 0.95, 0.07);
-  var right_scale = soft_motion(t, 0.6, 0.4,  0.95, 0.50);
-
-  return gauss(x, left_scale, left_pos, .15) + gauss(x, right_scale, right_pos, .3)
-};
-
-makeObjectiveGraph("plot5", get_competitor_dot_x, objective5, "Dominant competitor wins", true, "competitor")
-
-
-</script>
-
-
-
-    <div>
-        <i class="fa fa-comment"></i> <a href="http://localhost:4000/2016/02/28/four-pitfalls-of-hill-climbing/#disqus_thread" data-disqus-identifier="http://localhost:4000/2016/02/28/four-pitfalls-of-hill-climbing/"></a>
-        <span>&nbsp; &nbsp;</span>
-        <span>
-            <a class="twitter-share-button"
-              href="https://twitter.com/share"
-              data-url="http://localhost:4000/2016/02/28/four-pitfalls-of-hill-climbing/"
-              data-via="Chris_Said"
-              data-count="none"
-              data-text="Four pitfalls of hill climbing">
-            Tweet
-            </a>
-        </span>
-
-    </div>
-
-  </div>
-  
-  <div class="post">
-    <h1 class="post-title">
-      <a href="/2016/02/13/how-to-make-polished-jupyter-presentations-with-optional-code-visibility/">
-        How to make polished Jupyter presentations with optional code visibility
-      </a>
-    </h1>
-
-    <span class="post-date">13 Feb 2016</span>
-
-    <p>Jupyter notebooks are great because they allow you to easily present interactive figures. In addition, these notebooks include the figures and code in a single file, making it easy for others to reproduce your results. Sometimes though, you may want to present a cleaner report to an audience who may not care about the code. This blog post shows how to make code visibility optional, and how to remove various Jupyter elements to get a clean presentation.</p>
-
-<p>On the top is a typical Jupyter presentation with code and some extra elements. Below that is a more polished version that removes some of the extra elements and makes code visibility optional with a button.</p>
-
-<div class="wrapper">
-    <a class="inner" href="http://nbviewer.jupyter.org/github/csaid/polished_notebooks/blob/master/notebook_original.ipynb" target="_blank">
-        <figure class="image"><img src="/assets/fig_unpolished_small.png" alt="" border="2px" /></figure>
-
-    </a>
-</div>
-<div class="wrapper">
-    <a class="inner" href="http://nbviewer.jupyter.org/github/csaid/polished_notebooks/blob/master/notebook_polished.ipynb" target="_blank">
-        <figure class="image"><img src="/assets/fig_polished_small.png" alt="" border="2px" /></figure>
-
-    </a>
-</div>
-
-<p>To make the code optionally visible, available at the click of a button, include a raw cell at the beginning of your notebook containing the JavaScript and HTML below. This code sample is inspired by a <a href="http://stackoverflow.com/questions/27934885/how-to-hide-code-from-cells-in-ipython-notebook-visualized-with-nbviewer">Stack Overflow post</a>, but makes a few improvements such as using a raw cell so that the button position stays fixed, changing the button text depending on state, and displaying gradual transitions so the user understands what is happening.</p>
-
-<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;script&gt;</span>
-  <span class="kd">function</span> <span class="nx">code_toggle</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nx">code_shown</span><span class="p">){</span>
-      <span class="nx">$</span><span class="p">(</span><span class="s1">'div.input'</span><span class="p">).</span><span class="nx">hide</span><span class="p">(</span><span class="s1">'500'</span><span class="p">);</span>
-      <span class="nx">$</span><span class="p">(</span><span class="s1">'#toggleButton'</span><span class="p">).</span><span class="nx">val</span><span class="p">(</span><span class="s1">'Show Code'</span><span class="p">)</span>
-    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-      <span class="nx">$</span><span class="p">(</span><span class="s1">'div.input'</span><span class="p">).</span><span class="nx">show</span><span class="p">(</span><span class="s1">'500'</span><span class="p">);</span>
-      <span class="nx">$</span><span class="p">(</span><span class="s1">'#toggleButton'</span><span class="p">).</span><span class="nx">val</span><span class="p">(</span><span class="s1">'Hide Code'</span><span class="p">)</span>
-    <span class="p">}</span>
-    <span class="nx">code_shown</span> <span class="o">=</span> <span class="o">!</span><span class="nx">code_shown</span>
-  <span class="p">}</span>
-
-  <span class="nx">$</span><span class="p">(</span> <span class="nb">document</span> <span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
-    <span class="nx">code_shown</span><span class="o">=</span><span class="kc">false</span><span class="p">;</span>
-    <span class="nx">$</span><span class="p">(</span><span class="s1">'div.input'</span><span class="p">).</span><span class="nx">hide</span><span class="p">()</span>
-  <span class="p">});</span>
-<span class="nt">&lt;/script&gt;</span>
-<span class="nt">&lt;form</span> <span class="na">action=</span><span class="s">"javascript:code_toggle()"</span><span class="nt">&gt;&lt;input</span> <span class="na">type=</span><span class="s">"submit"</span> <span class="na">id=</span><span class="s">"toggleButton"</span> <span class="na">value=</span><span class="s">"Show Code"</span><span class="nt">&gt;&lt;/form&gt;</span></code></pre></figure>
-
-<p>It’s pretty straightforward to remove the extra elements like the header, footer, and prompt numbers. That being said, you may want to still include some attribution to the Jupyter project and to your free hosting service. To do all of this, just include a raw cell at the end of your notebook with some more JavaScript.</p>
-
-<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;script&gt;</span>
-  <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
-    <span class="nx">$</span><span class="p">(</span><span class="s1">'div.prompt'</span><span class="p">).</span><span class="nx">hide</span><span class="p">();</span>
-    <span class="nx">$</span><span class="p">(</span><span class="s1">'div.back-to-top'</span><span class="p">).</span><span class="nx">hide</span><span class="p">();</span>
-    <span class="nx">$</span><span class="p">(</span><span class="s1">'nav#menubar'</span><span class="p">).</span><span class="nx">hide</span><span class="p">();</span>
-    <span class="nx">$</span><span class="p">(</span><span class="s1">'.breadcrumb'</span><span class="p">).</span><span class="nx">hide</span><span class="p">();</span>
-    <span class="nx">$</span><span class="p">(</span><span class="s1">'.hidden-print'</span><span class="p">).</span><span class="nx">hide</span><span class="p">();</span>
-  <span class="p">});</span>
-<span class="nt">&lt;/script&gt;</span>
-
-<span class="nt">&lt;footer</span> <span class="na">id=</span><span class="s">"attribution"</span> <span class="na">style=</span><span class="s">"float:right; color:#999; background:#fff;"</span><span class="nt">&gt;</span>
-Created with Jupyter, delivered by Fastly, rendered by Rackspace.
-<span class="nt">&lt;/footer&gt;</span></code></pre></figure>
-
-<p>One shortcoming with what we have so far is that users may still see some code or other unwanted elements while the page is loading. This can be especially problematic if you have a long presentation with many plots. To avoid this problem, add a raw cell at the very top of your notebook containing a preloader. This example preloader includes an animation that signals to users that the page is still loading. It heavily inspired by <a href="http://codepen.io/mimoYmima/pen/fisgL">this preloader</a> created by <a href="https://twitter.com/@mimoYmima">@mimoYmima</a>.</p>
-
-<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;script&gt;</span>
-  <span class="nx">jQuery</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">$</span><span class="p">)</span> <span class="p">{</span>
-
-  <span class="nx">$</span><span class="p">(</span><span class="nb">window</span><span class="p">).</span><span class="nx">load</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
-    <span class="nx">$</span><span class="p">(</span><span class="s1">'#preloader'</span><span class="p">).</span><span class="nx">fadeOut</span><span class="p">(</span><span class="s1">'slow'</span><span class="p">,</span><span class="kd">function</span><span class="p">(){</span><span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">remove</span><span class="p">();});</span>
-  <span class="p">});</span>
-
-  <span class="p">});</span>
-<span class="nt">&lt;/script&gt;</span>
-
-<span class="nt">&lt;style </span><span class="na">type=</span><span class="s">"text/css"</span><span class="nt">&gt;</span>
-  <span class="nt">div</span><span class="nf">#preloader</span> <span class="p">{</span> <span class="nl">position</span><span class="p">:</span> <span class="nb">fixed</span><span class="p">;</span>
-      <span class="nl">left</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
-      <span class="nl">top</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
-      <span class="nl">z-index</span><span class="p">:</span> <span class="m">999</span><span class="p">;</span>
-      <span class="nl">width</span><span class="p">:</span> <span class="m">100%</span><span class="p">;</span>
-      <span class="nl">height</span><span class="p">:</span> <span class="m">100%</span><span class="p">;</span>
-      <span class="nl">overflow</span><span class="p">:</span> <span class="nb">visible</span><span class="p">;</span>
-      <span class="nl">background</span><span class="p">:</span> <span class="m">#fff</span> <span class="sx">url('http://preloaders.net/preloaders/720/Moving%20line.gif')</span> <span class="nb">no-repeat</span> <span class="nb">center</span> <span class="nb">center</span><span class="p">;</span>
-  <span class="p">}</span>
-
-<span class="nt">&lt;/style&gt;</span>
-
-<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"preloader"</span><span class="nt">&gt;&lt;/div&gt;</span></code></pre></figure>
-
-<meta charset="utf-8" />
-
-<p>To work with these notebooks, you can clone my <a href="https://github.com/csaid/polished_notebooks">GitHub repository</a>. While the notebooks render correctly on nbviewer (<a href="http://nbviewer.jupyter.org/github/csaid/polished_notebooks/blob/master/notebook_original.ipynb">unpolished</a>, <a href="http://nbviewer.jupyter.org/github/csaid/polished_notebooks/blob/master/notebook_polished.ipynb">polished</a>), they do not render correctly on the GitHub viewer.</p>
-
-
-    <div>
-        <i class="fa fa-comment"></i> <a href="http://localhost:4000/2016/02/13/how-to-make-polished-jupyter-presentations-with-optional-code-visibility/#disqus_thread" data-disqus-identifier="http://localhost:4000/2016/02/13/how-to-make-polished-jupyter-presentations-with-optional-code-visibility/"></a>
-        <span>&nbsp; &nbsp;</span>
-        <span>
-            <a class="twitter-share-button"
-              href="https://twitter.com/share"
-              data-url="http://localhost:4000/2016/02/13/how-to-make-polished-jupyter-presentations-with-optional-code-visibility/"
-              data-via="Chris_Said"
-              data-count="none"
-              data-text="How to make polished Jupyter presentations with optional code visibility">
-            Tweet
-            </a>
-        </span>
-
-    </div>
-
-  </div>
-  
-  <div class="post">
-    <h1 class="post-title">
-      <a href="/2015/09/16/new-blog-address/">
-        New Blog Address
-      </a>
-    </h1>
-
-    <span class="post-date">16 Sep 2015</span>
-
-    <p>Welcome to the new location for The File Drawer! This blog is now hosted on <a href="https://pages.github.com/">Github Pages</a> and powered by <a href="https://jekyllrb.com/">Jekyll</a>. My old blog at <a href="http://filedrawer.wordpress.com">filedrawer.wordpress.com</a> will be shutting down soon.</p>
-
-<p>I actually really liked WordPress, but I wanted to have a little bit more control over what I can put in my posts. In particular, I wanted to be able to insert my own JavaScript animations, for example in <a href="http://chris-said.io/2015/09/17/presidential-debates/">this post</a> on the recent presidential debates.</p>
-
-<p>It was pretty fun to migrate everything over from WordPress – which is not to say there weren’t some hiccups along the way – but I was able to do so by following some nice instructions in <a href="http://joshualande.com/jekyll-github-pages-poole/">this post by Joshua Lande</a>.</p>
-
-<p>For those of you using RSS, the feed for <a href="http://chris-said.io/">www.chris-said.io</a> should be searchable in your RSS readers, but please let me know if it’s not.</p>
-
-
-    <div>
-        <i class="fa fa-comment"></i> <a href="http://localhost:4000/2015/09/16/new-blog-address/#disqus_thread" data-disqus-identifier="http://localhost:4000/2015/09/16/new-blog-address/"></a>
-        <span>&nbsp; &nbsp;</span>
-        <span>
-            <a class="twitter-share-button"
-              href="https://twitter.com/share"
-              data-url="http://localhost:4000/2015/09/16/new-blog-address/"
-              data-via="Chris_Said"
-              data-count="none"
-              data-text="New Blog Address">
-            Tweet
-            </a>
-        </span>
-
-    </div>
-
-  </div>
-  
-  <div class="post">
-    <h1 class="post-title">
       <a href="/2015/08/08/10-classic-dialogues/">
         10 classic dialogues you can find on the internet
       </a>
@@ -718,6 +200,225 @@ Created with Jupyter, delivered by Fastly, rendered by Rackspace.
               data-via="Chris_Said"
               data-count="none"
               data-text="Across industries, we’re getting better at picking metrics">
+            Tweet
+            </a>
+        </span>
+
+    </div>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/2014/11/30/independent-t-tests-and-the-83-confidence-interval-a-useful-trick-for-eyeballing-your-data/">
+        Independent t-tests and the 83% confidence interval: A useful trick for eyeballing your data.
+      </a>
+    </h1>
+
+    <span class="post-date">30 Nov 2014</span>
+
+    <p>Like most people who have analyzed data using frequentist statistics, I have often found myself staring at error bars and trying to guess whether my results are significant. When comparing two independent sample means, this practice is confusing and difficult. The conventions that we use for testing differences between sample means are not aligned with the conventions we use for plotting error bars. As a result, it’s fair to say that there’s a lot of confusion about this issue.</p>
+
+<p>Some people believe that two independent samples have significantly different means if and only if their standard error bars (68% confidence intervals for large samples) don’t overlap. This belief is incorrect. Two samples can have nonoverlapping standard error bars and still fail to reach statistical significance at <script type="math/tex">\alpha=.05</script>. Other people believe that two means are significantly different if and only if their 95% confidence intervals overlap. This belief is also incorrect. For one sample t-tests, it is true that significance is reached when the 95% confidence interval crosses the test parameter <script type="math/tex">\mu_0</script>. But for two-sample t-tests, which are more common in research, statistical significance can occur with overlapping 95% confidence intervals.</p>
+
+<p>If neither the 68% confidence interval nor the 95% confidence interval tells us anything about statistical significance, what does? In most situations, the answer is the 83.4% confidence interval. This can be seen in the figure below, which shows two samples with a barely significant difference in means (p=.05). Only the 83.4% confidence intervals shown in the third panel are barely overlapping, reflecting the barely significant results.</p>
+
+<figure class="image"><img src="/assets/fig_errorbars1.png" alt="" /></figure>
+
+<p>To understand why, let’s start by defining the t-statistic for two independent samples:</p>
+
+<script type="math/tex; mode=display">\begin{align}
+t = \frac{\overline{X_1} - \overline{X_2}}{\sqrt{se_1^2 + se_2^2}}
+\end{align}</script>
+
+<p>where <script type="math/tex">\overline{X_1}</script> and <script type="math/tex">\overline{X_2}</script> are the means of the two samples, and <script type="math/tex">se_1</script> and <script type="math/tex">se_2</script> are their standard errors. By rearranging, we can see that significant results will be barely obtained (<script type="math/tex">p=.05</script>) if the following condition holds:</p>
+
+<script type="math/tex; mode=display">\begin{align}
+\overline{X_1} - \overline{X_2} = 1.96\times\sqrt{se_1^2 + se_2^2}
+\end{align}</script>
+
+<p>where 1.96 is the large sample <script type="math/tex">t</script> cutoff for significance. Assuming equal standard errors (more on this later), the equation simplifies to:</p>
+
+<script type="math/tex; mode=display">\begin{align}
+\overline{X_1} - \overline{X_2} = 1.96\times{\sqrt{2}}\times{se}
+\end{align}</script>
+
+<p>On a graph, the quantity <script type="math/tex">\overline{X_1} - \overline{X_2}</script> is the distance between the means. If we want our error bars to just barely touch each other, we should set the length of the half-error bar to be exactly half of this, or:</p>
+
+<script type="math/tex; mode=display">\begin{align}
+1.386\times{se}
+\end{align}</script>
+
+<p>This corresponds to an 83.4% confidence interval on the normal distribution. While this result assumes a large sample size, it remains quite useful for sample sizes as low as 20. The 83.4% confidence interval can also become slightly less useful when the samples have strongly different standard errors, which can stem from very unequal sample sizes or variances. If you really want a solution that generalizes to this situation, you can set your half-error bar on your first sample to:</p>
+
+<script type="math/tex; mode=display">\begin{align}
+\frac{1.96\times{\sqrt{se_1^2 + se_2^2}}\times{se_1}}{se_1^2 + se_2^2}
+\end{align}</script>
+
+<p>and make the appropriate substitutions to compute the half-error bar in your second sample. However, this solution has the undesirable property that the error bar for one sample depends on the standard error of the other sample. For most purposes, it’s probably better to just plot the 83% confidence interval. If you are eyeballing data for a project that requires frequentist statistics, it is arguably more useful than plotting the standard error or the 95% confidence interval.</p>
+
+<p><strong>Update</strong>: <a href="http://www.twitter.com/jeffrouder">Jeff Rouder</a> helpfully points me to <a href="http://www.researchgate.net/publication/11578767_Evaluating_statistical_difference_equivalence_and_indeterminacy_using_inferential_confidence_intervals_an_integrated_alternative_method_of_conducting_null_hypothesis_statistical_tests/file/5046351b1018420f84.pdf">Tryon and Lewis (2008)</a>, which presents an error bar that generalizes both to unequal standard errors and small samples. Like the last equation presented above, it has the undesirable property that the size of the error bar around a particular sample depends on both samples. But on the plus side, it’s guaranteed to tell you about significance.</p>
+
+
+    <div>
+        <i class="fa fa-comment"></i> <a href="http://localhost:4000/2014/11/30/independent-t-tests-and-the-83-confidence-interval-a-useful-trick-for-eyeballing-your-data/#disqus_thread" data-disqus-identifier="356 http://filedrawer.wordpress.com/?p=356"></a>
+        <span>&nbsp; &nbsp;</span>
+        <span>
+            <a class="twitter-share-button"
+              href="https://twitter.com/share"
+              data-url="http://localhost:4000/2014/11/30/independent-t-tests-and-the-83-confidence-interval-a-useful-trick-for-eyeballing-your-data/"
+              data-via="Chris_Said"
+              data-count="none"
+              data-text="Independent t-tests and the 83% confidence interval: A useful trick for eyeballing your data.">
+            Tweet
+            </a>
+        </span>
+
+    </div>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/2014/10/16/jumping-quickly-between-deep-directories/">
+        Jumping quickly between deep directories
+      </a>
+    </h1>
+
+    <span class="post-date">16 Oct 2014</span>
+
+    <p>I often need to jump between different directories with very deep paths, like this:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span><span class="nb">cd </span>some/very/deep/directory/project1
+<span class="nv">$ </span><span class="c"># do stuff in Project 1</span>
+<span class="nv">$ </span><span class="nb">cd </span>different/very/deep/directory/project2
+<span class="nv">$ </span><span class="c"># do stuff in Project 2</span></code></pre></figure>
+
+<p>While it only takes a handful of seconds to switch directories, the extra mental effort often derails my train of thought. Some solutions exist, but they all have their limitations. For example, <code class="highlighter-rouge">pushd</code> and <code class="highlighter-rouge">popd</code> don’t work well for directories you haven’t visited in a while. Aliases require you to manually add a new alias to your .bashrc every time you want to save a new directory.</p>
+
+<p>I recently found a solution, inspired by <a href="http://jeroenjanssens.com/2013/08/16/quickly-navigate-your-filesystem-from-the-command-line.html">this post</a> from <a href="https://twitter.com/jeroenhjanssens">Jeroen Janssens</a>, that works great and feels totally natural. All it takes is a one-time change to your .bashrc that will allow you to easily save directories and switch between them. To save a directory, just use the <code class="highlighter-rouge">mark</code> function:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span><span class="nb">pwd
+</span>some/very/deep/directory/project1
+<span class="nv">$ </span>mark project1</code></pre></figure>
+
+<p>To navigate to a saved directory, just use the <code class="highlighter-rouge">cdd</code> function:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>cdd project1
+<span class="c"># do stuff in Project 1</span>
+<span class="nv">$ </span>cdd project2
+<span class="c"># do stuff in Project 2</span></code></pre></figure>
+
+<p>You can display a list of your saved directories with the <code class="highlighter-rouge">marks</code> function, and you can remove a directory from the list with the <code class="highlighter-rouge">unmark</code> function:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>unmark project1</code></pre></figure>
+
+<p>For any of this to work, you’ll need to add this to your .bashrc, assuming you have a Mac and use the bash shell.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">    <span class="k">function </span>cdd <span class="o">{</span>
+        <span class="nb">cd</span> <span class="nt">-P</span> <span class="s2">"</span><span class="nv">$MARKPATH</span><span class="s2">/</span><span class="nv">$1</span><span class="s2">"</span> 2&gt;/dev/null <span class="o">||</span> <span class="nb">echo</span> <span class="s2">"No such mark: </span><span class="nv">$1</span><span class="s2">"</span>
+    <span class="o">}</span>
+    <span class="k">function </span>mark <span class="o">{</span>
+        mkdir <span class="nt">-p</span> <span class="s2">"</span><span class="nv">$MARKPATH</span><span class="s2">"</span><span class="p">;</span> ln <span class="nt">-s</span> <span class="s2">"</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span><span class="s2">"</span> <span class="s2">"</span><span class="nv">$MARKPATH</span><span class="s2">/</span><span class="nv">$1</span><span class="s2">"</span>
+    <span class="o">}</span>
+    <span class="k">function </span>unmark <span class="o">{</span>
+        rm <span class="nt">-i</span> <span class="s2">"</span><span class="nv">$MARKPATH</span><span class="s2">/</span><span class="nv">$1</span><span class="s2">"</span>
+    <span class="o">}</span>
+    <span class="k">function </span>marks <span class="o">{</span>
+        <span class="se">\l</span>s <span class="nt">-l</span> <span class="s2">"</span><span class="nv">$MARKPATH</span><span class="s2">"</span> | tail <span class="nt">-n</span> +2 | sed <span class="s1">'s/  / /g'</span> | cut <span class="nt">-d</span><span class="s1">' '</span> <span class="nt">-f9-</span> | awk <span class="nt">-F</span> <span class="s1">' -&gt; '</span> <span class="s1">'{printf "%-10s -&gt; %s\n", $1, $2}'</span>
+    <span class="o">}</span>
+
+    _cdd<span class="o">()</span>
+    <span class="o">{</span>
+        <span class="nb">local </span><span class="nv">cur</span><span class="o">=</span><span class="k">${</span><span class="nv">COMP_WORDS</span><span class="p">[COMP_CWORD]</span><span class="k">}</span>
+        <span class="nv">COMPREPLY</span><span class="o">=(</span> <span class="k">$(</span><span class="nb">compgen</span> <span class="nt">-W</span> <span class="s2">"</span><span class="k">$(</span> <span class="nb">ls</span> <span class="nv">$MARKPATH</span> <span class="k">)</span><span class="s2">"</span> <span class="nt">--</span> <span class="nv">$cur</span><span class="k">)</span> <span class="o">)</span>
+    <span class="o">}</span>
+    <span class="nb">complete</span> <span class="nt">-F</span> _cdd cdd</code></pre></figure>
+
+<p>This differs from Jeroen’s <a href="http://jeroenjanssens.com/2013/08/16/quickly-navigate-your-filesystem-from-the-command-line.html">original</a> code in a couple of ways. First, to be more brain-friendly, it names the function “cdd” instead of “jump”. Second, the tab completion works <a href="https://news.ycombinator.com/item?id=6229291">better</a>.</p>
+
+<p>Update: <a href="https://twitter.com/johnvmcdonnell">John McDonnell</a> points me to <a href="https://github.com/joelthelion/autojump">autojump</a>.</p>
+
+
+
+    <div>
+        <i class="fa fa-comment"></i> <a href="http://localhost:4000/2014/10/16/jumping-quickly-between-deep-directories/#disqus_thread" data-disqus-identifier="http://localhost:4000/2014/10/16/jumping-quickly-between-deep-directories/"></a>
+        <span>&nbsp; &nbsp;</span>
+        <span>
+            <a class="twitter-share-button"
+              href="https://twitter.com/share"
+              data-url="http://localhost:4000/2014/10/16/jumping-quickly-between-deep-directories/"
+              data-via="Chris_Said"
+              data-count="none"
+              data-text="Jumping quickly between deep directories">
+            Tweet
+            </a>
+        </span>
+
+    </div>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/2014/07/10/how-failed-replications-change-our-effect-size-estimates/">
+        How failed replications change our effect size estimates
+      </a>
+    </h1>
+
+    <span class="post-date">10 Jul 2014</span>
+
+    <p>Yesterday I posted a very unscientific <a href="https://www.surveymonkey.com/s/H7NM96W">survey</a> asking researchers to describe how failed replications changed their subjective estimates of effect sizes. The main survey asked for “ballpark estimates” of effect sizes, but an <a href="http://csaid.shinyapps.io/survey/">alternative interactive version</a> allowed researchers to also report their uncertainty by specifying both the mean and variance of their posterior distributions. Thanks to everyone who participated. I won’t be analyzing any new data after this, but it’s never too late to publicly share your estimates!</p>
+
+<p>Here are the questions. </p>
+
+<p><em><strong>Question 1</strong>. A 2009 experiment with 50 subjects (25 per cell) is published in Psych Science. The experiment does not require any special equipment other than a questionnaire. It is not pre-registered. The results show an effect size of d=0.5. Let’s define the true effect size to be the average effect size of an infinite number of replications that the original experimenter would deem “reasonably exact” in advance. Based on this information alone, what is your ballpark subjective estimate of the true effect size?</em></p>
+
+<p><em><strong>Question 2</strong>. What if the experiment had been pre-registered? </em></p>
+
+<p><em><strong>Question 3</strong>. Assume again that the experiment was not pre-registered. Now imagine that a pre-registered replication attempt with the same sample size estimated the effect size to be d=0.0. At the time of pre-registration, the original experimenter deemed it “reasonably exact”. Based on this replication and the original experiment, what is your ballpark subjective estimate of the true effect size?</em></p>
+
+<p><em><strong>Question 4</strong>. What if the replication attempt had 300 subjects per cell?</em></p>
+
+<p>Here are the results.</p>
+
+<figure class="image"><img src="/assets/results.png" alt="" /></figure>
+
+<p>Keeping in mind all the caveats about sampling bias and other issues, here are a few observations:</p>
+
+<ul>
+  <li>
+    <p>The original study reported an effect size of d=0.5, but the results for Question 1 tell us that most researchers believed the true effect size was closer to d=0.2, which is roughly in line with my own estimate. Had I allowed researchers to <a href="http://csaid.shinyapps.io/survey/">state their uncertainty</a>, I suspect that many would find it quite possible that even the <em>sign</em> of the effect was wrong. This isn’t really surprising to me, but I think we should take a moment to reflect on what this means. When a scientist reports a result, most other researchers believe it is massively overstated. I know that there are still some researchers who want little or no changes to the status quo, but I’d like to live in a world where people actually believe the claims that scientists make. That’s why I’m a strong supporter of all the attempts to <a href="http://centerforopenscience.org/">fundamentally</a> <a href="https://pubpeer.com/">change</a> <a href="http://www.talyarkoni.org/blog/2013/03/12/the-truth-is-not-optional-five-bad-reasons-and-one-mediocre-one-for-defending-the-status-quo/">how</a> scientists do research.</p>
+  </li>
+  <li>
+    <p>If you want people to have more confidence in your findings, pre-registration can make a big difference.</p>
+  </li>
+  <li>
+    <p>While it’s not apparent from the plot, almost all respondents reduced their effect size estimate upon hearing about failed replications (Question 3 and 4 compared to Question 1).</p>
+  </li>
+  <li>
+    <p>As some have pointed out, the original experiment falls a bit short of statistical significance. This was an oversight, as I forgot to check the p-value after changing some of the values. I don’t think this is a huge deal, since posterior estimates shouldn’t really depend too much on whether the results cross an arbitrary threshold. But apologies for the error.</p>
+  </li>
+  <li>
+    <p>My estimates <a href="https://twitter.com/Chris_Said/status/487041593422016512">were</a> .25, .40, .10, .05.</p>
+  </li>
+  <li>
+    <p>I wish I included another question asking what people would have thought of the original study if it was conducted in 2014.</p>
+  </li>
+</ul>
+
+
+
+    <div>
+        <i class="fa fa-comment"></i> <a href="http://localhost:4000/2014/07/10/how-failed-replications-change-our-effect-size-estimates/#disqus_thread" data-disqus-identifier="http://localhost:4000/2014/07/10/how-failed-replications-change-our-effect-size-estimates/"></a>
+        <span>&nbsp; &nbsp;</span>
+        <span>
+            <a class="twitter-share-button"
+              href="https://twitter.com/share"
+              data-url="http://localhost:4000/2014/07/10/how-failed-replications-change-our-effect-size-estimates/"
+              data-via="Chris_Said"
+              data-count="none"
+              data-text="How failed replications change our effect size estimates">
             Tweet
             </a>
         </span>
