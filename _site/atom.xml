@@ -4,13 +4,314 @@
  <title>The File Drawer</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2018-08-06T08:31:24-07:00</updated>
+ <updated>2019-05-18T15:23:35-07:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
    <email></email>
  </author>
 
+ 
+ <entry>
+   <title>Variance after scaling and summing&#58; One of the most useful facts from statistics</title>
+   <link href="http://localhost:4000/2019/05/05/variance_after_scaling_and_summing/"/>
+   <updated>2019-05-05T00:00:00-07:00</updated>
+   <id>http://localhost:4000/2019/05/05/variance_after_scaling_and_summing</id>
+   <content type="html">&lt;p&gt;What do $ R^2 $, laboratory error analysis, ensemble learning, meta-analysis, and financial portfolio risk have in common? The answer is that they all depend on a fundamental principle of statistics that is not as widely known as it should be. Once this principle is understood, a lot of stuff starts to make more sense.&lt;/p&gt;
+
+&lt;p&gt;Here’s a sneak peek at what the principle is.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\sigma_{p}^{2} = \sum\limits_{i} \sum\limits_{j} w_i w_j \sigma_i \sigma_j \rho_{ij}&lt;/script&gt;
+
+&lt;p&gt;Don’t worry if the formula doesn’t yet make sense! We’ll work our way up to it slowly, taking pit stops along the way at simpler formulas are that useful on their own. As we work through these principles, we’ll encounter lots of neat applications and explainers.&lt;/p&gt;
+
+&lt;p&gt;This post consists of three parts:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Part 1&lt;/strong&gt;: Sums of uncorrelated random variables: Applications to social science and laboratory error analysis&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Part 2&lt;/strong&gt;: Weighted sums of uncorrelated random variables: Applications to machine learning and scientific meta-analysis&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Part 3&lt;/strong&gt;: Correlated variables and Modern Portfolio Theory&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;part-1-sums-of-uncorrelated-random-variables-applications-to-social-science-and-laboratory-error-analysis&quot;&gt;Part 1: Sums of uncorrelated random variables: Applications to social science and laboratory error analysis&lt;/h2&gt;
+
+&lt;p&gt;Let’s start with some simplifying conditions and assume that we are dealing with &lt;em&gt;uncorrelated&lt;/em&gt; random variables. If you take two of them and add them together, the variance of their sum will equal the sum of their variances. This is amazing!&lt;/p&gt;
+
+&lt;p&gt;To demonstrate this, I’ve written some Python code that generates three arrays, each of length 1 million. The first two arrays contain samples from two normal distributions with variances 9 and 16, respectively. The third array is the sum of the first two arrays. As shown in the simulation, its variance is 25, which is equal to the sum of the variances of the first two arrays (9 + 16).&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;numpy.random&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;randn&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;numpy&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sqrt&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;numpy&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1000000&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;x1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sqrt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;9&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;randn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# 1M samples from normal distribution with variance=9&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;var&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# 9&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;x2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sqrt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;16&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;randn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# 1M samples from normal distribution with variance=16&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;var&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# 16&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;xp&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x2&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;var&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# 25&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This &lt;a href=&quot;https://en.wikipedia.org/wiki/Variance#Sum_of_uncorrelated_variables_(Bienaym%C3%A9_formula)&quot;&gt;fact&lt;/a&gt; was first discovered in 1853 and is known as &lt;a href=&quot;https://en.wikipedia.org/wiki/Variance#Sum_of_uncorrelated_variables_(Bienaym%C3%A9_formula)&quot;&gt;Bienaymé’s Formula&lt;/a&gt;. While the code example above shows the sum of two random variables, the formula can be extended to multiple random variables as follows:&lt;/p&gt;
+
+&lt;div class=&quot;box&quot;&gt;
+If $ X_p $ is a sum of uncorrelated random variables $ X_1 .. X_n $, then the variance of $ X_p $ will be
+
+$$ \sigma_{p}^{2} = \sum{\sigma^2_i} $$
+
+where each $ X_i $ has variance $ \sigma_i^2 $.
+&lt;/div&gt;
+
+&lt;p&gt;What does the $ p $ stand for in $ X_p $? It stands for &lt;em&gt;portfolio&lt;/em&gt;, which is just one of the many applications we’ll see later in this post.&lt;/p&gt;
+
+&lt;h3 id=&quot;why-this-is-useful&quot;&gt;Why this is useful&lt;/h3&gt;
+&lt;p&gt;Bienaymé’s result is surprising and unintuitive. But since it’s such a simple formula, it is worth committing to memory, especially because of it sheds light on so many other principles. Let’s look at two of them.&lt;/p&gt;
+
+&lt;h4 id=&quot;understanding--r2--and-variance-explained&quot;&gt;Understanding $ R^2 $ and “variance explained”&lt;/h4&gt;
+&lt;p&gt;Psychologists often talk about “within-group variance”, “between-group variance”, and “variance explained”. What do these terms mean?&lt;/p&gt;
+
+&lt;p&gt;Imagine a hypothetical study that measured the extraversion of 10 boys and 10 girls, where extraversion is measured on a 10-point scale (&lt;em&gt;Figure 1&lt;/em&gt;. Orange bars). The boys have a mean extraversion of 44 and the girls have a mean extraversion 50. In addition, the overall variance of the data is 25.  We can decompose this variance into two parts:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Between-group variance&lt;/strong&gt;: Create a 20-element array where every boy is assigned to the mean boy extraversion of 4.4, and every girl is assigned to the mean girl extraversion of 5.0. The variance of this array is 0.9. (&lt;em&gt;Figure 1&lt;/em&gt;. Blue bars).&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Within-group variance&lt;/strong&gt;: Create a 20-element array of the amount each child’s extraversion deviates from the mean value for their sex. Some of these values will be negative and some will be positive. The variance of this array is 1.6. (&lt;em&gt;Figure 1&lt;/em&gt;. Pink bars).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;img src=&quot;/assets/2019_variance/boy_girl_extraversion.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:100%;&quot; /&gt;
+  &lt;div class=&quot;caption&quot;&gt;&lt;strong&gt;Figure 1&lt;/strong&gt;: Decomposition of extraversion scores (orange) into between-group variance (blue) and within-group variance (pink).
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;If you add these arrays together, the resulting array will represent the observed data (&lt;em&gt;Figure 1&lt;/em&gt;. Orange bars). As originally measured, it will have a variance of 2.5, which corresponds exactly to the sum of the variances of the two component arrays (0.9 + 1.6). Psychologists might say that sex “explains” 0.9/2.5 = 36% of the extraversion variance. Equivalently, a model of extraversion that uses sex as the only predictor would have an &lt;a href=&quot;https://en.wikipedia.org/wiki/Coefficient_of_determination&quot;&gt;$ R^2 $&lt;/a&gt; of 0.36.&lt;/p&gt;
+
+&lt;h4 id=&quot;error-propagation-in-laboratories&quot;&gt;Error propagation in laboratories&lt;/h4&gt;
+&lt;p&gt;If you ever took a physics lab or chemistry lab back in college, you may remember having to perform &lt;a href=&quot;http://ipl.physics.harvard.edu/wp-uploads/2013/03/PS3_Error_Propagation_sp13.pdf&quot;&gt;error analysis&lt;/a&gt;, in which you calculated how errors would propagate through one noisy measurement after another.&lt;/p&gt;
+
+&lt;p&gt;Physics textbooks often say that standard deviations add in “quadrature”, which just means that if you are trying to estimate some quantity that is the sum of two other measurements, and if each measurement has some error with standard deviation &lt;script type=&quot;math/tex&quot;&gt;\sigma_1&lt;/script&gt; and &lt;script type=&quot;math/tex&quot;&gt;\sigma_2&lt;/script&gt; respectively, the final standard deviation would be  &lt;script type=&quot;math/tex&quot;&gt;\sigma_{p} = \sqrt{\sigma^2_1 + \sigma^2_2}&lt;/script&gt;. I think it’s probably easier to just use variances, as in the Bienaymé Formula, with &lt;script type=&quot;math/tex&quot;&gt;\sigma^2_{p} = \sigma^2_1 + \sigma^2_2&lt;/script&gt;.&lt;/p&gt;
+
+&lt;p&gt;For example, imagine you are trying to estimate the height of two boxes stacked on top of each other (&lt;em&gt;Figure 2&lt;/em&gt;). One box has a height of 1 meter with variance $ \sigma^2_1 $ = 0.01, and the other has a height of 2 meter with variance $ \sigma^2_2 $ = 0.01. Let’s further assume, perhaps optimistically, that these errors are independent. That is, if the measurement of the first box is too high, that doesn’t make it any more likely that the measurement of the second box will also be too high. If we can make these assumptions, then the total height of the two boxes will be 3 meters with variance $ \sigma^2_p $ = 0.02.&lt;/p&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;img src=&quot;/assets/2019_variance/stacked_boxes.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:50%;&quot; /&gt;
+  &lt;div class=&quot;caption&quot;&gt;&lt;strong&gt;Figure 2&lt;/strong&gt;: Two boxes stacked on top of each other. The height of each box is measured with some variance (uncertainty). The total height is the the sum of the individual heights, and the total variance (uncertainty) is the sum of the individual variances.
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;There is a key difference between the extraversion example and the stacked boxes example. In the extraversion example, we added two &lt;em&gt;arrays&lt;/em&gt; that each had an observed sample variance. In the stacked boxes example, we added two &lt;em&gt;scalar measurements&lt;/em&gt;, where the variance of these measurements refers to our measurement uncertainty. Since both cases have a meaningful concept of ‘variance’, the Bienaymé Formula applies to both.&lt;/p&gt;
+
+&lt;h2 id=&quot;part-2-weighted-sums-of-uncorrelated-random-variables-applications-to-machine-learning-and-scientific-meta-analysis&quot;&gt;Part 2: Weighted sums of uncorrelated random variables: Applications to machine learning and scientific meta-analysis&lt;/h2&gt;
+
+&lt;p&gt;Let’s now move on to the case of &lt;em&gt;weighted&lt;/em&gt; sums of uncorrelated random variables. But before we get there, we first need to understand what happens to variance when a random variable is scaled.&lt;/p&gt;
+
+&lt;div class=&quot;box&quot;&gt;
+If $ X_p $ is defined as $ X $ scaled by a factor of $ w $, then the variance $ X_p $ will be
+
+$$ \sigma_{p}^{2} = w^2 \sigma^2 $$
+
+where $ \sigma^2 $ is the variance of $ X $.
+&lt;/div&gt;
+
+&lt;p&gt;This means that if a random variable is scaled, its variance will scale &lt;em&gt;quadratically&lt;/em&gt;. Let’s see this in code.&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1000000&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;x1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sqrt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;randn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# Array of 1M samples from normal distribution with variance=10&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;var&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# 10&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;w&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.7&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;xp&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;w&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x1&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# Scale this by w=0.7&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;w&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;**&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# 4.9 (predicted variance)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;var&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# 4.9 (empirical variance) &lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;To gain some intuition for this, it’s helpful to think about outliers. We know that outliers have a huge effect on variance. That’s because the variance formula squares all the deviations, and we get really big numbers when we square large deviations. With that as background, let’s think about what happens if we scale our data by 2. The outliers will spread out twice as far, which means they will have even more than twice as much impact on the variance. Similarly, if we multiply our data by 0.5, we will squash the most “damaging” part of the outliers, and so we will reduce our variance by more than a factor of two.&lt;/p&gt;
+
+&lt;p&gt;While the above principle is pretty simple, things start to get interesting when you combine it with the Bienaymé Formula in Part I:&lt;/p&gt;
+
+&lt;div class=&quot;box&quot;&gt;
+If $ X_p $ is a weighted sum of uncorrelated random variables $ X_1 ... X_n $, then the variance of $ X_p $ will be 
+
+$$ \sigma_{p}^{2} = \sum{w^2_i \sigma^2_i} $$
+
+where each $ w_i $ is a weight on $ X_i $, and each $ X_i $ has its own variance $ \sigma_i^2 $.
+&lt;/div&gt;
+
+&lt;p&gt;The above formula shows what happens when you scale and then sum random variables. The final variance is the weighted sum of the original variances, where the weights are squares of the original weights. Let’s see how this can be applied to machine learning.&lt;/p&gt;
+
+&lt;h3 id=&quot;an-ensemble-model-with-equal-weights&quot;&gt;An ensemble model with equal weights&lt;/h3&gt;
+
+&lt;p&gt;Imagine that you have built two separate models to predict car prices. While the models are unbiased, they have variance in their errors. That is, sometimes a model prediction will be too high, and sometimes a model prediction will be too low. Model 1 has a mean squared error (MSE) of \$1,000 and Model 2 has an MSE of \$2,000.&lt;/p&gt;
+
+&lt;p&gt;A valuable insight from machine learning is that you can often create a better model by simply averaging the predictions of other models. Let’s demonstrate this with simulations below.&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1000000&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;actual&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;20000&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5000&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;randn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;errors1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sqrt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;randn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;errors1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;var&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# 1000&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;errors2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sqrt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;randn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;errors2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;var&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# 2000&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Note that this section could be replaced with &lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# errors_ensemble = 0.5 * errors1 + 0.5 * errors2&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;preds1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;actual&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;errors1&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;preds2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;actual&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;errors2&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;preds_ensemble&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.5&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;preds1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.5&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;preds2&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;errors_ensemble&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;preds_ensemble&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;actual&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;errors_ensemble&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;var&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# 750&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;As shown in the code above, even though a good model (Model 1) was averaged with an inferior model (Model 2), the resulting Ensemble model’s MSE of \$750 is better than either of the models individually.&lt;/p&gt;
+
+&lt;p&gt;The benefits of ensembling follow directly from the weighted sum formula we saw above, &lt;script type=&quot;math/tex&quot;&gt;\sigma_{p}^{2} = \sum{w^2_i \sigma^2_i}&lt;/script&gt;. To understand why, it’s helpful to think of models not as generating predictions, but rather as generating errors. Since averaging the predictions of a model corresponds to averaging the errors of the model, we can treat each model’s array of errors as samples of a random variable whose variance can be plugged in to the formula. Assuming the models are unbiased (i.e. the errors average to about zero), the formula tells us the expected MSE of the ensemble predictions. In the example above, the MSE would be&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\sigma_{p}^{2} = 0.5^2 \times 1000 + 0.5^2 \times 2000 = 750&lt;/script&gt;
+
+&lt;p&gt;which is exactly what we observed in the simulations.&lt;/p&gt;
+
+&lt;p&gt;(For a totally different intuition of why ensembling works, see &lt;a href=&quot;https://www.opendoor.com/w/blog/why-ensembling-works-the-intuition-behind-opendoors-home-pricing&quot;&gt;this blog post&lt;/a&gt; that I co-wrote for my company, Opendoor.)&lt;/p&gt;
+
+&lt;h3 id=&quot;an-ensemble-model-with-inverse-variance-weighting&quot;&gt;An ensemble model with Inverse Variance Weighting&lt;/h3&gt;
+
+&lt;p&gt;In the example above, we obtained good results by using an equally-weighted average of the two models. But can we do better?&lt;/p&gt;
+
+&lt;p&gt;Yes we can! Since Model 1 was better than Model 2, we should probably put more weight on Model 1. But of course we shouldn’t put all our weight on it, because then we would throw away the demonstrably useful information from Model 2. The optimal weight must be somewhere in between 50% and 100%.&lt;/p&gt;
+
+&lt;p&gt;An effective way to find the optimal weight is to &lt;a href=&quot;http://blog.kaggle.com/2016/12/27/a-kagglers-guide-to-model-stacking-in-practice/&quot;&gt;build another model on top of these models&lt;/a&gt;. However, if you can make certain assumptions (unbiased and uncorrelated errors), there’s an even simpler approach that is great for back-of-the envelope calculations and great for understanding the principles behind ensembling.&lt;/p&gt;
+
+&lt;p&gt;To find the optimal weights (assuming unbiased and uncorrelated errors), we need to minimize the variance of the ensemble errors
+&lt;script type=&quot;math/tex&quot;&gt;\sigma_{p}^{2} = \sum{w^2_i \sigma^2_i}&lt;/script&gt;
+with the constraint that 
+&lt;script type=&quot;math/tex&quot;&gt;\sum{w_i} = 1&lt;/script&gt;.&lt;/p&gt;
+
+&lt;p&gt;It &lt;a href=&quot;https://en.wikipedia.org/wiki/Inverse-variance_weighting&quot;&gt;turns out&lt;/a&gt; that the variance-minimizing weight for a model should be proportional to the inverse of its variance. 
+&lt;script type=&quot;math/tex&quot;&gt;w_k = \frac{1/{\sigma^2_k}}{\sum{1/{\sigma^2_i}}}&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;When we apply this method, we obtain optimal weights of &lt;script type=&quot;math/tex&quot;&gt;w_1&lt;/script&gt; = 0.67 and &lt;script type=&quot;math/tex&quot;&gt;w_2&lt;/script&gt; = 0.33. These weights give us an ensemble error variance of&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\sigma_{p}^{2} = 0.67^2 \times 1000 + 0.33^2 \times 2000 = 666&lt;/script&gt;
+
+&lt;p&gt;which is significantly better than the $750 variance we were getting with equal weighting.&lt;/p&gt;
+
+&lt;p&gt;This method, called &lt;a href=&quot;https://en.wikipedia.org/wiki/Inverse-variance_weightinghttps://en.wikipedia.org/wiki/Inverse-variance_weighting&quot;&gt;Inverse Variance Weighting&lt;/a&gt;, can be seen in the figure below. The horizontal axis represents the weight on Model 1. The vertical axis represents the weight on Model 2. Both models are unbiased. Color represents the total error variance when the model predictions are summed, based on the formula &lt;script type=&quot;math/tex&quot;&gt;\sigma_{p}^{2} = \sum{w^2_i \sigma^2_i}&lt;/script&gt;. The total variance (color) increases more rapidly as you move upward compared to rightward, indicating that Model 2 contributes more to the total variance. The diagonal line represents the constraint that &lt;script type=&quot;math/tex&quot;&gt;w_1 + w_2 = 1&lt;/script&gt;. The dot represents the optimal weight as determined by Inverse Variance Weighting. As you can see, Inverse Variance Weighting picks the lightest (lowest variance) point on the line, with more weight on Model 1 than Model 2.&lt;/p&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;img src=&quot;/assets/2019_variance/inverse_variance/main_fig.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:70%;&quot; /&gt;
+  &lt;div class=&quot;caption&quot;&gt;&lt;strong&gt;Figure 3&lt;/strong&gt;. Total error variance (color) as a function of weights on a high error model (vertical) and a low error model (horizontal). The optimal weighting (dot) puts more weight on the low error model.
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;Inverse Variance Weighting is not just useful as a way to understand Machine Learning ensembles. It is also one of the core principles in scientific &lt;a href=&quot;https://en.wikipedia.org/wiki/Meta-analysis&quot;&gt;meta-analysis&lt;/a&gt;, which is popular in medicine and the social sciences. When multiple scientific studies attempt to estimate some quantity, and each study has a different sample size (and hence variance of their estimate), a meta-analysis should weight the high sample size studies more. Inverse Variance Weighting is used to determine those weights.&lt;/p&gt;
+
+&lt;h2 id=&quot;part-3-correlated-variables-and-modern-portfolio-theory&quot;&gt;Part 3: Correlated variables and Modern Portfolio Theory&lt;/h2&gt;
+
+&lt;p&gt;Let’s imagine we now have three unbiased models with the following MSEs:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Model 1: MSE = 1000&lt;/li&gt;
+  &lt;li&gt;Model 2: MSE = 1000&lt;/li&gt;
+  &lt;li&gt;Model 3: MSE = 2000&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;By Inverse Variance Weighting, we should assign more weight to the first two models, with &lt;script type=&quot;math/tex&quot;&gt;w_1=0.4, w_2=0.4, w_3=0.2&lt;/script&gt;.&lt;/p&gt;
+
+&lt;p&gt;But what happens if Model 1 and Model 2 have correlated errors? For example, whenever Model 2’s predictions are too high, Model 3’s predictions tend to also be too high. In that case, maybe we don’t want to give so much weight to Models 1 and 2, since they provide somewhat redundant information. Instead we should increase the weight on Model 3, since it provides new independent information.&lt;/p&gt;
+
+&lt;p&gt;To determine how much weight to put on each model, we first need to determine how much total variance there will be if the errors are correlated. To do this, we need to borrow a &lt;a href=&quot;https://en.wikipedia.org/wiki/Modern_portfolio_theory&quot;&gt;formula&lt;/a&gt; from the financial literature, which extends the formulas we’ve worked with before. This is the formula we’ve been waiting for.&lt;/p&gt;
+
+&lt;div class=&quot;box&quot;&gt;
+If $ X_p $ is a weighted sum of (correlated or uncorrelated) random variables $ X_1 ... X_n $, then the variance of $ X_p $ will be
+
+$$ \sigma_{p}^{2} = \sum\limits_{i} \sum\limits_{j} w_i w_j \sigma_i \sigma_j \rho_{ij} $$
+
+where each $ w_i $ and $ w_j $ are weights assigned to $ X_i $ and $ X_j $, where each $ X_i $ and $ X_j $ have standard deviations $ \sigma_i $ and $ \sigma_j $, and where the correlation between $ X_i $ and $ X_j $ is $ \rho_{ij} $.
+&lt;/div&gt;
+
+&lt;p&gt;There’s a lot to unpack here, so let’s take this step by step.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;script type=&quot;math/tex&quot;&gt;\sigma_i \sigma_j \rho_{ij}&lt;/script&gt; is a scalar quantity representing the covariance between &lt;script type=&quot;math/tex&quot;&gt;X_i&lt;/script&gt; and &lt;script type=&quot;math/tex&quot;&gt;X_j&lt;/script&gt;.&lt;/li&gt;
+  &lt;li&gt;If none of the variables are correlated with each other, then all the cases where $ i \neq j $ will go to zero, and the formula reduces to &lt;script type=&quot;math/tex&quot;&gt;\sigma_{p}^{2} = \sum{w^2_i \sigma^2_i}&lt;/script&gt;, which we have seen before.&lt;/li&gt;
+  &lt;li&gt;The more that two variables &lt;script type=&quot;math/tex&quot;&gt;X_i&lt;/script&gt; and &lt;script type=&quot;math/tex&quot;&gt;X_j&lt;/script&gt; are correlated, the more the total variance &lt;script type=&quot;math/tex&quot;&gt;\sigma_{p}^{2}&lt;/script&gt; increases.&lt;/li&gt;
+  &lt;li&gt;If two variables &lt;script type=&quot;math/tex&quot;&gt;X_i&lt;/script&gt; and &lt;script type=&quot;math/tex&quot;&gt;X_j&lt;/script&gt; are anti-correlated, then the total variance decreases, since &lt;script type=&quot;math/tex&quot;&gt;\sigma_i \sigma_j \rho_{ij}&lt;/script&gt; is negative.&lt;/li&gt;
+  &lt;li&gt;This formula can be rewritten in more compact notation as &lt;script type=&quot;math/tex&quot;&gt;\sigma_{p}^{2} = \vec{w}^T\Sigma \vec{w}&lt;/script&gt;, where &lt;script type=&quot;math/tex&quot;&gt;\vec{w}&lt;/script&gt; is the weight vector, and &lt;script type=&quot;math/tex&quot;&gt;\Sigma&lt;/script&gt; is the covariance matrix (not a summation sign!)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;If you skimmed the bullet points above, go back and re-read them! They are super important.&lt;/p&gt;
+
+&lt;p&gt;To find the set of weights that minimize variance in the errors, then you must minimize the above formula, with the constraint that &lt;script type=&quot;math/tex&quot;&gt;\sum{w_i} = 1&lt;/script&gt;. One way to do this is to use a &lt;a href=&quot;https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.minimize.html#scipy.optimize.minimize&quot;&gt;numerical optimization method&lt;/a&gt;. In practice, however, it is more common to just find weights by &lt;a href=&quot;http://blog.kaggle.com/2016/12/27/a-kagglers-guide-to-model-stacking-in-practice/&quot;&gt;building another model on top of the base models&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Regardless of how the weights are found, it will usually be the case that if Models 1 and 2 are correlated, the optimal weights will reduce redundancy and put lower weight on these models than simple Inverse Variance Weighting would suggest.&lt;/p&gt;
+
+&lt;h3 id=&quot;applications-to-financial-portfolios&quot;&gt;Applications to financial portfolios&lt;/h3&gt;
+
+&lt;p&gt;The formula above was discovered by economist &lt;a href=&quot;https://en.wikipedia.org/wiki/Harry_Markowitz&quot;&gt;Harry Markowitz&lt;/a&gt; in his &lt;a href=&quot;https://en.wikipedia.org/wiki/Modern_portfolio_theory&quot;&gt;Modern Portfolio Theory&lt;/a&gt;, which describes how an investor can optimally trade off between expected returns and expected risk, often measured as variance. In particular, the theory shows how to maximize expected return given a fixed variance, or minimize variance given a fixed expected return. We’ll focus on the latter.&lt;/p&gt;
+
+&lt;p&gt;Imagine you have three stocks to put in your portfolio. You plan to sell them at time $ T $, at which point you expect that Stock 1 will have gone up by 5%, with some uncertainty. You can describe your uncertainty as variance, and in the case of Stock 1, let’s say &lt;script type=&quot;math/tex&quot;&gt;\sigma_1^2&lt;/script&gt; = 1. This stock, as well Stocks 2 and 3, are summarized in the table below:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Stock ID&lt;/th&gt;
+      &lt;th&gt;Expected Return&lt;/th&gt;
+      &lt;th&gt;Expected Risk (&lt;script type=&quot;math/tex&quot;&gt;\sigma^2&lt;/script&gt;)&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;5.0&lt;/td&gt;
+      &lt;td&gt;1.0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;2&lt;/td&gt;
+      &lt;td&gt;5.0&lt;/td&gt;
+      &lt;td&gt;1.0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;3&lt;/td&gt;
+      &lt;td&gt;5.0&lt;/td&gt;
+      &lt;td&gt;2.0&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;This financial example should remind you of ensembling in machine learning. In the case of ensembling, we wanted to minimize variance of the weighted sum of error arrays. In the case of financial portfolios, we want to minimize the variance of the weighted sum of scalar financial returns.&lt;/p&gt;
+
+&lt;p&gt;As before, if there are no correlations between the expected returns (i.e. if Stock 1 exceeding 5% return does not imply that Stock 2 or Stock 3 will exceed 5% return), then the total variance in the portfolio will be
+&lt;script type=&quot;math/tex&quot;&gt;\sigma_{p}^{2} = \sum{w^2_i \sigma^2_i}&lt;/script&gt;
+and we can use Inverse Variance Weighting to obtain weights $ w_1=0.4, w_2=0.4, w_3=0.2 $.&lt;/p&gt;
+
+&lt;p&gt;However, sometimes stocks have correlated expected returns. For example, if two of the stocks are in oil companies, then one stock exceeding 5% implies the other is also likely to exceed 5%. When this happens, the total variance becomes&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\sigma_{p}^{2} = \sum\limits_{i} \sum\limits_{j} w_i w_j \sigma_i \sigma_j \rho_{ij}&lt;/script&gt;
+
+&lt;p&gt;as we saw before in the ensemble example. Since this includes an additional positive term for &lt;script type=&quot;math/tex&quot;&gt;w_1 w_2 \sigma_1 \sigma_2 \rho_{1,2}&lt;/script&gt;, the expected variance is higher than in the uncorrelated case, assuming the correlations are positive. To reduce this variance, we should put less weight on Stocks 1 and 2 than we would otherwise.&lt;/p&gt;
+
+&lt;p&gt;While we have focused on minimizing the variance of a financial portfolio, you might also be interested in having a portfolio with high return. Modern Portfolio Theory describes how a portfolio can reach any abitrary point on the &lt;a href=&quot;https://en.wikipedia.org/wiki/Efficient_frontier&quot;&gt;efficient frontier&lt;/a&gt; of variance and return, but that’s outside the scope of this blog post. And as you might expect, financial markets can be more complicated than Modern Portfolio Theory suggests, but that’s also outside scope.&lt;/p&gt;
+
+&lt;h2 id=&quot;summary&quot;&gt;Summary&lt;/h2&gt;
+
+&lt;p&gt;That was a long post, but I hope that the principles described have been informative. It may be helpful to summarize them in &lt;em&gt;backwards&lt;/em&gt; order, starting with the most general principle.&lt;/p&gt;
+
+&lt;div class=&quot;box&quot;&gt;
+
+If $ X_p $ is a weighted sum of (correlated or uncorrelated) random variables $ X_1 ... X_n $, then the variance of $ X_p $ will be
+
+$$ \sigma_{p}^{2} = \sum\limits_{i} \sum\limits_{j} w_i w_j \sigma_i \sigma_j \rho_{ij} $$
+
+where each $ w_i $ and $ w_j $ are weights assigned to $ X_i $ and $ X_j $, where each $ X_i $ and $ X_j $ have standard deviations $ \sigma_i $ and $ \sigma_j $, and where the correlation between $ X_i $ and $ X_j $ is $ \rho_{ij} $. The term $ \sigma_i \sigma_j \rho_{ij} $ is a scalar quantity representing the covariance between $ X_i $ and $ X_j $.
+
+&lt;br /&gt;&lt;br /&gt;If none of the variables are correlated, then all the cases where $ i \neq j $ go to zero, and the formula reduces to 
+
+$$ \sigma_{p}^{2} = \sum{w^2_i \sigma^2_i} $$
+
+And finally, if we are computing a simple sum of random variables where all the weights are 1, then the formula reduces to
+
+$$ \sigma_{p}^{2} = \sum{\sigma^2_i} $$
+&lt;/div&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Using your ears and head to escape the Cone Of Confusion</title>
@@ -41,7 +342,7 @@
   &lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;&lt;br /&gt;
-This system sounds good in theory, but do we actually use these cues in practice? In 1988, Frederic Wightman and Doris Kistler performed an ingenious set of experiments (&lt;a href=&quot;http://public.vrac.iastate.edu/~charding/audio/Headphone%20simulation%20of%20free-field%20listening.%20I-%20Stimulus%20synthesis%20-%20J%20Acoust%20Soc%20Am%201989%20-%20Wightman.pdf&quot;&gt;1&lt;/a&gt;, &lt;a href=&quot;http://public.vrac.iastate.edu/~charding/audio/Headphone%20simulation%20of%20free-field%20listening.%20II-%20Psychophysical%20validation%20-%20J%20Acoust%20Soc%20Am%201989%20-%20Wightman.pdf&quot;&gt;2&lt;/a&gt;) to show that that people really do use HRTFs to infer location. First, they measured the HRTF of each participant by putting a small microphone in their ears and playing sounds from different locations. Next they created a digital filter for each location and each participant. These filters replicated the pattern of filtering from each location. Finally, they placed headphones on the listeners and played sounds to them, each time passing the sound through one of the digital filters. Amazingly, participants were able to correctly guess the “location” of the sound, depending on which filter was used, even though the sound was coming from headphones. They were also much better at sound localization when using their own HRTF, rather than someone else’s HRTF.&lt;/p&gt;
+This system sounds good in theory, but do we actually use these cues in practice? In 1988, Frederic Wightman and Doris Kistler performed an ingenious set of experiments (&lt;a href=&quot;http://public.vrac.iastate.edu/~charding/audio/Headphone%20simulation%20of%20free-field%20listening.%20I-%20Stimulus%20synthesis%20-%20J%20Acoust%20Soc%20Am%201989%20-%20Wightman.pdf&quot;&gt;1&lt;/a&gt;, &lt;a href=&quot;http://public.vrac.iastate.edu/~charding/audio/Headphone%20simulation%20of%20free-field%20listening.%20II-%20Psychophysical%20validation%20-%20J%20Acoust%20Soc%20Am%201989%20-%20Wightman.pdf&quot;&gt;2&lt;/a&gt;) to show that that people really do use HRTFs to infer location. First, they measured the HRTF of each participant by putting a small microphone in their ears and playing sounds from different locations. Next they created a digital filter for each location and each participant. That is to say, these filters implemented each participant’s HRTF. Finally, they placed headphones on the listeners and played sounds to them, each time passing the sound through one of the digital filters. Amazingly, participants were able to correctly guess the “location” of the sound, depending on which filter was used, even though the sound was coming from headphones. They were also much better at sound localization when using their own HRTF, rather than someone else’s HRTF.&lt;/p&gt;
 
 &lt;p&gt;Further evidence for this hypothesis comes from &lt;a href=&quot;https://doi.org/10.1038/1633&quot;&gt;Hofman et al., 1998&lt;/a&gt;, who showed that by using putty to reshape people’s ears, they were able to change the HRTFs and thus disrupt sound localization. Interestingly, people were able to quickly relearn how to localize sound with their new HRTFs.&lt;/p&gt;
 &lt;div class=&quot;wrapper&quot;&gt;
@@ -270,6 +571,96 @@ This system sounds good in theory, but do we actually use these cues in practice
  </entry>
  
  <entry>
+   <title>Religions as firms</title>
+   <link href="http://localhost:4000/2017/12/02/religions-as-firms-(chris-said-od-mac's-conflicted-copy-2019-02-09)/"/>
+   <updated>2017-12-02T00:00:00-08:00</updated>
+   <id>http://localhost:4000/2017/12/02/religions-as-firms (chris-said-od-mac's conflicted copy 2019-02-09)</id>
+   <content type="html">&lt;p&gt;I recently came across a magazine that helps pastors manage the financial and operational challenges of church management. The magazine is called &lt;em&gt;Church Executive&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Readers concerned about seasonal effects on tithing can learn how to “&lt;a href=&quot;https://churchexecutive.com/archives/church-executive-remote-roundtable-2&quot;&gt;sustain generosity&lt;/a&gt;” during the weaker summer months. Technology like &lt;a href=&quot;https://churchexecutive.com/archives/church-executive-remote-roundtable-6&quot;&gt;push notifications and text messages&lt;/a&gt; is encouraged as a way to remind people to tithe. There is also some emphasis on messaging, as pastors are told to “make sure your &lt;a href=&quot;https://churchexecutive.com/archives/church-executive-remote-roundtable-6&quot;&gt;generosity-focused sermons&lt;/a&gt; are hitting home with your audience”.&lt;/p&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;img src=&quot;/assets/2017_religions_as_firms/church_executive.jpg&quot; height=&quot;250&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid;&quot; /&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Churches need money to stay active, and it’s natural that pastors would want to maintain a healthy cash flow. But the brazen language of &lt;em&gt;Church Executive&lt;/em&gt; reminded me of the language of profit-maximizing firms. This got me thinking: What are the other ways in which religions act like a business?&lt;/p&gt;
+
+&lt;p&gt;This post is my attempt to understand religions as if they were businesses. This isn’t a perfect metaphor. Most religious leaders are motivated by genuine beliefs, and few are motivated primarily by profit. But it can still be instructive to view religions through the lens of business and economics, if only as an exercise. After working through this myself, I feel like I have a better understanding of why religions act the way they do.&lt;/p&gt;
+
+&lt;h3 id=&quot;competition&quot;&gt;Competition&lt;/h3&gt;
+&lt;p&gt;As with any business, one of the most pressing concerns of a religion is competition. According to sociologist Carl Bankston, the set of religions &lt;a href=&quot;https://en.wikipedia.org/wiki/Theory_of_religious_economy&quot;&gt;can be described&lt;/a&gt; as a marketplace of competing firms that vie for customers. Religious consumers can leave one church to go to another. To hedge their bets on the afterlife, some consumers may even belong to several churches simultaneously, in a strategy that has been described as “&lt;a href=&quot;http://users.clas.ufl.edu/kenwald/pos6292/iannaccone.pdf&quot;&gt;portfolio diversification&lt;/a&gt;”.&lt;/p&gt;
+
+&lt;p&gt;One way that a religion can ward off competitors is to prohibit its members from following them. The Bible is insistent on this point, with &lt;a href=&quot;https://bible.knowing-jesus.com/topics/Avoiding-Idolatry&quot;&gt;26 separate verses&lt;/a&gt; banning idolatry. Other religions have been able to eliminate competition entirely by forming &lt;a href=&quot;https://en.wikipedia.org/wiki/Islam_in_Saudi_Arabia#Role_in_the_state_and_society&quot;&gt;state-sponsored monopolies&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;pricing&quot;&gt;Pricing&lt;/h3&gt;
+&lt;p&gt;Just like a business, religions need to determine how to price their product. According to economists &lt;a href=&quot;https://www.researchgate.net/profile/Feler_Bose/publication/271328680_Funding_the_Faiths_Toward_a_Theory_of_Religious_Finance/links/54c5b8790cf219bbe4f59dac.pdf&quot;&gt;Laurence Iannaccone and Feler Bose&lt;/a&gt;, the optimal pricing strategy for a religion depends on whether it is proselytizing or non-proselytizing.&lt;/p&gt;
+
+&lt;p&gt;Non-proselytizing religions like Judaism and Hinduism earn much of their income from &lt;a href=&quot;http://www.hinducenterofvirginia.org/Membership.html&quot;&gt;membership fees&lt;/a&gt;. While exceptions are often made for people who are too poor to pay, and while donations are still accepted, the explicit nature of the membership fees help these religions avoid having too many &lt;a href=&quot;http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.483.5309&amp;amp;rep=rep1&amp;amp;type=pdf&quot;&gt;free riders&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Proselytizing religions like Christianity are &lt;a href=&quot;http://freakonomics.com/2010/10/19/churches-versus-synagogues-voluntary-donations-versus-dues/&quot;&gt;different&lt;/a&gt;. Because of their strong emphasis on growth, they are willing to forgo explicit membership fees and instead rely more on donations that are up to the member’s discretion. Large donations from wealthy individuals can &lt;a href=&quot;https://www.researchgate.net/profile/Feler_Bose/publication/271328680_Funding_the_Faiths_Toward_a_Theory_of_Religious_Finance/links/54c5b8790cf219bbe4f59dac.pdf&quot;&gt;cross-subsidize&lt;/a&gt; the membership of those who make smaller donations. Even free riders who make no donations at all &lt;a href=&quot;https://www.economics.uci.edu/files/docs/workingpapers/2006-07/06-07-22.pdf&quot;&gt;may be worthwhile&lt;/a&gt;, since they may attract more members in the future.&lt;/p&gt;
+
+&lt;h3 id=&quot;surge-pricing&quot;&gt;Surge Pricing&lt;/h3&gt;
+&lt;p&gt;Like Uber, some religions raise the price during periods of peak demand. While attendance at Jewish synagogue for a regular Shabbat service is normally free, attendance during one of the High Holidays typically &lt;a href=&quot;http://www.nytimes.com/2013/09/14/us/selling-holy-day-tickets-is-dilemma-for-synagogues.html&quot;&gt;requires a payment&lt;/a&gt; for seating, in part to &lt;a href=&quot;https://reformjudaism.org/jewish-holidays/rosh-hashanah/five-things-know-about-attending-high-holiday-services&quot;&gt;ensure space for everyone&lt;/a&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;img src=&quot;/assets/2017_religions_as_firms/traffic_synagogue.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:100%;&quot; /&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Surge pricing makes sense for non-proselytizing religions such as Judaism, but it does not make sense for proselytizing religions such as Christianity, which views the higher demand during peak season as an &lt;a href=&quot;https://www.researchgate.net/profile/Feler_Bose/publication/271328680_Funding_the_Faiths_Toward_a_Theory_of_Religious_Finance/links/54c5b8790cf219bbe4f59dac.pdf&quot;&gt;opportunity&lt;/a&gt; to convert newcomers and to reactivate lapsed members. Thus, Christian churches tend to expand seating and schedule extra services during Christmas and Easter, rather than charging fees.&lt;/p&gt;
+
+&lt;h3 id=&quot;product-quality&quot;&gt;Product Quality&lt;/h3&gt;
+&lt;p&gt;Just as business consumers will &lt;a href=&quot;https://books.google.com/books/about/Acts_of_Faith.html?id=913O9xcpBB4C&amp;amp;printsec=frontcover&amp;amp;source=kp_read_button#v=onepage&amp;amp;q=%22higher%20prices%22&amp;amp;f=false&quot;&gt;pay&lt;/a&gt; higher prices for better products, consumers of polytheistic religions will pay higher “prices” for gods with more wide-ranging powers. Even today, some American megachurches have found success with the &lt;a href=&quot;https://en.wikipedia.org/wiki/Prosperity_theology&quot;&gt;prosperity gospel&lt;/a&gt;, which emphasizes that God can make you wealthy.&lt;/p&gt;
+
+&lt;p&gt;Of course, not all religious consumers will prefer the cheap promises of the prosperity gospel. For many religions, product quality is defined primarily by community, a sense of meaning, and in some cases the promise of an afterlife.&lt;/p&gt;
+
+&lt;h3 id=&quot;software-updates&quot;&gt;Software Updates&lt;/h3&gt;
+&lt;p&gt;A good business should be constantly updating its product to fix bugs and to respond to changes in consumer preference or government regulation. Some religions do the same thing, via the process of &lt;a href=&quot;https://en.wikipedia.org/wiki/Continuous_revelation&quot;&gt;continuous revelation&lt;/a&gt; from their deity. Perhaps no church exemplifies this better than the Church of Jesus Christ of Latter-day Saints.&lt;/p&gt;
+
+&lt;p&gt;For most of the history of the Mormon Church, individuals of African descent were prohibited from serving as priests. By the 1960s, as civil rights protests against the church received media attention, the policy became increasingly untenable. On June 1, 1978, Mormon leaders reported that God had instructed them to update the policy and allow black priests. This event was known as the &lt;a href=&quot;https://en.wikipedia.org/wiki/1978_Revelation_on_Priesthood&quot;&gt;1978 Revelation on the Priesthood&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;In the late 19th Century, when the Mormon Church was under intense pressure from the US Government regarding polygamy, the Church president claimed to receive a revelation from Jesus Christ asking him to prohibit it. This revelation, known as the &lt;a href=&quot;https://en.wikipedia.org/wiki/1890_Manifesto&quot;&gt;1890 Revelation&lt;/a&gt;, overturned the previous &lt;a href=&quot;https://en.wikipedia.org/wiki/Origin_of_Latter_Day_Saint_polygamy#1843_revelation&quot;&gt;1843 Revelation&lt;/a&gt; which allowed polygamy.&lt;/p&gt;
+
+&lt;p&gt;While frequent updates usually make sense in business, they don’t always make sense in religion. Most religions have a fairly static doctrine, as the prospect of future updates undermines the authority of current doctrine.&lt;/p&gt;
+
+&lt;h3 id=&quot;growth-and-marketing&quot;&gt;Growth and marketing&lt;/h3&gt;
+&lt;p&gt;Instead of focusing only on immediate profitability, many businesses invest in user growth. As mentioned earlier, many religions are willing to &lt;a href=&quot;https://www.researchgate.net/profile/Feler_Bose/publication/271328680_Funding_the_Faiths_Toward_a_Theory_of_Religious_Finance/links/54c5b8790cf219bbe4f59dac.pdf&quot;&gt;cross-subsidize&lt;/a&gt; participation from new members, especially young members, with older members bearing most of the costs.&lt;/p&gt;
+
+&lt;p&gt;Christianity’s concept of a heaven and hell encouraged its members to convert their friends and family. In some ways, this is reminiscent of &lt;a href=&quot;https://en.wikipedia.org/wiki/Viral_marketing&quot;&gt;viral marketing&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;international-expansion&quot;&gt;International expansion&lt;/h3&gt;
+&lt;p&gt;Facebook and Netflix both experienced rapid adoption, starting with a U.S. audience. But as U.S. growth began to slow down, both companies needed to look towards international expansion.&lt;/p&gt;
+
+&lt;p&gt;A similar thing happened with the Mormon church. By the 20th century, U.S. growth was driven only by increasing family sizes, so the church turned towards international expansion.&lt;/p&gt;
+
+&lt;p&gt;The graph below shows similar US and international growth curves for Netflix and the Church of Jesus Christ of Latter-day Saints.&lt;sup&gt;[&lt;a href=&quot;https://en.wikipedia.org/wiki/The_Church_of_Jesus_Christ_of_Latter-day_Saints_membership_history&quot;&gt;1&lt;/a&gt;,&lt;a href=&quot;https://rsc.byu.edu/archived/latter-day-saint-social-life-social-research-lds-church-and-its-members/4-vital-statistics&quot;&gt;2&lt;/a&gt;,&lt;a href=&quot;http://www.churchistrue.com/blog/lds-membership-statistics-report-2017/&quot;&gt;3&lt;/a&gt;,&lt;a href=&quot;http://www.businessinsider.com/netflix-subscribers-international-vs-us-earnings-chart-2017-7&quot;&gt;4&lt;/a&gt;]&lt;/sup&gt;&lt;/p&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;img src=&quot;/assets/2017_religions_as_firms/LDS_netflix.png&quot; style=&quot;position:relative border: #222 2px solid; max-width:100%;&quot; /&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;branding&quot;&gt;Branding&lt;/h3&gt;
+&lt;p&gt;Like any company, most religions try to maintain a good brand. But unlike businesses, most religions do not have brand protection, and thus their brands can be co-opted by other religions. Marketing from Mormons and from Jehovah’s Witnesses tends to &lt;a href=&quot;https://www.jw.org/en/jehovahs-witnesses/faq/jehovah-witness-beliefs/&quot;&gt;emphasize&lt;/a&gt; the good brand of Jesus Christ, even though most mainstream Christians regard these churches as heretical.&lt;/p&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;img src=&quot;/assets/2017_religions_as_firms/follow_the_christ.jpg&quot; height=&quot;250&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid;&quot; /&gt;
+&lt;/div&gt;
+
+&lt;p&gt;One of the most interesting risks to brands is &lt;a href=&quot;https://en.wikipedia.org/wiki/Generic_trademark&quot;&gt;&lt;em&gt;genericide&lt;/em&gt;&lt;/a&gt;, in which a popular trademark becomes synonymous with the general class of product, thereby diluting its distinctive meaning. Famous examples of generic trademarks include Kleenex and Band-Aid. Amazingly, genericide can also happen to religious deities. The ancient Near East god &lt;a href=&quot;https://en.wikipedia.org/wiki/El_(deity)&quot;&gt;&lt;em&gt;El&lt;/em&gt;&lt;/a&gt; began as a distinct god with followers, but &lt;a href=&quot;https://twitter.com/suchaone/status/869909666217607168&quot;&gt;gradually became a generic name for “God”&lt;/a&gt; and eventually merged with the Hebrew god Yahweh.&lt;/p&gt;
+
+&lt;h3 id=&quot;mergers-and-spin-offs&quot;&gt;Mergers and spin-offs&lt;/h3&gt;
+&lt;p&gt;In business, companies can spin off other companies or merge with other companies. But with rare exceptions, religions only seem to have spin-offs. Why do religions hardly ever merge with other religions? My guess is that since there is no protection for religious intellectual property, religions can acquire the intellectual property of another religion without requiring a merger. Religions can simply copy each other’s ideas.&lt;/p&gt;
+
+&lt;p&gt;Another reason that religious mergers are rare is that religions are strongly tied to personal identity and tap into tribal thinking. When WhatsApp was acquired, its leadership was happy to adopt new identities as Facebook employees. But it is far less likely that members of, say, the Syriac Catholic Church would ever tolerate merging into the rival Syriac Maronite Church, even if it might provide them with economies of scale and more political power.&lt;/p&gt;
+
+&lt;p&gt;On Twitter, I asked why there are so few religious mergers and got lots of interesting &lt;a href=&quot;https://twitter.com/Chris_Said/status/936635424012828672&quot;&gt;responses&lt;/a&gt;. People pointed out that reconciliation of doctrine could &lt;a href=&quot;https://twitter.com/KyleCSN/status/936637304688427009&quot;&gt;undermine the authority&lt;/a&gt; of the leaders, and that there is &lt;a href=&quot;https://twitter.com/AcostaRomay/status/936635959453585408&quot;&gt;little benefit&lt;/a&gt; from economies of scale. Others noted that religious mergers aren’t that rare. Hinduism and Judaism may have &lt;a href=&quot;https://twitter.com/imrankhan/status/936648636158611456&quot;&gt;began&lt;/a&gt; as mergers of smaller religions, many &lt;a href=&quot;https://twitter.com/thechelleshock/status/937033585638326272&quot;&gt;Christian traditions&lt;/a&gt; involve mergers with religions they replaced, and that even today Hinduism &lt;a href=&quot;https://twitter.com/venusatuluri/status/936664575591583745&quot;&gt;continues to be&lt;/a&gt; a merging of various sects.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;It’s worth repeating that economic explanations aren’t always great at describing the &lt;em&gt;conscious&lt;/em&gt; motivations of religious individuals, who generally have sincere beliefs. Nevertheless, economic reasoning does a decent job of predicting the behavior of &lt;em&gt;systems&lt;/em&gt;, and it’s been pretty interesting to learn how religion is no exception.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
    <title>Part 2&#58; A bipartisan list of people who argue in good faith</title>
    <link href="http://localhost:4000/2017/07/09/part-2-a-bipartisan-list-of-people-who-argue-in-good-faith/"/>
    <updated>2017-07-09T00:00:00-07:00</updated>
@@ -360,7 +751,7 @@ Second, after doing something good, people often feel like they’ve earned enou
 
 &lt;p&gt;First, how do the pros and cons balance out? Perhaps your Pride avatar is net positive if you have a large audience on Facebook, but net negative if you have a small audience. And second, how does moral contagion work with symbolic acts? Does the Pride avatar just make other people add Pride symbols to their avatars? Or does it make them behave more ethically in real and impactful ways?&lt;/p&gt;
 
-&lt;p&gt;We are beginning to get &lt;a href=&quot;http://smart-meter-analytics.de/downloads/papers/Tiefenbeck%20-%20For%20better%20or%20for%20worse.pdf&quot;&gt;some&lt;/a&gt; quantitative answers to these questions. Clever research from &lt;a href=&quot;https://twitter.com/LindaSkitka&quot;&gt;Linda Skitka&lt;/a&gt; and others has &lt;a href=&quot;https://www.researchgate.net/profile/Linda_Skitka/publication/265606809_Morality_in_everyday_life/links/57457f2608ae9f741b410416.pdf&quot;&gt;shown&lt;/a&gt; that committing a moral act makes you about 40% less likely to commit another moral act later in the day, whereas hearing about someone else’s moral act makes you about 25% more likely to commit a moral act later in the day, although the latter finding fell short of statistical significance. More research is needed though, particularly when it comes to social media and symbolic virtue signalling.&lt;/p&gt;
+&lt;p&gt;We are beginning to get &lt;a href=&quot;http://smart-meter-analytics.de/downloads/papers/Tiefenbeck%20-%20For%20better%20or%20for%20worse.pdf&quot;&gt;some&lt;/a&gt; quantitative answers to these questions. Clever research from &lt;a href=&quot;https://twitter.com/LindaSkitka&quot;&gt;Linda Skitka&lt;/a&gt; and others has &lt;a href=&quot;https://www.researchgate.net/profile/Linda_Skitka/publication/265606809_Morality_in_everyday_life/links/57457f2608ae9f741b410416.pdf&quot;&gt;shown&lt;/a&gt; that committing a moral act makes you about 40% &lt;em&gt;less&lt;/em&gt; likely to commit another moral act later in the day (moral licensing), whereas hearing about someone else’s moral act makes you about 25% &lt;em&gt;more&lt;/em&gt; likely to commit a moral act later in the day (moral contagion), although the latter finding fell short of statistical significance. More research is needed though, particularly when it comes to social media and symbolic virtue signalling.&lt;/p&gt;
 
 &lt;h4 id=&quot;2-slacktivism-versus-violent-revolution&quot;&gt;2. Slacktivism versus Violent Revolution&lt;/h4&gt;
 
@@ -1107,6 +1498,268 @@ var path = sankey.link();
     sankey.relayout();
     link.attr(&quot;d&quot;, path);
   }
+// });
+&lt;/script&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Optimizing things in the USSR</title>
+   <link href="http://localhost:4000/2016/05/11/optimizing-things-in-the-ussr-(chris-said-od-mac's-conflicted-copy-2019-02-09)/"/>
+   <updated>2016-05-11T00:00:00-07:00</updated>
+   <id>http://localhost:4000/2016/05/11/optimizing-things-in-the-ussr (chris-said-od-mac's conflicted copy 2019-02-09)</id>
+   <content type="html">&lt;meta charset=&quot;utf-8&quot; /&gt;
+
+&lt;style&gt;
+
+.node rect {
+  cursor: move;
+  fill-opacity: .9;
+  shape-rendering: crispEdges;
+}
+
+.node text {
+  pointer-events: none;
+  text-shadow: 0 1px 0 #fff;
+}
+
+.link {
+  fill: none;
+  stroke: #000;
+  stroke-opacity: .2;
+}
+
+.link:hover {
+  stroke-opacity: .5;
+}
+
+
+text {
+  font: 10px sans-serif;
+}
+
+
+&lt;/style&gt;
+
+&lt;p&gt;As a data scientist, a big part of my job involves picking metrics to optimize and thinking about how to do things as efficiently as possible. With these types of questions on my mind, I recently discovered a totally fascinating book about about economic problems in the USSR and the team of data-driven economists and computer scientists who wanted to solve them. The book is called &lt;a href=&quot;http://www.amazon.com/Red-Plenty-Francis-Spufford/dp/1555976042&quot;&gt;&lt;em&gt;Red Plenty&lt;/em&gt;&lt;/a&gt;. It’s actually written as a novel, weirdly, but it nevertheless presents an accurate economic history of the USSR. It draws heavily on an earlier book from 1973 called &lt;a href=&quot;http://www.amazon.com/Planning-Problems-USSR-Contribution-Mathematical/dp/0521202493&quot;&gt;&lt;em&gt;Planning Problems in the USSR&lt;/em&gt;&lt;/a&gt;, which I also picked up. As I read these books, I couldn’t help but notice some parallels with planning in any modern organization. In what will be familiar to any data scientist today, the second book even includes a quote from a researcher who complained that 90% of his time was spent cleaning the data, and only 10% of his time was spent doing actual modeling!&lt;/p&gt;
+
+&lt;p&gt;Beyond all the interesting parallels to modern data science and operations research, these books helped me understand a lot of interesting things I previously knew very little about, such as linear programming, price equilibria, and Soviet history. This blog post is about I learned, and ends with some surprising-to-me speculation about whether the technical challenges that the brought down the Soviet Union would be as much of a problem in the future.&lt;/p&gt;
+
+&lt;h4 style=&quot;text-align: center;&quot;&gt;Balance sheets and manual calculation: Kind of a trainwreck&lt;/h4&gt;
+
+&lt;p&gt;The main task in the centrally planned Soviet economy was to allocate resources so that a desired assortment of goods and services was produced. Every year, certain target outputs for each good were established. Armed with estimates of the available input resources, central administrators used balance sheets to set plans for every factory, specifying exactly how much input commodities each factory would receive, and how much output it should produce. Up through the 1960s, this was always done by manual calculation. Since there were hundreds of thousands of commodities, and since the supply chains had many dependency steps, it was impossible to compute the full balance sheets for the economy. The administrators therefore decided to make some simplifying assumptions. As a result of these these simplifying assumptions, resource allocation became a bit of a trainwreck. Below are a few of the simplifications and their consequences.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Dimensionality reduction by removing variables.&lt;/strong&gt; Because there were too many commodities to track, administrators often limited their analysis to the 10,000 most important commodities in the economy. But when the production of those commodities were planned, there was often a hidden shortage of commodities whose output was not planned centrally but which were used as inputs to one of the 10,000 planned products. Factories that depended on those commodities often sat idle for months as they waited for the shortages to end.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Dimensionality reduction by aggregation.&lt;/strong&gt; Apparently, steel tubes can come in thousands of different types. They can come in different lengths, different shapes, and different compositions. To reduce the dimensionality of the problem, administrators would often track the total tonnage of a few broad classes of steel tubes in the models, rather than using a more detailed classification scheme. While their models successfully balanced the tonnage of tubes for the broad categories (the output in tons of tube-producing factories matched the input requirements in tons of tube-consuming factories), there were constant surpluses of some specific types of tubes, and shortages of other specific types of tubes. In particular, since tonnage was used as a metric, tube-producing factories were overly incentivized to make easy-to-produce thick tubes. As a result, thin tubes were always in short supply.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Propagating adjustments only a few degrees back.&lt;/strong&gt; Let’s say that during balance calculations, the administrators realized they needed to bump up the target output of one commodity. If they did that, it was also necessary to bump up the output targets of commodities that were input into the target commodity. But if they did &lt;em&gt;that&lt;/em&gt;, they also needed to bump up the output targets of commodities that fed into those commodities, and so on! This involved a crazy amount of extra hand calculations every time they needed make an adjustment. To simplify things, the administrators typically made adjustments to the first-order suppliers, without making the necessary adjustments to the suppliers of the suppliers. This of course led to critical shortages of input commodities, which again led to idle factories.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- The tooltip has absolute positioning, which means it is positioned
+&quot;relative&quot; to any parent it has who has either absolute or relative positioning.
+The #econ_scatter parent would by default be static, so I have to change it to
+relative --&gt;
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;div id=&quot;chart&quot; class=&quot;inner&quot; style=&quot;position:relative&quot;&gt;&lt;/div&gt;
+  &lt;!-- &lt;div id=&quot;econ_scatter&quot; class=&quot;inner&quot; style=&quot;position:relative&quot;&gt;&lt;/div&gt; --&gt;
+  &lt;div class=&quot;caption&quot;&gt;
+&lt;strong&gt;Figure 1.&lt;/strong&gt; Some example inputs and outputs in the Soviet economy in 1951, described in units of weight. This summary shows an extreme dimensionality reduction, more extreme than was ever used in planning. In this diagram, most commodities are excluded and each displayed commodity collapses across multiple different product types. Multiple steps in the supply chain are collapsed into a single step. (Source: &lt;a href=&quot;http://www.foia.cia.gov/sites/default/files/document_conversions/89801/DOC_0000380738.pdf&quot;&gt;CIA&lt;/a&gt;)
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;Even if the administrators could get the accounting correct, which they couldn’t, their attempts to allocate resources would still be far from optimal. In the steel industry, for example, some factories were better at producing some types of tubes whereas others were better at producing other types of tubes. Since there were thousands of different factories and tube types, it was non-trivial to decide how to best distribute resources and output requirements, and it was not immediately obvious which factories should be expanded and which should be closed down.&lt;/p&gt;
+
+&lt;h4 style=&quot;text-align: center;&quot;&gt;Supply chain optimizations&lt;/h4&gt;
+
+&lt;p&gt;In the late 1960’s, a group of economists and computer scientists known as the “optimal planners” began to push for a better way of doing things. The group argued that a technique called &lt;a href=&quot;https://www.math.ucla.edu/~tom/LP.pdf&quot;&gt;linear programming&lt;/a&gt;, invented by &lt;a href=&quot;https://en.wikipedia.org/wiki/Leonid_Kantorovich&quot;&gt;Leonid Kantorovich&lt;/a&gt;, could optimally solve the problems with the supply chain. At a minimum, since the process could be computerized, it would be possible to perform more detailed calculations than could be done by hand, with less dimensionality reduction. But more importantly, linear programming allowed you to optimize arbitrary objective functions given certain constraints. In the case of the supply chain, it showed you how to efficiently allocate resources, identifying efficient factories that should get more input commodities, and inefficient factories that should be shut down.&lt;/p&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;img src=&quot;/assets/kantorovich.jpg&quot; height=&quot;300&quot; class=&quot;inner&quot; style=&quot;position:relative&quot; /&gt;
+  &lt;div class=&quot;caption&quot;&gt;
+    &lt;strong&gt;Figure 2.&lt;/strong&gt; Leonid Kantorovich, inventor of linear programming and winner of the 1975 Nobel Prize in Economics.
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;The optimal planners had some success here. For example, in the steel industry, about 60,000 consumers requested 10,000 different types of products from 500 producers. The producers were not equally efficient in their production. Some producers were efficient for some types of steel products, but less efficient for other types of steel products. Given the total amount of each product requested, and given the constraints of how much each factory can produce, the goal was decide how much each factory should produce of each type of product. If we simplify the problem by just asking how much each factory should produce without considering how the products will be distributed to the consuming factories, this becomes a straightforward application of the &lt;a href=&quot;https://www.math.ucla.edu/~tom/LP.pdf&quot;&gt;Optimal Assignment Problem&lt;/a&gt;, a well-studied example in linear programming. If we additionally want to optimize distribution, taking into account the distance-dependent costs of shipments from one factory to another, the problem becomes more complicated but is still doable. The problem becomes similar to the &lt;a href=&quot;https://www.math.ucla.edu/~tom/LP.pdf&quot;&gt;Transportation Problem&lt;/a&gt;, another well-studied example in linear programming, but in this case generalized to multiple commodities instead of just one.&lt;/p&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;img src=&quot;/assets/steel_tubes.jpg&quot; height=&quot;200&quot; class=&quot;inner&quot; style=&quot;position:relative&quot; /&gt;
+&lt;/div&gt;
+
+&lt;p&gt;By introducing linear programming, the optimal planners were modestly successful at improving the efficiency of some industries, but their effect was limited. First, political considerations prevented many of the recommendations surfaced by the model from being implemented. Cement factories that were known to be too inefficient or too far away from consumers were allowed to remain open even though the optimal solution recommended that they be closed. Second, since the planners were only allowed to work in certain narrow parts of the economy, they never had an opportunity to propagate their recommendations back in the supply chain, although one could imagine extending the models to do so. Third, and perhaps most importantly, the value of each commodity was set by old-school administrators in an unprincipled way, and so the optimal planners were forced to optimize objective functions that didn’t even make sense.&lt;/p&gt;
+
+&lt;h4 style=&quot;text-align: center;&quot;&gt;Ideas about optimizing the entire economy&lt;/h4&gt;
+
+&lt;p&gt;While the optimal planners were able to improve the efficiency of a few industries, they had more ambitious plans. They believed they could use linear programming to optimize the entire economy and outperform capitalist societies. Doing so involved more than just scaling out the supply chain optimizations adopted by certain industries. It involved shadow prices and interest rates, and a few other things I’ll admit I don’t totally understand. But while I don’t really understand the implementation, I feel like the broader goal of the planners is easier to understand and explain:&lt;/p&gt;
+
+&lt;p&gt;Basically, in a completely free market, at least under &lt;a href=&quot;https://en.wikipedia.org/wiki/Arrow%E2%80%93Debreu_model&quot;&gt;certain assumptions&lt;/a&gt;, prices are supposed to converge to what’s called a General Equilibrium. The equilibrium prices have a some nice properties. They balance aggregate supply and demand, so that no commodities are in shortage or surplus. They are also &lt;a href=&quot;https://en.wikipedia.org/wiki/Pareto_efficiency&quot;&gt;Pareto efficient&lt;/a&gt;, which means that nobody in the economy can be made better off without making someone else worse off.&lt;/p&gt;
+
+&lt;p&gt;The optimal planners thought that they could do better. In particular, they pointed to two problems with capitalism: First, prices in a capitalist society were determined by individual agents using trial and error to guess the best price. Surely these agents, who had imperfect information, were not picking the exactly optimal prices. In contrast, a central planner using optimal computerized methods could pick prices that hit the equilibrium more exactly. Second, and more importantly, capitalism targeted an objective function that — while Pareto efficient — was not socially optimal. Because of huge differences in wealth, some people were able to obtain far more goods and services than other people. The optimal planners proposed using linear programming to optimize an objective function that would be more socially optimal. For example, it could aim to distribute goods more equitably. It could prioritize certain socially valuable goods (e.g. books) over socially destructive goods (e.g. alcohol). It could prioritize sectors that provide benefits over longer time horizons (e.g. heavy industry). And it could include constraints to ensure full employment.&lt;/p&gt;
+
+&lt;h4 style=&quot;text-align: center;&quot;&gt;What happened&lt;/h4&gt;
+&lt;p&gt;None of this ever really happened. The ambitious ideas of the optimal planners were never adopted, and by the 1970s it was clear that living standards in the USSR were falling further behind those of the West. Perhaps things would have been better if the optimal planners got their way, but it seems like the consensus is that their plans would have failed even if they were implemented. Below are some of the main problems that would have been encountered.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Computational complexity.&lt;/strong&gt; As described in a &lt;a href=&quot;http://crookedtimber.org/2012/05/30/in-soviet-union-optimization-problem-solves-you/&quot;&gt;wonderful blog post by Cosma Shalizi&lt;/a&gt;, the number of calculations needed to solve a linear programming problem is: &lt;script type=&quot;math/tex&quot;&gt;(m+n)^{3/2} n^2 log(1/h)&lt;/script&gt;, where &lt;script type=&quot;math/tex&quot;&gt;n&lt;/script&gt; is the number of products, &lt;script type=&quot;math/tex&quot;&gt;m&lt;/script&gt; is the number of constraints, and &lt;script type=&quot;math/tex&quot;&gt;h&lt;/script&gt; is how much error you are willing to tolerate. Since the number of products, &lt;script type=&quot;math/tex&quot;&gt;n&lt;/script&gt;, was in the millions, and since the complexity was proportional to &lt;script type=&quot;math/tex&quot;&gt;n^{3.5}&lt;/script&gt;, it would have been practically impossible for the Soviets to compute a solution to their planning problem with sufficient detail (although see below). Any attempt to reduce the dimensionality would lead to the same perverse incentives and shortages that bedeviled earlier systems driven by hand calculations.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Data quality.&lt;/strong&gt; The optimal planners thought that optimal computer methods could find prices that more exactly approximated equilibrium than could be done in a market economy, where fallible human actors guessed at prices by trial and error. The reality, however, would have been the exact opposite. Individual actors in a market economy understand their local needs and constraints pretty well, whereas central planners have basically no idea what’s going on. For example, central planners don’t have good information on when a factory fails to receive a shipment and they don’t have an accurate sense for how much more efficient some devices are than others. Even worse, in order to obtain more resources, factory managers in the USSR routinely &lt;em&gt;lied&lt;/em&gt; to the central planners about their production capabilities. The situation became so bad that, &lt;a href=&quot;https://books.google.com/books?id=Jlmm9GZqxkoC&amp;amp;printsec=frontcover#v=onepage&amp;amp;q&amp;amp;f=false&quot;&gt;according to&lt;/a&gt; &lt;a href=&quot;http://crookedtimber.org/2012/05/30/in-soviet-union-optimization-problem-solves-you/#comment-416126&quot;&gt;one of the deep state secrets&lt;/a&gt; of the USSR, central planners preferred to use the CIA’s analyses of certain Russian commodities rather than reports from local Party bosses!   This is especially crazy if you consider that the CIA described its own data as being of &lt;a href=&quot;http://www.foia.cia.gov/sites/default/files/document_conversions/89801/DOC_0000380738.pdf&quot;&gt;“debilitatingly”&lt;/a&gt; poor quality.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Nonlinearities.&lt;/strong&gt; The optimal planners assumed linearity, such that the cost for a factory producing its 1000th widget was assumed to be the same as the cost for producing its first widget. In the real world, this is obviously false, as there are increasing returns to scale. It’s possible to model increasing returns to scale, but it becomes harder to solve computationally.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Choosing an objective function.&lt;/strong&gt; Choosing what the society should value is really a political problem, and Cosma Shalizi does a very &lt;a href=&quot;http://crookedtimber.org/2012/05/30/in-soviet-union-optimization-problem-solves-you/&quot;&gt;nice job&lt;/a&gt; describing why it would be so hard to come to agreement.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Incentives for innovation.&lt;/strong&gt; The central planners couldn’t determine resource allocation for products that didn’t exist yet, and more importantly neither they nor the factories had much incentive to invent new products. That’s why the Soviet Union remained so focused on the steel/coal/cement economy while Western nations shifted their focus to plastics and microelectronics.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Political resistance.&lt;/strong&gt; As described in a previous example, the model-based recommendations to shut down certain factories were ignored for political reasons. It is likely that many recommendations for the broader economy would have been ignored as well. For example, if a computer recommended that the price of heating oil should be doubled in the winter, how many politicians would let that happen?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 style=&quot;text-align: center;&quot;&gt;Could this work in the future?&lt;/h4&gt;
+
+&lt;p&gt;Had the optimal planners’ ideas been adopted at the time, they would have failed. But what about the future? In a hundred years, could we have the technical capability to pull off a totally planned economy? I did some poking around the internet and found, somewhat to my surprise, that the answer is actually… &lt;em&gt;maybe&lt;/em&gt;. It turns out that two of the most serious problems with central planning could have technological solutions that may seem far-fetched but are perhaps not impossible:&lt;/p&gt;
+
+&lt;p&gt;Let’s start with &lt;strong&gt;computational complexity&lt;/strong&gt;. As described above and in &lt;a href=&quot;http://crookedtimber.org/2012/05/30/in-soviet-union-optimization-problem-solves-you/&quot;&gt;Cosma Shalizi’s post&lt;/a&gt;, the number of steps required to solve a linear programming problem with &lt;script type=&quot;math/tex&quot;&gt;n&lt;/script&gt; products and &lt;script type=&quot;math/tex&quot;&gt;m&lt;/script&gt; constraints is proportional to &lt;script type=&quot;math/tex&quot;&gt;(m+n)^{3/2} n^2&lt;/script&gt;. The USSR had about 12 million types of goods. If you cross them over about 1000 possible locations, that gives you 12 billion variables, which according to Cosma would correspond to an optimization problem that would take a thousand years to solve on a modern desktop computer. However, if Moore’s Law holds up, it would be possible in 100 years to solve this problem reasonably quickly. It’s also worth pointing out that the economy’s input-output matrix is sparse, since not every product depends on every other product as input. It &lt;em&gt;may&lt;/em&gt; be possible that someone might develop a faster algorithm that leverages this sparsity, although Cosma is somewhat skeptical that this could happen. &lt;em&gt;[In an earlier version of this post, I discussed a &lt;a href=&quot;http://ricardo.ecn.wfu.edu/~cottrell/socialism_book/new_socialism.pdf&quot;&gt;sparsity-based proposal&lt;/a&gt; that supposedly brought things down to &lt;script type=&quot;math/tex&quot;&gt;m \times n&lt;/script&gt; complexity. This was apparently a &lt;a href=&quot;http://bactra.org/weblog/919.html&quot;&gt;red herring&lt;/a&gt; that doesn’t actually solve the optimization problem.]&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;As described earlier, the second serious issue with a centrally planned economy was &lt;strong&gt;data quality&lt;/strong&gt;: Central planners’ knowledge about the input requirements and output capabilities of individual factories was simply not as good as the people actually working in the factory. While this was certainly the case in the Soviet Union, one can’t help but wonder about technological improvements in supply chain management. Imagine if every product had a GPS device to track its location, with other sensors and cameras to determine product quality. Already Amazon is moving in that direction for pretty much all consumer goods, and one could imagine a world where demand could be measured with the &lt;a href=&quot;https://en.wikipedia.org/wiki/Internet_of_Things&quot;&gt;Internet of Things&lt;/a&gt;. Whether a government would be able to harness this data as competently as Amazon is doubtful, and it’s obviously worth asking whether we would ever want a government to be using that type of data. But from a technical point of view it’s interesting to think about how the data quality issues that destroyed the USSR could be much less serious in the future.&lt;/p&gt;
+
+&lt;p&gt;All that being said, it’s still unclear to me how an objective function could be chosen in way that would democratically satisfy people, how innovation could be incentivized, or how political freedoms could be preserved. In terms of freedom, things were obviously not-so-hot in the Soviet Union. If you’d like to read more about this, you should definitely check out &lt;a href=&quot;http://www.amazon.com/Red-Plenty-Francis-Spufford/dp/1555976042&quot;&gt;Red Plenty&lt;/a&gt;. It was one of the weirdest and most interesting books I have read.&lt;/p&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;img src=&quot;/assets/red_plenty.jpeg&quot; height=&quot;300&quot; class=&quot;inner&quot; style=&quot;position:relative&quot; /&gt;
+&lt;/div&gt;
+
+&lt;script src=&quot;/scripts/sankey.js&quot;&gt;&lt;/script&gt;
+
+&lt;script&gt;
+
+// Names to Index
+var n2i = {
+'petro': 0,
+'steel': 1,
+'copper': 2,
+'aluminum': 3,
+'ammonia': 4,
+'food': 5,
+'textiles': 6,
+'logging': 7,
+'automotive': 8
+}
+
+var commodities = {
+  &quot;nodes&quot;:[
+    {'name': 'Petroleum residuals'},
+    {'name': 'Crude Steel'},
+    {'name': 'Copper'},
+    {'name': 'Aluminum'},
+    {'name': 'Ammonia'},
+    {'name': 'Agriculture and Food'},
+    {'name': 'Textiles and Apparel'},
+    {'name': 'Logging and Paper Products'},
+    {'name': 'Automotive Equipment'}
+  ],
+  'links':[
+    {'source':n2i['petro'],'target':n2i['food'],'value':510},
+    {'source':n2i['steel'],'target':n2i['food'],'value':80},
+    {'source':n2i['ammonia'],'target':n2i['food'],'value':250},
+    {'source':n2i['steel'],'target':n2i['textiles'],'value':10},
+    {'source':n2i['ammonia'],'target':n2i['textiles'],'value':10},
+    {'source':n2i['petro'],'target':n2i['logging'],'value':30},
+    {'source':n2i['steel'],'target':n2i['logging'],'value':40},
+    {'source':n2i['ammonia'],'target':n2i['logging'],'value':5},
+    {'source':n2i['petro'],'target':n2i['automotive'],'value':60},
+    {'source':n2i['steel'],'target':n2i['automotive'],'value':1800},
+    {'source':n2i['copper'],'target':n2i['automotive'],'value':14},
+    {'source':n2i['aluminum'],'target':n2i['automotive'],'value':3}
+  ]
+}
+
+if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+  var full_width = 400
+  var full_height = 400;
+} else {
+  var full_width = 620
+  var full_height = 500;
+}
+
+var margin = {top: 20, right: 40, bottom: 20, left: 40},
+    width = full_width - margin.left - margin.right,
+    height = full_height - margin.top - margin.bottom;
+
+var formatNumber = d3.format(&quot;,.0f&quot;),
+    format = function(d) { return formatNumber(d) + &quot; Th MT&quot;; },
+    color = d3.scaleOrdinal(d3.schemeCategory10);
+
+var svg = d3.select(&quot;#chart&quot;).append(&quot;svg&quot;)
+    .attr(&quot;width&quot;, width + margin.left + margin.right)
+    .attr(&quot;height&quot;, height + margin.top + margin.bottom)
+  .append(&quot;g&quot;)
+    .attr(&quot;transform&quot;, &quot;translate(&quot; + margin.left + &quot;,&quot; + margin.top + &quot;)&quot;);
+
+
+var sankey = d3.sankey()
+    .nodeWidth(15)
+    .nodePadding(10)
+    .size([width, height]);
+
+var path = sankey.link();
+
+  sankey
+      .nodes(commodities.nodes)
+      .links(commodities.links)
+      .layout(32);
+
+  var link = svg.append(&quot;g&quot;).selectAll(&quot;.link&quot;)
+      .data(commodities.links)
+    .enter().append(&quot;path&quot;)
+      .attr(&quot;class&quot;, &quot;link&quot;)
+      .attr(&quot;d&quot;, path)
+      .style(&quot;stroke-width&quot;, function(d) { return Math.max(1, d.dy); })
+      .sort(function(a, b) { return b.dy - a.dy; });
+
+  link.append(&quot;title&quot;)
+      .text(function(d) { return d.source.name + &quot; → &quot; + d.target.name + &quot;\n&quot; + format(d.value); });
+
+  var node = svg.append(&quot;g&quot;).selectAll(&quot;.node&quot;)
+      .data(commodities.nodes)
+    .enter().append(&quot;g&quot;)
+      .attr(&quot;class&quot;, &quot;node&quot;)
+      .attr(&quot;transform&quot;, function(d) { return &quot;translate(&quot; + d.x + &quot;,&quot; + d.y + &quot;)&quot;; });
+
+  node.append(&quot;rect&quot;)
+      .attr(&quot;height&quot;, function(d) { return d.dy; })
+      .attr(&quot;width&quot;, sankey.nodeWidth())
+      .style(&quot;fill&quot;, function(d) { return d.color = color(d.name.replace(/ .*/, &quot;&quot;)); })
+      .style(&quot;stroke&quot;, function(d) { return d3.rgb(d.color).darker(2); })
+    .append(&quot;title&quot;)
+      .text(function(d) { return d.name + &quot;\n&quot; + format(d.value); });
+
+  node.append(&quot;text&quot;)
+      .attr(&quot;x&quot;, -6)
+      .attr(&quot;y&quot;, function(d) { return d.dy / 2; })
+      .attr(&quot;dy&quot;, &quot;.35em&quot;)
+      .attr(&quot;text-anchor&quot;, &quot;end&quot;)
+      .attr(&quot;transform&quot;, null)
+      .text(function(d) { return d.name; })
+    .filter(function(d) { return d.x &lt; width / 2; })
+      .attr(&quot;x&quot;, 6 + sankey.nodeWidth())
+      .attr(&quot;text-anchor&quot;, &quot;start&quot;);
+
+
+  // Input label
+  svg.append(&quot;text&quot;)
+      .attr(&quot;transform&quot;, &quot;rotate(-90)&quot;)
+      .attr(&quot;x&quot;, -height/2)
+      .attr(&quot;y&quot;, -20)
+      .attr(&quot;dy&quot;, &quot;.71em&quot;)
+      .style(&quot;text-anchor&quot;, &quot;middle&quot;)
+      .style(&quot;font-size&quot;, &quot;16px&quot;)
+      .text(&quot;Inputs&quot;);
+
+  // Output label
+  svg.append(&quot;text&quot;)
+      .attr(&quot;transform&quot;, &quot;rotate(-90)&quot;)
+      .attr(&quot;x&quot;, -height/2)
+      .attr(&quot;y&quot;, width+10)
+      .attr(&quot;dy&quot;, &quot;.71em&quot;)
+      .style(&quot;text-anchor&quot;, &quot;middle&quot;)
+      .style(&quot;font-size&quot;, &quot;16px&quot;)
+      .text(&quot;Outputs&quot;);
+
 // });
 &lt;/script&gt;
 

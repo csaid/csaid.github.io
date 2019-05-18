@@ -107,6 +107,328 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
   
   <div class="post">
     <h1 class="post-title">
+      <a href="/2019/05/05/variance_after_scaling_and_summing/">
+        Variance after scaling and summing&#58; One of the most useful facts from statistics
+      </a>
+    </h1>
+
+    <span class="post-date">05 May 2019</span>
+
+    <p>What do $ R^2 $, laboratory error analysis, ensemble learning, meta-analysis, and financial portfolio risk have in common? The answer is that they all depend on a fundamental principle of statistics that is not as widely known as it should be. Once this principle is understood, a lot of stuff starts to make more sense.</p>
+
+<p>Here’s a sneak peek at what the principle is.</p>
+
+<script type="math/tex; mode=display">\sigma_{p}^{2} = \sum\limits_{i} \sum\limits_{j} w_i w_j \sigma_i \sigma_j \rho_{ij}</script>
+
+<p>Don’t worry if the formula doesn’t yet make sense! We’ll work our way up to it slowly, taking pit stops along the way at simpler formulas are that useful on their own. As we work through these principles, we’ll encounter lots of neat applications and explainers.</p>
+
+<p>This post consists of three parts:</p>
+
+<ul>
+  <li><strong>Part 1</strong>: Sums of uncorrelated random variables: Applications to social science and laboratory error analysis</li>
+  <li><strong>Part 2</strong>: Weighted sums of uncorrelated random variables: Applications to machine learning and scientific meta-analysis</li>
+  <li><strong>Part 3</strong>: Correlated variables and Modern Portfolio Theory</li>
+</ul>
+
+<h2 id="part-1-sums-of-uncorrelated-random-variables-applications-to-social-science-and-laboratory-error-analysis">Part 1: Sums of uncorrelated random variables: Applications to social science and laboratory error analysis</h2>
+
+<p>Let’s start with some simplifying conditions and assume that we are dealing with <em>uncorrelated</em> random variables. If you take two of them and add them together, the variance of their sum will equal the sum of their variances. This is amazing!</p>
+
+<p>To demonstrate this, I’ve written some Python code that generates three arrays, each of length 1 million. The first two arrays contain samples from two normal distributions with variances 9 and 16, respectively. The third array is the sum of the first two arrays. As shown in the simulation, its variance is 25, which is equal to the sum of the variances of the first two arrays (9 + 16).</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">numpy.random</span> <span class="kn">import</span> <span class="n">randn</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">sqrt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">1000000</span>
+<span class="n">x1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span> <span class="o">*</span> <span class="n">randn</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="c"># 1M samples from normal distribution with variance=9</span>
+<span class="k">print</span><span class="p">(</span><span class="n">x1</span><span class="o">.</span><span class="n">var</span><span class="p">())</span> <span class="c"># 9</span>
+<span class="n">x2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span> <span class="o">*</span> <span class="n">randn</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="c"># 1M samples from normal distribution with variance=16</span>
+<span class="k">print</span><span class="p">(</span><span class="n">x2</span><span class="o">.</span><span class="n">var</span><span class="p">())</span> <span class="c"># 16</span>
+<span class="n">xp</span> <span class="o">=</span> <span class="n">x1</span> <span class="o">+</span> <span class="n">x2</span>
+<span class="k">print</span><span class="p">(</span><span class="n">xp</span><span class="o">.</span><span class="n">var</span><span class="p">())</span> <span class="c"># 25</span>
+</code></pre></div></div>
+
+<p>This <a href="https://en.wikipedia.org/wiki/Variance#Sum_of_uncorrelated_variables_(Bienaym%C3%A9_formula)">fact</a> was first discovered in 1853 and is known as <a href="https://en.wikipedia.org/wiki/Variance#Sum_of_uncorrelated_variables_(Bienaym%C3%A9_formula)">Bienaymé’s Formula</a>. While the code example above shows the sum of two random variables, the formula can be extended to multiple random variables as follows:</p>
+
+<div class="box">
+If $ X_p $ is a sum of uncorrelated random variables $ X_1 .. X_n $, then the variance of $ X_p $ will be
+
+$$ \sigma_{p}^{2} = \sum{\sigma^2_i} $$
+
+where each $ X_i $ has variance $ \sigma_i^2 $.
+</div>
+
+<p>What does the $ p $ stand for in $ X_p $? It stands for <em>portfolio</em>, which is just one of the many applications we’ll see later in this post.</p>
+
+<h3 id="why-this-is-useful">Why this is useful</h3>
+<p>Bienaymé’s result is surprising and unintuitive. But since it’s such a simple formula, it is worth committing to memory, especially because of it sheds light on so many other principles. Let’s look at two of them.</p>
+
+<h4 id="understanding--r2--and-variance-explained">Understanding $ R^2 $ and “variance explained”</h4>
+<p>Psychologists often talk about “within-group variance”, “between-group variance”, and “variance explained”. What do these terms mean?</p>
+
+<p>Imagine a hypothetical study that measured the extraversion of 10 boys and 10 girls, where extraversion is measured on a 10-point scale (<em>Figure 1</em>. Orange bars). The boys have a mean extraversion of 44 and the girls have a mean extraversion 50. In addition, the overall variance of the data is 25.  We can decompose this variance into two parts:</p>
+
+<ul>
+  <li><strong>Between-group variance</strong>: Create a 20-element array where every boy is assigned to the mean boy extraversion of 4.4, and every girl is assigned to the mean girl extraversion of 5.0. The variance of this array is 0.9. (<em>Figure 1</em>. Blue bars).</li>
+  <li><strong>Within-group variance</strong>: Create a 20-element array of the amount each child’s extraversion deviates from the mean value for their sex. Some of these values will be negative and some will be positive. The variance of this array is 1.6. (<em>Figure 1</em>. Pink bars).</li>
+</ul>
+
+<div class="wrapper">
+  <img src="/assets/2019_variance/boy_girl_extraversion.png" class="inner" style="position:relative border: #222 2px solid; max-width:100%;" />
+  <div class="caption"><strong>Figure 1</strong>: Decomposition of extraversion scores (orange) into between-group variance (blue) and within-group variance (pink).
+  </div>
+</div>
+<p><br /></p>
+
+<p>If you add these arrays together, the resulting array will represent the observed data (<em>Figure 1</em>. Orange bars). As originally measured, it will have a variance of 2.5, which corresponds exactly to the sum of the variances of the two component arrays (0.9 + 1.6). Psychologists might say that sex “explains” 0.9/2.5 = 36% of the extraversion variance. Equivalently, a model of extraversion that uses sex as the only predictor would have an <a href="https://en.wikipedia.org/wiki/Coefficient_of_determination">$ R^2 $</a> of 0.36.</p>
+
+<h4 id="error-propagation-in-laboratories">Error propagation in laboratories</h4>
+<p>If you ever took a physics lab or chemistry lab back in college, you may remember having to perform <a href="http://ipl.physics.harvard.edu/wp-uploads/2013/03/PS3_Error_Propagation_sp13.pdf">error analysis</a>, in which you calculated how errors would propagate through one noisy measurement after another.</p>
+
+<p>Physics textbooks often say that standard deviations add in “quadrature”, which just means that if you are trying to estimate some quantity that is the sum of two other measurements, and if each measurement has some error with standard deviation <script type="math/tex">\sigma_1</script> and <script type="math/tex">\sigma_2</script> respectively, the final standard deviation would be  <script type="math/tex">\sigma_{p} = \sqrt{\sigma^2_1 + \sigma^2_2}</script>. I think it’s probably easier to just use variances, as in the Bienaymé Formula, with <script type="math/tex">\sigma^2_{p} = \sigma^2_1 + \sigma^2_2</script>.</p>
+
+<p>For example, imagine you are trying to estimate the height of two boxes stacked on top of each other (<em>Figure 2</em>). One box has a height of 1 meter with variance $ \sigma^2_1 $ = 0.01, and the other has a height of 2 meter with variance $ \sigma^2_2 $ = 0.01. Let’s further assume, perhaps optimistically, that these errors are independent. That is, if the measurement of the first box is too high, that doesn’t make it any more likely that the measurement of the second box will also be too high. If we can make these assumptions, then the total height of the two boxes will be 3 meters with variance $ \sigma^2_p $ = 0.02.</p>
+
+<div class="wrapper">
+  <img src="/assets/2019_variance/stacked_boxes.png" class="inner" style="position:relative border: #222 2px solid; max-width:50%;" />
+  <div class="caption"><strong>Figure 2</strong>: Two boxes stacked on top of each other. The height of each box is measured with some variance (uncertainty). The total height is the the sum of the individual heights, and the total variance (uncertainty) is the sum of the individual variances.
+  </div>
+</div>
+<p><br /></p>
+
+<p>There is a key difference between the extraversion example and the stacked boxes example. In the extraversion example, we added two <em>arrays</em> that each had an observed sample variance. In the stacked boxes example, we added two <em>scalar measurements</em>, where the variance of these measurements refers to our measurement uncertainty. Since both cases have a meaningful concept of ‘variance’, the Bienaymé Formula applies to both.</p>
+
+<h2 id="part-2-weighted-sums-of-uncorrelated-random-variables-applications-to-machine-learning-and-scientific-meta-analysis">Part 2: Weighted sums of uncorrelated random variables: Applications to machine learning and scientific meta-analysis</h2>
+
+<p>Let’s now move on to the case of <em>weighted</em> sums of uncorrelated random variables. But before we get there, we first need to understand what happens to variance when a random variable is scaled.</p>
+
+<div class="box">
+If $ X_p $ is defined as $ X $ scaled by a factor of $ w $, then the variance $ X_p $ will be
+
+$$ \sigma_{p}^{2} = w^2 \sigma^2 $$
+
+where $ \sigma^2 $ is the variance of $ X $.
+</div>
+
+<p>This means that if a random variable is scaled, its variance will scale <em>quadratically</em>. Let’s see this in code.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">n</span> <span class="o">=</span> <span class="mi">1000000</span>
+<span class="n">x1</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="o">*</span> <span class="n">randn</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="c"># Array of 1M samples from normal distribution with variance=10</span>
+<span class="k">print</span><span class="p">(</span><span class="n">x1</span><span class="o">.</span><span class="n">var</span><span class="p">())</span> <span class="c"># 10</span>
+<span class="n">w</span> <span class="o">=</span> <span class="mf">0.7</span>
+<span class="n">xp</span> <span class="o">=</span> <span class="n">w</span> <span class="o">*</span> <span class="n">x1</span> <span class="c"># Scale this by w=0.7</span>
+<span class="k">print</span><span class="p">(</span><span class="n">w</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="mi">10</span><span class="p">)</span> <span class="c"># 4.9 (predicted variance)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">xp</span><span class="o">.</span><span class="n">var</span><span class="p">())</span> <span class="c"># 4.9 (empirical variance) </span>
+</code></pre></div></div>
+<p>To gain some intuition for this, it’s helpful to think about outliers. We know that outliers have a huge effect on variance. That’s because the variance formula squares all the deviations, and we get really big numbers when we square large deviations. With that as background, let’s think about what happens if we scale our data by 2. The outliers will spread out twice as far, which means they will have even more than twice as much impact on the variance. Similarly, if we multiply our data by 0.5, we will squash the most “damaging” part of the outliers, and so we will reduce our variance by more than a factor of two.</p>
+
+<p>While the above principle is pretty simple, things start to get interesting when you combine it with the Bienaymé Formula in Part I:</p>
+
+<div class="box">
+If $ X_p $ is a weighted sum of uncorrelated random variables $ X_1 ... X_n $, then the variance of $ X_p $ will be 
+
+$$ \sigma_{p}^{2} = \sum{w^2_i \sigma^2_i} $$
+
+where each $ w_i $ is a weight on $ X_i $, and each $ X_i $ has its own variance $ \sigma_i^2 $.
+</div>
+
+<p>The above formula shows what happens when you scale and then sum random variables. The final variance is the weighted sum of the original variances, where the weights are squares of the original weights. Let’s see how this can be applied to machine learning.</p>
+
+<h3 id="an-ensemble-model-with-equal-weights">An ensemble model with equal weights</h3>
+
+<p>Imagine that you have built two separate models to predict car prices. While the models are unbiased, they have variance in their errors. That is, sometimes a model prediction will be too high, and sometimes a model prediction will be too low. Model 1 has a mean squared error (MSE) of \$1,000 and Model 2 has an MSE of \$2,000.</p>
+
+<p>A valuable insight from machine learning is that you can often create a better model by simply averaging the predictions of other models. Let’s demonstrate this with simulations below.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">n</span> <span class="o">=</span> <span class="mi">1000000</span>
+<span class="n">actual</span> <span class="o">=</span> <span class="mi">20000</span> <span class="o">+</span> <span class="mi">5000</span> <span class="o">*</span> <span class="n">randn</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="n">errors1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span> <span class="o">*</span> <span class="n">randn</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">errors1</span><span class="o">.</span><span class="n">var</span><span class="p">())</span> <span class="c"># 1000</span>
+<span class="n">errors2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2000</span><span class="p">)</span> <span class="o">*</span> <span class="n">randn</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">errors2</span><span class="o">.</span><span class="n">var</span><span class="p">())</span> <span class="c"># 2000</span>
+
+<span class="c"># Note that this section could be replaced with </span>
+<span class="c"># errors_ensemble = 0.5 * errors1 + 0.5 * errors2</span>
+<span class="n">preds1</span> <span class="o">=</span> <span class="n">actual</span> <span class="o">+</span> <span class="n">errors1</span>
+<span class="n">preds2</span> <span class="o">=</span> <span class="n">actual</span> <span class="o">+</span> <span class="n">errors2</span>
+<span class="n">preds_ensemble</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">preds1</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">preds2</span>
+<span class="n">errors_ensemble</span> <span class="o">=</span> <span class="n">preds_ensemble</span> <span class="o">-</span> <span class="n">actual</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">errors_ensemble</span><span class="o">.</span><span class="n">var</span><span class="p">())</span> <span class="c"># 750</span>
+</code></pre></div></div>
+
+<p>As shown in the code above, even though a good model (Model 1) was averaged with an inferior model (Model 2), the resulting Ensemble model’s MSE of \$750 is better than either of the models individually.</p>
+
+<p>The benefits of ensembling follow directly from the weighted sum formula we saw above, <script type="math/tex">\sigma_{p}^{2} = \sum{w^2_i \sigma^2_i}</script>. To understand why, it’s helpful to think of models not as generating predictions, but rather as generating errors. Since averaging the predictions of a model corresponds to averaging the errors of the model, we can treat each model’s array of errors as samples of a random variable whose variance can be plugged in to the formula. Assuming the models are unbiased (i.e. the errors average to about zero), the formula tells us the expected MSE of the ensemble predictions. In the example above, the MSE would be</p>
+
+<script type="math/tex; mode=display">\sigma_{p}^{2} = 0.5^2 \times 1000 + 0.5^2 \times 2000 = 750</script>
+
+<p>which is exactly what we observed in the simulations.</p>
+
+<p>(For a totally different intuition of why ensembling works, see <a href="https://www.opendoor.com/w/blog/why-ensembling-works-the-intuition-behind-opendoors-home-pricing">this blog post</a> that I co-wrote for my company, Opendoor.)</p>
+
+<h3 id="an-ensemble-model-with-inverse-variance-weighting">An ensemble model with Inverse Variance Weighting</h3>
+
+<p>In the example above, we obtained good results by using an equally-weighted average of the two models. But can we do better?</p>
+
+<p>Yes we can! Since Model 1 was better than Model 2, we should probably put more weight on Model 1. But of course we shouldn’t put all our weight on it, because then we would throw away the demonstrably useful information from Model 2. The optimal weight must be somewhere in between 50% and 100%.</p>
+
+<p>An effective way to find the optimal weight is to <a href="http://blog.kaggle.com/2016/12/27/a-kagglers-guide-to-model-stacking-in-practice/">build another model on top of these models</a>. However, if you can make certain assumptions (unbiased and uncorrelated errors), there’s an even simpler approach that is great for back-of-the envelope calculations and great for understanding the principles behind ensembling.</p>
+
+<p>To find the optimal weights (assuming unbiased and uncorrelated errors), we need to minimize the variance of the ensemble errors
+<script type="math/tex">\sigma_{p}^{2} = \sum{w^2_i \sigma^2_i}</script>
+with the constraint that 
+<script type="math/tex">\sum{w_i} = 1</script>.</p>
+
+<p>It <a href="https://en.wikipedia.org/wiki/Inverse-variance_weighting">turns out</a> that the variance-minimizing weight for a model should be proportional to the inverse of its variance. 
+<script type="math/tex">w_k = \frac{1/{\sigma^2_k}}{\sum{1/{\sigma^2_i}}}</script></p>
+
+<p>When we apply this method, we obtain optimal weights of <script type="math/tex">w_1</script> = 0.67 and <script type="math/tex">w_2</script> = 0.33. These weights give us an ensemble error variance of</p>
+
+<script type="math/tex; mode=display">\sigma_{p}^{2} = 0.67^2 \times 1000 + 0.33^2 \times 2000 = 666</script>
+
+<p>which is significantly better than the $750 variance we were getting with equal weighting.</p>
+
+<p>This method, called <a href="https://en.wikipedia.org/wiki/Inverse-variance_weightinghttps://en.wikipedia.org/wiki/Inverse-variance_weighting">Inverse Variance Weighting</a>, can be seen in the figure below. The horizontal axis represents the weight on Model 1. The vertical axis represents the weight on Model 2. Both models are unbiased. Color represents the total error variance when the model predictions are summed, based on the formula <script type="math/tex">\sigma_{p}^{2} = \sum{w^2_i \sigma^2_i}</script>. The total variance (color) increases more rapidly as you move upward compared to rightward, indicating that Model 2 contributes more to the total variance. The diagonal line represents the constraint that <script type="math/tex">w_1 + w_2 = 1</script>. The dot represents the optimal weight as determined by Inverse Variance Weighting. As you can see, Inverse Variance Weighting picks the lightest (lowest variance) point on the line, with more weight on Model 1 than Model 2.</p>
+
+<div class="wrapper">
+  <img src="/assets/2019_variance/inverse_variance/main_fig.png" class="inner" style="position:relative border: #222 2px solid; max-width:70%;" />
+  <div class="caption"><strong>Figure 3</strong>. Total error variance (color) as a function of weights on a high error model (vertical) and a low error model (horizontal). The optimal weighting (dot) puts more weight on the low error model.
+  </div>
+</div>
+<p><br /></p>
+
+<p>Inverse Variance Weighting is not just useful as a way to understand Machine Learning ensembles. It is also one of the core principles in scientific <a href="https://en.wikipedia.org/wiki/Meta-analysis">meta-analysis</a>, which is popular in medicine and the social sciences. When multiple scientific studies attempt to estimate some quantity, and each study has a different sample size (and hence variance of their estimate), a meta-analysis should weight the high sample size studies more. Inverse Variance Weighting is used to determine those weights.</p>
+
+<h2 id="part-3-correlated-variables-and-modern-portfolio-theory">Part 3: Correlated variables and Modern Portfolio Theory</h2>
+
+<p>Let’s imagine we now have three unbiased models with the following MSEs:</p>
+
+<ul>
+  <li>Model 1: MSE = 1000</li>
+  <li>Model 2: MSE = 1000</li>
+  <li>Model 3: MSE = 2000</li>
+</ul>
+
+<p>By Inverse Variance Weighting, we should assign more weight to the first two models, with <script type="math/tex">w_1=0.4, w_2=0.4, w_3=0.2</script>.</p>
+
+<p>But what happens if Model 1 and Model 2 have correlated errors? For example, whenever Model 2’s predictions are too high, Model 3’s predictions tend to also be too high. In that case, maybe we don’t want to give so much weight to Models 1 and 2, since they provide somewhat redundant information. Instead we should increase the weight on Model 3, since it provides new independent information.</p>
+
+<p>To determine how much weight to put on each model, we first need to determine how much total variance there will be if the errors are correlated. To do this, we need to borrow a <a href="https://en.wikipedia.org/wiki/Modern_portfolio_theory">formula</a> from the financial literature, which extends the formulas we’ve worked with before. This is the formula we’ve been waiting for.</p>
+
+<div class="box">
+If $ X_p $ is a weighted sum of (correlated or uncorrelated) random variables $ X_1 ... X_n $, then the variance of $ X_p $ will be
+
+$$ \sigma_{p}^{2} = \sum\limits_{i} \sum\limits_{j} w_i w_j \sigma_i \sigma_j \rho_{ij} $$
+
+where each $ w_i $ and $ w_j $ are weights assigned to $ X_i $ and $ X_j $, where each $ X_i $ and $ X_j $ have standard deviations $ \sigma_i $ and $ \sigma_j $, and where the correlation between $ X_i $ and $ X_j $ is $ \rho_{ij} $.
+</div>
+
+<p>There’s a lot to unpack here, so let’s take this step by step.</p>
+
+<ul>
+  <li><script type="math/tex">\sigma_i \sigma_j \rho_{ij}</script> is a scalar quantity representing the covariance between <script type="math/tex">X_i</script> and <script type="math/tex">X_j</script>.</li>
+  <li>If none of the variables are correlated with each other, then all the cases where $ i \neq j $ will go to zero, and the formula reduces to <script type="math/tex">\sigma_{p}^{2} = \sum{w^2_i \sigma^2_i}</script>, which we have seen before.</li>
+  <li>The more that two variables <script type="math/tex">X_i</script> and <script type="math/tex">X_j</script> are correlated, the more the total variance <script type="math/tex">\sigma_{p}^{2}</script> increases.</li>
+  <li>If two variables <script type="math/tex">X_i</script> and <script type="math/tex">X_j</script> are anti-correlated, then the total variance decreases, since <script type="math/tex">\sigma_i \sigma_j \rho_{ij}</script> is negative.</li>
+  <li>This formula can be rewritten in more compact notation as <script type="math/tex">\sigma_{p}^{2} = \vec{w}^T\Sigma \vec{w}</script>, where <script type="math/tex">\vec{w}</script> is the weight vector, and <script type="math/tex">\Sigma</script> is the covariance matrix (not a summation sign!)</li>
+</ul>
+
+<p>If you skimmed the bullet points above, go back and re-read them! They are super important.</p>
+
+<p>To find the set of weights that minimize variance in the errors, then you must minimize the above formula, with the constraint that <script type="math/tex">\sum{w_i} = 1</script>. One way to do this is to use a <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.minimize.html#scipy.optimize.minimize">numerical optimization method</a>. In practice, however, it is more common to just find weights by <a href="http://blog.kaggle.com/2016/12/27/a-kagglers-guide-to-model-stacking-in-practice/">building another model on top of the base models</a></p>
+
+<p>Regardless of how the weights are found, it will usually be the case that if Models 1 and 2 are correlated, the optimal weights will reduce redundancy and put lower weight on these models than simple Inverse Variance Weighting would suggest.</p>
+
+<h3 id="applications-to-financial-portfolios">Applications to financial portfolios</h3>
+
+<p>The formula above was discovered by economist <a href="https://en.wikipedia.org/wiki/Harry_Markowitz">Harry Markowitz</a> in his <a href="https://en.wikipedia.org/wiki/Modern_portfolio_theory">Modern Portfolio Theory</a>, which describes how an investor can optimally trade off between expected returns and expected risk, often measured as variance. In particular, the theory shows how to maximize expected return given a fixed variance, or minimize variance given a fixed expected return. We’ll focus on the latter.</p>
+
+<p>Imagine you have three stocks to put in your portfolio. You plan to sell them at time $ T $, at which point you expect that Stock 1 will have gone up by 5%, with some uncertainty. You can describe your uncertainty as variance, and in the case of Stock 1, let’s say <script type="math/tex">\sigma_1^2</script> = 1. This stock, as well Stocks 2 and 3, are summarized in the table below:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Stock ID</th>
+      <th>Expected Return</th>
+      <th>Expected Risk (<script type="math/tex">\sigma^2</script>)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>5.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>5.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>5.0</td>
+      <td>2.0</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>This financial example should remind you of ensembling in machine learning. In the case of ensembling, we wanted to minimize variance of the weighted sum of error arrays. In the case of financial portfolios, we want to minimize the variance of the weighted sum of scalar financial returns.</p>
+
+<p>As before, if there are no correlations between the expected returns (i.e. if Stock 1 exceeding 5% return does not imply that Stock 2 or Stock 3 will exceed 5% return), then the total variance in the portfolio will be
+<script type="math/tex">\sigma_{p}^{2} = \sum{w^2_i \sigma^2_i}</script>
+and we can use Inverse Variance Weighting to obtain weights $ w_1=0.4, w_2=0.4, w_3=0.2 $.</p>
+
+<p>However, sometimes stocks have correlated expected returns. For example, if two of the stocks are in oil companies, then one stock exceeding 5% implies the other is also likely to exceed 5%. When this happens, the total variance becomes</p>
+
+<script type="math/tex; mode=display">\sigma_{p}^{2} = \sum\limits_{i} \sum\limits_{j} w_i w_j \sigma_i \sigma_j \rho_{ij}</script>
+
+<p>as we saw before in the ensemble example. Since this includes an additional positive term for <script type="math/tex">w_1 w_2 \sigma_1 \sigma_2 \rho_{1,2}</script>, the expected variance is higher than in the uncorrelated case, assuming the correlations are positive. To reduce this variance, we should put less weight on Stocks 1 and 2 than we would otherwise.</p>
+
+<p>While we have focused on minimizing the variance of a financial portfolio, you might also be interested in having a portfolio with high return. Modern Portfolio Theory describes how a portfolio can reach any abitrary point on the <a href="https://en.wikipedia.org/wiki/Efficient_frontier">efficient frontier</a> of variance and return, but that’s outside the scope of this blog post. And as you might expect, financial markets can be more complicated than Modern Portfolio Theory suggests, but that’s also outside scope.</p>
+
+<h2 id="summary">Summary</h2>
+
+<p>That was a long post, but I hope that the principles described have been informative. It may be helpful to summarize them in <em>backwards</em> order, starting with the most general principle.</p>
+
+<div class="box">
+
+If $ X_p $ is a weighted sum of (correlated or uncorrelated) random variables $ X_1 ... X_n $, then the variance of $ X_p $ will be
+
+$$ \sigma_{p}^{2} = \sum\limits_{i} \sum\limits_{j} w_i w_j \sigma_i \sigma_j \rho_{ij} $$
+
+where each $ w_i $ and $ w_j $ are weights assigned to $ X_i $ and $ X_j $, where each $ X_i $ and $ X_j $ have standard deviations $ \sigma_i $ and $ \sigma_j $, and where the correlation between $ X_i $ and $ X_j $ is $ \rho_{ij} $. The term $ \sigma_i \sigma_j \rho_{ij} $ is a scalar quantity representing the covariance between $ X_i $ and $ X_j $.
+
+<br /><br />If none of the variables are correlated, then all the cases where $ i \neq j $ go to zero, and the formula reduces to 
+
+$$ \sigma_{p}^{2} = \sum{w^2_i \sigma^2_i} $$
+
+And finally, if we are computing a simple sum of random variables where all the weights are 1, then the formula reduces to
+
+$$ \sigma_{p}^{2} = \sum{\sigma^2_i} $$
+</div>
+
+
+    <div>
+        <i class="fa fa-comment"></i> <a href="http://localhost:4000/2019/05/05/variance_after_scaling_and_summing/#disqus_thread" data-disqus-identifier="http://localhost:4000/2019/05/05/variance_after_scaling_and_summing/"></a>
+        <span>&nbsp; &nbsp;</span>
+        <span>
+            <a class="twitter-share-button"
+              href="https://twitter.com/share"
+              data-url="http://localhost:4000/2019/05/05/variance_after_scaling_and_summing/"
+              data-via="Chris_Said"
+              data-count="none"
+              data-text="Variance after scaling and summing&#58; One of the most useful facts from statistics">
+            Tweet
+            </a>
+        </span>
+
+    </div>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
       <a href="/2018/08/06/cone-of-confusion/">
         Using your ears and head to escape the Cone Of Confusion
       </a>
@@ -138,7 +460,7 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
   </div>
 </div>
 <p><br />
-This system sounds good in theory, but do we actually use these cues in practice? In 1988, Frederic Wightman and Doris Kistler performed an ingenious set of experiments (<a href="http://public.vrac.iastate.edu/~charding/audio/Headphone%20simulation%20of%20free-field%20listening.%20I-%20Stimulus%20synthesis%20-%20J%20Acoust%20Soc%20Am%201989%20-%20Wightman.pdf">1</a>, <a href="http://public.vrac.iastate.edu/~charding/audio/Headphone%20simulation%20of%20free-field%20listening.%20II-%20Psychophysical%20validation%20-%20J%20Acoust%20Soc%20Am%201989%20-%20Wightman.pdf">2</a>) to show that that people really do use HRTFs to infer location. First, they measured the HRTF of each participant by putting a small microphone in their ears and playing sounds from different locations. Next they created a digital filter for each location and each participant. These filters replicated the pattern of filtering from each location. Finally, they placed headphones on the listeners and played sounds to them, each time passing the sound through one of the digital filters. Amazingly, participants were able to correctly guess the “location” of the sound, depending on which filter was used, even though the sound was coming from headphones. They were also much better at sound localization when using their own HRTF, rather than someone else’s HRTF.</p>
+This system sounds good in theory, but do we actually use these cues in practice? In 1988, Frederic Wightman and Doris Kistler performed an ingenious set of experiments (<a href="http://public.vrac.iastate.edu/~charding/audio/Headphone%20simulation%20of%20free-field%20listening.%20I-%20Stimulus%20synthesis%20-%20J%20Acoust%20Soc%20Am%201989%20-%20Wightman.pdf">1</a>, <a href="http://public.vrac.iastate.edu/~charding/audio/Headphone%20simulation%20of%20free-field%20listening.%20II-%20Psychophysical%20validation%20-%20J%20Acoust%20Soc%20Am%201989%20-%20Wightman.pdf">2</a>) to show that that people really do use HRTFs to infer location. First, they measured the HRTF of each participant by putting a small microphone in their ears and playing sounds from different locations. Next they created a digital filter for each location and each participant. That is to say, these filters implemented each participant’s HRTF. Finally, they placed headphones on the listeners and played sounds to them, each time passing the sound through one of the digital filters. Amazingly, participants were able to correctly guess the “location” of the sound, depending on which filter was used, even though the sound was coming from headphones. They were also much better at sound localization when using their own HRTF, rather than someone else’s HRTF.</p>
 
 <p>Further evidence for this hypothesis comes from <a href="https://doi.org/10.1038/1633">Hofman et al., 1998</a>, who showed that by using putty to reshape people’s ears, they were able to change the HRTFs and thus disrupt sound localization. Interestingly, people were able to quickly relearn how to localize sound with their new HRTFs.</p>
 <div class="wrapper">
@@ -427,105 +749,107 @@ This system sounds good in theory, but do we actually use these cues in practice
   
   <div class="post">
     <h1 class="post-title">
-      <a href="/2017/07/09/part-2-a-bipartisan-list-of-people-who-argue-in-good-faith/">
-        Part 2&#58; A bipartisan list of people who argue in good faith
+      <a href="/2017/12/02/religions-as-firms-(chris-said-od-mac's-conflicted-copy-2019-02-09)/">
+        Religions as firms
       </a>
     </h1>
 
-    <span class="post-date">09 Jul 2017</span>
+    <span class="post-date">02 Dec 2017</span>
 
-    <p>In <a href="/2017/07/09/part-1-a-bipartisan-list-of-people-who-are-bad-for-america/">Part 1</a>, I posted a bipartisan list of people who are bad for America. Those people present news stories that cherry pick the worst actions from the other side so that they can get higher TV ratings and more social media points.</p>
+    <p>I recently came across a magazine that helps pastors manage the financial and operational challenges of church management. The magazine is called <em>Church Executive</em>.</p>
 
-<p>Here in Part 2, I post a list of people who don’t do that, at least for the most part. This isn’t a list of centrists. If anything, it is a more politically diverse list than the list in Part 1. This is a list of people who usually make good-faith attempts to persuade others about their point of view.</p>
+<p>Readers concerned about seasonal effects on tithing can learn how to “<a href="https://churchexecutive.com/archives/church-executive-remote-roundtable-2">sustain generosity</a>” during the weaker summer months. Technology like <a href="https://churchexecutive.com/archives/church-executive-remote-roundtable-6">push notifications and text messages</a> is encouraged as a way to remind people to tithe. There is also some emphasis on messaging, as pastors are told to “make sure your <a href="https://churchexecutive.com/archives/church-executive-remote-roundtable-6">generosity-focused sermons</a> are hitting home with your audience”.</p>
 
-<ul>
-  <li><strong>Megan McArdle</strong> (<a href="https://twitter.com/asymmetricinfo">Twitter</a>, <a href="https://www.bloomberg.com/view/contributors/AQjVOcPejrY/megan-mcardle">Bloomberg</a>) – Moderately libertarian ideas presented to a diverse audience</li>
-  <li><strong>Noah Smith</strong> (<a href="https://twitter.com/Noahpinion">Twitter</a>, <a href="https://www.bloomberg.com/view/contributors/AR3OYuAmvcU/noah-smith">Bloomberg</a>) – Center-left economics</li>
-  <li><strong>Ross Douthat</strong> (<a href="https://twitter.com/DouthatNYT">Twitter</a>, <a href="https://www.nytimes.com/column/ross-douthat">NYT</a>) – Social conservatism presented to a left-of-center audience</li>
-  <li><strong>Noam Chomsky</strong> (<a href="https://chomsky.info/articles/">Website</a>)</li>
-  <li><strong>Conor Friedersdorf</strong> (<a href="https://www.theatlantic.com/author/conor-friedersdorf">The Atlantic</a>)</li>
-  <li><strong>Ben Sasse</strong> — Has the third-most conservative voting record in the Senate but never caricatures the other side and is very concerned about filter bubbles.</li>
-  <li><strong>Julia Galef</strong> (<a href="https://twitter.com/juliagalef">Twitter</a>) – Has some <a href="https://twitter.com/juliagalef/status/850126407963262976">great advice</a> for understanding the other side</li>
-  <li><strong>Nicky Case</strong> (<a href="https://twitter.com/ncasenmare">Twitter</a>)</li>
-  <li><strong>Fareed Zakaria</strong> (<a href="https://www.washingtonpost.com/people/fareed-zakaria/">Washington Post</a>) – Center-left foreign policy</li>
-  <li><strong>Eli Lake</strong> (<a href="https://twitter.com/EliLake">Twitter</a>, <a href="https://www.bloomberg.com/view/contributors/ASD1bG3hdiI/eli-lake">Bloomberg</a>) – Hawkish foreign policy</li>
-  <li><strong>Kevin Drum</strong> (<a href="http://www.motherjones.com/kevin-drum/">Mother Jones</a>) – Center-left blogger who writes in good faith</li>
-  <li><strong>John Carl Baker</strong> (<a href="https://twitter.com/johncarlbaker">Twitter</a>) – One of the few modern socialists I have found who avoids in-group snark.</li>
-  <li><strong>Michael Dougherty</strong> (<a href="https://twitter.com/michaelbd">Twitter</a>, <a href="http://theweek.com/authors/michael-brendan-dougherty">The Week</a>)</li>
-  <li><strong>Reihan Salam</strong> (<a href="https://twitter.com/reihan">Twitter</a>, <a href="http://www.nationalreview.com/author/reihan-salam">NRO</a>)</li>
-  <li><strong>Avik Roy</strong> (<a href="https://twitter.com/Avik">Twitter</a>, <a href="http://www.nationalreview.com/author/avik-roy">NRO</a>) – Conservative health care</li>
-  <li><strong>Ezra Klein</strong> (<a href="https://www.vox.com/authors/ezra-klein">Vox</a>, <a href="http://prospect.org/authors/ezra-klein">early days at the American Prospect</a>) – While at the American Prospect, Ezra did an amazing job trying to persuade people about the benefits of Obamacare. Vox, the explainer site that he started, sometimes slips into red meat clickbait. But to its credit, Vox has managed to reach a wide audience with mostly explainer content.</li>
-</ul>
+<div class="wrapper">
+  <img src="/assets/2017_religions_as_firms/church_executive.jpg" height="250" class="inner" style="position:relative border: #222 2px solid;" />
+</div>
 
-<p>Reading the people on this list with an open mind will broaden your worldview.</p>
+<p>Churches need money to stay active, and it’s natural that pastors would want to maintain a healthy cash flow. But the brazen language of <em>Church Executive</em> reminded me of the language of profit-maximizing firms. This got me thinking: What are the other ways in which religions act like a business?</p>
+
+<p>This post is my attempt to understand religions as if they were businesses. This isn’t a perfect metaphor. Most religious leaders are motivated by genuine beliefs, and few are motivated primarily by profit. But it can still be instructive to view religions through the lens of business and economics, if only as an exercise. After working through this myself, I feel like I have a better understanding of why religions act the way they do.</p>
+
+<h3 id="competition">Competition</h3>
+<p>As with any business, one of the most pressing concerns of a religion is competition. According to sociologist Carl Bankston, the set of religions <a href="https://en.wikipedia.org/wiki/Theory_of_religious_economy">can be described</a> as a marketplace of competing firms that vie for customers. Religious consumers can leave one church to go to another. To hedge their bets on the afterlife, some consumers may even belong to several churches simultaneously, in a strategy that has been described as “<a href="http://users.clas.ufl.edu/kenwald/pos6292/iannaccone.pdf">portfolio diversification</a>”.</p>
+
+<p>One way that a religion can ward off competitors is to prohibit its members from following them. The Bible is insistent on this point, with <a href="https://bible.knowing-jesus.com/topics/Avoiding-Idolatry">26 separate verses</a> banning idolatry. Other religions have been able to eliminate competition entirely by forming <a href="https://en.wikipedia.org/wiki/Islam_in_Saudi_Arabia#Role_in_the_state_and_society">state-sponsored monopolies</a>.</p>
+
+<h3 id="pricing">Pricing</h3>
+<p>Just like a business, religions need to determine how to price their product. According to economists <a href="https://www.researchgate.net/profile/Feler_Bose/publication/271328680_Funding_the_Faiths_Toward_a_Theory_of_Religious_Finance/links/54c5b8790cf219bbe4f59dac.pdf">Laurence Iannaccone and Feler Bose</a>, the optimal pricing strategy for a religion depends on whether it is proselytizing or non-proselytizing.</p>
+
+<p>Non-proselytizing religions like Judaism and Hinduism earn much of their income from <a href="http://www.hinducenterofvirginia.org/Membership.html">membership fees</a>. While exceptions are often made for people who are too poor to pay, and while donations are still accepted, the explicit nature of the membership fees help these religions avoid having too many <a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.483.5309&amp;rep=rep1&amp;type=pdf">free riders</a>.</p>
+
+<p>Proselytizing religions like Christianity are <a href="http://freakonomics.com/2010/10/19/churches-versus-synagogues-voluntary-donations-versus-dues/">different</a>. Because of their strong emphasis on growth, they are willing to forgo explicit membership fees and instead rely more on donations that are up to the member’s discretion. Large donations from wealthy individuals can <a href="https://www.researchgate.net/profile/Feler_Bose/publication/271328680_Funding_the_Faiths_Toward_a_Theory_of_Religious_Finance/links/54c5b8790cf219bbe4f59dac.pdf">cross-subsidize</a> the membership of those who make smaller donations. Even free riders who make no donations at all <a href="https://www.economics.uci.edu/files/docs/workingpapers/2006-07/06-07-22.pdf">may be worthwhile</a>, since they may attract more members in the future.</p>
+
+<h3 id="surge-pricing">Surge Pricing</h3>
+<p>Like Uber, some religions raise the price during periods of peak demand. While attendance at Jewish synagogue for a regular Shabbat service is normally free, attendance during one of the High Holidays typically <a href="http://www.nytimes.com/2013/09/14/us/selling-holy-day-tickets-is-dilemma-for-synagogues.html">requires a payment</a> for seating, in part to <a href="https://reformjudaism.org/jewish-holidays/rosh-hashanah/five-things-know-about-attending-high-holiday-services">ensure space for everyone</a>.</p>
+
+<div class="wrapper">
+  <img src="/assets/2017_religions_as_firms/traffic_synagogue.png" class="inner" style="position:relative border: #222 2px solid; max-width:100%;" />
+</div>
+
+<p>Surge pricing makes sense for non-proselytizing religions such as Judaism, but it does not make sense for proselytizing religions such as Christianity, which views the higher demand during peak season as an <a href="https://www.researchgate.net/profile/Feler_Bose/publication/271328680_Funding_the_Faiths_Toward_a_Theory_of_Religious_Finance/links/54c5b8790cf219bbe4f59dac.pdf">opportunity</a> to convert newcomers and to reactivate lapsed members. Thus, Christian churches tend to expand seating and schedule extra services during Christmas and Easter, rather than charging fees.</p>
+
+<h3 id="product-quality">Product Quality</h3>
+<p>Just as business consumers will <a href="https://books.google.com/books/about/Acts_of_Faith.html?id=913O9xcpBB4C&amp;printsec=frontcover&amp;source=kp_read_button#v=onepage&amp;q=%22higher%20prices%22&amp;f=false">pay</a> higher prices for better products, consumers of polytheistic religions will pay higher “prices” for gods with more wide-ranging powers. Even today, some American megachurches have found success with the <a href="https://en.wikipedia.org/wiki/Prosperity_theology">prosperity gospel</a>, which emphasizes that God can make you wealthy.</p>
+
+<p>Of course, not all religious consumers will prefer the cheap promises of the prosperity gospel. For many religions, product quality is defined primarily by community, a sense of meaning, and in some cases the promise of an afterlife.</p>
+
+<h3 id="software-updates">Software Updates</h3>
+<p>A good business should be constantly updating its product to fix bugs and to respond to changes in consumer preference or government regulation. Some religions do the same thing, via the process of <a href="https://en.wikipedia.org/wiki/Continuous_revelation">continuous revelation</a> from their deity. Perhaps no church exemplifies this better than the Church of Jesus Christ of Latter-day Saints.</p>
+
+<p>For most of the history of the Mormon Church, individuals of African descent were prohibited from serving as priests. By the 1960s, as civil rights protests against the church received media attention, the policy became increasingly untenable. On June 1, 1978, Mormon leaders reported that God had instructed them to update the policy and allow black priests. This event was known as the <a href="https://en.wikipedia.org/wiki/1978_Revelation_on_Priesthood">1978 Revelation on the Priesthood</a>.</p>
+
+<p>In the late 19th Century, when the Mormon Church was under intense pressure from the US Government regarding polygamy, the Church president claimed to receive a revelation from Jesus Christ asking him to prohibit it. This revelation, known as the <a href="https://en.wikipedia.org/wiki/1890_Manifesto">1890 Revelation</a>, overturned the previous <a href="https://en.wikipedia.org/wiki/Origin_of_Latter_Day_Saint_polygamy#1843_revelation">1843 Revelation</a> which allowed polygamy.</p>
+
+<p>While frequent updates usually make sense in business, they don’t always make sense in religion. Most religions have a fairly static doctrine, as the prospect of future updates undermines the authority of current doctrine.</p>
+
+<h3 id="growth-and-marketing">Growth and marketing</h3>
+<p>Instead of focusing only on immediate profitability, many businesses invest in user growth. As mentioned earlier, many religions are willing to <a href="https://www.researchgate.net/profile/Feler_Bose/publication/271328680_Funding_the_Faiths_Toward_a_Theory_of_Religious_Finance/links/54c5b8790cf219bbe4f59dac.pdf">cross-subsidize</a> participation from new members, especially young members, with older members bearing most of the costs.</p>
+
+<p>Christianity’s concept of a heaven and hell encouraged its members to convert their friends and family. In some ways, this is reminiscent of <a href="https://en.wikipedia.org/wiki/Viral_marketing">viral marketing</a>.</p>
+
+<h3 id="international-expansion">International expansion</h3>
+<p>Facebook and Netflix both experienced rapid adoption, starting with a U.S. audience. But as U.S. growth began to slow down, both companies needed to look towards international expansion.</p>
+
+<p>A similar thing happened with the Mormon church. By the 20th century, U.S. growth was driven only by increasing family sizes, so the church turned towards international expansion.</p>
+
+<p>The graph below shows similar US and international growth curves for Netflix and the Church of Jesus Christ of Latter-day Saints.<sup>[<a href="https://en.wikipedia.org/wiki/The_Church_of_Jesus_Christ_of_Latter-day_Saints_membership_history">1</a>,<a href="https://rsc.byu.edu/archived/latter-day-saint-social-life-social-research-lds-church-and-its-members/4-vital-statistics">2</a>,<a href="http://www.churchistrue.com/blog/lds-membership-statistics-report-2017/">3</a>,<a href="http://www.businessinsider.com/netflix-subscribers-international-vs-us-earnings-chart-2017-7">4</a>]</sup></p>
+
+<div class="wrapper">
+  <img src="/assets/2017_religions_as_firms/LDS_netflix.png" style="position:relative border: #222 2px solid; max-width:100%;" />
+</div>
+
+<h3 id="branding">Branding</h3>
+<p>Like any company, most religions try to maintain a good brand. But unlike businesses, most religions do not have brand protection, and thus their brands can be co-opted by other religions. Marketing from Mormons and from Jehovah’s Witnesses tends to <a href="https://www.jw.org/en/jehovahs-witnesses/faq/jehovah-witness-beliefs/">emphasize</a> the good brand of Jesus Christ, even though most mainstream Christians regard these churches as heretical.</p>
+
+<div class="wrapper">
+  <img src="/assets/2017_religions_as_firms/follow_the_christ.jpg" height="250" class="inner" style="position:relative border: #222 2px solid;" />
+</div>
+
+<p>One of the most interesting risks to brands is <a href="https://en.wikipedia.org/wiki/Generic_trademark"><em>genericide</em></a>, in which a popular trademark becomes synonymous with the general class of product, thereby diluting its distinctive meaning. Famous examples of generic trademarks include Kleenex and Band-Aid. Amazingly, genericide can also happen to religious deities. The ancient Near East god <a href="https://en.wikipedia.org/wiki/El_(deity)"><em>El</em></a> began as a distinct god with followers, but <a href="https://twitter.com/suchaone/status/869909666217607168">gradually became a generic name for “God”</a> and eventually merged with the Hebrew god Yahweh.</p>
+
+<h3 id="mergers-and-spin-offs">Mergers and spin-offs</h3>
+<p>In business, companies can spin off other companies or merge with other companies. But with rare exceptions, religions only seem to have spin-offs. Why do religions hardly ever merge with other religions? My guess is that since there is no protection for religious intellectual property, religions can acquire the intellectual property of another religion without requiring a merger. Religions can simply copy each other’s ideas.</p>
+
+<p>Another reason that religious mergers are rare is that religions are strongly tied to personal identity and tap into tribal thinking. When WhatsApp was acquired, its leadership was happy to adopt new identities as Facebook employees. But it is far less likely that members of, say, the Syriac Catholic Church would ever tolerate merging into the rival Syriac Maronite Church, even if it might provide them with economies of scale and more political power.</p>
+
+<p>On Twitter, I asked why there are so few religious mergers and got lots of interesting <a href="https://twitter.com/Chris_Said/status/936635424012828672">responses</a>. People pointed out that reconciliation of doctrine could <a href="https://twitter.com/KyleCSN/status/936637304688427009">undermine the authority</a> of the leaders, and that there is <a href="https://twitter.com/AcostaRomay/status/936635959453585408">little benefit</a> from economies of scale. Others noted that religious mergers aren’t that rare. Hinduism and Judaism may have <a href="https://twitter.com/imrankhan/status/936648636158611456">began</a> as mergers of smaller religions, many <a href="https://twitter.com/thechelleshock/status/937033585638326272">Christian traditions</a> involve mergers with religions they replaced, and that even today Hinduism <a href="https://twitter.com/venusatuluri/status/936664575591583745">continues to be</a> a merging of various sects.</p>
+
+<hr />
+
+<p>It’s worth repeating that economic explanations aren’t always great at describing the <em>conscious</em> motivations of religious individuals, who generally have sincere beliefs. Nevertheless, economic reasoning does a decent job of predicting the behavior of <em>systems</em>, and it’s been pretty interesting to learn how religion is no exception.</p>
 
 
     <div>
-        <i class="fa fa-comment"></i> <a href="http://localhost:4000/2017/07/09/part-2-a-bipartisan-list-of-people-who-argue-in-good-faith/#disqus_thread" data-disqus-identifier="http://localhost:4000/2017/07/09/part-2-a-bipartisan-list-of-people-who-argue-in-good-faith/"></a>
+        <i class="fa fa-comment"></i> <a href="http://localhost:4000/2017/12/02/religions-as-firms-(chris-said-od-mac's-conflicted-copy-2019-02-09)/#disqus_thread" data-disqus-identifier="http://localhost:4000/2017/12/02/religions-as-firms-(chris-said-od-mac's-conflicted-copy-2019-02-09)/"></a>
         <span>&nbsp; &nbsp;</span>
         <span>
             <a class="twitter-share-button"
               href="https://twitter.com/share"
-              data-url="http://localhost:4000/2017/07/09/part-2-a-bipartisan-list-of-people-who-argue-in-good-faith/"
+              data-url="http://localhost:4000/2017/12/02/religions-as-firms-(chris-said-od-mac's-conflicted-copy-2019-02-09)/"
               data-via="Chris_Said"
               data-count="none"
-              data-text="Part 2&#58; A bipartisan list of people who argue in good faith">
-            Tweet
-            </a>
-        </span>
-
-    </div>
-
-  </div>
-  
-  <div class="post">
-    <h1 class="post-title">
-      <a href="/2017/07/09/part-1-a-bipartisan-list-of-people-who-are-bad-for-america/">
-        Part 1&#58; A bipartisan list of people who are bad for America
-      </a>
-    </h1>
-
-    <span class="post-date">09 Jul 2017</span>
-
-    <p>Imagine that alien researchers visited America to learn about our political culture. If they wrote a report to send back to their planet, I imagine it would look something like this:</p>
-
-<blockquote>
-  <p>Americans have split themselves up into two opposing political tribes. Most people who associate with these groups are well-intentioned, but occasionally some members of a tribe do something bad or say something dumb. Whenever this happens, members of the opposite side feel good about themselves.</p>
-
-  <p>Certain writers and media personalities have learned to exploit this fact for personal gain. They have found that they can maximize their TV ratings and social media points by writing news stories that either cherry pick the worst actions of the other side or which interpret the other side’s actions in the least charitable way possible. As a result, news readers have developed increasingly distorted beliefs about their political opponents. The civic culture of the society is broken.</p>
-</blockquote>
-
-<p>Below is a bipartisan list of people who are stoking partisan outrage for personal gain. Some of them do it for retweets, some of them do it for TV ratings, and some of them – still culpable – do it because they have entered a filter bubble themselves, fueling their own distorted and harmful sense of mission.</p>
-
-<ul>
-  <li><strong>Sean Davis</strong> (The Federalist) His Twitter account is deliberately uncharitable.</li>
-  <li><strong>Sopan Deb</strong> (New York Times) During the presidential campaign, his Twitter feed was nonstop, “look what this stupid Trump supporter said”.</li>
-  <li><strong>Stephen Miller</strong> (The Wilderness, ex-NRO)</li>
-  <li><strong>Chris Cillizza</strong> (The Washington Post)</li>
-  <li><strong>Sean Hannity</strong> (Fox News)</li>
-  <li><strong>Tucker Carlson</strong> (Fox News)</li>
-  <li><strong>Samantha Bee</strong> I know, she’s a comedian. I like jokes. But given how many people get their news from selectively edited comedy shows, it’s fair to say that comedians bear some responsibility.</li>
-  <li><strong>John Oliver</strong> (HBO) It pains me to include him on this list, since he is funny and since his show also includes some constructive <a href="https://www.youtube.com/watch?v=Nn_Zln_4pA8">policy explainers</a>. But much of the content is selectively edited clips that paint a very distorted picture of the other side.</li>
-  <li><strong>Rachel Maddow</strong> (MSNBC)</li>
-  <li><strong>Shaun King</strong> (Facebook personality)</li>
-  <li><strong>Greg Gutfeld</strong> (Fox News comedian)</li>
-</ul>
-
-<p>It doesn’t matter if some of the people on this list do accurate reporting. What matters is that their reporting is <em>selective</em>. It doesn’t matter if some of the people on this list support some good policy ideas. What matters is that listening to them will destroy your brain’s ability to understand where the other side is coming from. And it doesn’t matter if one side is more filter-bubbled than the other. Both sides are badly filter-bubbled. Avoiding the people in this list is a good place to start.</p>
-
-<p>In <a href="/2017/07/09/part-2-a-bipartisan-list-of-people-who-argue-in-good-faith/">Part 2</a>, I’ll post a bipartisan list of people who argue in good faith.</p>
-
-
-    <div>
-        <i class="fa fa-comment"></i> <a href="http://localhost:4000/2017/07/09/part-1-a-bipartisan-list-of-people-who-are-bad-for-america/#disqus_thread" data-disqus-identifier="http://localhost:4000/2017/07/09/part-1-a-bipartisan-list-of-people-who-are-bad-for-america/"></a>
-        <span>&nbsp; &nbsp;</span>
-        <span>
-            <a class="twitter-share-button"
-              href="https://twitter.com/share"
-              data-url="http://localhost:4000/2017/07/09/part-1-a-bipartisan-list-of-people-who-are-bad-for-america/"
-              data-via="Chris_Said"
-              data-count="none"
-              data-text="Part 1&#58; A bipartisan list of people who are bad for America">
+              data-text="Religions as firms">
             Tweet
             </a>
         </span>
