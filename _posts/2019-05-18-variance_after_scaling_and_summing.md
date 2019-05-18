@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Variance after scaling and summing&#58; One of the most useful facts from statistics
-description:
+description: One of the most useful facts from statistics
 image: /assets/2019_variance/inverse_variance/main_fig.png
 ---
 
