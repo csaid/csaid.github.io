@@ -10,7 +10,7 @@ permalink:        pretty
 title:            The File Drawer
 tagline:          'A blog by Chris Said'
 description:      'My name is Chris Said and I am a data scientist at Opendoor. This blog is mostly about tech, stats, and science.'
-url:              http://www.chris-said.io
+url:              https://www.chris-said.io
 baseurl:          /
 
 author:

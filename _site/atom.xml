@@ -4,7 +4,7 @@
  <title>The File Drawer</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2019-05-18T16:33:36-07:00</updated>
+ <updated>2019-05-18T19:01:54-07:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -243,7 +243,7 @@ where each $ w_i $ and $ w_j $ are weights assigned to $ X_i $ and $ X_j $, wher
 
 &lt;p&gt;If you skimmed the bullet points above, go back and re-read them! They are super important.&lt;/p&gt;
 
-&lt;p&gt;To find the set of weights that minimize variance in the errors, then you must minimize the above formula, with the constraint that &lt;script type=&quot;math/tex&quot;&gt;\sum{w_i} = 1&lt;/script&gt;. One way to do this is to use a &lt;a href=&quot;https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.minimize.html#scipy.optimize.minimize&quot;&gt;numerical optimization method&lt;/a&gt;. In practice, however, it is more common to just find weights by &lt;a href=&quot;http://blog.kaggle.com/2016/12/27/a-kagglers-guide-to-model-stacking-in-practice/&quot;&gt;building another model on top of the base models&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;To find the set of weights that minimize variance in the errors, you must minimize the above formula, with the constraint that &lt;script type=&quot;math/tex&quot;&gt;\sum{w_i} = 1&lt;/script&gt;. One way to do this is to use a &lt;a href=&quot;https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.minimize.html#scipy.optimize.minimize&quot;&gt;numerical optimization method&lt;/a&gt;. In practice, however, it is more common to just find weights by &lt;a href=&quot;http://blog.kaggle.com/2016/12/27/a-kagglers-guide-to-model-stacking-in-practice/&quot;&gt;building another model on top of the base models&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Regardless of how the weights are found, it will usually be the case that if Models 1 and 2 are correlated, the optimal weights will reduce redundancy and put lower weight on these models than simple Inverse Variance Weighting would suggest.&lt;/p&gt;
 

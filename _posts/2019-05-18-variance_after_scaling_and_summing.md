@@ -228,7 +228,7 @@ There’s a lot to unpack here, so let’s take this step by step.
 
 If you skimmed the bullet points above, go back and re-read them! They are super important.
 
-To find the set of weights that minimize variance in the errors, then you must minimize the above formula, with the constraint that $$\sum{w_i} = 1$$. One way to do this is to use a [numerical optimization method](https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.minimize.html#scipy.optimize.minimize). In practice, however, it is more common to just find weights by [building another model on top of the base models](http://blog.kaggle.com/2016/12/27/a-kagglers-guide-to-model-stacking-in-practice/)
+To find the set of weights that minimize variance in the errors, you must minimize the above formula, with the constraint that $$\sum{w_i} = 1$$. One way to do this is to use a [numerical optimization method](https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.minimize.html#scipy.optimize.minimize). In practice, however, it is more common to just find weights by [building another model on top of the base models](http://blog.kaggle.com/2016/12/27/a-kagglers-guide-to-model-stacking-in-practice/)
 
 Regardless of how the weights are found, it will usually be the case that if Models 1 and 2 are correlated, the optimal weights will reduce redundancy and put lower weight on these models than simple Inverse Variance Weighting would suggest. 
 
