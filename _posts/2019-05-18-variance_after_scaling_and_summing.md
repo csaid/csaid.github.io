@@ -57,7 +57,7 @@ Bienaymé's result is surprising and unintuitive. But since it's such a simple f
 #### Understanding $ R^2 $ and “variance explained”
 Psychologists often talk about “within-group variance”, “between-group variance”, and “variance explained”. What do these terms mean? 
 
-Imagine a hypothetical study that measured the extraversion of 10 boys and 10 girls, where extraversion is measured on a 10-point scale (_Figure 1_. Orange bars). The boys have a mean extraversion of 44 and the girls have a mean extraversion 50. In addition, the overall variance of the data is 25.  We can decompose this variance into two parts:
+Imagine a hypothetical study that measured the extraversion of 10 boys and 10 girls, where extraversion is measured on a 10-point scale (_Figure 1_. Orange bars). The boys have a mean extraversion of 4.4 and the girls have a mean extraversion 5.0. In addition, the overall variance of the data is 2.5.  We can decompose this variance into two parts:
 
 - **Between-group variance**: Create a 20-element array where every boy is assigned to the mean boy extraversion of 4.4, and every girl is assigned to the mean girl extraversion of 5.0. The variance of this array is 0.9. (_Figure 1_. Blue bars).
 - **Within-group variance**: Create a 20-element array of the amount each child's extraversion deviates from the mean value for their sex. Some of these values will be negative and some will be positive. The variance of this array is 1.6. (_Figure 1_. Pink bars).
