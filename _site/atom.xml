@@ -4,7 +4,7 @@
  <title>The File Drawer</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2019-05-20T08:45:03-07:00</updated>
+ <updated>2019-05-24T19:40:45-07:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -82,14 +82,14 @@ where each $ X_i $ has variance $ \sigma_i^2 $.
 &lt;/div&gt;
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;If you add these arrays together, the resulting array will represent the observed data (&lt;em&gt;Figure 1&lt;/em&gt;. Orange bars). As originally measured, it will have a variance of 2.5, which corresponds exactly to the sum of the variances of the two component arrays (0.9 + 1.6). Psychologists might say that sex “explains” 0.9/2.5 = 36% of the extraversion variance. Equivalently, a model of extraversion that uses sex as the only predictor would have an &lt;a href=&quot;https://en.wikipedia.org/wiki/Coefficient_of_determination&quot;&gt;$ R^2 $&lt;/a&gt; of 0.36.&lt;/p&gt;
+&lt;p&gt;If you add these arrays together, the resulting array will represent the observed data (&lt;em&gt;Figure 1&lt;/em&gt;. Orange bars). The variance of the observed array is 2.5, which is exactly what is predicted by Bienaymé’s Formula. It is the sum of the variances of the two component arrays (0.9 + 1.6). Psychologists might say that sex “explains” 0.9/2.5 = 36% of the extraversion variance. Equivalently, a model of extraversion that uses sex as the only predictor would have an &lt;a href=&quot;https://en.wikipedia.org/wiki/Coefficient_of_determination&quot;&gt;$ R^2 $&lt;/a&gt; of 0.36.&lt;/p&gt;
 
 &lt;h4 id=&quot;error-propagation-in-laboratories&quot;&gt;Error propagation in laboratories&lt;/h4&gt;
 &lt;p&gt;If you ever took a physics lab or chemistry lab back in college, you may remember having to perform &lt;a href=&quot;http://ipl.physics.harvard.edu/wp-uploads/2013/03/PS3_Error_Propagation_sp13.pdf&quot;&gt;error analysis&lt;/a&gt;, in which you calculated how errors would propagate through one noisy measurement after another.&lt;/p&gt;
 
 &lt;p&gt;Physics textbooks often say that standard deviations add in “quadrature”, which just means that if you are trying to estimate some quantity that is the sum of two other measurements, and if each measurement has some error with standard deviation &lt;script type=&quot;math/tex&quot;&gt;\sigma_1&lt;/script&gt; and &lt;script type=&quot;math/tex&quot;&gt;\sigma_2&lt;/script&gt; respectively, the final standard deviation would be  &lt;script type=&quot;math/tex&quot;&gt;\sigma_{p} = \sqrt{\sigma^2_1 + \sigma^2_2}&lt;/script&gt;. I think it’s probably easier to just use variances, as in the Bienaymé Formula, with &lt;script type=&quot;math/tex&quot;&gt;\sigma^2_{p} = \sigma^2_1 + \sigma^2_2&lt;/script&gt;.&lt;/p&gt;
 
-&lt;p&gt;For example, imagine you are trying to estimate the height of two boxes stacked on top of each other (&lt;em&gt;Figure 2&lt;/em&gt;). One box has a height of 1 meter with variance $ \sigma^2_1 $ = 0.01, and the other has a height of 2 meter with variance $ \sigma^2_2 $ = 0.01. Let’s further assume, perhaps optimistically, that these errors are independent. That is, if the measurement of the first box is too high, that doesn’t make it any more likely that the measurement of the second box will also be too high. If we can make these assumptions, then the total height of the two boxes will be 3 meters with variance $ \sigma^2_p $ = 0.02.&lt;/p&gt;
+&lt;p&gt;For example, imagine you are trying to estimate the height of two boxes stacked on top of each other (&lt;em&gt;Figure 2&lt;/em&gt;). One box has a height of 1 meter with variance $ \sigma^2_1 $ = 0.01, and the other has a height of 2 meters with variance $ \sigma^2_2 $ = 0.01. Let’s further assume, perhaps optimistically, that these errors are independent. That is, if the measurement of the first box is too high, it’s not any more likely that the measurement of the second box will also be too high. If we can make these assumptions, then the total height of the two boxes will be 3 meters with variance $ \sigma^2_p $ = 0.02.&lt;/p&gt;
 
 &lt;div class=&quot;wrapper&quot;&gt;
   &lt;img src=&quot;/assets/2019_variance/stacked_boxes.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:50%;&quot; /&gt;
@@ -112,7 +112,7 @@ $$ \sigma_{p}^{2} = w^2 \sigma^2 $$
 where $ \sigma^2 $ is the variance of $ X $.
 &lt;/div&gt;
 
-&lt;p&gt;This means that if a random variable is scaled, its variance will scale &lt;em&gt;quadratically&lt;/em&gt;. Let’s see this in code.&lt;/p&gt;
+&lt;p&gt;This means that if a random variable is scaled, its the scale factor on the variance will change &lt;em&gt;quadratically&lt;/em&gt;. Let’s see this in code.&lt;/p&gt;
 
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;numpy.random&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;randn&lt;/span&gt;
 &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;numpy&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;
@@ -125,7 +125,7 @@ where $ \sigma^2 $ is the variance of $ X $.
 &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;w&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;**&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;baseline_var&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# 4.9 (predicted variance)&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;var&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# 4.9 (empirical variance) &lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;To gain some intuition for this, it’s helpful to think about outliers. We know that outliers have a huge effect on variance. That’s because the formula used to compute variance, $ \sum{\frac{(x_i - \bar{x})^2}{n-1}} $, squares all the deviations, and so we get really big variances when we square large deviations. With that as background, let’s think about what happens if we scale our data by 2. The outliers will spread out twice as far, which means they will have even more than twice as much impact on the variance. Similarly, if we multiply our data by 0.5, we will squash the most “damaging” part of the outliers, and so we will reduce our variance by more than a factor of two.&lt;/p&gt;
+&lt;p&gt;To gain some intuition for this rule, it’s helpful to think about outliers. We know that outliers have a huge effect on variance. That’s because the formula used to compute variance, $ \sum{\frac{(x_i - \bar{x})^2}{n-1}} $, squares all the deviations, and so we get really big variances when we square large deviations. With that as background, let’s think about what happens if we scale our data by 2. The outliers will spread out twice as far, which means they will have even more than twice as much impact on the variance. Similarly, if we multiply our data by 0.5, we will squash the most “damaging” part of the outliers, and so we will reduce our variance by more than a factor of two.&lt;/p&gt;
 
 &lt;p&gt;While the above principle is pretty simple, things start to get interesting when you combine it with the Bienaymé Formula in Part I:&lt;/p&gt;
 
@@ -187,8 +187,9 @@ where each $ w_i $ is a weight on $ X_i $, and each $ X_i $ has its own variance
 with the constraint that 
 &lt;script type=&quot;math/tex&quot;&gt;\sum{w_i} = 1&lt;/script&gt;.&lt;/p&gt;
 
-&lt;p&gt;It &lt;a href=&quot;https://en.wikipedia.org/wiki/Inverse-variance_weighting&quot;&gt;turns out&lt;/a&gt; that the variance-minimizing weight for a model should be proportional to the inverse of its variance. 
-&lt;script type=&quot;math/tex&quot;&gt;w_k = \frac{1/{\sigma^2_k}}{\sum{1/{\sigma^2_i}}}&lt;/script&gt;&lt;/p&gt;
+&lt;p&gt;It &lt;a href=&quot;https://en.wikipedia.org/wiki/Inverse-variance_weighting&quot;&gt;turns out&lt;/a&gt; that the variance-minimizing weight for a model should be proportional to the inverse of its variance.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;w_k = \frac{\frac{1}{\sigma^2_k}}{\sum{\frac{1}{\sigma^2_i}}}&lt;/script&gt;
 
 &lt;p&gt;When we apply this method, we obtain optimal weights of &lt;script type=&quot;math/tex&quot;&gt;w_1&lt;/script&gt; = 0.67 and &lt;script type=&quot;math/tex&quot;&gt;w_2&lt;/script&gt; = 0.33. These weights give us an ensemble error variance of&lt;/p&gt;
 
@@ -219,7 +220,7 @@ with the constraint that
 
 &lt;p&gt;By Inverse Variance Weighting, we should assign more weight to the first two models, with &lt;script type=&quot;math/tex&quot;&gt;w_1=0.4, w_2=0.4, w_3=0.2&lt;/script&gt;.&lt;/p&gt;
 
-&lt;p&gt;But what happens if Model 1 and Model 2 have correlated errors? For example, whenever Model 2’s predictions are too high, Model 3’s predictions tend to also be too high. In that case, maybe we don’t want to give so much weight to Models 1 and 2, since they provide somewhat redundant information. Instead we should increase the weight on Model 3, since it provides new independent information.&lt;/p&gt;
+&lt;p&gt;But what happens if Model 1 and Model 2 have correlated errors? For example, whenever Model 2’s predictions are too high, Model 3’s predictions tend to also be too high. In that case, maybe we don’t want to give so much weight to Models 1 and 2, since they provide somewhat redundant information. Instead we might want to &lt;em&gt;diversify&lt;/em&gt; our ensemble by increasing the weight on Model 3, since it provides new independent information.&lt;/p&gt;
 
 &lt;p&gt;To determine how much weight to put on each model, we first need to determine how much total variance there will be if the errors are correlated. To do this, we need to borrow a &lt;a href=&quot;https://en.wikipedia.org/wiki/Modern_portfolio_theory&quot;&gt;formula&lt;/a&gt; from the financial literature, which extends the formulas we’ve worked with before. This is the formula we’ve been waiting for.&lt;/p&gt;
 
@@ -292,7 +293,7 @@ and we can use Inverse Variance Weighting to obtain weights $ w_1=0.4, w_2=0.4, 
 
 &lt;p&gt;as we saw before in the ensemble example. Since this includes an additional positive term for &lt;script type=&quot;math/tex&quot;&gt;w_1 w_2 \sigma_1 \sigma_2 \rho_{1,2}&lt;/script&gt;, the expected variance is higher than in the uncorrelated case, assuming the correlations are positive. To reduce this variance, we should put less weight on Stocks 1 and 2 than we would otherwise.&lt;/p&gt;
 
-&lt;p&gt;While we have focused on minimizing the variance of a financial portfolio, you might also be interested in having a portfolio with high return. Modern Portfolio Theory describes how a portfolio can reach any abitrary point on the &lt;a href=&quot;https://en.wikipedia.org/wiki/Efficient_frontier&quot;&gt;efficient frontier&lt;/a&gt; of variance and return, but that’s outside the scope of this blog post. And as you might expect, financial markets can be more complicated than Modern Portfolio Theory suggests, but that’s also outside scope.&lt;/p&gt;
+&lt;p&gt;While the example above focused on minimizing the variance of a financial portfolio, you might also be interested in having a portfolio with high return. Modern Portfolio Theory describes how a portfolio can reach any abitrary point on the &lt;a href=&quot;https://en.wikipedia.org/wiki/Efficient_frontier&quot;&gt;efficient frontier&lt;/a&gt; of variance and return, but that’s outside the scope of this blog post. And as you might expect, financial markets can be more complicated than Modern Portfolio Theory suggests, but that’s also outside scope.&lt;/p&gt;
 
 &lt;h2 id=&quot;summary&quot;&gt;Summary&lt;/h2&gt;
 

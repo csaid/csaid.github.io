@@ -173,14 +173,14 @@ where each $ X_i $ has variance $ \sigma_i^2 $.
 </div>
 <p><br /></p>
 
-<p>If you add these arrays together, the resulting array will represent the observed data (<em>Figure 1</em>. Orange bars). As originally measured, it will have a variance of 2.5, which corresponds exactly to the sum of the variances of the two component arrays (0.9 + 1.6). Psychologists might say that sex “explains” 0.9/2.5 = 36% of the extraversion variance. Equivalently, a model of extraversion that uses sex as the only predictor would have an <a href="https://en.wikipedia.org/wiki/Coefficient_of_determination">$ R^2 $</a> of 0.36.</p>
+<p>If you add these arrays together, the resulting array will represent the observed data (<em>Figure 1</em>. Orange bars). The variance of the observed array is 2.5, which is exactly what is predicted by Bienaymé’s Formula. It is the sum of the variances of the two component arrays (0.9 + 1.6). Psychologists might say that sex “explains” 0.9/2.5 = 36% of the extraversion variance. Equivalently, a model of extraversion that uses sex as the only predictor would have an <a href="https://en.wikipedia.org/wiki/Coefficient_of_determination">$ R^2 $</a> of 0.36.</p>
 
 <h4 id="error-propagation-in-laboratories">Error propagation in laboratories</h4>
 <p>If you ever took a physics lab or chemistry lab back in college, you may remember having to perform <a href="http://ipl.physics.harvard.edu/wp-uploads/2013/03/PS3_Error_Propagation_sp13.pdf">error analysis</a>, in which you calculated how errors would propagate through one noisy measurement after another.</p>
 
 <p>Physics textbooks often say that standard deviations add in “quadrature”, which just means that if you are trying to estimate some quantity that is the sum of two other measurements, and if each measurement has some error with standard deviation <script type="math/tex">\sigma_1</script> and <script type="math/tex">\sigma_2</script> respectively, the final standard deviation would be  <script type="math/tex">\sigma_{p} = \sqrt{\sigma^2_1 + \sigma^2_2}</script>. I think it’s probably easier to just use variances, as in the Bienaymé Formula, with <script type="math/tex">\sigma^2_{p} = \sigma^2_1 + \sigma^2_2</script>.</p>
 
-<p>For example, imagine you are trying to estimate the height of two boxes stacked on top of each other (<em>Figure 2</em>). One box has a height of 1 meter with variance $ \sigma^2_1 $ = 0.01, and the other has a height of 2 meter with variance $ \sigma^2_2 $ = 0.01. Let’s further assume, perhaps optimistically, that these errors are independent. That is, if the measurement of the first box is too high, that doesn’t make it any more likely that the measurement of the second box will also be too high. If we can make these assumptions, then the total height of the two boxes will be 3 meters with variance $ \sigma^2_p $ = 0.02.</p>
+<p>For example, imagine you are trying to estimate the height of two boxes stacked on top of each other (<em>Figure 2</em>). One box has a height of 1 meter with variance $ \sigma^2_1 $ = 0.01, and the other has a height of 2 meters with variance $ \sigma^2_2 $ = 0.01. Let’s further assume, perhaps optimistically, that these errors are independent. That is, if the measurement of the first box is too high, it’s not any more likely that the measurement of the second box will also be too high. If we can make these assumptions, then the total height of the two boxes will be 3 meters with variance $ \sigma^2_p $ = 0.02.</p>
 
 <div class="wrapper">
   <img src="/assets/2019_variance/stacked_boxes.png" class="inner" style="position:relative border: #222 2px solid; max-width:50%;" />
@@ -203,7 +203,7 @@ $$ \sigma_{p}^{2} = w^2 \sigma^2 $$
 where $ \sigma^2 $ is the variance of $ X $.
 </div>
 
-<p>This means that if a random variable is scaled, its variance will scale <em>quadratically</em>. Let’s see this in code.</p>
+<p>This means that if a random variable is scaled, its the scale factor on the variance will change <em>quadratically</em>. Let’s see this in code.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">numpy.random</span> <span class="kn">import</span> <span class="n">randn</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
@@ -216,7 +216,7 @@ where $ \sigma^2 $ is the variance of $ X $.
 <span class="k">print</span><span class="p">(</span><span class="n">w</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">baseline_var</span><span class="p">)</span> <span class="c"># 4.9 (predicted variance)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">xp</span><span class="o">.</span><span class="n">var</span><span class="p">())</span> <span class="c"># 4.9 (empirical variance) </span>
 </code></pre></div></div>
-<p>To gain some intuition for this, it’s helpful to think about outliers. We know that outliers have a huge effect on variance. That’s because the formula used to compute variance, $ \sum{\frac{(x_i - \bar{x})^2}{n-1}} $, squares all the deviations, and so we get really big variances when we square large deviations. With that as background, let’s think about what happens if we scale our data by 2. The outliers will spread out twice as far, which means they will have even more than twice as much impact on the variance. Similarly, if we multiply our data by 0.5, we will squash the most “damaging” part of the outliers, and so we will reduce our variance by more than a factor of two.</p>
+<p>To gain some intuition for this rule, it’s helpful to think about outliers. We know that outliers have a huge effect on variance. That’s because the formula used to compute variance, $ \sum{\frac{(x_i - \bar{x})^2}{n-1}} $, squares all the deviations, and so we get really big variances when we square large deviations. With that as background, let’s think about what happens if we scale our data by 2. The outliers will spread out twice as far, which means they will have even more than twice as much impact on the variance. Similarly, if we multiply our data by 0.5, we will squash the most “damaging” part of the outliers, and so we will reduce our variance by more than a factor of two.</p>
 
 <p>While the above principle is pretty simple, things start to get interesting when you combine it with the Bienaymé Formula in Part I:</p>
 
@@ -278,8 +278,9 @@ where each $ w_i $ is a weight on $ X_i $, and each $ X_i $ has its own variance
 with the constraint that 
 <script type="math/tex">\sum{w_i} = 1</script>.</p>
 
-<p>It <a href="https://en.wikipedia.org/wiki/Inverse-variance_weighting">turns out</a> that the variance-minimizing weight for a model should be proportional to the inverse of its variance. 
-<script type="math/tex">w_k = \frac{1/{\sigma^2_k}}{\sum{1/{\sigma^2_i}}}</script></p>
+<p>It <a href="https://en.wikipedia.org/wiki/Inverse-variance_weighting">turns out</a> that the variance-minimizing weight for a model should be proportional to the inverse of its variance.</p>
+
+<script type="math/tex; mode=display">w_k = \frac{\frac{1}{\sigma^2_k}}{\sum{\frac{1}{\sigma^2_i}}}</script>
 
 <p>When we apply this method, we obtain optimal weights of <script type="math/tex">w_1</script> = 0.67 and <script type="math/tex">w_2</script> = 0.33. These weights give us an ensemble error variance of</p>
 
@@ -310,7 +311,7 @@ with the constraint that
 
 <p>By Inverse Variance Weighting, we should assign more weight to the first two models, with <script type="math/tex">w_1=0.4, w_2=0.4, w_3=0.2</script>.</p>
 
-<p>But what happens if Model 1 and Model 2 have correlated errors? For example, whenever Model 2’s predictions are too high, Model 3’s predictions tend to also be too high. In that case, maybe we don’t want to give so much weight to Models 1 and 2, since they provide somewhat redundant information. Instead we should increase the weight on Model 3, since it provides new independent information.</p>
+<p>But what happens if Model 1 and Model 2 have correlated errors? For example, whenever Model 2’s predictions are too high, Model 3’s predictions tend to also be too high. In that case, maybe we don’t want to give so much weight to Models 1 and 2, since they provide somewhat redundant information. Instead we might want to <em>diversify</em> our ensemble by increasing the weight on Model 3, since it provides new independent information.</p>
 
 <p>To determine how much weight to put on each model, we first need to determine how much total variance there will be if the errors are correlated. To do this, we need to borrow a <a href="https://en.wikipedia.org/wiki/Modern_portfolio_theory">formula</a> from the financial literature, which extends the formulas we’ve worked with before. This is the formula we’ve been waiting for.</p>
 
@@ -383,7 +384,7 @@ and we can use Inverse Variance Weighting to obtain weights $ w_1=0.4, w_2=0.4, 
 
 <p>as we saw before in the ensemble example. Since this includes an additional positive term for <script type="math/tex">w_1 w_2 \sigma_1 \sigma_2 \rho_{1,2}</script>, the expected variance is higher than in the uncorrelated case, assuming the correlations are positive. To reduce this variance, we should put less weight on Stocks 1 and 2 than we would otherwise.</p>
 
-<p>While we have focused on minimizing the variance of a financial portfolio, you might also be interested in having a portfolio with high return. Modern Portfolio Theory describes how a portfolio can reach any abitrary point on the <a href="https://en.wikipedia.org/wiki/Efficient_frontier">efficient frontier</a> of variance and return, but that’s outside the scope of this blog post. And as you might expect, financial markets can be more complicated than Modern Portfolio Theory suggests, but that’s also outside scope.</p>
+<p>While the example above focused on minimizing the variance of a financial portfolio, you might also be interested in having a portfolio with high return. Modern Portfolio Theory describes how a portfolio can reach any abitrary point on the <a href="https://en.wikipedia.org/wiki/Efficient_frontier">efficient frontier</a> of variance and return, but that’s outside the scope of this blog post. And as you might expect, financial markets can be more complicated than Modern Portfolio Theory suggests, but that’s also outside scope.</p>
 
 <h2 id="summary">Summary</h2>
 
