@@ -82,18 +82,6 @@ According to Souza, if you average over all the possible exponential survival fu
 ##### Explanation [Optional]
 In the plot below, I've drawn 30 exponential survival functions in blue, each with a $$ \lambda $$ sampled from the $$ p(\lambda) $$ prior distribution defined above. The pink curve is the mean of all of them. Notice that whereas the individual survival curves are all exponential, their mean is hyperbolic, with a distant future characterized by a flat slope and relatively high survival values. 
 
-<div class="wrapper">
-  <img src='/assets/2018_hyperbolic_discounting/fig_mean_of_exponentials.png' class="inner" style="position:relative border: #222 2px solid; max-width:100%;" >
-</div> 
-
-Why do we get a hyperbolic function when we average many exponential functions? To understand why, you first need to know that the instantaneous discount rate of a discount function is the negative of its instantaneous slope divided by its height. This sounds like a mouthful but it actually makes sense if you think about it. At any point in time, the discount rate is the drop in value over one time unit (i.e. the slope), divided by the principal (i.e. the height). 
-
-With that in mind, let's think about time points in the distant future, when almost all of the exponential curves have gone to zero except for the curve with the lowest discount rate. When averaging across these curves in the distant future, the many curves at zero effectively scale down the one remaining curve by the same factor across a broad range of dates. In the figure below, the averaging operation scales down the curve by 86% at two different dates separated by 15 months. When you scale down a curve by a constant factor across a broad range, you scale its height and its slope by the same factor, thus preserving the slope to height ratio (i.e. the discount rate). Therefore, when you average over possible discount functions in the distant future, your resulting discount function is [dominated](https://eml.berkeley.edu//~saez/course131/weitzman98.pdf) by the discount rate of the curve with the lowest discount rate.
-
-<div class="wrapper">
-  <img src='/assets/2018_hyperbolic_discounting/fig_mean_of_exponentials_arrows.png' class="inner" style="position:relative border: #222 2px solid; max-width:100%;" >
-</div> 
-
 As a consequence, the further you look into the future, the lower your discount rate. This is exactly what hyperbolic discounting is and exactly what humans do. For the choice between <span class="tex2jax_ignore">$</span>50 now and <span class="tex2jax_ignore">$</span>100 in 6 months, we apply a heavy discount rate. For the choice between <span class="tex2jax_ignore">$</span>50 in 3 months and <span class="tex2jax_ignore">$</span>100 in 9 months, we apply a lighter discount rate.
 
 For a more qualitative intuition, you can think of it this way: When you make a deal with someone, you don't know what the hazard rate is going to be. But if the deal is still alive after 80 months, then your hazard rate is probably favorable and thus the deal is likely to still be alive after 100 months. You can therefore have a light discount rate between 80 months and 100 months.

@@ -4,7 +4,7 @@
  <title>The File Drawer</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2019-05-31T08:44:38-07:00</updated>
+ <updated>2019-06-09T08:56:00-07:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -112,7 +112,7 @@ $$ \sigma_{p}^{2} = w^2 \sigma^2 $$
 where $ \sigma^2 $ is the variance of $ X $.
 &lt;/div&gt;
 
-&lt;p&gt;This means that if a random variable is scaled, its the scale factor on the variance will change &lt;em&gt;quadratically&lt;/em&gt;. Let’s see this in code.&lt;/p&gt;
+&lt;p&gt;This means that if a random variable is scaled, the scale factor on the variance will change &lt;em&gt;quadratically&lt;/em&gt;. Let’s see this in code.&lt;/p&gt;
 
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;numpy.random&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;randn&lt;/span&gt;
 &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;numpy&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;
@@ -446,18 +446,6 @@ This system sounds good in theory, but do we actually use these cues in practice
 
 &lt;h5 id=&quot;explanation-optional&quot;&gt;Explanation [Optional]&lt;/h5&gt;
 &lt;p&gt;In the plot below, I’ve drawn 30 exponential survival functions in blue, each with a &lt;script type=&quot;math/tex&quot;&gt;\lambda&lt;/script&gt; sampled from the &lt;script type=&quot;math/tex&quot;&gt;p(\lambda)&lt;/script&gt; prior distribution defined above. The pink curve is the mean of all of them. Notice that whereas the individual survival curves are all exponential, their mean is hyperbolic, with a distant future characterized by a flat slope and relatively high survival values.&lt;/p&gt;
-
-&lt;div class=&quot;wrapper&quot;&gt;
-  &lt;img src=&quot;/assets/2018_hyperbolic_discounting/fig_mean_of_exponentials.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:100%;&quot; /&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Why do we get a hyperbolic function when we average many exponential functions? To understand why, you first need to know that the instantaneous discount rate of a discount function is the negative of its instantaneous slope divided by its height. This sounds like a mouthful but it actually makes sense if you think about it. At any point in time, the discount rate is the drop in value over one time unit (i.e. the slope), divided by the principal (i.e. the height).&lt;/p&gt;
-
-&lt;p&gt;With that in mind, let’s think about time points in the distant future, when almost all of the exponential curves have gone to zero except for the curve with the lowest discount rate. When averaging across these curves in the distant future, the many curves at zero effectively scale down the one remaining curve by the same factor across a broad range of dates. In the figure below, the averaging operation scales down the curve by 86% at two different dates separated by 15 months. When you scale down a curve by a constant factor across a broad range, you scale its height and its slope by the same factor, thus preserving the slope to height ratio (i.e. the discount rate). Therefore, when you average over possible discount functions in the distant future, your resulting discount function is &lt;a href=&quot;https://eml.berkeley.edu//~saez/course131/weitzman98.pdf&quot;&gt;dominated&lt;/a&gt; by the discount rate of the curve with the lowest discount rate.&lt;/p&gt;
-
-&lt;div class=&quot;wrapper&quot;&gt;
-  &lt;img src=&quot;/assets/2018_hyperbolic_discounting/fig_mean_of_exponentials_arrows.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:100%;&quot; /&gt;
-&lt;/div&gt;
 
 &lt;p&gt;As a consequence, the further you look into the future, the lower your discount rate. This is exactly what hyperbolic discounting is and exactly what humans do. For the choice between &lt;span class=&quot;tex2jax_ignore&quot;&gt;$&lt;/span&gt;50 now and &lt;span class=&quot;tex2jax_ignore&quot;&gt;$&lt;/span&gt;100 in 6 months, we apply a heavy discount rate. For the choice between &lt;span class=&quot;tex2jax_ignore&quot;&gt;$&lt;/span&gt;50 in 3 months and &lt;span class=&quot;tex2jax_ignore&quot;&gt;$&lt;/span&gt;100 in 9 months, we apply a lighter discount rate.&lt;/p&gt;
 

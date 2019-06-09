@@ -99,7 +99,7 @@ $$ \sigma_{p}^{2} = w^2 \sigma^2 $$
 where $ \sigma^2 $ is the variance of $ X $.
 </div>
 
-This means that if a random variable is scaled, its the scale factor on the variance will change _quadratically_. Let’s see this in code.
+This means that if a random variable is scaled, the scale factor on the variance will change _quadratically_. Let’s see this in code.
 
 ```python
 from numpy.random import randn
