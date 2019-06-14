@@ -4,7 +4,7 @@
  <title>The File Drawer</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2019-06-09T09:00:26-07:00</updated>
+ <updated>2019-06-14T16:00:11-07:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -197,14 +197,7 @@ with the constraint that
 
 &lt;p&gt;which is significantly better than the $750 variance we were getting with equal weighting.&lt;/p&gt;
 
-&lt;p&gt;This method, called &lt;a href=&quot;https://en.wikipedia.org/wiki/Inverse-variance_weightinghttps://en.wikipedia.org/wiki/Inverse-variance_weighting&quot;&gt;Inverse Variance Weighting&lt;/a&gt;, can be seen in the figure below. The horizontal axis represents the weight on Model 1. The vertical axis represents the weight on Model 2. Both models are unbiased. Color represents the total error variance when the model predictions are summed, based on the formula &lt;script type=&quot;math/tex&quot;&gt;\sigma_{p}^{2} = \sum{w^2_i \sigma^2_i}&lt;/script&gt;. The total variance (color) increases more rapidly as you move upward compared to rightward, indicating that Model 2 contributes more to the total variance. The diagonal line represents the constraint that &lt;script type=&quot;math/tex&quot;&gt;w_1 + w_2 = 1&lt;/script&gt;. The dot represents the optimal weight as determined by Inverse Variance Weighting. As you can see, Inverse Variance Weighting picks the lightest (lowest variance) point on the line, with more weight on Model 1 than Model 2.&lt;/p&gt;
-
-&lt;div class=&quot;wrapper&quot;&gt;
-  &lt;img src=&quot;/assets/2019_variance/inverse_variance/main_fig.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:70%;&quot; /&gt;
-  &lt;div class=&quot;caption&quot;&gt;&lt;strong&gt;Figure 3&lt;/strong&gt;. Total error variance (color) as a function of weights on a high error model (vertical) and a low error model (horizontal). The optimal weighting (dot) puts more weight on the low error model.
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;This method is called &lt;a href=&quot;https://en.wikipedia.org/wiki/Inverse-variance_weightinghttps://en.wikipedia.org/wiki/Inverse-variance_weighting&quot;&gt;Inverse Variance Weighting&lt;/a&gt;, and allows you to assign the right amount of weight to each model, depending on its error.&lt;/p&gt;
 
 &lt;p&gt;Inverse Variance Weighting is not just useful as a way to understand Machine Learning ensembles. It is also one of the core principles in scientific &lt;a href=&quot;https://en.wikipedia.org/wiki/Meta-analysis&quot;&gt;meta-analysis&lt;/a&gt;, which is popular in medicine and the social sciences. When multiple scientific studies attempt to estimate some quantity, and each study has a different sample size (and hence variance of their estimate), a meta-analysis should weight the high sample size studies more. Inverse Variance Weighting is used to determine those weights.&lt;/p&gt;
 

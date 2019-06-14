@@ -186,13 +186,7 @@ $$ \sigma_{p}^{2} = 0.67^2 \times 1000 + 0.33^2 \times 2000 = 666 $$
 
 which is significantly better than the $750 variance we were getting with equal weighting.
 
-This method, called [Inverse Variance Weighting](https://en.wikipedia.org/wiki/Inverse-variance_weightinghttps://en.wikipedia.org/wiki/Inverse-variance_weighting), can be seen in the figure below. The horizontal axis represents the weight on Model 1. The vertical axis represents the weight on Model 2. Both models are unbiased. Color represents the total error variance when the model predictions are summed, based on the formula $$\sigma_{p}^{2} = \sum{w^2_i \sigma^2_i}$$. The total variance (color) increases more rapidly as you move upward compared to rightward, indicating that Model 2 contributes more to the total variance. The diagonal line represents the constraint that $$w_1 + w_2 = 1$$. The dot represents the optimal weight as determined by Inverse Variance Weighting. As you can see, Inverse Variance Weighting picks the lightest (lowest variance) point on the line, with more weight on Model 1 than Model 2.
-
-<div class="wrapper">
-  <img src='/assets/2019_variance/inverse_variance/main_fig.png' class="inner" style="position:relative border: #222 2px solid; max-width:70%;" >
-  <div class="caption"><strong>Figure 3</strong>. Total error variance (color) as a function of weights on a high error model (vertical) and a low error model (horizontal). The optimal weighting (dot) puts more weight on the low error model.
-  </div>
-</div><br>
+This method is called [Inverse Variance Weighting](https://en.wikipedia.org/wiki/Inverse-variance_weightinghttps://en.wikipedia.org/wiki/Inverse-variance_weighting), and allows you to assign the right amount of weight to each model, depending on its error. 
 
 Inverse Variance Weighting is not just useful as a way to understand Machine Learning ensembles. It is also one of the core principles in scientific [meta-analysis](https://en.wikipedia.org/wiki/Meta-analysis), which is popular in medicine and the social sciences. When multiple scientific studies attempt to estimate some quantity, and each study has a different sample size (and hence variance of their estimate), a meta-analysis should weight the high sample size studies more. Inverse Variance Weighting is used to determine those weights.
 
