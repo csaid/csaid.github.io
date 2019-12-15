@@ -128,18 +128,18 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
 <figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;script&gt;</span>
   <span class="kd">function</span> <span class="nx">code_toggle</span><span class="p">()</span> <span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span><span class="nx">code_shown</span><span class="p">){</span>
-      <span class="nx">$</span><span class="p">(</span><span class="s1">'div.input'</span><span class="p">).</span><span class="nx">hide</span><span class="p">(</span><span class="s1">'500'</span><span class="p">);</span>
-      <span class="nx">$</span><span class="p">(</span><span class="s1">'#toggleButton'</span><span class="p">).</span><span class="nx">val</span><span class="p">(</span><span class="s1">'Show Code'</span><span class="p">)</span>
+      <span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">div.input</span><span class="dl">'</span><span class="p">).</span><span class="nx">hide</span><span class="p">(</span><span class="dl">'</span><span class="s1">500</span><span class="dl">'</span><span class="p">);</span>
+      <span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">#toggleButton</span><span class="dl">'</span><span class="p">).</span><span class="nx">val</span><span class="p">(</span><span class="dl">'</span><span class="s1">Show Code</span><span class="dl">'</span><span class="p">)</span>
     <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-      <span class="nx">$</span><span class="p">(</span><span class="s1">'div.input'</span><span class="p">).</span><span class="nx">show</span><span class="p">(</span><span class="s1">'500'</span><span class="p">);</span>
-      <span class="nx">$</span><span class="p">(</span><span class="s1">'#toggleButton'</span><span class="p">).</span><span class="nx">val</span><span class="p">(</span><span class="s1">'Hide Code'</span><span class="p">)</span>
+      <span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">div.input</span><span class="dl">'</span><span class="p">).</span><span class="nx">show</span><span class="p">(</span><span class="dl">'</span><span class="s1">500</span><span class="dl">'</span><span class="p">);</span>
+      <span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">#toggleButton</span><span class="dl">'</span><span class="p">).</span><span class="nx">val</span><span class="p">(</span><span class="dl">'</span><span class="s1">Hide Code</span><span class="dl">'</span><span class="p">)</span>
     <span class="p">}</span>
     <span class="nx">code_shown</span> <span class="o">=</span> <span class="o">!</span><span class="nx">code_shown</span>
   <span class="p">}</span>
 
   <span class="nx">$</span><span class="p">(</span> <span class="nb">document</span> <span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
     <span class="nx">code_shown</span><span class="o">=</span><span class="kc">false</span><span class="p">;</span>
-    <span class="nx">$</span><span class="p">(</span><span class="s1">'div.input'</span><span class="p">).</span><span class="nx">hide</span><span class="p">()</span>
+    <span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">div.input</span><span class="dl">'</span><span class="p">).</span><span class="nx">hide</span><span class="p">()</span>
   <span class="p">});</span>
 <span class="nt">&lt;/script&gt;</span>
 <span class="nt">&lt;form</span> <span class="na">action=</span><span class="s">"javascript:code_toggle()"</span><span class="nt">&gt;&lt;input</span> <span class="na">type=</span><span class="s">"submit"</span> <span class="na">id=</span><span class="s">"toggleButton"</span> <span class="na">value=</span><span class="s">"Show Code"</span><span class="nt">&gt;&lt;/form&gt;</span></code></pre></figure>
@@ -148,11 +148,11 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
 
 <figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;script&gt;</span>
   <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
-    <span class="nx">$</span><span class="p">(</span><span class="s1">'div.prompt'</span><span class="p">).</span><span class="nx">hide</span><span class="p">();</span>
-    <span class="nx">$</span><span class="p">(</span><span class="s1">'div.back-to-top'</span><span class="p">).</span><span class="nx">hide</span><span class="p">();</span>
-    <span class="nx">$</span><span class="p">(</span><span class="s1">'nav#menubar'</span><span class="p">).</span><span class="nx">hide</span><span class="p">();</span>
-    <span class="nx">$</span><span class="p">(</span><span class="s1">'.breadcrumb'</span><span class="p">).</span><span class="nx">hide</span><span class="p">();</span>
-    <span class="nx">$</span><span class="p">(</span><span class="s1">'.hidden-print'</span><span class="p">).</span><span class="nx">hide</span><span class="p">();</span>
+    <span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">div.prompt</span><span class="dl">'</span><span class="p">).</span><span class="nx">hide</span><span class="p">();</span>
+    <span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">div.back-to-top</span><span class="dl">'</span><span class="p">).</span><span class="nx">hide</span><span class="p">();</span>
+    <span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">nav#menubar</span><span class="dl">'</span><span class="p">).</span><span class="nx">hide</span><span class="p">();</span>
+    <span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">.breadcrumb</span><span class="dl">'</span><span class="p">).</span><span class="nx">hide</span><span class="p">();</span>
+    <span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">.hidden-print</span><span class="dl">'</span><span class="p">).</span><span class="nx">hide</span><span class="p">();</span>
   <span class="p">});</span>
 <span class="nt">&lt;/script&gt;</span>
 
@@ -166,7 +166,7 @@ Created with Jupyter, delivered by Fastly, rendered by Rackspace.
   <span class="nx">jQuery</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">$</span><span class="p">)</span> <span class="p">{</span>
 
   <span class="nx">$</span><span class="p">(</span><span class="nb">window</span><span class="p">).</span><span class="nx">load</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
-    <span class="nx">$</span><span class="p">(</span><span class="s1">'#preloader'</span><span class="p">).</span><span class="nx">fadeOut</span><span class="p">(</span><span class="s1">'slow'</span><span class="p">,</span><span class="kd">function</span><span class="p">(){</span><span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">remove</span><span class="p">();});</span>
+    <span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">#preloader</span><span class="dl">'</span><span class="p">).</span><span class="nx">fadeOut</span><span class="p">(</span><span class="dl">'</span><span class="s1">slow</span><span class="dl">'</span><span class="p">,</span><span class="kd">function</span><span class="p">(){</span><span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">remove</span><span class="p">();});</span>
   <span class="p">});</span>
 
   <span class="p">});</span>

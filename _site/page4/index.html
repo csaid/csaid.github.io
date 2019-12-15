@@ -294,22 +294,22 @@ t = \frac{\overline{X_1} - \overline{X_2}}{\sqrt{se_1^2 + se_2^2}}
 <span class="nv">$ </span><span class="nb">cd </span>different/very/deep/directory/project2
 <span class="nv">$ </span><span class="c"># do stuff in Project 2</span></code></pre></figure>
 
-<p>While it only takes a handful of seconds to switch directories, the extra mental effort often derails my train of thought. Some solutions exist, but they all have their limitations. For example, <code class="highlighter-rouge">pushd</code> and <code class="highlighter-rouge">popd</code> don’t work well for directories you haven’t visited in a while. Aliases require you to manually add a new alias to your .bashrc every time you want to save a new directory.</p>
+<p>While it only takes a handful of seconds to switch directories, the extra mental effort often derails my train of thought. Some solutions exist, but they all have their limitations. For example, <code class="language-plaintext highlighter-rouge">pushd</code> and <code class="language-plaintext highlighter-rouge">popd</code> don’t work well for directories you haven’t visited in a while. Aliases require you to manually add a new alias to your .bashrc every time you want to save a new directory.</p>
 
-<p>I recently found a solution, inspired by <a href="http://jeroenjanssens.com/2013/08/16/quickly-navigate-your-filesystem-from-the-command-line.html">this post</a> from <a href="https://twitter.com/jeroenhjanssens">Jeroen Janssens</a>, that works great and feels totally natural. All it takes is a one-time change to your .bashrc that will allow you to easily save directories and switch between them. To save a directory, just use the <code class="highlighter-rouge">mark</code> function:</p>
+<p>I recently found a solution, inspired by <a href="http://jeroenjanssens.com/2013/08/16/quickly-navigate-your-filesystem-from-the-command-line.html">this post</a> from <a href="https://twitter.com/jeroenhjanssens">Jeroen Janssens</a>, that works great and feels totally natural. All it takes is a one-time change to your .bashrc that will allow you to easily save directories and switch between them. To save a directory, just use the <code class="language-plaintext highlighter-rouge">mark</code> function:</p>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span><span class="nb">pwd
 </span>some/very/deep/directory/project1
 <span class="nv">$ </span>mark project1</code></pre></figure>
 
-<p>To navigate to a saved directory, just use the <code class="highlighter-rouge">cdd</code> function:</p>
+<p>To navigate to a saved directory, just use the <code class="language-plaintext highlighter-rouge">cdd</code> function:</p>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>cdd project1
 <span class="c"># do stuff in Project 1</span>
 <span class="nv">$ </span>cdd project2
 <span class="c"># do stuff in Project 2</span></code></pre></figure>
 
-<p>You can display a list of your saved directories with the <code class="highlighter-rouge">marks</code> function, and you can remove a directory from the list with the <code class="highlighter-rouge">unmark</code> function:</p>
+<p>You can display a list of your saved directories with the <code class="language-plaintext highlighter-rouge">marks</code> function, and you can remove a directory from the list with the <code class="language-plaintext highlighter-rouge">unmark</code> function:</p>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>unmark project1</code></pre></figure>
 
@@ -319,19 +319,19 @@ t = \frac{\overline{X_1} - \overline{X_2}}{\sqrt{se_1^2 + se_2^2}}
         <span class="nb">cd</span> <span class="nt">-P</span> <span class="s2">"</span><span class="nv">$MARKPATH</span><span class="s2">/</span><span class="nv">$1</span><span class="s2">"</span> 2&gt;/dev/null <span class="o">||</span> <span class="nb">echo</span> <span class="s2">"No such mark: </span><span class="nv">$1</span><span class="s2">"</span>
     <span class="o">}</span>
     <span class="k">function </span>mark <span class="o">{</span>
-        mkdir <span class="nt">-p</span> <span class="s2">"</span><span class="nv">$MARKPATH</span><span class="s2">"</span><span class="p">;</span> ln <span class="nt">-s</span> <span class="s2">"</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span><span class="s2">"</span> <span class="s2">"</span><span class="nv">$MARKPATH</span><span class="s2">/</span><span class="nv">$1</span><span class="s2">"</span>
+        <span class="nb">mkdir</span> <span class="nt">-p</span> <span class="s2">"</span><span class="nv">$MARKPATH</span><span class="s2">"</span><span class="p">;</span> <span class="nb">ln</span> <span class="nt">-s</span> <span class="s2">"</span><span class="si">$(</span><span class="nb">pwd</span><span class="si">)</span><span class="s2">"</span> <span class="s2">"</span><span class="nv">$MARKPATH</span><span class="s2">/</span><span class="nv">$1</span><span class="s2">"</span>
     <span class="o">}</span>
     <span class="k">function </span>unmark <span class="o">{</span>
-        rm <span class="nt">-i</span> <span class="s2">"</span><span class="nv">$MARKPATH</span><span class="s2">/</span><span class="nv">$1</span><span class="s2">"</span>
+        <span class="nb">rm</span> <span class="nt">-i</span> <span class="s2">"</span><span class="nv">$MARKPATH</span><span class="s2">/</span><span class="nv">$1</span><span class="s2">"</span>
     <span class="o">}</span>
     <span class="k">function </span>marks <span class="o">{</span>
-        <span class="se">\l</span>s <span class="nt">-l</span> <span class="s2">"</span><span class="nv">$MARKPATH</span><span class="s2">"</span> | tail <span class="nt">-n</span> +2 | sed <span class="s1">'s/  / /g'</span> | cut <span class="nt">-d</span><span class="s1">' '</span> <span class="nt">-f9-</span> | awk <span class="nt">-F</span> <span class="s1">' -&gt; '</span> <span class="s1">'{printf "%-10s -&gt; %s\n", $1, $2}'</span>
+        <span class="se">\l</span>s <span class="nt">-l</span> <span class="s2">"</span><span class="nv">$MARKPATH</span><span class="s2">"</span> | <span class="nb">tail</span> <span class="nt">-n</span> +2 | <span class="nb">sed</span> <span class="s1">'s/  / /g'</span> | <span class="nb">cut</span> <span class="nt">-d</span><span class="s1">' '</span> <span class="nt">-f9-</span> | <span class="nb">awk</span> <span class="nt">-F</span> <span class="s1">' -&gt; '</span> <span class="s1">'{printf "%-10s -&gt; %s\n", $1, $2}'</span>
     <span class="o">}</span>
 
     _cdd<span class="o">()</span>
     <span class="o">{</span>
         <span class="nb">local </span><span class="nv">cur</span><span class="o">=</span><span class="k">${</span><span class="nv">COMP_WORDS</span><span class="p">[COMP_CWORD]</span><span class="k">}</span>
-        <span class="nv">COMPREPLY</span><span class="o">=(</span> <span class="k">$(</span><span class="nb">compgen</span> <span class="nt">-W</span> <span class="s2">"</span><span class="k">$(</span> <span class="nb">ls</span> <span class="nv">$MARKPATH</span> <span class="k">)</span><span class="s2">"</span> <span class="nt">--</span> <span class="nv">$cur</span><span class="k">)</span> <span class="o">)</span>
+        <span class="nv">COMPREPLY</span><span class="o">=(</span> <span class="si">$(</span><span class="nb">compgen</span> <span class="nt">-W</span> <span class="s2">"</span><span class="si">$(</span> <span class="nb">ls</span> <span class="nv">$MARKPATH</span> <span class="si">)</span><span class="s2">"</span> <span class="nt">--</span> <span class="nv">$cur</span><span class="si">)</span> <span class="o">)</span>
     <span class="o">}</span>
     <span class="nb">complete</span> <span class="nt">-F</span> _cdd cdd</code></pre></figure>
 

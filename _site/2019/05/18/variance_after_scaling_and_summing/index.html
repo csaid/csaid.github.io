@@ -133,13 +133,13 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">numpy.random</span> <span class="kn">import</span> <span class="n">randn</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
 <span class="n">n</span> <span class="o">=</span> <span class="mi">1000000</span>
-<span class="n">x1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span> <span class="o">*</span> <span class="n">randn</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="c"># 1M samples from normal distribution with variance=9</span>
-<span class="k">print</span><span class="p">(</span><span class="n">x1</span><span class="o">.</span><span class="n">var</span><span class="p">())</span> <span class="c"># 9</span>
-<span class="n">x2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span> <span class="o">*</span> <span class="n">randn</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="c"># 1M samples from normal distribution with variance=16</span>
-<span class="k">print</span><span class="p">(</span><span class="n">x2</span><span class="o">.</span><span class="n">var</span><span class="p">())</span> <span class="c"># 16</span>
-<span class="n">xp</span> <span class="o">=</span> <span class="n">x1</span> <span class="o">+</span> <span class="n">x2</span>
-<span class="k">print</span><span class="p">(</span><span class="n">xp</span><span class="o">.</span><span class="n">var</span><span class="p">())</span> <span class="c"># 25</span>
-</code></pre></div></div>
+<span class="n">x1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span> <span class="o">*</span> <span class="n">randn</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="c1"># 1M samples from normal distribution with variance=9
+</span><span class="k">print</span><span class="p">(</span><span class="n">x1</span><span class="o">.</span><span class="n">var</span><span class="p">())</span> <span class="c1"># 9
+</span><span class="n">x2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span> <span class="o">*</span> <span class="n">randn</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="c1"># 1M samples from normal distribution with variance=16
+</span><span class="k">print</span><span class="p">(</span><span class="n">x2</span><span class="o">.</span><span class="n">var</span><span class="p">())</span> <span class="c1"># 16
+</span><span class="n">xp</span> <span class="o">=</span> <span class="n">x1</span> <span class="o">+</span> <span class="n">x2</span>
+<span class="k">print</span><span class="p">(</span><span class="n">xp</span><span class="o">.</span><span class="n">var</span><span class="p">())</span> <span class="c1"># 25
+</span></code></pre></div></div>
 
 <p>This <a href="https://en.wikipedia.org/wiki/Variance#Sum_of_uncorrelated_variables_(Bienaym%C3%A9_formula)">fact</a> was first discovered in 1853 and is known as <a href="https://en.wikipedia.org/wiki/Variance#Sum_of_uncorrelated_variables_(Bienaym%C3%A9_formula)">Bienaymé’s Formula</a>. While the code example above shows the sum of two random variables, the formula can be extended to multiple random variables as follows:</p>
 
@@ -210,12 +210,12 @@ where $ \sigma^2 $ is the variance of $ X $.
 <span class="n">n</span> <span class="o">=</span> <span class="mi">1000000</span>
 <span class="n">baseline_var</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="n">w</span> <span class="o">=</span> <span class="mf">0.7</span>
-<span class="n">x1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">baseline_var</span><span class="p">)</span> <span class="o">*</span> <span class="n">randn</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="c"># Array of 1M samples from normal distribution with variance=10</span>
-<span class="k">print</span><span class="p">(</span><span class="n">x1</span><span class="o">.</span><span class="n">var</span><span class="p">())</span> <span class="c"># 10</span>
-<span class="n">xp</span> <span class="o">=</span> <span class="n">w</span> <span class="o">*</span> <span class="n">x1</span> <span class="c"># Scale this by w=0.7</span>
-<span class="k">print</span><span class="p">(</span><span class="n">w</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">baseline_var</span><span class="p">)</span> <span class="c"># 4.9 (predicted variance)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">xp</span><span class="o">.</span><span class="n">var</span><span class="p">())</span> <span class="c"># 4.9 (empirical variance) </span>
-</code></pre></div></div>
+<span class="n">x1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">baseline_var</span><span class="p">)</span> <span class="o">*</span> <span class="n">randn</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="c1"># Array of 1M samples from normal distribution with variance=10
+</span><span class="k">print</span><span class="p">(</span><span class="n">x1</span><span class="o">.</span><span class="n">var</span><span class="p">())</span> <span class="c1"># 10
+</span><span class="n">xp</span> <span class="o">=</span> <span class="n">w</span> <span class="o">*</span> <span class="n">x1</span> <span class="c1"># Scale this by w=0.7
+</span><span class="k">print</span><span class="p">(</span><span class="n">w</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">baseline_var</span><span class="p">)</span> <span class="c1"># 4.9 (predicted variance)
+</span><span class="k">print</span><span class="p">(</span><span class="n">xp</span><span class="o">.</span><span class="n">var</span><span class="p">())</span> <span class="c1"># 4.9 (empirical variance) 
+</span></code></pre></div></div>
 <p>To gain some intuition for this rule, it’s helpful to think about outliers. We know that outliers have a huge effect on variance. That’s because the formula used to compute variance, $ \sum{\frac{(x_i - \bar{x})^2}{n-1}} $, squares all the deviations, and so we get really big variances when we square large deviations. With that as background, let’s think about what happens if we scale our data by 2. The outliers will spread out twice as far, which means they will have even more than twice as much impact on the variance. Similarly, if we multiply our data by 0.5, we will squash the most “damaging” part of the outliers, and so we will reduce our variance by more than a factor of two.</p>
 
 <p>While the above principle is pretty simple, things start to get interesting when you combine it with the Bienaymé Formula in Part I:</p>
@@ -241,19 +241,19 @@ where each $ w_i $ is a weight on $ X_i $, and each $ X_i $ has its own variance
 <span class="n">n</span> <span class="o">=</span> <span class="mi">1000000</span>
 <span class="n">actual</span> <span class="o">=</span> <span class="mi">20000</span> <span class="o">+</span> <span class="mi">5000</span> <span class="o">*</span> <span class="n">randn</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
 <span class="n">errors1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span> <span class="o">*</span> <span class="n">randn</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">errors1</span><span class="o">.</span><span class="n">var</span><span class="p">())</span> <span class="c"># 1000</span>
-<span class="n">errors2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2000</span><span class="p">)</span> <span class="o">*</span> <span class="n">randn</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">errors2</span><span class="o">.</span><span class="n">var</span><span class="p">())</span> <span class="c"># 2000</span>
-
-<span class="c"># Note that this section could be replaced with </span>
-<span class="c"># errors_ensemble = 0.5 * errors1 + 0.5 * errors2</span>
-<span class="n">preds1</span> <span class="o">=</span> <span class="n">actual</span> <span class="o">+</span> <span class="n">errors1</span>
+<span class="k">print</span><span class="p">(</span><span class="n">errors1</span><span class="o">.</span><span class="n">var</span><span class="p">())</span> <span class="c1"># 1000
+</span><span class="n">errors2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2000</span><span class="p">)</span> <span class="o">*</span> <span class="n">randn</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">errors2</span><span class="o">.</span><span class="n">var</span><span class="p">())</span> <span class="c1"># 2000
+</span>
+<span class="c1"># Note that this section could be replaced with 
+# errors_ensemble = 0.5 * errors1 + 0.5 * errors2
+</span><span class="n">preds1</span> <span class="o">=</span> <span class="n">actual</span> <span class="o">+</span> <span class="n">errors1</span>
 <span class="n">preds2</span> <span class="o">=</span> <span class="n">actual</span> <span class="o">+</span> <span class="n">errors2</span>
 <span class="n">preds_ensemble</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">preds1</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">preds2</span>
 <span class="n">errors_ensemble</span> <span class="o">=</span> <span class="n">preds_ensemble</span> <span class="o">-</span> <span class="n">actual</span>
 
-<span class="k">print</span><span class="p">(</span><span class="n">errors_ensemble</span><span class="o">.</span><span class="n">var</span><span class="p">())</span> <span class="c"># 750. Lower than variance of component models!</span>
-</code></pre></div></div>
+<span class="k">print</span><span class="p">(</span><span class="n">errors_ensemble</span><span class="o">.</span><span class="n">var</span><span class="p">())</span> <span class="c1"># 750. Lower than variance of component models!
+</span></code></pre></div></div>
 
 <p>As shown in the code above, even though a good model (Model 1) was averaged with an inferior model (Model 2), the resulting Ensemble model’s MSE of \$750 is better than either of the models individually.</p>
 
