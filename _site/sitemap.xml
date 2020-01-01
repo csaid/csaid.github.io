@@ -3,6 +3,36 @@
   
     
     <url>
+      <loc>http://localhost:4000/2020/01/01/optimizing-sample-sizes-in-ab-testing-part-II/</loc>
+      
+        <lastmod>2020-01-01T00:00:00-08:00</lastmod>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.5</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://localhost:4000/2020/01/01/optimizing-sample-sizes-in-ab-testing-part-I/</loc>
+      
+        <lastmod>2020-01-01T00:00:00-08:00</lastmod>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.5</priority>
+      
+    </url>
+    
+  
+    
+    <url>
       <loc>http://localhost:4000/2019/05/18/variance_after_scaling_and_summing/</loc>
       
         <lastmod>2019-05-18T00:00:00-07:00</lastmod>
@@ -535,7 +565,7 @@
     <url>
       <loc>http://localhost:4000404.html</loc>
       
-        <lastmod>2019-12-15T15:18:52-08:00</lastmod>
+        <lastmod>2020-01-01T14:20:13-08:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -563,7 +593,7 @@
     <url>
       <loc>http://localhost:4000</loc>
       
-        <lastmod>2019-12-15T15:18:52-08:00</lastmod>
+        <lastmod>2020-01-01T14:20:13-08:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -591,7 +621,7 @@
     <url>
       <loc>http://localhost:4000</loc>
       
-        <lastmod>2019-12-15T15:18:52-08:00</lastmod>
+        <lastmod>2020-01-01T14:20:13-08:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -609,7 +639,7 @@
     <url>
       <loc>http://localhost:4000</loc>
       
-        <lastmod>2019-12-15T15:18:52-08:00</lastmod>
+        <lastmod>2020-01-01T14:20:13-08:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -627,7 +657,7 @@
     <url>
       <loc>http://localhost:4000</loc>
       
-        <lastmod>2019-12-15T15:18:52-08:00</lastmod>
+        <lastmod>2020-01-01T14:20:13-08:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -645,7 +675,7 @@
     <url>
       <loc>http://localhost:4000</loc>
       
-        <lastmod>2019-12-15T15:18:52-08:00</lastmod>
+        <lastmod>2020-01-01T14:20:13-08:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -663,7 +693,7 @@
     <url>
       <loc>http://localhost:4000</loc>
       
-        <lastmod>2019-12-15T15:18:52-08:00</lastmod>
+        <lastmod>2020-01-01T14:20:13-08:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -681,7 +711,25 @@
     <url>
       <loc>http://localhost:4000</loc>
       
-        <lastmod>2019-12-15T15:18:52-08:00</lastmod>
+        <lastmod>2020-01-01T14:20:13-08:00</lastmod>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    
+
+    
+    <url>
+      <loc>http://localhost:4000</loc>
+      
+        <lastmod>2020-01-01T14:20:13-08:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -1142,6 +1190,32 @@
           <loc>http://localhost:4000/2019/05/18/variance_after_scaling_and_summing/</loc>
           
             <lastmod>2019-05-18T00:00:00-07:00</lastmod>
+          
+          
+            <changefreq>monthly</changefreq>
+          
+          
+            <priority>0.3</priority>
+          
+        </url>
+      
+        <url>
+          <loc>http://localhost:4000/2020/01/01/optimizing-sample-sizes-in-ab-testing-part-I/</loc>
+          
+            <lastmod>2020-01-01T00:00:00-08:00</lastmod>
+          
+          
+            <changefreq>monthly</changefreq>
+          
+          
+            <priority>0.3</priority>
+          
+        </url>
+      
+        <url>
+          <loc>http://localhost:4000/2020/01/01/optimizing-sample-sizes-in-ab-testing-part-II/</loc>
+          
+            <lastmod>2020-01-01T00:00:00-08:00</lastmod>
           
           
             <changefreq>monthly</changefreq>

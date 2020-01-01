@@ -4,13 +4,413 @@
  <title>The File Drawer</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2019-12-15T15:18:52-08:00</updated>
+ <updated>2020-01-01T14:20:13-08:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
    <email></email>
  </author>
 
+ 
+ <entry>
+   <title>Optimizing sample sizes in A/B testing, Part II&#58; Aggregate time-discounted lift</title>
+   <link href="http://localhost:4000/2020/01/01/optimizing-sample-sizes-in-ab-testing-part-II/"/>
+   <updated>2020-01-01T00:00:00-08:00</updated>
+   <id>http://localhost:4000/2020/01/01/optimizing-sample-sizes-in-ab-testing-part-II</id>
+   <content type="html">&lt;p&gt;This is Part II of a two-part blog post on how to optimize your sample size in A/B testing. As in &lt;a href=&quot;/2020/01/01/optimizing-sample-sizes-in-ab-testing-part-I/&quot;&gt;Part I&lt;/a&gt;, the focus will be on choosing a sample size at the beginning of the experiment and committing to it, not on dynamically updating the sample size as the experiment proceeds.&lt;/p&gt;
+
+&lt;p&gt;In &lt;a href=&quot;/2020/01/01/optimizing-sample-sizes-in-ab-testing-part-I/&quot;&gt;Part I&lt;/a&gt;, we learned how before the experiment starts we can estimate $\hat{L}$, the expected post-experiment lift, a probability weighted average of outcomes.&lt;/p&gt;
+
+&lt;p&gt;In Part II, we’ll discuss how to estimate what is perhaps the most important per-unit cost of epxerimentation: the forfeited benefits that could come from shipping the winning bucket earlier. This leads to something I think is incredibly cool: A formula for $\hat{L}_a$, the aggregate time-discounted post-experiment lift, as a function of sample size. The formula allows you to pick optimal sample sizes specific to your business circumstances, and leads us to three lessons for practioners.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;You should run “underpowered” experiments if you have a very high discount rate.&lt;/li&gt;
+  &lt;li&gt;You should run “underpowered” experiments if you have a small user base.&lt;/li&gt;
+  &lt;li&gt;That said, it’s far better to run your experiment too long than too short.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;a-quick-modification-from-part-i&quot;&gt;A quick modification from Part I&lt;/h2&gt;
+
+&lt;p&gt;In &lt;a href=&quot;/2020/01/01/optimizing-sample-sizes-in-ab-testing-part-I/&quot;&gt;Part I&lt;/a&gt;, we saw that if you run an experiment comparing the current version of your product (A) to a new alternative (B), and if you ship whichever version does best in the experiment, your business will on average experience a post-experiment per-user lift of&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\hat{L} = \frac{\sigma_\Delta^2}{\sqrt{2\pi(\sigma_\Delta^2 + \frac{2\sigma_X^2}{n})}}&lt;/script&gt;
+
+&lt;p&gt;where $\sigma_\Delta^2$ is the variance on your normally distributed zero-mean prior for $\mu_B - \mu_A$, $\sigma_X^2$ is the within-group variance, and $n$ is the per-bucket sample size.&lt;/p&gt;
+
+&lt;p&gt;Because Part II is primarily concerned with the the duration of the experiment, we’re going to modify the formula to be time-dependent. As a simplifying assumption we’re going to make &lt;em&gt;sessions&lt;/em&gt;, rather then &lt;em&gt;users&lt;/em&gt;, the unit of analysis. We’ll also assume that you have a constant number of sessions per day. This changes the definition of $\hat{L}$ to a &lt;em&gt;post-experiment per-session lift&lt;/em&gt;, and the formula becomes&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\hat{L} = \frac{\sigma_\Delta^2}{\sqrt{2\pi(\sigma_\Delta^2 + \frac{2\sigma_X^2}{mt})}}&lt;/script&gt;
+
+&lt;p&gt;where $m$ is the sessions per day for each bucket, and $t$ is duration of the experiment in days.&lt;/p&gt;
+
+&lt;h2 id=&quot;time-discounting&quot;&gt;Time Discounting&lt;/h2&gt;
+
+&lt;p&gt;The formula above shows that larger sample sizes result in higher $ \hat{L} $, since larger samples make it more likely you will ship the better version. But as with all things in life, there are costs to increasing your sample size. In particular, the larger your sample size, the longer you have to wait to ship the winning bucket. In a fast moving startup, there’s often good reason to accrue your wins as soon as possible. Lift today is much more valuable than the same lift a year from now.&lt;/p&gt;
+
+&lt;p&gt;How much more valuable is lift today versus lift a year from now? A common way to quantify this is with exponential discounting, such that weights (or “discount factors”) on future lift follow the form:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;w = e^{-rt}&lt;/script&gt;
+
+&lt;p&gt;where $ r $ is a discount rate. For teams shipping product at startups, the annual discount rate might be quite large, like 0.5 or even 1.0, which would correspond to a daily discount rate $r$ of 0.5/365 or 1.0/365, respectively.&lt;/p&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;img src=&quot;/assets/2020_optimizing_sample_sizes/discount_function.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:100%;&quot; /&gt;
+  &lt;div class=&quot;caption&quot;&gt;&lt;strong&gt;Figure 1&lt;/strong&gt;.
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;aggregate-time-discounted-lift-visual-intuition&quot;&gt;Aggregate time-discounted lift: Visual Intuition&lt;/h2&gt;
+
+&lt;p&gt;Take a look at Figure 2, below. It shows an experiment that is planned to run for $\tau = 60$ days. The top panel shows $\hat{L}$. While the experiment is running, $\hat{L} = 0$, since our prior is that $\Delta$ is sampled from a normal distribution with mean zero. But once the experiment finishes and we launch the winning bucket, we should begin to reap our expected per-session lift.&lt;/p&gt;
+
+&lt;p&gt;The middle panel shows our discount function.&lt;/p&gt;
+
+&lt;p&gt;The bottom panel shows our time-discounted lift, defined as the product of the lift in the top panel and the time discount in the middle panel. (We can also multiply it by $M$, the number of post-experiment sessions per day, which for simplicity we set to 1 here.) The aggregate time-discounted lift, $\hat{L}_a$, is the area under the curve.&lt;/p&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;img src=&quot;/assets/2020_optimizing_sample_sizes/discounted_lift_static.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:100%;&quot; /&gt;
+  &lt;div class=&quot;caption&quot;&gt;&lt;strong&gt;Figure 2&lt;/strong&gt;.
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;Now let’s see what happens with different experiment durations. Figure 3 shows that the longer you plan to run your experiment, the higher $\hat{L}$ will be (top panel). But due to time discounting, (middle panel), the area under the time-discounted lift curve (bottom panel) is low for overly large sample sizes. There is an optimal duration of the experiment (in this case, $\tau = 24$ days), that maximizes $\hat{L}_a$, the area under the curve.&lt;/p&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;img src=&quot;/assets/2020_optimizing_sample_sizes/discounted_lift_dynamic.gif&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:100%;&quot; /&gt;
+  &lt;div class=&quot;caption&quot;&gt;&lt;strong&gt;Figure 3&lt;/strong&gt;.
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;aggregate-time-discounted-lift-formula&quot;&gt;Aggregate time-discounted lift: Formula&lt;/h2&gt;
+&lt;p&gt;The aggregate time-discounted lift $\hat{L}_a$, i.e. the area under the curve in the bottom panel of Figure 3, is:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\hat{L}_a = \frac{\sigma_\Delta^2 M e^{-r\tau}}{r \sqrt{2\pi(\sigma_\Delta^2 + \frac{2\sigma_X^2}{m\tau})}}&lt;/script&gt;
+
+&lt;p&gt;where $ \tau $ is the duration of the experiment and $M$ is the number of post-experiment sessions per day. See the Appendix for a derivation.&lt;/p&gt;
+
+&lt;p&gt;There’s two things to note about this formula.&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Increasing the number of bucketed sessions per day, $m$, always increases $\hat{L}_a$.&lt;/li&gt;
+  &lt;li&gt;Increasing the duration of the experiment, $\tau$, may or may not help and is the result of competing forces in the numerator and denominator. In the numerator, higher $\tau$ decreases $\hat{L}_a$ by delaying shipment. In the denominator, higher $\tau$ increases $\hat{L}_a$ by making it more likely you will ship the superior version.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;optimizing-sample-size&quot;&gt;Optimizing sample size&lt;/h2&gt;
+
+&lt;p&gt;At long last, we can answer the question, “How long should we run this experiment?”. A nice way to do it is to plot $\hat{L}_a$ as a function of $\tau$. Below we see what this looks like for one set of parameters. Here the optimal duration is 18 days.&lt;/p&gt;
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;img src=&quot;/assets/2020_optimizing_sample_sizes/time_aggregated_lift_by_tau.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:100%;&quot; /&gt;
+  &lt;div class=&quot;caption&quot;&gt;&lt;strong&gt;Figure 4&lt;/strong&gt;.
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;
+Note also that a set of simulated experiment and post-experiment periods (in blue) confirm the predictions of the closed form solution (in gray). See the &lt;a href=&quot;https://github.com/csaid/optimizing-sample-sizes-in-AB-testing/blob/master/Optimizing%20sample%20sizes%20in%20AB%20testing.ipynb&quot;&gt;notebook&lt;/a&gt; for details.&lt;/p&gt;
+
+&lt;h2 id=&quot;three-lessons-for-practioners&quot;&gt;Three lessons for practioners&lt;/h2&gt;
+&lt;p&gt;I played around with the formula for $\hat{L}_a$ and came across three lessons I think will be of interest to practitioners.&lt;/p&gt;
+
+&lt;h4 id=&quot;1-you-should-run-underpowered-experiments-if-you-have-a-very-high-discount-rate&quot;&gt;1. You should run “underpowered” experiments if you have a very high discount rate&lt;/h4&gt;
+&lt;p&gt;Take a look at Figure 5, which shows some recommendations for conversion rate experiments where $p=0.10$ and $\sigma_\Delta=0.01$. On the left panel we plot the optimal duration as a function of the annual discount rate. If you have a high discount rate, you care a lot more about the near future than the distant future and therefore it is critical that you ship any potentially winning version as soon as possible. In this scenario, the optimal duration is low (left panel), and the probability you will find a statistically significant result is low (right panel). For many of these cases, the optimal duration would traditionally be considered “underpowered”.&lt;/p&gt;
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;img src=&quot;/assets/2020_optimizing_sample_sizes/optimal_tau_and_sig_rate_by_r.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:100%;&quot; /&gt;
+  &lt;div class=&quot;caption&quot;&gt;&lt;strong&gt;Figure 5&lt;/strong&gt;.
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;2-you-should-run-underpowered-experiments-if-you-have-a-small-user-base&quot;&gt;2. You should run ‘underpowered’ experiments if you have a small user base&lt;/h4&gt;
+&lt;p&gt;Now let’s plot these curves as a function of $m$, our daily sessions per bucket. If we only have a small number of sessions to work with, we’ll need to run the experiment for longer (left panel). What’s especially interesting is that the optimal duration for low $m$ scenarios still results in a low rate of statistical significance. That is, if you don’t have a lot of users to work with, it’s optimal to run an “underpowered” experiment. Waiting to get a large number of sessions just causes too much time-discounting loss.&lt;/p&gt;
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;img src=&quot;/assets/2020_optimizing_sample_sizes/optimal_tau_and_sig_rate_by_m.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:100%;&quot; /&gt;
+  &lt;div class=&quot;caption&quot;&gt;&lt;strong&gt;Figure 6&lt;/strong&gt;.
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;3-that-said-its-far-better-to-run-your-experiment-too-long-than-too-short&quot;&gt;3. That said, it’s far better to run your experiment too long than too short&lt;/h4&gt;
+&lt;p&gt;Below we plot the aggregate time-discounted lift, $\hat{L}_a$ as a function of duration, for various combinations of $m$ and $r$. In all plots the left shoulder is steeper than the right shoulder. This means that it’s really bad if your experiment is shorter than optimal, but it’s kind of ok if your experiment is longer than optimal. This is true for basically all parameter regimes, unless you have an insanely high discount rate (not shown).&lt;/p&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;img src=&quot;/assets/2020_optimizing_sample_sizes/L_a_by_tau_for_m_and_r.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:100%;&quot; /&gt;
+  &lt;div class=&quot;caption&quot;&gt;&lt;strong&gt;Figure 7&lt;/strong&gt;.
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;Side note: It’s instructive to look at the bottom right panel of Figure 7, where there is a very high number of sessions per day and a relatively steep discount curve. Because of the high number of sessions, all of the benefits of the experiment are immediately obtained on the first day, and the $\hat{L}_a$ curve smashes up at its ceiling. After that, nothing else can be gained by extending the experiment, and any additional time spent is lost to discounting.&lt;/p&gt;
+
+&lt;h2 id=&quot;examples-in-python&quot;&gt;Examples in Python&lt;/h2&gt;
+&lt;h3 id=&quot;example-1-continuous-variable-metric&quot;&gt;Example 1: Continuous variable metric&lt;/h3&gt;
+&lt;p&gt;Let’s say you want to run an experiment comparing two different versions of a website, and your main metric is revenue per session. You know in advance that the within-group variance of this metric is $\sigma_X^2 = 100$. You don’t know which version is better but you have a prior that the true difference in means is normally distributed with variance $\sigma_\Delta^2 = 1$. You have 200 sessions per day and plan to bucket 100 sessions into Version A and 100 sessions into Version B, running the experiment for $\tau=20$ days. Your discount rate is fairly aggressive at 1.0 annually, or $r = 1/365$ per day. Using the function in the &lt;a href=&quot;https://github.com/csaid/optimizing-sample-sizes-in-AB-testing/blob/master/Optimizing%20sample%20sizes%20in%20AB%20testing.ipynb&quot;&gt;notebook&lt;/a&gt;, you can find $\hat{L}_a$ with ths command:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;get_agg_lift_via_closed_form&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;var_D&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;var_X&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;m&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tau&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;25&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;365&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;M&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;200&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# returns 26298
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;You can also use the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;find_optimal_tau&lt;/code&gt; function to determine the optimal duration, which in this case is $\tau=18$.&lt;/p&gt;
+
+&lt;h3 id=&quot;example-2-conversion-rates&quot;&gt;Example 2: Conversion rates&lt;/h3&gt;
+&lt;p&gt;Let’s say your main metric is conversion rate. You think that on average conversion rates will be about 10%, and that the difference in conversion rates between buckets will be normally distributed with variance 1%. Using the normal approximation of the binomial distribution, you can use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;p*(1-p)&lt;/code&gt; for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;var_X&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.1&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;get_agg_lift_via_closed_form&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;var_D&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.01&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;**&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;var_X&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;m&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tau&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;25&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;365&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;M&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;200&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# returns 207
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;You can also use the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;find_optimal_tau&lt;/code&gt; function to determine the optimal duration, which in this case is $\tau=49$.&lt;/p&gt;
+
+&lt;h2 id=&quot;faq&quot;&gt;FAQ&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Q:&lt;/strong&gt; Has there been any similar work on this?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;A:&lt;/strong&gt; As I was writing this, I came across a &lt;a href=&quot;https://arxiv.org/pdf/1811.00457.pdf&quot;&gt;fantastic in-press paper&lt;/a&gt; by &lt;a href=&quot;https://drexel.edu/now/experts/Overview/Feit-Elea/&quot;&gt;Elea Feit&lt;/a&gt; and &lt;a href=&quot;https://www.ron-berman.com/&quot;&gt;Ron Berman&lt;/a&gt;. The paper is exceptionally clear and I would recommend reading it. Like this blog post, Feit and Berman argue that it doesn’t make any sense to pick sample sizes based on statistical significance and power thresholds. Instead they recommend profit-maximizing sample sizes. They independently come to the same formula for $ \hat{L} $ as I do (see right addend in their Equation 9, making sure to substitute my $\frac{\sigma_\Delta^2}{2}$ for their $\sigma^2)$. Where they differ is that they assume there is a fixed pool of $N$ users that can only experience the product once. In their setup, you can allocate $n_1$ users to Bucket A and $n_2$ users to Bucket B. Once you have identified the winning bucket, you ship that version to the remaining $N-n_1-n_2$ users. Your expected profit is determined by the expected lift from those users. My experience in industry differs from this setup. In my experience there is no constraint that you can only show the product once to a fixed set of users. Instead, there is often an indefinitely increasing pool of new users, and once you ship the winning bucket you can ship it to everyone, including users who already participated in the experiment. To me, the main constraint in industry is therefore time discounting, rather than a finite pool of users.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Q:&lt;/strong&gt; In addition to the lift from shipping a winning bucket, doesn’t experimentation also help inform you about the types of products that might work in the future? And if so, doesn’t this mean we should run experiments longer than recommended by your formula for $\hat{L}_a$?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;A:&lt;/strong&gt; Yes, experimentation can teach lessons that are generalizable beyond the particular product being tested. This is an advantage of high powered experimentation not included in my framework.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Q:&lt;/strong&gt; If some users can show up in multiple sessions, doesn’t bucketing by session violate independence assumptions?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;A:&lt;/strong&gt; Yeah, so this is tricky. For many companies, there is a distribution of user activity, where some users come for many sessions per week and other users come for only one session at most. Modeling this would make the framework significantly more complicated, so I tried to simplify things by making sessions the unit of analysis.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Q:&lt;/strong&gt; Is there anything else on your blog related to this topic?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;A:&lt;/strong&gt; I’m glad you asked!&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;/2016/02/28/four-pitfalls-of-hill-climbing/&quot;&gt;Four pitfalls of hill climbing&lt;/a&gt; discusses some product-focused issues in A/B testing&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/2018/02/04/hyperbolic-discounting/&quot;&gt;Hyperbolic discounting — The irrational behavior that might be rational after all&lt;/a&gt; is about time discounting, although not in the constext of experimentation.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;appendix&quot;&gt;Appendix&lt;/h2&gt;
+&lt;p&gt;The aggregate time-discounted lift $\hat{L}_a$ is&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\hat{L}_a = \int_{\tau}^{\infty} \hat{L} M e^{-rt} \,dt&lt;/script&gt;
+
+&lt;p&gt;where $\hat{L}$ is the expected per-session lift, $M$ is the number of post-experiment sessions per day, $r$ is the discount rate, and $ \tau $ is the duration of the experiment. Solving the integral gives:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\hat{L}_a = \frac{\hat{L} M e^{-r\tau}}{r}&lt;/script&gt;
+
+&lt;p&gt;Plugging in our previously solved value of $\hat{L}$ gives&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\hat{L}_a = \frac{\sigma_\Delta^2 M e^{-r\tau}}{r \sqrt{2\pi(\sigma_\Delta^2 + \frac{2\sigma_X^2}{m\tau})}}&lt;/script&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Optimizing sample sizes in A/B testing, Part I&#58; Expected lift</title>
+   <link href="http://localhost:4000/2020/01/01/optimizing-sample-sizes-in-ab-testing-part-I/"/>
+   <updated>2020-01-01T00:00:00-08:00</updated>
+   <id>http://localhost:4000/2020/01/01/optimizing-sample-sizes-in-ab-testing-part-I</id>
+   <content type="html">&lt;p&gt;&lt;em&gt;A special thanks to the excellent &lt;a href=&quot;https://twitter.com/johnvmcdonnell&quot;&gt;John McDonnell&lt;/a&gt;, who came up with the idea for this post.&lt;/em&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;If you’re a data scientist, you’ve surely encountered the question, “How big should this A/B test be?”&lt;/p&gt;
+
+&lt;p&gt;The standard answer is to do a power analysis, typically aiming for 80% power at $\alpha$=5%. But if you think about it, this advice is pretty weird. Why is 80% power the best choice for your business? And doesn’t a 5% significance cutoff seem pretty arbitrary?&lt;/p&gt;
+
+&lt;p&gt;In most business decisions, you want to choose a policy that maximizes your benefits minus your costs. In experimentation, the benefit comes from learning information to drive future decisions and the cost comes from the experiment itself. The optimal sample size will therefore depend on the unique circumstances of your business, not on arbitrary statistical significance thresholds.&lt;/p&gt;
+
+&lt;p&gt;In this blog post (Part I), I describe what I think is an incredibly useful business-focused formula that quantifies how much you can benefit from increasing your sample size. It is, in short, an &lt;em&gt;average of the value of all possible outcomes of the experiment, weighted by their probabilities&lt;/em&gt;. Python helper functions are &lt;a href=&quot;https://github.com/csaid/optimizing-sample-sizes-in-AB-testing&quot;&gt;available&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;In &lt;a href=&quot;/2020/01/01/optimizing-sample-sizes-in-ab-testing-part-II/&quot;&gt;Part II&lt;/a&gt;, I’ll show how you can determine the costs of the experiment, focusing specifically on the forfeited benefits of waiting to ship the winning bucket. In particular, we’ll see how the optimal duration of an experiment depends on the discount rate of your project: How much you value accruing its benefits now rather than later. We’ll see how there are are many business scenarios where it is optimal to run “underpowered” experiments.&lt;/p&gt;
+
+&lt;p&gt;Throughout Part I and II, the focus will be on choosing a sample size at the beginning of the experiment and committing to it, not on dynamically updating the sample size as the experiment proceeds.&lt;/p&gt;
+
+&lt;p&gt;With that out of the way, let’s get started!&lt;/p&gt;
+
+&lt;h2 id=&quot;outcome-probabilities&quot;&gt;Outcome probabilities&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;[This is the driest section. But if you can make it through, the rest gets easier.]&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Imagine you are comparing two versions of a website. You currently are on version A, but you would like to compare it to version B. And imagine you are measuring some random variable $X$, which might represent something like clicks per user or page views per user. The goal of the experiment is to determine which version of the website has a higher mean value of $X$.&lt;/p&gt;
+
+&lt;p&gt;This blog post aims to quantify the benefit of experimentation as an average of the value of all possible outcomes, weighted by their probabilities. To do that, we first need to describe the probabilities of all the different outcomes. An outcome consists of two parts: A &lt;em&gt;true&lt;/em&gt; difference in means, $\Delta$, defined as&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\Delta = \mu_B - \mu_A&lt;/script&gt;
+
+&lt;p&gt;and an experimentally &lt;em&gt;observed&lt;/em&gt; difference in means $\delta$, defined as&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\delta = \overline{X}_B - \overline{X}_A&lt;/script&gt;
+
+&lt;p&gt;Let’s start with $\Delta$. While you don’t yet know which version of the website is better (that’s what the experiment is for!), you have a sense for how important the product change is. You can therefore create a normally distributed prior on $\Delta$ with mean zero and variance $ \sigma_\Delta^2 $.&lt;/p&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;img src=&quot;/assets/2020_optimizing_sample_sizes/univariate_normal.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:100%;&quot; /&gt;
+  &lt;div class=&quot;caption&quot;&gt;&lt;strong&gt;Figure 1&lt;/strong&gt;.
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;Next, let’s consider $\delta$, your experimentally observed difference in means. It will be a noisy estimate of $\Delta$. Let’s assume you have previously measured the variance of $X$ to be $ \sigma_X^2 $. It is reasonable to assume that within each group in the experiment, and for any particular $\Delta$, the variance of $X$ will still be $ \sigma_X^2$. You should therefore believe that for any particular $\Delta$, the observed difference in means $\delta$ will be sampled from a normal distribution $\mathcal{N}(\Delta, \sigma_c^2)$, where&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\sigma_c^2 = \frac{2\sigma_X^2}{n}&lt;/script&gt;
+
+&lt;p&gt;and where $n$ is the sample size in each of the two buckets.&lt;/p&gt;
+
+&lt;p&gt;Collectively, this all forms a bivariate normal distribution of outcomes, shown below.&lt;/p&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;img src=&quot;/assets/2020_optimizing_sample_sizes/bivariate_normal.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:100%;&quot; /&gt;
+  &lt;div class=&quot;caption&quot;&gt;&lt;strong&gt;Figure 2&lt;/strong&gt;. Probabilities of possible outcomes, based on your prior beliefs.
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;To gain some more intuiton about this, take a look at Figure 3. As sample size increases, $ \sigma^2_c $ decreases.&lt;/p&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;img src=&quot;/assets/2020_optimizing_sample_sizes/three_bivariate_normals.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:100%;&quot; /&gt;
+  &lt;div class=&quot;caption&quot;&gt;&lt;strong&gt;Figure 3&lt;/strong&gt;.
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;outcome-lifts&quot;&gt;Outcome lifts &lt;/h2&gt;
+&lt;p&gt;Now that we know the probabilities of all the different outcomes, we next need to estimate how much per-user lift, $l$, we will gain from each possible outcome, assuming we follow a policy of shipping whichever bucket (A or B) looked better in the experiment.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;In cases where $\delta &amp;gt; 0$ and $\Delta &amp;gt; 0$, you would ship B and your post-experiment per-user lift will be positively valued at $l = \Delta$.&lt;/li&gt;
+  &lt;li&gt;In cases where $\delta &amp;gt; 0$ and $\Delta &amp;lt; 0$, you would ship B, but unfortunately your post-experiment per-user lift will be negatively valued at $l = \Delta$.&lt;/li&gt;
+  &lt;li&gt;In cases where $\delta &amp;lt; 0$, you would keep A in production, and your post-experiment lift would be zero.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;A heatmap of the per-user lifts ($l$) for each outcome is shown in the plot below. Good outcomes, where shipping B was the right decision, are shown in blue. Bad outcomes, where shipping B was the wrong decision, are shown in red.&lt;/p&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;img src=&quot;/assets/2020_optimizing_sample_sizes/lift_matrix.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:100%;&quot; /&gt;
+  &lt;div class=&quot;caption&quot;&gt;&lt;strong&gt;Figure 4&lt;/strong&gt;. Heatmap of possible outcomes, where the color scale represents the lift, $l$. 
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;probability-weighted-outcome-lifts&quot;&gt;Probability-weighted Outcome Lifts&lt;/h2&gt;
+&lt;p&gt;At this point, we know the probability of each outcome, and we know the post-experiment per-user lift of each outcome. To determine how much lift we can expect, on average, by shipping the winning bucket of an experiment, we need to compute a probability-weighted average of the outcome lifts. Let’s start by looking at this visually and then later we’ll get into the math.&lt;/p&gt;
+
+&lt;p&gt;In Figure 5, the probability-weighted lift of each outcome (right) can be seen by multiplying the bivariate normal distribution (left) by the lift map (center). &lt;/p&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;img src=&quot;/assets/2020_optimizing_sample_sizes/product_stages.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:100%;&quot; /&gt;
+  &lt;div class=&quot;caption&quot;&gt;&lt;strong&gt;Figure 5&lt;/strong&gt;.
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;The good outcomes contribute more than the bad outcomes, simply because a good outcome is more likely than a bad outcome. To put it differently, experimentation will on average give you useful information.&lt;/p&gt;
+
+&lt;p&gt;To gain some more intuition on this, it is helpful to see this plot for different sample sizes. As sample size increases, the probability-weighted contribution of bad outcomes gets smaller and smaller. &lt;/p&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;img src=&quot;/assets/2020_optimizing_sample_sizes/three_products.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:100%;&quot; /&gt;
+  &lt;div class=&quot;caption&quot;&gt;&lt;strong&gt;Figure 6&lt;/strong&gt;.
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;computing-the-expected-post-experiment-per-user-lift&quot;&gt;Computing the expected post-experiment per-user lift&lt;/h3&gt;
+&lt;p&gt;To determine the expected post-experiment lift from shipping the winning bucket, we need compute a probability-weighted average of all the post-experiment lifts. In other words, we need to sum up all the probability-weighted post-experiment lifts on the right panel of Figure 5. The formula for doing this is shown below. A derivation can be found in the Appendix.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\hat{L} = \frac{\sigma_\Delta^2}{\sqrt{2\pi(\sigma_\Delta^2 + \frac{2\sigma_X^2}{n})}}&lt;/script&gt;
+
+&lt;p&gt;There’s three things to notice about this formula.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;As $n$ increases, the $\hat{L}$ increases. This makes sense. The larger the sample size, the more likely it is that you’ll ship the winning bucket.&lt;/li&gt;
+  &lt;li&gt;As the within-group variance $\sigma_X^2$ increases, $\hat{L}$ increases. That’s because a high within-group variance makes experiments less informative – they’re more likely to give you the wrong answer.&lt;/li&gt;
+  &lt;li&gt;As the variance prior on $\Delta$ increases, $\hat{L}$ increases. This also make sense. The more impactful (positive or negative) you think the product change might be, the more value you will get from experimentation.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;You can try this out using the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;get_lift_via_closed_form&lt;/code&gt; formula in the &lt;a href=&quot;https://github.com/csaid/optimizing-sample-sizes-in-AB-testing/blob/master/Optimizing%20sample%20sizes%20in%20AB%20testing.ipynb&quot;&gt;Notebook&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;demonstration-via-simulation&quot;&gt;Demonstration via simulation&lt;/h2&gt;
+&lt;p&gt;In the previous section, we derived a formula for $\hat{L}$. Should you trust a formula you found on a random internet blog? Yes! Let’s put the formula to the test, by comparing its predictions to actual simulations.&lt;/p&gt;
+
+&lt;p&gt;First, let’s consider the case where the outcome is a continuous variable, such as the number of clicks. Let’s set $ \sigma_D^2 = 2 $ and $ \sigma_X^2 = 100 $. We then measure $\hat{L}$ for a range of sample sizes, using both the closed-form solution and simulations. In each simulated experiment, we do the following:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Sample a true group difference $\Delta$ from $\mathcal{N}(0, \sigma_D^2)$&lt;/li&gt;
+  &lt;li&gt;Sample an $X$ for each of the $n$ users in each bucket A and B, using Normal distributions $\mathcal{N}(\frac{\Delta}{2}, \sigma_X^2)$ and $\mathcal{N}(-\frac{\Delta}{2}, \sigma_X^2)$, respectively.&lt;/li&gt;
+  &lt;li&gt;Compute $ \delta = \overline{X}_B - \overline{X}_A $.&lt;/li&gt;
+  &lt;li&gt;If $\delta &amp;lt;= 0$, stick with A and accrue zero lift.&lt;/li&gt;
+  &lt;li&gt;If $\delta &amp;gt; 0$, ship B and accrue the per-user lift of $\Delta$, which will probably, but not necessarily, be positive.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;We run these experiments thousands of times, each time computing the per-user lift. Finally, we average all the per-user lifts together.&lt;/p&gt;
+
+&lt;p&gt;As seen in Figure 7, below, the results of the simulation closely match the closed-form solution.&lt;/p&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;img src=&quot;/assets/2020_optimizing_sample_sizes/lift_by_n_continuous.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:100%;&quot; /&gt;
+  &lt;div class=&quot;caption&quot;&gt;&lt;strong&gt;Figure 7&lt;/strong&gt;.
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;Second, let’s consider the case where the variable is binary, as in conversion rates. For reasonably large values of $ n $, we can safely assume that the error variance is normally distributed with variance $ \sigma_X^2 = p(1-p) $, where $ p $ is the baseline conversion rate. For this example, let’s set the baseline conversion rate $p = 0.1$, and let’s set $ \sigma_\Delta^2 = 0.01^2 $. The results of the simulation closely match the closed-form solution.&lt;/p&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;img src=&quot;/assets/2020_optimizing_sample_sizes/lift_by_n_binary.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:100%;&quot; /&gt;
+  &lt;div class=&quot;caption&quot;&gt;&lt;strong&gt;Figure 8&lt;/strong&gt;.
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;thinking-about-costs-and-a-preview-of-part-ii&quot;&gt;Thinking about costs, and a preview of Part II&lt;/h2&gt;
+
+&lt;p&gt;In this blog post, we saw how increasing the sample size improves the expected post-experiment per-user lift, $\hat{L}$. But to determine the &lt;em&gt;optimal&lt;/em&gt; sample size, we need to think about costs.&lt;/p&gt;
+
+&lt;p&gt;The cost in dollars of an experiment can be described as $f + vn$, where $f$ is a fixed cost and $ v $ is the variable cost per participant. If you already know these costs, and if you already know the revenue increase $ u $ from each unit increase in lift, you can calculate the net revenue $R$ as&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;R = u\hat{L}  - f - vn&lt;/script&gt;
+
+&lt;p&gt;and then find the sample size $ n $ that maximizes $ R $.&lt;/p&gt;
+
+&lt;p&gt;Unfortunately, these costs aren’t always readily available. The good news is that there is a really nice way to calculate the most important cost: the forfeited benefit that comes from prolonging your experiment. To read about that, and about how to optimize your sample size, please continue to &lt;a href=&quot;/2020/01/01/optimizing-sample-sizes-in-ab-testing-part-II/&quot;&gt;Part II&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;appendix&quot;&gt;Appendix&lt;/h2&gt;
+&lt;p&gt;To determine $\hat{L}$, we start with the probability-weighted lifts on the right panel of Figure 5. This is a bivariate normal distribution over $ \Delta $ and $ \delta $, multiplied by $ \Delta $.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;f(\Delta, \delta) = \frac{\Delta}{2 \pi \sigma_\Delta \sigma_\delta \sqrt{1-\rho^2}} e^{-\frac{
+\frac{\Delta^2}{\sigma_\Delta^2} - \frac{2 \rho \Delta \delta}{\sigma_\Delta \sigma_\delta} + \frac{\delta^2}{\sigma_\delta^2}
+}{2(1-\rho^2)}
+}&lt;/script&gt;
+
+&lt;p&gt;where the correlation coefficient $ \rho $, is &lt;a href=&quot;http://athenasc.com/Bivariate-Normal.pdf&quot;&gt;defined&lt;/a&gt; as:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\rho = \sqrt{1 - \frac{\sigma_c^2}{\sigma_\Delta^2 + \sigma_c^2}}&lt;/script&gt;
+
+&lt;p&gt;and $\sigma_\delta^2$, is the variance on $\delta$. By the &lt;a href=&quot;/2019/05/18/variance_after_scaling_and_summing/&quot;&gt;variance addition rules&lt;/a&gt;, $\sigma_\delta^2$ is defined as&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\sigma_\delta^2 = \sigma_\Delta^2 + \sigma_c^2&lt;/script&gt;
+
+&lt;p&gt;We next need to sum up the probability-weighted values in $f(\Delta, \delta)$. We can use integration to obtain a closed form solution.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\hat{L} = \int_{0}^{\infty} \int_{-\infty}^{\infty} {\frac{\Delta}{2 \pi \sigma_\Delta \sigma_\delta \sqrt{1-\rho^2}} e^{-\frac{
+
+\frac{\Delta^2}{\sigma_\Delta^2} - \frac{2 \rho \Delta \delta}{\sigma_\Delta \sigma_\delta} + \frac{\delta^2}{\sigma_\delta^2}
+
+}{2(1-\rho^2)}
+
+}
+\,d\Delta\,d\delta
+}&lt;/script&gt;
+
+&lt;p&gt;The integration limits on $ \delta $ start at zero because the lift will always be zero if $ \delta &amp;lt; 0 $ (i.e if the status quo bucket A wins the experiment).&lt;/p&gt;
+
+&lt;p&gt;Thanks to my 15-day free trial of &lt;a href=&quot;https://www.wolfram.com/mathematica/&quot;&gt;Mathematica&lt;/a&gt;, I determined that this integral comes out to the surprisingly simple &lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\hat{L} = \rho \frac{\sigma_\Delta}{\sqrt{2\pi}}&lt;/script&gt;
+
+&lt;p&gt;The command I used was:&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Integrate[(t / (2*\[Pi]*s1*s2*Sqrt[1 - p^2]))*Exp[-((t^2/s1^2 - \
+(2*p*t*d)/(s1*s2) + d^2/s2^2)/(2*(1 - p^2)))], {d, 0, \[Infinity]}, \
+{t, -\[Infinity], \[Infinity]}, Assumptions -&amp;gt; p &amp;gt; 0 &amp;amp;&amp;amp; p &amp;lt; 1 &amp;amp;&amp;amp; s1 &amp;gt; \
+0 &amp;amp;&amp;amp; s2 &amp;gt; 0]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;If we then substitute in previously defined formulas for $ \rho $ and $ \sigma_c^2 $, we can produce a formula that accepts more readily-available inputs.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\hat{L} = \frac{\sigma_\Delta^2}{\sqrt{2\pi(\sigma_\Delta^2 + \frac{2\sigma_X^2}{n})}}&lt;/script&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Variance after scaling and summing&#58; One of the most useful facts from statistics</title>

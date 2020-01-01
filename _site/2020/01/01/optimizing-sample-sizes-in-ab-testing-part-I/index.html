@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<!--
+It's bad to import d3 in every post separately (https://groups.google.com/forum/#!topic/d3-js/bwdNirt2uEU).
+Importing it globally here.
+Putting this up at the top, according to this controversial stack overflow answer
+http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
+ -->
+<script src="https://d3js.org/d3.v5.min.js"></script>
+
+<link rel="stylesheet" href="/public/font-awesome-4.4.0/css/font-awesome.min.css">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  
+    <meta name="description" content="A surprisingly simple formula for optimizing your experiment">
+  
+
+  <!-- To get a link preview image, just set the image attribute in your _post -->
+  
+    <meta content="http://localhost:4000/assets/2020_optimizing_sample_sizes/product_matrix.png" property="og:image"/>
+  
+
+  <!-- twitter standard -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@chris_said" />
+  <meta name="twitter:title" content="Optimizing sample sizes in A/B testing, Part I&#58; Expected lift" />
+  <meta name="twitter:description" content="A surprisingly simple formula for optimizing your experiment" />
+
+
+  <title>
+    
+      Optimizing sample sizes in A/B testing, Part I&#58; Expected lift &middot; The File Drawer
+    
+  </title>
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-67746868-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/hyde.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
+                                 <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+<!--   <body class="theme-base-cps">
+ -->
+  <body>
+
+    <div class="sidebar">
+  <div class="container">
+    <div class="sidebar-about">
+      <h1>
+        <a href="/">
+          The File Drawer
+        </a>
+      </h1>
+      <p class="lead">My name is Chris Said and I am a data scientist at Opendoor. This blog is mostly about tech, stats, and science.</p>
+
+    </div>
+
+    <nav class="sidebar-nav">
+
+      
+        <a class="sidebar-nav-item" href="/">Home</a>
+      
+        <a class="sidebar-nav-item" href="/archive">Archive</a>
+      
+        <a class="sidebar-nav-item" href="/atom.xml">Feed</a>
+      
+
+    </nav>
+
+    <div class="wrapper">
+      <div class="inner">
+        <a href = "http://www.twitter.com/Chris_Said" class="contact-button"><i class="fa fa-twitter fa-2x"></i></a>
+        <a href = "https://www.linkedin.com/pub/chris-said/6b/86b/979" class="contact-button"><i class="fa fa-linkedin-square fa-2x"></i></a>
+        <a href = "mailto:chris.said@gmail.com" class="contact-button"><i class="fa fa-envelope fa-2x"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <div class="content container">
+      <div class="post">
+  <h1 class="post-title">Optimizing sample sizes in A/B testing, Part I&#58; Expected lift</h1>
+  <span class="post-date">01 Jan 2020</span>
+  <p><em>A special thanks to the excellent <a href="https://twitter.com/johnvmcdonnell">John McDonnell</a>, who came up with the idea for this post.</em></p>
+
+<hr />
+
+<p>If you’re a data scientist, you’ve surely encountered the question, “How big should this A/B test be?”</p>
+
+<p>The standard answer is to do a power analysis, typically aiming for 80% power at $\alpha$=5%. But if you think about it, this advice is pretty weird. Why is 80% power the best choice for your business? And doesn’t a 5% significance cutoff seem pretty arbitrary?</p>
+
+<p>In most business decisions, you want to choose a policy that maximizes your benefits minus your costs. In experimentation, the benefit comes from learning information to drive future decisions and the cost comes from the experiment itself. The optimal sample size will therefore depend on the unique circumstances of your business, not on arbitrary statistical significance thresholds.</p>
+
+<p>In this blog post (Part I), I describe what I think is an incredibly useful business-focused formula that quantifies how much you can benefit from increasing your sample size. It is, in short, an <em>average of the value of all possible outcomes of the experiment, weighted by their probabilities</em>. Python helper functions are <a href="https://github.com/csaid/optimizing-sample-sizes-in-AB-testing">available</a>.</p>
+
+<p>In <a href="/2020/01/01/optimizing-sample-sizes-in-ab-testing-part-II/">Part II</a>, I’ll show how you can determine the costs of the experiment, focusing specifically on the forfeited benefits of waiting to ship the winning bucket. In particular, we’ll see how the optimal duration of an experiment depends on the discount rate of your project: How much you value accruing its benefits now rather than later. We’ll see how there are are many business scenarios where it is optimal to run “underpowered” experiments.</p>
+
+<p>Throughout Part I and II, the focus will be on choosing a sample size at the beginning of the experiment and committing to it, not on dynamically updating the sample size as the experiment proceeds.</p>
+
+<p>With that out of the way, let’s get started!</p>
+
+<h2 id="outcome-probabilities">Outcome probabilities</h2>
+<p><em>[This is the driest section. But if you can make it through, the rest gets easier.]</em></p>
+
+<p>Imagine you are comparing two versions of a website. You currently are on version A, but you would like to compare it to version B. And imagine you are measuring some random variable $X$, which might represent something like clicks per user or page views per user. The goal of the experiment is to determine which version of the website has a higher mean value of $X$.</p>
+
+<p>This blog post aims to quantify the benefit of experimentation as an average of the value of all possible outcomes, weighted by their probabilities. To do that, we first need to describe the probabilities of all the different outcomes. An outcome consists of two parts: A <em>true</em> difference in means, $\Delta$, defined as</p>
+
+<script type="math/tex; mode=display">\Delta = \mu_B - \mu_A</script>
+
+<p>and an experimentally <em>observed</em> difference in means $\delta$, defined as</p>
+
+<script type="math/tex; mode=display">\delta = \overline{X}_B - \overline{X}_A</script>
+
+<p>Let’s start with $\Delta$. While you don’t yet know which version of the website is better (that’s what the experiment is for!), you have a sense for how important the product change is. You can therefore create a normally distributed prior on $\Delta$ with mean zero and variance $ \sigma_\Delta^2 $.</p>
+
+<div class="wrapper">
+  <img src="/assets/2020_optimizing_sample_sizes/univariate_normal.png" class="inner" style="position:relative border: #222 2px solid; max-width:100%;" />
+  <div class="caption"><strong>Figure 1</strong>.
+  </div>
+</div>
+<p><br /></p>
+
+<p>Next, let’s consider $\delta$, your experimentally observed difference in means. It will be a noisy estimate of $\Delta$. Let’s assume you have previously measured the variance of $X$ to be $ \sigma_X^2 $. It is reasonable to assume that within each group in the experiment, and for any particular $\Delta$, the variance of $X$ will still be $ \sigma_X^2$. You should therefore believe that for any particular $\Delta$, the observed difference in means $\delta$ will be sampled from a normal distribution $\mathcal{N}(\Delta, \sigma_c^2)$, where</p>
+
+<script type="math/tex; mode=display">\sigma_c^2 = \frac{2\sigma_X^2}{n}</script>
+
+<p>and where $n$ is the sample size in each of the two buckets.</p>
+
+<p>Collectively, this all forms a bivariate normal distribution of outcomes, shown below.</p>
+
+<div class="wrapper">
+  <img src="/assets/2020_optimizing_sample_sizes/bivariate_normal.png" class="inner" style="position:relative border: #222 2px solid; max-width:100%;" />
+  <div class="caption"><strong>Figure 2</strong>. Probabilities of possible outcomes, based on your prior beliefs.
+  </div>
+</div>
+<p><br /></p>
+
+<p>To gain some more intuiton about this, take a look at Figure 3. As sample size increases, $ \sigma^2_c $ decreases.</p>
+
+<div class="wrapper">
+  <img src="/assets/2020_optimizing_sample_sizes/three_bivariate_normals.png" class="inner" style="position:relative border: #222 2px solid; max-width:100%;" />
+  <div class="caption"><strong>Figure 3</strong>.
+  </div>
+</div>
+<p><br /></p>
+
+<h2 id="outcome-lifts">Outcome lifts </h2>
+<p>Now that we know the probabilities of all the different outcomes, we next need to estimate how much per-user lift, $l$, we will gain from each possible outcome, assuming we follow a policy of shipping whichever bucket (A or B) looked better in the experiment.</p>
+
+<ul>
+  <li>In cases where $\delta &gt; 0$ and $\Delta &gt; 0$, you would ship B and your post-experiment per-user lift will be positively valued at $l = \Delta$.</li>
+  <li>In cases where $\delta &gt; 0$ and $\Delta &lt; 0$, you would ship B, but unfortunately your post-experiment per-user lift will be negatively valued at $l = \Delta$.</li>
+  <li>In cases where $\delta &lt; 0$, you would keep A in production, and your post-experiment lift would be zero.</li>
+</ul>
+
+<p>A heatmap of the per-user lifts ($l$) for each outcome is shown in the plot below. Good outcomes, where shipping B was the right decision, are shown in blue. Bad outcomes, where shipping B was the wrong decision, are shown in red.</p>
+
+<div class="wrapper">
+  <img src="/assets/2020_optimizing_sample_sizes/lift_matrix.png" class="inner" style="position:relative border: #222 2px solid; max-width:100%;" />
+  <div class="caption"><strong>Figure 4</strong>. Heatmap of possible outcomes, where the color scale represents the lift, $l$. 
+  </div>
+</div>
+<p><br /></p>
+
+<h2 id="probability-weighted-outcome-lifts">Probability-weighted Outcome Lifts</h2>
+<p>At this point, we know the probability of each outcome, and we know the post-experiment per-user lift of each outcome. To determine how much lift we can expect, on average, by shipping the winning bucket of an experiment, we need to compute a probability-weighted average of the outcome lifts. Let’s start by looking at this visually and then later we’ll get into the math.</p>
+
+<p>In Figure 5, the probability-weighted lift of each outcome (right) can be seen by multiplying the bivariate normal distribution (left) by the lift map (center). </p>
+
+<div class="wrapper">
+  <img src="/assets/2020_optimizing_sample_sizes/product_stages.png" class="inner" style="position:relative border: #222 2px solid; max-width:100%;" />
+  <div class="caption"><strong>Figure 5</strong>.
+  </div>
+</div>
+<p><br /></p>
+
+<p>The good outcomes contribute more than the bad outcomes, simply because a good outcome is more likely than a bad outcome. To put it differently, experimentation will on average give you useful information.</p>
+
+<p>To gain some more intuition on this, it is helpful to see this plot for different sample sizes. As sample size increases, the probability-weighted contribution of bad outcomes gets smaller and smaller. </p>
+
+<div class="wrapper">
+  <img src="/assets/2020_optimizing_sample_sizes/three_products.png" class="inner" style="position:relative border: #222 2px solid; max-width:100%;" />
+  <div class="caption"><strong>Figure 6</strong>.
+  </div>
+</div>
+<p><br /></p>
+
+<h3 id="computing-the-expected-post-experiment-per-user-lift">Computing the expected post-experiment per-user lift</h3>
+<p>To determine the expected post-experiment lift from shipping the winning bucket, we need compute a probability-weighted average of all the post-experiment lifts. In other words, we need to sum up all the probability-weighted post-experiment lifts on the right panel of Figure 5. The formula for doing this is shown below. A derivation can be found in the Appendix.</p>
+
+<script type="math/tex; mode=display">\hat{L} = \frac{\sigma_\Delta^2}{\sqrt{2\pi(\sigma_\Delta^2 + \frac{2\sigma_X^2}{n})}}</script>
+
+<p>There’s three things to notice about this formula.</p>
+<ul>
+  <li>As $n$ increases, the $\hat{L}$ increases. This makes sense. The larger the sample size, the more likely it is that you’ll ship the winning bucket.</li>
+  <li>As the within-group variance $\sigma_X^2$ increases, $\hat{L}$ increases. That’s because a high within-group variance makes experiments less informative – they’re more likely to give you the wrong answer.</li>
+  <li>As the variance prior on $\Delta$ increases, $\hat{L}$ increases. This also make sense. The more impactful (positive or negative) you think the product change might be, the more value you will get from experimentation.</li>
+</ul>
+
+<p>You can try this out using the <code class="language-plaintext highlighter-rouge">get_lift_via_closed_form</code> formula in the <a href="https://github.com/csaid/optimizing-sample-sizes-in-AB-testing/blob/master/Optimizing%20sample%20sizes%20in%20AB%20testing.ipynb">Notebook</a></p>
+
+<h2 id="demonstration-via-simulation">Demonstration via simulation</h2>
+<p>In the previous section, we derived a formula for $\hat{L}$. Should you trust a formula you found on a random internet blog? Yes! Let’s put the formula to the test, by comparing its predictions to actual simulations.</p>
+
+<p>First, let’s consider the case where the outcome is a continuous variable, such as the number of clicks. Let’s set $ \sigma_D^2 = 2 $ and $ \sigma_X^2 = 100 $. We then measure $\hat{L}$ for a range of sample sizes, using both the closed-form solution and simulations. In each simulated experiment, we do the following:</p>
+<ol>
+  <li>Sample a true group difference $\Delta$ from $\mathcal{N}(0, \sigma_D^2)$</li>
+  <li>Sample an $X$ for each of the $n$ users in each bucket A and B, using Normal distributions $\mathcal{N}(\frac{\Delta}{2}, \sigma_X^2)$ and $\mathcal{N}(-\frac{\Delta}{2}, \sigma_X^2)$, respectively.</li>
+  <li>Compute $ \delta = \overline{X}_B - \overline{X}_A $.</li>
+  <li>If $\delta &lt;= 0$, stick with A and accrue zero lift.</li>
+  <li>If $\delta &gt; 0$, ship B and accrue the per-user lift of $\Delta$, which will probably, but not necessarily, be positive.</li>
+</ol>
+
+<p>We run these experiments thousands of times, each time computing the per-user lift. Finally, we average all the per-user lifts together.</p>
+
+<p>As seen in Figure 7, below, the results of the simulation closely match the closed-form solution.</p>
+
+<div class="wrapper">
+  <img src="/assets/2020_optimizing_sample_sizes/lift_by_n_continuous.png" class="inner" style="position:relative border: #222 2px solid; max-width:100%;" />
+  <div class="caption"><strong>Figure 7</strong>.
+  </div>
+</div>
+<p><br /></p>
+
+<p>Second, let’s consider the case where the variable is binary, as in conversion rates. For reasonably large values of $ n $, we can safely assume that the error variance is normally distributed with variance $ \sigma_X^2 = p(1-p) $, where $ p $ is the baseline conversion rate. For this example, let’s set the baseline conversion rate $p = 0.1$, and let’s set $ \sigma_\Delta^2 = 0.01^2 $. The results of the simulation closely match the closed-form solution.</p>
+
+<div class="wrapper">
+  <img src="/assets/2020_optimizing_sample_sizes/lift_by_n_binary.png" class="inner" style="position:relative border: #222 2px solid; max-width:100%;" />
+  <div class="caption"><strong>Figure 8</strong>.
+  </div>
+</div>
+<p><br /></p>
+
+<h2 id="thinking-about-costs-and-a-preview-of-part-ii">Thinking about costs, and a preview of Part II</h2>
+
+<p>In this blog post, we saw how increasing the sample size improves the expected post-experiment per-user lift, $\hat{L}$. But to determine the <em>optimal</em> sample size, we need to think about costs.</p>
+
+<p>The cost in dollars of an experiment can be described as $f + vn$, where $f$ is a fixed cost and $ v $ is the variable cost per participant. If you already know these costs, and if you already know the revenue increase $ u $ from each unit increase in lift, you can calculate the net revenue $R$ as</p>
+
+<script type="math/tex; mode=display">R = u\hat{L}  - f - vn</script>
+
+<p>and then find the sample size $ n $ that maximizes $ R $.</p>
+
+<p>Unfortunately, these costs aren’t always readily available. The good news is that there is a really nice way to calculate the most important cost: the forfeited benefit that comes from prolonging your experiment. To read about that, and about how to optimize your sample size, please continue to <a href="/2020/01/01/optimizing-sample-sizes-in-ab-testing-part-II/">Part II</a>.</p>
+
+<h2 id="appendix">Appendix</h2>
+<p>To determine $\hat{L}$, we start with the probability-weighted lifts on the right panel of Figure 5. This is a bivariate normal distribution over $ \Delta $ and $ \delta $, multiplied by $ \Delta $.</p>
+
+<script type="math/tex; mode=display">f(\Delta, \delta) = \frac{\Delta}{2 \pi \sigma_\Delta \sigma_\delta \sqrt{1-\rho^2}} e^{-\frac{
+\frac{\Delta^2}{\sigma_\Delta^2} - \frac{2 \rho \Delta \delta}{\sigma_\Delta \sigma_\delta} + \frac{\delta^2}{\sigma_\delta^2}
+}{2(1-\rho^2)}
+}</script>
+
+<p>where the correlation coefficient $ \rho $, is <a href="http://athenasc.com/Bivariate-Normal.pdf">defined</a> as:</p>
+
+<script type="math/tex; mode=display">\rho = \sqrt{1 - \frac{\sigma_c^2}{\sigma_\Delta^2 + \sigma_c^2}}</script>
+
+<p>and $\sigma_\delta^2$, is the variance on $\delta$. By the <a href="/2019/05/18/variance_after_scaling_and_summing/">variance addition rules</a>, $\sigma_\delta^2$ is defined as</p>
+
+<script type="math/tex; mode=display">\sigma_\delta^2 = \sigma_\Delta^2 + \sigma_c^2</script>
+
+<p>We next need to sum up the probability-weighted values in $f(\Delta, \delta)$. We can use integration to obtain a closed form solution.</p>
+
+<script type="math/tex; mode=display">\hat{L} = \int_{0}^{\infty} \int_{-\infty}^{\infty} {\frac{\Delta}{2 \pi \sigma_\Delta \sigma_\delta \sqrt{1-\rho^2}} e^{-\frac{
+
+\frac{\Delta^2}{\sigma_\Delta^2} - \frac{2 \rho \Delta \delta}{\sigma_\Delta \sigma_\delta} + \frac{\delta^2}{\sigma_\delta^2}
+
+}{2(1-\rho^2)}
+
+}
+\,d\Delta\,d\delta
+}</script>
+
+<p>The integration limits on $ \delta $ start at zero because the lift will always be zero if $ \delta &lt; 0 $ (i.e if the status quo bucket A wins the experiment).</p>
+
+<p>Thanks to my 15-day free trial of <a href="https://www.wolfram.com/mathematica/">Mathematica</a>, I determined that this integral comes out to the surprisingly simple </p>
+
+<script type="math/tex; mode=display">\hat{L} = \rho \frac{\sigma_\Delta}{\sqrt{2\pi}}</script>
+
+<p>The command I used was:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Integrate[(t / (2*\[Pi]*s1*s2*Sqrt[1 - p^2]))*Exp[-((t^2/s1^2 - \
+(2*p*t*d)/(s1*s2) + d^2/s2^2)/(2*(1 - p^2)))], {d, 0, \[Infinity]}, \
+{t, -\[Infinity], \[Infinity]}, Assumptions -&gt; p &gt; 0 &amp;&amp; p &lt; 1 &amp;&amp; s1 &gt; \
+0 &amp;&amp; s2 &gt; 0]
+</code></pre></div></div>
+
+<p>If we then substitute in previously defined formulas for $ \rho $ and $ \sigma_c^2 $, we can produce a formula that accepts more readily-available inputs.</p>
+
+<script type="math/tex; mode=display">\hat{L} = \frac{\sigma_\Delta^2}{\sqrt{2\pi(\sigma_\Delta^2 + \frac{2\sigma_X^2}{n})}}</script>
+
+  <div>
+    <a class="twitter-share-button"
+      href="https://twitter.com/share"
+      data-url=""
+      data-via="Chris_Said"
+      data-size="large"
+      data-count="none">
+    Tweet
+    </a>
+</div>
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'csaid81';
+    var disqus_identifier = 'http://localhost:4000/2020/01/01/optimizing-sample-sizes-in-ab-testing-part-I/';
+    var disqus_url = 'http://localhost:4000/2020/01/01/optimizing-sample-sizes-in-ab-testing-part-I/';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+</div>
+
+
+    </div>
+
+  </body>
+</html>
+
+<!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$']],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  messageStyle: "none",
+  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+
+
+<script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));</script>

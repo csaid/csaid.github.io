@@ -107,6 +107,448 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
   
   <div class="post">
     <h1 class="post-title">
+      <a href="/2020/01/01/optimizing-sample-sizes-in-ab-testing-part-II/">
+        Optimizing sample sizes in A/B testing, Part II&#58; Aggregate time-discounted lift
+      </a>
+    </h1>
+
+    <span class="post-date">01 Jan 2020</span>
+
+    <p>This is Part II of a two-part blog post on how to optimize your sample size in A/B testing. As in <a href="/2020/01/01/optimizing-sample-sizes-in-ab-testing-part-I/">Part I</a>, the focus will be on choosing a sample size at the beginning of the experiment and committing to it, not on dynamically updating the sample size as the experiment proceeds.</p>
+
+<p>In <a href="/2020/01/01/optimizing-sample-sizes-in-ab-testing-part-I/">Part I</a>, we learned how before the experiment starts we can estimate $\hat{L}$, the expected post-experiment lift, a probability weighted average of outcomes.</p>
+
+<p>In Part II, we’ll discuss how to estimate what is perhaps the most important per-unit cost of epxerimentation: the forfeited benefits that could come from shipping the winning bucket earlier. This leads to something I think is incredibly cool: A formula for $\hat{L}_a$, the aggregate time-discounted post-experiment lift, as a function of sample size. The formula allows you to pick optimal sample sizes specific to your business circumstances, and leads us to three lessons for practioners.</p>
+
+<ol>
+  <li>You should run “underpowered” experiments if you have a very high discount rate.</li>
+  <li>You should run “underpowered” experiments if you have a small user base.</li>
+  <li>That said, it’s far better to run your experiment too long than too short.</li>
+</ol>
+
+<h2 id="a-quick-modification-from-part-i">A quick modification from Part I</h2>
+
+<p>In <a href="/2020/01/01/optimizing-sample-sizes-in-ab-testing-part-I/">Part I</a>, we saw that if you run an experiment comparing the current version of your product (A) to a new alternative (B), and if you ship whichever version does best in the experiment, your business will on average experience a post-experiment per-user lift of</p>
+
+<script type="math/tex; mode=display">\hat{L} = \frac{\sigma_\Delta^2}{\sqrt{2\pi(\sigma_\Delta^2 + \frac{2\sigma_X^2}{n})}}</script>
+
+<p>where $\sigma_\Delta^2$ is the variance on your normally distributed zero-mean prior for $\mu_B - \mu_A$, $\sigma_X^2$ is the within-group variance, and $n$ is the per-bucket sample size.</p>
+
+<p>Because Part II is primarily concerned with the the duration of the experiment, we’re going to modify the formula to be time-dependent. As a simplifying assumption we’re going to make <em>sessions</em>, rather then <em>users</em>, the unit of analysis. We’ll also assume that you have a constant number of sessions per day. This changes the definition of $\hat{L}$ to a <em>post-experiment per-session lift</em>, and the formula becomes</p>
+
+<script type="math/tex; mode=display">\hat{L} = \frac{\sigma_\Delta^2}{\sqrt{2\pi(\sigma_\Delta^2 + \frac{2\sigma_X^2}{mt})}}</script>
+
+<p>where $m$ is the sessions per day for each bucket, and $t$ is duration of the experiment in days.</p>
+
+<h2 id="time-discounting">Time Discounting</h2>
+
+<p>The formula above shows that larger sample sizes result in higher $ \hat{L} $, since larger samples make it more likely you will ship the better version. But as with all things in life, there are costs to increasing your sample size. In particular, the larger your sample size, the longer you have to wait to ship the winning bucket. In a fast moving startup, there’s often good reason to accrue your wins as soon as possible. Lift today is much more valuable than the same lift a year from now.</p>
+
+<p>How much more valuable is lift today versus lift a year from now? A common way to quantify this is with exponential discounting, such that weights (or “discount factors”) on future lift follow the form:</p>
+
+<script type="math/tex; mode=display">w = e^{-rt}</script>
+
+<p>where $ r $ is a discount rate. For teams shipping product at startups, the annual discount rate might be quite large, like 0.5 or even 1.0, which would correspond to a daily discount rate $r$ of 0.5/365 or 1.0/365, respectively.</p>
+
+<div class="wrapper">
+  <img src="/assets/2020_optimizing_sample_sizes/discount_function.png" class="inner" style="position:relative border: #222 2px solid; max-width:100%;" />
+  <div class="caption"><strong>Figure 1</strong>.
+  </div>
+</div>
+<p><br /></p>
+
+<h2 id="aggregate-time-discounted-lift-visual-intuition">Aggregate time-discounted lift: Visual Intuition</h2>
+
+<p>Take a look at Figure 2, below. It shows an experiment that is planned to run for $\tau = 60$ days. The top panel shows $\hat{L}$. While the experiment is running, $\hat{L} = 0$, since our prior is that $\Delta$ is sampled from a normal distribution with mean zero. But once the experiment finishes and we launch the winning bucket, we should begin to reap our expected per-session lift.</p>
+
+<p>The middle panel shows our discount function.</p>
+
+<p>The bottom panel shows our time-discounted lift, defined as the product of the lift in the top panel and the time discount in the middle panel. (We can also multiply it by $M$, the number of post-experiment sessions per day, which for simplicity we set to 1 here.) The aggregate time-discounted lift, $\hat{L}_a$, is the area under the curve.</p>
+
+<div class="wrapper">
+  <img src="/assets/2020_optimizing_sample_sizes/discounted_lift_static.png" class="inner" style="position:relative border: #222 2px solid; max-width:100%;" />
+  <div class="caption"><strong>Figure 2</strong>.
+  </div>
+</div>
+<p><br /></p>
+
+<p>Now let’s see what happens with different experiment durations. Figure 3 shows that the longer you plan to run your experiment, the higher $\hat{L}$ will be (top panel). But due to time discounting, (middle panel), the area under the time-discounted lift curve (bottom panel) is low for overly large sample sizes. There is an optimal duration of the experiment (in this case, $\tau = 24$ days), that maximizes $\hat{L}_a$, the area under the curve.</p>
+
+<div class="wrapper">
+  <img src="/assets/2020_optimizing_sample_sizes/discounted_lift_dynamic.gif" class="inner" style="position:relative border: #222 2px solid; max-width:100%;" />
+  <div class="caption"><strong>Figure 3</strong>.
+  </div>
+</div>
+<p><br /></p>
+
+<h2 id="aggregate-time-discounted-lift-formula">Aggregate time-discounted lift: Formula</h2>
+<p>The aggregate time-discounted lift $\hat{L}_a$, i.e. the area under the curve in the bottom panel of Figure 3, is:</p>
+
+<script type="math/tex; mode=display">\hat{L}_a = \frac{\sigma_\Delta^2 M e^{-r\tau}}{r \sqrt{2\pi(\sigma_\Delta^2 + \frac{2\sigma_X^2}{m\tau})}}</script>
+
+<p>where $ \tau $ is the duration of the experiment and $M$ is the number of post-experiment sessions per day. See the Appendix for a derivation.</p>
+
+<p>There’s two things to note about this formula.</p>
+<ol>
+  <li>Increasing the number of bucketed sessions per day, $m$, always increases $\hat{L}_a$.</li>
+  <li>Increasing the duration of the experiment, $\tau$, may or may not help and is the result of competing forces in the numerator and denominator. In the numerator, higher $\tau$ decreases $\hat{L}_a$ by delaying shipment. In the denominator, higher $\tau$ increases $\hat{L}_a$ by making it more likely you will ship the superior version.</li>
+</ol>
+
+<h2 id="optimizing-sample-size">Optimizing sample size</h2>
+
+<p>At long last, we can answer the question, “How long should we run this experiment?”. A nice way to do it is to plot $\hat{L}_a$ as a function of $\tau$. Below we see what this looks like for one set of parameters. Here the optimal duration is 18 days.</p>
+<div class="wrapper">
+  <img src="/assets/2020_optimizing_sample_sizes/time_aggregated_lift_by_tau.png" class="inner" style="position:relative border: #222 2px solid; max-width:100%;" />
+  <div class="caption"><strong>Figure 4</strong>.
+  </div>
+</div>
+<p><br />
+Note also that a set of simulated experiment and post-experiment periods (in blue) confirm the predictions of the closed form solution (in gray). See the <a href="https://github.com/csaid/optimizing-sample-sizes-in-AB-testing/blob/master/Optimizing%20sample%20sizes%20in%20AB%20testing.ipynb">notebook</a> for details.</p>
+
+<h2 id="three-lessons-for-practioners">Three lessons for practioners</h2>
+<p>I played around with the formula for $\hat{L}_a$ and came across three lessons I think will be of interest to practitioners.</p>
+
+<h4 id="1-you-should-run-underpowered-experiments-if-you-have-a-very-high-discount-rate">1. You should run “underpowered” experiments if you have a very high discount rate</h4>
+<p>Take a look at Figure 5, which shows some recommendations for conversion rate experiments where $p=0.10$ and $\sigma_\Delta=0.01$. On the left panel we plot the optimal duration as a function of the annual discount rate. If you have a high discount rate, you care a lot more about the near future than the distant future and therefore it is critical that you ship any potentially winning version as soon as possible. In this scenario, the optimal duration is low (left panel), and the probability you will find a statistically significant result is low (right panel). For many of these cases, the optimal duration would traditionally be considered “underpowered”.</p>
+<div class="wrapper">
+  <img src="/assets/2020_optimizing_sample_sizes/optimal_tau_and_sig_rate_by_r.png" class="inner" style="position:relative border: #222 2px solid; max-width:100%;" />
+  <div class="caption"><strong>Figure 5</strong>.
+  </div>
+</div>
+<p><br /></p>
+
+<h4 id="2-you-should-run-underpowered-experiments-if-you-have-a-small-user-base">2. You should run ‘underpowered’ experiments if you have a small user base</h4>
+<p>Now let’s plot these curves as a function of $m$, our daily sessions per bucket. If we only have a small number of sessions to work with, we’ll need to run the experiment for longer (left panel). What’s especially interesting is that the optimal duration for low $m$ scenarios still results in a low rate of statistical significance. That is, if you don’t have a lot of users to work with, it’s optimal to run an “underpowered” experiment. Waiting to get a large number of sessions just causes too much time-discounting loss.</p>
+<div class="wrapper">
+  <img src="/assets/2020_optimizing_sample_sizes/optimal_tau_and_sig_rate_by_m.png" class="inner" style="position:relative border: #222 2px solid; max-width:100%;" />
+  <div class="caption"><strong>Figure 6</strong>.
+  </div>
+</div>
+<p><br /></p>
+
+<h4 id="3-that-said-its-far-better-to-run-your-experiment-too-long-than-too-short">3. That said, it’s far better to run your experiment too long than too short</h4>
+<p>Below we plot the aggregate time-discounted lift, $\hat{L}_a$ as a function of duration, for various combinations of $m$ and $r$. In all plots the left shoulder is steeper than the right shoulder. This means that it’s really bad if your experiment is shorter than optimal, but it’s kind of ok if your experiment is longer than optimal. This is true for basically all parameter regimes, unless you have an insanely high discount rate (not shown).</p>
+
+<div class="wrapper">
+  <img src="/assets/2020_optimizing_sample_sizes/L_a_by_tau_for_m_and_r.png" class="inner" style="position:relative border: #222 2px solid; max-width:100%;" />
+  <div class="caption"><strong>Figure 7</strong>.
+  </div>
+</div>
+<p><br /></p>
+
+<p>Side note: It’s instructive to look at the bottom right panel of Figure 7, where there is a very high number of sessions per day and a relatively steep discount curve. Because of the high number of sessions, all of the benefits of the experiment are immediately obtained on the first day, and the $\hat{L}_a$ curve smashes up at its ceiling. After that, nothing else can be gained by extending the experiment, and any additional time spent is lost to discounting.</p>
+
+<h2 id="examples-in-python">Examples in Python</h2>
+<h3 id="example-1-continuous-variable-metric">Example 1: Continuous variable metric</h3>
+<p>Let’s say you want to run an experiment comparing two different versions of a website, and your main metric is revenue per session. You know in advance that the within-group variance of this metric is $\sigma_X^2 = 100$. You don’t know which version is better but you have a prior that the true difference in means is normally distributed with variance $\sigma_\Delta^2 = 1$. You have 200 sessions per day and plan to bucket 100 sessions into Version A and 100 sessions into Version B, running the experiment for $\tau=20$ days. Your discount rate is fairly aggressive at 1.0 annually, or $r = 1/365$ per day. Using the function in the <a href="https://github.com/csaid/optimizing-sample-sizes-in-AB-testing/blob/master/Optimizing%20sample%20sizes%20in%20AB%20testing.ipynb">notebook</a>, you can find $\hat{L}_a$ with ths command:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">get_agg_lift_via_closed_form</span><span class="p">(</span><span class="n">var_D</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">var_X</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">tau</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="mi">365</span><span class="p">,</span> <span class="n">M</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+<span class="c1"># returns 26298
+</span></code></pre></div></div>
+
+<p>You can also use the <code class="language-plaintext highlighter-rouge">find_optimal_tau</code> function to determine the optimal duration, which in this case is $\tau=18$.</p>
+
+<h3 id="example-2-conversion-rates">Example 2: Conversion rates</h3>
+<p>Let’s say your main metric is conversion rate. You think that on average conversion rates will be about 10%, and that the difference in conversion rates between buckets will be normally distributed with variance 1%. Using the normal approximation of the binomial distribution, you can use <code class="language-plaintext highlighter-rouge">p*(1-p)</code> for <code class="language-plaintext highlighter-rouge">var_X</code>.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">p</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="n">get_agg_lift_via_closed_form</span><span class="p">(</span><span class="n">var_D</span><span class="o">=</span><span class="mf">0.01</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">var_X</span><span class="o">=</span><span class="n">p</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">p</span><span class="p">),</span> <span class="n">m</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">tau</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="mi">365</span><span class="p">,</span> <span class="n">M</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+<span class="c1"># returns 207
+</span></code></pre></div></div>
+
+<p>You can also use the <code class="language-plaintext highlighter-rouge">find_optimal_tau</code> function to determine the optimal duration, which in this case is $\tau=49$.</p>
+
+<h2 id="faq">FAQ</h2>
+<p><strong>Q:</strong> Has there been any similar work on this?</p>
+
+<p><strong>A:</strong> As I was writing this, I came across a <a href="https://arxiv.org/pdf/1811.00457.pdf">fantastic in-press paper</a> by <a href="https://drexel.edu/now/experts/Overview/Feit-Elea/">Elea Feit</a> and <a href="https://www.ron-berman.com/">Ron Berman</a>. The paper is exceptionally clear and I would recommend reading it. Like this blog post, Feit and Berman argue that it doesn’t make any sense to pick sample sizes based on statistical significance and power thresholds. Instead they recommend profit-maximizing sample sizes. They independently come to the same formula for $ \hat{L} $ as I do (see right addend in their Equation 9, making sure to substitute my $\frac{\sigma_\Delta^2}{2}$ for their $\sigma^2)$. Where they differ is that they assume there is a fixed pool of $N$ users that can only experience the product once. In their setup, you can allocate $n_1$ users to Bucket A and $n_2$ users to Bucket B. Once you have identified the winning bucket, you ship that version to the remaining $N-n_1-n_2$ users. Your expected profit is determined by the expected lift from those users. My experience in industry differs from this setup. In my experience there is no constraint that you can only show the product once to a fixed set of users. Instead, there is often an indefinitely increasing pool of new users, and once you ship the winning bucket you can ship it to everyone, including users who already participated in the experiment. To me, the main constraint in industry is therefore time discounting, rather than a finite pool of users.</p>
+
+<p><strong>Q:</strong> In addition to the lift from shipping a winning bucket, doesn’t experimentation also help inform you about the types of products that might work in the future? And if so, doesn’t this mean we should run experiments longer than recommended by your formula for $\hat{L}_a$?</p>
+
+<p><strong>A:</strong> Yes, experimentation can teach lessons that are generalizable beyond the particular product being tested. This is an advantage of high powered experimentation not included in my framework.</p>
+
+<p><strong>Q:</strong> If some users can show up in multiple sessions, doesn’t bucketing by session violate independence assumptions?</p>
+
+<p><strong>A:</strong> Yeah, so this is tricky. For many companies, there is a distribution of user activity, where some users come for many sessions per week and other users come for only one session at most. Modeling this would make the framework significantly more complicated, so I tried to simplify things by making sessions the unit of analysis.</p>
+
+<p><strong>Q:</strong> Is there anything else on your blog related to this topic?</p>
+
+<p><strong>A:</strong> I’m glad you asked!</p>
+<ul>
+  <li><a href="/2016/02/28/four-pitfalls-of-hill-climbing/">Four pitfalls of hill climbing</a> discusses some product-focused issues in A/B testing</li>
+  <li><a href="/2018/02/04/hyperbolic-discounting/">Hyperbolic discounting — The irrational behavior that might be rational after all</a> is about time discounting, although not in the constext of experimentation.</li>
+</ul>
+
+<h2 id="appendix">Appendix</h2>
+<p>The aggregate time-discounted lift $\hat{L}_a$ is</p>
+
+<script type="math/tex; mode=display">\hat{L}_a = \int_{\tau}^{\infty} \hat{L} M e^{-rt} \,dt</script>
+
+<p>where $\hat{L}$ is the expected per-session lift, $M$ is the number of post-experiment sessions per day, $r$ is the discount rate, and $ \tau $ is the duration of the experiment. Solving the integral gives:</p>
+
+<script type="math/tex; mode=display">\hat{L}_a = \frac{\hat{L} M e^{-r\tau}}{r}</script>
+
+<p>Plugging in our previously solved value of $\hat{L}$ gives</p>
+
+<script type="math/tex; mode=display">\hat{L}_a = \frac{\sigma_\Delta^2 M e^{-r\tau}}{r \sqrt{2\pi(\sigma_\Delta^2 + \frac{2\sigma_X^2}{m\tau})}}</script>
+
+
+    <div>
+        <i class="fa fa-comment"></i> <a href="http://localhost:4000/2020/01/01/optimizing-sample-sizes-in-ab-testing-part-II/#disqus_thread" data-disqus-identifier="http://localhost:4000/2020/01/01/optimizing-sample-sizes-in-ab-testing-part-II/"></a>
+        <span>&nbsp; &nbsp;</span>
+        <span>
+            <a class="twitter-share-button"
+              href="https://twitter.com/share"
+              data-url="http://localhost:4000/2020/01/01/optimizing-sample-sizes-in-ab-testing-part-II/"
+              data-via="Chris_Said"
+              data-count="none"
+              data-text="Optimizing sample sizes in A/B testing, Part II&#58; Aggregate time-discounted lift">
+            Tweet
+            </a>
+        </span>
+
+    </div>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/2020/01/01/optimizing-sample-sizes-in-ab-testing-part-I/">
+        Optimizing sample sizes in A/B testing, Part I&#58; Expected lift
+      </a>
+    </h1>
+
+    <span class="post-date">01 Jan 2020</span>
+
+    <p><em>A special thanks to the excellent <a href="https://twitter.com/johnvmcdonnell">John McDonnell</a>, who came up with the idea for this post.</em></p>
+
+<hr />
+
+<p>If you’re a data scientist, you’ve surely encountered the question, “How big should this A/B test be?”</p>
+
+<p>The standard answer is to do a power analysis, typically aiming for 80% power at $\alpha$=5%. But if you think about it, this advice is pretty weird. Why is 80% power the best choice for your business? And doesn’t a 5% significance cutoff seem pretty arbitrary?</p>
+
+<p>In most business decisions, you want to choose a policy that maximizes your benefits minus your costs. In experimentation, the benefit comes from learning information to drive future decisions and the cost comes from the experiment itself. The optimal sample size will therefore depend on the unique circumstances of your business, not on arbitrary statistical significance thresholds.</p>
+
+<p>In this blog post (Part I), I describe what I think is an incredibly useful business-focused formula that quantifies how much you can benefit from increasing your sample size. It is, in short, an <em>average of the value of all possible outcomes of the experiment, weighted by their probabilities</em>. Python helper functions are <a href="https://github.com/csaid/optimizing-sample-sizes-in-AB-testing">available</a>.</p>
+
+<p>In <a href="/2020/01/01/optimizing-sample-sizes-in-ab-testing-part-II/">Part II</a>, I’ll show how you can determine the costs of the experiment, focusing specifically on the forfeited benefits of waiting to ship the winning bucket. In particular, we’ll see how the optimal duration of an experiment depends on the discount rate of your project: How much you value accruing its benefits now rather than later. We’ll see how there are are many business scenarios where it is optimal to run “underpowered” experiments.</p>
+
+<p>Throughout Part I and II, the focus will be on choosing a sample size at the beginning of the experiment and committing to it, not on dynamically updating the sample size as the experiment proceeds.</p>
+
+<p>With that out of the way, let’s get started!</p>
+
+<h2 id="outcome-probabilities">Outcome probabilities</h2>
+<p><em>[This is the driest section. But if you can make it through, the rest gets easier.]</em></p>
+
+<p>Imagine you are comparing two versions of a website. You currently are on version A, but you would like to compare it to version B. And imagine you are measuring some random variable $X$, which might represent something like clicks per user or page views per user. The goal of the experiment is to determine which version of the website has a higher mean value of $X$.</p>
+
+<p>This blog post aims to quantify the benefit of experimentation as an average of the value of all possible outcomes, weighted by their probabilities. To do that, we first need to describe the probabilities of all the different outcomes. An outcome consists of two parts: A <em>true</em> difference in means, $\Delta$, defined as</p>
+
+<script type="math/tex; mode=display">\Delta = \mu_B - \mu_A</script>
+
+<p>and an experimentally <em>observed</em> difference in means $\delta$, defined as</p>
+
+<script type="math/tex; mode=display">\delta = \overline{X}_B - \overline{X}_A</script>
+
+<p>Let’s start with $\Delta$. While you don’t yet know which version of the website is better (that’s what the experiment is for!), you have a sense for how important the product change is. You can therefore create a normally distributed prior on $\Delta$ with mean zero and variance $ \sigma_\Delta^2 $.</p>
+
+<div class="wrapper">
+  <img src="/assets/2020_optimizing_sample_sizes/univariate_normal.png" class="inner" style="position:relative border: #222 2px solid; max-width:100%;" />
+  <div class="caption"><strong>Figure 1</strong>.
+  </div>
+</div>
+<p><br /></p>
+
+<p>Next, let’s consider $\delta$, your experimentally observed difference in means. It will be a noisy estimate of $\Delta$. Let’s assume you have previously measured the variance of $X$ to be $ \sigma_X^2 $. It is reasonable to assume that within each group in the experiment, and for any particular $\Delta$, the variance of $X$ will still be $ \sigma_X^2$. You should therefore believe that for any particular $\Delta$, the observed difference in means $\delta$ will be sampled from a normal distribution $\mathcal{N}(\Delta, \sigma_c^2)$, where</p>
+
+<script type="math/tex; mode=display">\sigma_c^2 = \frac{2\sigma_X^2}{n}</script>
+
+<p>and where $n$ is the sample size in each of the two buckets.</p>
+
+<p>Collectively, this all forms a bivariate normal distribution of outcomes, shown below.</p>
+
+<div class="wrapper">
+  <img src="/assets/2020_optimizing_sample_sizes/bivariate_normal.png" class="inner" style="position:relative border: #222 2px solid; max-width:100%;" />
+  <div class="caption"><strong>Figure 2</strong>. Probabilities of possible outcomes, based on your prior beliefs.
+  </div>
+</div>
+<p><br /></p>
+
+<p>To gain some more intuiton about this, take a look at Figure 3. As sample size increases, $ \sigma^2_c $ decreases.</p>
+
+<div class="wrapper">
+  <img src="/assets/2020_optimizing_sample_sizes/three_bivariate_normals.png" class="inner" style="position:relative border: #222 2px solid; max-width:100%;" />
+  <div class="caption"><strong>Figure 3</strong>.
+  </div>
+</div>
+<p><br /></p>
+
+<h2 id="outcome-lifts">Outcome lifts </h2>
+<p>Now that we know the probabilities of all the different outcomes, we next need to estimate how much per-user lift, $l$, we will gain from each possible outcome, assuming we follow a policy of shipping whichever bucket (A or B) looked better in the experiment.</p>
+
+<ul>
+  <li>In cases where $\delta &gt; 0$ and $\Delta &gt; 0$, you would ship B and your post-experiment per-user lift will be positively valued at $l = \Delta$.</li>
+  <li>In cases where $\delta &gt; 0$ and $\Delta &lt; 0$, you would ship B, but unfortunately your post-experiment per-user lift will be negatively valued at $l = \Delta$.</li>
+  <li>In cases where $\delta &lt; 0$, you would keep A in production, and your post-experiment lift would be zero.</li>
+</ul>
+
+<p>A heatmap of the per-user lifts ($l$) for each outcome is shown in the plot below. Good outcomes, where shipping B was the right decision, are shown in blue. Bad outcomes, where shipping B was the wrong decision, are shown in red.</p>
+
+<div class="wrapper">
+  <img src="/assets/2020_optimizing_sample_sizes/lift_matrix.png" class="inner" style="position:relative border: #222 2px solid; max-width:100%;" />
+  <div class="caption"><strong>Figure 4</strong>. Heatmap of possible outcomes, where the color scale represents the lift, $l$. 
+  </div>
+</div>
+<p><br /></p>
+
+<h2 id="probability-weighted-outcome-lifts">Probability-weighted Outcome Lifts</h2>
+<p>At this point, we know the probability of each outcome, and we know the post-experiment per-user lift of each outcome. To determine how much lift we can expect, on average, by shipping the winning bucket of an experiment, we need to compute a probability-weighted average of the outcome lifts. Let’s start by looking at this visually and then later we’ll get into the math.</p>
+
+<p>In Figure 5, the probability-weighted lift of each outcome (right) can be seen by multiplying the bivariate normal distribution (left) by the lift map (center). </p>
+
+<div class="wrapper">
+  <img src="/assets/2020_optimizing_sample_sizes/product_stages.png" class="inner" style="position:relative border: #222 2px solid; max-width:100%;" />
+  <div class="caption"><strong>Figure 5</strong>.
+  </div>
+</div>
+<p><br /></p>
+
+<p>The good outcomes contribute more than the bad outcomes, simply because a good outcome is more likely than a bad outcome. To put it differently, experimentation will on average give you useful information.</p>
+
+<p>To gain some more intuition on this, it is helpful to see this plot for different sample sizes. As sample size increases, the probability-weighted contribution of bad outcomes gets smaller and smaller. </p>
+
+<div class="wrapper">
+  <img src="/assets/2020_optimizing_sample_sizes/three_products.png" class="inner" style="position:relative border: #222 2px solid; max-width:100%;" />
+  <div class="caption"><strong>Figure 6</strong>.
+  </div>
+</div>
+<p><br /></p>
+
+<h3 id="computing-the-expected-post-experiment-per-user-lift">Computing the expected post-experiment per-user lift</h3>
+<p>To determine the expected post-experiment lift from shipping the winning bucket, we need compute a probability-weighted average of all the post-experiment lifts. In other words, we need to sum up all the probability-weighted post-experiment lifts on the right panel of Figure 5. The formula for doing this is shown below. A derivation can be found in the Appendix.</p>
+
+<script type="math/tex; mode=display">\hat{L} = \frac{\sigma_\Delta^2}{\sqrt{2\pi(\sigma_\Delta^2 + \frac{2\sigma_X^2}{n})}}</script>
+
+<p>There’s three things to notice about this formula.</p>
+<ul>
+  <li>As $n$ increases, the $\hat{L}$ increases. This makes sense. The larger the sample size, the more likely it is that you’ll ship the winning bucket.</li>
+  <li>As the within-group variance $\sigma_X^2$ increases, $\hat{L}$ increases. That’s because a high within-group variance makes experiments less informative – they’re more likely to give you the wrong answer.</li>
+  <li>As the variance prior on $\Delta$ increases, $\hat{L}$ increases. This also make sense. The more impactful (positive or negative) you think the product change might be, the more value you will get from experimentation.</li>
+</ul>
+
+<p>You can try this out using the <code class="language-plaintext highlighter-rouge">get_lift_via_closed_form</code> formula in the <a href="https://github.com/csaid/optimizing-sample-sizes-in-AB-testing/blob/master/Optimizing%20sample%20sizes%20in%20AB%20testing.ipynb">Notebook</a></p>
+
+<h2 id="demonstration-via-simulation">Demonstration via simulation</h2>
+<p>In the previous section, we derived a formula for $\hat{L}$. Should you trust a formula you found on a random internet blog? Yes! Let’s put the formula to the test, by comparing its predictions to actual simulations.</p>
+
+<p>First, let’s consider the case where the outcome is a continuous variable, such as the number of clicks. Let’s set $ \sigma_D^2 = 2 $ and $ \sigma_X^2 = 100 $. We then measure $\hat{L}$ for a range of sample sizes, using both the closed-form solution and simulations. In each simulated experiment, we do the following:</p>
+<ol>
+  <li>Sample a true group difference $\Delta$ from $\mathcal{N}(0, \sigma_D^2)$</li>
+  <li>Sample an $X$ for each of the $n$ users in each bucket A and B, using Normal distributions $\mathcal{N}(\frac{\Delta}{2}, \sigma_X^2)$ and $\mathcal{N}(-\frac{\Delta}{2}, \sigma_X^2)$, respectively.</li>
+  <li>Compute $ \delta = \overline{X}_B - \overline{X}_A $.</li>
+  <li>If $\delta &lt;= 0$, stick with A and accrue zero lift.</li>
+  <li>If $\delta &gt; 0$, ship B and accrue the per-user lift of $\Delta$, which will probably, but not necessarily, be positive.</li>
+</ol>
+
+<p>We run these experiments thousands of times, each time computing the per-user lift. Finally, we average all the per-user lifts together.</p>
+
+<p>As seen in Figure 7, below, the results of the simulation closely match the closed-form solution.</p>
+
+<div class="wrapper">
+  <img src="/assets/2020_optimizing_sample_sizes/lift_by_n_continuous.png" class="inner" style="position:relative border: #222 2px solid; max-width:100%;" />
+  <div class="caption"><strong>Figure 7</strong>.
+  </div>
+</div>
+<p><br /></p>
+
+<p>Second, let’s consider the case where the variable is binary, as in conversion rates. For reasonably large values of $ n $, we can safely assume that the error variance is normally distributed with variance $ \sigma_X^2 = p(1-p) $, where $ p $ is the baseline conversion rate. For this example, let’s set the baseline conversion rate $p = 0.1$, and let’s set $ \sigma_\Delta^2 = 0.01^2 $. The results of the simulation closely match the closed-form solution.</p>
+
+<div class="wrapper">
+  <img src="/assets/2020_optimizing_sample_sizes/lift_by_n_binary.png" class="inner" style="position:relative border: #222 2px solid; max-width:100%;" />
+  <div class="caption"><strong>Figure 8</strong>.
+  </div>
+</div>
+<p><br /></p>
+
+<h2 id="thinking-about-costs-and-a-preview-of-part-ii">Thinking about costs, and a preview of Part II</h2>
+
+<p>In this blog post, we saw how increasing the sample size improves the expected post-experiment per-user lift, $\hat{L}$. But to determine the <em>optimal</em> sample size, we need to think about costs.</p>
+
+<p>The cost in dollars of an experiment can be described as $f + vn$, where $f$ is a fixed cost and $ v $ is the variable cost per participant. If you already know these costs, and if you already know the revenue increase $ u $ from each unit increase in lift, you can calculate the net revenue $R$ as</p>
+
+<script type="math/tex; mode=display">R = u\hat{L}  - f - vn</script>
+
+<p>and then find the sample size $ n $ that maximizes $ R $.</p>
+
+<p>Unfortunately, these costs aren’t always readily available. The good news is that there is a really nice way to calculate the most important cost: the forfeited benefit that comes from prolonging your experiment. To read about that, and about how to optimize your sample size, please continue to <a href="/2020/01/01/optimizing-sample-sizes-in-ab-testing-part-II/">Part II</a>.</p>
+
+<h2 id="appendix">Appendix</h2>
+<p>To determine $\hat{L}$, we start with the probability-weighted lifts on the right panel of Figure 5. This is a bivariate normal distribution over $ \Delta $ and $ \delta $, multiplied by $ \Delta $.</p>
+
+<script type="math/tex; mode=display">f(\Delta, \delta) = \frac{\Delta}{2 \pi \sigma_\Delta \sigma_\delta \sqrt{1-\rho^2}} e^{-\frac{
+\frac{\Delta^2}{\sigma_\Delta^2} - \frac{2 \rho \Delta \delta}{\sigma_\Delta \sigma_\delta} + \frac{\delta^2}{\sigma_\delta^2}
+}{2(1-\rho^2)}
+}</script>
+
+<p>where the correlation coefficient $ \rho $, is <a href="http://athenasc.com/Bivariate-Normal.pdf">defined</a> as:</p>
+
+<script type="math/tex; mode=display">\rho = \sqrt{1 - \frac{\sigma_c^2}{\sigma_\Delta^2 + \sigma_c^2}}</script>
+
+<p>and $\sigma_\delta^2$, is the variance on $\delta$. By the <a href="/2019/05/18/variance_after_scaling_and_summing/">variance addition rules</a>, $\sigma_\delta^2$ is defined as</p>
+
+<script type="math/tex; mode=display">\sigma_\delta^2 = \sigma_\Delta^2 + \sigma_c^2</script>
+
+<p>We next need to sum up the probability-weighted values in $f(\Delta, \delta)$. We can use integration to obtain a closed form solution.</p>
+
+<script type="math/tex; mode=display">\hat{L} = \int_{0}^{\infty} \int_{-\infty}^{\infty} {\frac{\Delta}{2 \pi \sigma_\Delta \sigma_\delta \sqrt{1-\rho^2}} e^{-\frac{
+
+\frac{\Delta^2}{\sigma_\Delta^2} - \frac{2 \rho \Delta \delta}{\sigma_\Delta \sigma_\delta} + \frac{\delta^2}{\sigma_\delta^2}
+
+}{2(1-\rho^2)}
+
+}
+\,d\Delta\,d\delta
+}</script>
+
+<p>The integration limits on $ \delta $ start at zero because the lift will always be zero if $ \delta &lt; 0 $ (i.e if the status quo bucket A wins the experiment).</p>
+
+<p>Thanks to my 15-day free trial of <a href="https://www.wolfram.com/mathematica/">Mathematica</a>, I determined that this integral comes out to the surprisingly simple </p>
+
+<script type="math/tex; mode=display">\hat{L} = \rho \frac{\sigma_\Delta}{\sqrt{2\pi}}</script>
+
+<p>The command I used was:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Integrate[(t / (2*\[Pi]*s1*s2*Sqrt[1 - p^2]))*Exp[-((t^2/s1^2 - \
+(2*p*t*d)/(s1*s2) + d^2/s2^2)/(2*(1 - p^2)))], {d, 0, \[Infinity]}, \
+{t, -\[Infinity], \[Infinity]}, Assumptions -&gt; p &gt; 0 &amp;&amp; p &lt; 1 &amp;&amp; s1 &gt; \
+0 &amp;&amp; s2 &gt; 0]
+</code></pre></div></div>
+
+<p>If we then substitute in previously defined formulas for $ \rho $ and $ \sigma_c^2 $, we can produce a formula that accepts more readily-available inputs.</p>
+
+<script type="math/tex; mode=display">\hat{L} = \frac{\sigma_\Delta^2}{\sqrt{2\pi(\sigma_\Delta^2 + \frac{2\sigma_X^2}{n})}}</script>
+
+
+    <div>
+        <i class="fa fa-comment"></i> <a href="http://localhost:4000/2020/01/01/optimizing-sample-sizes-in-ab-testing-part-I/#disqus_thread" data-disqus-identifier="http://localhost:4000/2020/01/01/optimizing-sample-sizes-in-ab-testing-part-I/"></a>
+        <span>&nbsp; &nbsp;</span>
+        <span>
+            <a class="twitter-share-button"
+              href="https://twitter.com/share"
+              data-url="http://localhost:4000/2020/01/01/optimizing-sample-sizes-in-ab-testing-part-I/"
+              data-via="Chris_Said"
+              data-count="none"
+              data-text="Optimizing sample sizes in A/B testing, Part I&#58; Expected lift">
+            Tweet
+            </a>
+        </span>
+
+    </div>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
       <a href="/2019/05/18/variance_after_scaling_and_summing/">
         Variance after scaling and summing&#58; One of the most useful facts from statistics
       </a>
@@ -617,170 +1059,6 @@ This system sounds good in theory, but do we actually use these cues in practice
               data-via="Chris_Said"
               data-count="none"
               data-text="Hyperbolic discounting — The irrational behavior that might be rational after all">
-            Tweet
-            </a>
-        </span>
-
-    </div>
-
-  </div>
-  
-  <div class="post">
-    <h1 class="post-title">
-      <a href="/2017/12/02/religions-as-firms/">
-        Religions as firms
-      </a>
-    </h1>
-
-    <span class="post-date">02 Dec 2017</span>
-
-    <p>I recently came across a magazine that helps pastors manage the financial and operational challenges of church management. The magazine is called <em>Church Executive</em>.</p>
-
-<p>Readers concerned about seasonal effects on tithing can learn how to “<a href="https://churchexecutive.com/archives/church-executive-remote-roundtable-2">sustain generosity</a>” during the weaker summer months. Technology like <a href="https://churchexecutive.com/archives/church-executive-remote-roundtable-6">push notifications and text messages</a> is encouraged as a way to remind people to tithe. There is also some emphasis on messaging, as pastors are told to “make sure your <a href="https://churchexecutive.com/archives/church-executive-remote-roundtable-6">generosity-focused sermons</a> are hitting home with your audience”.</p>
-
-<div class="wrapper">
-  <img src="/assets/2017_religions_as_firms/church_executive.jpg" height="250" class="inner" style="position:relative border: #222 2px solid;" />
-</div>
-
-<p>Churches need money to stay active, and it’s natural that pastors would want to maintain a healthy cash flow. But the brazen language of <em>Church Executive</em> reminded me of the language of profit-maximizing firms. This got me thinking: What are the other ways in which religions act like a business?</p>
-
-<p>This post is my attempt to understand religions as if they were businesses. This isn’t a perfect metaphor. Most religious leaders are motivated by genuine beliefs, and few are motivated primarily by profit. But it can still be instructive to view religions through the lens of business and economics, if only as an exercise. After working through this myself, I feel like I have a better understanding of why religions act the way they do.</p>
-
-<h3 id="competition">Competition</h3>
-<p>As with any business, one of the most pressing concerns of a religion is competition. According to sociologist Carl Bankston, the set of religions <a href="https://en.wikipedia.org/wiki/Theory_of_religious_economy">can be described</a> as a marketplace of competing firms that vie for customers. Religious consumers can leave one church to go to another. To hedge their bets on the afterlife, some consumers may even belong to several churches simultaneously, in a strategy that has been described as “<a href="http://users.clas.ufl.edu/kenwald/pos6292/iannaccone.pdf">portfolio diversification</a>”.</p>
-
-<p>One way that a religion can ward off competitors is to prohibit its members from following them. The Bible is insistent on this point, with <a href="https://bible.knowing-jesus.com/topics/Avoiding-Idolatry">26 separate verses</a> banning idolatry. Other religions have been able to eliminate competition entirely by forming <a href="https://en.wikipedia.org/wiki/Islam_in_Saudi_Arabia#Role_in_the_state_and_society">state-sponsored monopolies</a>.</p>
-
-<h3 id="pricing">Pricing</h3>
-<p>Just like a business, religions need to determine how to price their product. According to economists <a href="https://www.researchgate.net/profile/Feler_Bose/publication/271328680_Funding_the_Faiths_Toward_a_Theory_of_Religious_Finance/links/54c5b8790cf219bbe4f59dac.pdf">Laurence Iannaccone and Feler Bose</a>, the optimal pricing strategy for a religion depends on whether it is proselytizing or non-proselytizing.</p>
-
-<p>Non-proselytizing religions like Judaism and Hinduism earn much of their income from <a href="http://www.hinducenterofvirginia.org/Membership.html">membership fees</a>. While exceptions are often made for people who are too poor to pay, and while donations are still accepted, the explicit nature of the membership fees help these religions avoid having too many <a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.483.5309&amp;rep=rep1&amp;type=pdf">free riders</a>.</p>
-
-<p>Proselytizing religions like Christianity are <a href="http://freakonomics.com/2010/10/19/churches-versus-synagogues-voluntary-donations-versus-dues/">different</a>. Because of their strong emphasis on growth, they are willing to forgo explicit membership fees and instead rely more on donations that are up to the member’s discretion. Large donations from wealthy individuals can <a href="https://www.researchgate.net/profile/Feler_Bose/publication/271328680_Funding_the_Faiths_Toward_a_Theory_of_Religious_Finance/links/54c5b8790cf219bbe4f59dac.pdf">cross-subsidize</a> the membership of those who make smaller donations. Even free riders who make no donations at all <a href="https://www.economics.uci.edu/files/docs/workingpapers/2006-07/06-07-22.pdf">may be worthwhile</a>, since they may attract more members in the future.</p>
-
-<h3 id="surge-pricing">Surge Pricing</h3>
-<p>Like Uber, some religions raise the price during periods of peak demand. While attendance at Jewish synagogue for a regular Shabbat service is normally free, attendance during one of the High Holidays typically <a href="http://www.nytimes.com/2013/09/14/us/selling-holy-day-tickets-is-dilemma-for-synagogues.html">requires a payment</a> for seating, in part to <a href="https://reformjudaism.org/jewish-holidays/rosh-hashanah/five-things-know-about-attending-high-holiday-services">ensure space for everyone</a>.</p>
-
-<div class="wrapper">
-  <img src="/assets/2017_religions_as_firms/traffic_synagogue.png" class="inner" style="position:relative border: #222 2px solid; max-width:100%;" />
-</div>
-
-<p>Surge pricing makes sense for non-proselytizing religions such as Judaism, but it does not make sense for proselytizing religions such as Christianity, which views the higher demand during peak season as an <a href="https://www.researchgate.net/profile/Feler_Bose/publication/271328680_Funding_the_Faiths_Toward_a_Theory_of_Religious_Finance/links/54c5b8790cf219bbe4f59dac.pdf">opportunity</a> to convert newcomers and to reactivate lapsed members. Thus, Christian churches tend to expand seating and schedule extra services during Christmas and Easter, rather than charging fees.</p>
-
-<h3 id="product-quality">Product Quality</h3>
-<p>Just as business consumers will <a href="https://books.google.com/books/about/Acts_of_Faith.html?id=913O9xcpBB4C&amp;printsec=frontcover&amp;source=kp_read_button#v=onepage&amp;q=%22higher%20prices%22&amp;f=false">pay</a> higher prices for better products, consumers of polytheistic religions will pay higher “prices” for gods with more wide-ranging powers. Even today, some American megachurches have found success with the <a href="https://en.wikipedia.org/wiki/Prosperity_theology">prosperity gospel</a>, which emphasizes that God can make you wealthy.</p>
-
-<p>Of course, not all religious consumers will prefer the cheap promises of the prosperity gospel. For many religions, product quality is defined primarily by community, a sense of meaning, and in some cases the promise of an afterlife.</p>
-
-<h3 id="software-updates">Software Updates</h3>
-<p>A good business should be constantly updating its product to fix bugs and to respond to changes in consumer preference or government regulation. Some religions do the same thing, via the process of <a href="https://en.wikipedia.org/wiki/Continuous_revelation">continuous revelation</a> from their deity. Perhaps no church exemplifies this better than the Church of Jesus Christ of Latter-day Saints.</p>
-
-<p>For most of the history of the Mormon Church, individuals of African descent were prohibited from serving as priests. By the 1960s, as civil rights protests against the church received media attention, the policy became increasingly untenable. On June 1, 1978, Mormon leaders reported that God had instructed them to update the policy and allow black priests. This event was known as the <a href="https://en.wikipedia.org/wiki/1978_Revelation_on_Priesthood">1978 Revelation on the Priesthood</a>.</p>
-
-<p>In the late 19th Century, when the Mormon Church was under intense pressure from the US Government regarding polygamy, the Church president claimed to receive a revelation from Jesus Christ asking him to prohibit it. This revelation, known as the <a href="https://en.wikipedia.org/wiki/1890_Manifesto">1890 Revelation</a>, overturned the previous <a href="https://en.wikipedia.org/wiki/Origin_of_Latter_Day_Saint_polygamy#1843_revelation">1843 Revelation</a> which allowed polygamy.</p>
-
-<p>While frequent updates usually make sense in business, they don’t always make sense in religion. Most religions have a fairly static doctrine, as the prospect of future updates undermines the authority of current doctrine.</p>
-
-<h3 id="growth-and-marketing">Growth and marketing</h3>
-<p>Instead of focusing only on immediate profitability, many businesses invest in user growth. As mentioned earlier, many religions are willing to <a href="https://www.researchgate.net/profile/Feler_Bose/publication/271328680_Funding_the_Faiths_Toward_a_Theory_of_Religious_Finance/links/54c5b8790cf219bbe4f59dac.pdf">cross-subsidize</a> participation from new members, especially young members, with older members bearing most of the costs.</p>
-
-<p>Christianity’s concept of a heaven and hell encouraged its members to convert their friends and family. In some ways, this is reminiscent of <a href="https://en.wikipedia.org/wiki/Viral_marketing">viral marketing</a>.</p>
-
-<h3 id="international-expansion">International expansion</h3>
-<p>Facebook and Netflix both experienced rapid adoption, starting with a U.S. audience. But as U.S. growth began to slow down, both companies needed to look towards international expansion.</p>
-
-<p>A similar thing happened with the Mormon church. By the 20th century, U.S. growth was driven only by increasing family sizes, so the church turned towards international expansion.</p>
-
-<p>The graph below shows similar US and international growth curves for Netflix and the Church of Jesus Christ of Latter-day Saints.<sup>[<a href="https://en.wikipedia.org/wiki/The_Church_of_Jesus_Christ_of_Latter-day_Saints_membership_history">1</a>,<a href="https://rsc.byu.edu/archived/latter-day-saint-social-life-social-research-lds-church-and-its-members/4-vital-statistics">2</a>,<a href="http://www.churchistrue.com/blog/lds-membership-statistics-report-2017/">3</a>,<a href="http://www.businessinsider.com/netflix-subscribers-international-vs-us-earnings-chart-2017-7">4</a>]</sup></p>
-
-<div class="wrapper">
-  <img src="/assets/2017_religions_as_firms/LDS_netflix.png" style="position:relative border: #222 2px solid; max-width:100%;" />
-</div>
-
-<h3 id="branding">Branding</h3>
-<p>Like any company, most religions try to maintain a good brand. But unlike businesses, most religions do not have brand protection, and thus their brands can be co-opted by other religions. Marketing from Mormons and from Jehovah’s Witnesses tends to <a href="https://www.jw.org/en/jehovahs-witnesses/faq/jehovah-witness-beliefs/">emphasize</a> the good brand of Jesus Christ, even though most mainstream Christians regard these churches as heretical.</p>
-
-<div class="wrapper">
-  <img src="/assets/2017_religions_as_firms/follow_the_christ.jpg" height="250" class="inner" style="position:relative border: #222 2px solid;" />
-</div>
-
-<p>One of the most interesting risks to brands is <a href="https://en.wikipedia.org/wiki/Generic_trademark"><em>genericide</em></a>, in which a popular trademark becomes synonymous with the general class of product, thereby diluting its distinctive meaning. Famous examples of generic trademarks include Kleenex and Band-Aid. Amazingly, genericide can also happen to religious deities. The ancient Near East god <a href="https://en.wikipedia.org/wiki/El_(deity)"><em>El</em></a> began as a distinct god with followers, but <a href="https://twitter.com/suchaone/status/869909666217607168">gradually became a generic name for “God”</a> and eventually merged with the Hebrew god Yahweh.</p>
-
-<h3 id="mergers-and-spin-offs">Mergers and spin-offs</h3>
-<p>In business, companies can spin off other companies or merge with other companies. But with rare exceptions, religions only seem to have spin-offs. Why do religions hardly ever merge with other religions? My guess is that since there is no protection for religious intellectual property, religions can acquire the intellectual property of another religion without requiring a merger. Religions can simply copy each other’s ideas.</p>
-
-<p>Another reason that religious mergers are rare is that religions are strongly tied to personal identity and tap into tribal thinking. When WhatsApp was acquired, its leadership was happy to adopt new identities as Facebook employees. But it is far less likely that members of, say, the Syriac Catholic Church would ever tolerate merging into the rival Syriac Maronite Church, even if it might provide them with economies of scale and more political power.</p>
-
-<p>On Twitter, I asked why there are so few religious mergers and got lots of interesting <a href="https://twitter.com/Chris_Said/status/936635424012828672">responses</a>. People pointed out that reconciliation of doctrine could <a href="https://twitter.com/KyleCSN/status/936637304688427009">undermine the authority</a> of the leaders, and that there is <a href="https://twitter.com/AcostaRomay/status/936635959453585408">little benefit</a> from economies of scale. Others noted that religious mergers aren’t that rare. Hinduism and Judaism may have <a href="https://twitter.com/imrankhan/status/936648636158611456">began</a> as mergers of smaller religions, many <a href="https://twitter.com/thechelleshock/status/937033585638326272">Christian traditions</a> involve mergers with religions they replaced, and that even today Hinduism <a href="https://twitter.com/venusatuluri/status/936664575591583745">continues to be</a> a merging of various sects.</p>
-
-<hr />
-
-<p>It’s worth repeating that economic explanations aren’t always great at describing the <em>conscious</em> motivations of religious individuals, who generally have sincere beliefs. Nevertheless, economic reasoning does a decent job of predicting the behavior of <em>systems</em>, and it’s been pretty interesting to learn how religion is no exception.</p>
-
-
-    <div>
-        <i class="fa fa-comment"></i> <a href="http://localhost:4000/2017/12/02/religions-as-firms/#disqus_thread" data-disqus-identifier="http://localhost:4000/2017/12/02/religions-as-firms/"></a>
-        <span>&nbsp; &nbsp;</span>
-        <span>
-            <a class="twitter-share-button"
-              href="https://twitter.com/share"
-              data-url="http://localhost:4000/2017/12/02/religions-as-firms/"
-              data-via="Chris_Said"
-              data-count="none"
-              data-text="Religions as firms">
-            Tweet
-            </a>
-        </span>
-
-    </div>
-
-  </div>
-  
-  <div class="post">
-    <h1 class="post-title">
-      <a href="/2017/07/09/part-2-a-bipartisan-list-of-people-who-argue-in-good-faith/">
-        Part 2&#58; A bipartisan list of people who argue in good faith
-      </a>
-    </h1>
-
-    <span class="post-date">09 Jul 2017</span>
-
-    <p>In <a href="/2017/07/09/part-1-a-bipartisan-list-of-people-who-are-bad-for-america/">Part 1</a>, I posted a bipartisan list of people who are bad for America. Those people present news stories that cherry pick the worst actions from the other side so that they can get higher TV ratings and more social media points.</p>
-
-<p>Here in Part 2, I post a list of people who don’t do that, at least for the most part. This isn’t a list of centrists. If anything, it is a more politically diverse list than the list in Part 1. This is a list of people who usually make good-faith attempts to persuade others about their point of view.</p>
-
-<ul>
-  <li><strong>Megan McArdle</strong> (<a href="https://twitter.com/asymmetricinfo">Twitter</a>, <a href="https://www.bloomberg.com/view/contributors/AQjVOcPejrY/megan-mcardle">Bloomberg</a>) – Moderately libertarian ideas presented to a diverse audience</li>
-  <li><strong>Noah Smith</strong> (<a href="https://twitter.com/Noahpinion">Twitter</a>, <a href="https://www.bloomberg.com/view/contributors/AR3OYuAmvcU/noah-smith">Bloomberg</a>) – Center-left economics</li>
-  <li><strong>Ross Douthat</strong> (<a href="https://twitter.com/DouthatNYT">Twitter</a>, <a href="https://www.nytimes.com/column/ross-douthat">NYT</a>) – Social conservatism presented to a left-of-center audience</li>
-  <li><strong>Noam Chomsky</strong> (<a href="https://chomsky.info/articles/">Website</a>)</li>
-  <li><strong>Conor Friedersdorf</strong> (<a href="https://www.theatlantic.com/author/conor-friedersdorf">The Atlantic</a>)</li>
-  <li><strong>Ben Sasse</strong> — Has the third-most conservative voting record in the Senate but never caricatures the other side and is very concerned about filter bubbles.</li>
-  <li><strong>Julia Galef</strong> (<a href="https://twitter.com/juliagalef">Twitter</a>) – Has some <a href="https://twitter.com/juliagalef/status/850126407963262976">great advice</a> for understanding the other side</li>
-  <li><strong>Nicky Case</strong> (<a href="https://twitter.com/ncasenmare">Twitter</a>)</li>
-  <li><strong>Fareed Zakaria</strong> (<a href="https://www.washingtonpost.com/people/fareed-zakaria/">Washington Post</a>) – Center-left foreign policy</li>
-  <li><strong>Eli Lake</strong> (<a href="https://twitter.com/EliLake">Twitter</a>, <a href="https://www.bloomberg.com/view/contributors/ASD1bG3hdiI/eli-lake">Bloomberg</a>) – Hawkish foreign policy</li>
-  <li><strong>Kevin Drum</strong> (<a href="http://www.motherjones.com/kevin-drum/">Mother Jones</a>) – Center-left blogger who writes in good faith</li>
-  <li><strong>John Carl Baker</strong> (<a href="https://twitter.com/johncarlbaker">Twitter</a>) – One of the few modern socialists I have found who avoids in-group snark.</li>
-  <li><strong>Michael Dougherty</strong> (<a href="https://twitter.com/michaelbd">Twitter</a>, <a href="http://theweek.com/authors/michael-brendan-dougherty">The Week</a>)</li>
-  <li><strong>Reihan Salam</strong> (<a href="https://twitter.com/reihan">Twitter</a>, <a href="http://www.nationalreview.com/author/reihan-salam">NRO</a>)</li>
-  <li><strong>Avik Roy</strong> (<a href="https://twitter.com/Avik">Twitter</a>, <a href="http://www.nationalreview.com/author/avik-roy">NRO</a>) – Conservative health care</li>
-  <li><strong>Ezra Klein</strong> (<a href="https://www.vox.com/authors/ezra-klein">Vox</a>, <a href="http://prospect.org/authors/ezra-klein">early days at the American Prospect</a>) – While at the American Prospect, Ezra did an amazing job trying to persuade people about the benefits of Obamacare. Vox, the explainer site that he started, sometimes slips into red meat clickbait. But to its credit, Vox has managed to reach a wide audience with mostly explainer content.</li>
-</ul>
-
-<p>Reading the people on this list with an open mind will broaden your worldview.</p>
-
-
-    <div>
-        <i class="fa fa-comment"></i> <a href="http://localhost:4000/2017/07/09/part-2-a-bipartisan-list-of-people-who-argue-in-good-faith/#disqus_thread" data-disqus-identifier="http://localhost:4000/2017/07/09/part-2-a-bipartisan-list-of-people-who-argue-in-good-faith/"></a>
-        <span>&nbsp; &nbsp;</span>
-        <span>
-            <a class="twitter-share-button"
-              href="https://twitter.com/share"
-              data-url="http://localhost:4000/2017/07/09/part-2-a-bipartisan-list-of-people-who-argue-in-good-faith/"
-              data-via="Chris_Said"
-              data-count="none"
-              data-text="Part 2&#58; A bipartisan list of people who argue in good faith">
             Tweet
             </a>
         </span>
