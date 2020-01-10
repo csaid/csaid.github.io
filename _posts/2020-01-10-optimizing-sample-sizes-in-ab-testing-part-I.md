@@ -30,14 +30,14 @@ The bigger your sample size, the more likely it is that you'll ship the right bu
 ### Costs of large samples
 For most businesses, increasing your sample size requires you to run your experiment longer. This brings us to the main per-unit cost of experimentation: the forfeited benefits that could come from shipping the winning bucket earlier. In a fast moving startup, there's often good reason to accrue your wins as soon as possible. The advantage of shipping earlier can be quantified with a _discount rate_, which describes how much you value the near future over the distant future. If you have a high discount rate, it's critical to ship as soon as possible. If you have a low discount rate, you can afford to wait longer. This is described in more detail in Part III.
 
-### Combining costs and benefits into a optimization function
-You should run your experiment long enough that you'll likely ship the winning bucket, but not so long that you waste time not having shipped your product. The optimal duration depends on the unique circumstances of your business. The overall benefit of running an experiment, as a function of duration and other parameters, is defined as the _aggregate time-discounted post-experiment lift_, or $\hat{L}_a$. 
+### Combining costs and benefits into an optimization function
+You should run your experiment long enough that you'll likely ship the winning bucket, but not so long that you waste time not having shipped your product. The optimal duration depends on the unique circumstances of your business. The overall benefit of running an experiment, as a function of duration and other parameters, is defined as the _aggregate time-discounted expected post-experiment lift_, or $\hat{L}_a$. 
 
 Figure 1 shows $\hat{L}_a$ as a function of experiment duration in days ($\tau$) for one particular set of business parameters. The gray curve shows the result of a closed form solution presented in Part III. The blue curve shows the results of simulated experiments. As you can see, the optimal duration for this experiment should be about 38 days. Simulations match the closed-form predictions.
 
 <div class="wrapper">
   <img src='/assets/2020_optimizing_sample_sizes/time_aggregated_lift_by_tau_descriptive_labels.png' class="inner" style="position:relative border: #222 2px solid; max-width:100%;" >
-  <div class="caption"><strong>Figure 1.</strong> Aggregate time-discounted post-experiment lift ($\hat{L}_a$) as a function of experiment duration in days ($\tau$), for a fairly typical set of business parameters.
+  <div class="caption"><strong>Figure 1.</strong> Aggregate time-discounted expected post-experiment lift ($\hat{L}_a$) as a function of experiment duration in days ($\tau$), for a fairly typical set of business parameters.
   </div>
 </div><br>
 
@@ -66,7 +66,7 @@ Let's take another look at $\hat{L}_a$ as a function of duration. As shown in Fi
 
 <div class="wrapper">
   <img src='/assets/2020_optimizing_sample_sizes/time_aggregated_lift_by_tau_shoulders.png' class="inner" style="position:relative border: #222 2px solid; max-width:100%;" >
-  <div class="caption"><strong>Figure 4.</strong> Aggregate time-discounted post-experiment lift ($\hat{L}_a$) as a function of experiment duration in days ($\tau$), for a fairly typical set of business parameters.
+  <div class="caption"><strong>Figure 4.</strong> Aggregate time-discounted expected post-experiment lift ($\hat{L}_a$) as a function of experiment duration in days ($\tau$), for a fairly typical set of business parameters.
   </div>
 </div><br>
 

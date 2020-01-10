@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Optimizing sample sizes in A/B testing, Part III&#58; Aggregate time-discounted lift
-description: Part III&#58; Aggregate time-discounted lift
+title: Optimizing sample sizes in A/B testing, Part III&#58; Aggregate time-discounted expected lift
+description: Part III&#58; Aggregate time-discounted expected lift
 image: /assets/2020_optimizing_sample_sizes/discounted_lift_static.png
 ---
 <div class="caption">
@@ -11,7 +11,7 @@ This is Part III of a three part blog post on how to optimize your sample size i
 
 In [Part II](/2020/01/10/optimizing-sample-sizes-in-ab-testing-part-II/), we learned how before the experiment starts we can estimate $\hat{L}$, the expected post-experiment lift, a probability weighted average of outcomes. 
 
-In Part III, we'll discuss how to estimate what is perhaps the most important per-unit cost of experimentation: the forfeited benefits that are lost by delayed shipment. This leads to something I think is incredibly cool: A formula for the _aggregate time-discounted post-experiment lift_ as a function of sample size. We call this quantity $\hat{L}_a$. The formula for $\hat{L}_a$ allows you to pick optimal sample sizes specific to your business circumstances. We'll cover two examples in Python, one where you are testing a continuous variable, and one where you are testing a binary variable (as in conversion rate experiments).
+In Part III, we'll discuss how to estimate what is perhaps the most important per-unit cost of experimentation: the forfeited benefits that are lost by delayed shipment. This leads to something I think is incredibly cool: A formula for the _aggregate time-discounted expected post-experiment lift_ as a function of sample size. We call this quantity $\hat{L}_a$. The formula for $\hat{L}_a$ allows you to pick optimal sample sizes specific to your business circumstances. We'll cover two examples in Python, one where you are testing a continuous variable, and one where you are testing a binary variable (as in conversion rate experiments).
 
 As usual, the focus will be on choosing a sample size at the beginning of the experiment and committing to it, not on dynamically updating the sample size as the experiment proceeds.
 
@@ -45,13 +45,13 @@ where $ r $ is a discount rate. For startup teams, the annual discount rate migh
   </div>
 </div><br>
 
-## Aggregate time-discounted lift: Visual Intuition
+## Aggregate time-discounted expected lift: Visual Intuition
 
 Take a look at Figure 2, below. It shows an experiment that is planned to run for $\tau = 60$ days. The top panel shows $\hat{L}$, which we have now defined as the expected per-session lift. While the experiment is running, $\hat{L} = 0$, since our prior is that $\Delta$ is sampled from a normal distribution with mean zero. But once the experiment finishes and we launch the winning bucket, we should begin to reap our expected per-session lift. 
 
 The middle panel shows our discount function.
 
-The bottom panel shows our time-discounted lift, defined as the product of the lift in the top panel and the time discount in the middle panel. (We can also multiply it by $M$, the number of post-experiment sessions per day, which for simplicity we set to 1 here.) The aggregate time-discounted lift, $\hat{L}_a$, is the area under the curve.
+The bottom panel shows our time-discounted lift, defined as the product of the lift in the top panel and the time discount in the middle panel. (We can also multiply it by $M$, the number of post-experiment sessions per day, which for simplicity we set to 1 here.) The aggregate time-discounted expected lift, $\hat{L}_a$, is the area under the curve.
 
 <div class="wrapper">
   <img src='/assets/2020_optimizing_sample_sizes/discounted_lift_static.png' class="inner" style="position:relative border: #222 2px solid; max-width:100%;" >
@@ -68,8 +68,8 @@ Now let's see what happens with different experiment durations. Figure 3 shows t
 </div><br>
 
 
-## Aggregate time-discounted lift: Formula
-The aggregate time-discounted lift $\hat{L}_a$, i.e. the area under the curve in the bottom panel of Figure 3, is: 
+## Aggregate time-discounted expected lift: Formula
+The aggregate time-discounted expected lift $\hat{L}_a$, i.e. the area under the curve in the bottom panel of Figure 3, is: 
 
 $$ \hat{L}_a = \frac{\sigma_\Delta^2 M e^{-r\tau}}{r \sqrt{2\pi(\sigma_\Delta^2 + \frac{2\sigma_X^2}{m\tau})}} $$
 
@@ -135,7 +135,7 @@ Yup, that's a real concern not covered by my framework. You probably want to kno
 * [Hyperbolic discounting — The irrational behavior that might be rational after all](/2018/02/04/hyperbolic-discounting/) is about time discounting, although not in the context of experimentation.
 
 ## Appendix
-The aggregate time-discounted lift $\hat{L}_a$ is 
+The aggregate time-discounted expected lift $\hat{L}_a$ is 
 
 $$ \hat{L}_a = \int_{\tau}^{\infty} \hat{L} M e^{-rt} \,dt $$
 

@@ -108,7 +108,7 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
   <div class="post">
     <h1 class="post-title">
       <a href="/2020/01/10/optimizing-sample-sizes-in-ab-testing-part-III/">
-        Optimizing sample sizes in A/B testing, Part III&#58; Aggregate time-discounted lift
+        Optimizing sample sizes in A/B testing, Part III&#58; Aggregate time-discounted expected lift
       </a>
     </h1>
 
@@ -121,7 +121,7 @@ This is Part III of a three part blog post on how to optimize your sample size i
 
 <p>In <a href="/2020/01/10/optimizing-sample-sizes-in-ab-testing-part-II/">Part II</a>, we learned how before the experiment starts we can estimate $\hat{L}$, the expected post-experiment lift, a probability weighted average of outcomes.</p>
 
-<p>In Part III, we’ll discuss how to estimate what is perhaps the most important per-unit cost of experimentation: the forfeited benefits that are lost by delayed shipment. This leads to something I think is incredibly cool: A formula for the <em>aggregate time-discounted post-experiment lift</em> as a function of sample size. We call this quantity $\hat{L}_a$. The formula for $\hat{L}_a$ allows you to pick optimal sample sizes specific to your business circumstances. We’ll cover two examples in Python, one where you are testing a continuous variable, and one where you are testing a binary variable (as in conversion rate experiments).</p>
+<p>In Part III, we’ll discuss how to estimate what is perhaps the most important per-unit cost of experimentation: the forfeited benefits that are lost by delayed shipment. This leads to something I think is incredibly cool: A formula for the <em>aggregate time-discounted expected post-experiment lift</em> as a function of sample size. We call this quantity $\hat{L}_a$. The formula for $\hat{L}_a$ allows you to pick optimal sample sizes specific to your business circumstances. We’ll cover two examples in Python, one where you are testing a continuous variable, and one where you are testing a binary variable (as in conversion rate experiments).</p>
 
 <p>As usual, the focus will be on choosing a sample size at the beginning of the experiment and committing to it, not on dynamically updating the sample size as the experiment proceeds.</p>
 
@@ -156,13 +156,13 @@ This is Part III of a three part blog post on how to optimize your sample size i
 </div>
 <p><br /></p>
 
-<h2 id="aggregate-time-discounted-lift-visual-intuition">Aggregate time-discounted lift: Visual Intuition</h2>
+<h2 id="aggregate-time-discounted-expected-lift-visual-intuition">Aggregate time-discounted expected lift: Visual Intuition</h2>
 
 <p>Take a look at Figure 2, below. It shows an experiment that is planned to run for $\tau = 60$ days. The top panel shows $\hat{L}$, which we have now defined as the expected per-session lift. While the experiment is running, $\hat{L} = 0$, since our prior is that $\Delta$ is sampled from a normal distribution with mean zero. But once the experiment finishes and we launch the winning bucket, we should begin to reap our expected per-session lift.</p>
 
 <p>The middle panel shows our discount function.</p>
 
-<p>The bottom panel shows our time-discounted lift, defined as the product of the lift in the top panel and the time discount in the middle panel. (We can also multiply it by $M$, the number of post-experiment sessions per day, which for simplicity we set to 1 here.) The aggregate time-discounted lift, $\hat{L}_a$, is the area under the curve.</p>
+<p>The bottom panel shows our time-discounted lift, defined as the product of the lift in the top panel and the time discount in the middle panel. (We can also multiply it by $M$, the number of post-experiment sessions per day, which for simplicity we set to 1 here.) The aggregate time-discounted expected lift, $\hat{L}_a$, is the area under the curve.</p>
 
 <div class="wrapper">
   <img src="/assets/2020_optimizing_sample_sizes/discounted_lift_static.png" class="inner" style="position:relative border: #222 2px solid; max-width:100%;" />
@@ -180,8 +180,8 @@ This is Part III of a three part blog post on how to optimize your sample size i
 </div>
 <p><br /></p>
 
-<h2 id="aggregate-time-discounted-lift-formula">Aggregate time-discounted lift: Formula</h2>
-<p>The aggregate time-discounted lift $\hat{L}_a$, i.e. the area under the curve in the bottom panel of Figure 3, is:</p>
+<h2 id="aggregate-time-discounted-expected-lift-formula">Aggregate time-discounted expected lift: Formula</h2>
+<p>The aggregate time-discounted expected lift $\hat{L}_a$, i.e. the area under the curve in the bottom panel of Figure 3, is:</p>
 
 <script type="math/tex; mode=display">\hat{L}_a = \frac{\sigma_\Delta^2 M e^{-r\tau}}{r \sqrt{2\pi(\sigma_\Delta^2 + \frac{2\sigma_X^2}{m\tau})}}</script>
 
@@ -249,7 +249,7 @@ Yup, that’s a real concern not covered by my framework. You probably want to k
 </ul>
 
 <h2 id="appendix">Appendix</h2>
-<p>The aggregate time-discounted lift $\hat{L}_a$ is</p>
+<p>The aggregate time-discounted expected lift $\hat{L}_a$ is</p>
 
 <script type="math/tex; mode=display">\hat{L}_a = \int_{\tau}^{\infty} \hat{L} M e^{-rt} \,dt</script>
 
@@ -271,7 +271,7 @@ Yup, that’s a real concern not covered by my framework. You probably want to k
               data-url="http://localhost:4000/2020/01/10/optimizing-sample-sizes-in-ab-testing-part-III/"
               data-via="Chris_Said"
               data-count="none"
-              data-text="Optimizing sample sizes in A/B testing, Part III&#58; Aggregate time-discounted lift">
+              data-text="Optimizing sample sizes in A/B testing, Part III&#58; Aggregate time-discounted expected lift">
             Tweet
             </a>
         </span>
@@ -545,14 +545,14 @@ A special thanks to <a href="https://www.linkedin.com/in/john-mcdonnell-65833233
 <h3 id="costs-of-large-samples">Costs of large samples</h3>
 <p>For most businesses, increasing your sample size requires you to run your experiment longer. This brings us to the main per-unit cost of experimentation: the forfeited benefits that could come from shipping the winning bucket earlier. In a fast moving startup, there’s often good reason to accrue your wins as soon as possible. The advantage of shipping earlier can be quantified with a <em>discount rate</em>, which describes how much you value the near future over the distant future. If you have a high discount rate, it’s critical to ship as soon as possible. If you have a low discount rate, you can afford to wait longer. This is described in more detail in Part III.</p>
 
-<h3 id="combining-costs-and-benefits-into-a-optimization-function">Combining costs and benefits into a optimization function</h3>
-<p>You should run your experiment long enough that you’ll likely ship the winning bucket, but not so long that you waste time not having shipped your product. The optimal duration depends on the unique circumstances of your business. The overall benefit of running an experiment, as a function of duration and other parameters, is defined as the <em>aggregate time-discounted post-experiment lift</em>, or $\hat{L}_a$.</p>
+<h3 id="combining-costs-and-benefits-into-an-optimization-function">Combining costs and benefits into an optimization function</h3>
+<p>You should run your experiment long enough that you’ll likely ship the winning bucket, but not so long that you waste time not having shipped your product. The optimal duration depends on the unique circumstances of your business. The overall benefit of running an experiment, as a function of duration and other parameters, is defined as the <em>aggregate time-discounted expected post-experiment lift</em>, or $\hat{L}_a$.</p>
 
 <p>Figure 1 shows $\hat{L}_a$ as a function of experiment duration in days ($\tau$) for one particular set of business parameters. The gray curve shows the result of a closed form solution presented in Part III. The blue curve shows the results of simulated experiments. As you can see, the optimal duration for this experiment should be about 38 days. Simulations match the closed-form predictions.</p>
 
 <div class="wrapper">
   <img src="/assets/2020_optimizing_sample_sizes/time_aggregated_lift_by_tau_descriptive_labels.png" class="inner" style="position:relative border: #222 2px solid; max-width:100%;" />
-  <div class="caption"><strong>Figure 1.</strong> Aggregate time-discounted post-experiment lift ($\hat{L}_a$) as a function of experiment duration in days ($\tau$), for a fairly typical set of business parameters.
+  <div class="caption"><strong>Figure 1.</strong> Aggregate time-discounted expected post-experiment lift ($\hat{L}_a$) as a function of experiment duration in days ($\tau$), for a fairly typical set of business parameters.
   </div>
 </div>
 <p><br /></p>
@@ -583,7 +583,7 @@ A special thanks to <a href="https://www.linkedin.com/in/john-mcdonnell-65833233
 
 <div class="wrapper">
   <img src="/assets/2020_optimizing_sample_sizes/time_aggregated_lift_by_tau_shoulders.png" class="inner" style="position:relative border: #222 2px solid; max-width:100%;" />
-  <div class="caption"><strong>Figure 4.</strong> Aggregate time-discounted post-experiment lift ($\hat{L}_a$) as a function of experiment duration in days ($\tau$), for a fairly typical set of business parameters.
+  <div class="caption"><strong>Figure 4.</strong> Aggregate time-discounted expected post-experiment lift ($\hat{L}_a$) as a function of experiment duration in days ($\tau$), for a fairly typical set of business parameters.
   </div>
 </div>
 <p><br /></p>
