@@ -20,24 +20,24 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
   
-    <meta name="description" content="A surprisingly simple formula for optimizing your experiment">
+    <meta name="description" content="A new way to optimize your experiment sample sizes">
   
 
   <!-- To get a link preview image, just set the image attribute in your _post -->
   
-    <meta content="http://localhost:4000/assets/2020_optimizing_sample_sizes/product_matrix.png" property="og:image"/>
+    <meta content="http://localhost:4000/assets/2020_optimizing_sample_sizes/discounted_lift_static.png" property="og:image"/>
   
 
   <!-- twitter standard -->
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@chris_said" />
-  <meta name="twitter:title" content="Optimizing sample sizes in A/B testing, Part II&#58; Aggregate time-discounted lift" />
-  <meta name="twitter:description" content="A surprisingly simple formula for optimizing your experiment" />
+  <meta name="twitter:title" content="Optimizing sample sizes in A/B testing, Part III&#58; Aggregate time-discounted lift" />
+  <meta name="twitter:description" content="A new way to optimize your experiment sample sizes" />
 
 
   <title>
     
-      Optimizing sample sizes in A/B testing, Part II&#58; Aggregate time-discounted lift &middot; The File Drawer
+      Optimizing sample sizes in A/B testing, Part III&#58; Aggregate time-discounted lift &middot; The File Drawer
     
   </title>
 
@@ -77,7 +77,7 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
           The File Drawer
         </a>
       </h1>
-      <p class="lead">My name is Chris Said and I am a data scientist at Opendoor. This blog is mostly about tech, stats, and science.</p>
+      <p class="lead">My name is Chris Said and I am a data scientist (starting at Stitch Fix in January 2020). This blog is mostly about tech, stats, and science.</p>
 
     </div>
 
@@ -106,43 +106,42 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
 
     <div class="content container">
       <div class="post">
-  <h1 class="post-title">Optimizing sample sizes in A/B testing, Part II&#58; Aggregate time-discounted lift</h1>
-  <span class="post-date">01 Jan 2020</span>
-  <p>This is Part II of a two-part blog post on how to optimize your sample size in A/B testing. As in <a href="/2020/01/01/optimizing-sample-sizes-in-ab-testing-part-I/">Part I</a>, the focus will be on choosing a sample size at the beginning of the experiment and committing to it, not on dynamically updating the sample size as the experiment proceeds.</p>
+  <h1 class="post-title">Optimizing sample sizes in A/B testing, Part III&#58; Aggregate time-discounted lift</h1>
+  <span class="post-date">10 Oct 2020</span>
+  <div class="caption">
+This is Part III of a three part blog post on how to optimize your sample size in A/B testing. Make sure to read <a href="/2020/10/10/optimizing-sample-sizes-in-ab-testing-part-I/">Part I </a> and <a href="/2020/0/0010optimizing-sample-sizes-in-ab-testing-part-II/">Part II</a> if you haven't already.
+</div>
+<hr />
 
-<p>In <a href="/2020/01/01/optimizing-sample-sizes-in-ab-testing-part-I/">Part I</a>, we learned how before the experiment starts we can estimate $\hat{L}$, the expected post-experiment lift, a probability weighted average of outcomes.</p>
+<p>In <a href="/2020/0/0010optimizing-sample-sizes-in-ab-testing-part-II/">Part II</a>, we learned how before the experiment starts we can estimate $\hat{L}$, the expected post-experiment lift, a probability weighted average of outcomes.</p>
 
-<p>In Part II, we’ll discuss how to estimate what is perhaps the most important per-unit cost of epxerimentation: the forfeited benefits that could come from shipping the winning bucket earlier. This leads to something I think is incredibly cool: A formula for $\hat{L}_a$, the aggregate time-discounted post-experiment lift, as a function of sample size. The formula allows you to pick optimal sample sizes specific to your business circumstances, and leads us to three lessons for practioners.</p>
+<p>In Part III, we’ll discuss how to estimate what is perhaps the most important per-unit cost of experimentation: the forfeited benefits that are lost by delayed shipment. This leads to something I think is incredibly cool: A formula for the <em>aggregate time-discounted post-experiment lift</em> as a function of sample size. We call this quantity $\hat{L}_a$. The formula for $\hat{L}_a$ allows you to pick optimal sample sizes specific to your business circumstances. We’ll cover two examples in Python, one where you are testing a continuous variable, and one where you are testing a binary variable (as in conversion rate experiments).</p>
 
-<ol>
-  <li>You should run “underpowered” experiments if you have a very high discount rate.</li>
-  <li>You should run “underpowered” experiments if you have a small user base.</li>
-  <li>That said, it’s far better to run your experiment too long than too short.</li>
-</ol>
+<p>As usual, the focus will be on choosing a sample size at the beginning of the experiment and committing to it, not on dynamically updating the sample size as the experiment proceeds.</p>
 
 <h2 id="a-quick-modification-from-part-i">A quick modification from Part I</h2>
 
-<p>In <a href="/2020/01/01/optimizing-sample-sizes-in-ab-testing-part-I/">Part I</a>, we saw that if you run an experiment comparing the current version of your product (A) to a new alternative (B), and if you ship whichever version does best in the experiment, your business will on average experience a post-experiment per-user lift of</p>
+<p>In <a href="/2020/0/0010optimizing-sample-sizes-in-ab-testing-part-II/">Part II</a>, we saw that if you ship whichever version (A or B) does best in the experiment, your business will on average experience a post-experiment per-user lift of</p>
 
 <script type="math/tex; mode=display">\hat{L} = \frac{\sigma_\Delta^2}{\sqrt{2\pi(\sigma_\Delta^2 + \frac{2\sigma_X^2}{n})}}</script>
 
 <p>where $\sigma_\Delta^2$ is the variance on your normally distributed zero-mean prior for $\mu_B - \mu_A$, $\sigma_X^2$ is the within-group variance, and $n$ is the per-bucket sample size.</p>
 
-<p>Because Part II is primarily concerned with the the duration of the experiment, we’re going to modify the formula to be time-dependent. As a simplifying assumption we’re going to make <em>sessions</em>, rather then <em>users</em>, the unit of analysis. We’ll also assume that you have a constant number of sessions per day. This changes the definition of $\hat{L}$ to a <em>post-experiment per-session lift</em>, and the formula becomes</p>
+<p>Because Part III is primarily concerned with the the duration of the experiment, we’re going to modify the formula to be time-dependent. As a simplifying assumption we’re going to make <em>sessions</em>, rather then <em>users</em>, the unit of analysis. We’ll also assume that you have a constant number of sessions per day. This changes the definition of $\hat{L}$ to a <em>post-experiment per-session lift</em>, and the formula becomes</p>
 
-<script type="math/tex; mode=display">\hat{L} = \frac{\sigma_\Delta^2}{\sqrt{2\pi(\sigma_\Delta^2 + \frac{2\sigma_X^2}{mt})}}</script>
+<script type="math/tex; mode=display">\hat{L} = \frac{\sigma_\Delta^2}{\sqrt{2\pi(\sigma_\Delta^2 + \frac{2\sigma_X^2}{m\tau})}}</script>
 
-<p>where $m$ is the sessions per day for each bucket, and $t$ is duration of the experiment in days.</p>
+<p>where $m$ is the sessions per day for each bucket, and $\tau$ is duration of the experiment in days.</p>
 
 <h2 id="time-discounting">Time Discounting</h2>
 
-<p>The formula above shows that larger sample sizes result in higher $ \hat{L} $, since larger samples make it more likely you will ship the better version. But as with all things in life, there are costs to increasing your sample size. In particular, the larger your sample size, the longer you have to wait to ship the winning bucket. In a fast moving startup, there’s often good reason to accrue your wins as soon as possible. Lift today is much more valuable than the same lift a year from now.</p>
+<p>The formula above shows that larger sample sizes result in higher $ \hat{L} $, since larger samples make it more likely you will ship the better version. But as with all things in life, there are costs to increasing your sample size. In particular, the larger your sample size, the longer you have to wait to ship the winning bucket. This is bad because lift today is much more valuable than the same lift a year from now.</p>
 
 <p>How much more valuable is lift today versus lift a year from now? A common way to quantify this is with exponential discounting, such that weights (or “discount factors”) on future lift follow the form:</p>
 
 <script type="math/tex; mode=display">w = e^{-rt}</script>
 
-<p>where $ r $ is a discount rate. For teams shipping product at startups, the annual discount rate might be quite large, like 0.5 or even 1.0, which would correspond to a daily discount rate $r$ of 0.5/365 or 1.0/365, respectively.</p>
+<p>where $ r $ is a discount rate. For startup teams, the annual discount rate might be quite large, like 0.5 or even 1.0, which would correspond to a daily discount rate $r$ of 0.5/365 or 1.0/365, respectively. Figure 1 shows an example of a discount rate of 1.0/365</p>
 
 <div class="wrapper">
   <img src="/assets/2020_optimizing_sample_sizes/discount_function.png" class="inner" style="position:relative border: #222 2px solid; max-width:100%;" />
@@ -153,7 +152,7 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
 
 <h2 id="aggregate-time-discounted-lift-visual-intuition">Aggregate time-discounted lift: Visual Intuition</h2>
 
-<p>Take a look at Figure 2, below. It shows an experiment that is planned to run for $\tau = 60$ days. The top panel shows $\hat{L}$. While the experiment is running, $\hat{L} = 0$, since our prior is that $\Delta$ is sampled from a normal distribution with mean zero. But once the experiment finishes and we launch the winning bucket, we should begin to reap our expected per-session lift.</p>
+<p>Take a look at Figure 2, below. It shows an experiment that is planned to run for $\tau = 60$ days. The top panel shows $\hat{L}$, which we have now defined as the expected per-session lift. While the experiment is running, $\hat{L} = 0$, since our prior is that $\Delta$ is sampled from a normal distribution with mean zero. But once the experiment finishes and we launch the winning bucket, we should begin to reap our expected per-session lift.</p>
 
 <p>The middle panel shows our discount function.</p>
 
@@ -185,12 +184,12 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
 <p>There’s two things to note about this formula.</p>
 <ol>
   <li>Increasing the number of bucketed sessions per day, $m$, always increases $\hat{L}_a$.</li>
-  <li>Increasing the duration of the experiment, $\tau$, may or may not help and is the result of competing forces in the numerator and denominator. In the numerator, higher $\tau$ decreases $\hat{L}_a$ by delaying shipment. In the denominator, higher $\tau$ increases $\hat{L}_a$ by making it more likely you will ship the superior version.</li>
+  <li>Increasing the duration of the experiment, $\tau$, may or may not help. It’s impact is controlled by competing forces in the numerator and denominator. In the numerator, higher $\tau$ decreases $\hat{L}_a$ by delaying shipment. In the denominator, higher $\tau$ increases $\hat{L}_a$ by making it more likely you will ship the superior version.</li>
 </ol>
 
 <h2 id="optimizing-sample-size">Optimizing sample size</h2>
 
-<p>At long last, we can answer the question, “How long should we run this experiment?”. A nice way to do it is to plot $\hat{L}_a$ as a function of $\tau$. Below we see what this looks like for one set of parameters. Here the optimal duration is 18 days.</p>
+<p>At long last, we can answer the question, “How long should we run this experiment?”. A nice way to do it is to plot $\hat{L}_a$ as a function of $\tau$. Below we see what this looks like for one set of parameters. Here the optimal duration is 38 days.</p>
 <div class="wrapper">
   <img src="/assets/2020_optimizing_sample_sizes/time_aggregated_lift_by_tau.png" class="inner" style="position:relative border: #222 2px solid; max-width:100%;" />
   <div class="caption"><strong>Figure 4</strong>.
@@ -199,42 +198,9 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
 <p><br />
 Note also that a set of simulated experiment and post-experiment periods (in blue) confirm the predictions of the closed form solution (in gray). See the <a href="https://github.com/csaid/optimizing-sample-sizes-in-AB-testing/blob/master/Optimizing%20sample%20sizes%20in%20AB%20testing.ipynb">notebook</a> for details.</p>
 
-<h2 id="three-lessons-for-practioners">Three lessons for practioners</h2>
-<p>I played around with the formula for $\hat{L}_a$ and came across three lessons I think will be of interest to practitioners.</p>
-
-<h4 id="1-you-should-run-underpowered-experiments-if-you-have-a-very-high-discount-rate">1. You should run “underpowered” experiments if you have a very high discount rate</h4>
-<p>Take a look at Figure 5, which shows some recommendations for conversion rate experiments where $p=0.10$ and $\sigma_\Delta=0.01$. On the left panel we plot the optimal duration as a function of the annual discount rate. If you have a high discount rate, you care a lot more about the near future than the distant future and therefore it is critical that you ship any potentially winning version as soon as possible. In this scenario, the optimal duration is low (left panel), and the probability you will find a statistically significant result is low (right panel). For many of these cases, the optimal duration would traditionally be considered “underpowered”.</p>
-<div class="wrapper">
-  <img src="/assets/2020_optimizing_sample_sizes/optimal_tau_and_sig_rate_by_r.png" class="inner" style="position:relative border: #222 2px solid; max-width:100%;" />
-  <div class="caption"><strong>Figure 5</strong>.
-  </div>
-</div>
-<p><br /></p>
-
-<h4 id="2-you-should-run-underpowered-experiments-if-you-have-a-small-user-base">2. You should run ‘underpowered’ experiments if you have a small user base</h4>
-<p>Now let’s plot these curves as a function of $m$, our daily sessions per bucket. If we only have a small number of sessions to work with, we’ll need to run the experiment for longer (left panel). What’s especially interesting is that the optimal duration for low $m$ scenarios still results in a low rate of statistical significance. That is, if you don’t have a lot of users to work with, it’s optimal to run an “underpowered” experiment. Waiting to get a large number of sessions just causes too much time-discounting loss.</p>
-<div class="wrapper">
-  <img src="/assets/2020_optimizing_sample_sizes/optimal_tau_and_sig_rate_by_m.png" class="inner" style="position:relative border: #222 2px solid; max-width:100%;" />
-  <div class="caption"><strong>Figure 6</strong>.
-  </div>
-</div>
-<p><br /></p>
-
-<h4 id="3-that-said-its-far-better-to-run-your-experiment-too-long-than-too-short">3. That said, it’s far better to run your experiment too long than too short</h4>
-<p>Below we plot the aggregate time-discounted lift, $\hat{L}_a$ as a function of duration, for various combinations of $m$ and $r$. In all plots the left shoulder is steeper than the right shoulder. This means that it’s really bad if your experiment is shorter than optimal, but it’s kind of ok if your experiment is longer than optimal. This is true for basically all parameter regimes, unless you have an insanely high discount rate (not shown).</p>
-
-<div class="wrapper">
-  <img src="/assets/2020_optimizing_sample_sizes/L_a_by_tau_for_m_and_r.png" class="inner" style="position:relative border: #222 2px solid; max-width:100%;" />
-  <div class="caption"><strong>Figure 7</strong>.
-  </div>
-</div>
-<p><br /></p>
-
-<p>Side note: It’s instructive to look at the bottom right panel of Figure 7, where there is a very high number of sessions per day and a relatively steep discount curve. Because of the high number of sessions, all of the benefits of the experiment are immediately obtained on the first day, and the $\hat{L}_a$ curve smashes up at its ceiling. After that, nothing else can be gained by extending the experiment, and any additional time spent is lost to discounting.</p>
-
 <h2 id="examples-in-python">Examples in Python</h2>
 <h3 id="example-1-continuous-variable-metric">Example 1: Continuous variable metric</h3>
-<p>Let’s say you want to run an experiment comparing two different versions of a website, and your main metric is revenue per session. You know in advance that the within-group variance of this metric is $\sigma_X^2 = 100$. You don’t know which version is better but you have a prior that the true difference in means is normally distributed with variance $\sigma_\Delta^2 = 1$. You have 200 sessions per day and plan to bucket 100 sessions into Version A and 100 sessions into Version B, running the experiment for $\tau=20$ days. Your discount rate is fairly aggressive at 1.0 annually, or $r = 1/365$ per day. Using the function in the <a href="https://github.com/csaid/optimizing-sample-sizes-in-AB-testing/blob/master/Optimizing%20sample%20sizes%20in%20AB%20testing.ipynb">notebook</a>, you can find $\hat{L}_a$ with ths command:</p>
+<p>Let’s say you want to run an experiment comparing two different versions of a website, and your main metric is revenue per session. You know in advance that the within-group variance of this metric is $\sigma_X^2 = 100$. You don’t know which version is better but you have a prior that the true difference in means is normally distributed with variance $\sigma_\Delta^2 = 1$. You have 200 sessions per day and plan to bucket 100 sessions into Version A and 100 sessions into Version B, running the experiment for $\tau=20$ days. Your discount rate is fairly aggressive at 1.0 annually, or $r = 1/365$ per day. Using the function in the <a href="https://github.com/csaid/optimizing-sample-sizes-in-AB-testing/blob/master/Optimizing%20sample%20sizes%20in%20AB%20testing.ipynb">notebook</a>, you can find $\hat{L}_a$ with this command:</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">get_agg_lift_via_closed_form</span><span class="p">(</span><span class="n">var_D</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">var_X</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">tau</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="mi">365</span><span class="p">,</span> <span class="n">M</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
 <span class="c1"># returns 26298
@@ -255,22 +221,25 @@ Note also that a set of simulated experiment and post-experiment periods (in blu
 <h2 id="faq">FAQ</h2>
 <p><strong>Q:</strong> Has there been any similar work on this?</p>
 
-<p><strong>A:</strong> As I was writing this, I came across a <a href="https://arxiv.org/pdf/1811.00457.pdf">fantastic in-press paper</a> by <a href="https://drexel.edu/now/experts/Overview/Feit-Elea/">Elea Feit</a> and <a href="https://www.ron-berman.com/">Ron Berman</a>. The paper is exceptionally clear and I would recommend reading it. Like this blog post, Feit and Berman argue that it doesn’t make any sense to pick sample sizes based on statistical significance and power thresholds. Instead they recommend profit-maximizing sample sizes. They independently come to the same formula for $ \hat{L} $ as I do (see right addend in their Equation 9, making sure to substitute my $\frac{\sigma_\Delta^2}{2}$ for their $\sigma^2)$. Where they differ is that they assume there is a fixed pool of $N$ users that can only experience the product once. In their setup, you can allocate $n_1$ users to Bucket A and $n_2$ users to Bucket B. Once you have identified the winning bucket, you ship that version to the remaining $N-n_1-n_2$ users. Your expected profit is determined by the expected lift from those users. My experience in industry differs from this setup. In my experience there is no constraint that you can only show the product once to a fixed set of users. Instead, there is often an indefinitely increasing pool of new users, and once you ship the winning bucket you can ship it to everyone, including users who already participated in the experiment. To me, the main constraint in industry is therefore time discounting, rather than a finite pool of users.</p>
+<p><strong>A:</strong> As I was writing this, I came across a <a href="https://arxiv.org/pdf/1811.00457.pdf">fantastic in-press paper</a> by <a href="https://drexel.edu/now/experts/Overview/Feit-Elea/">Elea Feit</a> and <a href="https://www.ron-berman.com/">Ron Berman</a>. The paper is exceptionally clear and I would recommend reading it. Like this blog post, Feit and Berman argue that it doesn’t make any sense to pick sample sizes based on statistical significance and power thresholds. Instead they recommend profit-maximizing sample sizes. They independently come to the same formula for $ \hat{L} $ as I do (see right addend in their Equation 9, making sure to substitute my $\frac{\sigma_\Delta^2}{2}$ for their $\sigma^2)$. Where they differ is that they assume there is a fixed pool of $N$ users that can only experience the product once. In their setup, you can allocate $n_1$ users to Bucket A and $n_2$ users to Bucket B. Once you have identified the winning bucket, you ship that version to the remaining $N-n_1-n_2$ users. Your expected profit is determined by the total expected lift from those users. My experience in industry differs from this setup. In my experience there is no constraint that you can only show the product once to a fixed set of users. Instead, there is often an indefinitely increasing pool of new users, and once you ship the winning bucket you can ship it to everyone, including users who already participated in the experiment. To me, the main constraint in industry is therefore time discounting, rather than a finite pool of users.</p>
 
-<p><strong>Q:</strong> In addition to the lift from shipping a winning bucket, doesn’t experimentation also help inform you about the types of products that might work in the future? And if so, doesn’t this mean we should run experiments longer than recommended by your formula for $\hat{L}_a$?</p>
+<p><strong>Q:</strong> In addition to the lift from shipping a winning bucket, doesn’t experimentation also help inform us about the types of products that might work in the future? And if so, doesn’t this mean we should run experiments longer than recommended by your formula for $\hat{L}_a$?</p>
 
 <p><strong>A:</strong> Yes, experimentation can teach lessons that are generalizable beyond the particular product being tested. This is an advantage of high powered experimentation not included in my framework.</p>
+
+<p><strong>Q:</strong> What about <a href="/2016/02/28/four-pitfalls-of-hill-climbing/">novelty effects</a>? 
+Yup, that’s a real concern not covered by my framework. You probably want to know a somewhat long term impact of your product, which means you should probably run the experiment for longer than recommended by my framework.</p>
 
 <p><strong>Q:</strong> If some users can show up in multiple sessions, doesn’t bucketing by session violate independence assumptions?</p>
 
 <p><strong>A:</strong> Yeah, so this is tricky. For many companies, there is a distribution of user activity, where some users come for many sessions per week and other users come for only one session at most. Modeling this would make the framework significantly more complicated, so I tried to simplify things by making sessions the unit of analysis.</p>
 
-<p><strong>Q:</strong> Is there anything else on your blog related to this topic?</p>
+<p><strong>Q:</strong> Is there anything else on your blog vaguely related to this topic?</p>
 
 <p><strong>A:</strong> I’m glad you asked!</p>
 <ul>
   <li><a href="/2016/02/28/four-pitfalls-of-hill-climbing/">Four pitfalls of hill climbing</a> discusses some product-focused issues in A/B testing</li>
-  <li><a href="/2018/02/04/hyperbolic-discounting/">Hyperbolic discounting — The irrational behavior that might be rational after all</a> is about time discounting, although not in the constext of experimentation.</li>
+  <li><a href="/2018/02/04/hyperbolic-discounting/">Hyperbolic discounting — The irrational behavior that might be rational after all</a> is about time discounting, although not in the context of experimentation.</li>
 </ul>
 
 <h2 id="appendix">Appendix</h2>
@@ -301,8 +270,8 @@ Note also that a set of simulated experiment and post-experiment periods (in blu
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = 'csaid81';
-    var disqus_identifier = 'http://localhost:4000/2020/01/01/optimizing-sample-sizes-in-ab-testing-part-II/';
-    var disqus_url = 'http://localhost:4000/2020/01/01/optimizing-sample-sizes-in-ab-testing-part-II/';
+    var disqus_identifier = 'http://localhost:4000/2020/10/10/optimizing-sample-sizes-in-ab-testing-part-III/';
+    var disqus_url = 'http://localhost:4000/2020/10/10/optimizing-sample-sizes-in-ab-testing-part-III/';
 
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {
