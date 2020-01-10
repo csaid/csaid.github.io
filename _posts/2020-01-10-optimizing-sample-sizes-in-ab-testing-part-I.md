@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Optimizing sample sizes in A/B testing, Part I&#58; General summary
-description: A new way to optimize your experiment sample sizes
+description: Part I&#58; General summary
 image: /assets/2020_optimizing_sample_sizes/time_aggregated_lift_by_tau_descriptive_labels.png
 ---
 <div class="caption">

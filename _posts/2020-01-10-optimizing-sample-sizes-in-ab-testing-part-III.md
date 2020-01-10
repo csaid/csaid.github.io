@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Optimizing sample sizes in A/B testing, Part III&#58; Aggregate time-discounted lift
-description: A new way to optimize your experiment sample sizes
+description: Part III&#58; Aggregate time-discounted lift
 image: /assets/2020_optimizing_sample_sizes/discounted_lift_static.png
 ---
 <div class="caption">

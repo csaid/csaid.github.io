@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Optimizing sample sizes in A/B testing, Part II&#58; Expected lift
-description: A new way to optimize your experiment sample sizes
+description: Part II&#58; Expected lift
 image: /assets/2020_optimizing_sample_sizes/lift_matrix.png
 ---
 <div class="caption">
