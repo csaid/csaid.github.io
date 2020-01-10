@@ -4,7 +4,7 @@
  <title>The File Drawer</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2020-01-10T11:09:23-08:00</updated>
+ <updated>2020-01-10T11:15:04-08:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -14,15 +14,15 @@
  
  <entry>
    <title>Optimizing sample sizes in A/B testing, Part III&#58; Aggregate time-discounted lift</title>
-   <link href="http://localhost:4000/2020/10/10/optimizing-sample-sizes-in-ab-testing-part-III/"/>
-   <updated>2020-10-10T00:00:00-07:00</updated>
-   <id>http://localhost:4000/2020/10/10/optimizing-sample-sizes-in-ab-testing-part-III</id>
+   <link href="http://localhost:4000/2020/01/10/optimizing-sample-sizes-in-ab-testing-part-III/"/>
+   <updated>2020-01-10T00:00:00-08:00</updated>
+   <id>http://localhost:4000/2020/01/10/optimizing-sample-sizes-in-ab-testing-part-III</id>
    <content type="html">&lt;div class=&quot;caption&quot;&gt;
-This is Part III of a three part blog post on how to optimize your sample size in A/B testing. Make sure to read &lt;a href=&quot;/2020/10/10/optimizing-sample-sizes-in-ab-testing-part-I/&quot;&gt;Part I &lt;/a&gt; and &lt;a href=&quot;/2020/0/0010optimizing-sample-sizes-in-ab-testing-part-II/&quot;&gt;Part II&lt;/a&gt; if you haven't already.
+This is Part III of a three part blog post on how to optimize your sample size in A/B testing. Make sure to read &lt;a href=&quot;/2020/01/10/optimizing-sample-sizes-in-ab-testing-part-I/&quot;&gt;Part I &lt;/a&gt; and &lt;a href=&quot;/2020/01/10/optimizing-sample-sizes-in-ab-testing-part-II/&quot;&gt;Part II&lt;/a&gt; if you haven't already.
 &lt;/div&gt;
 &lt;hr /&gt;
 
-&lt;p&gt;In &lt;a href=&quot;/2020/0/0010optimizing-sample-sizes-in-ab-testing-part-II/&quot;&gt;Part II&lt;/a&gt;, we learned how before the experiment starts we can estimate $\hat{L}$, the expected post-experiment lift, a probability weighted average of outcomes.&lt;/p&gt;
+&lt;p&gt;In &lt;a href=&quot;/2020/01/10/optimizing-sample-sizes-in-ab-testing-part-II/&quot;&gt;Part II&lt;/a&gt;, we learned how before the experiment starts we can estimate $\hat{L}$, the expected post-experiment lift, a probability weighted average of outcomes.&lt;/p&gt;
 
 &lt;p&gt;In Part III, we’ll discuss how to estimate what is perhaps the most important per-unit cost of experimentation: the forfeited benefits that are lost by delayed shipment. This leads to something I think is incredibly cool: A formula for the &lt;em&gt;aggregate time-discounted post-experiment lift&lt;/em&gt; as a function of sample size. We call this quantity $\hat{L}_a$. The formula for $\hat{L}_a$ allows you to pick optimal sample sizes specific to your business circumstances. We’ll cover two examples in Python, one where you are testing a continuous variable, and one where you are testing a binary variable (as in conversion rate experiments).&lt;/p&gt;
 
@@ -30,7 +30,7 @@ This is Part III of a three part blog post on how to optimize your sample size i
 
 &lt;h2 id=&quot;a-quick-modification-from-part-i&quot;&gt;A quick modification from Part I&lt;/h2&gt;
 
-&lt;p&gt;In &lt;a href=&quot;/2020/0/0010optimizing-sample-sizes-in-ab-testing-part-II/&quot;&gt;Part II&lt;/a&gt;, we saw that if you ship whichever version (A or B) does best in the experiment, your business will on average experience a post-experiment per-user lift of&lt;/p&gt;
+&lt;p&gt;In &lt;a href=&quot;/2020/01/10/optimizing-sample-sizes-in-ab-testing-part-II/&quot;&gt;Part II&lt;/a&gt;, we saw that if you ship whichever version (A or B) does best in the experiment, your business will on average experience a post-experiment per-user lift of&lt;/p&gt;
 
 &lt;script type=&quot;math/tex; mode=display&quot;&gt;\hat{L} = \frac{\sigma_\Delta^2}{\sqrt{2\pi(\sigma_\Delta^2 + \frac{2\sigma_X^2}{n})}}&lt;/script&gt;
 
@@ -168,11 +168,11 @@ Yup, that’s a real concern not covered by my framework. You probably want to k
  
  <entry>
    <title>Optimizing sample sizes in A/B testing, Part II&#58; Expected lift</title>
-   <link href="http://localhost:4000/2020/10/10/optimizing-sample-sizes-in-ab-testing-part-II/"/>
-   <updated>2020-10-10T00:00:00-07:00</updated>
-   <id>http://localhost:4000/2020/10/10/optimizing-sample-sizes-in-ab-testing-part-II</id>
+   <link href="http://localhost:4000/2020/01/10/optimizing-sample-sizes-in-ab-testing-part-II/"/>
+   <updated>2020-01-10T00:00:00-08:00</updated>
+   <id>http://localhost:4000/2020/01/10/optimizing-sample-sizes-in-ab-testing-part-II</id>
    <content type="html">&lt;div class=&quot;caption&quot;&gt;
-This is Part II of a three-part blog post on how to optimize your sample size in A/B testing. Make sure to read &lt;a href=&quot;/2020/10/10/optimizing-sample-sizes-in-ab-testing-part-I&quot;&gt;Part I&lt;/a&gt; if you haven't already.
+This is Part II of a three-part blog post on how to optimize your sample size in A/B testing. Make sure to read &lt;a href=&quot;/2020/01/10/optimizing-sample-sizes-in-ab-testing-part-I&quot;&gt;Part I&lt;/a&gt; if you haven't already.
 &lt;/div&gt;
 &lt;hr /&gt;
 
@@ -322,7 +322,7 @@ We run these experiments thousands of times, each time computing the per-user li
 
 &lt;p&gt;and then find the sample size $ n $ that maximizes $ R $.&lt;/p&gt;
 
-&lt;p&gt;Unfortunately, these costs aren’t always readily available. The good news is that there is a really nice way to calculate the most important cost: the forfeited benefit that comes from prolonging your experiment. To read about that, and about how to optimize your sample size, please continue to &lt;a href=&quot;/2020/10/10/optimizing-sample-sizes-in-ab-testing-part-III/&quot;&gt;Part III&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Unfortunately, these costs aren’t always readily available. The good news is that there is a really nice way to calculate the most important cost: the forfeited benefit that comes from prolonging your experiment. To read about that, and about how to optimize your sample size, please continue to &lt;a href=&quot;/2020/01/10/optimizing-sample-sizes-in-ab-testing-part-III/&quot;&gt;Part III&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h2 id=&quot;appendix&quot;&gt;Appendix&lt;/h2&gt;
 &lt;p&gt;To determine $\hat{L}$, we start with the probability-weighted lifts on the right panel of Figure 5. This is a bivariate normal distribution over $ \Delta $ and $ \delta $, multiplied by $ \Delta $.&lt;/p&gt;
@@ -369,15 +369,15 @@ We run these experiments thousands of times, each time computing the per-user li
 
 &lt;script type=&quot;math/tex; mode=display&quot;&gt;\hat{L} = \frac{\sigma_\Delta^2}{\sqrt{2\pi(\sigma_\Delta^2 + \frac{2\sigma_X^2}{n})}}&lt;/script&gt;
 
-&lt;p&gt;Continue to &lt;a href=&quot;/2020/10/10/optimizing-sample-sizes-in-ab-testing-part-III/&quot;&gt;Part III&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Continue to &lt;a href=&quot;/2020/01/10/optimizing-sample-sizes-in-ab-testing-part-III/&quot;&gt;Part III&lt;/a&gt;.&lt;/p&gt;
 </content>
  </entry>
  
  <entry>
    <title>Optimizing sample sizes in A/B testing, Part I&#58; General summary</title>
-   <link href="http://localhost:4000/2020/10/10/optimizing-sample-sizes-in-ab-testing-part-I/"/>
-   <updated>2020-10-10T00:00:00-07:00</updated>
-   <id>http://localhost:4000/2020/10/10/optimizing-sample-sizes-in-ab-testing-part-I</id>
+   <link href="http://localhost:4000/2020/01/10/optimizing-sample-sizes-in-ab-testing-part-I/"/>
+   <updated>2020-01-10T00:00:00-08:00</updated>
+   <id>http://localhost:4000/2020/01/10/optimizing-sample-sizes-in-ab-testing-part-I</id>
    <content type="html">&lt;div class=&quot;caption&quot;&gt;
 A special thanks to &lt;a href=&quot;https://www.linkedin.com/in/john-mcdonnell-65833233/&quot;&gt;John McDonnell&lt;/a&gt;, who came up with the idea for this post. Thanks also to &lt;a href=&quot;https://www.linkedin.com/in/marika-inhoff-92087313a/&quot;&gt;Marika Inhoff&lt;/a&gt; and &lt;a href=&quot;https://www.linkedin.com/in/nelson-ray-b180641b/&quot;&gt;Nelson Ray&lt;/a&gt; for comments on an earlier draft.
 &lt;/div&gt;
@@ -391,9 +391,9 @@ A special thanks to &lt;a href=&quot;https://www.linkedin.com/in/john-mcdonnell-
 
 &lt;p&gt;In this three-part blog post, I’ll present a new way of determining optimal sample sizes that completely abandons the notion of statistical significance.&lt;/p&gt;
 &lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;/2020/10/10/optimizing-sample-sizes-in-ab-testing-part-I/&quot;&gt;Part I: General Overview&lt;/a&gt;. Starts with a mostly non-technical overview and ends with a section called “Three lessons for practitioners”.&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;/2020/10/10/optimizing-sample-sizes-in-ab-testing-part-II/&quot;&gt;Part II: Expected lift&lt;/a&gt;. A more technical section that quantifies the benefits of experimentation as a function of sample size.&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;/2020/10/10/optimizing-sample-sizes-in-ab-testing-part-III/&quot;&gt;Part III: Aggregate time-discounted lift&lt;/a&gt;. A more technical section that quantifies the costs of experimentation as a function of sample size. It then combines costs and benefits into a closed-form expression that can be optimized. Ends with an FAQ.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/2020/01/10/optimizing-sample-sizes-in-ab-testing-part-I/&quot;&gt;Part I: General Overview&lt;/a&gt;. Starts with a mostly non-technical overview and ends with a section called “Three lessons for practitioners”.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/2020/01/10/optimizing-sample-sizes-in-ab-testing-part-II/&quot;&gt;Part II: Expected lift&lt;/a&gt;. A more technical section that quantifies the benefits of experimentation as a function of sample size.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/2020/01/10/optimizing-sample-sizes-in-ab-testing-part-III/&quot;&gt;Part III: Aggregate time-discounted lift&lt;/a&gt;. A more technical section that quantifies the costs of experimentation as a function of sample size. It then combines costs and benefits into a closed-form expression that can be optimized. Ends with an FAQ.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;Throughout Parts I-III, the focus will be on choosing a sample size at the beginning of the experiment and committing to it, not on dynamically updating the sample size as the experiment proceeds.&lt;/p&gt;
@@ -459,7 +459,7 @@ A special thanks to &lt;a href=&quot;https://www.linkedin.com/in/john-mcdonnell-
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;upcoming-posts-and-python-notebook&quot;&gt;Upcoming posts and Python notebook&lt;/h3&gt;
-&lt;p&gt;You probably have a lot of questions about where this framework comes from and how it is justified. &lt;a href=&quot;/2020/10/10/optimizing-sample-sizes-in-ab-testing-part-II/&quot;&gt;Part II&lt;/a&gt; and &lt;a href=&quot;/2020/10/10/optimizing-sample-sizes-in-ab-testing-part-III/&quot;&gt;Part III&lt;/a&gt; dive more deeply into the math and visual intuition behind it. They also contain some example uses of the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;get_lift_via_closed_form&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;get_agg_lift_via_closed_form&lt;/code&gt; functions available in the accompanying &lt;a href=&quot;https://github.com/csaid/optimizing-sample-sizes-in-AB-testing/blob/master/Optimizing%20sample%20sizes%20in%20AB%20testing.ipynb&quot;&gt;Python Notebook&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;You probably have a lot of questions about where this framework comes from and how it is justified. &lt;a href=&quot;/2020/01/10/optimizing-sample-sizes-in-ab-testing-part-II/&quot;&gt;Part II&lt;/a&gt; and &lt;a href=&quot;/2020/01/10/optimizing-sample-sizes-in-ab-testing-part-III/&quot;&gt;Part III&lt;/a&gt; dive more deeply into the math and visual intuition behind it. They also contain some example uses of the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;get_lift_via_closed_form&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;get_agg_lift_via_closed_form&lt;/code&gt; functions available in the accompanying &lt;a href=&quot;https://github.com/csaid/optimizing-sample-sizes-in-AB-testing/blob/master/Optimizing%20sample%20sizes%20in%20AB%20testing.ipynb&quot;&gt;Python Notebook&lt;/a&gt;.&lt;/p&gt;
 </content>
  </entry>
  

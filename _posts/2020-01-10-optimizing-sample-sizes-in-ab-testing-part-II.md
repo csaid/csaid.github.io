@@ -5,7 +5,7 @@ description: A new way to optimize your experiment sample sizes
 image: /assets/2020_optimizing_sample_sizes/lift_matrix.png
 ---
 <div class="caption">
-This is Part II of a three-part blog post on how to optimize your sample size in A/B testing. Make sure to read <a href='/2020/10/10/optimizing-sample-sizes-in-ab-testing-part-I'>Part I</a> if you haven't already.
+This is Part II of a three-part blog post on how to optimize your sample size in A/B testing. Make sure to read <a href='/2020/01/10/optimizing-sample-sizes-in-ab-testing-part-I'>Part I</a> if you haven't already.
 </div>
 ---
 
@@ -143,7 +143,7 @@ $$ R = u\hat{L}  - f - vn $$
 
 and then find the sample size $ n $ that maximizes $ R $. 
 
-Unfortunately, these costs aren't always readily available. The good news is that there is a really nice way to calculate the most important cost: the forfeited benefit that comes from prolonging your experiment. To read about that, and about how to optimize your sample size, please continue to [Part III](/2020/10/10/optimizing-sample-sizes-in-ab-testing-part-III/).
+Unfortunately, these costs aren't always readily available. The good news is that there is a really nice way to calculate the most important cost: the forfeited benefit that comes from prolonging your experiment. To read about that, and about how to optimize your sample size, please continue to [Part III](/2020/01/10/optimizing-sample-sizes-in-ab-testing-part-III/).
 
 ## Appendix
 To determine $\hat{L}$, we start with the probability-weighted lifts on the right panel of Figure 5. This is a bivariate normal distribution over $ \Delta $ and $ \delta $, multiplied by $ \Delta $. 
@@ -191,4 +191,4 @@ If we then substitute in previously defined formulas for $ \rho $ and $ \sigma_c
 
 $$ \hat{L} = \frac{\sigma_\Delta^2}{\sqrt{2\pi(\sigma_\Delta^2 + \frac{2\sigma_X^2}{n})}} $$
 
-Continue to [Part III](/2020/10/10/optimizing-sample-sizes-in-ab-testing-part-III/).
+Continue to [Part III](/2020/01/10/optimizing-sample-sizes-in-ab-testing-part-III/).

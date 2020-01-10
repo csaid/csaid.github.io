@@ -16,9 +16,9 @@ The standard answer is to do a power analysis, typically aiming for 80% power at
 In most business decisions, you want to choose a policy that maximizes your benefits minus your costs. In experimentation, the benefit comes from learning information to drive future decisions, and the cost comes from the experiment itself. The optimal sample size will therefore depend on the unique circumstances of your business, not on arbitrary statistical significance thresholds.
 
 In this three-part blog post, I'll present a new way of determining optimal sample sizes that completely abandons the notion of statistical significance.
-* [Part I: General Overview](/2020/10/10/optimizing-sample-sizes-in-ab-testing-part-I/). Starts with a mostly non-technical overview and ends with a section called "Three lessons for practitioners".
-* [Part II: Expected lift](/2020/10/10/optimizing-sample-sizes-in-ab-testing-part-II/). A more technical section that quantifies the benefits of experimentation as a function of sample size.
-* [Part III: Aggregate time-discounted lift](/2020/10/10/optimizing-sample-sizes-in-ab-testing-part-III/). A more technical section that quantifies the costs of experimentation as a function of sample size. It then combines costs and benefits into a closed-form expression that can be optimized. Ends with an FAQ.
+* [Part I: General Overview](/2020/01/10/optimizing-sample-sizes-in-ab-testing-part-I/). Starts with a mostly non-technical overview and ends with a section called "Three lessons for practitioners".
+* [Part II: Expected lift](/2020/01/10/optimizing-sample-sizes-in-ab-testing-part-II/). A more technical section that quantifies the benefits of experimentation as a function of sample size.
+* [Part III: Aggregate time-discounted lift](/2020/01/10/optimizing-sample-sizes-in-ab-testing-part-III/). A more technical section that quantifies the costs of experimentation as a function of sample size. It then combines costs and benefits into a closed-form expression that can be optimized. Ends with an FAQ.
 
 Throughout Parts I-III, the focus will be on choosing a sample size at the beginning of the experiment and committing to it, not on dynamically updating the sample size as the experiment proceeds.
 
@@ -79,4 +79,4 @@ Is this true in general? Yes. Below we plot $\hat{L}_a$ as a function of duratio
 </div><br>
 
 ### Upcoming posts and Python notebook
-You probably have a lot of questions about where this framework comes from and how it is justified. [Part II](/2020/10/10/optimizing-sample-sizes-in-ab-testing-part-II/) and [Part III](/2020/10/10/optimizing-sample-sizes-in-ab-testing-part-III/) dive more deeply into the math and visual intuition behind it. They also contain some example uses of the `get_lift_via_closed_form` and `get_agg_lift_via_closed_form` functions available in the accompanying [Python Notebook](https://github.com/csaid/optimizing-sample-sizes-in-AB-testing/blob/master/Optimizing%20sample%20sizes%20in%20AB%20testing.ipynb).
+You probably have a lot of questions about where this framework comes from and how it is justified. [Part II](/2020/01/10/optimizing-sample-sizes-in-ab-testing-part-II/) and [Part III](/2020/01/10/optimizing-sample-sizes-in-ab-testing-part-III/) dive more deeply into the math and visual intuition behind it. They also contain some example uses of the `get_lift_via_closed_form` and `get_agg_lift_via_closed_form` functions available in the accompanying [Python Notebook](https://github.com/csaid/optimizing-sample-sizes-in-AB-testing/blob/master/Optimizing%20sample%20sizes%20in%20AB%20testing.ipynb).

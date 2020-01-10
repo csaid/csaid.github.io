@@ -5,11 +5,11 @@ description: A new way to optimize your experiment sample sizes
 image: /assets/2020_optimizing_sample_sizes/discounted_lift_static.png
 ---
 <div class="caption">
-This is Part III of a three part blog post on how to optimize your sample size in A/B testing. Make sure to read <a href='/2020/10/10/optimizing-sample-sizes-in-ab-testing-part-I/'>Part I </a> and <a href='/2020/0/0010optimizing-sample-sizes-in-ab-testing-part-II/'>Part II</a> if you haven't already.
+This is Part III of a three part blog post on how to optimize your sample size in A/B testing. Make sure to read <a href='/2020/01/10/optimizing-sample-sizes-in-ab-testing-part-I/'>Part I </a> and <a href='/2020/01/10/optimizing-sample-sizes-in-ab-testing-part-II/'>Part II</a> if you haven't already.
 </div>
 ---
 
-In [Part II](/2020/0/0010optimizing-sample-sizes-in-ab-testing-part-II/), we learned how before the experiment starts we can estimate $\hat{L}$, the expected post-experiment lift, a probability weighted average of outcomes. 
+In [Part II](/2020/01/10/optimizing-sample-sizes-in-ab-testing-part-II/), we learned how before the experiment starts we can estimate $\hat{L}$, the expected post-experiment lift, a probability weighted average of outcomes. 
 
 In Part III, we'll discuss how to estimate what is perhaps the most important per-unit cost of experimentation: the forfeited benefits that are lost by delayed shipment. This leads to something I think is incredibly cool: A formula for the _aggregate time-discounted post-experiment lift_ as a function of sample size. We call this quantity $\hat{L}_a$. The formula for $\hat{L}_a$ allows you to pick optimal sample sizes specific to your business circumstances. We'll cover two examples in Python, one where you are testing a continuous variable, and one where you are testing a binary variable (as in conversion rate experiments).
 
@@ -17,7 +17,7 @@ As usual, the focus will be on choosing a sample size at the beginning of the ex
 
 ## A quick modification from Part I
 
-In [Part II](/2020/0/0010optimizing-sample-sizes-in-ab-testing-part-II/), we saw that if you ship whichever version (A or B) does best in the experiment, your business will on average experience a post-experiment per-user lift of 
+In [Part II](/2020/01/10/optimizing-sample-sizes-in-ab-testing-part-II/), we saw that if you ship whichever version (A or B) does best in the experiment, your business will on average experience a post-experiment per-user lift of 
 
 $$ \hat{L} = \frac{\sigma_\Delta^2}{\sqrt{2\pi(\sigma_\Delta^2 + \frac{2\sigma_X^2}{n})}} $$
 
