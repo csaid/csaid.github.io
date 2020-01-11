@@ -4,7 +4,7 @@
  <title>The File Drawer</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2020-01-10T11:57:50-08:00</updated>
+ <updated>2020-01-11T10:17:08-08:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -36,7 +36,7 @@ This is Part III of a three part blog post on how to optimize your sample size i
 
 &lt;p&gt;where $\sigma_\Delta^2$ is the variance on your normally distributed zero-mean prior for $\mu_B - \mu_A$, $\sigma_X^2$ is the within-group variance, and $n$ is the per-bucket sample size.&lt;/p&gt;
 
-&lt;p&gt;Because Part III is primarily concerned with the the duration of the experiment, we’re going to modify the formula to be time-dependent. As a simplifying assumption we’re going to make &lt;em&gt;sessions&lt;/em&gt;, rather then &lt;em&gt;users&lt;/em&gt;, the unit of analysis. We’ll also assume that you have a constant number of sessions per day. This changes the definition of $\hat{L}$ to a &lt;em&gt;post-experiment per-session lift&lt;/em&gt;, and the formula becomes&lt;/p&gt;
+&lt;p&gt;Because Part III is primarily concerned with the duration of the experiment, we’re going to modify the formula to be time-dependent. As a simplifying assumption we’re going to make &lt;em&gt;sessions&lt;/em&gt;, rather then &lt;em&gt;users&lt;/em&gt;, the unit of analysis. We’ll also assume that you have a constant number of sessions per day. This changes the definition of $\hat{L}$ to a &lt;em&gt;post-experiment per-session lift&lt;/em&gt;, and the formula becomes&lt;/p&gt;
 
 &lt;script type=&quot;math/tex; mode=display&quot;&gt;\hat{L} = \frac{\sigma_\Delta^2}{\sqrt{2\pi(\sigma_\Delta^2 + \frac{2\sigma_X^2}{m\tau})}}&lt;/script&gt;
 
@@ -213,7 +213,7 @@ This is Part II of a three-part blog post on how to optimize your sample size in
 &lt;/div&gt;
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;To gain some more intuiton about this, take a look at Figure 3. As sample size increases, $ \sigma^2_c $ decreases.&lt;/p&gt;
+&lt;p&gt;To gain some more intuition about this, take a look at Figure 3. As sample size increases, $ \sigma^2_c $ decreases.&lt;/p&gt;
 
 &lt;div class=&quot;wrapper&quot;&gt;
   &lt;img src=&quot;/assets/2020_optimizing_sample_sizes/three_bivariate_normals.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:100%;&quot; /&gt;
@@ -401,7 +401,7 @@ A special thanks to &lt;a href=&quot;https://www.linkedin.com/in/john-mcdonnell-
 &lt;p&gt;With that out of the way, let’s get started!&lt;/p&gt;
 
 &lt;h3 id=&quot;benefits-of-large-samples&quot;&gt;Benefits of large samples&lt;/h3&gt;
-&lt;p&gt;The bigger your sample size, the more likely it is that you’ll ship the right bucket. Since there is a gain to shipping the right bucket and a loss to shipping the wrong bucket, the overall net benefit of the experiment is a probability-weighted average of these outcomes. We call this the &lt;em&gt;expected post-experiment lift&lt;/em&gt;, $\hat{L}$, which we cover in more detail in Part II.&lt;/p&gt;
+&lt;p&gt;The bigger your sample size, the more likely it is that you’ll ship the right bucket. Since there is a gain to shipping the right bucket and a loss to shipping the wrong bucket, the averages benefit of the experiment is a probability-weighted average of these outcomes. We call this the &lt;em&gt;expected post-experiment lift&lt;/em&gt;, $\hat{L}$, which we cover in more detail in Part II.&lt;/p&gt;
 
 &lt;h3 id=&quot;costs-of-large-samples&quot;&gt;Costs of large samples&lt;/h3&gt;
 &lt;p&gt;For most businesses, increasing your sample size requires you to run your experiment longer. This brings us to the main per-unit cost of experimentation: the forfeited benefits that could come from shipping the winning bucket earlier. In a fast moving startup, there’s often good reason to accrue your wins as soon as possible. The advantage of shipping earlier can be quantified with a &lt;em&gt;discount rate&lt;/em&gt;, which describes how much you value the near future over the distant future. If you have a high discount rate, it’s critical to ship as soon as possible. If you have a low discount rate, you can afford to wait longer. This is described in more detail in Part III.&lt;/p&gt;
@@ -544,7 +544,7 @@ where each $ X_i $ has variance $ \sigma_i^2 $.
 
 &lt;div class=&quot;wrapper&quot;&gt;
   &lt;img src=&quot;/assets/2019_variance/stacked_boxes.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:50%;&quot; /&gt;
-  &lt;div class=&quot;caption&quot;&gt;&lt;strong&gt;Figure 2&lt;/strong&gt;: Two boxes stacked on top of each other. The height of each box is measured with some variance (uncertainty). The total height is the the sum of the individual heights, and the total variance (uncertainty) is the sum of the individual variances.
+  &lt;div class=&quot;caption&quot;&gt;&lt;strong&gt;Figure 2&lt;/strong&gt;: Two boxes stacked on top of each other. The height of each box is measured with some variance (uncertainty). The total height is the sum of the individual heights, and the total variance (uncertainty) is the sum of the individual variances.
   &lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;

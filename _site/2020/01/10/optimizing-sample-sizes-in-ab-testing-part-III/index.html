@@ -127,7 +127,7 @@ This is Part III of a three part blog post on how to optimize your sample size i
 
 <p>where $\sigma_\Delta^2$ is the variance on your normally distributed zero-mean prior for $\mu_B - \mu_A$, $\sigma_X^2$ is the within-group variance, and $n$ is the per-bucket sample size.</p>
 
-<p>Because Part III is primarily concerned with the the duration of the experiment, we’re going to modify the formula to be time-dependent. As a simplifying assumption we’re going to make <em>sessions</em>, rather then <em>users</em>, the unit of analysis. We’ll also assume that you have a constant number of sessions per day. This changes the definition of $\hat{L}$ to a <em>post-experiment per-session lift</em>, and the formula becomes</p>
+<p>Because Part III is primarily concerned with the duration of the experiment, we’re going to modify the formula to be time-dependent. As a simplifying assumption we’re going to make <em>sessions</em>, rather then <em>users</em>, the unit of analysis. We’ll also assume that you have a constant number of sessions per day. This changes the definition of $\hat{L}$ to a <em>post-experiment per-session lift</em>, and the formula becomes</p>
 
 <script type="math/tex; mode=display">\hat{L} = \frac{\sigma_\Delta^2}{\sqrt{2\pi(\sigma_\Delta^2 + \frac{2\sigma_X^2}{m\tau})}}</script>
 

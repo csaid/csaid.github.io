@@ -133,7 +133,7 @@ This is Part III of a three part blog post on how to optimize your sample size i
 
 <p>where $\sigma_\Delta^2$ is the variance on your normally distributed zero-mean prior for $\mu_B - \mu_A$, $\sigma_X^2$ is the within-group variance, and $n$ is the per-bucket sample size.</p>
 
-<p>Because Part III is primarily concerned with the the duration of the experiment, we’re going to modify the formula to be time-dependent. As a simplifying assumption we’re going to make <em>sessions</em>, rather then <em>users</em>, the unit of analysis. We’ll also assume that you have a constant number of sessions per day. This changes the definition of $\hat{L}$ to a <em>post-experiment per-session lift</em>, and the formula becomes</p>
+<p>Because Part III is primarily concerned with the duration of the experiment, we’re going to modify the formula to be time-dependent. As a simplifying assumption we’re going to make <em>sessions</em>, rather then <em>users</em>, the unit of analysis. We’ll also assume that you have a constant number of sessions per day. This changes the definition of $\hat{L}$ to a <em>post-experiment per-session lift</em>, and the formula becomes</p>
 
 <script type="math/tex; mode=display">\hat{L} = \frac{\sigma_\Delta^2}{\sqrt{2\pi(\sigma_\Delta^2 + \frac{2\sigma_X^2}{m\tau})}}</script>
 
@@ -331,7 +331,7 @@ This is Part II of a three-part blog post on how to optimize your sample size in
 </div>
 <p><br /></p>
 
-<p>To gain some more intuiton about this, take a look at Figure 3. As sample size increases, $ \sigma^2_c $ decreases.</p>
+<p>To gain some more intuition about this, take a look at Figure 3. As sample size increases, $ \sigma^2_c $ decreases.</p>
 
 <div class="wrapper">
   <img src="/assets/2020_optimizing_sample_sizes/three_bivariate_normals.png" class="inner" style="position:relative border: #222 2px solid; max-width:100%;" />
@@ -540,7 +540,7 @@ A special thanks to <a href="https://www.linkedin.com/in/john-mcdonnell-65833233
 <p>With that out of the way, let’s get started!</p>
 
 <h3 id="benefits-of-large-samples">Benefits of large samples</h3>
-<p>The bigger your sample size, the more likely it is that you’ll ship the right bucket. Since there is a gain to shipping the right bucket and a loss to shipping the wrong bucket, the overall net benefit of the experiment is a probability-weighted average of these outcomes. We call this the <em>expected post-experiment lift</em>, $\hat{L}$, which we cover in more detail in Part II.</p>
+<p>The bigger your sample size, the more likely it is that you’ll ship the right bucket. Since there is a gain to shipping the right bucket and a loss to shipping the wrong bucket, the averages benefit of the experiment is a probability-weighted average of these outcomes. We call this the <em>expected post-experiment lift</em>, $\hat{L}$, which we cover in more detail in Part II.</p>
 
 <h3 id="costs-of-large-samples">Costs of large samples</h3>
 <p>For most businesses, increasing your sample size requires you to run your experiment longer. This brings us to the main per-unit cost of experimentation: the forfeited benefits that could come from shipping the winning bucket earlier. In a fast moving startup, there’s often good reason to accrue your wins as soon as possible. The advantage of shipping earlier can be quantified with a <em>discount rate</em>, which describes how much you value the near future over the distant future. If you have a high discount rate, it’s critical to ship as soon as possible. If you have a low discount rate, you can afford to wait longer. This is described in more detail in Part III.</p>
@@ -704,7 +704,7 @@ where each $ X_i $ has variance $ \sigma_i^2 $.
 
 <div class="wrapper">
   <img src="/assets/2019_variance/stacked_boxes.png" class="inner" style="position:relative border: #222 2px solid; max-width:50%;" />
-  <div class="caption"><strong>Figure 2</strong>: Two boxes stacked on top of each other. The height of each box is measured with some variance (uncertainty). The total height is the the sum of the individual heights, and the total variance (uncertainty) is the sum of the individual variances.
+  <div class="caption"><strong>Figure 2</strong>: Two boxes stacked on top of each other. The height of each box is measured with some variance (uncertainty). The total height is the sum of the individual heights, and the total variance (uncertainty) is the sum of the individual variances.
   </div>
 </div>
 <p><br /></p>

@@ -44,7 +44,7 @@ Collectively, this all forms a bivariate normal distribution of outcomes, shown 
   </div>
 </div><br>
 
-To gain some more intuiton about this, take a look at Figure 3. As sample size increases, $ \sigma^2_c $ decreases.
+To gain some more intuition about this, take a look at Figure 3. As sample size increases, $ \sigma^2_c $ decreases.
 
 <div class="wrapper">
   <img src='/assets/2020_optimizing_sample_sizes/three_bivariate_normals.png' class="inner" style="position:relative border: #222 2px solid; max-width:100%;" >

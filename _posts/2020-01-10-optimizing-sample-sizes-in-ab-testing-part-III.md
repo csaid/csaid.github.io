@@ -23,7 +23,7 @@ $$ \hat{L} = \frac{\sigma_\Delta^2}{\sqrt{2\pi(\sigma_\Delta^2 + \frac{2\sigma_X
 
 where $\sigma_\Delta^2$ is the variance on your normally distributed zero-mean prior for $\mu_B - \mu_A$, $\sigma_X^2$ is the within-group variance, and $n$ is the per-bucket sample size.
 
-Because Part III is primarily concerned with the the duration of the experiment, we're going to modify the formula to be time-dependent. As a simplifying assumption we’re going to make *sessions*, rather then *users*, the unit of analysis. We’ll also assume that you have a constant number of sessions per day. This changes the definition of $\hat{L}$ to a _post-experiment per-session lift_, and the formula becomes 
+Because Part III is primarily concerned with the duration of the experiment, we're going to modify the formula to be time-dependent. As a simplifying assumption we’re going to make *sessions*, rather then *users*, the unit of analysis. We’ll also assume that you have a constant number of sessions per day. This changes the definition of $\hat{L}$ to a _post-experiment per-session lift_, and the formula becomes 
 
 $$ \hat{L} = \frac{\sigma_\Delta^2}{\sqrt{2\pi(\sigma_\Delta^2 + \frac{2\sigma_X^2}{m\tau})}} $$
 

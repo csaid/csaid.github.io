@@ -79,7 +79,7 @@ For example, imagine you are trying to estimate the height of two boxes stacked 
 
 <div class="wrapper">
   <img src='/assets/2019_variance/stacked_boxes.png' class="inner" style="position:relative border: #222 2px solid; max-width:50%;" >
-  <div class="caption"><strong>Figure 2</strong>: Two boxes stacked on top of each other. The height of each box is measured with some variance (uncertainty). The total height is the the sum of the individual heights, and the total variance (uncertainty) is the sum of the individual variances.
+  <div class="caption"><strong>Figure 2</strong>: Two boxes stacked on top of each other. The height of each box is measured with some variance (uncertainty). The total height is the sum of the individual heights, and the total variance (uncertainty) is the sum of the individual variances.
   </div>
 </div><br>
 
