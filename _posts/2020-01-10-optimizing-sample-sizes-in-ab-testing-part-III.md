@@ -15,7 +15,7 @@ In Part III, we'll discuss how to estimate what is perhaps the most important pe
 
 As usual, the focus will be on choosing a sample size at the beginning of the experiment and committing to it, not on dynamically updating the sample size as the experiment proceeds.
 
-## A quick modification from Part I
+## A quick modification from Part II
 
 In [Part II](/2020/01/10/optimizing-sample-sizes-in-ab-testing-part-II/), we saw that if you ship whichever version (A or B) does best in the experiment, your business will on average experience a post-experiment per-user lift of 
 
