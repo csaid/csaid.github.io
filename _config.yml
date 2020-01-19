@@ -9,7 +9,7 @@ permalink:        pretty
 # Setup
 title:            The File Drawer
 tagline:          'A blog by Chris Said'
-description:      'My name is Chris Said and I am a data scientist (starting at Stitch Fix in January 2020). This blog is mostly about tech, stats, and science.'
+description:      'My name is Chris Said and I am a data scientist at Stitch Fix. This blog is mostly about tech, stats, and science.'
 url:              https://chris-said.io
 baseurl:          /
 
