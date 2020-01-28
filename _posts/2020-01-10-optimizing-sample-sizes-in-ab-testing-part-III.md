@@ -77,7 +77,7 @@ where $ \tau $ is the duration of the experiment and $M$ is the number of post-e
 
 There's two things to note about this formula.
 1. Increasing the number of bucketed sessions per day, $m$, always increases $\hat{L}_a$.
-2. Increasing the duration of the experiment, $\tau$, may or may not help. It's impact is controlled by competing forces in the numerator and denominator. In the numerator, higher $\tau$ decreases $\hat{L}_a$ by delaying shipment. In the denominator, higher $\tau$ increases $\hat{L}_a$ by making it more likely you will ship the superior version. 
+2. Increasing the duration of the experiment, $\tau$, may or may not help. Its impact is controlled by competing forces in the numerator and denominator. In the numerator, higher $\tau$ decreases $\hat{L}_a$ by delaying shipment. In the denominator, higher $\tau$ increases $\hat{L}_a$ by making it more likely you will ship the superior version. 
 
 ## Optimizing sample size
 
@@ -122,7 +122,8 @@ You can also use the `find_optimal_tau` function to determine the optimal durati
 **A:** Yes, experimentation can teach lessons that are generalizable beyond the particular product being tested. This is an advantage of high powered experimentation not included in my framework.
 
 **Q:** What about [novelty effects](/2016/02/28/four-pitfalls-of-hill-climbing/)? 
-Yup, that's a real concern not covered by my framework. You probably want to know a somewhat long term impact of your product, which means you should probably run the experiment for longer than recommended by my framework.
+
+**A:** Yup, that's a real concern not covered by my framework. You probably want to know a somewhat long term impact of your product, which means you should probably run the experiment for longer than recommended by my framework.
 
 **Q:** If some users can show up in multiple sessions, doesn't bucketing by session violate independence assumptions?
 
