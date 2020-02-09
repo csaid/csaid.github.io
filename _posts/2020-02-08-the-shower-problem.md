@@ -27,7 +27,7 @@ Let’s make this more explicit.
 
 <div class="wrapper">
   <img src='/assets/2020_shower_problem/distributions.gif' class="inner" style="position:relative border: #222 2px solid; max-width:100%;" >
-  <div class="caption"><strong>Figure 1.</strong> Unbeknownst to the user, the hot water direction is to the right, with a time constant τ of 60 seconds. The user knows the probability distribution over τ, and follows a strategy of eliminating segments of that distribution. They initially guess the incorrect left direction. They spend 40 seconds on that direction and eliminate that segment of the distribution. They then switch to the right direction, waiting 60 seconds until the hot water arrives.
+  <div class="caption"><strong>Figure 1.</strong> Unbeknownst to the user, the hot water direction is to the left, with a time constant τ of 100 seconds. The user knows the probability distribution over τ, and follows a strategy of eliminating segments of that distribution. They initially guess the correct direction, but give up too soon at 75 seconds. They they spend another 75 seconds on the right direction. Finally, they return to the left direction, passing through the 75 seconds they had already eliminated, and then finally getting the hot water after 100 seconds on the left direction. In all, it takes the user 250 seconds to find the hot water.
   </div>
 </div><br>
 
@@ -35,7 +35,8 @@ I don’t know how to solve this problem. But as a starting point I realize it�
 
 But how do you turn that into a policy for exploring the space? Does anybody know?
 
-If you would like to submit a proposal, please report your average duration for the sample of 20,000 $$ \tau $$'s provided [here](https://gist.github.com/csaid/a57c4ebaa1c7b0671cdc9692638ea4c4).
+### Submissions
+If you would like to submit a proposal, please report your average duration for the sample of 20,000 $$ \tau $$'s provided [here](https://gist.github.com/csaid/a57c4ebaa1c7b0671cdc9692638ea4c4). Currently, [Cameron Davidson-Pilon](https://twitter.com/Cmrn_DP) is in the lead with an average duration of [111.365 seconds](https://gist.github.com/CamDavidsonPilon/be1333d348865fbf1ab13c409e849ee2).
 
 ### Bonus problem: Plumbing realities and the elusive “Middle Solution”
 The baseline shower problem assumes a simplified version of reality, where the shower is memoryless and there is only a single pipe. If you want a harder problem, I have written a comment below that describes some of the plumbing realities, including lag and the existence of separate hot and cold pipes. The comment explores the tantalizing possibility that we’ve all been fiddling with our showers completely wrong this whole time. Instead of swinging the knob between one extreme and the other, what if the optimal solution is to start by putting the knob in the middle? To read more, see the comment below.

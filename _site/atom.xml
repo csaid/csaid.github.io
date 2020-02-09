@@ -4,7 +4,7 @@
  <title>The File Drawer</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2020-02-09T09:23:33-08:00</updated>
+ <updated>2020-02-09T12:48:19-08:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -41,7 +41,7 @@
 
 &lt;div class=&quot;wrapper&quot;&gt;
   &lt;img src=&quot;/assets/2020_shower_problem/distributions.gif&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:100%;&quot; /&gt;
-  &lt;div class=&quot;caption&quot;&gt;&lt;strong&gt;Figure 1.&lt;/strong&gt; Unbeknownst to the user, the hot water direction is to the right, with a time constant τ of 60 seconds. The user knows the probability distribution over τ, and follows a strategy of eliminating segments of that distribution. They initially guess the incorrect left direction. They spend 40 seconds on that direction and eliminate that segment of the distribution. They then switch to the right direction, waiting 60 seconds until the hot water arrives.
+  &lt;div class=&quot;caption&quot;&gt;&lt;strong&gt;Figure 1.&lt;/strong&gt; Unbeknownst to the user, the hot water direction is to the left, with a time constant τ of 100 seconds. The user knows the probability distribution over τ, and follows a strategy of eliminating segments of that distribution. They initially guess the correct direction, but give up too soon at 75 seconds. They they spend another 75 seconds on the right direction. Finally, they return to the left direction, passing through the 75 seconds they had already eliminated, and then finally getting the hot water after 100 seconds on the left direction. In all, it takes the user 250 seconds to find the hot water.
   &lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
@@ -50,7 +50,8 @@
 
 &lt;p&gt;But how do you turn that into a policy for exploring the space? Does anybody know?&lt;/p&gt;
 
-&lt;p&gt;If you would like to submit a proposal, please report your average duration for the sample of 20,000 &lt;script type=&quot;math/tex&quot;&gt;\tau&lt;/script&gt;’s provided &lt;a href=&quot;https://gist.github.com/csaid/a57c4ebaa1c7b0671cdc9692638ea4c4&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&quot;submissions&quot;&gt;Submissions&lt;/h3&gt;
+&lt;p&gt;If you would like to submit a proposal, please report your average duration for the sample of 20,000 &lt;script type=&quot;math/tex&quot;&gt;\tau&lt;/script&gt;’s provided &lt;a href=&quot;https://gist.github.com/csaid/a57c4ebaa1c7b0671cdc9692638ea4c4&quot;&gt;here&lt;/a&gt;. Currently, &lt;a href=&quot;https://twitter.com/Cmrn_DP&quot;&gt;Cameron Davidson-Pilon&lt;/a&gt; is in the lead with an average duration of &lt;a href=&quot;https://gist.github.com/CamDavidsonPilon/be1333d348865fbf1ab13c409e849ee2&quot;&gt;111.365 seconds&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h3 id=&quot;bonus-problem-plumbing-realities-and-the-elusive-middle-solution&quot;&gt;Bonus problem: Plumbing realities and the elusive “Middle Solution”&lt;/h3&gt;
 &lt;p&gt;The baseline shower problem assumes a simplified version of reality, where the shower is memoryless and there is only a single pipe. If you want a harder problem, I have written a comment below that describes some of the plumbing realities, including lag and the existence of separate hot and cold pipes. The comment explores the tantalizing possibility that we’ve all been fiddling with our showers completely wrong this whole time. Instead of swinging the knob between one extreme and the other, what if the optimal solution is to start by putting the knob in the middle? To read more, see the comment below.&lt;/p&gt;
