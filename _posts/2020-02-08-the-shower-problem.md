@@ -35,5 +35,7 @@ I don’t know how to solve this problem. But as a starting point I realize it�
 
 But how do you turn that into a policy for exploring the space? Does anybody know?
 
+If you would like to submit a proposal, please report your average duration for the sample of 20,000 $$ \tau $$'s provided [here](https://gist.github.com/csaid/a57c4ebaa1c7b0671cdc9692638ea4c4).
+
 ### Bonus problem: Plumbing realities and the elusive “Middle Solution”
 The baseline shower problem assumes a simplified version of reality, where the shower is memoryless and there is only a single pipe. If you want a harder problem, I have written a comment below that describes some of the plumbing realities, including lag and the existence of separate hot and cold pipes. The comment explores the tantalizing possibility that we’ve all been fiddling with our showers completely wrong this whole time. Instead of swinging the knob between one extreme and the other, what if the optimal solution is to start by putting the knob in the middle? To read more, see the comment below.
