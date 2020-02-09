@@ -4,13 +4,56 @@
  <title>The File Drawer</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2020-01-18T17:28:17-08:00</updated>
+ <updated>2020-02-08T16:50:42-08:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
    <email></email>
  </author>
 
+ 
+ <entry>
+   <title>The shower problem</title>
+   <link href="http://localhost:4000/2020/02/08/the-shower-problem/"/>
+   <updated>2020-02-08T00:00:00-08:00</updated>
+   <id>http://localhost:4000/2020/02/08/the-shower-problem</id>
+   <content type="html">&lt;p&gt;&lt;em&gt;Attention mathematicians and computer scientists:&lt;/em&gt; I’ve got a problem for you, and I don’t know the solution.&lt;/p&gt;
+
+&lt;p&gt;Here’s the setup: You’re at your friend’s place and you need to take a shower. The shower knob is unlabeled. One direction is hot and the other direction is cold, and you don’t know which is which.&lt;/p&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;img src=&quot;/assets/2020_shower_problem/shower_knob.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:40%;&quot; /&gt;
+&lt;/div&gt;
+
+&lt;p&gt;You turn it to the left. It’s cold. You wait.&lt;/p&gt;
+
+&lt;p&gt;At what point do you switch over to the right?&lt;/p&gt;
+
+&lt;h3 id=&quot;the-baseline-shower-problem&quot;&gt;The baseline shower problem&lt;/h3&gt;
+&lt;p&gt;Let’s make this more explicit.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Your goal is to find a policy that minimizes the expected amount of time it takes to get hot water flowing out of the shower head. To simplify things, assume that the water coming out of the head is either hot or cold, and that the lukewarm transition time is effectively zero.&lt;/li&gt;
+  &lt;li&gt;You know that the shower has a Time-To-Hot constant called &lt;script type=&quot;math/tex&quot;&gt;\tau&lt;/script&gt;. This value is defined as the time it takes for hot water to arrive, assuming you have turned the knob to the hot direction and keep it there.&lt;/li&gt;
+  &lt;li&gt;The &lt;script type=&quot;math/tex&quot;&gt;\tau&lt;/script&gt; constant is a fixed property of the shower and is sampled once from a known distribution. You have certain knowledge of the distribution, but you don’t know &lt;script type=&quot;math/tex&quot;&gt;\tau&lt;/script&gt;.&lt;/li&gt;
+  &lt;li&gt;The shower is memoryless, such that every time you turn the knob to the hot direction, it will take &lt;script type=&quot;math/tex&quot;&gt;\tau&lt;/script&gt; seconds until the hot water arrives, regardless of your prior actions. Every time you turn it to the cold direction, only cold water will come out.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;img src=&quot;/assets/2020_shower_problem/distributions.gif&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:100%;&quot; /&gt;
+  &lt;div class=&quot;caption&quot;&gt;&lt;strong&gt;Figure 1.&lt;/strong&gt; Unbeknownst to the user, the hot water direction is to the right, with a time constant τ of 60 seconds. The user knows the probability distribution over τ, and follows a strategy of eliminating segments of that distribution. They initially guess the incorrect left direction. They spend 40 seconds on that direction and eliminate that segment of the distribution. They then switch to the right direction, waiting 60 seconds until the hot water arrives.
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;I don’t know how to solve this problem. But as a starting point I realize it’s possible to keep track of the probability that the hot direction is to the left or to the right. In the animation above, the probability that the hot direction is to the right is just the unexplored white area under the right curve, divided by the total unexplored white area of both curves.&lt;/p&gt;
+
+&lt;p&gt;But how do you turn that into a policy for exploring the space? Does anybody know?&lt;/p&gt;
+
+&lt;h3 id=&quot;bonus-problem-plumbing-realities-and-the-elusive-middle-solution&quot;&gt;Bonus problem: Plumbing realities and the elusive “Middle Solution”&lt;/h3&gt;
+&lt;p&gt;The baseline shower problem assumes a simplified version of reality, where the shower is memoryless and there is only a single pipe. If you want a harder problem, I have written a comment below that describes some of the plumbing realities, including lag and the existence of separate hot and cold pipes. The comment explores the tantalizing possibility that we’ve all been fiddling with our showers completely wrong this whole time. Instead of swinging the knob between one extreme and the other, what if the optimal solution is to start by putting the knob in the middle? To read more, see the comment below.&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Optimizing sample sizes in A/B testing, Part III&#58; Aggregate time-discounted expected lift</title>
@@ -93,7 +136,7 @@ This is Part III of a three part blog post on how to optimize your sample size i
 &lt;p&gt;There’s two things to note about this formula.&lt;/p&gt;
 &lt;ol&gt;
   &lt;li&gt;Increasing the number of bucketed sessions per day, $m$, always increases $\hat{L}_a$.&lt;/li&gt;
-  &lt;li&gt;Increasing the duration of the experiment, $\tau$, may or may not help. It’s impact is controlled by competing forces in the numerator and denominator. In the numerator, higher $\tau$ decreases $\hat{L}_a$ by delaying shipment. In the denominator, higher $\tau$ increases $\hat{L}_a$ by making it more likely you will ship the superior version.&lt;/li&gt;
+  &lt;li&gt;Increasing the duration of the experiment, $\tau$, may or may not help. Its impact is controlled by competing forces in the numerator and denominator. In the numerator, higher $\tau$ decreases $\hat{L}_a$ by delaying shipment. In the denominator, higher $\tau$ increases $\hat{L}_a$ by making it more likely you will ship the superior version.&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;h2 id=&quot;optimizing-sample-size&quot;&gt;Optimizing sample size&lt;/h2&gt;
@@ -136,8 +179,9 @@ Note also that a set of simulated experiment and post-experiment periods (in blu
 
 &lt;p&gt;&lt;strong&gt;A:&lt;/strong&gt; Yes, experimentation can teach lessons that are generalizable beyond the particular product being tested. This is an advantage of high powered experimentation not included in my framework.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Q:&lt;/strong&gt; What about &lt;a href=&quot;/2016/02/28/four-pitfalls-of-hill-climbing/&quot;&gt;novelty effects&lt;/a&gt;? 
-Yup, that’s a real concern not covered by my framework. You probably want to know a somewhat long term impact of your product, which means you should probably run the experiment for longer than recommended by my framework.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Q:&lt;/strong&gt; What about &lt;a href=&quot;/2016/02/28/four-pitfalls-of-hill-climbing/&quot;&gt;novelty effects&lt;/a&gt;?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;A:&lt;/strong&gt; Yup, that’s a real concern not covered by my framework. You probably want to know a somewhat long term impact of your product, which means you should probably run the experiment for longer than recommended by my framework.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Q:&lt;/strong&gt; If some users can show up in multiple sessions, doesn’t bucketing by session violate independence assumptions?&lt;/p&gt;
 

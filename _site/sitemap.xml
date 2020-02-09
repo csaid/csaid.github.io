@@ -3,6 +3,21 @@
   
     
     <url>
+      <loc>http://localhost:4000/2020/02/08/the-shower-problem/</loc>
+      
+        <lastmod>2020-02-08T00:00:00-08:00</lastmod>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.5</priority>
+      
+    </url>
+    
+  
+    
+    <url>
       <loc>http://localhost:4000/2020/01/10/optimizing-sample-sizes-in-ab-testing-part-III/</loc>
       
         <lastmod>2020-01-10T00:00:00-08:00</lastmod>
@@ -580,7 +595,7 @@
     <url>
       <loc>http://localhost:4000404.html</loc>
       
-        <lastmod>2020-01-18T17:28:17-08:00</lastmod>
+        <lastmod>2020-02-08T16:50:42-08:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -608,7 +623,7 @@
     <url>
       <loc>http://localhost:4000</loc>
       
-        <lastmod>2020-01-18T17:28:17-08:00</lastmod>
+        <lastmod>2020-02-08T16:50:42-08:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -636,7 +651,7 @@
     <url>
       <loc>http://localhost:4000</loc>
       
-        <lastmod>2020-01-18T17:28:17-08:00</lastmod>
+        <lastmod>2020-02-08T16:50:42-08:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -654,7 +669,7 @@
     <url>
       <loc>http://localhost:4000</loc>
       
-        <lastmod>2020-01-18T17:28:17-08:00</lastmod>
+        <lastmod>2020-02-08T16:50:42-08:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -672,7 +687,7 @@
     <url>
       <loc>http://localhost:4000</loc>
       
-        <lastmod>2020-01-18T17:28:17-08:00</lastmod>
+        <lastmod>2020-02-08T16:50:42-08:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -690,7 +705,7 @@
     <url>
       <loc>http://localhost:4000</loc>
       
-        <lastmod>2020-01-18T17:28:17-08:00</lastmod>
+        <lastmod>2020-02-08T16:50:42-08:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -708,7 +723,7 @@
     <url>
       <loc>http://localhost:4000</loc>
       
-        <lastmod>2020-01-18T17:28:17-08:00</lastmod>
+        <lastmod>2020-02-08T16:50:42-08:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -726,7 +741,7 @@
     <url>
       <loc>http://localhost:4000</loc>
       
-        <lastmod>2020-01-18T17:28:17-08:00</lastmod>
+        <lastmod>2020-02-08T16:50:42-08:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -744,7 +759,7 @@
     <url>
       <loc>http://localhost:4000</loc>
       
-        <lastmod>2020-01-18T17:28:17-08:00</lastmod>
+        <lastmod>2020-02-08T16:50:42-08:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -1244,6 +1259,19 @@
           <loc>http://localhost:4000/2020/01/10/optimizing-sample-sizes-in-ab-testing-part-III/</loc>
           
             <lastmod>2020-01-10T00:00:00-08:00</lastmod>
+          
+          
+            <changefreq>monthly</changefreq>
+          
+          
+            <priority>0.3</priority>
+          
+        </url>
+      
+        <url>
+          <loc>http://localhost:4000/2020/02/08/the-shower-problem/</loc>
+          
+            <lastmod>2020-02-08T00:00:00-08:00</lastmod>
           
           
             <changefreq>monthly</changefreq>
