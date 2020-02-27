@@ -27,7 +27,7 @@ Let’s make this more explicit.
 
 <div class="wrapper">
   <img src='/assets/2020_shower_problem/distributions.gif' class="inner" style="position:relative border: #222 2px solid; max-width:100%;" >
-  <div class="caption"><strong>Figure 1.</strong> Unbeknownst to the user, the hot water direction is to the left, with a time constant τ of 100 seconds. The user knows the probability distribution over τ, and follows a strategy of eliminating segments of that distribution. They initially guess the correct direction, but give up too soon at 75 seconds. They they spend another 75 seconds on the rightwards direction. Finally, they return to the left direction, passing through the 75 seconds they had already eliminated, and then finally getting the hot water after 100 seconds on the left direction. In all, it takes the user 250 seconds to find the hot water.
+  <div class="caption"><strong>Figure 1.</strong> Unbeknownst to the user, the hot water direction is to the left, with a time constant τ of 100 seconds. The user knows the probability distribution over τ, and follows a strategy of eliminating segments of that distribution. They initially guess the correct direction, but give up too soon at 75 seconds. They then spend another 75 seconds on the rightwards direction. Finally, they return to the left direction, passing through the 75 seconds they had already eliminated, and then finally getting the hot water after 100 seconds on the left direction. In all, it takes the user 250 seconds to find the hot water.
   </div>
 </div><br>
 
