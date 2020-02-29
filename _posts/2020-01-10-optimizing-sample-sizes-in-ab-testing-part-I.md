@@ -25,7 +25,7 @@ Throughout Parts I-III, the focus will be on choosing a sample size at the begin
 With that out of the way, let’s get started!
 
 ### Benefits of large samples
-The bigger your sample size, the more likely it is that you'll ship the right bucket. Since there is a gain to shipping the right bucket and a loss to shipping the wrong bucket, the averages benefit of the experiment is a probability-weighted average of these outcomes. We call this the _expected post-experiment lift_, $\hat{L}$, which we cover in more detail in Part II.
+The bigger your sample size, the more likely it is that you'll ship the right bucket. Since there is a gain to shipping the right bucket and a loss to shipping the wrong bucket, the average benefit of the experiment is a probability-weighted average of these outcomes. We call this the _expected post-experiment lift_, $\hat{L}$, which increases with sample size. We'll cover this in more detail in Part II.
 
 ### Costs of large samples
 For most businesses, increasing your sample size requires you to run your experiment longer. This brings us to the main per-unit cost of experimentation: the forfeited benefits that could come from shipping the winning bucket earlier. In a fast moving startup, there's often good reason to accrue your wins as soon as possible. The advantage of shipping earlier can be quantified with a _discount rate_, which describes how much you value the near future over the distant future. If you have a high discount rate, it's critical to ship as soon as possible. If you have a low discount rate, you can afford to wait longer. This is described in more detail in Part III.
