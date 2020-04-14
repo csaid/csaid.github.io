@@ -4,13 +4,81 @@
  <title>The File Drawer</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2020-02-09T19:45:41-08:00</updated>
+ <updated>2020-04-14T16:15:36-07:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
    <email></email>
  </author>
 
+ 
+ <entry>
+   <title>Fragmented data pipelines&#58; A giant source of covid confusion</title>
+   <link href="http://localhost:4000/2020/02/15/data-quality-and-fragmented-data-pipelines/"/>
+   <updated>2020-02-15T00:00:00-08:00</updated>
+   <id>http://localhost:4000/2020/02/15/data-quality-and-fragmented-data-pipelines</id>
+   <content type="html">&lt;p&gt;Anybody looking at coronavirus data right now must feel very confused. The UK has a daily case count &lt;a href=&quot;https://twitter.com/jburnmurdoch/status/1249444701280878592/photo/1&quot;&gt;60 times higher&lt;/a&gt; than Australia. Italy has a case fatality rate &lt;a href=&quot;https://www.cebm.net/covid-19/global-covid-19-case-fatality-rates/&quot;&gt;3 times higher&lt;/a&gt; than nearby Greece, and 12 times higher than Pakistan. These heterogeneities seem massive and have the potential to teach us critical insights about the disease. But as any epidemiologist will &lt;a href=&quot;https://fivethirtyeight.com/features/a-comic-strip-tour-of-the-wild-world-of-pandemic-modeling/&quot;&gt;readily&lt;/a&gt; &lt;a href=&quot;https://journals.plos.org/plosntds/article?id=10.1371/journal.pntd.0003846&quot;&gt;acknowledge&lt;/a&gt;, these statistics are terribly confounded by inconsistent reporting protocols and variable testing ability, both of which could be driving inter-country differences of 10x or more.&lt;/p&gt;
+
+&lt;p&gt;In this blog post, I want to talk about some of the enormous issues with data quality, why we have them, and how we can fix them both in the current pandemic and in advance of the next.&lt;/p&gt;
+
+&lt;h3 id=&quot;testing-count&quot;&gt;Testing count&lt;/h3&gt;
+&lt;p&gt;The first issue is that different countries and different states vary greatly in how much testing they do. Iceland has tested &lt;a href=&quot;https://www.covid.is/data&quot;&gt;10% of its population&lt;/a&gt;, whereas India has only tested &lt;a href=&quot;https://ourworldindata.org/covid-testing&quot;&gt;0.1% of its population&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Given differences in economic development, it’s understandable that different countries will have different testing counts. What’s &lt;em&gt;not&lt;/em&gt; acceptable is that so many countries &lt;a href=&quot;https://ourworldindata.org/covid-testing&quot;&gt;don’t report their testing counts&lt;/a&gt;! They just report the number of positive tests! Even among the countries that report both numbers, many greatly underreport the testing count because they rely on commercial labs that do not provide these records.&lt;/p&gt;
+
+&lt;p&gt;This isn’t just an issue for developing countries. Looking just at the United States, economically advanced states like California, Washington, and New York, have &lt;a href=&quot;https://covidtracking.com/about-data&quot;&gt;not regularly reported&lt;/a&gt; their total number of people tested. New York has, at various times, &lt;a href=&quot;https://covidtracking.com/about-data/faq&quot;&gt;started and stopped&lt;/a&gt; reporting negative results.&lt;/p&gt;
+
+&lt;p&gt;If we wish to make sensible comparisons of infection rates across regions, it is utterly important to know how many people were tested in each region, especially if there may be 10x or 100x test rate differences across regions. I do not want to be too critical here, but it is astonishing to me that we cannot produce this data.&lt;/p&gt;
+
+&lt;h3 id=&quot;mix-shift-in-reasons-for-testing&quot;&gt;Mix shift in reasons for testing&lt;/h3&gt;
+&lt;p&gt;It is not enough to report just the number of tests and the number of positive results. To estimate the true infection rates, we must also know why each test was done. Imagine one country only tests symptomatic people, whereas another country tests symptomatic people and high risk non-symptomatic people (e.g. health care workers). And imagine that both countries do the same number of tests. Even though both countries do the same number of tests, you can’t calculate the true infection count by simply dividing the positive tests by the test rate. For a reasonable estimate, you need to divide the positives in each stratum by the testing rate in each stratum, and then sum them up.&lt;/p&gt;
+
+&lt;p&gt;The &lt;a href=&quot;https://www.cdc.gov/coronavirus/2019-ncov/downloads/pui-form.pdf&quot;&gt;CDC case report form&lt;/a&gt; has a field for why each test was done (&lt;em&gt;Figure 1&lt;/em&gt;). Unfortunately, many states do not use this form and instead use their own form. Moreover, none of the states to my knowledge report the total number of people in each stratum (tested and untested), which would be necessary to do a stratified analysis.&lt;/p&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;img src=&quot;/assets/2020_covid_data_quality/cdc_form_strata.png&quot; class=&quot;inner&quot; style=&quot;position:relative border:#222 2px solid; max-width:95%;&quot; /&gt;
+  &lt;div class=&quot;caption&quot;&gt;&lt;strong&gt;Figure 1&lt;/strong&gt;: A section from the &lt;a href=&quot;https://www.cdc.gov/coronavirus/2019-ncov/downloads/pui-form.pdf&quot;&gt;CDC case report form&lt;/a&gt; which could be used for stratification. 
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;why-dont-we-do-this-already&quot;&gt;Why don’t we do this already?&lt;/h3&gt;
+&lt;p&gt;None of this is groundbreaking stuff. Epidemiologists know about &lt;a href=&quot;https://www.ncbi.nlm.nih.gov/pubmed/10366179&quot;&gt;stratification&lt;/a&gt; and are &lt;a href=&quot;https://journals.plos.org/plosntds/article?id=10.1371/journal.pntd.0003846&quot;&gt;keenly aware&lt;/a&gt; of the limitations of crude infection counts and crude case fatality rates.&lt;/p&gt;
+
+&lt;p&gt;This isn’t a knowledge problem. Instead, this is caused by some combination of three factors.&lt;/p&gt;
+
+&lt;p&gt;First, there is a natural tendency among data professionals to focus more on modeling than on upstream data quality issues. My own field of data science is certainly guilty of this. I am not saying data quality has received no attention. I am just saying that if epidemiology is anything like data science, then data quality issues get less attention than they deserve.&lt;/p&gt;
+
+&lt;p&gt;Second, our public health infrastructure is &lt;a href=&quot;https://www.ncbi.nlm.nih.gov/books/NBK221231/&quot;&gt;fragmented&lt;/a&gt; in a very particular way. Internationally, the WHO has no jurisdiction over individual countries and can only ask them to “&lt;a href=&quot;https://apps.who.int/iris/bitstream/handle/10665/331509/WHO-COVID-19-lab_testing-2020.1-eng.pdf&quot;&gt;consider reporting&lt;/a&gt;” their data. In the US, the &lt;a href=&quot;https://en.wikipedia.org/wiki/Tenth_Amendment_to_the_United_States_Constitution&quot;&gt;Tenth Amendment&lt;/a&gt; requires most public health work to be &lt;a href=&quot;https://www.cdc.gov/phlp/docs/APHL_Conference_LEI_Report_508.pdf&quot;&gt;run by the states&lt;/a&gt; rather than the federal government, and the CDC can therefore not compel states to report data or to use its forms. This is clearly a collective action that people have &lt;a href=&quot;https://www.ncbi.nlm.nih.gov/books/NBK221231/&quot;&gt;warned about for decades&lt;/a&gt;. Fortunately, there are &lt;a href=&quot;https://en.wikipedia.org/wiki/Assurance_contract&quot;&gt;solutions&lt;/a&gt; to these problems.&lt;/p&gt;
+
+&lt;p&gt;Third, it’s really hard. It is currently quite onerous to fill out a report for &lt;a href=&quot;https://www.cdc.gov/coronavirus/2019-ncov/downloads/pui-form.pdf&quot;&gt;negative results&lt;/a&gt;, although one could imagine a world where negative cases were easy to report.&lt;/p&gt;
+
+&lt;h3 id=&quot;the-three-levels-of-data-org-maturity-and-a-dream-for-the-future&quot;&gt;The three levels of data org maturity, and a dream for the future&lt;/h3&gt;
+&lt;p&gt;In my field of data science, you can determine the maturity of data organizations by their outlook on upstream data quality issues. There are roughly three levels.&lt;/p&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;img src=&quot;/assets/2020_covid_data_quality/data_maturity_table.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:95%;&quot; /&gt;
+  &lt;div class=&quot;caption&quot;&gt;&lt;strong&gt;Table 1&lt;/strong&gt;: Levels of data maturity for a data organization. 
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;Our public health infrastructure is at Level II. My strong claim, and I mean this in as constructive a way as possible, is that Level II is unacceptable. We need to be at Level III before the next pandemic hits.&lt;/p&gt;
+
+&lt;p&gt;I want us to live in a world where every country reports positive case counts and total test counts to the WHO, stratified by test reason, and using standardized easy-to-use technology. I want to live in a world where every state reports the same information to the CDC.&lt;/p&gt;
+
+&lt;p&gt;How do we get there? Here are some thoughts.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;A cultural shift among researchers towards the hard work on upstream data quality issues. And yes, &lt;a href=&quot;https://en.wikipedia.org/wiki/Replication_crisis&quot;&gt;cultural shifts are possible&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;Financial incentives for better case reporting. For example, while the CDC cannot legally compel states to do adequate reporting, it does provide financial assistance via the &lt;a href=&quot;https://www.cdc.gov/ncezid/dpei/epidemiology-laboratory-capacity.html&quot;&gt;ELC Cooperative Agreement&lt;/a&gt;. Could the CDC use this program as a financial carrot?&lt;/li&gt;
+  &lt;li&gt;Technology. Even today many health providers fax case reports to state agencies, where someone then converts the data by hand into a CDC report. &lt;a href=&quot;https://www.healthit.gov/sites/default/files/hie-interoperability/Roadmap-Executive%20Summary-100115-4pm.pdf&quot;&gt;The CDC is aware of the need for interoperable technology&lt;/a&gt;, but clearly this work needs to be prioritized and accelerated.&lt;/li&gt;
+  &lt;li&gt;Funding for public health agencies to make this all possible.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;In the meantime, please consider &lt;a href=&quot;https://ourworldindata.org/covid-testing&quot;&gt;supporting Our World In Data&lt;/a&gt; or following the Covid Tracking Project’s &lt;a href=&quot;https://covidtracking.com/help&quot;&gt;recommendation to contact your state public health authority&lt;/a&gt;. Both of these organizations have made a herculean effort to compile incomplete data.&lt;/p&gt;
+
+</content>
+ </entry>
  
  <entry>
    <title>The shower problem</title>
@@ -41,7 +109,7 @@
 
 &lt;div class=&quot;wrapper&quot;&gt;
   &lt;img src=&quot;/assets/2020_shower_problem/distributions.gif&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:100%;&quot; /&gt;
-  &lt;div class=&quot;caption&quot;&gt;&lt;strong&gt;Figure 1.&lt;/strong&gt; Unbeknownst to the user, the hot water direction is to the left, with a time constant τ of 100 seconds. The user knows the probability distribution over τ, and follows a strategy of eliminating segments of that distribution. They initially guess the correct direction, but give up too soon at 75 seconds. They they spend another 75 seconds on the rightwards direction. Finally, they return to the left direction, passing through the 75 seconds they had already eliminated, and then finally getting the hot water after 100 seconds on the left direction. In all, it takes the user 250 seconds to find the hot water.
+  &lt;div class=&quot;caption&quot;&gt;&lt;strong&gt;Figure 1.&lt;/strong&gt; Unbeknownst to the user, the hot water direction is to the left, with a time constant τ of 100 seconds. The user knows the probability distribution over τ, and follows a strategy of eliminating segments of that distribution. They initially guess the correct direction, but give up too soon at 75 seconds. They then spend another 75 seconds on the rightwards direction. Finally, they return to the left direction, passing through the 75 seconds they had already eliminated, and then finally getting the hot water after 100 seconds on the left direction. In all, it takes the user 250 seconds to find the hot water.
   &lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
@@ -448,7 +516,7 @@ A special thanks to &lt;a href=&quot;https://www.linkedin.com/in/john-mcdonnell-
 &lt;p&gt;With that out of the way, let’s get started!&lt;/p&gt;
 
 &lt;h3 id=&quot;benefits-of-large-samples&quot;&gt;Benefits of large samples&lt;/h3&gt;
-&lt;p&gt;The bigger your sample size, the more likely it is that you’ll ship the right bucket. Since there is a gain to shipping the right bucket and a loss to shipping the wrong bucket, the averages benefit of the experiment is a probability-weighted average of these outcomes. We call this the &lt;em&gt;expected post-experiment lift&lt;/em&gt;, $\hat{L}$, which we cover in more detail in Part II.&lt;/p&gt;
+&lt;p&gt;The bigger your sample size, the more likely it is that you’ll ship the right bucket. Since there is a gain to shipping the right bucket and a loss to shipping the wrong bucket, the average benefit of the experiment is a probability-weighted average of these outcomes. We call this the &lt;em&gt;expected post-experiment lift&lt;/em&gt;, $\hat{L}$, which increases with sample size. We’ll cover this in more detail in Part II.&lt;/p&gt;
 
 &lt;h3 id=&quot;costs-of-large-samples&quot;&gt;Costs of large samples&lt;/h3&gt;
 &lt;p&gt;For most businesses, increasing your sample size requires you to run your experiment longer. This brings us to the main per-unit cost of experimentation: the forfeited benefits that could come from shipping the winning bucket earlier. In a fast moving startup, there’s often good reason to accrue your wins as soon as possible. The advantage of shipping earlier can be quantified with a &lt;em&gt;discount rate&lt;/em&gt;, which describes how much you value the near future over the distant future. If you have a high discount rate, it’s critical to ship as soon as possible. If you have a low discount rate, you can afford to wait longer. This is described in more detail in Part III.&lt;/p&gt;
