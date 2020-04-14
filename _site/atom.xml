@@ -4,7 +4,7 @@
  <title>The File Drawer</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2020-04-14T16:32:13-07:00</updated>
+ <updated>2020-04-14T16:44:57-07:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -14,9 +14,9 @@
  
  <entry>
    <title>Fragmented data pipelines&#58; A giant source of covid confusion</title>
-   <link href="http://localhost:4000/2020/02/14/fragmented-data-pipelines/"/>
-   <updated>2020-02-14T00:00:00-08:00</updated>
-   <id>http://localhost:4000/2020/02/14/fragmented-data-pipelines</id>
+   <link href="http://localhost:4000/2020/04/14/fragmented-data-pipelines/"/>
+   <updated>2020-04-14T00:00:00-07:00</updated>
+   <id>http://localhost:4000/2020/04/14/fragmented-data-pipelines</id>
    <content type="html">&lt;p&gt;Anybody looking at coronavirus data right now must feel very confused. The UK has a daily case count &lt;a href=&quot;https://twitter.com/jburnmurdoch/status/1249444701280878592/photo/1&quot;&gt;60 times higher&lt;/a&gt; than Australia. Italy has a case fatality rate &lt;a href=&quot;https://www.cebm.net/covid-19/global-covid-19-case-fatality-rates/&quot;&gt;3 times higher&lt;/a&gt; than nearby Greece, and 12 times higher than Pakistan. These heterogeneities seem massive and have the potential to teach us critical insights about the disease. But as any epidemiologist will &lt;a href=&quot;https://fivethirtyeight.com/features/a-comic-strip-tour-of-the-wild-world-of-pandemic-modeling/&quot;&gt;readily&lt;/a&gt; &lt;a href=&quot;https://journals.plos.org/plosntds/article?id=10.1371/journal.pntd.0003846&quot;&gt;acknowledge&lt;/a&gt;, these statistics are terribly confounded by inconsistent reporting protocols and variable testing ability, both of which could be driving inter-country differences of 10x or more.&lt;/p&gt;
 
 &lt;p&gt;In this blog post, I want to talk about some of the enormous issues with data quality, why we have them, and how we can fix them both in the current pandemic and in advance of the next.&lt;/p&gt;
