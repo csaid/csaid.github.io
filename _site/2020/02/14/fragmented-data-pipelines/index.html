@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<!--
+It's bad to import d3 in every post separately (https://groups.google.com/forum/#!topic/d3-js/bwdNirt2uEU).
+Importing it globally here.
+Putting this up at the top, according to this controversial stack overflow answer
+http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
+ -->
+<script src="https://d3js.org/d3.v5.min.js"></script>
+
+<link rel="stylesheet" href="/public/font-awesome-4.4.0/css/font-awesome.min.css">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  
+    <meta name="description" content="A look into what's gone wrong with coronavirus data quality, and how it could be fixed.">
+  
+
+  <!-- To get a link preview image, just set the image attribute in your _post -->
+  
+    <meta content="http://localhost:4000/assets/2020_covid_data_quality/pipes.jpg" property="og:image"/>
+  
+
+  <!-- twitter standard -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@chris_said" />
+  <meta name="twitter:title" content="Fragmented data pipelines&#58; A giant source of covid confusion" />
+  <meta name="twitter:description" content="A look into what's gone wrong with coronavirus data quality, and how it could be fixed." />
+
+
+  <title>
+    
+      Fragmented data pipelines&#58; A giant source of covid confusion &middot; The File Drawer
+    
+  </title>
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-67746868-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/hyde.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
+                                 <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+<!--   <body class="theme-base-cps">
+ -->
+  <body>
+
+    <div class="sidebar">
+  <div class="container">
+    <div class="sidebar-about">
+      <h1>
+        <a href="/">
+          The File Drawer
+        </a>
+      </h1>
+      <p class="lead">My name is Chris Said and I am a data scientist at Stitch Fix. This blog is mostly about tech, stats, and science.</p>
+
+    </div>
+
+    <nav class="sidebar-nav">
+
+      
+        <a class="sidebar-nav-item" href="/">Home</a>
+      
+        <a class="sidebar-nav-item" href="/archive">Archive</a>
+      
+        <a class="sidebar-nav-item" href="/atom.xml">Feed</a>
+      
+
+    </nav>
+
+    <div class="wrapper">
+      <div class="inner">
+        <a href = "http://www.twitter.com/Chris_Said" class="contact-button"><i class="fa fa-twitter fa-2x"></i></a>
+        <a href = "https://www.linkedin.com/pub/chris-said/6b/86b/979" class="contact-button"><i class="fa fa-linkedin-square fa-2x"></i></a>
+        <a href = "mailto:chris.said@gmail.com" class="contact-button"><i class="fa fa-envelope fa-2x"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <div class="content container">
+      <div class="post">
+  <h1 class="post-title">Fragmented data pipelines&#58; A giant source of covid confusion</h1>
+  <span class="post-date">14 Feb 2020</span>
+  <p>Anybody looking at coronavirus data right now must feel very confused. The UK has a daily case count <a href="https://twitter.com/jburnmurdoch/status/1249444701280878592/photo/1">60 times higher</a> than Australia. Italy has a case fatality rate <a href="https://www.cebm.net/covid-19/global-covid-19-case-fatality-rates/">3 times higher</a> than nearby Greece, and 12 times higher than Pakistan. These heterogeneities seem massive and have the potential to teach us critical insights about the disease. But as any epidemiologist will <a href="https://fivethirtyeight.com/features/a-comic-strip-tour-of-the-wild-world-of-pandemic-modeling/">readily</a> <a href="https://journals.plos.org/plosntds/article?id=10.1371/journal.pntd.0003846">acknowledge</a>, these statistics are terribly confounded by inconsistent reporting protocols and variable testing ability, both of which could be driving inter-country differences of 10x or more.</p>
+
+<p>In this blog post, I want to talk about some of the enormous issues with data quality, why we have them, and how we can fix them both in the current pandemic and in advance of the next.</p>
+
+<h3 id="testing-count">Testing count</h3>
+<p>The first issue is that different countries and different states vary greatly in how much testing they do. Iceland has tested <a href="https://www.covid.is/data">10% of its population</a>, whereas India has only tested <a href="https://ourworldindata.org/covid-testing">0.1% of its population</a>.</p>
+
+<p>Given differences in economic development, it’s understandable that different countries will have different testing counts. What’s <em>not</em> acceptable is that so many countries <a href="https://ourworldindata.org/covid-testing">don’t report their testing counts</a>! They just report the number of positive tests! Even among the countries that report both numbers, many greatly underreport the testing count because they rely on commercial labs that do not provide these records.</p>
+
+<p>This isn’t just an issue for developing countries. Looking just at the United States, economically advanced states like California, Washington, and New York, have <a href="https://covidtracking.com/about-data">not regularly reported</a> their total number of people tested. New York has, at various times, <a href="https://covidtracking.com/about-data/faq">started and stopped</a> reporting negative results.</p>
+
+<p>If we wish to make sensible comparisons of infection rates across regions, it is utterly important to know how many people were tested in each region, especially if there may be 10x or 100x test rate differences across regions. I do not want to be too critical here, but it is astonishing to me that we cannot produce this data.</p>
+
+<h3 id="mix-shift-in-reasons-for-testing">Mix shift in reasons for testing</h3>
+<p>It is not enough to report just the number of tests and the number of positive results. To estimate the true infection rates, we must also know why each test was done. Imagine one country only tests symptomatic people, whereas another country tests symptomatic people and high risk non-symptomatic people (e.g. health care workers). And imagine that both countries do the same number of tests. Even though both countries do the same number of tests, you can’t calculate the true infection count by simply dividing the positive tests by the test rate. For a reasonable estimate, you need to divide the positives in each stratum by the testing rate in each stratum, and then sum them up.</p>
+
+<p>The <a href="https://www.cdc.gov/coronavirus/2019-ncov/downloads/pui-form.pdf">CDC case report form</a> has a field for why each test was done (<em>Figure 1</em>). Unfortunately, many states do not use this form and instead use their own form. Moreover, none of the states to my knowledge report the total number of people in each stratum (tested and untested), which would be necessary to do a stratified analysis.</p>
+
+<div class="wrapper">
+  <img src="/assets/2020_covid_data_quality/cdc_form_strata.png" class="inner" style="position:relative border:#222 2px solid; max-width:95%;" />
+  <div class="caption"><strong>Figure 1</strong>: A section from the <a href="https://www.cdc.gov/coronavirus/2019-ncov/downloads/pui-form.pdf">CDC case report form</a> which could be used for stratification. 
+  </div>
+</div>
+<p><br /></p>
+
+<h3 id="why-dont-we-do-this-already">Why don’t we do this already?</h3>
+<p>None of this is groundbreaking stuff. Epidemiologists know about <a href="https://www.ncbi.nlm.nih.gov/pubmed/10366179">stratification</a> and are <a href="https://journals.plos.org/plosntds/article?id=10.1371/journal.pntd.0003846">keenly aware</a> of the limitations of crude infection counts and crude case fatality rates.</p>
+
+<p>This isn’t a knowledge problem. Instead, this is caused by some combination of three factors.</p>
+
+<p>First, there is a natural tendency among data professionals to focus more on modeling than on upstream data quality issues. My own field of data science is certainly guilty of this. I am not saying data quality has received no attention. I am just saying that if epidemiology is anything like data science, then data quality issues get less attention than they deserve.</p>
+
+<p>Second, our public health infrastructure is <a href="https://www.ncbi.nlm.nih.gov/books/NBK221231/">fragmented</a> in a very particular way. Internationally, the WHO has no jurisdiction over individual countries and can only ask them to “<a href="https://apps.who.int/iris/bitstream/handle/10665/331509/WHO-COVID-19-lab_testing-2020.1-eng.pdf">consider reporting</a>” their data. In the US, the <a href="https://en.wikipedia.org/wiki/Tenth_Amendment_to_the_United_States_Constitution">Tenth Amendment</a> requires most public health work to be <a href="https://www.cdc.gov/phlp/docs/APHL_Conference_LEI_Report_508.pdf">run by the states</a> rather than the federal government, and the CDC can therefore not compel states to report data or to use its forms. This is clearly a collective action that people have <a href="https://www.ncbi.nlm.nih.gov/books/NBK221231/">warned about for decades</a>. Fortunately, there are <a href="https://en.wikipedia.org/wiki/Assurance_contract">solutions</a> to these problems.</p>
+
+<p>Third, it’s really hard. It is currently quite onerous to fill out a report for <a href="https://www.cdc.gov/coronavirus/2019-ncov/downloads/pui-form.pdf">negative results</a>, although one could imagine a world where negative cases were easy to report.</p>
+
+<h3 id="the-three-levels-of-data-org-maturity-and-a-dream-for-the-future">The three levels of data org maturity, and a dream for the future</h3>
+<p>In my field of data science, you can determine the maturity of data organizations by their outlook on upstream data quality issues. There are roughly three levels.</p>
+
+<div class="wrapper">
+  <img src="/assets/2020_covid_data_quality/data_maturity_table.png" class="inner" style="position:relative border: #222 2px solid; max-width:95%;" />
+  <div class="caption"><strong>Table 1</strong>: Levels of data maturity for a data organization. 
+  </div>
+</div>
+<p><br /></p>
+
+<p>Our public health infrastructure is at Level II. My strong claim, and I mean this in as constructive a way as possible, is that Level II is unacceptable. We need to be at Level III before the next pandemic hits.</p>
+
+<p>I want us to live in a world where every country reports positive case counts and total test counts to the WHO, stratified by test reason, and using standardized easy-to-use technology. I want to live in a world where every state reports the same information to the CDC.</p>
+
+<p>How do we get there? Here are some thoughts.</p>
+<ul>
+  <li>A cultural shift among researchers towards the hard work on upstream data quality issues. And yes, <a href="https://en.wikipedia.org/wiki/Replication_crisis">cultural shifts are possible</a>.</li>
+  <li>Financial incentives for better case reporting. For example, while the CDC cannot legally compel states to do adequate reporting, it does provide financial assistance via the <a href="https://www.cdc.gov/ncezid/dpei/epidemiology-laboratory-capacity.html">ELC Cooperative Agreement</a>. Could the CDC use this program as a financial carrot?</li>
+  <li>Technology. Even today many health providers fax case reports to state agencies, where someone then converts the data by hand into a CDC report. <a href="https://www.healthit.gov/sites/default/files/hie-interoperability/Roadmap-Executive%20Summary-100115-4pm.pdf">The CDC is aware of the need for interoperable technology</a>, but clearly this work needs to be prioritized and accelerated.</li>
+  <li>Funding for public health agencies to make this all possible.</li>
+</ul>
+
+<p>In the meantime, please consider <a href="https://ourworldindata.org/covid-testing">supporting Our World In Data</a> or following the Covid Tracking Project’s <a href="https://covidtracking.com/help">recommendation to contact your state public health authority</a>. Both of these organizations have made a herculean effort to compile incomplete data.</p>
+
+
+  <div>
+    <a class="twitter-share-button"
+      href="https://twitter.com/share"
+      data-url=""
+      data-via="Chris_Said"
+      data-size="large"
+      data-count="none">
+    Tweet
+    </a>
+</div>
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'csaid81';
+    var disqus_identifier = 'http://localhost:4000/2020/02/14/fragmented-data-pipelines/';
+    var disqus_url = 'http://localhost:4000/2020/02/14/fragmented-data-pipelines/';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+</div>
+
+
+    </div>
+
+  </body>
+</html>
+
+<!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$']],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  messageStyle: "none",
+  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+
+
+<script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));</script>
