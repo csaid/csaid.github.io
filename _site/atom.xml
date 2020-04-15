@@ -4,7 +4,7 @@
  <title>The File Drawer</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2020-04-14T18:25:34-07:00</updated>
+ <updated>2020-04-14T18:32:57-07:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -70,7 +70,7 @@
 &lt;p&gt;How do we get there? Here are some thoughts.&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;A cultural shift among researchers towards the hard work on upstream data quality issues. And yes, &lt;a href=&quot;https://en.wikipedia.org/wiki/Replication_crisis&quot;&gt;cultural shifts are possible&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;Financial incentives for better case reporting. For example, while the CDC cannot legally compel states to do adequate reporting, it does provide financial assistance via the &lt;a href=&quot;https://www.cdc.gov/ncezid/dpei/epidemiology-laboratory-capacity.html&quot;&gt;ELC Cooperative Agreement&lt;/a&gt;. The CDC could use this program as a financial carrot for better reporting, similar to how they have used other cooperative agreements to &lt;a href=&quot;https://www.cdc.gov/cancer/npcr/pdf/npcr_standards.pdf&quot;&gt;incentivize participation standards in cancer registries&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;Financial incentives for better case reporting. For example, while the CDC cannot legally compel states to do adequate reporting, it does provide financial assistance via the &lt;a href=&quot;https://www.cdc.gov/ncezid/dpei/epidemiology-laboratory-capacity.html&quot;&gt;ELC Cooperative Agreement&lt;/a&gt;. The CDC could use this program as a financial carrot for better reporting, similar to how they have used other cooperative agreements to &lt;a href=&quot;https://www.cdc.gov/cancer/npcr/pdf/npcr_standards.pdf&quot;&gt;incentivize participation standards in cancer registries&lt;/a&gt;. One can imagine similar financial arrangements at the international level, although these may be made difficult by the disappointing news that &lt;a href=&quot;https://www.cnn.com/2020/04/14/politics/donald-trump-world-health-organization-funding-coronavirus/index.html&quot;&gt;Donald Trump is halting funding to the WHO&lt;/a&gt;.&lt;/li&gt;
   &lt;li&gt;Technology. Even today many health providers fax case reports to state agencies, where someone then converts the data by hand into a CDC report. &lt;a href=&quot;https://www.healthit.gov/sites/default/files/hie-interoperability/Roadmap-Executive%20Summary-100115-4pm.pdf&quot;&gt;The CDC is aware of the need for interoperable technology&lt;/a&gt;, but clearly this work needs to be prioritized and accelerated.&lt;/li&gt;
   &lt;li&gt;Funding for public health agencies to make this all possible.&lt;/li&gt;
 &lt;/ul&gt;
