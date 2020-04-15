@@ -7,7 +7,7 @@ image: /assets/2020_covid_data_quality/pipes.jpg
 
 Anybody looking at coronavirus data right now must feel very confused. The UK has a daily case count [60 times higher](https://twitter.com/jburnmurdoch/status/1249444701280878592/photo/1) than Australia. Italy has a case fatality rate [3 times higher](https://www.cebm.net/covid-19/global-covid-19-case-fatality-rates/) than nearby Greece, and 12 times higher than Pakistan. These heterogeneities seem massive and have the potential to teach us critical insights about the disease. But as any epidemiologist will [readily](https://fivethirtyeight.com/features/a-comic-strip-tour-of-the-wild-world-of-pandemic-modeling/) [acknowledge](https://journals.plos.org/plosntds/article?id=10.1371/journal.pntd.0003846), these statistics are terribly confounded by inconsistent reporting protocols and variable testing ability, both of which could be driving inter-country differences of 10x or more.
 
-In this blog post, I want to talk about some of the enormous issues with data quality and why we have them. And I want to show how we can go beyond merely _acknowledging_ the biases, and instead focus on the policy changes that can fix them.
+In this blog post, I want to talk about some of the enormous issues with data quality and why we have them. And I want to describe how we can go beyond merely acknowledging the biases, and instead focus on the policy changes that can fix them.
 
 ### Testing count
 The first issue is that different countries and different states vary greatly in how much testing they do. Iceland has tested [10% of its population](https://www.covid.is/data), whereas India has only tested [0.1% of its population](https://ourworldindata.org/covid-testing).
