@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Fragmented data pipelines&#58; A giant source of covid confusion
+title: Coronavirus and fragmented data pipelines
 description: A look into what's gone wrong with coronavirus data quality, and how it could be fixed.
 image: /assets/2020_covid_data_quality/pipes.jpg
 ---
