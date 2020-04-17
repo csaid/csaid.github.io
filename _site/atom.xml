@@ -4,7 +4,7 @@
  <title>The File Drawer</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2020-04-15T18:17:09-07:00</updated>
+ <updated>2020-04-16T21:27:58-07:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -1337,12 +1337,9 @@ Second, after doing something good, people often feel like they’ve earned enou
    <link href="http://localhost:4000/2017/05/08/learning-by-flip-flopping/"/>
    <updated>2017-05-08T00:00:00-07:00</updated>
    <id>http://localhost:4000/2017/05/08/learning-by-flip-flopping</id>
-   <content type="html">&lt;p&gt;I recently came across &lt;a href=&quot;https://nintil.com/&quot;&gt;Artir&lt;/a&gt;’s &lt;a href=&quot;https://nintil.com/2016/03/06/the-pyramid-of-economic-insight-and-virtue/&quot;&gt;Pyramid of Economic Insight and Virtue&lt;/a&gt;. It’s not actually a pyramid, but is instead a riff on the Expanding Brain meme. Check it out:&lt;/p&gt;
+   <content type="html">&lt;p&gt;I recently came across &lt;a href=&quot;https://nintil.com/&quot;&gt;Artir&lt;/a&gt;’s &lt;a href=&quot;https://nintil.com/2016/03/06/the-pyramid-of-economic-insight-and-virtue/&quot;&gt;Pyramid of Economic Insight and Virtue&lt;/a&gt;. It’s not actually a pyramid, but is instead a riff on the Expanding Brain meme. &lt;a href=&quot;https://twitter.com/ArtirKel/status/843886928135159819&quot;&gt;Check it out&lt;/a&gt;:&lt;/p&gt;
 &lt;div class=&quot;wrapper&quot;&gt;
-&lt;div class=&quot;inner&quot;&gt;
-&lt;blockquote class=&quot;twitter-tweet&quot; data-lang=&quot;en&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;The Pyramid of Economic Insight and Virtue, now in meme form. From &lt;a href=&quot;https://t.co/AT148qXSbc&quot;&gt;https://t.co/AT148qXSbc&lt;/a&gt; &lt;a href=&quot;https://t.co/odmXCcUxiV&quot;&gt;pic.twitter.com/odmXCcUxiV&lt;/a&gt;&lt;/p&gt;&amp;mdash; Artir (@ArtirKel) &lt;a href=&quot;https://twitter.com/ArtirKel/status/843886928135159819&quot;&gt;March 20, 2017&lt;/a&gt;&lt;/blockquote&gt;
-&lt;script async=&quot;&quot; src=&quot;//platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
-&lt;/div&gt;
+  &lt;img src=&quot;/assets/2017_learning_by_flip_flopping/fig_artir.jpeg&quot; width=&quot;400&quot; class=&quot;inner&quot; style=&quot;position:relative&quot; /&gt;
 &lt;/div&gt;
 
 &lt;p&gt;What’s interesting about Artir’s Pyramid is that at every step, the position flip-flops from the previous step. This isn’t just a dialogue between two sides. It is a description of the belief sequence that people traverse as they learn more about an issue. We might call this &lt;em&gt;learning by flip-flopping&lt;/em&gt;.&lt;/p&gt;

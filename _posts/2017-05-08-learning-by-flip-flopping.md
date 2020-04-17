@@ -3,13 +3,12 @@ layout: post
 title: Learning by flip-flopping
 ---
 
-I recently came across [Artir](https://nintil.com/)'s [Pyramid of Economic Insight and Virtue](https://nintil.com/2016/03/06/the-pyramid-of-economic-insight-and-virtue/). It's not actually a pyramid, but is instead a riff on the Expanding Brain meme. Check it out:
-<div class='wrapper'>
-<div class='inner'>
-<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">The Pyramid of Economic Insight and Virtue, now in meme form. From <a href="https://t.co/AT148qXSbc">https://t.co/AT148qXSbc</a> <a href="https://t.co/odmXCcUxiV">pic.twitter.com/odmXCcUxiV</a></p>&mdash; Artir (@ArtirKel) <a href="https://twitter.com/ArtirKel/status/843886928135159819">March 20, 2017</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+I recently came across [Artir](https://nintil.com/)'s [Pyramid of Economic Insight and Virtue](https://nintil.com/2016/03/06/the-pyramid-of-economic-insight-and-virtue/). It's not actually a pyramid, but is instead a riff on the Expanding Brain meme. [Check it out](https://twitter.com/ArtirKel/status/843886928135159819):
+<div class="wrapper">
+  <img src='/assets/2017_learning_by_flip_flopping/fig_artir.jpeg' width="400" class="inner" style="position:relative">
 </div>
-</div>
+
+
 
 What's interesting about Artir's Pyramid is that at every step, the position flip-flops from the previous step. This isn't just a dialogue between two sides. It is a description of the belief sequence that people traverse as they learn more about an issue. We might call this *learning by flip-flopping*.
 
