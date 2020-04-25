@@ -10,7 +10,7 @@ Anybody looking at coronavirus data right now must feel very confused. The UK ha
 In this blog post, I want to talk about some of the enormous issues with data quality and why we have them. And I want to describe how we can go beyond merely acknowledging the biases, and instead focus on the policy changes that can fix them.
 
 ### Testing count
-The first issue is that different countries and different states vary greatly in how much testing they do. Iceland has tested [10% of its population](https://www.covid.is/data), whereas India has only tested [0.1% of its population](https://ourworldindata.org/covid-testing). Obviously these differences in testing will drive difference in reported case counts.
+The first issue is that different countries and different states vary greatly in how much testing they do. Iceland has tested [10% of its population](https://www.covid.is/data), whereas India has only tested [0.1% of its population](https://ourworldindata.org/covid-testing). Obviously these differences in testing will drive differences in reported case counts.
 
 Given differences in economic development, it’s understandable that different countries will have different testing counts. What’s _not_ acceptable is that so many countries [don’t report their testing counts](https://ourworldindata.org/covid-testing)! They just report the number of positive tests! Even among the countries that report both numbers, many greatly underreport the testing count because they rely on commercial labs that do not provide these records. 
 
