@@ -100,7 +100,7 @@ Should we move on to EMP attacks?
 <br> **A:** We don’t know for sure. But in an attempt to settle the issue, the Electric Power Research Institute (EPRI) conducted a [careful study](https://www.epri.com/research/products/3002014979) over three years from 2016-2019. They concluded that while an EMP attack could do some damage to a few states, there was no risk of prolonged country-wide collapse.
 
 **Q:** _Wait a second… isn’t [EPRI](https://www.epri.com/) funded by the utility industry?_
-<br> **A:** Indeed it is, a fact that EMP hawks are quick to point out. Peter Pry, the chairman of the EMP Commission, calls the EPRI report “[junk science](https://www.newsmax.com/peterpry/electromagnetic-pulse-attack-defense/2019/12/04/id/944503/)”.
+<br> **A:** Indeed it is, a fact that EMP hawks are quick to point out. Veterans of the EMP Commission call the EPRI report “[junk science](https://www.newsmax.com/peterpry/electromagnetic-pulse-attack-defense/2019/12/04/id/944503/)”.
 
 But I am not so sure. The [EPRI report](https://www.epri.com/research/products/3002014979) was the most sophisticated and careful report I have read on the topic. And that’s not just my opinion. Sharon Burke, a former assistant secretary of defense for operational energy in the Obama administration, [speaks highly of the report](https://www.wired.com/story/the-grid-might-survive-an-electromagnetic-pulse-just-fine/). “When you are doing documented research on physical systems, it is still solid evidence, no matter who paid for it. This is not someone’s opinion.” As for accusations of bias, it’s worth pointing out that the report was done in close consultation with leading experts from the DOE and national labs. Much of the data came directly from the government.
 
