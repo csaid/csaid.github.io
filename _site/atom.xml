@@ -4,7 +4,7 @@
  <title>The File Drawer</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2020-06-19T13:20:25-07:00</updated>
+ <updated>2020-06-19T20:30:52-07:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -118,7 +118,7 @@
 &lt;p&gt;But I am not so sure. The &lt;a href=&quot;https://www.epri.com/research/products/3002014979&quot;&gt;EPRI report&lt;/a&gt; was the most sophisticated and careful report I have read on the topic. And that’s not just my opinion. Sharon Burke, a former assistant secretary of defense for operational energy in the Obama administration, &lt;a href=&quot;https://www.wired.com/story/the-grid-might-survive-an-electromagnetic-pulse-just-fine/&quot;&gt;speaks highly of the report&lt;/a&gt;. “When you are doing documented research on physical systems, it is still solid evidence, no matter who paid for it. This is not someone’s opinion.” As for accusations of bias, it’s worth pointing out that the report was done in close consultation with leading experts from the DOE and national labs. Much of the data came directly from the government.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Q:&lt;/strong&gt; &lt;em&gt;So it sounds like the industry put together a high quality report. I’m still a little skeptical of it though. Could you give me some more detail about what they found?&lt;/em&gt;
-&lt;br /&gt; &lt;strong&gt;A:&lt;/strong&gt; Sure, I’ll start with their simplest and most optimistic finding, but then I’ll get into some of the more detailed (and interesting!) results.&lt;/p&gt;
+&lt;br /&gt; &lt;strong&gt;A:&lt;/strong&gt; Sure, I’ll start with their simplest and most optimistic finding, but then I’ll get into some of the more mixed (and interesting!) results.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Q:&lt;/strong&gt; &lt;em&gt;OK, what was their simplest and most optimistic finding?&lt;/em&gt;
 &lt;br /&gt; &lt;strong&gt;A:&lt;/strong&gt; Remember how, unlike activity from solar storms, EMP attacks create some something called an E1 field? One of risks of an E1 field is that key electrical devices known as “digital protective relays” (DPRs) can be damaged, which could cause major outages. To test this hypothesis, the EPRI report authors subjected 17 different types of DPRs to E1 fields of different intensities, ranging from 0 kV/m to 50 kV/m. They found that none of the DPRs were permanently damaged under any of these intensities. Some of the devices became temporarily disabled, but they could be easily restarted with a power cycle.&lt;/p&gt;
