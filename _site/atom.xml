@@ -4,7 +4,7 @@
  <title>Chris Said</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2020-06-21T12:04:27-07:00</updated>
+ <updated>2020-06-21T12:25:35-07:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -1665,7 +1665,7 @@ I’ve got two big problems here. First, nobody is using my website. And second,
 &lt;div class=&quot;caption&quot;&gt;&lt;strong&gt;Figure 2.&lt;/strong&gt; Each circle represents a movie rating by a user. Diamonds represent sample means for each movie. Arrows point towards shrunken estimates of each movie's mean rating. Shrunken estimates are obtained using the MSS James-Stein Estimator, described in more detail below.&lt;/div&gt;
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;As common a problem as this is, there aren’t a lot of accessible resources describing how to solve it. There are tons of &lt;a href=&quot;http://varianceexplained.org/r/empirical_bayes_baseball/&quot;&gt;excellent blog posts&lt;/a&gt; about the Beta-binomial distribution, which is useful if you wish to estimate the true fraction of an occurrence among some events. This works well in the case of Rotten Tomatoes, where one might want to know the true fraction of “thumbs up” judgments. But in my case, I’m dealing with a continuous 1-10 scale, not thumbs up / thumbs down judgments. The Beta-binomial distribution will be of little use.&lt;/p&gt;
+&lt;p&gt;As common a problem as this is, there aren’t a lot of accessible resources describing how to solve it. There are tons of &lt;a href=&quot;http://varianceexplained.org/r/empirical_bayes_baseball/&quot;&gt;excellent blog posts&lt;/a&gt; about the Beta distribution, which is useful if you wish to estimate the true fraction of an occurrence among some events. This works well in the case of Rotten Tomatoes, where one might want to know the true fraction of “thumbs up” judgments. But in my case, I’m dealing with a continuous 1-10 scale, not thumbs up / thumbs down judgments. The Beta-binomial distribution will be of little use.&lt;/p&gt;
 
 &lt;p&gt;Many resources mention the James-Stein Estimator, which provides a way to shrink the mean estimates only when the variances of those means can be assumed to be equal. That assumption usually only holds when the &lt;em&gt;sample sizes&lt;/em&gt; of each group are equal. But in most real world examples, the sample sizes (and thus the variances of the means) are not equal. When that happens, it’s a lot less clear what to do.&lt;/p&gt;
 
