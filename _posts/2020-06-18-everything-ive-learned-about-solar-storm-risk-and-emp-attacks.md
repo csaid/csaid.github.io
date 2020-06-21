@@ -11,7 +11,7 @@ A few months ago, I [came across](https://www.themoneyillusion.com/sunday-mornin
 
 > In testimony before a Congressional Committee, it has been asserted that a prolonged collapse of this nation’s electrical grid—through starvation, disease, and societal collapse—could result in the death of up to 90% of the American population.
 
-According to the paper, the grid could be knocked out either by solar storms or by EMP attacks. Solar storms are common. Serious storms like the [1859 Carrington Event](https://en.wikipedia.org/wiki/September_1859_geomagnetic_storm#:~:text=The%20September%201859%20geomagnetic%20storm,September%201%E2%80%932%2C%201859.) are expected to happen about once every 150 years.
+According to the paper, the grid could be knocked out either by solar storms or by Electromagnetic Pulse (EMP) attacks. Solar storms are common. Serious storms like the [1859 Carrington Event](https://en.wikipedia.org/wiki/September_1859_geomagnetic_storm#:~:text=The%20September%201859%20geomagnetic%20storm,September%201%E2%80%932%2C%201859.) are expected to happen about once every 150 years.
 
 The paper continues:
 
@@ -23,7 +23,7 @@ If the HV transformers are irreparably damaged, they might not get replaced for 
 
 > The great majority of these units are custom built. The lead time between order and delivery for a domestically manufactured HV transformer is between 12 and 24  months, and this is under benign, low demand conditions.
 
-To manage this risk, we could stockpile these transformers. An order of 30 of them would cost only $300M. But due regulatory failure and the financial incentives of the utility industry, the paper claims, we are not stockpiling these transformers.
+To manage this risk, we could stockpile these transformers. An order of 30 of them would cost only $300M. But due to regulatory failure and the financial incentives of the utility industry, the paper claims, we are not stockpiling these transformers.
 
 When I read this paper, I was stunned. Is the risk of prolonged grid collapse really that high? And is it true that, just as the CDC [failed to stockpile masks](https://www.usatoday.com/story/news/factcheck/2020/04/03/fact-check-did-obama-administration-deplete-n-95-mask-stockpile/5114319002/) for a pandemic that we were all warned about, we are equally unprepared for a grid failure that could lead to societal collapse and mass starvation?
 
@@ -108,7 +108,7 @@ But I am not so sure. The [EPRI report](https://www.epri.com/research/products/3
 <br> **A:** Sure, I’ll start with their simplest and most optimistic finding, but then I’ll get into some of the more mixed (and interesting!) results.
 
 **Q:** _OK, what was their simplest and most optimistic finding?_
-<br> **A:** Remember how, unlike activity from solar storms, EMP attacks create some something called an E1 field? One of risks of an E1 field is that key electrical devices known as “digital protective relays” (DPRs) can be damaged, which could cause major outages. To test this hypothesis, the EPRI report authors subjected 17 different types of DPRs to E1 fields of different intensities, ranging from 0 kV/m to 50 kV/m. They found that none of the DPRs were permanently damaged under any of these intensities. Some of the devices became temporarily disabled, but they could be easily restarted with a power cycle.
+<br> **A:** Remember how, unlike activity from solar storms, EMP attacks create something called an E1 field? One of risks of an E1 field is that key electrical devices known as “digital protective relays” (DPRs) can be damaged, which could cause major outages. To test this hypothesis, the EPRI report authors subjected 17 different types of DPRs to E1 fields of different intensities, ranging from 0 kV/m to 50 kV/m. They found that none of the DPRs were permanently damaged under any of these intensities. Some of the devices became temporarily disabled, but they could be easily restarted with a power cycle.
 
 <div class="wrapper">
   <img src='/assets/2020_solar_storms/fig_testing.png' class="inner" style="position:relative border:#222 2px solid; max-width:95%;" >
