@@ -16,7 +16,6 @@ Below are links to blog posts I've written, as well as some other projects. I ca
 
 #### Other Projects
 * [Which famous economist are you most similar to?](http://whichfamouseconomistareyoumostsimilarto.com/) (2013-2015)
-* [Is my job in another state?](http://ismyjobinanotherstate.com/) (2014)
 
 #### Full Blog Archive
 
