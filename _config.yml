@@ -7,9 +7,8 @@ highlighter:      rouge
 permalink:        pretty
 
 # Setup
-title:            The File Drawer
-tagline:          'A blog by Chris Said'
-description:      'My name is Chris Said and I am a data scientist at Stitch Fix. This blog is mostly about tech, stats, and science.'
+title:            Chris Said
+description:      'I am a data scientist at Stitch Fix. This blog is mostly about statistics, technology, and science.'
 url:              https://chris-said.io
 baseurl:          /
 
@@ -24,7 +23,6 @@ github:
 
 pages_list:
   Home: '/'
-  Archive: '/archive'
   Feed: '/atom.xml'
 
 # So I can date posts in the future and still have them appear now.

@@ -20,7 +20,7 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
   
-    <meta name="description" content="My name is Chris Said and I am a data scientist at Stitch Fix. This blog is mostly about tech, stats, and science.">
+    <meta name="description" content="Chris Said">
   
 
   <!-- To get a link preview image, just set the image attribute in your _post -->
@@ -29,13 +29,13 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
   <!-- twitter standard -->
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@chris_said" />
-  <meta name="twitter:title" content="Home" />
+  <meta name="twitter:title" content="Chris Said" />
   <meta name="twitter:description" content="" />
 
 
   <title>
     
-      The File Drawer &middot; A blog by Chris Said
+      Chris Said &middot; Chris Said
     
   </title>
 
@@ -72,10 +72,10 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
     <div class="sidebar-about">
       <h1>
         <a href="/">
-          The File Drawer
+          Chris Said
         </a>
       </h1>
-      <p class="lead">My name is Chris Said and I am a data scientist at Stitch Fix. This blog is mostly about tech, stats, and science.</p>
+      <p class="lead">I am a data scientist at Stitch Fix. This blog is mostly about statistics, technology, and science.</p>
 
     </div>
 
@@ -83,8 +83,6 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
 
       
         <a class="sidebar-nav-item active" href="/">Home</a>
-      
-        <a class="sidebar-nav-item" href="/archive">Archive</a>
       
         <a class="sidebar-nav-item" href="/atom.xml">Feed</a>
       
@@ -103,869 +101,159 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
 
 
     <div class="content container">
-      <div class="posts">
-  
-  <div class="post">
-    <h1 class="post-title">
-      <a href="/2020/06/18/everything-ive-learned-about-solar-storm-risk-and-emp-attacks/">
-        Everything I've learned about solar storm risk and EMP attacks
-      </a>
-    </h1>
+      <div class="page">
+  <h1 class="page-title">Chris Said</h1>
+  <p>Below are links to blog posts I’ve written, as well as some other projects. I can also be found on <a href="https://twitter.com/Chris_Said">Twitter</a>, <a href="https://www.linkedin.com/in/chris-said-97986b6b/">LinkedIn</a>, and <a href="https://github.com/csaid">Github</a>.</p>
 
-    <span class="post-date">18 Jun 2020</span>
-
-    <p>A few months ago, I <a href="https://www.themoneyillusion.com/sunday-morning-quarterbacking/">came across</a> one of the <a href="https://link.springer.com/article/10.1186/s13705-019-0199-y">most extraordinary papers I have ever read</a>.</p>
-
-<blockquote>
-  <p>In testimony before a Congressional Committee, it has been asserted that a prolonged collapse of this nation’s electrical grid—through starvation, disease, and societal collapse—could result in the death of up to 90% of the American population.</p>
-</blockquote>
-
-<p>According to the paper, the grid could be knocked out either by solar storms or by EMP attacks. Solar storms are common. Serious storms like the <a href="https://en.wikipedia.org/wiki/September_1859_geomagnetic_storm#:~:text=The%20September%201859%20geomagnetic%20storm,September%201%E2%80%932%2C%201859.">1859 Carrington Event</a> are expected to happen about once every 150 years.</p>
-
-<p>The paper continues:</p>
-
-<blockquote>
-  <p>HV transformers are the weak link in the system, and the Federal Energy Regulatory Commission (FERC) has identified 30 of these as being critical. The simultaneous loss of just 9, in various combinations, could cripple the network and lead to a cascading failure, resulting in a “coast-to coast blackout”.</p>
-</blockquote>
-
-<p>If the HV transformers are irreparably damaged, they might not get replaced for 1-2 years, which would be devastating.</p>
-
-<blockquote>
-  <p>The great majority of these units are custom built. The lead time between order and delivery for a domestically manufactured HV transformer is between 12 and 24  months, and this is under benign, low demand conditions.</p>
-</blockquote>
-
-<p>To manage this risk, we could stockpile these transformers. An order of 30 of them would cost only $300M. But due regulatory failure and the financial incentives of the utility industry, the paper claims, we are not stockpiling these transformers.</p>
-
-<p>When I read this paper, I was stunned. Is the risk of prolonged grid collapse really that high? And is it true that, just as the CDC <a href="https://www.usatoday.com/story/news/factcheck/2020/04/03/fact-check-did-obama-administration-deplete-n-95-mask-stockpile/5114319002/">failed to stockpile masks</a> for a pandemic that we were all warned about, we are equally unprepared for a grid failure that could lead to societal collapse and mass starvation?</p>
-
-<p>To answer these questions, I did some homework. I read congressional testimony, think tank technical reports, a book, academic papers, insurance company assessments, several industry technical reports, and multiple reports in the trade media. What I found was at times contradictory. Somewhat troublingly, both sides of the issue accused each other of bias from financial incentives. Overall, my view is that while some of the EMP and solar storm risk is overhyped, it remains a serious issue, and one of the main tail risks we should be preparing for.</p>
-
-<p>I summarize my conclusions as a dialogue.</p>
-
-<h2 id="dialogue">Dialogue</h2>
-
-<p><strong>Q:</strong> <em>If the power goes out for 12-24 months, will it really be so bad?</em>
-<br /> <strong>A:</strong> Yes, if the power goes out for that long — and that is a big “if” — the results would be catastrophic. Almost everything our modern society depends on, from water pumps to gasoline pumps to ATM machines, would all stop working. This means no water, no car, and no cash.</p>
-
-<p><strong>Q:</strong> <em>Jesus. What could cause these outages?</em>
-<br /> <strong>A:</strong> The biggest risks are Solar Storms and EMP attacks.</p>
-
-<h3 id="solar-storms">Solar Storms</h3>
-<p><strong>Q:</strong> <em>Let’s start with solar storms. First question: What is a solar storm?</em>
-<br /> <strong>A:</strong> A solar storm is a temporary disturbance in the earth’s magnetic field, typically caused by coronal mass ejections (CMEs) from the sun.</p>
-
-<p><strong>Q:</strong> <em>How can these storms disrupt the grid?</em>
-<br /> <strong>A:</strong> The electromagnetic pulse can induce a quasi-direct current in power transmission lines, which can cause transformers to <a href="http://www.firstempcommission.org/uploads/1/1/9/5/119571849/executive_report_on_assessing_the_threat_from_emp_-_final_april2018.pdf">overheat</a> and be permanently damaged. If enough of these transformers go down, we could be in serious long term trouble.</p>
-
-<p><strong>Q:</strong> <em>Are dangerous solar storms common?</em>
-<br /> <strong>A:</strong> Yes. The <a href="https://en.wikipedia.org/wiki/March_1989_geomagnetic_storm">March 1989 geomagnetic storm</a> caused a nine-hour complete outage of the Hyro-Quebec grid. The <a href="https://en.wikipedia.org/wiki/May_1921_geomagnetic_storm">1921 Railroad Storm</a> was <a href="https://www.thespacereview.com/article/1553/1">10 times stronger</a> than the Quebec storm. And the <a href="https://en.wikipedia.org/wiki/September_1859_geomagnetic_storm#:~:text=The%20September%201859%20geomagnetic%20storm,September%201%E2%80%932%2C%201859.">1859 Carrington Event</a> is estimated to be <a href="https://republicans-oversight.house.gov/wp-content/uploads/2015/05/Pry-Statement-5-13-EMP.pdf">10 times stronger</a> than the 1921 storm. That is, the Carrington Event was 100 times stronger than the storm that took down the Quebec grid. Storms as large as the Carrington Event have a <a href="https://agupubs.onlinelibrary.wiley.com/doi/pdf/10.1002/2016SW001470%4010.1002/%28ISSN%291542-7390.swqv14i1">10% chance of happening every decade</a>. Larger storms may be possible.</p>
-
-<p><strong>Q:</strong> <em>This is terrifying! What hope do we have?</em>
-<br /> <strong>A:</strong> The good news is that we will probably have advance warning. A team at the <a href="https://www.swpc.noaa.gov/">Space Weather Prediction Center</a> (SWPC) monitors activity on the sun and activity in the earth’s magnetosphere. They can alert utilities of a CME with several hours to days notice, depending on its severity. This puts the utilities on high alert to turn off their transformers if needed.</p>
-
-<div class="wrapper">
-  <img src="/assets/2020_solar_storms/fig_swpc.png" class="inner" style="position:relative border:#222 2px solid; max-width:95%;" />
-  <div class="caption"><strong>Figure 1</strong>: Monitoring solar storms at the Space Weather Prediction Center 
-  </div>
-</div>
-<p><br /></p>
-
-<p><strong>Q:</strong> <em>That makes me feel better. But how reliable is this system?</em>
-<br /> <strong>A:</strong> Not as reliable as you might like. <a href="https://www.thespacereview.com/article/1553/2">One-third of major storms arrive unexpectedly</a>, according to the SWPC’s own 2010 analysis. And that’s not just the small storms. According to a news article in <a href="https://science.sciencemag.org.sci-hub.tw/content/324/5935/1640">Science</a>, the SWPC might be also be poor at identifying the characteristics of severe storms, since they are so rare.</p>
-
-<p><strong>Q:</strong> <em>Wait, what? Did you say we miss one-third of the storms? And that we might even miss the big ones? We’re screwed!</em>
-<br /> <strong>A:</strong> Well, the good news is that even if the storm goes undetected, the transformers won’t fry up immediately. It will take several minutes for them to heat up. The utility companies can monitor them in realtime and turn them off if they get too hot (see <a href="https://www.nerc.com/comm/PC/Geomagnetic%20Disturbance%20Task%20Force%20GMDTF%202013/Template_TOP.pdf">NERC guidelines</a> and <a href="https://www.pjm.com/~/media/documents/manuals/m13.ashx">Section 3.8.2 of this manual</a>).</p>
-
-<p><strong>Q:</strong> <em>I dunno, I watched that documentary on Chernobyl, and it seems like in emergency situations people aren’t great at following instructions in the manual.</em>
-<br /> <strong>A:</strong> I have my doubts as well. But from what I can tell, the utility companies will probably be able to execute if there is another Carrington Event, resulting in some unpleasant but short-term disruptions, but not a catastrophic long-term collapse.</p>
-
-<p><strong>Q:</strong> <em>I’m still not convinced.</em>
-<br /> <strong>A:</strong> Well, even if the utility companies completely fail to react, many engineers <a href="https://othjournal.com/wp-content/uploads/2019/08/EMP-Threats-to-Americas-Electric-Grid.pdf">believe</a> that the voltage collapse caused by a severe solar storm will ultimately save the transformers, since the circuit breakers will open automatically. But this is <a href="https://othjournal.com/wp-content/uploads/2019/08/EMP-Threats-to-Americas-Electric-Grid.pdf">disputed</a>.</p>
-
-<p>Overall, the combination of human intervention and automatic grid self-protection makes me feel that catastrophic long-term collapse from a solar storm is unlikely. But we should still take preparedness extremely seriously.</p>
-
-<p>Should we move on to EMP attacks?</p>
-
-<h3 id="emp-attacks">EMP Attacks</h3>
-<p><strong>Q:</strong> <em>Sure, what is an EMP attack?</em>
-<br /> <strong>A:</strong> EMP stands for “electromagnetic pulse”. Just as EMPs can be emitted during a solar storm, they can also be man-made, in what is know as an “EMP attack”. There are a variety of ways to generate an EMP attack, but the one that worries people the most is a nuclear weapon detonated at high altitude. The pulse generated from such an attack could reach almost everywhere in the continental United States. Major nuclear powers like Russia and China have the ability to launch such an attack. More recently, potentially irrational adversaries like North Korea have pursued this capability.</p>
-
-<p><strong>Q:</strong> <em>Should I be more worried about EMP Attacks or solar storms?</em>
-<br /> <strong>A:</strong> Opinions differ. But the EMP Commission is <a href="https://republicans-oversight.house.gov/wp-content/uploads/2015/05/Pry-Statement-5-13-EMP.pdf">more worried</a> about EMP attacks.</p>
-
-<p><strong>Q:</strong> <em>Why?</em>
-<br /> <strong>A:</strong> There are two reasons. The first is that EMP attacks are unpredictable. Unlike with solar storms, where we will have several hours to days of advance notice, EMP attacks will happen immediately, giving us no time to prepare.</p>
-
-<p><strong>Q:</strong> <em>That makes sense. What’s the second reason?</em>
-<br /> <strong>A:</strong> The second reason is that <a href="https://republicans-oversight.house.gov/wp-content/uploads/2015/05/Pry-Statement-5-13-EMP.pdf">EMP attacks contain a high frequency component called an E1 field</a>, which can potentially cause permanent damage to smaller electronics. Both EMP attacks and solar storms have an E3 field, which can heat up transformers. But only an EMP attack contains an E1 field.</p>
-
-<p><strong>Q:</strong> <em>That sound scary. We should prepare for an EMP attack.</em>
-<br /> <strong>A:</strong> I agree. And the nice thing is that much of what we do to prepare for an EMP attack, like making our transformers more resilient, will also help us with a solar storm.</p>
-
-<p><strong>Q:</strong> <em>Given that this could potentially kill 90% of Americans and send the rest of us back to the Stone Age, why isn’t this our most important national priority?</em>
-<br /> <strong>A:</strong> Well, not everyone agrees that it’s that big a threat. Whereas the hawkish EMP Commission has been warning of prolonged national grid collapse, other people — often affiliated with the utility industry — have claimed that an EMP attack would only cause brief disruptions limited to a few states. The EMP Commission accuses the utility industry of <a href="https://www.govinfo.gov/content/pkg/CHRG-114hhrg96952/html/CHRG-114hhrg96952.htm">minimizing the risk to avoid liability</a>. But EMP skeptics speculate that the EMP hawks are themselves <a href="https://medium.com/war-is-boring/the-overrated-threat-from-electromagnetic-pulses-46e92c3efeb9">motivated</a> to maximize the <a href="https://slate.com/technology/2019/05/emp-weapons-conservatives-trump-gingrich-huckabee.html">profits</a> of their own EMP books and protection companies. I tend to believe both sides are motivated by genuine conviction, but that’s still a relevant backdrop to the debate.</p>
-
-<h3 id="the-2019-epri-report-and-its-critics">The 2019 EPRI report and its critics</h3>
-<p><strong>Q:</strong> <em>It’s terrifying that the predictions are so contradictory! How do we know who is right?</em>
-<br /> <strong>A:</strong> We don’t know for sure. But in an attempt to settle the issue, the Electric Power Research Institute (EPRI) conducted a <a href="https://www.epri.com/research/products/3002014979">careful study</a> over three years from 2016-2019. They concluded that while an EMP attack could do some damage to a few states, there was no risk of prolonged country-wide collapse.</p>
-
-<p><strong>Q:</strong> <em>Wait a second… isn’t <a href="https://www.epri.com/">EPRI</a> funded by the utility industry?</em>
-<br /> <strong>A:</strong> Indeed it is, a fact that EMP hawks are quick to point out. Veterans of the EMP Commission call the EPRI report “<a href="https://www.newsmax.com/peterpry/electromagnetic-pulse-attack-defense/2019/12/04/id/944503/">junk science</a>”.</p>
-
-<p>But I am not so sure. The <a href="https://www.epri.com/research/products/3002014979">EPRI report</a> was the most sophisticated and careful report I have read on the topic. And that’s not just my opinion. Sharon Burke, a former assistant secretary of defense for operational energy in the Obama administration, <a href="https://www.wired.com/story/the-grid-might-survive-an-electromagnetic-pulse-just-fine/">speaks highly of the report</a>. “When you are doing documented research on physical systems, it is still solid evidence, no matter who paid for it. This is not someone’s opinion.” As for accusations of bias, it’s worth pointing out that the report was done in close consultation with leading experts from the DOE and national labs. Much of the data came directly from the government.</p>
-
-<p><strong>Q:</strong> <em>So it sounds like the industry put together a high quality report. I’m still a little skeptical of it though. Could you give me some more detail about what they found?</em>
-<br /> <strong>A:</strong> Sure, I’ll start with their simplest and most optimistic finding, but then I’ll get into some of the more mixed (and interesting!) results.</p>
-
-<p><strong>Q:</strong> <em>OK, what was their simplest and most optimistic finding?</em>
-<br /> <strong>A:</strong> Remember how, unlike activity from solar storms, EMP attacks create some something called an E1 field? One of risks of an E1 field is that key electrical devices known as “digital protective relays” (DPRs) can be damaged, which could cause major outages. To test this hypothesis, the EPRI report authors subjected 17 different types of DPRs to E1 fields of different intensities, ranging from 0 kV/m to 50 kV/m. They found that none of the DPRs were permanently damaged under any of these intensities. Some of the devices became temporarily disabled, but they could be easily restarted with a power cycle.</p>
-
-<div class="wrapper">
-  <img src="/assets/2020_solar_storms/fig_testing.png" class="inner" style="position:relative border:#222 2px solid; max-width:95%;" />
-  <div class="caption"><strong>Figure 1</strong>: Setup for EPRI's free field tests on DPRs. [<a href="https://www.epri.com/research/products/3002014979">EPRI</a>]
-  </div>
-</div>
-<p><br /></p>
-
-<p><strong>Q:</strong> <em>OK, so these DPR devices could withstand EMPs up to 50 kV/m, but how does this compare to the intensities that could come from an actual EMP attack?</em>
-<br /> <strong>A:</strong> Even with a giant 1000 kT nuclear weapon, the peak field once it reaches the ground is only 25 kV/m. The EPRI report tested a field twice as high.</p>
-
-<p><strong>Q:</strong> <em>What were some of the other findings in the EPRI report?</em>
-<br /> <strong>A:</strong> So here’s where it gets a little bit more pessimistic, but still nothing close to prolonged country-level grid collapse. EMP pulses are risky not only because they can do direct damage to DPRs. They can also induce voltage surges, which can in turn cause damage to electric equipment.</p>
-
-<p>To test the amount of damage caused by surges, the authors injected direct voltage into the inputs of the devices…</p>
-
-<p><strong>Q:</strong> <em>Wait, why did they inject the voltage rather than using an EMP to naturally induce the voltage?</em>
-<br /> <strong>A:</strong> That would require radiating the EMP over a large area, which they said was “not practical”. I’m not an expert, but this seems to be a standard practice for EMP testing.</p>
-
-<p>Anyway, in their voltage injection tests they found that under sufficient voltage, the inputs to the DPRs could become permanently damaged. Some devices required voltages as high as 80 kV to be damaged. Others required voltages as low as 5 kV.</p>
-
-<p><strong>Q:</strong> <em>Did you say kV? Weren’t you earlier talking about kV/m?</em>
-<br /> <strong>A:</strong> Yes, for these direct voltage injection experiments, the relevant unit is the voltage measured in kV. For the earlier experiment, which measured the impact of the free field pulse on the DPR, the relevant unit is kV/m.</p>
-
-<p><strong>Q:</strong> <em>If these device inputs can be permanently damaged by a 5 kV surge, does this mean they will be damaged by a nuclear EMP attack?</em>
-<br /> <strong>A:</strong> It depends! This brings us to the coolest part of the paper. The amount of voltage induced in a wire depends on a lot of things. First, it depends on the strength of the electromagnetic field. This in turn depends on the distance from the detonation site. So even if a giant nuclear weapon is able to create a peak field of 50 kV/m, the field will be weaker at more distant locations.</p>
-
-<div class="wrapper">
-  <img src="/assets/2020_solar_storms/fig_detonation_field.png" class="inner" style="position:relative border:#222 2px solid; max-width:95%;" />
-  <div class="caption"><strong>Figure 1</strong>: The magnitude of the E1 field decreases with distance from the detonation site. [<a href="https://www.epri.com/research/products/3002014979">EPRI</a>]
-  </div>
-</div>
-<p><br /></p>
-
-<p>But even more interestingly, the induced voltage also depends on the polarization of the field, the incidence angle (psi), and the azimuthal angle (phi). Depending on where the input power line is located and how it is oriented, the actual induced voltage might be much lower than one would expected under maximal conditions.</p>
-
-<div class="wrapper">
-  <img src="/assets/2020_solar_storms/fig_orientation.png" class="inner" style="position:relative border:#222 2px solid; max-width:95%;" />
-  <div class="caption"><strong>Figure 1</strong>: The induced voltage in a wire depends on its orientation relative to the incoming electromagnetic field. [<a href="https://www.epri.com/research/products/3002014979">EPRI</a>]
-  </div>
-</div>
-<p><br /></p>
-
-<p>Based on the known locations of substations throughout the US (and assuming random orientations), the authors were able to estimate the distribution of induced voltages in these substations, assuming a very strong nuclear attack. In most cases the induced voltages would be less than 10 kV, but some would be even higher.</p>
-
-<p><strong>Q:</strong> <em>10 kV? Isn’t that above the 5 kV damage threshold for some device inputs?</em>
-<br /> <strong>A:</strong> Yes, for some of the devices.</p>
-
-<p><strong>Q:</strong> <em>So given that different devices will experience different voltage surges and given that different devices will have different voltages thresholds, is there a way we can calculate the percentage of device inputs that would be damaged?</em>
-<br /> <strong>A:</strong> Yes! With simulations. While the authors don’t know the type and orientation of each device out in the world, they can can make reasonable assumptions that these are uniformly distributed over known substation locations. For each device the authors sampled an induced voltage from the distribution of induced voltage (this depends on the device’s location and on a randomly sampled orientation). They also sampled a damage threshold from a distribution they constructed from their empirical voltage injection tests. For each device in the simulation, if the sampled induced voltage was greater than the damage threshold, they marked the device as damaged.</p>
-
-<div class="wrapper">
-  <img src="/assets/2020_solar_storms/fig_simulations.png" class="inner" style="position:relative border:#222 2px solid; max-width:95%;" />
-  <div class="caption"><strong>Figure 1</strong>: To estimate how many DPRs would be damaged by voltage surges, the authors drew independent samples from their simulated distribution of voltage surges (Stress PDF) and their empirically measured distribution of damage thresholds (Strength PDF). [<a href="https://www.epri.com/research/products/3002014979">EPRI</a>]
-  </div>
-</div>
-<p><br /></p>
-
-<p><strong>Q:</strong> <em>That seems vaguely reasonable. What were the results?</em>
-<br /> <strong>A:</strong> It depended on how much protection they assumed and the intensity of the attack, but the fraction of damaged devices ranged from 1% to 20%.</p>
-
-<p><strong>Q:</strong> <em>Is that good or bad?</em>
-<br /> <strong>A:</strong> I can’t get a clear answer on that. The tone of the EPRI report implied that this wasn’t a big deal, but a <a href="https://othjournal.com/wp-content/uploads/2019/08/EMP-Threats-to-Americas-Electric-Grid.pdf">rebuttal</a> from the Electromagnetic Defense Task Force (EDTF) said this was quite serious:</p>
-
-<blockquote>
-  <p>Relay malfunction during a HEMP attack would likely cause other electric grid systems to fail, resulting in large-scale cascading blackouts and widespread equipment damage. Notably, E1 effects on protective relays are likely to interrupt substation self-protection processes needed to interrupt E3 current flow through transformers.</p>
-</blockquote>
-
-<p><strong>Q:</strong> <em>Interesting. That reminds me, you’ve talked a lot about EPRI’s analysis of the E1 field, both directly via free field and indirectly via voltage surges. But what about the E3 field? If I recall, that was the thing that could heat up and damage transformers, right?</em>
-<br /> <strong>A:</strong> Yes, the authors looked into this as well. While they didn’t physically test any transformers, they were able to simulate the effects of E3 fields on about a thousand transformers, using information they had about the age and quality of each transformer. Of the thousand transformers they simulated, only 3 to 21 would experience damage. These damaged transformers would be geographically dispersed.</p>
-
-<p><strong>Q:</strong> <em>3 to 21 transformers would experience damage? Couldn’t that be quite bad? Didn’t you say earlier that <a href="https://fas.org/sgp/crs/homesec/R43604.pdf">9 critical transformers could take down the whole grid</a>?</em>
-<br /> <strong>A:</strong> I can’t get a clear answer on this either, but I think it’s ok. The EPRI report made this sound like not a big deal, and the <a href="https://othjournal.com/wp-content/uploads/2019/08/EMP-Threats-to-Americas-Electric-Grid.pdf">most comprehensive critique of the EPRI report</a> did not bring it up in its list of concerns.</p>
-
-<p><strong>Q:</strong> <em>What are some criticisms of the EPRI Report?</em>
-<br /> <strong>A:</strong> <a href="https://othjournal.com/wp-content/uploads/2019/08/EMP-Threats-to-Americas-Electric-Grid.pdf">The Electromagnetic Defense Task Force (EDTF)</a> includes dozens of critiques, but a few that jump out are:</p>
-
+<h4 id="selected-blog-posts-statistics">Selected Blog Posts (Statistics)</h4>
 <ul>
-  <li>The EPRI report did not do any physical tests on transformers, relying only on simulations.</li>
-  <li>The transformer simulations assumed an E3 field of 24 V/km, when the DHS <a href="https://www.cisa.gov/sites/default/files/publications/19_0307_CISA_EMP-Protection-Resilience-Guidelines.pdf">recommends</a> protection up to 85 V/km, based on Soviet data.</li>
-  <li>The report only tested substation equipment, but did not test equipment in power generators or in distribution areas.</li>
-  <li>As mentioned above, damage to 5% of equipment could cause cascading failures that could disable other protective equipment.</li>
+  <li><a href="/2020/01/10/optimizing-sample-sizes-in-ab-testing-part-I/">Optimizing sample sizes in A/B testing, Part I: General summary</a> (<a href="/2020/01/10/optimizing-sample-sizes-in-ab-testing-part-II/">Part II</a>, <a href="/2020/01/10/optimizing-sample-sizes-in-ab-testing-part-III/">Part III</a>) (10 Jan 2020)</li>
+  <li><a href="/2019/05/18/variance_after_scaling_and_summing/">Variance after scaling and summing: One of the most useful facts from statistics</a> (18 May 2019)</li>
+  <li><a href="/2017/05/03/empirical-bayes-for-multiple-sample-sizes/">Empirical Bayes for multiple sample sizes</a> (03 May 2017)</li>
 </ul>
 
-<p><strong>Q:</strong> <em>Now I’m confused and don’t know who to believe!</em>
-<br /> <strong>A:</strong> I agree, it’s not great. Apparently, EPRI did not coordinate with the Congressional EMP Commission to compare results and methodology. Many of the test results are inconsistent with the <a href="http://www.empcommission.org/docs/A2473-EMP_Commission-7MB.pdf">EMP Commission’s own test results from 2008</a>, and I don’t believe anybody has resolved the discrepancies. So there is a troubling lack of communication here.</p>
-
-<p><strong>Q:</strong> <em>I’m feeling overwhelmed with all this information about EMPs! Can you summarize what we’ve learned?</em>
-<br /> <strong>A:</strong> Sure.</p>
-
-<ol>
-  <li>The EMP Commission believes EMP attacks are more dangerous than solar storms, because they are unpredictable and because they include an E1 field, not just an E3 field.</li>
-  <li>The industry-sponsored <a href="https://www.epri.com/research/products/3002014979">EPRI report</a>, which seems to be carefully done, claims that an EMP attack will at most cause temporary disruptions in a few states. The E1 field itself will not cause any permanent damage to DPR devices, although a small fraction of devices may be damaged by E1-induced voltage surges. The vast majority of transformers will survive the E3-induced temperature increases. The few transformers that may fail will be geographically dispersed.</li>
-  <li>However, a <a href="https://othjournal.com/wp-content/uploads/2019/08/EMP-Threats-to-Americas-Electric-Grid.pdf">rebuttal report from the EDTF</a> raised many concerns with the EPRI report, including concerns about cascading failures in complex systems. The discrepancies between EPRI and EDTF, as well as the discrepancies between EPRI field tests and previous tests by the EMP Commission, have not been fully resolved.</li>
-</ol>
-
-<h3 id="the-chances-of-an-emp-attack">The chances of an EMP attack</h3>
-
-<p><strong>Q:</strong> <em>I’ve heard a lot from you about how dangerous an EMP attack could be. But how likely is it that anyone will actually try to attack us with an EMP?</em>
-<br /> <strong>A:</strong> Unlike the EMP Commission, most national security experts view EMP attacks as a <a href="https://medium.com/war-is-boring/the-overrated-threat-from-electromagnetic-pulses-46e92c3efeb9">second rate threat</a>. While perhaps some small terrorist groups or rogue nations might launch a localized EMP attack that might take out a substation or two, <a href="https://www.thespacereview.com/article/1553/1">it’s unlikely that any country capable of launching a major EMP attack would actually do so</a>.</p>
-
-<p><strong>Q:</strong> <em>Why not?</em>
-<br /> <strong>A:</strong> Because to launch a major EMP attack, a country would need a large nuclear weapon. And if a country was planning on using a large nuclear weapon, it would make more sense — in the morbid logic of war — to conventionally drop it on a city than to launch an EMP attack which would at most cause some brief power disruptions in a few states. As physicist Yousaf Butt <a href="https://www.thespacereview.com/article/1553/1">put it</a>, “A weapon of mass destruction is preferable to a weapon of mass disruption”.</p>
-
-<p><strong>Q:</strong> <em>Interesting. So while EMP attacks could be serious, they are less dangerous than advertised, and it’s unlikely that anyone would ever want to launch a major attack.</em>
-<br /> <strong>A:</strong> What’s especially interesting is that because EMP attacks are unlikely, and because they will probably only cause transient disruption even if they do happen, some experts believe that the <a href="https://www.thespacereview.com/article/1553/1">bigger threat is solar storms</a>! The EMP Commission, from this perspective, had their priorities backward.</p>
-
-<h3 id="what-are-we-doing-about-all-of-this">What are we doing about all of this?</h3>
-
-<p><strong>Q:</strong> <em>What is the United States doing to protect itself against solar storms and EMP attacks?</em>
-<br /> <strong>A:</strong> According to the EMP Commission, not nearly enough. The EMP Commission members are <a href="https://republicans-oversight.house.gov/wp-content/uploads/2015/05/Pry-Statement-5-13-EMP.pdf">very critical</a> of the regulatory environment, which they view as dysfunctional. FERC, the government agency that regulates utilities, does not have the power to make the utilities protect the grid. All that FERC can do is ask the industry umbrella group (NERC) to propose an EMP protection standard, but the NERC standard is determined by industry representatives and is therefore too weak.</p>
-
-<p>Furthermore, there is confusion about which government agency is responsible for EMP protection. From <a href="https://www.govinfo.gov/content/pkg/CHRG-114hhrg96952/html/CHRG-114hhrg96952.htm">George Baker’s testimony before Congress</a>:</p>
-
-<blockquote>
-  <p>When I ask NERC officials about EMP protection, they informed me we don’t do EMP, that’s DOD’s responsibility. The Department of Defense tells me, EMP protection for civilian infrastructure is DHS’s responsibility. And then when I talk to DHS, I get answers that the protection should be done by the Department of Energy, since they are the infrastructure’s sector-specific agency. So we have EMP and GMD protection as finger-pointing exercises at present.</p>
-</blockquote>
-
-<p><strong>Q:</strong> <em>That sounds bad.</em>
-<br /> <strong>A:</strong> Agreed. The goods news is that in March 2019 the EMP hawks <a href="https://thehill.com/opinion/national-security/436224-finally-a-presidential-emp-order-that-may-save-american-lives">got their wish</a>, when President Trump signed an <a href="https://www.whitehouse.gov/presidential-actions/executive-order-coordinating-national-resilience-electromagnetic-pulses/">executive order</a> putting the White House in charge of national EMP preparedness, rather than relying on scattered federal agencies. EMP Commission chairman Peter Pry <a href="https://thehill.com/opinion/national-security/436224-finally-a-presidential-emp-order-that-may-save-american-lives">hailed the executive order</a>, describing it as an “excellent first step”.</p>
-
-<p>Even EMP skeptics expressed support for the executive order. Former staff member of the Senate Armed Services Committee Gregory T. Kiley <a href="https://thehill.com/opinion/cybersecurity/437687-putting-president-trumps-executive-order-on-electromagnetic-pulses-emp">wrote</a>:</p>
-
-<blockquote>
-  <p>EMPs are by no means one of the top-tier national security challenges, nor the most pressing concern for the safety of our electrical grid. A careful and reasoned plan put forward, like what we saw last week from the White House, makes sense.</p>
-</blockquote>
-
-<p><strong>Q:</strong> <em>What’s happened so far with the executive order?</em>
-<br /> <strong>A:</strong> According to <a href="https://www.politico.com/news/2019/11/18/is-it-lights-out-for-trumps-emp-push-071359">Politico</a>, the process has been disrupted due to the departure of several key advocates from the administration. Peter Pry <a href="https://thehill.com/opinion/national-security/436224-finally-a-presidential-emp-order-that-may-save-american-lives">warns</a> of “inevitable opposition from recalcitrant lobbyists and bureaucrats”. That said, the National Defense Authorization Act passed by Congress this year includes some laws regarding EMP protection.</p>
-
-<p><strong>Q:</strong> <em>How much will it cost to better prepare us for EMPs and Solar Storms?</em>
-<br /> <strong>A:</strong> It <a href="https://www.govinfo.gov/content/pkg/CHRG-114hhrg96952/html/CHRG-114hhrg96952.htm">depends what the plan is</a>. The bare minimum is to spend \$200M to protect the extra-high-voltage transformers. The EMP Commission proposed a \$2B plan to protect all the transformers and generators. George Baker’s has a much more expensive plan at \$30B. That might sound like a lot, but if you amortize it over several years, it would come out to a \$2-3 charge in your monthly utility bill.</p>
-
-<p><strong>Q:</strong> <em>Getting back to how you started this blog post, you mentioned that some key high voltage transformers take 1-2 years to produce, and that we should therefore stockpile about 30 of them, at a cost of about $300 million.</em>
-<br /> <strong>A:</strong> I was surprised to hear that Peter Pry, of the hawkish EMP Commission, does not support this plan. According to him, it would be much cheaper to just put surge arrestors on our active transformers. Furthermore, many transformers are custom-built for individual substations, so it will not be easy to produce stockpiled interoperable transformers that can work at any substation.</p>
-
-<h3 id="conclusions">Conclusions</h3>
-<p><strong>Q.</strong> <em>What’s your overall take on this?</em><br /> <strong>A:</strong> The ‘mainstream’ belief is that solar storms and EMP attacks are concerning but overhyped. While almost everyone agrees that we should make our grid more resilient, many say the doomsday scenarios are extremely unlikely. Most national security experts think that countries capable of launching a major EMP attack will not want to launch one, although smaller attacks from rogue actors may be possible. Consistent with the reasonably careful EPRI report, the mainstream view is that the impact of even a major EMP attack will likely be short-term and regional, rather than long-term and national. As for solar storms, the utility companies will have plenty of advance warning to respond.</p>
-
-<p>Other people, especially those who have worked on the EMP Commission, are much more worried about these risks. They point to the fact that hundreds of grid components have not been thoroughly tested, and that problems in one part of the grid can cascade to other parts in unpredictable ways. The media has at times portrayed these people negatively. In an article that I thought was irresponsible, <a href="https://slate.com/technology/2019/05/emp-weapons-conservatives-trump-gingrich-huckabee.html">Slate</a> called the EMP concern “right-wing fretting” and a conservative “fixation”. <a href="https://www.wired.com/story/the-grid-might-survive-an-electromagnetic-pulse-just-fine/">Wired</a> says that the EMP arena is filled with a lot of “hype” and “fearmongering”.</p>
-
-<p>My own view is that while the ‘mainstream’ view is probably correct, and while there certainly has been some fearmongering, I am philosophically aligned with the alarmists. The mainstream belief at NASA in 1986 was that the Challenger was safe. The mainstream belief at Chernobyl in 1986 was that the reactor core could never rupture. The mainstream belief on Wall Street in 2007 was that mortgage-backed securities were safe.</p>
-
-<p>Now that we have seen our preparedness level for Covid-19, who are you going to believe: The people saying “Don’t worry, we have this unpredictable and complex system under control” or the people waving their hands and shouting “correlated risk!” I’m with the people shouting “correlated risk!”, even though they’ll probably end up being wrong.</p>
-
-
-    <div>
-        <i class="fa fa-comment"></i> <a href="http://localhost:4000/2020/06/18/everything-ive-learned-about-solar-storm-risk-and-emp-attacks/#disqus_thread" data-disqus-identifier="http://localhost:4000/2020/06/18/everything-ive-learned-about-solar-storm-risk-and-emp-attacks/"></a>
-        <span>&nbsp; &nbsp;</span>
-        <span>
-            <a class="twitter-share-button"
-              href="https://twitter.com/share"
-              data-url="http://localhost:4000/2020/06/18/everything-ive-learned-about-solar-storm-risk-and-emp-attacks/"
-              data-via="Chris_Said"
-              data-count="none"
-              data-text="Everything I've learned about solar storm risk and EMP attacks">
-            Tweet
-            </a>
-        </span>
-
-    </div>
-
-  </div>
-  
-  <div class="post">
-    <h1 class="post-title">
-      <a href="/2020/04/14/fragmented-data-pipelines/">
-        Coronavirus and fragmented data pipelines
-      </a>
-    </h1>
-
-    <span class="post-date">14 Apr 2020</span>
-
-    <p>Anybody looking at coronavirus data right now must feel very confused. The UK has a daily case count <a href="https://twitter.com/jburnmurdoch/status/1249444701280878592/photo/1">60 times higher</a> than Australia. Italy has a case fatality rate <a href="https://www.cebm.net/covid-19/global-covid-19-case-fatality-rates/">3 times higher</a> than nearby Greece and <a href="https://www.cebm.net/covid-19/global-covid-19-case-fatality-rates/">12 times higher</a> than Pakistan. These <a href="https://marginalrevolution.com/marginalrevolution/2020/03/where-does-all-the-heterogeneity-come-from.html">heterogeneities</a> seem massive and have the potential to teach us critical insights about the disease. But as any epidemiologist will <a href="https://fivethirtyeight.com/features/a-comic-strip-tour-of-the-wild-world-of-pandemic-modeling/">readily</a> <a href="https://journals.plos.org/plosntds/article?id=10.1371/journal.pntd.0003846">acknowledge</a>, these statistics are terribly confounded by inconsistent reporting protocols and variable testing ability, both of which could be driving inter-country differences of 10x or more.</p>
-
-<p>In this blog post, I want to talk about some of the enormous issues with data quality and why we have them. And I want to describe how we can go beyond merely acknowledging the biases, and instead focus on the policy changes that can fix them.</p>
-
-<h3 id="testing-count">Testing count</h3>
-<p>The first issue is that different countries and different states vary greatly in how much testing they do. Iceland has tested <a href="https://www.covid.is/data">10% of its population</a>, whereas India has only tested <a href="https://ourworldindata.org/covid-testing">0.1% of its population</a>. Obviously these differences in testing will drive differences in reported case counts.</p>
-
-<p>Given differences in economic development, it’s understandable that different countries will have different testing counts. What’s <em>not</em> acceptable is that so many countries <a href="https://ourworldindata.org/covid-testing">don’t report their testing counts</a>! They just report the number of positive tests! Even among the countries that report both numbers, many greatly underreport the testing count because they rely on commercial labs that do not provide these records.</p>
-
-<p>This isn’t just an issue for developing countries. Looking just at the United States, economically advanced states like California, Washington, and New York, have <a href="https://covidtracking.com/about-data">not regularly reported</a> their total number of people tested. New York has, at various times, <a href="https://covidtracking.com/about-data/faq">started and stopped</a> reporting negative results.</p>
-
-<p>If we wish to make sensible comparisons of infection rates across regions, it is utterly important to know how many people were tested in each region, especially if there may be 10x or 100x test rate differences across regions. I do not want to be too critical here, but it is astonishing to me that we cannot produce this data.</p>
-
-<h3 id="mix-shift-in-reasons-for-testing">Mix shift in reasons for testing</h3>
-<p>It is not enough to report just the number of tests and the number of positive results. To estimate the true infection rates, we must also know why each test was done. Imagine one country only tests symptomatic people, whereas another country tests symptomatic people and high risk non-symptomatic people (e.g. health care workers). And imagine that both countries do the same number of tests. Even though both countries do the same number of tests, you can’t calculate the true infection count by simply dividing the positive tests by the test rate. For a reasonable estimate, you need to divide the positives in each stratum by the testing rate in each stratum, and then sum them up.</p>
-
-<p>The <a href="https://www.cdc.gov/coronavirus/2019-ncov/downloads/pui-form.pdf">CDC case report form</a> has a field for why each test was done (<em>Figure 1</em>). Unfortunately, many states do not use this form and instead use their own form. (To be fair, some states like Washington use a <a href="https://www.doh.wa.gov/Portals/1/Documents/5100/420-110-ReportForm-Coronavirus.pdf">more comprehensive form</a>, but there is still a lack of standardization.) Moreover, none of the states to my knowledge report the total number of people in each stratum (tested and untested), which would be necessary to do a stratified analysis.</p>
-
-<div class="wrapper">
-  <img src="/assets/2020_covid_data_quality/cdc_form_strata.png" class="inner" style="position:relative border:#222 2px solid; max-width:95%;" />
-  <div class="caption"><strong>Figure 1</strong>: A section from the <a href="https://www.cdc.gov/coronavirus/2019-ncov/downloads/pui-form.pdf">CDC case report form</a> which could be used for stratification. 
-  </div>
-</div>
-<p><br /></p>
-
-<h3 id="why-dont-we-do-this-already">Why don’t we do this already?</h3>
-<p>None of this is groundbreaking stuff. Epidemiologists know about <a href="https://www.ncbi.nlm.nih.gov/pubmed/10366179">stratification</a> and are <a href="https://journals.plos.org/plosntds/article?id=10.1371/journal.pntd.0003846">keenly aware</a> of the limitations of crude infection counts and crude case fatality rates.</p>
-
-<p>This isn’t a knowledge problem. Instead, this is caused by some combination of three factors.</p>
-
-<p>First, there is a natural tendency among data professionals to focus more on modeling than on upstream data quality issues. My own field of data science is certainly guilty of this. I am not saying data quality has received no attention. I am just saying that if epidemiology is anything like data science, then data quality issues get less attention than they deserve.</p>
-
-<p>Second, our public health infrastructure is <a href="https://www.ncbi.nlm.nih.gov/books/NBK221231/">fragmented</a> in a very particular way. Internationally, the WHO has no jurisdiction over individual countries and can only ask them to “<a href="https://apps.who.int/iris/bitstream/handle/10665/331509/WHO-COVID-19-lab_testing-2020.1-eng.pdf">consider reporting</a>” their data. In the US, the <a href="https://en.wikipedia.org/wiki/Tenth_Amendment_to_the_United_States_Constitution">Tenth Amendment</a> requires most public health work to be <a href="https://www.cdc.gov/phlp/docs/APHL_Conference_LEI_Report_508.pdf">run by the states</a> rather than the federal government, and the CDC can therefore not compel states to report data or to use its forms. This is clearly a collective action that people have <a href="https://www.ncbi.nlm.nih.gov/books/NBK221231/">warned about for decades</a>.</p>
-
-<p>Third, it’s really hard. It is currently quite onerous to fill out a report for <a href="https://www.cdc.gov/coronavirus/2019-ncov/downloads/pui-form.pdf">negative results</a>, although one could imagine a world where negative cases were easy to report.</p>
-
-<h3 id="the-three-levels-of-data-org-maturity-and-a-dream-for-the-future">The three levels of data org maturity, and a dream for the future</h3>
-<p>In my field of data science, you can determine the maturity of data organizations by their outlook on upstream data quality issues. There are roughly three levels.</p>
-
-<div class="wrapper">
-  <img src="/assets/2020_covid_data_quality/data_maturity_table.png" class="inner" style="position:relative border: #222 2px solid; max-width:95%;" />
-  <div class="caption"><strong>Table 1</strong>: Levels of data maturity for a data organization. 
-  </div>
-</div>
-<p><br /></p>
-
-<p>Our public health infrastructure is at Level II. My strong belief, and I mean this in as constructive a way as possible, is that Level II is unacceptable. We need to be at Level III before the next pandemic hits.</p>
-
-<p>I want us to live in a world where every country reports positive case counts and total test counts to the WHO, stratified by test reason, and using standardized easy-to-use technology. I want to live in a world where every state reports the same information to the CDC.</p>
-
-<p>How do we get there? Here are some thoughts.</p>
+<h4 id="selected-blog-posts-general-interest">Selected Blog Posts (General interest)</h4>
 <ul>
-  <li>A cultural shift among researchers towards the hard work on upstream data quality issues. And yes, <a href="https://en.wikipedia.org/wiki/Replication_crisis">cultural shifts are possible</a>.</li>
-  <li>Financial incentives for better case reporting. For example, while the CDC cannot legally compel states to do adequate reporting, it does provide financial assistance via the <a href="https://www.cdc.gov/ncezid/dpei/epidemiology-laboratory-capacity.html">ELC Cooperative Agreement</a>. The CDC could use this program as a financial carrot for better reporting, similar to how they have used other cooperative agreements to <a href="https://www.cdc.gov/cancer/npcr/pdf/npcr_standards.pdf">incentivize participation standards in cancer registries</a>. One can imagine similar financial arrangements at the international level.</li>
-  <li>Technology. Even today many health providers fax case reports to state agencies, where someone then converts the data by hand into a CDC report. <a href="https://www.healthit.gov/sites/default/files/hie-interoperability/Roadmap-Executive%20Summary-100115-4pm.pdf">The CDC is aware of the need for interoperable technology</a>, but clearly this work needs to be prioritized and accelerated.</li>
-  <li>Funding for public health agencies to make this all possible.</li>
+  <li><a href="/2016/05/11/optimizing-things-in-the-ussr/">Optimizing things in the USSR</a> (11 May 2016)</li>
+  <li><a href="/2016/02/28/four-pitfalls-of-hill-climbing/">Four pitfalls of hill climbing</a> (28 Feb 2016)</li>
 </ul>
 
-<p>In the meantime, please consider <a href="https://ourworldindata.org/covid-testing">supporting Our World In Data</a> or following the Covid Tracking Project’s <a href="https://covidtracking.com/help">recommendation to contact your state public health authority</a>. Both of these organizations have made a herculean effort to compile incomplete data.</p>
-
-
-
-    <div>
-        <i class="fa fa-comment"></i> <a href="http://localhost:4000/2020/04/14/fragmented-data-pipelines/#disqus_thread" data-disqus-identifier="http://localhost:4000/2020/04/14/fragmented-data-pipelines/"></a>
-        <span>&nbsp; &nbsp;</span>
-        <span>
-            <a class="twitter-share-button"
-              href="https://twitter.com/share"
-              data-url="http://localhost:4000/2020/04/14/fragmented-data-pipelines/"
-              data-via="Chris_Said"
-              data-count="none"
-              data-text="Coronavirus and fragmented data pipelines">
-            Tweet
-            </a>
-        </span>
-
-    </div>
-
-  </div>
-  
-  <div class="post">
-    <h1 class="post-title">
-      <a href="/2020/02/08/the-shower-problem/">
-        The shower problem
-      </a>
-    </h1>
-
-    <span class="post-date">08 Feb 2020</span>
-
-    <p><em>Attention mathematicians and computer scientists:</em> I’ve got a problem for you, and I don’t know the solution.</p>
-
-<p>Here’s the setup: You’re at your friend’s place and you need to take a shower. The shower knob is unlabeled. One direction is hot and the other direction is cold, and you don’t know which is which.</p>
-
-<div class="wrapper">
-  <img src="/assets/2020_shower_problem/shower_knob.png" class="inner" style="position:relative border: #222 2px solid; max-width:40%;" />
-</div>
-
-<p>You turn it to the left. It’s cold. You wait.</p>
-
-<p>At what point do you switch over to the right?</p>
-
-<h3 id="the-baseline-shower-problem">The baseline shower problem</h3>
-<p>Let’s make this more explicit.</p>
-
+<h4 id="other-projects">Other Projects</h4>
 <ul>
-  <li>Your goal is to find a policy that minimizes the expected amount of time it takes to get hot water flowing out of the shower head. To simplify things, assume that the water coming out of the head is either hot or cold, and that the lukewarm transition time is effectively zero.</li>
-  <li>You know that the shower has a Time-To-Hot constant called <script type="math/tex">\tau</script>. This value is defined as the time it takes for hot water to arrive, assuming you have turned the knob to the hot direction and keep it there.</li>
-  <li>The <script type="math/tex">\tau</script> constant is a fixed property of the shower and is sampled once from a known distribution. You have certain knowledge of the distribution, but you don’t know <script type="math/tex">\tau</script>.</li>
-  <li>The shower is memoryless, such that every time you turn the knob to the hot direction, it will take <script type="math/tex">\tau</script> seconds until the hot water arrives, regardless of your prior actions. Every time you turn it to the cold direction, only cold water will come out.</li>
+  <li><a href="http://whichfamouseconomistareyoumostsimilarto.com/">Which famous economist are you most similar to?</a> (2013-2015)</li>
+  <li><a href="http://ismyjobinanotherstate.com/">Is my job in another state?</a> (2014)</li>
 </ul>
 
-<div class="wrapper">
-  <img src="/assets/2020_shower_problem/distributions.gif" class="inner" style="position:relative border: #222 2px solid; max-width:100%;" />
-  <div class="caption"><strong>Figure 1.</strong> Unbeknownst to the user, the hot water direction is to the left, with a time constant τ of 100 seconds. The user knows the probability distribution over τ, and follows a strategy of eliminating segments of that distribution. They initially guess the correct direction, but give up too soon at 75 seconds. They then spend another 75 seconds on the rightwards direction. Finally, they return to the left direction, passing through the 75 seconds they had already eliminated, and then finally getting the hot water after 100 seconds on the left direction. In all, it takes the user 250 seconds to find the hot water.
-  </div>
-</div>
-<p><br /></p>
-
-<p>I don’t know how to solve this problem. But as a starting point I realize it’s possible to keep track of the probability that the hot direction is to the left or to the right. In the animation above, the probability that the hot direction is to the right is just the unexplored white area under the right curve, divided by the total unexplored white area of both curves.</p>
-
-<p>But how do you turn that into a policy for exploring the space? Does anybody know?</p>
-
-<h3 id="submissions">Submissions</h3>
-<p>If you would like to submit a proposal, please report your average duration for the sample of 20,000 <script type="math/tex">\tau</script>’s provided <a href="https://gist.github.com/csaid/a57c4ebaa1c7b0671cdc9692638ea4c4">here</a>. Currently, <a href="https://twitter.com/Cmrn_DP">Cameron Davidson-Pilon</a> is in the lead with an average duration of <a href="https://gist.github.com/CamDavidsonPilon/be1333d348865fbf1ab13c409e849ee2">111.365 seconds</a>.</p>
-
-<h3 id="bonus-problem-plumbing-realities-and-the-elusive-middle-solution">Bonus problem: Plumbing realities and the elusive “Middle Solution”</h3>
-<p>The baseline shower problem assumes a simplified version of reality, where the shower is memoryless and there is only a single pipe. If you want a harder problem, I have written a comment below that describes some of the plumbing realities, including lag and the existence of separate hot and cold pipes. The comment explores the tantalizing possibility that we’ve all been fiddling with our showers wrong this whole time. Instead of swinging the knob between one extreme and the other, what if the optimal solution is to start by putting the knob in the middle? To read more, see the comment below.</p>
-
-
-    <div>
-        <i class="fa fa-comment"></i> <a href="http://localhost:4000/2020/02/08/the-shower-problem/#disqus_thread" data-disqus-identifier="http://localhost:4000/2020/02/08/the-shower-problem/"></a>
-        <span>&nbsp; &nbsp;</span>
-        <span>
-            <a class="twitter-share-button"
-              href="https://twitter.com/share"
-              data-url="http://localhost:4000/2020/02/08/the-shower-problem/"
-              data-via="Chris_Said"
-              data-count="none"
-              data-text="The shower problem">
-            Tweet
-            </a>
-        </span>
-
-    </div>
-
-  </div>
-  
-  <div class="post">
-    <h1 class="post-title">
-      <a href="/2020/01/10/optimizing-sample-sizes-in-ab-testing-part-III/">
-        Optimizing sample sizes in A/B testing, Part III&#58; Aggregate time-discounted expected lift
-      </a>
-    </h1>
-
-    <span class="post-date">10 Jan 2020</span>
-
-    <div class="caption">
-This is Part III of a three part blog post on how to optimize your sample size in A/B testing. Make sure to read <a href="/2020/01/10/optimizing-sample-sizes-in-ab-testing-part-I/">Part I </a> and <a href="/2020/01/10/optimizing-sample-sizes-in-ab-testing-part-II/">Part II</a> if you haven't already.
-</div>
-<hr />
-
-<p>In <a href="/2020/01/10/optimizing-sample-sizes-in-ab-testing-part-II/">Part II</a>, we learned how before the experiment starts we can estimate $\hat{L}$, the expected post-experiment lift, a probability weighted average of outcomes.</p>
-
-<p>In Part III, we’ll discuss how to estimate what is perhaps the most important per-unit cost of experimentation: the forfeited benefits that are lost by delayed shipment. This leads to something I think is incredibly cool: A formula for the <em>aggregate time-discounted expected post-experiment lift</em> as a function of sample size. We call this quantity $\hat{L}_a$. The formula for $\hat{L}_a$ allows you to pick optimal sample sizes specific to your business circumstances. We’ll cover two examples in Python, one where you are testing a continuous variable, and one where you are testing a binary variable (as in conversion rate experiments).</p>
-
-<p>As usual, the focus will be on choosing a sample size at the beginning of the experiment and committing to it, not on dynamically updating the sample size as the experiment proceeds.</p>
-
-<h2 id="a-quick-modification-from-part-ii">A quick modification from Part II</h2>
-
-<p>In <a href="/2020/01/10/optimizing-sample-sizes-in-ab-testing-part-II/">Part II</a>, we saw that if you ship whichever version (A or B) does best in the experiment, your business will on average experience a post-experiment per-user lift of</p>
-
-<script type="math/tex; mode=display">\hat{L} = \frac{\sigma_\Delta^2}{\sqrt{2\pi(\sigma_\Delta^2 + \frac{2\sigma_X^2}{n})}}</script>
-
-<p>where $\sigma_\Delta^2$ is the variance on your normally distributed zero-mean prior for $\mu_B - \mu_A$, $\sigma_X^2$ is the within-group variance, and $n$ is the per-bucket sample size.</p>
-
-<p>Because Part III is primarily concerned with the duration of the experiment, we’re going to modify the formula to be time-dependent. As a simplifying assumption we’re going to make <em>sessions</em>, rather then <em>users</em>, the unit of analysis. We’ll also assume that you have a constant number of sessions per day. This changes the definition of $\hat{L}$ to a <em>post-experiment per-session lift</em>, and the formula becomes</p>
-
-<script type="math/tex; mode=display">\hat{L} = \frac{\sigma_\Delta^2}{\sqrt{2\pi(\sigma_\Delta^2 + \frac{2\sigma_X^2}{m\tau})}}</script>
-
-<p>where $m$ is the sessions per day for each bucket, and $\tau$ is duration of the experiment in days.</p>
-
-<h2 id="time-discounting">Time Discounting</h2>
-
-<p>The formula above shows that larger sample sizes result in higher $ \hat{L} $, since larger samples make it more likely you will ship the better version. But as with all things in life, there are costs to increasing your sample size. In particular, the larger your sample size, the longer you have to wait to ship the winning bucket. This is bad because lift today is much more valuable than the same lift a year from now.</p>
-
-<p>How much more valuable is lift today versus lift a year from now? A common way to quantify this is with exponential discounting, such that weights (or “discount factors”) on future lift follow the form:</p>
-
-<script type="math/tex; mode=display">w = e^{-rt}</script>
-
-<p>where $ r $ is a discount rate. For startup teams, the annual discount rate might be quite large, like 0.5 or even 1.0, which would correspond to a daily discount rate $r$ of 0.5/365 or 1.0/365, respectively. Figure 1 shows an example of a discount rate of 1.0/365</p>
-
-<div class="wrapper">
-  <img src="/assets/2020_optimizing_sample_sizes/discount_function.png" class="inner" style="position:relative border: #222 2px solid; max-width:100%;" />
-  <div class="caption"><strong>Figure 1</strong>.
-  </div>
-</div>
-<p><br /></p>
-
-<h2 id="aggregate-time-discounted-expected-lift-visual-intuition">Aggregate time-discounted expected lift: Visual Intuition</h2>
-
-<p>Take a look at Figure 2, below. It shows an experiment that is planned to run for $\tau = 60$ days. The top panel shows $\hat{L}$, which we have now defined as the expected per-session lift. While the experiment is running, $\hat{L} = 0$, since our prior is that $\Delta$ is sampled from a normal distribution with mean zero. But once the experiment finishes and we launch the winning bucket, we should begin to reap our expected per-session lift.</p>
-
-<p>The middle panel shows our discount function.</p>
-
-<p>The bottom panel shows our time-discounted lift, defined as the product of the lift in the top panel and the time discount in the middle panel. (We can also multiply it by $M$, the number of post-experiment sessions per day, which for simplicity we set to 1 here.) The aggregate time-discounted expected lift, $\hat{L}_a$, is the area under the curve.</p>
-
-<div class="wrapper">
-  <img src="/assets/2020_optimizing_sample_sizes/discounted_lift_static.png" class="inner" style="position:relative border: #222 2px solid; max-width:100%;" />
-  <div class="caption"><strong>Figure 2</strong>.
-  </div>
-</div>
-<p><br /></p>
-
-<p>Now let’s see what happens with different experiment durations. Figure 3 shows that the longer you plan to run your experiment, the higher $\hat{L}$ will be (top panel). But due to time discounting, (middle panel), the area under the time-discounted lift curve (bottom panel) is low for overly large sample sizes. There is an optimal duration of the experiment (in this case, $\tau = 24$ days), that maximizes $\hat{L}_a$, the area under the curve.</p>
-
-<div class="wrapper">
-  <img src="/assets/2020_optimizing_sample_sizes/discounted_lift_dynamic.gif" class="inner" style="position:relative border: #222 2px solid; max-width:100%;" />
-  <div class="caption"><strong>Figure 3</strong>.
-  </div>
-</div>
-<p><br /></p>
-
-<h2 id="aggregate-time-discounted-expected-lift-formula">Aggregate time-discounted expected lift: Formula</h2>
-<p>The aggregate time-discounted expected lift $\hat{L}_a$, i.e. the area under the curve in the bottom panel of Figure 3, is:</p>
-
-<script type="math/tex; mode=display">\hat{L}_a = \frac{\sigma_\Delta^2 M e^{-r\tau}}{r \sqrt{2\pi(\sigma_\Delta^2 + \frac{2\sigma_X^2}{m\tau})}}</script>
-
-<p>where $ \tau $ is the duration of the experiment and $M$ is the number of post-experiment sessions per day. See the Appendix for a derivation.</p>
-
-<p>There’s two things to note about this formula.</p>
-<ol>
-  <li>Increasing the number of bucketed sessions per day, $m$, always increases $\hat{L}_a$.</li>
-  <li>Increasing the duration of the experiment, $\tau$, may or may not help. Its impact is controlled by competing forces in the numerator and denominator. In the numerator, higher $\tau$ decreases $\hat{L}_a$ by delaying shipment. In the denominator, higher $\tau$ increases $\hat{L}_a$ by making it more likely you will ship the superior version.</li>
-</ol>
-
-<h2 id="optimizing-sample-size">Optimizing sample size</h2>
-
-<p>At long last, we can answer the question, “How long should we run this experiment?”. A nice way to do it is to plot $\hat{L}_a$ as a function of $\tau$. Below we see what this looks like for one set of parameters. Here the optimal duration is 38 days.</p>
-<div class="wrapper">
-  <img src="/assets/2020_optimizing_sample_sizes/time_aggregated_lift_by_tau.png" class="inner" style="position:relative border: #222 2px solid; max-width:100%;" />
-  <div class="caption"><strong>Figure 4</strong>.
-  </div>
-</div>
-<p><br />
-Note also that a set of simulated experiment and post-experiment periods (in blue) confirm the predictions of the closed form solution (in gray). See the <a href="https://github.com/csaid/optimizing-sample-sizes-in-AB-testing/blob/master/Optimizing%20sample%20sizes%20in%20AB%20testing.ipynb">notebook</a> for details.</p>
-
-<h2 id="examples-in-python">Examples in Python</h2>
-<h3 id="example-1-continuous-variable-metric">Example 1: Continuous variable metric</h3>
-<p>Let’s say you want to run an experiment comparing two different versions of a website, and your main metric is revenue per session. You know in advance that the within-group variance of this metric is $\sigma_X^2 = 100$. You don’t know which version is better but you have a prior that the true difference in means is normally distributed with variance $\sigma_\Delta^2 = 1$. You have 200 sessions per day and plan to bucket 100 sessions into Version A and 100 sessions into Version B, running the experiment for $\tau=20$ days. Your discount rate is fairly aggressive at 1.0 annually, or $r = 1/365$ per day. Using the function in the <a href="https://github.com/csaid/optimizing-sample-sizes-in-AB-testing/blob/master/Optimizing%20sample%20sizes%20in%20AB%20testing.ipynb">notebook</a>, you can find $\hat{L}_a$ with this command:</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">get_agg_lift_via_closed_form</span><span class="p">(</span><span class="n">var_D</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">var_X</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">tau</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="mi">365</span><span class="p">,</span> <span class="n">M</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
-<span class="c1"># returns 26298
-</span></code></pre></div></div>
-
-<p>You can also use the <code class="language-plaintext highlighter-rouge">find_optimal_tau</code> function to determine the optimal duration, which in this case is $\tau=18$.</p>
-
-<h3 id="example-2-conversion-rates">Example 2: Conversion rates</h3>
-<p>Let’s say your main metric is conversion rate. You think that on average conversion rates will be about 10%, and that the difference in conversion rates between buckets will be normally distributed with variance 1%. Using the normal approximation of the binomial distribution, you can use <code class="language-plaintext highlighter-rouge">p*(1-p)</code> for <code class="language-plaintext highlighter-rouge">var_X</code>.</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">p</span> <span class="o">=</span> <span class="mf">0.1</span>
-<span class="n">get_agg_lift_via_closed_form</span><span class="p">(</span><span class="n">var_D</span><span class="o">=</span><span class="mf">0.01</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">var_X</span><span class="o">=</span><span class="n">p</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">p</span><span class="p">),</span> <span class="n">m</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">tau</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="mi">365</span><span class="p">,</span> <span class="n">M</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
-<span class="c1"># returns 207
-</span></code></pre></div></div>
-
-<p>You can also use the <code class="language-plaintext highlighter-rouge">find_optimal_tau</code> function to determine the optimal duration, which in this case is $\tau=49$.</p>
-
-<h2 id="faq">FAQ</h2>
-<p><strong>Q:</strong> Has there been any similar work on this?</p>
-
-<p><strong>A:</strong> As I was writing this, I came across a <a href="https://arxiv.org/pdf/1811.00457.pdf">fantastic in-press paper</a> by <a href="https://drexel.edu/now/experts/Overview/Feit-Elea/">Elea Feit</a> and <a href="https://www.ron-berman.com/">Ron Berman</a>. The paper is exceptionally clear and I would recommend reading it. Like this blog post, Feit and Berman argue that it doesn’t make any sense to pick sample sizes based on statistical significance and power thresholds. Instead they recommend profit-maximizing sample sizes. They independently come to the same formula for $ \hat{L} $ as I do (see right addend in their Equation 9, making sure to substitute my $\frac{\sigma_\Delta^2}{2}$ for their $\sigma^2)$. Where they differ is that they assume there is a fixed pool of $N$ users that can only experience the product once. In their setup, you can allocate $n_1$ users to Bucket A and $n_2$ users to Bucket B. Once you have identified the winning bucket, you ship that version to the remaining $N-n_1-n_2$ users. Your expected profit is determined by the total expected lift from those users. My experience in industry differs from this setup. In my experience there is no constraint that you can only show the product once to a fixed set of users. Instead, there is often an indefinitely increasing pool of new users, and once you ship the winning bucket you can ship it to everyone, including users who already participated in the experiment. To me, the main constraint in industry is therefore time discounting, rather than a finite pool of users.</p>
-
-<p><strong>Q:</strong> In addition to the lift from shipping a winning bucket, doesn’t experimentation also help inform us about the types of products that might work in the future? And if so, doesn’t this mean we should run experiments longer than recommended by your formula for $\hat{L}_a$?</p>
-
-<p><strong>A:</strong> Yes, experimentation can teach lessons that are generalizable beyond the particular product being tested. This is an advantage of high powered experimentation not included in my framework.</p>
-
-<p><strong>Q:</strong> What about <a href="/2016/02/28/four-pitfalls-of-hill-climbing/">novelty effects</a>?</p>
-
-<p><strong>A:</strong> Yup, that’s a real concern not covered by my framework. You probably want to know a somewhat long term impact of your product, which means you should probably run the experiment for longer than recommended by my framework.</p>
-
-<p><strong>Q:</strong> If some users can show up in multiple sessions, doesn’t bucketing by session violate independence assumptions?</p>
-
-<p><strong>A:</strong> Yeah, so this is tricky. For many companies, there is a distribution of user activity, where some users come for many sessions per week and other users come for only one session at most. Modeling this would make the framework significantly more complicated, so I tried to simplify things by making sessions the unit of analysis.</p>
-
-<p><strong>Q:</strong> Is there anything else on your blog vaguely related to this topic?</p>
-
-<p><strong>A:</strong> I’m glad you asked!</p>
-<ul>
-  <li><a href="/2016/02/28/four-pitfalls-of-hill-climbing/">Four pitfalls of hill climbing</a> discusses some product-focused issues in A/B testing</li>
-  <li><a href="/2018/02/04/hyperbolic-discounting/">Hyperbolic discounting — The irrational behavior that might be rational after all</a> is about time discounting, although not in the context of experimentation.</li>
-</ul>
-
-<h2 id="appendix">Appendix</h2>
-<p>The aggregate time-discounted expected lift $\hat{L}_a$ is</p>
-
-<script type="math/tex; mode=display">\hat{L}_a = \int_{\tau}^{\infty} \hat{L} M e^{-rt} \,dt</script>
-
-<p>where $\hat{L}$ is the expected per-session lift, $M$ is the number of post-experiment sessions per day, $r$ is the discount rate, and $ \tau $ is the duration of the experiment. Solving the integral gives:</p>
-
-<script type="math/tex; mode=display">\hat{L}_a = \frac{\hat{L} M e^{-r\tau}}{r}</script>
-
-<p>Plugging in our previously solved value of $\hat{L}$ gives</p>
-
-<script type="math/tex; mode=display">\hat{L}_a = \frac{\sigma_\Delta^2 M e^{-r\tau}}{r \sqrt{2\pi(\sigma_\Delta^2 + \frac{2\sigma_X^2}{m\tau})}}</script>
-
-
-    <div>
-        <i class="fa fa-comment"></i> <a href="http://localhost:4000/2020/01/10/optimizing-sample-sizes-in-ab-testing-part-III/#disqus_thread" data-disqus-identifier="http://localhost:4000/2020/01/10/optimizing-sample-sizes-in-ab-testing-part-III/"></a>
-        <span>&nbsp; &nbsp;</span>
-        <span>
-            <a class="twitter-share-button"
-              href="https://twitter.com/share"
-              data-url="http://localhost:4000/2020/01/10/optimizing-sample-sizes-in-ab-testing-part-III/"
-              data-via="Chris_Said"
-              data-count="none"
-              data-text="Optimizing sample sizes in A/B testing, Part III&#58; Aggregate time-discounted expected lift">
-            Tweet
-            </a>
-        </span>
-
-    </div>
-
-  </div>
-  
-  <div class="post">
-    <h1 class="post-title">
-      <a href="/2020/01/10/optimizing-sample-sizes-in-ab-testing-part-II/">
-        Optimizing sample sizes in A/B testing, Part II&#58; Expected lift
-      </a>
-    </h1>
-
-    <span class="post-date">10 Jan 2020</span>
-
-    <div class="caption">
-This is Part II of a three-part blog post on how to optimize your sample size in A/B testing. Make sure to read <a href="/2020/01/10/optimizing-sample-sizes-in-ab-testing-part-I">Part I</a> if you haven't already.
-</div>
-<hr />
-
-<p>In this blog post (Part II), I describe what I think is an incredibly cool business-focused formula that quantifies how much you can benefit from increasing your sample size. It is, in short, an <em>average of the value of all possible outcomes of the experiment, weighted by their probabilities</em>. This post starts off kind of dry, but if you can make it through the first section, it gets a lot easier.</p>
-
-<h2 id="outcome-probabilities">Outcome probabilities</h2>
-<p>Imagine you are comparing two versions of a website. You currently are on version A, but you would like to compare it to version B. Imagine you are measuring some random variable $X$, which might represent something like clicks per user or page views per user. The goal of the experiment is to determine which version of the website has a higher mean value of $X$.</p>
-
-<p>This blog post aims to quantify the benefit of experimentation as an average of the value of all possible outcomes, weighted by their probabilities. To do that, we first need to describe the probabilities of all the different outcomes. An outcome consists of two parts: A <em>true</em> difference in means, $\Delta$, defined as</p>
-
-<script type="math/tex; mode=display">\Delta = \mu_B - \mu_A</script>
-
-<p>and an experimentally <em>observed</em> difference in means $\delta$, defined as</p>
-
-<script type="math/tex; mode=display">\delta = \overline{X}_B - \overline{X}_A</script>
-
-<p>Let’s start with $\Delta$. While you don’t yet know which version of the website is better (that’s what the experiment is for!), you have a sense for how important the product change is. You can therefore create a normally distributed prior on $\Delta$ with mean zero and variance $ \sigma_\Delta^2 $.</p>
-
-<div class="wrapper">
-  <img src="/assets/2020_optimizing_sample_sizes/univariate_normal.png" class="inner" style="position:relative border: #222 2px solid; max-width:100%;" />
-  <div class="caption"><strong>Figure 1</strong>.
-  </div>
-</div>
-<p><br /></p>
-
-<p>Next, let’s consider $\delta$, your experimentally observed difference in means. It will be a noisy estimate of $\Delta$. Let’s assume you have previously measured the variance of $X$ to be $ \sigma_X^2 $. It is reasonable to assume that within each group in the experiment, and for any particular $\Delta$, the variance of $X$ will still be $ \sigma_X^2$. You should therefore believe that for any particular $\Delta$, the observed difference in means $\delta$ will be sampled from a normal distribution $\mathcal{N}(\Delta, \sigma_c^2)$, where</p>
-
-<script type="math/tex; mode=display">\sigma_c^2 = \frac{2\sigma_X^2}{n}</script>
-
-<p>and where $n$ is the sample size in each of the two buckets. If that doesn’t make sense, check out <a href="https://www.khanacademy.org/math/statistics-probability/significance-tests-confidence-intervals-two-samples/comparing-two-means/v/difference-of-sample-means-distribution">this video</a>.</p>
-
-<p>Collectively, this all forms a bivariate normal distribution of outcomes, shown below.</p>
-
-<div class="wrapper">
-  <img src="/assets/2020_optimizing_sample_sizes/bivariate_normal.png" class="inner" style="position:relative border: #222 2px solid; max-width:100%;" />
-  <div class="caption"><strong>Figure 2</strong>. Probabilities of possible outcomes, based on your prior beliefs. The horizontal axis is the true difference in means, and the vertical axis is the observed difference in means.
-  </div>
-</div>
-<p><br /></p>
-
-<p>To gain some more intuition about this, take a look at Figure 3. As sample size increases, $ \sigma^2_c $ decreases.</p>
-
-<div class="wrapper">
-  <img src="/assets/2020_optimizing_sample_sizes/three_bivariate_normals.png" class="inner" style="position:relative border: #222 2px solid; max-width:100%;" />
-  <div class="caption"><strong>Figure 3</strong>.
-  </div>
-</div>
-<p><br /></p>
-
-<h2 id="outcome-lifts">Outcome lifts </h2>
-<p>Now that we know the probabilities of all the different outcomes, we next need to estimate how much per-user lift, $l$, we will gain from each possible outcome, assuming we follow a policy of shipping whichever bucket (A or B) looked better in the experiment.</p>
+<h4 id="full-blog-archive">Full Blog Archive</h4>
 
 <ul>
-  <li>In cases where $\delta &gt; 0$ and $\Delta &gt; 0$, you would ship B and your post-experiment per-user lift will be positively valued at $l = \Delta$.</li>
-  <li>In cases where $\delta &gt; 0$ and $\Delta &lt; 0$, you would ship B, but unfortunately your post-experiment per-user lift will be negatively valued at $l = \Delta$, since $\Delta$ is negative.</li>
-  <li>In cases where $\delta &lt; 0$, you would keep A in production, and your post-experiment lift would be zero.</li>
+  <li>
+    <p><a href="/2020/06/18/everything-ive-learned-about-solar-storm-risk-and-emp-attacks/"> Everything I’ve learned about solar storm risk and EMP attacks </a> (18 Jun 2020)</p>
+  </li>
+  <li>
+    <p><a href="/2020/04/14/fragmented-data-pipelines/"> Coronavirus and fragmented data pipelines </a> (14 Apr 2020)</p>
+  </li>
+  <li>
+    <p><a href="/2020/02/08/the-shower-problem/"> The shower problem </a> (08 Feb 2020)</p>
+  </li>
+  <li>
+    <p><a href="/2020/01/10/optimizing-sample-sizes-in-ab-testing-part-III/"> Optimizing sample sizes in A/B testing, Part III: Aggregate time-discounted expected lift </a> (10 Jan 2020)</p>
+  </li>
+  <li>
+    <p><a href="/2020/01/10/optimizing-sample-sizes-in-ab-testing-part-II/"> Optimizing sample sizes in A/B testing, Part II: Expected lift </a> (10 Jan 2020)</p>
+  </li>
+  <li>
+    <p><a href="/2020/01/10/optimizing-sample-sizes-in-ab-testing-part-I/"> Optimizing sample sizes in A/B testing, Part I: General summary </a> (10 Jan 2020)</p>
+  </li>
+  <li>
+    <p><a href="/2019/05/18/variance_after_scaling_and_summing/"> Variance after scaling and summing: One of the most useful facts from statistics </a> (18 May 2019)</p>
+  </li>
+  <li>
+    <p><a href="/2018/08/06/cone-of-confusion/"> Using your ears and head to escape the Cone Of Confusion </a> (06 Aug 2018)</p>
+  </li>
+  <li>
+    <p><a href="/2018/02/04/hyperbolic-discounting/"> Hyperbolic discounting — The irrational behavior that might be rational after all </a> (04 Feb 2018)</p>
+  </li>
+  <li>
+    <p><a href="/2017/12/02/religions-as-firms/"> Religions as firms </a> (02 Dec 2017)</p>
+  </li>
+  <li>
+    <p><a href="/2017/07/09/part-2-a-bipartisan-list-of-people-who-argue-in-good-faith/"> Part 2: A bipartisan list of people who argue in good faith </a> (09 Jul 2017)</p>
+  </li>
+  <li>
+    <p><a href="/2017/07/09/part-1-a-bipartisan-list-of-people-who-are-bad-for-america/"> Part 1: A bipartisan list of people who are bad for America </a> (09 Jul 2017)</p>
+  </li>
+  <li>
+    <p><a href="/2017/06/19/three-questions-for-social-scientists/"> Three questions for social scientists: Internet virtue edition </a> (19 Jun 2017)</p>
+  </li>
+  <li>
+    <p><a href="/2017/05/22/keyboard-shortcuts-i-couldnt-live-without/"> Keyboard shortcuts I couldn’t live without </a> (22 May 2017)</p>
+  </li>
+  <li>
+    <p><a href="/2017/05/08/learning-by-flip-flopping/"> Learning by flip-flopping </a> (08 May 2017)</p>
+  </li>
+  <li>
+    <p><a href="/2017/05/03/empirical-bayes-for-multiple-sample-sizes/"> Empirical Bayes for multiple sample sizes </a> (03 May 2017)</p>
+  </li>
+  <li>
+    <p><a href="/2016/05/11/optimizing-things-in-the-ussr/"> Optimizing things in the USSR </a> (11 May 2016)</p>
+  </li>
+  <li>
+    <p><a href="/2016/04/10/comparing-the-opinions-of-economic-experts/"> Comparing the opinions of economic experts and the general public </a> (10 Apr 2016)</p>
+  </li>
+  <li>
+    <p><a href="/2016/02/28/four-pitfalls-of-hill-climbing/"> Four pitfalls of hill climbing </a> (28 Feb 2016)</p>
+  </li>
+  <li>
+    <p><a href="/2016/02/13/how-to-make-polished-jupyter-presentations-with-optional-code-visibility/"> How to make polished Jupyter presentations with optional code visibility </a> (13 Feb 2016)</p>
+  </li>
+  <li>
+    <p><a href="/2015/09/16/new-blog-address/"> New Blog Address </a> (16 Sep 2015)</p>
+  </li>
+  <li>
+    <p><a href="/2015/08/08/10-classic-dialogues/"> 10 classic dialogues you can find on the internet </a> (08 Aug 2015)</p>
+  </li>
+  <li>
+    <p><a href="/2015/05/31/were-getting-better-at-picking-metrics-to-optimize/"> Across industries, we’re getting better at picking metrics </a> (31 May 2015)</p>
+  </li>
+  <li>
+    <p><a href="/2014/11/30/independent-t-tests-and-the-83-confidence-interval-a-useful-trick-for-eyeballing-your-data/"> Independent t-tests and the 83% confidence interval: A useful trick for eyeballing your data. </a> (30 Nov 2014)</p>
+  </li>
+  <li>
+    <p><a href="/2014/10/16/jumping-quickly-between-deep-directories/"> Jumping quickly between deep directories </a> (16 Oct 2014)</p>
+  </li>
+  <li>
+    <p><a href="/2014/07/10/how-failed-replications-change-our-effect-size-estimates/"> How failed replications change our effect size estimates </a> (10 Jul 2014)</p>
+  </li>
+  <li>
+    <p><a href="/2014/07/07/jason-mitchells-essay/"> Jason Mitchell’s essay </a> (07 Jul 2014)</p>
+  </li>
+  <li>
+    <p><a href="/2014/05/14/how-i-use-twitter/"> How I use Twitter </a> (14 May 2014)</p>
+  </li>
+  <li>
+    <p><a href="/2014/02/22/high-school-stem-curriculum-wishlist/"> High School STEM curriculum wishlist </a> (22 Feb 2014)</p>
+  </li>
+  <li>
+    <p><a href="/2014/02/08/is-your-job-in-another-state/"> Is your job in another state? </a> (08 Feb 2014)</p>
+  </li>
+  <li>
+    <p><a href="/2013/10/12/my-insight-data-science-project/"> My Insight Data Science Project </a> (12 Oct 2013)</p>
+  </li>
+  <li>
+    <p><a href="/2013/08/19/which-famous-economist/"> FAQ for Which Famous Economist </a> (19 Aug 2013)</p>
+  </li>
+  <li>
+    <p><a href="/2013/03/30/new-model-of-binocular-rivalry/"> New model of binocular rivalry </a> (30 Mar 2013)</p>
+  </li>
+  <li>
+    <p><a href="/2013/03/21/165/"> Canadian funding models for all </a> (21 Mar 2013)</p>
+  </li>
+  <li>
+    <p><a href="/2013/01/15/8-lessons-from-the-reproducibility-crisis/"> Eight Lessons from the Reproducibility Crisis  </a> (15 Jan 2013)</p>
+  </li>
+  <li>
+    <p><a href="/2013/01/09/in-defense-of-correlationcausation-blowhards/"> In defense of correlation/causation blowhards </a> (09 Jan 2013)</p>
+  </li>
+  <li>
+    <p><a href="/2012/12/29/new-paper-on-autism/"> New paper on autism </a> (29 Dec 2012)</p>
+  </li>
+  <li>
+    <p><a href="/2012/10/04/why-are-contrast-response-functions-linear-in-fmri-and-nonmonotonic-in-eeg/"> Why are contrast response functions linear in fMRI and nonmonotonic in EEG? </a> (04 Oct 2012)</p>
+  </li>
+  <li>
+    <p><a href="/2012/05/29/national-labs-for-all-the-sciences/"> National labs for all the sciences </a> (29 May 2012)</p>
+  </li>
+  <li>
+    <p><a href="/2012/04/18/faq/"> FAQ </a> (18 Apr 2012)</p>
+  </li>
+  <li>
+    <p><a href="/2012/04/17/its-the-incentives-structure-people-why-science-reform-must-come-from-the-granting-agencies/"> It’s the incentive structure, people! Why science reform must come from the granting agencies. </a> (17 Apr 2012)</p>
+  </li>
 </ul>
 
-<p>A heatmap of the per-user lifts ($l$) for each outcome is shown in the plot below. Good outcomes, where shipping B was the right decision, are shown in blue. Bad outcomes, where shipping B was the wrong decision, are shown in red. There are two main ways to get a neutral outcomes, shown in white. Either you keep A (bottom segment), in which case there is zero lift, or you ship B where B is only negligibly different than A (vertical white stripe).</p>
 
-<div class="wrapper">
-  <img src="/assets/2020_optimizing_sample_sizes/lift_matrix.png" class="inner" style="position:relative border: #222 2px solid; max-width:100%;" />
-  <div class="caption"><strong>Figure 4</strong>. Heatmap of possible outcomes, where the color scale represents the lift, $l$. The horizontal axis is the true difference in means, and the vertical axis is the observed difference in means
-  </div>
 </div>
-<p><br /></p>
-
-<h2 id="probability-weighted-outcome-lifts">Probability-weighted Outcome Lifts</h2>
-<p>At this point, we know the probability of each outcome, and we know the post-experiment per-user lift of each outcome. To determine how much lift we can expect, on average, by shipping the winning bucket of an experiment, we need to compute a probability-weighted average of the outcome lifts. Let’s start by looking at this visually and then later we’ll get into the math.</p>
-
-<p>As shown in Figure 5, if we multiply the bivariate normal distribution (left) by the lift map (center), we can obtain the probability-weighted lift of each outcome (right).</p>
-
-<div class="wrapper">
-  <img src="/assets/2020_optimizing_sample_sizes/product_stages.png" class="inner" style="position:relative border: #222 2px solid; max-width:100%;" />
-  <div class="caption"><strong>Figure 5</strong>.
-  </div>
-</div>
-<p><br /></p>
-
-<p>The good outcomes contribute more than the bad outcomes, simply because a good outcome is more likely than a bad outcome. To put it differently, experimentation will on average give you useful information.</p>
-
-<p>To gain some more intuition on this, it is helpful to see this plot for different sample sizes. As sample size increases, the probability-weighted contribution of bad outcomes gets smaller and smaller. </p>
-
-<div class="wrapper">
-  <img src="/assets/2020_optimizing_sample_sizes/three_products.png" class="inner" style="position:relative border: #222 2px solid; max-width:100%;" />
-  <div class="caption"><strong>Figure 6</strong>.
-  </div>
-</div>
-<p><br /></p>
-
-<h3 id="computing-the-expected-post-experiment-per-user-lift">Computing the expected post-experiment per-user lift</h3>
-<p>We’re almost there! To determine the expected post-experiment lift from shipping the winning bucket, we need to compute a probability-weighted average of all the post-experiment lifts. In other words, we need to sum up all the probability-weighted post-experiment lifts on the right panel of Figure 5. The formula for doing this is shown below. A derivation can be found in the Appendix.</p>
-
-<script type="math/tex; mode=display">\hat{L} = \frac{\sigma_\Delta^2}{\sqrt{2\pi(\sigma_\Delta^2 + \frac{2\sigma_X^2}{n})}}</script>
-
-<p>There’s three things to notice about this formula.</p>
-<ul>
-  <li>As $n$ increases, $\hat{L}$ increases. This makes sense. The larger the sample size, the more likely it is that you’ll ship the winning bucket.</li>
-  <li>As the within-group variance $\sigma_X^2$ increases, $\hat{L}$ decreases. That’s because a high within-group variance makes experiments less informative – they’re more likely to give you the wrong answer.</li>
-  <li>As the variance prior on $\Delta$ increases, $\hat{L}$ increases. This also make sense. The more impactful (positive or negative) you think the product change might be, the more value you will get from experimentation.</li>
-</ul>
-
-<p>You can try this out using the <code class="language-plaintext highlighter-rouge">get_lift_via_closed_form</code> formula in the <a href="https://github.com/csaid/optimizing-sample-sizes-in-AB-testing/blob/master/Optimizing%20sample%20sizes%20in%20AB%20testing.ipynb">Notebook</a>.</p>
-
-<h2 id="demonstration-via-simulation">Demonstration via simulation</h2>
-<p>In the previous section, we derived a formula for $\hat{L}$. Should you trust a formula you found on a random internet blog? Yes! Let’s put the formula to the test, by comparing its predictions to actual simulations.</p>
-
-<p>First, let’s consider the case where the outcome is a continuous variable, such as the number of clicks. Let’s set $ \sigma_D^2 = 2 $ and $ \sigma_X^2 = 100 $. We then measure $\hat{L}$ for a range of sample sizes, using both the closed-form solution and simulations. To see how we determine $\hat{L}$ for simulations, refer to the box below.</p>
-
-<div class="box">
-<strong>Procedure for finding $\hat{L}$ with simulations</strong><br /><br />
-Loop through thousands of simulated experiments. On each each experiment doing the following:<br /><br />
-<ol>
-<li>Sample a true group difference $\Delta$ from $\mathcal{N}(0, \sigma_D^2)$</li>
-<li>Sample an $X$ for each of the $n$ users in each bucket A and B, using Normal distributions $\mathcal{N}(\frac{\Delta}{2}, \sigma_X^2)$ and $\mathcal{N}(-\frac{\Delta}{2}, \sigma_X^2)$, respectively.</li>
-<li>Compute $ \delta = \overline{X}_B - \overline{X}_A $.</li>
-<li>If $\delta &lt;= 0$, stick with A and accrue zero lift.</li>
-<li>If $\delta &gt; 0$, ship B and accrue the per-user lift of $\Delta$, which will probably, but not necessarily, be positive.</li>
-</ol>
-We run these experiments thousands of times, each time computing the per-user lift. Finally, we average all the per-user lifts together to get $\hat{L}$. See the get_lift_via_simulations_continuous function in the <a href="https://github.com/csaid/optimizing-sample-sizes-in-AB-testing/blob/master/Optimizing%20sample%20sizes%20in%20AB%20testing.ipynb">notebook</a> for an implementation.
-</div>
-<p>As seen in Figure 7, below, the results of the simulation closely match the closed-form solution.</p>
-
-<div class="wrapper">
-  <img src="/assets/2020_optimizing_sample_sizes/lift_by_n_continuous.png" class="inner" style="position:relative border: #222 2px solid; max-width:100%;" />
-  <div class="caption"><strong>Figure 7</strong>.
-  </div>
-</div>
-<p><br /></p>
-
-<p>Second, let’s consider the case where the variable is binary, as in conversion rates. For reasonably large values of $ n $, we can safely assume that the error variance is normally distributed with variance $ \sigma_X^2 = p(1-p) $, where $ p $ is the baseline conversion rate. For this example, let’s set the baseline conversion rate $p = 0.1$, and let’s set $ \sigma_\Delta^2 = 0.01^2 $. The results of the simulation closely match the closed-form solution.</p>
-
-<div class="wrapper">
-  <img src="/assets/2020_optimizing_sample_sizes/lift_by_n_binary.png" class="inner" style="position:relative border: #222 2px solid; max-width:100%;" />
-  <div class="caption"><strong>Figure 8</strong>.
-  </div>
-</div>
-<p><br /></p>
-
-<h2 id="thinking-about-costs-and-a-preview-of-part-iii">Thinking about costs, and a preview of Part III</h2>
-
-<p>In this blog post, we saw how increasing the sample size improves the expected post-experiment per-user lift, $\hat{L}$. But to determine the <em>optimal</em> sample size, we need to think about costs.</p>
-
-<p>The cost in dollars of an experiment can be described as $f + vn$, where $f$ is a fixed cost and $ v $ is the variable cost per participant. If you already know these costs, and if you already know the revenue increase $ u $ from each unit increase in lift, you can calculate the net revenue $R$ as</p>
-
-<script type="math/tex; mode=display">R = u\hat{L}  - f - vn</script>
-
-<p>and then find the sample size $ n $ that maximizes $ R $.</p>
-
-<p>Unfortunately, these costs aren’t always readily available. The good news is that there is a really nice way to calculate the most important cost: the forfeited benefit that comes from prolonging your experiment. To read about that, and about how to optimize your sample size, please continue to <a href="/2020/01/10/optimizing-sample-sizes-in-ab-testing-part-III/">Part III</a>.</p>
-
-<h2 id="appendix">Appendix</h2>
-<p>To determine $\hat{L}$, we start with the probability-weighted lifts on the right panel of Figure 5. This is a bivariate normal distribution over $ \Delta $ and $ \delta $, multiplied by $ \Delta $.</p>
-
-<script type="math/tex; mode=display">f(\Delta, \delta) = \frac{\Delta}{2 \pi \sigma_\Delta \sigma_\delta \sqrt{1-\rho^2}} e^{-\frac{
-\frac{\Delta^2}{\sigma_\Delta^2} - \frac{2 \rho \Delta \delta}{\sigma_\Delta \sigma_\delta} + \frac{\delta^2}{\sigma_\delta^2}
-}{2(1-\rho^2)}
-}</script>
-
-<p>where the correlation coefficient $ \rho $, is <a href="http://athenasc.com/Bivariate-Normal.pdf">defined</a> as:</p>
-
-<script type="math/tex; mode=display">\rho = \sqrt{1 - \frac{\sigma_c^2}{\sigma_\Delta^2 + \sigma_c^2}}</script>
-
-<p>and $\sigma_\delta^2$ is the variance on $\delta$. By the <a href="/2019/05/18/variance_after_scaling_and_summing/">variance addition rules</a>, $\sigma_\delta^2$ is defined as</p>
-
-<script type="math/tex; mode=display">\sigma_\delta^2 = \sigma_\Delta^2 + \sigma_c^2</script>
-
-<p>We next need to sum up the probability-weighted values in $f(\Delta, \delta)$. To obtain a closed form solution, we can use integration.</p>
-
-<script type="math/tex; mode=display">\hat{L} = \int_{0}^{\infty} \int_{-\infty}^{\infty} {\frac{\Delta}{2 \pi \sigma_\Delta \sigma_\delta \sqrt{1-\rho^2}} e^{-\frac{
-
-\frac{\Delta^2}{\sigma_\Delta^2} - \frac{2 \rho \Delta \delta}{\sigma_\Delta \sigma_\delta} + \frac{\delta^2}{\sigma_\delta^2}
-
-}{2(1-\rho^2)}
-
-}
-\,d\Delta\,d\delta
-}</script>
-
-<p>The integration limits on $ \delta $ start at zero because the lift will always be zero if $ \delta &lt; 0 $ (i.e if the status quo bucket A wins the experiment).</p>
-
-<p>Thanks to my 15-day free trial of <a href="https://www.wolfram.com/mathematica/">Mathematica</a>, I determined that this integral comes out to the surprisingly simple </p>
-
-<script type="math/tex; mode=display">\hat{L} = \rho \frac{\sigma_\Delta}{\sqrt{2\pi}}</script>
-
-<p>The command I used was:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Integrate[(t / (2*\[Pi]*s1*s2*Sqrt[1 - p^2]))*Exp[-((t^2/s1^2 - \
-(2*p*t*d)/(s1*s2) + d^2/s2^2)/(2*(1 - p^2)))], {d, 0, \[Infinity]}, \
-{t, -\[Infinity], \[Infinity]}, Assumptions -&gt; p &gt; 0 &amp;&amp; p &lt; 1 &amp;&amp; s1 &gt; \
-0 &amp;&amp; s2 &gt; 0]
-</code></pre></div></div>
-
-<p>If we then substitute in previously defined formulas for $ \rho $ and $ \sigma_c^2 $, we can produce a formula that accepts more readily-available inputs.</p>
-
-<script type="math/tex; mode=display">\hat{L} = \frac{\sigma_\Delta^2}{\sqrt{2\pi(\sigma_\Delta^2 + \frac{2\sigma_X^2}{n})}}</script>
-
-<p>Continue to <a href="/2020/01/10/optimizing-sample-sizes-in-ab-testing-part-III/">Part III</a>.</p>
-
-
-    <div>
-        <i class="fa fa-comment"></i> <a href="http://localhost:4000/2020/01/10/optimizing-sample-sizes-in-ab-testing-part-II/#disqus_thread" data-disqus-identifier="http://localhost:4000/2020/01/10/optimizing-sample-sizes-in-ab-testing-part-II/"></a>
-        <span>&nbsp; &nbsp;</span>
-        <span>
-            <a class="twitter-share-button"
-              href="https://twitter.com/share"
-              data-url="http://localhost:4000/2020/01/10/optimizing-sample-sizes-in-ab-testing-part-II/"
-              data-via="Chris_Said"
-              data-count="none"
-              data-text="Optimizing sample sizes in A/B testing, Part II&#58; Expected lift">
-            Tweet
-            </a>
-        </span>
-
-    </div>
-
-  </div>
-  
-</div>
-
-<div class="pagination">
-  
-    <a class="pagination-item older" href="/page2">Older</a>
-  
-  
-    <span class="pagination-item newer">Newer</span>
-  
-</div>
-
-<script type="text/javascript">
-  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-  var disqus_shortname = 'csaid81'; // required: replace example with your forum shortname
-
-  /* * * DON'T EDIT BELOW THIS LINE * * */
-  (function () {
-  var s = document.createElement('script'); s.async = true;
-  s.type = 'text/javascript';
-  s.src = '//' + disqus_shortname + '.disqus.com/count.js';
-  (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-  }());
-</script>
 
     </div>
 
