@@ -143,7 +143,7 @@ Anyway, in their voltage injection tests they found that under sufficient voltag
 </div><br>
 
 
-But even more interestingly, the induced voltage also depends on the polarization of the field, the incidence angle (psi), and the azimuthal angle (phi). Depending on where the input power line is located and how it is oriented, the actual induced voltage might be much lower than one would expected under maximal conditions. 
+But even more interestingly, the induced voltage also depends on the polarization of the field, the incidence angle (psi), and the azimuthal angle (phi). Depending on where the input power line is located and how it is oriented, the actual induced voltage might be much lower than one would expect under maximal conditions. 
 
 <div class="wrapper">
   <img src='/assets/2020_solar_storms/fig_orientation.png' class="inner" style="position:relative border:#222 2px solid; max-width:95%;" >
@@ -158,7 +158,7 @@ Based on the known locations of substations throughout the US (and assuming rand
 <br> **A:** Yes, for some of the devices.
 
 **Q:** _So given that different devices will experience different voltage surges and given that different devices will have different voltages thresholds, is there a way we can calculate the percentage of device inputs that would be damaged?_
-<br> **A:** Yes! With simulations. While the authors don’t know the type and orientation of each device out in the world, they can can make reasonable assumptions that these are uniformly distributed over known substation locations. For each device the authors sampled an induced voltage from the distribution of induced voltage (this depends on the device’s location and on a randomly sampled orientation). They also sampled a damage threshold from a distribution they constructed from their empirical voltage injection tests. For each device in the simulation, if the sampled induced voltage was greater than the damage threshold, they marked the device as damaged.
+<br> **A:** Yes! With simulations. While the authors don’t know the type and orientation of each device out in the world, they can make reasonable assumptions that these are uniformly distributed over known substation locations. For each device the authors sampled an induced voltage from the distribution of induced voltage (this depends on the device’s location and on a randomly sampled orientation). They also sampled a damage threshold from a distribution they constructed from their empirical voltage injection tests. For each device in the simulation, if the sampled induced voltage was greater than the damage threshold, they marked the device as damaged.
 
 <div class="wrapper">
   <img src='/assets/2020_solar_storms/fig_simulations.png' class="inner" style="position:relative border:#222 2px solid; max-width:95%;" >
