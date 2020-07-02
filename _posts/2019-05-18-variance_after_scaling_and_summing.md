@@ -12,7 +12,7 @@ Here's a sneak peek at what the principle is.
 
 $$\sigma_{p}^{2} = \sum\limits_{i} \sum\limits_{j} w_i w_j \sigma_i \sigma_j \rho_{ij}$$
 
-Don’t worry if the formula doesn’t yet make sense! We’ll work our way up to it slowly, taking pit stops along the way at simpler formulas are that useful on their own. As we work through these principles, we’ll encounter lots of neat applications and explainers.
+Don’t worry if the formula doesn’t yet make sense! We’ll work our way up to it slowly, taking pit stops along the way at simpler formulas that are useful on their own. As we work through these principles, we’ll encounter lots of neat applications and explainers.
 
 This post consists of three parts:
 
