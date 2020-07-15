@@ -89,6 +89,9 @@ This analysis assumes that $$ s $$ is fixed across time and individuals, an assu
   <img src='/assets/2020_antigen_testing/fig_test_every_1_day_delayed_detection.png' class="inner" style="position:relative border:#222 2px solid; max-width:95%;" >
 </div><br>
 
+**Q:** _What if the false negatives cause risker behavior?_
+<br> **A:** It's possible that people might exhibit more risk after a false negative antigen test than after taking a PCR test and having to wait. However, this risk can be minimized by (a) educating people about sensitivity and (b) pairing the testing regime with other measures like masks and social distancing.
+
 **Q:** _Do antigen tests require those invasive pharyngeal swabs that go deep up your nose?_
 <br> **A:** Not necessarily. While [Quidel](https://www.nytimes.com/2020/05/09/health/antigen-testing-fda-coronavirus.html) and [Becton Dickinson](https://www.nytimes.com/reuters/2020/07/06/us/06reuters-health-coronavirus-becton-dickinson.html) are producing pharyngeal swab antigen tests, another company called [OraSure](https://www.inquirer.com/news/spit-test-covid-coronavirus-orasure-fda-hiv--20200706.html) is producing a saliva test. Will a saliva test be as accurate as a pharyngeal swab test? The evidence is mixed, with some studies suggesting it will be less accurate and others suggesting it will be more accurate ([1](https://www.medrxiv.org/content/10.1101/2020.04.16.20067835v1), [2](https://www.medrxiv.org/content/10.1101/2020.05.26.20112565v1.full.pdf), [3](https://jcm.asm.org/content/jcm/55/1/226.full.pdf)).
 

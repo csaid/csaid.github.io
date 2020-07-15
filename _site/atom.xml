@@ -4,7 +4,7 @@
  <title>Chris Said</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2020-07-15T11:38:43-07:00</updated>
+ <updated>2020-07-15T12:20:24-07:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -104,6 +104,9 @@
   &lt;img src=&quot;/assets/2020_antigen_testing/fig_test_every_1_day_delayed_detection.png&quot; class=&quot;inner&quot; style=&quot;position:relative border:#222 2px solid; max-width:95%;&quot; /&gt;
 &lt;/div&gt;
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Q:&lt;/strong&gt; &lt;em&gt;What if the false negatives cause risker behavior?&lt;/em&gt;
+&lt;br /&gt; &lt;strong&gt;A:&lt;/strong&gt; It’s possible that people might exhibit more risk after a false negative antigen test than after taking a PCR test and having to wait. However, this risk can be minimized by (a) educating people about sensitivity and (b) pairing the testing regime with other measures like masks and social distancing.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Q:&lt;/strong&gt; &lt;em&gt;Do antigen tests require those invasive pharyngeal swabs that go deep up your nose?&lt;/em&gt;
 &lt;br /&gt; &lt;strong&gt;A:&lt;/strong&gt; Not necessarily. While &lt;a href=&quot;https://www.nytimes.com/2020/05/09/health/antigen-testing-fda-coronavirus.html&quot;&gt;Quidel&lt;/a&gt; and &lt;a href=&quot;https://www.nytimes.com/reuters/2020/07/06/us/06reuters-health-coronavirus-becton-dickinson.html&quot;&gt;Becton Dickinson&lt;/a&gt; are producing pharyngeal swab antigen tests, another company called &lt;a href=&quot;https://www.inquirer.com/news/spit-test-covid-coronavirus-orasure-fda-hiv--20200706.html&quot;&gt;OraSure&lt;/a&gt; is producing a saliva test. Will a saliva test be as accurate as a pharyngeal swab test? The evidence is mixed, with some studies suggesting it will be less accurate and others suggesting it will be more accurate (&lt;a href=&quot;https://www.medrxiv.org/content/10.1101/2020.04.16.20067835v1&quot;&gt;1&lt;/a&gt;, &lt;a href=&quot;https://www.medrxiv.org/content/10.1101/2020.05.26.20112565v1.full.pdf&quot;&gt;2&lt;/a&gt;, &lt;a href=&quot;https://jcm.asm.org/content/jcm/55/1/226.full.pdf&quot;&gt;3&lt;/a&gt;).&lt;/p&gt;
