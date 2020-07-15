@@ -5,8 +5,6 @@ description: A Q&A style dialogue to separate fact from fiction.
 image: /assets/2020_solar_storms/fig_detonation_field.png
 ---
 
-TESTING 123
-
 A few months ago, I [came across](https://www.themoneyillusion.com/sunday-morning-quarterbacking/) one of the [most extraordinary papers I have ever read](https://link.springer.com/article/10.1186/s13705-019-0199-y).
 
 

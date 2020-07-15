@@ -4,7 +4,7 @@
  <title>Chris Said</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2020-07-15T09:21:37-07:00</updated>
+ <updated>2020-07-15T09:46:58-07:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -124,9 +124,7 @@
    <link href="http://localhost:4000/2020/06/18/everything-ive-learned-about-solar-storm-risk-and-emp-attacks/"/>
    <updated>2020-06-18T00:00:00-07:00</updated>
    <id>http://localhost:4000/2020/06/18/everything-ive-learned-about-solar-storm-risk-and-emp-attacks</id>
-   <content type="html">&lt;p&gt;TESTING 123&lt;/p&gt;
-
-&lt;p&gt;A few months ago, I &lt;a href=&quot;https://www.themoneyillusion.com/sunday-morning-quarterbacking/&quot;&gt;came across&lt;/a&gt; one of the &lt;a href=&quot;https://link.springer.com/article/10.1186/s13705-019-0199-y&quot;&gt;most extraordinary papers I have ever read&lt;/a&gt;.&lt;/p&gt;
+   <content type="html">&lt;p&gt;A few months ago, I &lt;a href=&quot;https://www.themoneyillusion.com/sunday-morning-quarterbacking/&quot;&gt;came across&lt;/a&gt; one of the &lt;a href=&quot;https://link.springer.com/article/10.1186/s13705-019-0199-y&quot;&gt;most extraordinary papers I have ever read&lt;/a&gt;.&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;In testimony before a Congressional Committee, it has been asserted that a prolonged collapse of this nation’s electrical grid—through starvation, disease, and societal collapse—could result in the death of up to 90% of the American population.&lt;/p&gt;
