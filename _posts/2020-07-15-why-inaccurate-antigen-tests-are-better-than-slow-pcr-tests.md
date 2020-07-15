@@ -23,14 +23,14 @@ I am not sure I agree, at least when it comes to mass testing of asymptomatic in
 
 ### Simulations
 
-To test this hypothesis, I built an [agent-based SIR model](https://github.com/csaid/covid_model_with_testing/blob/master/SIR%20model%20with%20testing%20strategies.ipynb) that includes testing and quarantining. I make the following key assumptions:
+To test this hypothesis, I built an [agent-based SIR model](https://github.com/csaid/covid_model_with_testing/blob/master/SIR%20model%20with%20testing.ipynb) that includes testing and quarantining. I make the following key assumptions:
 
 * Population of 200 students
 * Using a rotation system, each student is tested once every K days. 
 * Students go into a 14 day quarantine if they get positive test results.
 * In addition to intra-school infections, each student has a chance of getting infected by someone outside the population.
 
-I [simulated](https://github.com/csaid/covid_model_with_testing/blob/master/SIR%20model%20with%20testing%20strategies.ipynb) two different scenarios.
+I [simulated](https://github.com/csaid/covid_model_with_testing/blob/master/SIR%20model%20with%20testing.ipynb) two different scenarios.
 
 * Regular PCR testing (sensitivity of 98%, testing delay of 5 days)
 * Regular antigen testing (sensitivity of 75%, no testing delay)
@@ -52,7 +52,7 @@ If we change the frequency of testing to once every day, antigen testing is able
 </div><br>
 
 
-This seems very important. _Not only are antigen tests cheaper than PCR, they are also more effective in a mass testing regime._ Further simulations in my [notebook](https://github.com/csaid/covid_model_with_testing/blob/master/SIR%20model%20with%20testing%20strategies.ipynb) show that the superiority of antigen tests is maintained even for much lower sensitivity rates.
+This seems very important. _Not only are antigen tests cheaper than PCR, they are also more effective in a mass testing regime._ Further simulations in my [notebook](https://github.com/csaid/covid_model_with_testing/blob/master/SIR%20model%20with%20testing.ipynb) show that the superiority of antigen tests is maintained even for much lower sensitivity rates.
 
 ### Why is low sensitivity better than slowness?
 
