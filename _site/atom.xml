@@ -4,7 +4,7 @@
  <title>Chris Said</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2020-07-15T10:45:28-07:00</updated>
+ <updated>2020-07-15T10:53:38-07:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -97,8 +97,8 @@
 &lt;p&gt;&lt;strong&gt;Q:&lt;/strong&gt; &lt;em&gt;What if the antigen test has a much lower sensitivity for certain individuals, who will therefore remain undetected?&lt;/em&gt;
 &lt;br /&gt; &lt;strong&gt;A:&lt;/strong&gt; Low sensitivity for these individuals is &lt;a href=&quot;https://www.sciencedirect.com/science/article/abs/pii/S138665321000106X&quot;&gt;likely due to low viral load&lt;/a&gt;, which most researchers believe means they will not be very infectious. That said, if would be really good if we could get more research on this, since it’s an important question.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Q:&lt;/strong&gt; &lt;em&gt;What if the sensitivity of the antigen test changes over the course of the infection?&lt;/em&gt;
-&lt;br /&gt; &lt;strong&gt;A:&lt;/strong&gt; While I haven’t seen evidence for this, it seems possible that antigen tests have especially low sensitivity at the start of infection, when viral load is low. To estimate the impact of this, I ran simulations where antigen tests were completely ineffective for the first three days of infection. Even with this constraint, antigen tests still outperformed PCR. (Note that this simulation conservatively assumes that for the first three days the individual will be just as infectious as any other infected student, even though their viral load is so low it cannot be detected with an antigen test.)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Q:&lt;/strong&gt; &lt;em&gt;What if the sensitivity of the antigen test is especially low at the start of infection?&lt;/em&gt;
+&lt;br /&gt; &lt;strong&gt;A:&lt;/strong&gt; Another good question. As with the previous answer, this period of low sensitivity — if it exists — would likely be to due low viral load, when the individual is less infectious. But &lt;em&gt;even if&lt;/em&gt; we assume the individual is just as infectious during this early period, the antigen test still remains superior. To estimate this, I ran simulations where antigen tests were completely ineffective for the first three days of infection. Even with this constraint, antigen tests still outperformed PCR.&lt;/p&gt;
 
 &lt;div class=&quot;wrapper&quot;&gt;
   &lt;img src=&quot;/assets/2020_antigen_testing/fig_test_every_1_day_delayed_detection.png&quot; class=&quot;inner&quot; style=&quot;position:relative border:#222 2px solid; max-width:95%;&quot; /&gt;

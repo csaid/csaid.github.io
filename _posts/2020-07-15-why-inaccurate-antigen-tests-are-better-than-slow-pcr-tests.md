@@ -82,8 +82,8 @@ This analysis assumes that $$ s $$ is fixed across time and individuals, an assu
 **Q:** _What if the antigen test has a much lower sensitivity for certain individuals, who will therefore remain undetected?_
 <br> **A:** Low sensitivity for these individuals is [likely due to low viral load](https://www.sciencedirect.com/science/article/abs/pii/S138665321000106X), which most researchers believe means they will not be very infectious. That said, if would be really good if we could get more research on this, since it's an important question.
 
-**Q:** _What if the sensitivity of the antigen test changes over the course of the infection?_
-<br> **A:** While I haven’t seen evidence for this, it seems possible that antigen tests have especially low sensitivity at the start of infection, when viral load is low. To estimate the impact of this, I ran simulations where antigen tests were completely ineffective for the first three days of infection. Even with this constraint, antigen tests still outperformed PCR. (Note that this simulation conservatively assumes that for the first three days the individual will be just as infectious as any other infected student, even though their viral load is so low it cannot be detected with an antigen test.)
+**Q:** _What if the sensitivity of the antigen test is especially low at the start of infection?_
+<br> **A:** Another good question. As with the previous answer, this period of low sensitivity — if it exists — would likely be to due low viral load, when the individual is less infectious. But _even if_ we assume the individual is just as infectious during this early period, the antigen test still remains superior. To estimate this, I ran simulations where antigen tests were completely ineffective for the first three days of infection. Even with this constraint, antigen tests still outperformed PCR.
 
 <div class="wrapper">
   <img src='/assets/2020_antigen_testing/fig_test_every_1_day_delayed_detection.png' class="inner" style="position:relative border:#222 2px solid; max-width:95%;" >
