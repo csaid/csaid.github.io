@@ -5,6 +5,7 @@ description: A Q&A style dialogue to separate fact from fiction.
 image: /assets/2020_solar_storms/fig_detonation_field.png
 ---
 
+TESTING 123
 
 A few months ago, I [came across](https://www.themoneyillusion.com/sunday-morning-quarterbacking/) one of the [most extraordinary papers I have ever read](https://link.springer.com/article/10.1186/s13705-019-0199-y).
 
@@ -244,5 +245,3 @@ Other people, especially those who have worked on the EMP Commission, are much m
 My own view is that while the ‘mainstream’ view is probably correct, and while there certainly has been some fearmongering, I am philosophically aligned with the alarmists. The mainstream belief at NASA in 1986 was that the Challenger was safe. The mainstream belief at Chernobyl in 1986 was that the reactor core could never rupture. The mainstream belief on Wall Street in 2007 was that mortgage-backed securities were safe. 
 
 Now that we have seen our preparedness level for Covid-19, who are you going to believe: The people saying “Don't worry, we have this unpredictable and complex system under control" or the people waving their hands and shouting “correlated risk!” I’m with the people shouting “correlated risk!”, even though they’ll probably end up being wrong.
-
-.

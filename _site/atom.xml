@@ -4,7 +4,7 @@
  <title>Chris Said</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2020-07-15T09:13:46-07:00</updated>
+ <updated>2020-07-15T09:21:15-07:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -133,7 +133,9 @@
    <link href="http://localhost:4000/2020/06/18/everything-ive-learned-about-solar-storm-risk-and-emp-attacks/"/>
    <updated>2020-06-18T00:00:00-07:00</updated>
    <id>http://localhost:4000/2020/06/18/everything-ive-learned-about-solar-storm-risk-and-emp-attacks</id>
-   <content type="html">&lt;p&gt;A few months ago, I &lt;a href=&quot;https://www.themoneyillusion.com/sunday-morning-quarterbacking/&quot;&gt;came across&lt;/a&gt; one of the &lt;a href=&quot;https://link.springer.com/article/10.1186/s13705-019-0199-y&quot;&gt;most extraordinary papers I have ever read&lt;/a&gt;.&lt;/p&gt;
+   <content type="html">&lt;p&gt;TESTING 123&lt;/p&gt;
+
+&lt;p&gt;A few months ago, I &lt;a href=&quot;https://www.themoneyillusion.com/sunday-morning-quarterbacking/&quot;&gt;came across&lt;/a&gt; one of the &lt;a href=&quot;https://link.springer.com/article/10.1186/s13705-019-0199-y&quot;&gt;most extraordinary papers I have ever read&lt;/a&gt;.&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;In testimony before a Congressional Committee, it has been asserted that a prolonged collapse of this nation’s electrical grid—through starvation, disease, and societal collapse—could result in the death of up to 90% of the American population.&lt;/p&gt;
@@ -382,8 +384,6 @@
 &lt;p&gt;My own view is that while the ‘mainstream’ view is probably correct, and while there certainly has been some fearmongering, I am philosophically aligned with the alarmists. The mainstream belief at NASA in 1986 was that the Challenger was safe. The mainstream belief at Chernobyl in 1986 was that the reactor core could never rupture. The mainstream belief on Wall Street in 2007 was that mortgage-backed securities were safe.&lt;/p&gt;
 
 &lt;p&gt;Now that we have seen our preparedness level for Covid-19, who are you going to believe: The people saying “Don’t worry, we have this unpredictable and complex system under control” or the people waving their hands and shouting “correlated risk!” I’m with the people shouting “correlated risk!”, even though they’ll probably end up being wrong.&lt;/p&gt;
-
-&lt;p&gt;.&lt;/p&gt;
 </content>
  </entry>
  
