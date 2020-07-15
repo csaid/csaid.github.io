@@ -4,7 +4,7 @@
  <title>Chris Said</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2020-07-15T08:51:00-07:00</updated>
+ <updated>2020-07-15T09:13:46-07:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -116,6 +116,15 @@
 
 &lt;hr /&gt;
 &lt;p&gt;A special thanks to &lt;a href=&quot;https://twitter.com/antonioregalado&quot;&gt;Antonio Regalado&lt;/a&gt; and &lt;a href=&quot;https://path.upmc.edu/personnel/faculty/Wells.htm&quot;&gt;Alan Wells&lt;/a&gt; for help answering some questions during my research.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Test</title>
+   <link href="http://localhost:4000/2020/07/15/dummy-post/"/>
+   <updated>2020-07-15T00:00:00-07:00</updated>
+   <id>http://localhost:4000/2020/07/15/dummy-post</id>
+   <content type="html">&lt;p&gt;testing&lt;/p&gt;
 </content>
  </entry>
  
@@ -373,6 +382,8 @@
 &lt;p&gt;My own view is that while the ‘mainstream’ view is probably correct, and while there certainly has been some fearmongering, I am philosophically aligned with the alarmists. The mainstream belief at NASA in 1986 was that the Challenger was safe. The mainstream belief at Chernobyl in 1986 was that the reactor core could never rupture. The mainstream belief on Wall Street in 2007 was that mortgage-backed securities were safe.&lt;/p&gt;
 
 &lt;p&gt;Now that we have seen our preparedness level for Covid-19, who are you going to believe: The people saying “Don’t worry, we have this unpredictable and complex system under control” or the people waving their hands and shouting “correlated risk!” I’m with the people shouting “correlated risk!”, even though they’ll probably end up being wrong.&lt;/p&gt;
+
+&lt;p&gt;.&lt;/p&gt;
 </content>
  </entry>
  

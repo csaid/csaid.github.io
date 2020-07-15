@@ -244,3 +244,5 @@ Other people, especially those who have worked on the EMP Commission, are much m
 My own view is that while the ‘mainstream’ view is probably correct, and while there certainly has been some fearmongering, I am philosophically aligned with the alarmists. The mainstream belief at NASA in 1986 was that the Challenger was safe. The mainstream belief at Chernobyl in 1986 was that the reactor core could never rupture. The mainstream belief on Wall Street in 2007 was that mortgage-backed securities were safe. 
 
 Now that we have seen our preparedness level for Covid-19, who are you going to believe: The people saying “Don't worry, we have this unpredictable and complex system under control" or the people waving their hands and shouting “correlated risk!” I’m with the people shouting “correlated risk!”, even though they’ll probably end up being wrong.
+
+.
