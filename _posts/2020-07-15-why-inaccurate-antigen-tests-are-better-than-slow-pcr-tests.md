@@ -69,7 +69,7 @@ For any reasonable value of $$ s $$, $$ d $$ will be quite low. Here's a strikin
 This analysis assumes that $$ s $$ is fixed across time and individuals, an assumption I'll address in the FAQ, below.
 
 ### FAQ:
-  
+
 **Q:** _What is your main conclusion from this analysis?_
 <br> **A:** For mass testing of asymptomatic individuals in schools and offices, antigen tests are cheaper and more effective than PCR tests.
 
@@ -83,13 +83,13 @@ This analysis assumes that $$ s $$ is fixed across time and individuals, an assu
 <br> **A:** Low sensitivity for these individuals is [likely due to low viral load](https://www.sciencedirect.com/science/article/abs/pii/S138665321000106X), which most researchers believe means they will not be very infectious. That said, if would be really good if we could get more research on this, since it's an important question.
 
 **Q:** _What if the sensitivity of the antigen test is especially low at the start of infection?_
-<br> **A:** Another good question. As with the previous answer, this period of low sensitivity would likely be to due low viral load, when the individual is less infectious. Furthermore, the period where PCR tests can detect the virus while antigen tests cannot is [probably only 24 hours](https://www.medrxiv.org/content/10.1101/2020.06.22.20136309v2.full.pdf). But _even if_ we assume the individual is just as infectious during this early period, the antigen test still remains superior. To estimate this, I ran simulations where antigen tests were completely ineffective for the first two days of infection, a conservative assumption. Even with this constraint, and even assuming the individuals are fully infectious during this period, antigen tests still outperformed PCR.
+<br> **A:** Another good question. As with the previous answer, this period of low sensitivity would likely be to due low viral load, when the individual is less infectious. Furthermore, the period where PCR tests can detect the virus while antigen tests cannot is [probably only 24 hours](https://www.medrxiv.org/content/10.1101/2020.06.22.20136309v2.full.pdf). But _even if_ we assume the individual is just as infectious during this early period, the antigen test still remains superior. To estimate this, I ran simulations where antigen tests were completely ineffective for the first two days of infection, a conservative assumption. Even with this conservative constraint, and even assuming the individuals are fully infectious during this period, antigen tests still outperformed PCR.
 
 <div class="wrapper">
   <img src='/assets/2020_antigen_testing/fig_test_every_1_day_delayed_detection.png' class="inner" style="position:relative border:#222 2px solid; max-width:95%;" >
 </div><br>
 
-**Q:** _What if the false negatives cause risker behavior?_
+**Q:** _What if the false negatives cause riskier behavior?_
 <br> **A:** It's possible that people might exhibit more risk after a false negative antigen test than after taking a PCR test and having to wait. However, this risk can be minimized by (a) educating people about sensitivity and (b) pairing the testing regime with other measures like masks and social distancing.
 
 **Q:** _Do antigen tests require those invasive pharyngeal swabs that go deep up your nose?_
