@@ -52,7 +52,7 @@ If we change the frequency of testing to once every day, antigen testing is able
 </div><br>
 
 
-This seems very important. _Not only are antigen tests cheaper than PCR, they are also more effective in a mass testing regime._ Further simulations in my [notebook](https://github.com/csaid/covid_model_with_testing/blob/master/SIR%20model%20with%20testing.ipynb) show that the superiority of antigen tests is maintained even for much lower sensitivity rates.
+This seems very important. _Not only are antigen tests cheaper than PCR, they are also more effective in a mass testing regime._ Further simulations in my [notebook](https://github.com/csaid/covid_model_with_testing/blob/master/SIR%20model%20with%20testing.ipynb) show that the superiority of antigen tests is maintained even for much lower sensitivities.
 
 ### Why is low sensitivity better than slowness?
 
@@ -74,7 +74,9 @@ This analysis assumes that $$ s $$ is fixed across time and individuals, an assu
 <br> **A:** For mass testing of asymptomatic individuals in schools and offices, antigen tests are cheaper and more effective than PCR tests.
 
 **Q:** _Have other people come to this conclusion?_
-<br> **A:** Paul Romer has run some [simulations](https://paulromer.net/covid-sim-part3/) showing that low sensitivity tests can be effective in mass testing. After writing this, I came across a recent [pre-print by Paltiel et al.](https://www.medrxiv.org/content/10.1101/2020.07.06.20147702v1.full.pdf) showing how sensitivity is less important than test frequency, which is closely related to test delays, and another [pre-print by Larremore et al.](https://www.medrxiv.org/content/10.1101/2020.06.22.20136309v2.full.pdf) which explicitly shows that sensitivity is less important than testing delays.
+<br> **A:** Yes. After writing this blog post, I came across two recent pre-prints. 
+* [Larremore et al.](https://www.medrxiv.org/content/10.1101/2020.06.22.20136309v2.full.pdf) shows that sensitivity is less important than testing delays. It comes with a wonderful [interactive calculator](https://larremorelab.github.io/covid-calculator3).
+* [Paltiel et al.](https://www.medrxiv.org/content/10.1101/2020.07.06.20147702v1.full.pdf) show that sensitivity is less important than test frequency.
 
 **Q:** _Are you arguing that antigen tests should always replace PCR?_
 <br> **A:** No, I’m only suggesting it for mass testing of asymptomatic individuals. If a symptomatic person comes into a doctor’s office a PCR test would make sense, since sensitivity becomes more important and cost becomes less important.
