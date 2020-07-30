@@ -4,7 +4,7 @@
  <title>Chris Said</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2020-07-16T09:04:42-07:00</updated>
+ <updated>2020-07-30T13:50:52-07:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -13,11 +13,13 @@
 
  
  <entry>
-   <title>Why inaccurate antigen tests are better than slow PCR tests</title>
+   <title>Why low sensitivity antigen tests are better than slow PCR tests</title>
    <link href="http://localhost:4000/2020/07/15/why-inaccurate-antigen-tests-are-better-than-slow-pcr-tests/"/>
    <updated>2020-07-15T00:00:00-07:00</updated>
-   <id>http://localhost:4000/2020/07/15/why-inaccurate-antigen-tests-are-better-than-slow-pcr-tests</id>
+   <id>http://localhost:4000/2020/07/15/why-inaccurate--antigen-tests-are-better-than-slow-pcr-tests</id>
    <content type="html">&lt;p&gt;&lt;em&gt;[Disclaimer: I am not an epidemiologist. The models presented here make simplifying assumptions.]&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;[Update: After I wrote this post, I got confirmation that antigen tests have low sensitivity &lt;a href=&quot;https://www.medrxiv.org/content/10.1101/2020.06.22.20136309v2.full.pdf&quot;&gt;mostly when viral load is low and you aren’t infectious&lt;/a&gt;, which further stengthens the case for antigen tests.]&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;If we want to reopen schools and offices, we need to do so safely. According to Nobel Prize winning economist Paul Romer, the best way is with &lt;a href=&quot;https://schools.paulromer.net/&quot;&gt;frequent&lt;/a&gt; and &lt;a href=&quot;https://paulromer.net/faqs-on-virus-tests-in-schools/&quot;&gt;regular&lt;/a&gt; testing of asymptomatic students and employees. Catching infections early can stop the spread before it starts.&lt;/p&gt;
 
@@ -27,7 +29,7 @@
 
 &lt;p&gt;Since antigen tests are far cheaper and faster than PCR, why are we not massively investing in them?&lt;/p&gt;
 
-&lt;p&gt;The usual answer is test accuracy. SARS-CoV-2 antigen tests have a sensitivity of about &lt;a href=&quot;https://www.nytimes.com/2020/07/06/health/fast-coronavirus-tests.html&quot;&gt;85-90%&lt;/a&gt;, meaning that only 85%-90% of true cases will be detected as such. And those are optimistic estimates reported by test manufacturers. For influenza, the CDC reports that antigen tests have a sensitivity of &lt;a href=&quot;https://www.cdc.gov/flu/professionals/diagnosis/clinician_guidance_ridt.htm&quot;&gt;50-70%&lt;/a&gt;. This is much lower than PCR tests, which have a sensitivity as high at &lt;a href=&quot;https://www.medrxiv.org/content/10.1101/2020.05.26.20112565v1.full.pdf&quot;&gt;98%&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The usual answer is test sensitivity. SARS-CoV-2 antigen tests have a sensitivity of about &lt;a href=&quot;https://www.nytimes.com/2020/07/06/health/fast-coronavirus-tests.html&quot;&gt;85-90%&lt;/a&gt;, meaning that only 85%-90% of true cases will be detected as such. And those are optimistic estimates reported by test manufacturers. For influenza, the CDC reports that antigen tests have a sensitivity of &lt;a href=&quot;https://www.cdc.gov/flu/professionals/diagnosis/clinician_guidance_ridt.htm&quot;&gt;50-70%&lt;/a&gt;. This is much lower than PCR tests, which have a sensitivity as high at &lt;a href=&quot;https://www.medrxiv.org/content/10.1101/2020.05.26.20112565v1.full.pdf&quot;&gt;98%&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Some doctors view the low sensitivity as an insurmountable hurdle. “It won’t work”, &lt;a href=&quot;https://www.technologyreview.com/2020/04/24/1000486/antigen-testing-could-faster-cheaper-diagnose-covid-19-coronavirus/&quot;&gt;said&lt;/a&gt; one doctor. “A misdiagnosis is worse than no diagnosis”, &lt;a href=&quot;https://www.sciencemag.org/news/2020/05/coronavirus-antigen-tests-quick-and-cheap-too-often-wrong&quot;&gt;said&lt;/a&gt; another.&lt;/p&gt;
 

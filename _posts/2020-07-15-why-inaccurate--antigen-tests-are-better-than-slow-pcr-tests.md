@@ -6,6 +6,7 @@ image: /assets/2020_antigen_testing/fig_test_every_1_day.png
 ---
 
 _[Disclaimer: I am not an epidemiologist. The models presented here make simplifying assumptions.]_
+
 _[Update: After I wrote this post, I got confirmation that antigen tests have low sensitivity [mostly when viral load is low and you aren't infectious](https://www.medrxiv.org/content/10.1101/2020.06.22.20136309v2.full.pdf), which further stengthens the case for antigen tests.]_
 
 If we want to reopen schools and offices, we need to do so safely. According to Nobel Prize winning economist Paul Romer, the best way is with [frequent](https://schools.paulromer.net/) and [regular](https://paulromer.net/faqs-on-virus-tests-in-schools/) testing of asymptomatic students and employees. Catching infections early can stop the spread before it starts.
