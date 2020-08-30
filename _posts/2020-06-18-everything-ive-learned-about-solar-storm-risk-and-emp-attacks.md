@@ -77,7 +77,7 @@ Should we move on to EMP attacks?
 
 ### EMP Attacks
 **Q:** _Sure, what is an EMP attack?_
-<br> **A:** EMP stands for “electromagnetic pulse”. Just as EMPs can be emitted during a solar storm, they can also be man-made, in what is know as an “EMP attack”. There are a variety of ways to generate an EMP attack, but the one that worries people the most is a nuclear weapon detonated at high altitude. The pulse generated from such an attack could reach almost everywhere in the continental United States. Major nuclear powers like Russia and China have the ability to launch such an attack. More recently, potentially irrational adversaries like North Korea have pursued this capability.
+<br> **A:** EMP stands for “electromagnetic pulse”. Just as EMPs can be emitted during a solar storm, they can also be man-made, in what is known as an “EMP attack”. There are a variety of ways to generate an EMP attack, but the one that worries people the most is a nuclear weapon detonated at high altitude. The pulse generated from such an attack could reach almost everywhere in the continental United States. Major nuclear powers like Russia and China have the ability to launch such an attack. More recently, potentially irrational adversaries like North Korea have pursued this capability.
 
 **Q:** _Should I be more worried about EMP Attacks or solar storms?_
 <br> **A:** Opinions differ. But the EMP Commission is [more worried](https://republicans-oversight.house.gov/wp-content/uploads/2015/05/Pry-Statement-5-13-EMP.pdf) about EMP attacks.
@@ -206,7 +206,7 @@ Based on the known locations of substations throughout the US (and assuming rand
 **Q:** _Why not?_
 <br> **A:** Because to launch a large-scale EMP attack, a country would need a large nuclear weapon. And if a country was planning on using a large nuclear weapon, it would make more sense — in the morbid logic of war — to conventionally drop it on a city than to launch an EMP attack which would at most cause some brief power disruptions in a few states. As physicist Yousaf Butt [put it](https://www.thespacereview.com/article/1553/1), “A weapon of mass destruction is preferable to a weapon of mass disruption”. 
 
-**Q:** _Interesting. So while EMP attacks could be serious, they are less dangerous than advertised, and it’s unlikely that anyone would ever want to launch a major attack._
+**Q:** _So while EMP attacks could be serious, they are less dangerous than advertised, and it’s unlikely that anyone would ever want to launch a major attack._
 <br> **A:** What’s especially interesting is that because EMP attacks are unlikely, and because they will probably only cause transient disruption even if they do happen, some experts believe that the [bigger threat is solar storms](https://www.thespacereview.com/article/1553/1)! The EMP Commission, from this perspective, had their priorities backward.
 
 ### What are we doing about all of this?
@@ -240,6 +240,6 @@ Even EMP skeptics expressed support for the executive order. Former staff member
 
 Other people, especially those who have worked on the EMP Commission, are much more worried about these risks. They point to the fact that hundreds of grid components have not been thoroughly tested, and that problems in one part of the grid can cascade to other parts in unpredictable ways. The media has at times portrayed these people negatively. In an article that I thought was irresponsible, [Slate](https://slate.com/technology/2019/05/emp-weapons-conservatives-trump-gingrich-huckabee.html) called the EMP concern “right-wing fretting” and a conservative “fixation”. [Wired](https://www.wired.com/story/the-grid-might-survive-an-electromagnetic-pulse-just-fine/) says that the EMP arena is filled with a lot of “hype” and “fearmongering”. 
 
-My own view is that while the ‘mainstream’ view is probably correct, and while there certainly has been some fearmongering, I am philosophically aligned with the alarmists. The mainstream belief at NASA in 1986 was that the Challenger was safe. The mainstream belief at Chernobyl in 1986 was that the reactor core could never rupture. The mainstream belief on Wall Street in 2007 was that mortgage-backed securities were safe. 
+My own view is that while the ‘mainstream’ view is probably correct, and while there certainly has been some fearmongering, I am philosophically aligned with the alarmists. The mainstream belief at NASA in 1986 was that the Challenger was safe. The mainstream belief at Chernobyl in 1986 was that the reactor core could never rupture. The mainstream belief on Wall Street in 2007 was that mortgage-backed securities were safe. In all of these cases, the mainstream belief was wrong and the alarmists were right.
 
 Now that we have seen our preparedness level for Covid-19, who are you going to believe: The people saying “Don't worry, we have this unpredictable and complex system under control" or the people waving their hands and shouting “correlated risk!” I’m with the people shouting “correlated risk!”, even though they’ll probably end up being wrong.
