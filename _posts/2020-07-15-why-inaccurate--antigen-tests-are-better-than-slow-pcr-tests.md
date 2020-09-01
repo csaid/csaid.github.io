@@ -5,7 +5,7 @@ description: For asymptomatic testing in schools and offices, speed matters more
 image: /assets/2020_antigen_testing/fig_test_every_1_day.png
 ---
 
-_[Update: After I wrote this post, I came across a recently posted preprint from [Larremore et al.](https://www.medrxiv.org/content/10.1101/2020.06.22.20136309v2.full.pdf) that makes this point much better than I do. The paper emphasizes that antigen tests have high sensitivity when viral load is high, corresponding to when you are contagious. See [rapidtests.org](https://www.rapidtests.org/) for more info._
+_[Update: After I wrote this post, I came across a recently posted preprint from [Larremore et al.](https://www.medrxiv.org/content/10.1101/2020.06.22.20136309v2.full.pdf) that makes this point much better than I do. The paper emphasizes that antigen tests have high sensitivity when viral load is high, corresponding to when people are contagious. See [rapidtests.org](https://www.rapidtests.org/) for more info._
 
 If we want to reopen schools and offices, we need to do so safely. According to Nobel Prize winning economist Paul Romer, the best way is with [frequent](https://schools.paulromer.net/) and [regular](https://paulromer.net/faqs-on-virus-tests-in-schools/) testing of asymptomatic students and employees. Catching infections early can stop the spread before it starts.
 
