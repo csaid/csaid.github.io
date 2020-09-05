@@ -4,7 +4,7 @@
  <title>Chris Said</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2020-09-05T16:43:45-07:00</updated>
+ <updated>2020-09-05T16:49:40-07:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -39,8 +39,6 @@
 
 &lt;h4 id=&quot;step-3-if-applicable-change-your--signs-to--signs&quot;&gt;Step 3 [if applicable]. Change your $ signs to $$ signs.&lt;/h4&gt;
 &lt;p&gt;I ran into some trouble because a lot of my in-line math was delimited with single &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$&lt;/code&gt; signs rather than double &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$$&lt;/code&gt; signs. I wasn’t able to configure MathJax to accept the single &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$&lt;/code&gt; signs, so I just changed them all to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$$&lt;/code&gt;. While it was a little tedious, it felt like the right thing to do. The single &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$&lt;/code&gt; was too ambiguous.&lt;/p&gt;
-
-&lt;p&gt;If you would like to make this change programatically to a file, the regex you’ll need for a single dollar sign not preceded or followed by any other dollar sign is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;(?&amp;lt;!\$)\$(?!\$)&lt;/code&gt;.&lt;/p&gt;
 </content>
  </entry>
  

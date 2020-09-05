@@ -28,5 +28,3 @@ Now, find wherever you included MathJax (probably an HTML file in your `_layouts
 
 #### Step 3 [if applicable]. Change your $ signs to $$ signs.
 I ran into some trouble because a lot of my in-line math was delimited with single `$` signs rather than double `$$` signs. I wasn't able to configure MathJax to accept the single `$` signs, so I just changed them all to `$$`. While it was a little tedious, it felt like the right thing to do. The single `$` was too ambiguous.
-
-If you would like to make this change programatically to a file, the regex you'll need for a single dollar sign not preceded or followed by any other dollar sign is `(?<!\$)\$(?!\$)`.
