@@ -4,7 +4,7 @@
  <title>Chris Said</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2020-09-05T16:49:40-07:00</updated>
+ <updated>2020-09-05T16:53:55-07:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -715,7 +715,7 @@
 
 &lt;p&gt;A heatmap of the per-user lifts (\(l\)) for each outcome is shown in the plot below. Good outcomes, where shipping B was the right decision, are shown in blue. Bad outcomes, where shipping B was the wrong decision, are shown in red. There are two main ways to get a neutral outcomes, shown in white. Either you keep A (bottom segment), in which case there is zero lift, or you ship B where B is only negligibly different than A (vertical white stripe).&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/2020_optimizing_sample_sizes/lift_m**g&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/2020_optimizing_sample_sizes/lift_matrix.png&quot; /&gt;&lt;/p&gt;
 &lt;div class=&quot;caption&quot;&gt;
   &lt;p&gt;&lt;strong&gt;Figure 4&lt;/strong&gt;. Heatmap of possible outcomes, where the color scale represents the lift. The horizontal axis is the true difference in means, and the vertical axis  the observed difference in means&lt;/p&gt;
 &lt;/div&gt;

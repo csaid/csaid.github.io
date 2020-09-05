@@ -61,7 +61,7 @@ Now that we know the probabilities of all the different outcomes, we next need t
 
 A heatmap of the per-user lifts ($$l$$) for each outcome is shown in the plot below. Good outcomes, where shipping B was the right decision, are shown in blue. Bad outcomes, where shipping B was the wrong decision, are shown in red. There are two main ways to get a neutral outcomes, shown in white. Either you keep A (bottom segment), in which case there is zero lift, or you ship B where B is only negligibly different than A (vertical white stripe).
 
-<img src='/assets/2020_optimizing_sample_sizes/lift_m**g'>
+<img src='/assets/2020_optimizing_sample_sizes/lift_matrix.png'>
 <div class="caption">
 **Figure 4**. Heatmap of possible outcomes, where the color scale represents the lift. The horizontal axis is the true difference in means, and the vertical axis  the observed difference in means
 </div><br>
