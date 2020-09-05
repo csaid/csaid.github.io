@@ -124,12 +124,10 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
 
 <p>The <a href="https://www.cdc.gov/coronavirus/2019-ncov/downloads/pui-form.pdf">CDC case report form</a> has a field for why each test was done (<em>Figure 1</em>). Unfortunately, many states do not use this form and instead use their own form. (To be fair, some states like Washington use a <a href="https://www.doh.wa.gov/Portals/1/Documents/5100/420-110-ReportForm-Coronavirus.pdf">more comprehensive form</a>, but there is still a lack of standardization.) Moreover, none of the states to my knowledge report the total number of people in each stratum (tested and untested), which would be necessary to do a stratified analysis.</p>
 
-<div class="wrapper">
-  <img src="/assets/2020_covid_data_quality/cdc_form_strata.png" class="inner" style="position:relative border:#222 2px solid; max-width:95%;" />
-  <div class="caption"><strong>Figure 1</strong>: A section from the <a href="https://www.cdc.gov/coronavirus/2019-ncov/downloads/pui-form.pdf">CDC case report form</a> which could be used for stratification. 
-  </div>
+<p><img src="/assets/2020_covid_data_quality/cdc_form_strata.png" /></p>
+<div class="caption">
+  <p><strong>Figure 1</strong>: A section from the <a href="https://www.cdc.gov/coronavirus/2019-ncov/downloads/pui-form.pdf">CDC case report</a> form which could be used for stratification.</p>
 </div>
-<p><br /></p>
 
 <h3 id="why-dont-we-do-this-already">Why don’t we do this already?</h3>
 <p>None of this is groundbreaking stuff. Epidemiologists know about <a href="https://www.ncbi.nlm.nih.gov/pubmed/10366179">stratification</a> and are <a href="https://journals.plos.org/plosntds/article?id=10.1371/journal.pntd.0003846">keenly aware</a> of the limitations of crude infection counts and crude case fatality rates.</p>
@@ -146,11 +144,11 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
 <p>In my field of data science, you can determine the maturity of data organizations by their outlook on upstream data quality issues. There are roughly three levels.</p>
 
 <div class="wrapper">
-  <img src="/assets/2020_covid_data_quality/data_maturity_table.png" class="inner" style="position:relative border: #222 2px solid; max-width:95%;" />
-  <div class="caption"><strong>Table 1</strong>: Levels of data maturity for a data organization. 
+  <p><img src="/assets/2020_covid_data_quality/data_maturity_table.png" class="inner" style="position:relative border: #222 2px solid; max-width:95%;" /></p>
+  <div class="caption">
+    <p><strong>Table 1</strong>: Levels of data maturity for a data organization.</p>
   </div>
 </div>
-<p><br /></p>
 
 <p>Our public health infrastructure is at Level II. My strong belief, and I mean this in as constructive a way as possible, is that Level II is unacceptable. We need to be at Level III before the next pandemic hits.</p>
 
@@ -202,22 +200,27 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
   </body>
 </html>
 
-<!-- mathjax config similar to math.stackexchange -->
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  jax: ["input/TeX", "output/HTML-CSS"],
-  tex2jax: {
-    inlineMath: [ ['$', '$'] ],
-    displayMath: [ ['$$', '$$']],
-    processEscapes: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-  },
-  messageStyle: "none",
-  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
-});
+<!-- http://docs.mathjax.org/en/latest/upgrading/v2.html#changes-in-the-mathjax-api -->
+MathJax = {
+  options: {
+    renderActions: {
+      find: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+};
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
-
 
 <script>window.twttr = (function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0],

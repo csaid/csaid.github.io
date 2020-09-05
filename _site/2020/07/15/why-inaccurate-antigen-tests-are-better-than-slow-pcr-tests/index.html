@@ -144,33 +144,27 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
 
 <p>Assuming that each student is tested once every 4 days, I find that the cumulative number of infections is far lower if we do regular antigen testing than if we do regular PCR testing.</p>
 
-<div class="wrapper">
-  <img src="/assets/2020_antigen_testing/fig_test_every_4_days.png" class="inner" style="position:relative border:#222 2px solid; max-width:95%;" />
-</div>
-<p><br /></p>
+<p><img src="/assets/2020_antigen_testing/fig_test_every_4_days.png" /></p>
 
 <p>If we change the frequency of testing to once every day, antigen testing is able to achieve close to best case results, with almost no intra-school infections. Meanwhile, daily PCR testing still results in a large number of infections.</p>
 
-<div class="wrapper">
-  <img src="/assets/2020_antigen_testing/fig_test_every_1_day.png" class="inner" style="position:relative border:#222 2px solid; max-width:95%;" />
-</div>
-<p><br /></p>
+<p><img src="/assets/2020_antigen_testing/fig_test_every_1_day.png" /></p>
 
 <p>This seems very important. <em>Not only are antigen tests cheaper than PCR, they are also more effective in a mass testing regime.</em> Further simulations in my <a href="https://github.com/csaid/covid_model_with_testing/blob/master/SIR%20model%20with%20testing.ipynb">notebook</a> show that the superiority of antigen tests is maintained even for much lower sensitivities.</p>
 
 <h3 id="why-is-low-sensitivity-better-than-slowness">Why is low sensitivity better than slowness?</h3>
 
-<p>Maybe you don’t believe my simulations, so here’s an analytical argument instead. Imagine you test people every day using a 75% sensitive antigen test. If someone is infected, they will probably find out immediately. There is a smallish chance they will first find out after a day, and a very small chance it will take longer than that. On average they will find out after 0.33 days, which is much faster than a typical PCR test. In general, for a sensitivity of <script type="math/tex">s</script>, daily antigen test participants will find out after an average of <script type="math/tex">d</script> days, where <script type="math/tex">d</script> is defined as:</p>
+<p>Maybe you don’t believe my simulations, so here’s an analytical argument instead. Imagine you test people every day using a 75% sensitive antigen test. If someone is infected, they will probably find out immediately. There is a smallish chance they will first find out after a day, and a very small chance it will take longer than that. On average they will find out after 0.33 days, which is much faster than a typical PCR test. In general, for a sensitivity of \(s\), daily antigen test participants will find out after an average of \(d\) days, where \(d\) is defined as:</p>
 
-<script type="math/tex; mode=display">d = \sum_{t=0}^{\infty}{(1-s)^t s t}</script>
+\[d = \sum_{t=0}^{\infty}{(1-s)^t s t}\]
 
 <p>which converges to</p>
 
-<script type="math/tex; mode=display">d = \frac{1-s}{s}</script>
+\[d = \frac{1-s}{s}\]
 
-<p>For any reasonable value of <script type="math/tex">s</script>, <script type="math/tex">d</script> will be quite low. Here’s a striking example. If you test people every day, a test with 50% sensitivity and no delay is equivalent to a test with 100% sensitivity and a 1-day delay!</p>
+<p>For any reasonable value of \(s\), \(d\) will be quite low. Here’s a striking example. If you test people every day, a test with 50% sensitivity and no delay is equivalent to a test with 100% sensitivity and a 1-day delay!</p>
 
-<p>This analysis assumes that <script type="math/tex">s</script> is fixed across time and individuals, an assumption I’ll address in the FAQ, below.</p>
+<p>This analysis assumes that \(s\) is fixed across time and individuals, an assumption I’ll address in the FAQ, below.</p>
 
 <h3 id="faq">FAQ:</h3>
 
@@ -193,10 +187,7 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
 <p><strong>Q:</strong> <em>What if the sensitivity of the antigen test is especially low at the start of infection?</em>
 <br /> <strong>A:</strong> Another good question. As with the previous answer, this period of low sensitivity would likely be to due low viral load, when the individual is less infectious. Furthermore, the period where PCR tests can detect the virus while antigen tests cannot is <a href="https://www.medrxiv.org/content/10.1101/2020.06.22.20136309v2.full.pdf">probably only 24 hours</a>. But <em>even if</em> we assume the individual is just as infectious during this early period, the antigen test still remains superior. To estimate this, I ran simulations where antigen tests were completely ineffective for the first two days of infection, a conservative assumption. Even with this conservative constraint, and even assuming the individuals are fully infectious during this period, antigen tests still outperformed PCR.</p>
 
-<div class="wrapper">
-  <img src="/assets/2020_antigen_testing/fig_test_every_1_day_delayed_detection.png" class="inner" style="position:relative border:#222 2px solid; max-width:95%;" />
-</div>
-<p><br /></p>
+<p><img src="/assets/2020_antigen_testing/fig_test_every_1_day_delayed_detection.png" /></p>
 
 <p><strong>Q:</strong> <em>What if the false negatives cause riskier behavior?</em>
 <br /> <strong>A:</strong> It’s possible that people might exhibit more risk after a false negative antigen test than after taking a PCR test and having to wait. However, this risk can be minimized by (a) educating people about sensitivity and (b) pairing the testing regime with other measures like masks and social distancing.</p>
@@ -248,22 +239,27 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
   </body>
 </html>
 
-<!-- mathjax config similar to math.stackexchange -->
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  jax: ["input/TeX", "output/HTML-CSS"],
-  tex2jax: {
-    inlineMath: [ ['$', '$'] ],
-    displayMath: [ ['$$', '$$']],
-    processEscapes: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-  },
-  messageStyle: "none",
-  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
-});
+<!-- http://docs.mathjax.org/en/latest/upgrading/v2.html#changes-in-the-mathjax-api -->
+MathJax = {
+  options: {
+    renderActions: {
+      find: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+};
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
-
 
 <script>window.twttr = (function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0],

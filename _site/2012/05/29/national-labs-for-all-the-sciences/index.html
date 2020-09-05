@@ -106,7 +106,7 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
   <span class="post-date">29 May 2012</span>
   <p>Harvard, MIT, Stanford, and several other elite universities have all recently <a href="http://www.nytimes.com/2012/05/03/education/harvard-and-mit-team-up-to-offer-free-online-courses.html">announced</a> that they will be be offering free online courses. The courses will be massively open, taught by star professors, and supplemented with video lessons, embedded testing, and realtime feedback. This is surely good news for students who might not be able to access these resources otherwise, and it is an overall positive development for education. But what are the implications for scientists who conduct research in universities? And how will these developments affect the progress of scientific research?</p>
 
-<figure class="image"><img src="/assets/youregonnahaveabadtime.png" alt="" /></figure>
+<p><img src="/assets/youregonnahaveabadtime.png" /></p>
 
 <p>Unless we correctly anticipate the changes, the implications for science might not be good, at least through the medium term. When elite universities offer classes for free, other universities will have difficulty convincing new students to enroll in their own traditional programs. Why sit through an expensive 9AM lecture at your local university when you could get the Harvard lecture for free, whenever you want? Yes, yes, students benefit from being physically present at a university: interactions with professors and other students are often irreplaceable. And yes, many universities will manage to survive in their traditional form. But as a matter of degree the future trends are clear: Online alternatives will become better, and in many cases they will offer real diplomas. As this happens, demand for traditional education at second-tier universities will decline, tuition revenue will dry up, and many excellent scientists could be laid off. In some cases, entire universities may shut down, just as many local newspapers have <a href="http://newspaperdeathwatch.com/">succumbed</a> to competition from online journalism.</p>
 
@@ -150,22 +150,27 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
   </body>
 </html>
 
-<!-- mathjax config similar to math.stackexchange -->
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  jax: ["input/TeX", "output/HTML-CSS"],
-  tex2jax: {
-    inlineMath: [ ['$', '$'] ],
-    displayMath: [ ['$$', '$$']],
-    processEscapes: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-  },
-  messageStyle: "none",
-  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
-});
+<!-- http://docs.mathjax.org/en/latest/upgrading/v2.html#changes-in-the-mathjax-api -->
+MathJax = {
+  options: {
+    renderActions: {
+      find: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+};
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
-
 
 <script>window.twttr = (function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0],

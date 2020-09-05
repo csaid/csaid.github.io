@@ -106,33 +106,42 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
   <span class="post-date">16 Oct 2014</span>
   <p>I often need to jump between different directories with very deep paths, like this:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span><span class="nb">cd </span>some/very/deep/directory/project1
+<figure class="highlight">
+  <pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span><span class="nb">cd </span>some/very/deep/directory/project1
 <span class="nv">$ </span><span class="c"># do stuff in Project 1</span>
 <span class="nv">$ </span><span class="nb">cd </span>different/very/deep/directory/project2
-<span class="nv">$ </span><span class="c"># do stuff in Project 2</span></code></pre></figure>
+<span class="nv">$ </span><span class="c"># do stuff in Project 2</span></code></pre>
+</figure>
 
 <p>While it only takes a handful of seconds to switch directories, the extra mental effort often derails my train of thought. Some solutions exist, but they all have their limitations. For example, <code class="language-plaintext highlighter-rouge">pushd</code> and <code class="language-plaintext highlighter-rouge">popd</code> don’t work well for directories you haven’t visited in a while. Aliases require you to manually add a new alias to your .bashrc every time you want to save a new directory.</p>
 
 <p>I recently found a solution, inspired by <a href="http://jeroenjanssens.com/2013/08/16/quickly-navigate-your-filesystem-from-the-command-line.html">this post</a> from <a href="https://twitter.com/jeroenhjanssens">Jeroen Janssens</a>, that works great and feels totally natural. All it takes is a one-time change to your .bashrc that will allow you to easily save directories and switch between them. To save a directory, just use the <code class="language-plaintext highlighter-rouge">mark</code> function:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span><span class="nb">pwd
+<figure class="highlight">
+  <pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span><span class="nb">pwd
 </span>some/very/deep/directory/project1
-<span class="nv">$ </span>mark project1</code></pre></figure>
+<span class="nv">$ </span>mark project1</code></pre>
+</figure>
 
 <p>To navigate to a saved directory, just use the <code class="language-plaintext highlighter-rouge">cdd</code> function:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>cdd project1
+<figure class="highlight">
+  <pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>cdd project1
 <span class="c"># do stuff in Project 1</span>
 <span class="nv">$ </span>cdd project2
-<span class="c"># do stuff in Project 2</span></code></pre></figure>
+<span class="c"># do stuff in Project 2</span></code></pre>
+</figure>
 
 <p>You can display a list of your saved directories with the <code class="language-plaintext highlighter-rouge">marks</code> function, and you can remove a directory from the list with the <code class="language-plaintext highlighter-rouge">unmark</code> function:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>unmark project1</code></pre></figure>
+<figure class="highlight">
+  <pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>unmark project1</code></pre>
+</figure>
 
 <p>For any of this to work, you’ll need to add this to your .bashrc, assuming you have a Mac and use the bash shell.</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">    <span class="k">function </span>cdd <span class="o">{</span>
+<figure class="highlight">
+  <pre><code class="language-bash" data-lang="bash">    <span class="k">function </span>cdd <span class="o">{</span>
         <span class="nb">cd</span> <span class="nt">-P</span> <span class="s2">"</span><span class="nv">$MARKPATH</span><span class="s2">/</span><span class="nv">$1</span><span class="s2">"</span> 2&gt;/dev/null <span class="o">||</span> <span class="nb">echo</span> <span class="s2">"No such mark: </span><span class="nv">$1</span><span class="s2">"</span>
     <span class="o">}</span>
     <span class="k">function </span>mark <span class="o">{</span>
@@ -150,7 +159,8 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
         <span class="nb">local </span><span class="nv">cur</span><span class="o">=</span><span class="k">${</span><span class="nv">COMP_WORDS</span><span class="p">[COMP_CWORD]</span><span class="k">}</span>
         <span class="nv">COMPREPLY</span><span class="o">=(</span> <span class="si">$(</span><span class="nb">compgen</span> <span class="nt">-W</span> <span class="s2">"</span><span class="si">$(</span> <span class="nb">ls</span> <span class="nv">$MARKPATH</span> <span class="si">)</span><span class="s2">"</span> <span class="nt">--</span> <span class="nv">$cur</span><span class="si">)</span> <span class="o">)</span>
     <span class="o">}</span>
-    <span class="nb">complete</span> <span class="nt">-F</span> _cdd cdd</code></pre></figure>
+    <span class="nb">complete</span> <span class="nt">-F</span> _cdd cdd</code></pre>
+</figure>
 
 <p>This differs from Jeroen’s <a href="http://jeroenjanssens.com/2013/08/16/quickly-navigate-your-filesystem-from-the-command-line.html">original</a> code in a couple of ways. First, to be more brain-friendly, it names the function “cdd” instead of “jump”. Second, the tab completion works <a href="https://news.ycombinator.com/item?id=6229291">better</a>.</p>
 
@@ -192,22 +202,27 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
   </body>
 </html>
 
-<!-- mathjax config similar to math.stackexchange -->
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  jax: ["input/TeX", "output/HTML-CSS"],
-  tex2jax: {
-    inlineMath: [ ['$', '$'] ],
-    displayMath: [ ['$$', '$$']],
-    processEscapes: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-  },
-  messageStyle: "none",
-  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
-});
+<!-- http://docs.mathjax.org/en/latest/upgrading/v2.html#changes-in-the-mathjax-api -->
+MathJax = {
+  options: {
+    renderActions: {
+      find: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+};
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
-
 
 <script>window.twttr = (function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0],

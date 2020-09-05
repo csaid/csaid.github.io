@@ -23,11 +23,10 @@ It is not enough to report just the number of tests and the number of positive r
 
 The [CDC case report form](https://www.cdc.gov/coronavirus/2019-ncov/downloads/pui-form.pdf) has a field for why each test was done (_Figure 1_). Unfortunately, many states do not use this form and instead use their own form. (To be fair, some states like Washington use a [more comprehensive form](https://www.doh.wa.gov/Portals/1/Documents/5100/420-110-ReportForm-Coronavirus.pdf), but there is still a lack of standardization.) Moreover, none of the states to my knowledge report the total number of people in each stratum (tested and untested), which would be necessary to do a stratified analysis.
 
-<div class="wrapper">
-  <img src='/assets/2020_covid_data_quality/cdc_form_strata.png' class="inner" style="position:relative border:#222 2px solid; max-width:95%;" >
-  <div class="caption"><strong>Figure 1</strong>: A section from the <a href = "https://www.cdc.gov/coronavirus/2019-ncov/downloads/pui-form.pdf">CDC case report form</a> which could be used for stratification. 
-  </div>
-</div><br>
+<img src='/assets/2020_covid_data_quality/cdc_form_strata.png'>
+<div class="caption">
+**Figure 1**: A section from the [CDC case report](https://www.cdc.gov/coronavirus/2019-ncov/downloads/pui-form.pdf) form which could be used for stratification. 
+</div>
 
 ### Why don’t we do this already?
 None of this is groundbreaking stuff. Epidemiologists know about [stratification](https://www.ncbi.nlm.nih.gov/pubmed/10366179) and are [keenly aware](https://journals.plos.org/plosntds/article?id=10.1371/journal.pntd.0003846) of the limitations of crude infection counts and crude case fatality rates. 
@@ -45,9 +44,10 @@ In my field of data science, you can determine the maturity of data organization
 
 <div class="wrapper">
   <img src='/assets/2020_covid_data_quality/data_maturity_table.png' class="inner" style="position:relative border: #222 2px solid; max-width:95%;" >
-  <div class="caption"><strong>Table 1</strong>: Levels of data maturity for a data organization. 
+  <div class="caption">
+  **Table 1**: Levels of data maturity for a data organization. 
   </div>
-</div><br>
+</div>
 
 Our public health infrastructure is at Level II. My strong belief, and I mean this in as constructive a way as possible, is that Level II is unacceptable. We need to be at Level III before the next pandemic hits. 
 

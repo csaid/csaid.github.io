@@ -153,8 +153,7 @@ relative -->
 
 <p>Another way to visualize the same data is with a <a href="http://charliepark.org/slopegraphs/">slopegraph</a>. Below, the left column shows all the policy positions ranked by agreement from economic experts. The right column shows the same policy positions ranked by agreement from the general public. This type of plot vividly shows how unanimous the experts are on a few beliefs: It’s very hard to predict the stock market, we’re on the left side of the Laffer Curve, and the US economy is fiscally unsustainable without healthcare cuts or taxes hikes.</p>
 
-<p><a href="http://chris-said.io/assets/fig_econ_poll.png"><figure class="image"><img src="/assets/fig_econ_poll.png" alt="" /></figure>
-</a></p>
+<p><a href="http://chris-said.io/assets/fig_econ_poll.png"><img src="/assets/fig_econ_poll.png" /></a></p>
 
 <p>Slopegraphs are useful in this context because they create less text overlap than scatter plots. With the scatter plot above, I had to use interactive mouseover events to selectively show the text for individual data points. This wouldn’t be possible in a publication, since most economics journals still require static PDFs.</p>
 
@@ -416,22 +415,27 @@ var tooltip = d3.select("#econ_scatter").append("div")
   </body>
 </html>
 
-<!-- mathjax config similar to math.stackexchange -->
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  jax: ["input/TeX", "output/HTML-CSS"],
-  tex2jax: {
-    inlineMath: [ ['$', '$'] ],
-    displayMath: [ ['$$', '$$']],
-    processEscapes: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-  },
-  messageStyle: "none",
-  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
-});
+<!-- http://docs.mathjax.org/en/latest/upgrading/v2.html#changes-in-the-mathjax-api -->
+MathJax = {
+  options: {
+    renderActions: {
+      find: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+};
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
-
 
 <script>window.twttr = (function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0],

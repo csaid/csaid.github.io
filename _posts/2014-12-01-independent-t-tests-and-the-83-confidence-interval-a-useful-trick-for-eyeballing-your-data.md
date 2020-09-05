@@ -21,7 +21,10 @@ Some people believe that two independent samples have significantly different me
 If neither the 68% confidence interval nor the 95% confidence interval tells us anything about statistical significance, what does? In most situations, the answer is the 83.4% confidence interval. This can be seen in the figure below, which shows two samples with a barely significant difference in means (p=.05). Only the 83.4% confidence intervals shown in the third panel are barely overlapping, reflecting the barely significant results.
 
 
-{% include image.html url="/assets/fig_errorbars1.png" %}
+<img src="/assets/fig_errorbars1.png">
+<div class="caption">
+</div>
+
 
 
 To understand why, let’s start by defining the t-statistic for two independent samples:

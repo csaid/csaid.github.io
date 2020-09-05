@@ -108,31 +108,31 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
 
 <p>Typically, individual neurons show sigmoidal CRFs. They don’t fire at all for very low contrasts, but they rapidly increase their firing rate at a middle range of contrast. The midpoint of this range is sometimes called the ‘semisaturation constant’. After that, the firing rate tends to level off, or ‘saturate’.</p>
 
-<figure class="image"><img src="/assets/fig_intro_neuron2.png" alt="" /></figure>
+<p><img src="/assets/fig_intro_neuron2.png" /></p>
 
 <p>With fMRI, however, I tend to find that the CRFs are mostly linear, not sigmoidal.</p>
 
-<figure class="image"><img src="/assets/fig_intro_fmri1.png" alt="" /></figure>
+<p><img src="/assets/fig_intro_fmri1.png" /></p>
 
 <p>And with EEG, I often find that the CRFs are actually nonmonotonic!</p>
 
-<figure class="image"><img src="/assets/fig_intro_eeg1.png" alt="" /></figure>
+<p><img src="/assets/fig_intro_eeg1.png" /></p>
 
 <p>This is weird, and I’m not the first person to notice it. Linear CRFs in fMRI are quite common (e.g. <a href="http://www.ncbi.nlm.nih.gov/pubmed/9535979">here</a> and <a href="http://www.ncbi.nlm.nih.gov/pubmed/22153378">here</a>), as are nonmonotic CRFs in EEG (e.g. <a href="http://www.nature.com/nature/journal/v321/n6067/abs/321235a0.html">here</a>, <a href="http://www.jneurosci.org/content/21/12/4530.short">here</a>, <a href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC1192067/">here</a>,  and <a href="http://www.jneurosci.org/content/32/8/2783.short">here</a> ). While not all papers show these effects, they certainly seem like real trends. How it is possible that an underlying sigmoidal function in neurons could give rise to such completely different functions measured by fMRI and EEG?</p>
 
 <p>To explain the linear fMRI responses, one idea is that fMRI takes an average over many different neurons, each with a different semisaturation constant. Some neurons saturate early, some saturate late, and when you average them all together you just get a line.</p>
 
-<figure class="image"><img src="/assets/fig_fmri1.png" alt="" /></figure>
+<p><img src="/assets/fig_fmri1.png" /></p>
 
 <p>That seems to make sense. But what about the nonmonotonic CRFs in EEG? One idea is that EEG CRFs might reflect the true contrast response functions of individual neurons, many of which are themselves <a href="http://ww.w.journalofvision.org/content/7/6/13.short">nonmonotonic</a>. While I don’t doubt that this could be a contributing factor, I have trouble believing that this explains all, or even most, of the nonmonotonicity in EEG. Only a small minority of visual cells exhibit this property, and I have seen some _massive _nonmonotonicity in some of my most reliable EEG subjects.</p>
 
 <p>A different hypothesis is that nonmonotonicity is caused by the cancellation of dipoles across cortical sulci or gyri. EEG dipoles are oriented normal to the cortical surface and, since the cortex has so many folds, many of the electrical signals simply <a href="http://www.ncbi.nlm.nih.gov/pubmed/19639553">cancel</a> each other out.</p>
 
-<figure class="image"><img src="/assets/fig_dipole1.png" alt="" /></figure>
+<p><img src="/assets/fig_dipole1.png" /></p>
 
 <p>Here’s where it gets interesting. Different cortical areas (e.g. V1 and V2) have different average semisaturation constants. (They tend to get lower the higher you move up in the visual hierarchy). Imagine that two cortical areas with different semisaturation constants live on opposite sides of a sulcus. At medium contrasts, one area will be active and the other will be mostly silent. But at higher contrasts, <em>both</em> areas will have kicked in, and so the overall signal (due to cancellation) will be actually _lower _that at medium contrast. This isn’t my idea, but it makes a lot of sense and I think it deserves more attention.</p>
 
-<figure class="image"><img src="/assets/fig_eeg2.png" alt="" /></figure>
+<p><img src="/assets/fig_eeg2.png" /></p>
 
 <p>But wait, the fMRI explanation makes sense, and the EEG explanation makes sense, but how can they both be true? After all, the EEG cancellation story only works if each area’s average CRF is nonlinear: If the average responses were linear (as demonstrated by the fMRI explanation), cancellation of opposite CRFs would just result in more straight lines, right?</p>
 
@@ -140,7 +140,8 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
 
 <p>Below is some Matlab code showing how this works, just a proof of concept. It makes some very, very simplifying assumptions, and I’m sure that the truth is far more complicated.</p>
 
-<figure class="highlight"><pre><code class="language-matlab" data-lang="matlab"><span class="k">function</span> <span class="p">[]</span> <span class="o">=</span> <span class="n">crfmodel</span><span class="p">()</span>
+<figure class="highlight">
+  <pre><code class="language-matlab" data-lang="matlab"><span class="k">function</span> <span class="p">[]</span> <span class="o">=</span> <span class="n">crfmodel</span><span class="p">()</span>
 
 <span class="n">n</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">;</span> <span class="c1">%number of neurons</span>
 <span class="n">c</span> <span class="o">=</span> <span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="mi">100</span><span class="p">;</span> <span class="c1">%contrast levels</span>
@@ -182,11 +183,12 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
 <span class="nb">ylabel</span><span class="p">(</span><span class="s1">'EEG Response'</span><span class="p">)</span>
 
 <span class="k">function</span> <span class="p">[</span><span class="n">r</span><span class="p">]</span> <span class="o">=</span> <span class="n">makeLogistic</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">c50</span><span class="p">)</span>
-<span class="n">r</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="mf">1.</span><span class="p">/(</span><span class="mi">1</span><span class="o">+</span><span class="nb">exp</span><span class="p">(</span><span class="o">.</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">c</span><span class="o">-</span><span class="n">c50</span><span class="p">))));</span></code></pre></figure>
+<span class="n">r</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="mf">1.</span><span class="p">/(</span><span class="mi">1</span><span class="o">+</span><span class="nb">exp</span><span class="p">(</span><span class="o">.</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">c</span><span class="o">-</span><span class="n">c50</span><span class="p">))));</span></code></pre>
+</figure>
 
 <p>And here are the results.</p>
 
-<figure class="image"><img src="/assets/fig_all2.png" alt="" /></figure>
+<p><img src="/assets/fig_all2.png" /></p>
 
 <p>It would be nice if we could go in the opposite direction and reconstruct underlying neural responses from the fMRI and EEG measurements. This seems like a pretty tricky inverse problem, but it might be possible with accurate assumptions about current propagation and the distribution of semisaturation constants.</p>
 
@@ -225,22 +227,27 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
   </body>
 </html>
 
-<!-- mathjax config similar to math.stackexchange -->
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  jax: ["input/TeX", "output/HTML-CSS"],
-  tex2jax: {
-    inlineMath: [ ['$', '$'] ],
-    displayMath: [ ['$$', '$$']],
-    processEscapes: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-  },
-  messageStyle: "none",
-  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
-});
+<!-- http://docs.mathjax.org/en/latest/upgrading/v2.html#changes-in-the-mathjax-api -->
+MathJax = {
+  options: {
+    renderActions: {
+      find: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+};
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
-
 
 <script>window.twttr = (function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0],

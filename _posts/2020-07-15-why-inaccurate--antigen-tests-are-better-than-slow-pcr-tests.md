@@ -39,18 +39,11 @@ For comparison, I also modeled a “best case scenario”, where no intra-school
 
 Assuming that each student is tested once every 4 days, I find that the cumulative number of infections is far lower if we do regular antigen testing than if we do regular PCR testing. 
 
-<div class="wrapper">
-  <img src='/assets/2020_antigen_testing/fig_test_every_4_days.png' class="inner" style="position:relative border:#222 2px solid; max-width:95%;" >
-</div><br>
-
+<img src="/assets/2020_antigen_testing/fig_test_every_4_days.png">
 
 If we change the frequency of testing to once every day, antigen testing is able to achieve close to best case results, with almost no intra-school infections. Meanwhile, daily PCR testing still results in a large number of infections.
 
-
-<div class="wrapper">
-  <img src='/assets/2020_antigen_testing/fig_test_every_1_day.png' class="inner" style="position:relative border:#222 2px solid; max-width:95%;" >
-</div><br>
-
+<img src="/assets/2020_antigen_testing/fig_test_every_1_day.png">
 
 This seems very important. _Not only are antigen tests cheaper than PCR, they are also more effective in a mass testing regime._ Further simulations in my [notebook](https://github.com/csaid/covid_model_with_testing/blob/master/SIR%20model%20with%20testing.ipynb) show that the superiority of antigen tests is maintained even for much lower sensitivities.
 
@@ -87,9 +80,7 @@ This analysis assumes that $$ s $$ is fixed across time and individuals, an assu
 **Q:** _What if the sensitivity of the antigen test is especially low at the start of infection?_
 <br> **A:** Another good question. As with the previous answer, this period of low sensitivity would likely be to due low viral load, when the individual is less infectious. Furthermore, the period where PCR tests can detect the virus while antigen tests cannot is [probably only 24 hours](https://www.medrxiv.org/content/10.1101/2020.06.22.20136309v2.full.pdf). But _even if_ we assume the individual is just as infectious during this early period, the antigen test still remains superior. To estimate this, I ran simulations where antigen tests were completely ineffective for the first two days of infection, a conservative assumption. Even with this conservative constraint, and even assuming the individuals are fully infectious during this period, antigen tests still outperformed PCR.
 
-<div class="wrapper">
-  <img src='/assets/2020_antigen_testing/fig_test_every_1_day_delayed_detection.png' class="inner" style="position:relative border:#222 2px solid; max-width:95%;" >
-</div><br>
+<img src="/assets/2020_antigen_testing/fig_test_every_1_day_delayed_detection.png">
 
 **Q:** _What if the false negatives cause riskier behavior?_
 <br> **A:** It's possible that people might exhibit more risk after a false negative antigen test than after taking a PCR test and having to wait. However, this risk can be minimized by (a) educating people about sensitivity and (b) pairing the testing regime with other measures like masks and social distancing.

@@ -52,12 +52,10 @@ I summarize my conclusions as a dialogue.
 **Q:** _This is terrifying! What hope do we have?_
 <br> **A:** The good news is that we will probably have advance warning. A team at the [Space Weather Prediction Center](https://www.swpc.noaa.gov/) (SWPC) monitors activity on the sun and activity in the earth’s magnetosphere. They can alert utilities of a CME with several hours to days notice, depending on its severity. This puts the utilities on high alert to turn off their transformers if needed. 
 
-<div class="wrapper">
-  <img src='/assets/2020_solar_storms/fig_swpc.png' class="inner" style="position:relative border:#222 2px solid; max-width:95%;" >
-  <div class="caption"><strong>Figure 1</strong>: Monitoring solar storms at the Space Weather Prediction Center 
-  </div>
-</div><br>
-
+<img src="/assets/2020_solar_storms/fig_swpc.png">
+<div class="caption">
+**Figure 1**: Monitoring solar storms at the Space Weather Prediction Center
+</div>
 
 **Q:** _That makes me feel better. But how reliable is this system?_
 <br> **A:** Not as reliable as you might like. [One-third of major storms arrive unexpectedly](https://www.thespacereview.com/article/1553/2), according to the SWPC’s own 2010 analysis. And that’s not just the small storms. According to a news article in [Science](https://science.sciencemag.org.sci-hub.tw/content/324/5935/1640), the SWPC might be also be poor at identifying the characteristics of severe storms, since they are so rare.
@@ -109,12 +107,10 @@ But I am not so sure. While the [EPRI report](https://www.epri.com/research/prod
 **Q:** _OK, what was their simplest and most optimistic finding?_
 <br> **A:** Remember how, unlike activity from solar storms, EMP attacks create something called an E1 field? One of risks of an E1 field is that key electrical devices known as “digital protective relays” (DPRs) can be damaged, which could cause major outages. To test this hypothesis, the EPRI report authors subjected 17 different types of DPRs to E1 fields of different intensities, ranging from 0 kV/m to 50 kV/m. They found that none of the DPRs were permanently damaged under any of these intensities. Some of the devices became temporarily disabled, but they could be easily restarted with a power cycle.
 
-<div class="wrapper">
-  <img src='/assets/2020_solar_storms/fig_testing.png' class="inner" style="position:relative border:#222 2px solid; max-width:95%;" >
-  <div class="caption"><strong>Figure 1</strong>: Setup for EPRI's free field tests on DPRs. [<a href='https://www.epri.com/research/products/3002014979'>EPRI</a>]
-  </div>
-</div><br>
-
+<img src="/assets/2020_solar_storms/fig_testing.png">
+<div class="caption">
+**Figure 2**: Setup for EPRI's free field tests on DPRs. [[EPRI](https://www.epri.com/research/products/3002014979')]
+</div>
 
 **Q:** _OK, so these DPR devices could withstand EMPs up to 50 kV/m, but how does this compare to the intensities that could come from an actual EMP attack?_
 <br> **A:** Even with a giant 1000 kT nuclear weapon, the peak field once it reaches the ground is only 25 kV/m. The EPRI report tested a field twice as high.
@@ -135,21 +131,17 @@ Anyway, in their voltage injection tests they found that under sufficient voltag
 **Q:** _If these device inputs can be permanently damaged by a 5 kV surge, does this mean they will be damaged by a nuclear EMP attack?_
 <br> **A:** It depends! This brings us to the coolest part of the paper. The amount of voltage induced in a wire depends on a lot of things. First, it depends on the strength of the electromagnetic field. This in turn depends on the distance from the detonation site. So even if a giant nuclear weapon is able to create a peak field of 50 kV/m, the field will be weaker at more distant locations.
 
-<div class="wrapper">
-  <img src='/assets/2020_solar_storms/fig_detonation_field.png' class="inner" style="position:relative border:#222 2px solid; max-width:95%;" >
-  <div class="caption"><strong>Figure 1</strong>: The magnitude of the E1 field decreases with distance from the detonation site. [<a href='https://www.epri.com/research/products/3002014979'>EPRI</a>]
-  </div>
-</div><br>
-
+<img src="/assets/2020_solar_storms/fig_detonation_field.png">
+<div class="caption">
+**Figure 3**: The magnitude of the E1 field decreases with distance from the detonation site. [[EPRI](https://www.epri.com/research/products/3002014979)]
+</div>
 
 But even more interestingly, the induced voltage also depends on the polarization of the field, the incidence angle (psi), and the azimuthal angle (phi). Depending on where the input power line is located and how it is oriented, the actual induced voltage might be much lower than one would expect under maximal conditions. 
 
-<div class="wrapper">
-  <img src='/assets/2020_solar_storms/fig_orientation.png' class="inner" style="position:relative border:#222 2px solid; max-width:95%;" >
-  <div class="caption"><strong>Figure 1</strong>: The induced voltage in a wire depends on its orientation relative to the incoming electromagnetic field. [<a href='https://www.epri.com/research/products/3002014979'>EPRI</a>]
-  </div>
-</div><br>
-
+<img src="/assets/2020_solar_storms/fig_orientation.png">
+<div class="caption">
+**Figure 4**: The induced voltage in a wire depends on its orientation relative to the incoming electromagnetic field. [[EPRI](https://www.epri.com/research/products/3002014979)]
+</div>
 
 Based on the known locations of substations throughout the US (and assuming random orientations), the authors were able to estimate the distribution of induced voltages in these substations, assuming a very strong nuclear attack. In most cases the induced voltages would be less than 10 kV, but some would be even higher.
 
@@ -159,12 +151,10 @@ Based on the known locations of substations throughout the US (and assuming rand
 **Q:** _So given that different devices will experience different voltage surges and given that different devices will have different voltages thresholds, is there a way we can calculate the percentage of device inputs that would be damaged?_
 <br> **A:** Yes! With simulations. While the authors don’t know the type and orientation of each device out in the world, they can make reasonable assumptions that these are uniformly distributed over known substation locations. For each device the authors sampled an induced voltage from the distribution of induced voltage (this depends on the device’s location and on a randomly sampled orientation). They also sampled a damage threshold from a distribution they constructed from their empirical voltage injection tests. For each device in the simulation, if the sampled induced voltage was greater than the damage threshold, they marked the device as damaged.
 
-<div class="wrapper">
-  <img src='/assets/2020_solar_storms/fig_simulations.png' class="inner" style="position:relative border:#222 2px solid; max-width:95%;" >
-  <div class="caption"><strong>Figure 1</strong>: To estimate how many DPRs would be damaged by voltage surges, the authors drew independent samples from their simulated distribution of voltage surges (Stress PDF) and their empirically measured distribution of damage thresholds (Strength PDF). [<a href='https://www.epri.com/research/products/3002014979'>EPRI</a>]
-  </div>
-</div><br>
-
+<img src="/assets/2020_solar_storms/fig_simulations.png">
+<div class="caption">
+**Figure 5**: To estimate how many DPRs would be damaged by voltage surges, the authors drew independent samples from their simulated distribution of voltage surges (Stress PDF) and their empirically measured distribution of damage thresholds (Strength PDF). [[EPRI](https://www.epri.com/research/products/3002014979)]
+</div>
 
 **Q:** _That seems vaguely reasonable. What were the results?_
 <br> **A:** It depended on how much protection they assumed and the intensity of the attack, but the fraction of damaged devices ranged from 1% to 20%.

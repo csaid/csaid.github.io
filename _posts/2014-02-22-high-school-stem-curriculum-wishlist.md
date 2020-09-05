@@ -10,5 +10,7 @@ wordpress_id: 251
 
 If I had a chance to remake the high school STEM curriculum to reflect the skills that are actually needed in today’s world, my changes might look something like this:
 
-
-{% include image.html url="/assets/screen-shot-2014-02-23-at-8-36-37-am.png" %}
+<img src="/assets/screen-shot-2014-02-23-at-8-36-37-am.png">
+<div class="caption">
+</div>
+<br>

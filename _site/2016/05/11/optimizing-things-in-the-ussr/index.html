@@ -157,9 +157,9 @@ The #econ_scatter parent would by default be static, so I have to change it to
 relative -->
 <div class="wrapper">
   <div id="chart" class="inner" style="position:relative"></div>
-  <!-- <div id="econ_scatter" class="inner" style="position:relative"></div> -->
+  <p><!-- <div id="econ_scatter" class="inner" style="position:relative"></div> --></p>
   <div class="caption">
-<strong>Figure 1.</strong> Some example inputs and outputs in the Soviet economy in 1951, described in units of weight. This summary shows an extreme dimensionality reduction, more extreme than was ever used in planning. In this diagram, most commodities are excluded and each displayed commodity collapses across multiple different product types. Multiple steps in the supply chain are collapsed into a single step. (Source: <a href="http://www.foia.cia.gov/sites/default/files/document_conversions/89801/DOC_0000380738.pdf">CIA</a>)
+    <p><strong>Figure 1.</strong> Some example inputs and outputs in the Soviet economy in 1951, described in units of weight. This summary shows an extreme dimensionality reduction, more extreme than was ever used in planning. In this diagram, most commodities are excluded and each displayed commodity collapses across multiple different product types. Multiple steps in the supply chain are collapsed into a single step. (Source: <a href="http://www.foia.cia.gov/sites/default/files/document_conversions/89801/DOC_0000380738.pdf">CIA</a>)</p>
   </div>
 </div>
 
@@ -170,16 +170,17 @@ relative -->
 <p>In the late 1960’s, a group of economists and computer scientists known as the “optimal planners” began to push for a better way of doing things. The group argued that a technique called <a href="https://www.math.ucla.edu/~tom/LP.pdf">linear programming</a>, invented by <a href="https://en.wikipedia.org/wiki/Leonid_Kantorovich">Leonid Kantorovich</a>, could optimally solve the problems with the supply chain. At a minimum, since the process could be computerized, it would be possible to perform more detailed calculations than could be done by hand, with less dimensionality reduction. But more importantly, linear programming allowed you to optimize arbitrary objective functions given certain constraints. In the case of the supply chain, it showed you how to efficiently allocate resources, identifying efficient factories that should get more input commodities, and inefficient factories that should be shut down.</p>
 
 <div class="wrapper">
-  <img src="/assets/kantorovich.jpg" height="300" class="inner" style="position:relative" />
+  <p><img src="/assets/kantorovich.jpg" height="300" class="inner" style="position:relative" /></p>
   <div class="caption">
-    <strong>Figure 2.</strong> Leonid Kantorovich, inventor of linear programming and winner of the 1975 Nobel Prize in Economics.
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;strong&gt;Figure 2.&lt;/strong&gt; Leonid Kantorovich, inventor of linear programming and winner of the 1975 Nobel Prize in Economics.
+</code></pre></div>    </div>
   </div>
 </div>
 
 <p><br />The optimal planners had some success here. For example, in the steel industry, about 60,000 consumers requested 10,000 different types of products from 500 producers. The producers were not equally efficient in their production. Some producers were efficient for some types of steel products, but less efficient for other types of steel products. Given the total amount of each product requested, and given the constraints of how much each factory can produce, the goal was decide how much each factory should produce of each type of product. If we simplify the problem by just asking how much each factory should produce without considering how the products will be distributed to the consuming factories, this becomes a straightforward application of the <a href="https://www.math.ucla.edu/~tom/LP.pdf">Optimal Assignment Problem</a>, a well-studied example in linear programming. If we additionally want to optimize distribution, taking into account the distance-dependent costs of shipments from one factory to another, the problem becomes more complicated but is still doable. The problem becomes similar to the <a href="https://www.math.ucla.edu/~tom/LP.pdf">Transportation Problem</a>, another well-studied example in linear programming, but in this case generalized to multiple commodities instead of just one.</p>
 
 <div class="wrapper">
-  <img src="/assets/steel_tubes.jpg" height="200" class="inner" style="position:relative" />
+  <p><img src="/assets/steel_tubes.jpg" height="200" class="inner" style="position:relative" /></p>
 </div>
 
 <p>By introducing linear programming, the optimal planners were modestly successful at improving the efficiency of some industries, but their effect was limited. First, political considerations prevented many of the recommendations surfaced by the model from being implemented. Cement factories that were known to be too inefficient or too far away from consumers were allowed to remain open even though the optimal solution recommended that they be closed. Second, since the planners were only allowed to work in certain narrow parts of the economy, they never had an opportunity to propagate their recommendations back in the supply chain, although one could imagine extending the models to do so. Third, and perhaps most importantly, the value of each commodity was set by old-school administrators in an unprincipled way, and so the optimal planners were forced to optimize objective functions that didn’t even make sense.</p>
@@ -196,7 +197,7 @@ relative -->
 <p>None of this ever really happened. The ambitious ideas of the optimal planners were never adopted, and by the 1970s it was clear that living standards in the USSR were falling further behind those of the West. Perhaps things would have been better if the optimal planners got their way, but it seems like the consensus is that their plans would have failed even if they were implemented. Below are some of the main problems that would have been encountered.</p>
 
 <ul>
-  <li><strong>Computational complexity.</strong> As described in a <a href="http://crookedtimber.org/2012/05/30/in-soviet-union-optimization-problem-solves-you/">wonderful blog post by Cosma Shalizi</a>, the number of calculations needed to solve a linear programming problem is: <script type="math/tex">(m+n)^{3/2} n^2 log(1/h)</script>, where <script type="math/tex">n</script> is the number of products, <script type="math/tex">m</script> is the number of constraints, and <script type="math/tex">h</script> is how much error you are willing to tolerate. Since the number of products, <script type="math/tex">n</script>, was in the millions, and since the complexity was proportional to <script type="math/tex">n^{3.5}</script>, it would have been practically impossible for the Soviets to compute a solution to their planning problem with sufficient detail (although see below). Any attempt to reduce the dimensionality would lead to the same perverse incentives and shortages that bedeviled earlier systems driven by hand calculations.</li>
+  <li><strong>Computational complexity.</strong> As described in a <a href="http://crookedtimber.org/2012/05/30/in-soviet-union-optimization-problem-solves-you/">wonderful blog post by Cosma Shalizi</a>, the number of calculations needed to solve a linear programming problem is: \((m+n)^{3/2} n^2 log(1/h)\), where \(n\) is the number of products, \(m\) is the number of constraints, and \(h\) is how much error you are willing to tolerate. Since the number of products, \(n\), was in the millions, and since the complexity was proportional to \(n^{3.5}\), it would have been practically impossible for the Soviets to compute a solution to their planning problem with sufficient detail (although see below). Any attempt to reduce the dimensionality would lead to the same perverse incentives and shortages that bedeviled earlier systems driven by hand calculations.</li>
   <li><strong>Data quality.</strong> The optimal planners thought that optimal computer methods could find prices that more exactly approximated equilibrium than could be done in a market economy, where fallible human actors guessed at prices by trial and error. The reality, however, would have been the exact opposite. Individual actors in a market economy understand their local needs and constraints pretty well, whereas central planners have basically no idea what’s going on. For example, central planners don’t have good information on when a factory fails to receive a shipment and they don’t have an accurate sense for how much more efficient some devices are than others. Even worse, in order to obtain more resources, factory managers in the USSR routinely <em>lied</em> to the central planners about their production capabilities. The situation became so bad that, <a href="https://books.google.com/books?id=Jlmm9GZqxkoC&amp;printsec=frontcover#v=onepage&amp;q&amp;f=false">according to</a> <a href="http://crookedtimber.org/2012/05/30/in-soviet-union-optimization-problem-solves-you/#comment-416126">one of the deep state secrets</a> of the USSR, central planners preferred to use the CIA’s analyses of certain Russian commodities rather than reports from local Party bosses!   This is especially crazy if you consider that the CIA described its own data as being of <a href="http://www.foia.cia.gov/sites/default/files/document_conversions/89801/DOC_0000380738.pdf">“debilitatingly”</a> poor quality.</li>
   <li><strong>Nonlinearities.</strong> The optimal planners assumed linearity, such that the cost for a factory producing its 1000th widget was assumed to be the same as the cost for producing its first widget. In the real world, this is obviously false, as there are increasing returns to scale. It’s possible to model increasing returns to scale, but it becomes harder to solve computationally.</li>
   <li><strong>Choosing an objective function.</strong> Choosing what the society should value is really a political problem, and Cosma Shalizi does a very <a href="http://crookedtimber.org/2012/05/30/in-soviet-union-optimization-problem-solves-you/">nice job</a> describing why it would be so hard to come to agreement.</li>
@@ -208,14 +209,14 @@ relative -->
 
 <p>Had the optimal planners’ ideas been adopted at the time, they would have failed. But what about the future? In a hundred years, could we have the technical capability to pull off a totally planned economy? I did some poking around the internet and found, somewhat to my surprise, that the answer is actually… <em>maybe</em>. It turns out that two of the most serious problems with central planning could have technological solutions that may seem far-fetched but are perhaps not impossible:</p>
 
-<p>Let’s start with <strong>computational complexity</strong>. As described above and in <a href="http://crookedtimber.org/2012/05/30/in-soviet-union-optimization-problem-solves-you/">Cosma Shalizi’s post</a>, the number of steps required to solve a linear programming problem with <script type="math/tex">n</script> products and <script type="math/tex">m</script> constraints is proportional to <script type="math/tex">(m+n)^{3/2} n^2</script>. The USSR had about 12 million types of goods. If you cross them over about 1000 possible locations, that gives you 12 billion variables, which according to Cosma would correspond to an optimization problem that would take a thousand years to solve on a modern desktop computer. However, if Moore’s Law holds up, it would be possible in 100 years to solve this problem reasonably quickly. It’s also worth pointing out that the economy’s input-output matrix is sparse, since not every product depends on every other product as input. It <em>may</em> be possible that someone might develop a faster algorithm that leverages this sparsity, although Cosma is somewhat skeptical that this could happen. <em>[In an earlier version of this post, I discussed a <a href="http://ricardo.ecn.wfu.edu/~cottrell/socialism_book/new_socialism.pdf">sparsity-based proposal</a> that supposedly brought things down to <script type="math/tex">m \times n</script> complexity. This was apparently a <a href="http://bactra.org/weblog/919.html">red herring</a> that doesn’t actually solve the optimization problem.]</em></p>
+<p>Let’s start with <strong>computational complexity</strong>. As described above and in <a href="http://crookedtimber.org/2012/05/30/in-soviet-union-optimization-problem-solves-you/">Cosma Shalizi’s post</a>, the number of steps required to solve a linear programming problem with \(n\) products and \(m\) constraints is proportional to \((m+n)^{3/2} n^2\). The USSR had about 12 million types of goods. If you cross them over about 1000 possible locations, that gives you 12 billion variables, which according to Cosma would correspond to an optimization problem that would take a thousand years to solve on a modern desktop computer. However, if Moore’s Law holds up, it would be possible in 100 years to solve this problem reasonably quickly. It’s also worth pointing out that the economy’s input-output matrix is sparse, since not every product depends on every other product as input. It <em>may</em> be possible that someone might develop a faster algorithm that leverages this sparsity, although Cosma is somewhat skeptical that this could happen. <em>[In an earlier version of this post, I discussed a <a href="http://ricardo.ecn.wfu.edu/~cottrell/socialism_book/new_socialism.pdf">sparsity-based proposal</a> that supposedly brought things down to \(m \times n\) complexity. This was apparently a <a href="http://bactra.org/weblog/919.html">red herring</a> that doesn’t actually solve the optimization problem.]</em></p>
 
 <p>As described earlier, the second serious issue with a centrally planned economy was <strong>data quality</strong>: Central planners’ knowledge about the input requirements and output capabilities of individual factories was simply not as good as the people actually working in the factory. While this was certainly the case in the Soviet Union, one can’t help but wonder about technological improvements in supply chain management. Imagine if every product had a GPS device to track its location, with other sensors and cameras to determine product quality. Already Amazon is moving in that direction for pretty much all consumer goods, and one could imagine a world where demand could be measured with the <a href="https://en.wikipedia.org/wiki/Internet_of_Things">Internet of Things</a>. Whether a government would be able to harness this data as competently as Amazon is doubtful, and it’s obviously worth asking whether we would ever want a government to be using that type of data. But from a technical point of view it’s interesting to think about how the data quality issues that destroyed the USSR could be much less serious in the future.</p>
 
 <p>All that being said, it’s still unclear to me how an objective function could be chosen in way that would democratically satisfy people, how innovation could be incentivized, or how political freedoms could be preserved. Socialism has poor track record historically, with lots of failed promises that “this time will be different”. If you’d like to read more about how things worked in the USSR, you should definitely check out <a href="http://www.amazon.com/Red-Plenty-Francis-Spufford/dp/1555976042">Red Plenty</a>. It was one of the weirdest and most interesting books I have read.</p>
 
 <div class="wrapper">
-  <img src="/assets/red_plenty.jpeg" height="300" class="inner" style="position:relative" />
+  <p><img src="/assets/red_plenty.jpeg" height="300" class="inner" style="position:relative" /></p>
 </div>
 
 <script src="/scripts/sankey.js"></script>
@@ -394,22 +395,27 @@ var path = sankey.link();
   </body>
 </html>
 
-<!-- mathjax config similar to math.stackexchange -->
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  jax: ["input/TeX", "output/HTML-CSS"],
-  tex2jax: {
-    inlineMath: [ ['$', '$'] ],
-    displayMath: [ ['$$', '$$']],
-    processEscapes: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-  },
-  messageStyle: "none",
-  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
-});
+<!-- http://docs.mathjax.org/en/latest/upgrading/v2.html#changes-in-the-mathjax-api -->
+MathJax = {
+  options: {
+    renderActions: {
+      find: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+};
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
-
 
 <script>window.twttr = (function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0],

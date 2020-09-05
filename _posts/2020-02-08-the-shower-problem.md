@@ -25,11 +25,10 @@ Let’s make this more explicit.
 - The $$\tau$$ constant is a fixed property of the shower and is sampled once from a known distribution. You have certain knowledge of the distribution, but you don’t know $$\tau$$.
 - The shower is memoryless, such that every time you turn the knob to the hot direction, it will take $$\tau$$ seconds until the hot water arrives, regardless of your prior actions. Every time you turn it to the cold direction, only cold water will come out.
 
-<div class="wrapper">
-  <img src='/assets/2020_shower_problem/distributions.gif' class="inner" style="position:relative border: #222 2px solid; max-width:100%;" >
-  <div class="caption"><strong>Figure 1.</strong> Unbeknownst to the user, the hot water direction is to the left, with a time constant τ of 100 seconds. The user knows the probability distribution over τ, and follows a strategy of eliminating segments of that distribution. They initially guess the correct direction, but give up too soon at 75 seconds. They then spend another 75 seconds on the rightwards direction. Finally, they return to the left direction, passing through the 75 seconds they had already eliminated, and then finally getting the hot water after 100 seconds on the left direction. In all, it takes the user 250 seconds to find the hot water.
-  </div>
-</div><br>
+<img src='/assets/2020_shower_problem/distributions.gif'>
+<div class="caption">
+**Figure 1.** Unbeknownst to the user, the hot water direction is to the left, with a time constant τ of 100 seconds. The user knows the probability distribution over τ, and follows a strategy of eliminating segments of that distribution. They initially guess the correct direction, but give up too soon at 75 seconds. They then spend another 75 seconds on the rightwards direction. Finally, they return to the left direction, passing through the 75 seconds they had already eliminated, and then finally getting the hot water after 100 seconds on the left direction. In all, it takes the user 250 seconds to find the hot water.
+</div>
 
 I don’t know how to solve this problem. But as a starting point I realize it’s possible to keep track of the probability that the hot direction is to the left or to the right. In the animation above, the probability that the hot direction is to the right is just the unexplored white area under the right curve, divided by the total unexplored white area of both curves.
 

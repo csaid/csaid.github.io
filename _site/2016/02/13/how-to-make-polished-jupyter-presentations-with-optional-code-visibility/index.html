@@ -109,21 +109,20 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
 <p>On the top is a typical Jupyter presentation with code and some extra elements. Below that is a more polished version that removes some of the extra elements and makes code visibility optional with a button.</p>
 
 <div class="wrapper">
-    <a class="inner" href="http://nbviewer.jupyter.org/github/csaid/polished_notebooks/blob/master/notebook_original.ipynb" target="_blank">
-        <figure class="image"><img src="/assets/fig_unpolished_small.png" alt="" border="2px" /></figure>
-
+    <a class="inner" href="http://nbviewer.jupyter.org/github/csaid/polished_notebooks/blob/master/notebook_unpolished.ipynb" target="_blank">
+        <img src="/assets/fig_unpolished_small.png" border="2px" />
     </a>
 </div>
 <div class="wrapper">
     <a class="inner" href="http://nbviewer.jupyter.org/github/csaid/polished_notebooks/blob/master/notebook_polished.ipynb" target="_blank">
-        <figure class="image"><img src="/assets/fig_polished_small.png" alt="" border="2px" /></figure>
-
+        <img src="/assets/fig_polished_small.png" border="2px" />
     </a>
 </div>
 
 <p>To make the code optionally visible, available at the click of a button, include a raw cell at the beginning of your notebook containing the JavaScript and HTML below. This code sample is inspired by a <a href="http://stackoverflow.com/questions/27934885/how-to-hide-code-from-cells-in-ipython-notebook-visualized-with-nbviewer">Stack Overflow post</a>, but makes a few improvements such as using a raw cell so that the button position stays fixed, changing the button text depending on state, and displaying gradual transitions so the user understands what is happening.</p>
 
-<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;script&gt;</span>
+<figure class="highlight">
+  <pre><code class="language-html" data-lang="html"><span class="nt">&lt;script&gt;</span>
   <span class="kd">function</span> <span class="nx">code_toggle</span><span class="p">()</span> <span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span><span class="nx">code_shown</span><span class="p">){</span>
       <span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">div.input</span><span class="dl">'</span><span class="p">).</span><span class="nx">hide</span><span class="p">(</span><span class="dl">'</span><span class="s1">500</span><span class="dl">'</span><span class="p">);</span>
@@ -140,11 +139,13 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
     <span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">div.input</span><span class="dl">'</span><span class="p">).</span><span class="nx">hide</span><span class="p">()</span>
   <span class="p">});</span>
 <span class="nt">&lt;/script&gt;</span>
-<span class="nt">&lt;form</span> <span class="na">action=</span><span class="s">"javascript:code_toggle()"</span><span class="nt">&gt;&lt;input</span> <span class="na">type=</span><span class="s">"submit"</span> <span class="na">id=</span><span class="s">"toggleButton"</span> <span class="na">value=</span><span class="s">"Show Code"</span><span class="nt">&gt;&lt;/form&gt;</span></code></pre></figure>
+<span class="nt">&lt;form</span> <span class="na">action=</span><span class="s">"javascript:code_toggle()"</span><span class="nt">&gt;&lt;input</span> <span class="na">type=</span><span class="s">"submit"</span> <span class="na">id=</span><span class="s">"toggleButton"</span> <span class="na">value=</span><span class="s">"Show Code"</span><span class="nt">&gt;&lt;/form&gt;</span></code></pre>
+</figure>
 
 <p>It’s pretty straightforward to remove the extra elements like the header, footer, and prompt numbers. That being said, you may want to still include some attribution to the Jupyter project and to your free hosting service. To do all of this, just include a raw cell at the end of your notebook with some more JavaScript.</p>
 
-<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;script&gt;</span>
+<figure class="highlight">
+  <pre><code class="language-html" data-lang="html"><span class="nt">&lt;script&gt;</span>
   <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
     <span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">div.prompt</span><span class="dl">'</span><span class="p">).</span><span class="nx">hide</span><span class="p">();</span>
     <span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">div.back-to-top</span><span class="dl">'</span><span class="p">).</span><span class="nx">hide</span><span class="p">();</span>
@@ -156,11 +157,13 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
 
 <span class="nt">&lt;footer</span> <span class="na">id=</span><span class="s">"attribution"</span> <span class="na">style=</span><span class="s">"float:right; color:#999; background:#fff;"</span><span class="nt">&gt;</span>
 Created with Jupyter, delivered by Fastly, rendered by Rackspace.
-<span class="nt">&lt;/footer&gt;</span></code></pre></figure>
+<span class="nt">&lt;/footer&gt;</span></code></pre>
+</figure>
 
 <p>One shortcoming with what we have so far is that users may still see some code or other unwanted elements while the page is loading. This can be especially problematic if you have a long presentation with many plots. To avoid this problem, add a raw cell at the very top of your notebook containing a preloader. This example preloader includes an animation that signals to users that the page is still loading. It heavily inspired by <a href="http://codepen.io/mimoYmima/pen/fisgL">this preloader</a> created by <a href="https://twitter.com/@mimoYmima">@mimoYmima</a>.</p>
 
-<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;script&gt;</span>
+<figure class="highlight">
+  <pre><code class="language-html" data-lang="html"><span class="nt">&lt;script&gt;</span>
   <span class="nx">jQuery</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">$</span><span class="p">)</span> <span class="p">{</span>
 
   <span class="nx">$</span><span class="p">(</span><span class="nb">window</span><span class="p">).</span><span class="nx">load</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
@@ -183,7 +186,8 @@ Created with Jupyter, delivered by Fastly, rendered by Rackspace.
 
 <span class="nt">&lt;/style&gt;</span>
 
-<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"preloader"</span><span class="nt">&gt;&lt;/div&gt;</span></code></pre></figure>
+<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"preloader"</span><span class="nt">&gt;&lt;/div&gt;</span></code></pre>
+</figure>
 
 <meta charset="utf-8" />
 
@@ -224,22 +228,27 @@ Created with Jupyter, delivered by Fastly, rendered by Rackspace.
   </body>
 </html>
 
-<!-- mathjax config similar to math.stackexchange -->
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  jax: ["input/TeX", "output/HTML-CSS"],
-  tex2jax: {
-    inlineMath: [ ['$', '$'] ],
-    displayMath: [ ['$$', '$$']],
-    processEscapes: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-  },
-  messageStyle: "none",
-  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
-});
+<!-- http://docs.mathjax.org/en/latest/upgrading/v2.html#changes-in-the-mathjax-api -->
+MathJax = {
+  options: {
+    renderActions: {
+      find: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+};
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
-
 
 <script>window.twttr = (function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0],

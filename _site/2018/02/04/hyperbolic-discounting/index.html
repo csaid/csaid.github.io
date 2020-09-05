@@ -110,37 +110,31 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
 <p>I recently decided to learn what hyperbolic discounting was all about, so I set out to write this blog post. I have to admit that hyperbolic discounting has been pretty hard for me to understand, but I think I now finally have a good enough handle on it to write about it. Along the way, I learned something interesting: Hyperbolic discounting might be rational after all.</p>
 
 <h2 id="rational-and-irrational-discounting">Rational and irrational discounting</h2>
-<p>If I offered you <span class="tex2jax_ignore">$</span>50 now or <span class="tex2jax_ignore">$</span>100 in 6 months, which would you pick? It’s not crazy to choose the <span class="tex2jax_ignore">$</span>50 now. One reason is that it’s a safer bet. If you had chosen the delayed <span class="tex2jax_ignore">$</span>100, there’s a risk that I might forget about the deal when the time came to pay <em>[personal note: I wouldn’t]</em>, and you would never get your money. Another reason is that if you invest the $50 now, you might be able to make up some of the remainder in interest.</p>
+<p>If I offered you $50 now or $100 in 6 months, which would you pick? It’s not crazy to choose the $50 now. One reason is that it’s a safer bet. If you had chosen the delayed $100, there’s a risk that I might forget about the deal when the time came to pay <em>[personal note: I wouldn’t]</em>, and you would never get your money. Another reason is that if you invest the $50 now, you might be able to make up some of the remainder in interest.</p>
 
 <p>Valuing immediate money more than future money is a rational behavior known as discounting. Everybody has their own discount factor. Some people might value money in 6 months at, say, 75% of what they’d value it today. Others might value it at 90%.</p>
 
-<p>In the early 1980s, psychologist George Ainslie discovered something peculiar. He <a href="https://en.wikipedia.org/wiki/Hyperbolic_discounting#Observations">found</a> that while a lot of people would prefer <span class="tex2jax_ignore">$</span>50 immediately rather than <span class="tex2jax_ignore">$</span>100 in 6 months, they would <em>not</em> prefer <span class="tex2jax_ignore">$</span>50 in 3 months rather than <span class="tex2jax_ignore">$</span>100 in 9 months. These two different scenarios are shown in the diagram below, where the green checks indicate the options that people tended to choose.</p>
+<p>In the early 1980s, psychologist George Ainslie discovered something peculiar. He <a href="https://en.wikipedia.org/wiki/Hyperbolic_discounting#Observations">found</a> that while a lot of people would prefer $50 immediately rather than $100 in 6 months, they would <em>not</em> prefer $50 in 3 months rather than $100 in 9 months. These two different scenarios are shown in the diagram below, where the green checks indicate the options that people tended to choose.</p>
 
-<div class="wrapper">
-  <img src="/assets/2018_hyperbolic_discounting/timeline_diagram.png" class="inner" style="position:relative border: #222 2px solid; max-width:100%;" />
-</div>
+<p><img src="/assets/2018_hyperbolic_discounting/timeline_diagram.png" /></p>
 
-<p>If you think about it, there’s something inconsistent about this behavior. The two scenarios are actually identical, just shifted by 3 months, and yet the same people behave differently depending on when the scenario would be presented. If we waited 3 months and then asked them again if they would prefer <span class="tex2jax_ignore">$</span>50 immediately or <span class="tex2jax_ignore">$</span>100 in 6 months, their original response to Scenario 1 implies they would prefer the fast money (i.e. they would have a high discount rate), but their original response to Scenario 2 implies they would prefer the delayed money (i.e. they would have a low discount rate). In other words, their present self today would make a decision in Scenario 2 that three months from now they will have regretted making. This behavior is <em>time-inconsistent</em> and is therefore considered irrational according to standard economic theory.</p>
+<p>If you think about it, there’s something inconsistent about this behavior. The two scenarios are actually identical, just shifted by 3 months, and yet the same people behave differently depending on when the scenario would be presented. If we waited 3 months and then asked them again if they would prefer $50 immediately or $100 in 6 months, their original response to Scenario 1 implies they would prefer the fast money (i.e. they would have a high discount rate), but their original response to Scenario 2 implies they would prefer the delayed money (i.e. they would have a low discount rate). In other words, their present self today would make a decision in Scenario 2 that three months from now they will have regretted making. This behavior is <em>time-inconsistent</em> and is therefore considered irrational according to standard economic theory.</p>
 
-<p>The usual way to achieve rational time-consistent discounting is with an exponential discount curve, where the value of receiving something at future time <script type="math/tex">t</script> is a fixed fraction <script type="math/tex">s(t)</script> of its present value, and where <script type="math/tex">\lambda</script> is the constant discount rate.</p>
+<p>The usual way to achieve rational time-consistent discounting is with an exponential discount curve, where the value of receiving something at future time \(t\) is a fixed fraction \(s(t)\) of its present value, and where \(\lambda\) is the constant discount rate.</p>
 
-<script type="math/tex; mode=display">s(t) = e^{-\lambda t}</script>
+\[s(t) = e^{-\lambda t}\]
 
-<p>With an exponential curve, a dollar delayed by six months is always worth the same fixed fraction of a dollar at the baseline date, no matter what the baseline date it is. If you are indifferent between <span class="tex2jax_ignore">$</span>100 now and <span class="tex2jax_ignore">$</span>50 in 6 months, you should also be indifferent between <span class="tex2jax_ignore">$</span>100 in 3 months and <span class="tex2jax_ignore">$</span>50 in 9 months. The discount rate is constant.</p>
+<p>With an exponential curve, a dollar delayed by six months is always worth the same fixed fraction of a dollar at the baseline date, no matter what the baseline date it is. If you are indifferent between $100 now and $50 in 6 months, you should also be indifferent between $100 in 3 months and $50 in 9 months. The discount rate is constant.</p>
 
-<div class="wrapper">
-  <img src="/assets/2018_hyperbolic_discounting/fig_exp_fracs.png" class="inner" style="position:relative border: #222 2px solid; max-width:100%;" />
-</div>
+<p><img src="/assets/2018_hyperbolic_discounting/fig_exp_fracs.png" /></p>
 
-<p>In contrast to an exponential curve, humans tend to show a <a href="https://en.wikipedia.org/wiki/Hyperbolic_discounting">hyperbolic discount curve</a>, which is considered irrational according to standard economic theory. Confusingly, the hyperbolic discount curve is not defined by one of the <a href="https://en.wikipedia.org/wiki/Hyperbolic_function">hyperbolic functions</a> you may remember from high school. Instead, it is defined as follows, where $ \tau $ is the relative time from now:</p>
+<p>In contrast to an exponential curve, humans tend to show a <a href="https://en.wikipedia.org/wiki/Hyperbolic_discounting">hyperbolic discount curve</a>, which is considered irrational according to standard economic theory. Confusingly, the hyperbolic discount curve is not defined by one of the <a href="https://en.wikipedia.org/wiki/Hyperbolic_function">hyperbolic functions</a> you may remember from high school. Instead, it is defined as follows, where \(\tau\) is the relative time from now:</p>
 
-<script type="math/tex; mode=display">s(\tau) = \frac{1}{1+k \tau}</script>
+\[s(\tau) = \frac{1}{1+k \tau}\]
 
 <p>Whereas an exponential curve has a constant discount rate, a hyperbolic discount curve has a higher discount rate in the near future and lower discount rate in the distant future. That’s why the participants in Ainslie’s experiment cared more about the delay from 0 to 6 months than about the same delay from 3 to 9 months.</p>
 
-<div class="wrapper">
-  <img src="/assets/2018_hyperbolic_discounting/fig_exp_and_hyp.png" class="inner" style="position:relative border: #222 2px solid; max-width:100%;" />
-</div>
+<p><img src="/assets/2018_hyperbolic_discounting/fig_exp_and_hyp.png" /></p>
 
 <p>The apparent rationality of an exponential function is often presented either with a hazard rate interpretation or an interest rate interpretation. It turns out, however, that both of these interpretations make implausible assumptions about the world. The rest of this blog post describes how if we make some more plausible assumptions, hyperbolic discount function becomes rational.</p>
 
@@ -150,39 +144,33 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
 
 <h5 id="apparent-rationality-of-exponential-discounting">Apparent rationality of exponential discounting</h5>
 
-<p>Imagine that there could be an event at some time that could cause you to no longer receive your reward. Perhaps the person who owes you the money could die or lose their assets. Assuming a constant hazard rate (i.e. assuming the event is equally likely to happen at any time), the probability that the event has not happened by time $ \tau $ is:</p>
+<p>Imagine that there could be an event at some time that could cause you to no longer receive your reward. Perhaps the person who owes you the money could die or lose their assets. Assuming a constant hazard rate (i.e. assuming the event is equally likely to happen at any time), the probability that the event has not happened by time \(\tau\) is:</p>
 
-<script type="math/tex; mode=display">s(\tau) = e^{-\lambda \tau}</script>
+\[s(\tau) = e^{-\lambda \tau}\]
 
-<p>The <script type="math/tex">s(\tau)</script> function is called a “survival” function because it describes the probability that the deal is still “alive” by time <script type="math/tex">\tau</script>. The <script type="math/tex">\lambda</script> parameter is the constant hazard rate.</p>
+<p>The \(s(\tau)\) function is called a “survival” function because it describes the probability that the deal is still “alive” by time \(\tau\). The \(\lambda\) parameter is the constant hazard rate.</p>
 
-<div class="wrapper">
-  <img src="/assets/2018_hyperbolic_discounting/fig_exp_survival.png" class="inner" style="position:relative border: #222 2px solid; max-width:100%;" />
-</div>
+<p><img src="/assets/2018_hyperbolic_discounting/fig_exp_survival.png" /></p>
 
-<p>A key insight here is that the survival function can also be interpreted as a discount function. If someone says you can receive your reward at time $ \tau $ if you’re willing to wait for it, and if there’s only a 60% chance you’ll actually receive it, you should value that offer at 60% of the current value of the reward. Since the survival function is exponential, and since the survival function <em>is</em> the discount function, your discount function is also exponential, at least according to standard economic theory.</p>
+<p>A key insight here is that the survival function can also be interpreted as a discount function. If someone says you can receive your reward at time \(\tau\) if you’re willing to wait for it, and if there’s only a 60% chance you’ll actually receive it, you should value that offer at 60% of the current value of the reward. Since the survival function is exponential, and since the survival function <em>is</em> the discount function, your discount function is also exponential, at least according to standard economic theory.</p>
 
 <h5 id="rationality-of-hyperbolic-discounting">Rationality of hyperbolic discounting</h5>
 
-<p>The problem with assuming an exponential survival function is that it assumes you know the hazard rate $ \lambda $. In most situations, you don’t know exactly what the hazard rate is. Instead you have uncertainty around the parameter. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1689473/pdf/T9KA20YDP8PB1QP4_265_2015.pdf">Souza (2015)</a> proposes an exponential prior distribution over the hazard rate.</p>
+<p>The problem with assuming an exponential survival function is that it assumes you know the hazard rate \(\lambda\). In most situations, you don’t know exactly what the hazard rate is. Instead you have uncertainty around the parameter. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1689473/pdf/T9KA20YDP8PB1QP4_265_2015.pdf">Souza (2015)</a> proposes an exponential prior distribution over the hazard rate.</p>
 
-<script type="math/tex; mode=display">p(\lambda) = \frac{1}{k} e^{-\frac{\lambda}{k}}</script>
+\[p(\lambda) = \frac{1}{k} e^{-\frac{\lambda}{k}}\]
 
 <p>The exponential prior is shown in the graph below. Although this curve looks like a discount function, it is not. It is a distribution over a parameter.</p>
 
-<div class="wrapper">
-  <img src="/assets/2018_hyperbolic_discounting/fig_hazard_prior.png" class="inner" style="position:relative border: #222 2px solid; max-width:100%;" />
-</div>
+<p><img src="/assets/2018_hyperbolic_discounting/fig_hazard_prior.png" /></p>
 
 <p>According to Souza, if you average over all the possible exponential survival functions generated by this prior, you get a hyperbolic survival function, or equivalently, a hyperbolic discount function. Let’s see this in action.</p>
 
-<p>In the plot below, I’ve drawn 30 exponential survival functions in blue, each with a <script type="math/tex">\lambda</script> sampled from the <script type="math/tex">p(\lambda)</script> prior distribution defined above. The pink curve is the mean of all of them. Notice that whereas the individual survival curves are all exponential, their mean is hyperbolic, with a distant future characterized by a flat slope and relatively high survival values.</p>
+<p>In the plot below, I’ve drawn 30 exponential survival functions in blue, each with a \(\lambda\) sampled from the \(p(\lambda)\) prior distribution defined above. The pink curve is the mean of all of them. Notice that whereas the individual survival curves are all exponential, their mean is hyperbolic, with a distant future characterized by a flat slope and relatively high survival values.</p>
 
-<div class="wrapper">
-  <img src="/assets/2018_hyperbolic_discounting/fig_mean_of_exponentials.png" class="inner" style="position:relative border: #222 2px solid; max-width:100%;" />
-</div>
+<p><img src="/assets/2018_hyperbolic_discounting/fig_mean_of_exponentials.png" /></p>
 
-<p>As a consequence, the further you look into the future, the lower your discount rate. This is exactly what hyperbolic discounting is and exactly what humans do. For the choice between <span class="tex2jax_ignore">$</span>50 now and <span class="tex2jax_ignore">$</span>100 in 6 months, we apply a heavy discount rate. For the choice between <span class="tex2jax_ignore">$</span>50 in 3 months and <span class="tex2jax_ignore">$</span>100 in 9 months, we apply a lighter discount rate.</p>
+<p>As a consequence, the further you look into the future, the lower your discount rate. This is exactly what hyperbolic discounting is and exactly what humans do. For the choice between $50 now and $100 in 6 months, we apply a heavy discount rate. For the choice between $50 in 3 months and $100 in 9 months, we apply a lighter discount rate.</p>
 
 <p>For a more qualitative intuition, you can think of it this way: When you make a deal with someone, you don’t know what the hazard rate is going to be. But if the deal is still alive after 80 months, then your hazard rate is probably favorable and thus the deal is likely to still be alive after 100 months. You can therefore have a light discount rate between 80 months and 100 months.</p>
 
@@ -191,14 +179,14 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
 <p>While hazard functions are one way to explain discounting, another common explanation involves interest rates. A dollar now is worth more than a dollar in a year, because if you take the dollar now and invest it, it will worth more in a year.</p>
 
 <h5 id="apparent-rationality-of-exponential-discounting-1">Apparent rationality of exponential discounting</h5>
-<p>If the interest rate is 5%, you should be indifferent between <span class="tex2jax_ignore">$</span>100 today and <span class="tex2jax_ignore">$</span>105 in a year, since you could just invest the <span class="tex2jax_ignore">$</span>100 today and get the same amount in a year. If the interest rate is constant, the value of the dollar will rise exponentially, according to $ v(\tau) = e^{0.05\tau} $, where $ v $ is the value. To rationally maintain indifference between a dollar and its equivalent value in the future after investment, your discount function should decay exponentially, according to $ s(\tau) = e^{-0.05\tau} $.</p>
+<p>If the interest rate is 5%, you should be indifferent between $100 today and $105 in a year, since you could just invest the $100 today and get the same amount in a year. If the interest rate is constant, the value of the dollar will rise exponentially, according to \(v(\tau) = e^{0.05\tau}\), where \(v\) is the value. To rationally maintain indifference between a dollar and its equivalent value in the future after investment, your discount function should decay exponentially, according to \(s(\tau) = e^{-0.05\tau}\).</p>
 
 <h5 id="rationality-of-hyperbolic-discounting-1">Rationality of hyperbolic discounting</h5>
 <p>The problem with this story is that it only works if you assume that the interest rate is constant. In the real world, the interest rate fluctuates.</p>
 
 <p>Before taking on the fluctuating interest rate scenario, let’s first take on a different assumption that is still somewhat simplified. Let’s assume that the interest rate is constant but we don’t know what it is, just as we didn’t know what the hazard rate was in the previous interpretation. With this assumption, the justification for hyperbolic discounting becomes similar to the explanation in the blue and pink plots above. When you do a probability-weighted average over these decaying exponential curves, you get a hyperbolic function.</p>
 
-<p>The previous paragraph assumed that the interest rate was constant but unknown. In the real world, the interest rate is known but fluctuates over time. <a href="https://campuspress.yale.edu/johngeanakoplos/files/2017/07/Hyperbolic-Discounting-is-Rational-Valuing-the-Far-Future-with-Uncertain-Discount-Rates-1uc47ft.pdf">Farmer and Geanakoplos (2009)</a> showed that if you assume that interest rate fluctuations follow a <a href="http://sfb649.wiwi.hu-berlin.de/fedc_homepage/xplore/tutorials/sfehtmlnode21.html">geometric random walk</a>, hyperbolic discounting becomes optimal, at least asymptotically as <script type="math/tex">\tau \rightarrow \infty</script>. In the near future, you know the interest rate with reasonable certainty and should therefore discount with an exponential curve. But as you look further into the future, your uncertainty about the interest rate increases and you should therefore discount with a hyperbolic curve.</p>
+<p>The previous paragraph assumed that the interest rate was constant but unknown. In the real world, the interest rate is known but fluctuates over time. <a href="https://campuspress.yale.edu/johngeanakoplos/files/2017/07/Hyperbolic-Discounting-is-Rational-Valuing-the-Far-Future-with-Uncertain-Discount-Rates-1uc47ft.pdf">Farmer and Geanakoplos (2009)</a> showed that if you assume that interest rate fluctuations follow a <a href="http://sfb649.wiwi.hu-berlin.de/fedc_homepage/xplore/tutorials/sfehtmlnode21.html">geometric random walk</a>, hyperbolic discounting becomes optimal, at least asymptotically as \(\tau \rightarrow \infty\). In the near future, you know the interest rate with reasonable certainty and should therefore discount with an exponential curve. But as you look further into the future, your uncertainty about the interest rate increases and you should therefore discount with a hyperbolic curve.</p>
 
 <p>Is the geometric random walk a process that was cherry picked by the authors to produce this outcome? Not really. <a href="https://dukespace.lib.duke.edu/dspace/bitstream/handle/10161/7542/NewellPizerDiscountingPew.pdf?sequence=1">Newell and Pizer (2003)</a> studied US bond rates in the 19th and 20th century and found that the geometric random walk provided a better fit than any of the other interest rate models tested.</p>
 
@@ -241,22 +229,27 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
   </body>
 </html>
 
-<!-- mathjax config similar to math.stackexchange -->
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  jax: ["input/TeX", "output/HTML-CSS"],
-  tex2jax: {
-    inlineMath: [ ['$', '$'] ],
-    displayMath: [ ['$$', '$$']],
-    processEscapes: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-  },
-  messageStyle: "none",
-  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
-});
+<!-- http://docs.mathjax.org/en/latest/upgrading/v2.html#changes-in-the-mathjax-api -->
+MathJax = {
+  options: {
+    renderActions: {
+      find: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+};
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
-
 
 <script>window.twttr = (function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0],

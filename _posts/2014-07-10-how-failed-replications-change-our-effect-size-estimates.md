@@ -43,7 +43,10 @@ Here are the results.
 
 
 
-{% include image.html url="/assets/results.png"  %}
+<img src="/assets/results.png">
+<div class="caption">
+</div>
+
 
 
 Keeping in mind all the caveats about sampling bias and other issues, here are a few observations:

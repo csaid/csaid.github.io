@@ -28,3 +28,5 @@ pages_list:
 # So I can date posts in the future and still have them appear now.
 future: true
 
+kramdown: 
+  parse_block_html: true

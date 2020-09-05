@@ -155,12 +155,10 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
 <p><strong>Q:</strong> <em>This is terrifying! What hope do we have?</em>
 <br /> <strong>A:</strong> The good news is that we will probably have advance warning. A team at the <a href="https://www.swpc.noaa.gov/">Space Weather Prediction Center</a> (SWPC) monitors activity on the sun and activity in the earth’s magnetosphere. They can alert utilities of a CME with several hours to days notice, depending on its severity. This puts the utilities on high alert to turn off their transformers if needed.</p>
 
-<div class="wrapper">
-  <img src="/assets/2020_solar_storms/fig_swpc.png" class="inner" style="position:relative border:#222 2px solid; max-width:95%;" />
-  <div class="caption"><strong>Figure 1</strong>: Monitoring solar storms at the Space Weather Prediction Center 
-  </div>
+<p><img src="/assets/2020_solar_storms/fig_swpc.png" /></p>
+<div class="caption">
+  <p><strong>Figure 1</strong>: Monitoring solar storms at the Space Weather Prediction Center</p>
 </div>
-<p><br /></p>
 
 <p><strong>Q:</strong> <em>That makes me feel better. But how reliable is this system?</em>
 <br /> <strong>A:</strong> Not as reliable as you might like. <a href="https://www.thespacereview.com/article/1553/2">One-third of major storms arrive unexpectedly</a>, according to the SWPC’s own 2010 analysis. And that’s not just the small storms. According to a news article in <a href="https://science.sciencemag.org.sci-hub.tw/content/324/5935/1640">Science</a>, the SWPC might be also be poor at identifying the characteristics of severe storms, since they are so rare.</p>
@@ -212,12 +210,10 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
 <p><strong>Q:</strong> <em>OK, what was their simplest and most optimistic finding?</em>
 <br /> <strong>A:</strong> Remember how, unlike activity from solar storms, EMP attacks create something called an E1 field? One of risks of an E1 field is that key electrical devices known as “digital protective relays” (DPRs) can be damaged, which could cause major outages. To test this hypothesis, the EPRI report authors subjected 17 different types of DPRs to E1 fields of different intensities, ranging from 0 kV/m to 50 kV/m. They found that none of the DPRs were permanently damaged under any of these intensities. Some of the devices became temporarily disabled, but they could be easily restarted with a power cycle.</p>
 
-<div class="wrapper">
-  <img src="/assets/2020_solar_storms/fig_testing.png" class="inner" style="position:relative border:#222 2px solid; max-width:95%;" />
-  <div class="caption"><strong>Figure 1</strong>: Setup for EPRI's free field tests on DPRs. [<a href="https://www.epri.com/research/products/3002014979">EPRI</a>]
-  </div>
+<p><img src="/assets/2020_solar_storms/fig_testing.png" /></p>
+<div class="caption">
+  <p><strong>Figure 2</strong>: Setup for EPRI’s free field tests on DPRs. [<a href="https://www.epri.com/research/products/3002014979'">EPRI</a>]</p>
 </div>
-<p><br /></p>
 
 <p><strong>Q:</strong> <em>OK, so these DPR devices could withstand EMPs up to 50 kV/m, but how does this compare to the intensities that could come from an actual EMP attack?</em>
 <br /> <strong>A:</strong> Even with a giant 1000 kT nuclear weapon, the peak field once it reaches the ground is only 25 kV/m. The EPRI report tested a field twice as high.</p>
@@ -238,21 +234,17 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
 <p><strong>Q:</strong> <em>If these device inputs can be permanently damaged by a 5 kV surge, does this mean they will be damaged by a nuclear EMP attack?</em>
 <br /> <strong>A:</strong> It depends! This brings us to the coolest part of the paper. The amount of voltage induced in a wire depends on a lot of things. First, it depends on the strength of the electromagnetic field. This in turn depends on the distance from the detonation site. So even if a giant nuclear weapon is able to create a peak field of 50 kV/m, the field will be weaker at more distant locations.</p>
 
-<div class="wrapper">
-  <img src="/assets/2020_solar_storms/fig_detonation_field.png" class="inner" style="position:relative border:#222 2px solid; max-width:95%;" />
-  <div class="caption"><strong>Figure 1</strong>: The magnitude of the E1 field decreases with distance from the detonation site. [<a href="https://www.epri.com/research/products/3002014979">EPRI</a>]
-  </div>
+<p><img src="/assets/2020_solar_storms/fig_detonation_field.png" /></p>
+<div class="caption">
+  <p><strong>Figure 3</strong>: The magnitude of the E1 field decreases with distance from the detonation site. [<a href="https://www.epri.com/research/products/3002014979">EPRI</a>]</p>
 </div>
-<p><br /></p>
 
 <p>But even more interestingly, the induced voltage also depends on the polarization of the field, the incidence angle (psi), and the azimuthal angle (phi). Depending on where the input power line is located and how it is oriented, the actual induced voltage might be much lower than one would expect under maximal conditions.</p>
 
-<div class="wrapper">
-  <img src="/assets/2020_solar_storms/fig_orientation.png" class="inner" style="position:relative border:#222 2px solid; max-width:95%;" />
-  <div class="caption"><strong>Figure 1</strong>: The induced voltage in a wire depends on its orientation relative to the incoming electromagnetic field. [<a href="https://www.epri.com/research/products/3002014979">EPRI</a>]
-  </div>
+<p><img src="/assets/2020_solar_storms/fig_orientation.png" /></p>
+<div class="caption">
+  <p><strong>Figure 4</strong>: The induced voltage in a wire depends on its orientation relative to the incoming electromagnetic field. [<a href="https://www.epri.com/research/products/3002014979">EPRI</a>]</p>
 </div>
-<p><br /></p>
 
 <p>Based on the known locations of substations throughout the US (and assuming random orientations), the authors were able to estimate the distribution of induced voltages in these substations, assuming a very strong nuclear attack. In most cases the induced voltages would be less than 10 kV, but some would be even higher.</p>
 
@@ -262,12 +254,10 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
 <p><strong>Q:</strong> <em>So given that different devices will experience different voltage surges and given that different devices will have different voltages thresholds, is there a way we can calculate the percentage of device inputs that would be damaged?</em>
 <br /> <strong>A:</strong> Yes! With simulations. While the authors don’t know the type and orientation of each device out in the world, they can make reasonable assumptions that these are uniformly distributed over known substation locations. For each device the authors sampled an induced voltage from the distribution of induced voltage (this depends on the device’s location and on a randomly sampled orientation). They also sampled a damage threshold from a distribution they constructed from their empirical voltage injection tests. For each device in the simulation, if the sampled induced voltage was greater than the damage threshold, they marked the device as damaged.</p>
 
-<div class="wrapper">
-  <img src="/assets/2020_solar_storms/fig_simulations.png" class="inner" style="position:relative border:#222 2px solid; max-width:95%;" />
-  <div class="caption"><strong>Figure 1</strong>: To estimate how many DPRs would be damaged by voltage surges, the authors drew independent samples from their simulated distribution of voltage surges (Stress PDF) and their empirically measured distribution of damage thresholds (Strength PDF). [<a href="https://www.epri.com/research/products/3002014979">EPRI</a>]
-  </div>
+<p><img src="/assets/2020_solar_storms/fig_simulations.png" /></p>
+<div class="caption">
+  <p><strong>Figure 5</strong>: To estimate how many DPRs would be damaged by voltage surges, the authors drew independent samples from their simulated distribution of voltage surges (Stress PDF) and their empirically measured distribution of damage thresholds (Strength PDF). [<a href="https://www.epri.com/research/products/3002014979">EPRI</a>]</p>
 </div>
-<p><br /></p>
 
 <p><strong>Q:</strong> <em>That seems vaguely reasonable. What were the results?</em>
 <br /> <strong>A:</strong> It depended on how much protection they assumed and the intensity of the attack, but the fraction of damaged devices ranged from 1% to 20%.</p>
@@ -391,22 +381,27 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
   </body>
 </html>
 
-<!-- mathjax config similar to math.stackexchange -->
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  jax: ["input/TeX", "output/HTML-CSS"],
-  tex2jax: {
-    inlineMath: [ ['$', '$'] ],
-    displayMath: [ ['$$', '$$']],
-    processEscapes: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-  },
-  messageStyle: "none",
-  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
-});
+<!-- http://docs.mathjax.org/en/latest/upgrading/v2.html#changes-in-the-mathjax-api -->
+MathJax = {
+  options: {
+    renderActions: {
+      find: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+};
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
-
 
 <script>window.twttr = (function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0],

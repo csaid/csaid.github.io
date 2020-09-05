@@ -116,7 +116,7 @@ First, instead of performing truly impactful moral acts, virtue signallers spend
 Second, after doing something good, people often feel like they’ve earned enough virtue points that they can get away with doing something bad. This well-studied phenomenon is called <em><a href="https://en.wikipedia.org/wiki/Self-licensing">moral licensing</a></em>.</p>
 
 <div class="wrapper">
-  <img src="/assets/2017_three_questions/fig_kony.jpg" height="250" class="inner" style="position:relative; border: #ccc 1px solid;" />
+  <p><img src="/assets/2017_three_questions/fig_kony.jpg" height="250" class="inner" style="position:relative; border: #ccc 1px solid;" /></p>
 </div>
 
 <p>While there are some clear ways that virtue signalling can be bad, there is another way in which it is good. Doing good things makes other people more likely to do good things. This process, known as <em>moral contagion</em>, was famously demonstrated in the Milgram experiments. Participants in those experiments who saw other participants behave morally were <a href="https://www.saylor.org/site/wp-content/uploads/2011/08/PSYCH202A-3.1.1-Milgram-experiment.pdf">dramatically more likely</a> to behave morally as well.</p>
@@ -134,7 +134,7 @@ Second, after doing something good, people often feel like they’ve earned enou
 <p>Many people are concerned that the internet encourages <em><a href="https://en.wikipedia.org/wiki/Slacktivism">slacktivism</a></em>, a phenomenon closely related to <em>moral substitution</em>. It’s easier to slap a Pride symbol on your Facebook than to engage in real activism. In this way, the internet is really a tool of the already powerful.</p>
 
 <div class="wrapper">
-  <img src="/assets/2017_three_questions/fig_homer.png" height="250" class="inner" style="position:relative border: #222 2px solid;" />
+  <p><img src="/assets/2017_three_questions/fig_homer.png" height="250" class="inner" style="position:relative border: #222 2px solid;" /></p>
 </div>
 
 <p>On the other hand, some people are concerned that the internet cultivates <em>violent radicalism</em>. Online filter bubbles create anger and online networks create alliances, ultimately leading to violent rhetoric and homegrown terrorism.  Many observers already sense the undercurrents of violent revolution.</p>
@@ -181,22 +181,27 @@ Second, after doing something good, people often feel like they’ve earned enou
   </body>
 </html>
 
-<!-- mathjax config similar to math.stackexchange -->
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  jax: ["input/TeX", "output/HTML-CSS"],
-  tex2jax: {
-    inlineMath: [ ['$', '$'] ],
-    displayMath: [ ['$$', '$$']],
-    processEscapes: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-  },
-  messageStyle: "none",
-  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
-});
+<!-- http://docs.mathjax.org/en/latest/upgrading/v2.html#changes-in-the-mathjax-api -->
+MathJax = {
+  options: {
+    renderActions: {
+      find: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+};
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
-
 
 <script>window.twttr = (function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0],

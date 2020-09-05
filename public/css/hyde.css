@@ -76,7 +76,10 @@ html {
 .box {
   background:#ddd;
   margin:40px;
-  padding:40px;
+  padding-top:20px;
+  padding-bottom:10px;
+  padding-left:30px;
+  padding-right:30px;
   font-size: .8rem;
 }
 

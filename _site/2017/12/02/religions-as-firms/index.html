@@ -109,7 +109,7 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
 <p>Readers concerned about seasonal effects on tithing can learn how to “<a href="https://churchexecutive.com/archives/church-executive-remote-roundtable-2">sustain generosity</a>” during the weaker summer months. Technology like <a href="https://churchexecutive.com/archives/church-executive-remote-roundtable-6">push notifications and text messages</a> is encouraged as a way to remind people to tithe. There is also some emphasis on messaging, as pastors are told to “make sure your <a href="https://churchexecutive.com/archives/church-executive-remote-roundtable-6">generosity-focused sermons</a> are hitting home with your audience”.</p>
 
 <div class="wrapper">
-  <img src="/assets/2017_religions_as_firms/church_executive.jpg" height="250" class="inner" style="position:relative border: #222 2px solid;" />
+  <p><img src="/assets/2017_religions_as_firms/church_executive.jpg" height="250" class="inner" style="position:relative border: #222 2px solid;" /></p>
 </div>
 
 <p>Churches need money to stay active, and it’s natural that pastors would want to maintain a healthy cash flow. But the brazen language of <em>Church Executive</em> reminded me of the language of profit-maximizing firms. This got me thinking: What are the other ways in which religions act like a business?</p>
@@ -132,7 +132,7 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
 <p>Like Uber, some religions raise the price during periods of peak demand. While attendance at Jewish synagogue for a regular Shabbat service is normally free, attendance during one of the High Holidays typically <a href="http://www.nytimes.com/2013/09/14/us/selling-holy-day-tickets-is-dilemma-for-synagogues.html">requires a payment</a> for seating, in part to <a href="https://reformjudaism.org/jewish-holidays/rosh-hashanah/five-things-know-about-attending-high-holiday-services">ensure space for everyone</a>.</p>
 
 <div class="wrapper">
-  <img src="/assets/2017_religions_as_firms/traffic_synagogue.png" class="inner" style="position:relative border: #222 2px solid; max-width:100%;" />
+  <p><img src="/assets/2017_religions_as_firms/traffic_synagogue.png" class="inner" style="position:relative border: #222 2px solid; max-width:100%;" /></p>
 </div>
 
 <p>Surge pricing makes sense for non-proselytizing religions such as Judaism, but it does not make sense for proselytizing religions such as Christianity, which views the higher demand during peak season as an <a href="https://www.researchgate.net/profile/Feler_Bose/publication/271328680_Funding_the_Faiths_Toward_a_Theory_of_Religious_Finance/links/54c5b8790cf219bbe4f59dac.pdf">opportunity</a> to convert newcomers and to reactivate lapsed members. Thus, Christian churches tend to expand seating and schedule extra services during Christmas and Easter, rather than charging fees.</p>
@@ -164,14 +164,14 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
 <p>The graph below shows similar US and international growth curves for Netflix and the Church of Jesus Christ of Latter-day Saints.<sup>[<a href="https://en.wikipedia.org/wiki/The_Church_of_Jesus_Christ_of_Latter-day_Saints_membership_history">1</a>,<a href="https://rsc.byu.edu/archived/latter-day-saint-social-life-social-research-lds-church-and-its-members/4-vital-statistics">2</a>,<a href="http://www.churchistrue.com/blog/lds-membership-statistics-report-2017/">3</a>,<a href="http://www.businessinsider.com/netflix-subscribers-international-vs-us-earnings-chart-2017-7">4</a>]</sup></p>
 
 <div class="wrapper">
-  <img src="/assets/2017_religions_as_firms/LDS_netflix.png" style="position:relative border: #222 2px solid; max-width:100%;" />
+  <p><img src="/assets/2017_religions_as_firms/LDS_netflix.png" style="position:relative border: #222 2px solid; max-width:100%;" /></p>
 </div>
 
 <h3 id="branding">Branding</h3>
 <p>Like any company, most religions try to maintain a good brand. But unlike businesses, most religions do not have brand protection, and thus their brands can be co-opted by other religions. Marketing from Mormons and from Jehovah’s Witnesses tends to <a href="https://www.jw.org/en/jehovahs-witnesses/faq/jehovah-witness-beliefs/">emphasize</a> the good brand of Jesus Christ, even though most mainstream Christians regard these churches as heretical.</p>
 
 <div class="wrapper">
-  <img src="/assets/2017_religions_as_firms/follow_the_christ.jpg" height="250" class="inner" style="position:relative border: #222 2px solid;" />
+  <p><img src="/assets/2017_religions_as_firms/follow_the_christ.jpg" height="250" class="inner" style="position:relative border: #222 2px solid;" /></p>
 </div>
 
 <p>One of the most interesting risks to brands is <a href="https://en.wikipedia.org/wiki/Generic_trademark"><em>genericide</em></a>, in which a popular trademark becomes synonymous with the general class of product, thereby diluting its distinctive meaning. Famous examples of generic trademarks include Kleenex and Band-Aid. Amazingly, genericide can also happen to religious deities. The ancient Near East god <a href="https://en.wikipedia.org/wiki/El_(deity)"><em>El</em></a> began as a distinct god with followers, but <a href="https://twitter.com/suchaone/status/869909666217607168">gradually became a generic name for “God”</a> and eventually merged with the Hebrew god Yahweh.</p>
@@ -222,22 +222,27 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
   </body>
 </html>
 
-<!-- mathjax config similar to math.stackexchange -->
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  jax: ["input/TeX", "output/HTML-CSS"],
-  tex2jax: {
-    inlineMath: [ ['$', '$'] ],
-    displayMath: [ ['$$', '$$']],
-    processEscapes: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-  },
-  messageStyle: "none",
-  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
-});
+<!-- http://docs.mathjax.org/en/latest/upgrading/v2.html#changes-in-the-mathjax-api -->
+MathJax = {
+  options: {
+    renderActions: {
+      find: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+};
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
-
 
 <script>window.twttr = (function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0],

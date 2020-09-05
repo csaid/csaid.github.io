@@ -6,7 +6,7 @@ image: /assets/2019_variance/inverse_variance/main_fig.png
 ---
 
 
-What do $ R^2 $, laboratory error analysis, ensemble learning, meta-analysis, and financial portfolio risk all have in common? The answer is that they all depend on a fundamental principle of statistics that is not as widely known as it should be. Once this principle is understood, a lot of stuff starts to make more sense. 
+What do $$ R^2 $$, laboratory error analysis, ensemble learning, meta-analysis, and financial portfolio risk all have in common? The answer is that they all depend on a fundamental principle of statistics that is not as widely known as it should be. Once this principle is understood, a lot of stuff starts to make more sense. 
 
 Here's a sneak peek at what the principle is. 
 
@@ -42,19 +42,19 @@ This [fact](https://en.wikipedia.org/wiki/Variance#Sum_of_uncorrelated_variables
 
 
 <div class='box'>
-If $ X_p $ is a sum of uncorrelated random variables $ X_1 .. X_n $, then the variance of $ X_p $ will be
+If $$ X_p $$ is a sum of uncorrelated random variables $$ X_1 .. X_n $$, then the variance of $$ X_p $$ will be
 
 $$ \sigma_{p}^{2} = \sum{\sigma^2_i} $$
 
-where each $ X_i $ has variance $ \sigma_i^2 $.
+where each $$ X_i $$ has variance $$ \sigma_i^2 $$.
 </div>
 
-What does the $ p $ stand for in $ X_p $? It stands for _portfolio_, which is just one of the many applications we'll see later in this post.
+What does the $$ p $$ stand for in $$ X_p $$? It stands for _portfolio_, which is just one of the many applications we'll see later in this post.
 
 ### Why this is useful
 Bienaymé's result is surprising and unintuitive. But since it's such a simple formula, it is worth committing to memory, especially because it sheds light on so many other principles. Let's look at two of them.
 
-#### Understanding $ R^2 $ and “variance explained”
+#### Understanding $$ R^2 $$ and “variance explained”
 Psychologists often talk about “within-group variance”, “between-group variance”, and “variance explained”. What do these terms mean? 
 
 Imagine a hypothetical study that measured the extraversion of 10 boys and 10 girls, where extraversion is measured on a 10-point scale (_Figure 1_. Orange bars). The boys have a mean extraversion of 4.4 and the girls have a mean extraversion 5.0. In addition, the overall variance of the data is 2.5.  We can decompose this variance into two parts:
@@ -64,24 +64,26 @@ Imagine a hypothetical study that measured the extraversion of 10 boys and 10 gi
 
 <div class="wrapper">
   <img src='/assets/2019_variance/boy_girl_extraversion.png' class="inner" style="position:relative border: #222 2px solid; max-width:100%;" >
-  <div class="caption"><strong>Figure 1</strong>: Decomposition of extraversion scores (orange) into between-group variance (blue) and within-group variance (pink).
+  <div class="caption">
+  **Figure 1**: Decomposition of extraversion scores (orange) into between-group variance (blue) and within-group variance (pink).
   </div>
-</div><br>
+</div>
 
-If you add these arrays together, the resulting array will represent the observed data (_Figure 1_. Orange bars). The variance of the observed array is 2.5, which is exactly what is predicted by Bienaymé's Formula. It is the sum of the variances of the two component arrays (0.9 + 1.6). Psychologists might say that sex “explains” 0.9/2.5 = 36% of the extraversion variance. Equivalently, a model of extraversion that uses sex as the only predictor would have an [$ R^2 $](https://en.wikipedia.org/wiki/Coefficient_of_determination) of 0.36. 
+If you add these arrays together, the resulting array will represent the observed data (_Figure 1_. Orange bars). The variance of the observed array is 2.5, which is exactly what is predicted by Bienaymé's Formula. It is the sum of the variances of the two component arrays (0.9 + 1.6). Psychologists might say that sex “explains” 0.9/2.5 = 36% of the extraversion variance. Equivalently, a model of extraversion that uses sex as the only predictor would have an [$$ R^2 $$](https://en.wikipedia.org/wiki/Coefficient_of_determination) of 0.36. 
 
 #### Error propagation in laboratories
 If you ever took a physics lab or chemistry lab back in college, you may remember having to perform [error analysis](http://ipl.physics.harvard.edu/wp-uploads/2013/03/PS3_Error_Propagation_sp13.pdf), in which you calculated how errors would propagate through one noisy measurement after another. 
 
 Physics textbooks often say that standard deviations add in “quadrature”, which just means that if you are trying to estimate some quantity that is the sum of two other measurements, and if each measurement has some error with standard deviation $$\sigma_1$$ and $$\sigma_2$$ respectively, the final standard deviation would be  $$\sigma_{p} = \sqrt{\sigma^2_1 + \sigma^2_2}$$. I think it’s probably easier to just use variances, as in the Bienaymé Formula, with $$\sigma^2_{p} = \sigma^2_1 + \sigma^2_2$$.
 
-For example, imagine you are trying to estimate the height of two boxes stacked on top of each other (_Figure 2_). One box has a height of 1 meter with variance $ \sigma^2_1 $ = 0.01, and the other has a height of 2 meters with variance $ \sigma^2_2 $ = 0.01. Let's further assume, perhaps optimistically, that these errors are independent. That is, if the measurement of the first box is too high, it's not any more likely that the measurement of the second box will also be too high. If we can make these assumptions, then the total height of the two boxes will be 3 meters with variance $ \sigma^2_p $ = 0.02.
+For example, imagine you are trying to estimate the height of two boxes stacked on top of each other (_Figure 2_). One box has a height of 1 meter with variance $$ \sigma^2_1 $$ = 0.01, and the other has a height of 2 meters with variance $$ \sigma^2_2 $$ = 0.01. Let's further assume, perhaps optimistically, that these errors are independent. That is, if the measurement of the first box is too high, it's not any more likely that the measurement of the second box will also be too high. If we can make these assumptions, then the total height of the two boxes will be 3 meters with variance $$ \sigma^2_p $$ = 0.02.
 
 <div class="wrapper">
   <img src='/assets/2019_variance/stacked_boxes.png' class="inner" style="position:relative border: #222 2px solid; max-width:50%;" >
-  <div class="caption"><strong>Figure 2</strong>: Two boxes stacked on top of each other. The height of each box is measured with some variance (uncertainty). The total height is the sum of the individual heights, and the total variance (uncertainty) is the sum of the individual variances.
+  <div class="caption">
+  **Figure 2**: Two boxes stacked on top of each other. The height of each box is measured with some variance (uncertainty). The total height is the sum of the individual heights, and the total variance (uncertainty) is the sum of the individual variances.
   </div>
-</div><br>
+</div>
 
 
 There is a key difference between the extraversion example and the stacked boxes example. In the extraversion example, we added two _arrays_ that each had an observed sample variance. In the stacked boxes example, we added two _scalar measurements_, where the variance of these measurements refers to our measurement uncertainty. Since both cases have a meaningful concept of 'variance', the Bienaymé Formula applies to both.
@@ -92,11 +94,11 @@ There is a key difference between the extraversion example and the stacked boxes
 Let's now move on to the case of _weighted_ sums of uncorrelated random variables. But before we get there, we first need to understand what happens to variance when a random variable is scaled. 
 
 <div class='box'>
-If $ X_p $ is defined as $ X $ scaled by a factor of $ w $, then the variance $ X_p $ will be
+If $$ X_p $$ is defined as $$ X $$ scaled by a factor of $$ w $$, then the variance $$ X_p $$ will be
 
 $$ \sigma_{p}^{2} = w^2 \sigma^2 $$
 
-where $ \sigma^2 $ is the variance of $ X $.
+where $$ \sigma^2 $$ is the variance of $$ X $$.
 </div>
 
 This means that if a random variable is scaled, the scale factor on the variance will change _quadratically_. Let’s see this in code.
@@ -113,23 +115,23 @@ xp = w * x1 # Scale this by w=0.7
 print(w**2 * baseline_var) # 4.9 (predicted variance)
 print(xp.var()) # 4.9 (empirical variance) 
 ```
-To gain some intuition for this rule, it’s helpful to think about outliers. We know that outliers have a huge effect on variance. That’s because the formula used to compute variance, $ \sum{\frac{(x_i - \bar{x})^2}{n-1}} $, squares all the deviations, and so we get really big variances when we square large deviations. With that as background, let’s think about what happens if we scale our data by 2. The outliers will spread out twice as far, which means they will have even more than twice as much impact on the variance. Similarly, if we multiply our data by 0.5, we will squash the most “damaging” part of the outliers, and so we will reduce our variance by more than a factor of two.
+To gain some intuition for this rule, it’s helpful to think about outliers. We know that outliers have a huge effect on variance. That’s because the formula used to compute variance, $$ \sum{\frac{(x_i - \bar{x})^2}{n-1}} $$, squares all the deviations, and so we get really big variances when we square large deviations. With that as background, let’s think about what happens if we scale our data by 2. The outliers will spread out twice as far, which means they will have even more than twice as much impact on the variance. Similarly, if we multiply our data by 0.5, we will squash the most “damaging” part of the outliers, and so we will reduce our variance by more than a factor of two.
 
 While the above principle is pretty simple, things start to get interesting when you combine it with the Bienaymé Formula in Part I:
 
 <div class='box'>
-If $ X_p $ is a weighted sum of uncorrelated random variables $ X_1 ... X_n $, then the variance of $ X_p $ will be 
+If $$ X_p $$ is a weighted sum of uncorrelated random variables $$ X_1 ... X_n $$, then the variance of $$ X_p $$ will be 
 
 $$ \sigma_{p}^{2} = \sum{w^2_i \sigma^2_i} $$
 
-where each $ w_i $ is a weight on $ X_i $, and each $ X_i $ has its own variance $ \sigma_i^2 $.
+where each $$ w_i $$ is a weight on $$ X_i $$, and each $$ X_i $$ has its own variance $$ \sigma_i^2 $$.
 </div>
 
 The above formula shows what happens when you scale and then sum random variables. The final variance is the weighted sum of the original variances, where the weights are squares of the original weights. Let’s see how this can be applied to machine learning. 
 
 ### An ensemble model with equal weights
 
-Imagine that you have built two separate models to predict car prices. While the models are unbiased, they have variance in their errors. That is, sometimes a model prediction will be too high, and sometimes a model prediction will be too low. Model 1 has a mean squared error (MSE) of \\$1,000 and Model 2 has an MSE of \\$2,000.
+Imagine that you have built two separate models to predict car prices. While the models are unbiased, they have variance in their errors. That is, sometimes a model prediction will be too high, and sometimes a model prediction will be too low. Model 1 has a mean squared error (MSE) of $1,000 and Model 2 has an MSE of $2,000.
 
 A valuable insight from machine learning is that you can often create a better model by simply averaging the predictions of other models. Let’s demonstrate this with simulations below. 
 
@@ -153,7 +155,7 @@ errors_ensemble = preds_ensemble - actual
 print(errors_ensemble.var()) # 750. Lower than variance of component models!
 ```
 
-As shown in the code above, even though a good model (Model 1) was averaged with an inferior model (Model 2), the resulting Ensemble model’s MSE of \\$750 is better than either of the models individually. 
+As shown in the code above, even though a good model (Model 1) was averaged with an inferior model (Model 2), the resulting Ensemble model’s MSE of $750 is better than either of the models individually. 
 
 The benefits of ensembling follow directly from the weighted sum formula we saw above, $$\sigma_{p}^{2} = \sum{w^2_i \sigma^2_i}$$. To understand why, it's helpful to think of models not as generating predictions, but rather as generating errors. Since averaging the predictions of a model corresponds to averaging the errors of the model, we can treat each model's array of errors as samples of a random variable whose variance can be plugged in to the formula. Assuming the models are unbiased (i.e. the errors average to about zero), the formula tells us the expected MSE of the ensemble predictions. In the example above, the MSE would be 
 
@@ -206,17 +208,17 @@ To determine how much weight to put on each model, we first need to determine ho
 
 
 <div class='box'>
-If $ X_p $ is a weighted sum of (correlated or uncorrelated) random variables $ X_1 ... X_n $, then the variance of $ X_p $ will be
+If $$ X_p $$ is a weighted sum of (correlated or uncorrelated) random variables $$ X_1 ... X_n $$, then the variance of $$ X_p $$ will be
 
 $$ \sigma_{p}^{2} = \sum\limits_{i} \sum\limits_{j} w_i w_j \sigma_i \sigma_j \rho_{ij} $$
 
-where each $ w_i $ and $ w_j $ are weights assigned to $ X_i $ and $ X_j $, where each $ X_i $ and $ X_j $ have standard deviations $ \sigma_i $ and $ \sigma_j $, and where the correlation between $ X_i $ and $ X_j $ is $ \rho_{ij} $.
+where each $$ w_i $$ and $$ w_j $$ are weights assigned to $$ X_i $$ and $$ X_j $$, where each $$ X_i $$ and $$ X_j $$ have standard deviations $$ \sigma_i $$ and $$ \sigma_j $$, and where the correlation between $$ X_i $$ and $$ X_j $$ is $$ \rho_{ij} $$.
 </div>
 
 There’s a lot to unpack here, so let’s take this step by step.
 
 - $$\sigma_i \sigma_j \rho_{ij}$$ is a scalar quantity representing the covariance between $$X_i$$ and $$X_j$$.
-- If none of the variables are correlated with each other, then all the cases where $ i \neq j $ will go to zero, and the formula reduces to $$\sigma_{p}^{2} = \sum{w^2_i \sigma^2_i}$$, which we have seen before.
+- If none of the variables are correlated with each other, then all the cases where $$ i \neq j $$ will go to zero, and the formula reduces to $$\sigma_{p}^{2} = \sum{w^2_i \sigma^2_i}$$, which we have seen before.
 - The more that two variables $$X_i$$ and $$X_j$$ are correlated, the more the total variance $$\sigma_{p}^{2}$$ increases.
 - If two variables $$X_i$$ and $$X_j$$ are anti-correlated, then the total variance decreases, since $$\sigma_i \sigma_j \rho_{ij}$$ is negative.
 - This formula can be rewritten in more compact notation as $$\sigma_{p}^{2} = \vec{w}^T\Sigma \vec{w}$$, where $$\vec{w}$$ is the weight vector, and $$\Sigma$$ is the covariance matrix (not a summation sign!)
@@ -231,7 +233,7 @@ Regardless of how the weights are found, it will usually be the case that if Mod
 
 The formula above was discovered by economist [Harry Markowitz](https://en.wikipedia.org/wiki/Harry_Markowitz) in his [Modern Portfolio Theory](https://en.wikipedia.org/wiki/Modern_portfolio_theory), which describes how an investor can optimally trade off between expected returns and expected risk, often measured as variance. In particular, the theory shows how to maximize expected return given a fixed variance, or minimize variance given a fixed expected return. We’ll focus on the latter.
 
-Imagine you have three stocks to put in your portfolio. You plan to sell them at time $ T $, at which point you expect that Stock 1 will have gone up by 5%, with some uncertainty. You can describe your uncertainty as variance, and in the case of Stock 1, let’s say $$\sigma_1^2$$ = 1. This stock, as well Stocks 2 and 3, are summarized in the table below:
+Imagine you have three stocks to put in your portfolio. You plan to sell them at time $$ T $$, at which point you expect that Stock 1 will have gone up by 5%, with some uncertainty. You can describe your uncertainty as variance, and in the case of Stock 1, let’s say $$\sigma_1^2$$ = 1. This stock, as well Stocks 2 and 3, are summarized in the table below:
 
 | Stock ID | Expected Return | Expected Risk ($$\sigma^2$$) |
 |---------|
@@ -244,7 +246,7 @@ This financial example should remind you of ensembling in machine learning. In t
 
 As before, if there are no correlations between the expected returns (i.e. if Stock 1 exceeding 5% return does not imply that Stock 2 or Stock 3 will exceed 5% return), then the total variance in the portfolio will be
 $$\sigma_{p}^{2} = \sum{w^2_i \sigma^2_i}$$
-and we can use Inverse Variance Weighting to obtain weights $ w_1=0.4, w_2=0.4, w_3=0.2 $. 
+and we can use Inverse Variance Weighting to obtain weights $$ w_1=0.4, w_2=0.4, w_3=0.2 $$. 
 
 However, sometimes stocks have correlated expected returns. For example, if two of the stocks are in oil companies, then one stock exceeding 5% implies the other is also likely to exceed 5%. When this happens, the total variance becomes
 
@@ -260,13 +262,13 @@ That was a long post, but I hope that the principles described have been informa
 
 <div class='box'>
 
-If $ X_p $ is a weighted sum of (correlated or uncorrelated) random variables $ X_1 ... X_n $, then the variance of $ X_p $ will be
+If $$ X_p $$ is a weighted sum of (correlated or uncorrelated) random variables $$ X_1 ... X_n $$, then the variance of $$ X_p $$ will be
 
 $$ \sigma_{p}^{2} = \sum\limits_{i} \sum\limits_{j} w_i w_j \sigma_i \sigma_j \rho_{ij} $$
 
-where each $ w_i $ and $ w_j $ are weights assigned to $ X_i $ and $ X_j $, where each $ X_i $ and $ X_j $ have standard deviations $ \sigma_i $ and $ \sigma_j $, and where the correlation between $ X_i $ and $ X_j $ is $ \rho_{ij} $. The term $ \sigma_i \sigma_j \rho_{ij} $ is a scalar quantity representing the covariance between $ X_i $ and $ X_j $.
+where each $$ w_i $$ and $$ w_j $$ are weights assigned to $$ X_i $$ and $$ X_j $$, where each $$ X_i $$ and $$ X_j $$ have standard deviations $$ \sigma_i $$ and $$ \sigma_j $$, and where the correlation between $$ X_i $$ and $$ X_j $$ is $$ \rho_{ij} $$. The term $$ \sigma_i \sigma_j \rho_{ij} $$ is a scalar quantity representing the covariance between $$ X_i $$ and $$ X_j $$.
 
-<br><br>If none of the variables are correlated, then all the cases where $ i \neq j $ go to zero, and the formula reduces to 
+<br><br>If none of the variables are correlated, then all the cases where $$ i \neq j $$ go to zero, and the formula reduces to 
 
 $$ \sigma_{p}^{2} = \sum{w^2_i \sigma^2_i} $$
 

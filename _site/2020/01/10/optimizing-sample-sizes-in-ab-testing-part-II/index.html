@@ -107,71 +107,65 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
   <h1 class="post-title">Optimizing sample sizes in A/B testing, Part II&#58; Expected lift</h1>
   <span class="post-date">10 Jan 2020</span>
   <div class="caption">
-This is Part II of a three-part blog post on how to optimize your sample size in A/B testing. Make sure to read <a href="/2020/01/10/optimizing-sample-sizes-in-ab-testing-part-I">Part I</a> if you haven't already.
+  <p>This is Part II of a three-part blog post on how to optimize your sample size in A/B testing. Make sure to read <a href="/2020/01/10/optimizing-sample-sizes-in-ab-testing-part-I">Part I</a> if you haven’t already.</p>
 </div>
 <hr />
 
 <p>In this blog post (Part II), I describe what I think is an incredibly cool business-focused formula that quantifies how much you can benefit from increasing your sample size. It is, in short, an <em>average of the value of all possible outcomes of the experiment, weighted by their probabilities</em>. This post starts off kind of dry, but if you can make it through the first section, it gets a lot easier.</p>
 
 <h2 id="outcome-probabilities">Outcome probabilities</h2>
-<p>Imagine you are comparing two versions of a website. You currently are on version A, but you would like to compare it to version B. Imagine you are measuring some random variable $X$, which might represent something like clicks per user or page views per user. The goal of the experiment is to determine which version of the website has a higher mean value of $X$.</p>
+<p>Imagine you are comparing two versions of a website. You currently are on version A, but you would like to compare it to version B. Imagine you are measuring some random variable \(X\), which might represent something like clicks per user or page views per user. The goal of the experiment is to determine which version of the website has a higher mean value of \(X\).</p>
 
-<p>This blog post aims to quantify the benefit of experimentation as an average of the value of all possible outcomes, weighted by their probabilities. To do that, we first need to describe the probabilities of all the different outcomes. An outcome consists of two parts: A <em>true</em> difference in means, $\Delta$, defined as</p>
+<p>This blog post aims to quantify the benefit of experimentation as an average of the value of all possible outcomes, weighted by their probabilities. To do that, we first need to describe the probabilities of all the different outcomes. An outcome consists of two parts: A <em>true</em> difference in means, \(\Delta\), defined as</p>
 
-<script type="math/tex; mode=display">\Delta = \mu_B - \mu_A</script>
+\[\Delta = \mu_B - \mu_A\]
 
-<p>and an experimentally <em>observed</em> difference in means $\delta$, defined as</p>
+<p>and an experimentally <em>observed</em> difference in means \(\delta\), defined as</p>
 
-<script type="math/tex; mode=display">\delta = \overline{X}_B - \overline{X}_A</script>
+\[\delta = \overline{X}_B - \overline{X}_A\]
 
-<p>Let’s start with $\Delta$. While you don’t yet know which version of the website is better (that’s what the experiment is for!), you have a sense for how important the product change is. You can therefore create a normally distributed prior on $\Delta$ with mean zero and variance $ \sigma_\Delta^2 $.</p>
+<p>Let’s start with \(\Delta\). While you don’t yet know which version of the website is better (that’s what the experiment is for!), you have a sense for how important the product change is. You can therefore create a normally distributed prior on \(\Delta\) with mean zero and variance \(\sigma_\Delta^2\).</p>
 
-<div class="wrapper">
-  <img src="/assets/2020_optimizing_sample_sizes/univariate_normal.png" class="inner" style="position:relative border: #222 2px solid; max-width:100%;" />
-  <div class="caption"><strong>Figure 1</strong>.
-  </div>
+<p><img src="/assets/2020_optimizing_sample_sizes/univariate_normal.png" /></p>
+<div class="caption">
+  <p><strong>Figure 1</strong>.</p>
 </div>
-<p><br /></p>
 
-<p>Next, let’s consider $\delta$, your experimentally observed difference in means. It will be a noisy estimate of $\Delta$. Let’s assume you have previously measured the variance of $X$ to be $ \sigma_X^2 $. It is reasonable to assume that within each group in the experiment, and for any particular $\Delta$, the variance of $X$ will still be $ \sigma_X^2$. You should therefore believe that for any particular $\Delta$, the observed difference in means $\delta$ will be sampled from a normal distribution $\mathcal{N}(\Delta, \sigma_c^2)$, where</p>
+<p>Next, let’s consider \(\delta\), your experimentally observed difference in means. It will be a noisy estimate of \(\Delta\). Let’s assume you have previously measured the variance of \(X\) to be \(\sigma_X^2\). It is reasonable to assume that within each group in the experiment, and for any particular \(\Delta\), the variance of \(X\) will still be \(\sigma_X^2\). You should therefore believe that for any particular \(\Delta\), the observed difference in means \(\delta\) will be sampled from a normal distribution \(\mathcal{N}(\Delta, \sigma_c^2)\), where</p>
 
-<script type="math/tex; mode=display">\sigma_c^2 = \frac{2\sigma_X^2}{n}</script>
+\[\sigma_c^2 = \frac{2\sigma_X^2}{n}\]
 
-<p>and where $n$ is the sample size in each of the two buckets. If that doesn’t make sense, check out <a href="https://www.khanacademy.org/math/statistics-probability/significance-tests-confidence-intervals-two-samples/comparing-two-means/v/difference-of-sample-means-distribution">this video</a>.</p>
+<p>and where \(n\) is the sample size in each of the two buckets. If that doesn’t make sense, check out <a href="https://www.khanacademy.org/math/statistics-probability/significance-tests-confidence-intervals-two-samples/comparing-two-means/v/difference-of-sample-means-distribution">this video</a>.</p>
 
 <p>Collectively, this all forms a bivariate normal distribution of outcomes, shown below.</p>
 
-<div class="wrapper">
-  <img src="/assets/2020_optimizing_sample_sizes/bivariate_normal.png" class="inner" style="position:relative border: #222 2px solid; max-width:100%;" />
-  <div class="caption"><strong>Figure 2</strong>. Probabilities of possible outcomes, based on your prior beliefs. The horizontal axis is the true difference in means, and the vertical axis is the observed difference in means.
-  </div>
+<p><img src="/assets/2020_optimizing_sample_sizes/bivariate_normal.png" /></p>
+<div class="caption">
+  <p><strong>Figure 2</strong>. Probabilities of possible outcomes, based on your prior beliefs. The horizontal axis is the true difference in means, and the vertical axis is the served difference in means.</p>
 </div>
 <p><br /></p>
 
-<p>To gain some more intuition about this, take a look at Figure 3. As sample size increases, $ \sigma^2_c $ decreases.</p>
+<p>To gain some more intuition about this, take a look at Figure 3. As sample size increases, \(\sigma^2_c\) decreases.</p>
 
-<div class="wrapper">
-  <img src="/assets/2020_optimizing_sample_sizes/three_bivariate_normals.png" class="inner" style="position:relative border: #222 2px solid; max-width:100%;" />
-  <div class="caption"><strong>Figure 3</strong>.
-  </div>
+<p><img src="/assets/2020_optimizing_sample_sizes/three_bivariate_normals.png" /></p>
+<div class="caption">
+  <p><strong>Figure 3</strong>.</p>
 </div>
-<p><br /></p>
 
 <h2 id="outcome-lifts">Outcome lifts </h2>
-<p>Now that we know the probabilities of all the different outcomes, we next need to estimate how much per-user lift, $l$, we will gain from each possible outcome, assuming we follow a policy of shipping whichever bucket (A or B) looked better in the experiment.</p>
+<p>Now that we know the probabilities of all the different outcomes, we next need to estimate how much per-user lift, \(l\), we will gain from each possible outcome, assuming we follow a policy of shipping whichever bucket (A or B) looked better in the experiment.</p>
 
 <ul>
-  <li>In cases where $\delta &gt; 0$ and $\Delta &gt; 0$, you would ship B and your post-experiment per-user lift will be positively valued at $l = \Delta$.</li>
-  <li>In cases where $\delta &gt; 0$ and $\Delta &lt; 0$, you would ship B, but unfortunately your post-experiment per-user lift will be negatively valued at $l = \Delta$, since $\Delta$ is negative.</li>
-  <li>In cases where $\delta &lt; 0$, you would keep A in production, and your post-experiment lift would be zero.</li>
+  <li>In cases where \(\delta &gt; 0\) and \(\Delta &gt; 0\), you would ship B and your post-experiment per-user lift will be positively valued at \(l = \Delta\).</li>
+  <li>In cases where \(\delta &gt; 0\) and \(\Delta &lt; 0\), you would ship B, but unfortunately your post-experiment per-user lift will be negatively valued at \(l = \Delta\), since \(\Delta\) is negative.</li>
+  <li>In cases where \(\delta &lt; 0\), you would keep A in production, and your post-experiment lift would be zero.</li>
 </ul>
 
-<p>A heatmap of the per-user lifts ($l$) for each outcome is shown in the plot below. Good outcomes, where shipping B was the right decision, are shown in blue. Bad outcomes, where shipping B was the wrong decision, are shown in red. There are two main ways to get a neutral outcomes, shown in white. Either you keep A (bottom segment), in which case there is zero lift, or you ship B where B is only negligibly different than A (vertical white stripe).</p>
+<p>A heatmap of the per-user lifts (\(l\)) for each outcome is shown in the plot below. Good outcomes, where shipping B was the right decision, are shown in blue. Bad outcomes, where shipping B was the wrong decision, are shown in red. There are two main ways to get a neutral outcomes, shown in white. Either you keep A (bottom segment), in which case there is zero lift, or you ship B where B is only negligibly different than A (vertical white stripe).</p>
 
-<div class="wrapper">
-  <img src="/assets/2020_optimizing_sample_sizes/lift_matrix.png" class="inner" style="position:relative border: #222 2px solid; max-width:100%;" />
-  <div class="caption"><strong>Figure 4</strong>. Heatmap of possible outcomes, where the color scale represents the lift, $l$. The horizontal axis is the true difference in means, and the vertical axis is the observed difference in means
-  </div>
+<p><img src="/assets/2020_optimizing_sample_sizes/lift_m**g" /></p>
+<div class="caption">
+  <p><strong>Figure 4</strong>. Heatmap of possible outcomes, where the color scale represents the lift. The horizontal axis is the true difference in means, and the vertical axis  the observed difference in means</p>
 </div>
 <p><br /></p>
 
@@ -180,104 +174,100 @@ This is Part II of a three-part blog post on how to optimize your sample size in
 
 <p>As shown in Figure 5, if we multiply the bivariate normal distribution (left) by the lift map (center), we can obtain the probability-weighted lift of each outcome (right).</p>
 
-<div class="wrapper">
-  <img src="/assets/2020_optimizing_sample_sizes/product_stages.png" class="inner" style="position:relative border: #222 2px solid; max-width:100%;" />
-  <div class="caption"><strong>Figure 5</strong>.
-  </div>
+<p><img src="/assets/2020_optimizing_sample_sizes/product_stages.png" /></p>
+<div class="caption">
+  <p><strong>Figure 5</strong>.</p>
 </div>
-<p><br /></p>
 
 <p>The good outcomes contribute more than the bad outcomes, simply because a good outcome is more likely than a bad outcome. To put it differently, experimentation will on average give you useful information.</p>
 
 <p>To gain some more intuition on this, it is helpful to see this plot for different sample sizes. As sample size increases, the probability-weighted contribution of bad outcomes gets smaller and smaller. </p>
 
-<div class="wrapper">
-  <img src="/assets/2020_optimizing_sample_sizes/three_products.png" class="inner" style="position:relative border: #222 2px solid; max-width:100%;" />
-  <div class="caption"><strong>Figure 6</strong>.
-  </div>
+<p><img src="/assets/2020_optimizing_sample_sizes/three_products.png" /></p>
+<div class="caption">
+  <p><strong>Figure 6</strong>.</p>
 </div>
-<p><br /></p>
 
 <h3 id="computing-the-expected-post-experiment-per-user-lift">Computing the expected post-experiment per-user lift</h3>
 <p>We’re almost there! To determine the expected post-experiment lift from shipping the winning bucket, we need to compute a probability-weighted average of all the post-experiment lifts. In other words, we need to sum up all the probability-weighted post-experiment lifts on the right panel of Figure 5. The formula for doing this is shown below. A derivation can be found in the Appendix.</p>
 
-<script type="math/tex; mode=display">\hat{L} = \frac{\sigma_\Delta^2}{\sqrt{2\pi(\sigma_\Delta^2 + \frac{2\sigma_X^2}{n})}}</script>
+\[\hat{L} = \frac{\sigma_\Delta^2}{\sqrt{2\pi(\sigma_\Delta^2 + \frac{2\sigma_X^2}{n})}}\]
 
 <p>There’s three things to notice about this formula.</p>
 <ul>
-  <li>As $n$ increases, $\hat{L}$ increases. This makes sense. The larger the sample size, the more likely it is that you’ll ship the winning bucket.</li>
-  <li>As the within-group variance $\sigma_X^2$ increases, $\hat{L}$ decreases. That’s because a high within-group variance makes experiments less informative – they’re more likely to give you the wrong answer.</li>
-  <li>As the variance prior on $\Delta$ increases, $\hat{L}$ increases. This also make sense. The more impactful (positive or negative) you think the product change might be, the more value you will get from experimentation.</li>
+  <li>As \(n\) increases, \(\hat{L}\) increases. This makes sense. The larger the sample size, the more likely it is that you’ll ship the winning bucket.</li>
+  <li>As the within-group variance \(\sigma_X^2\) increases, \(\hat{L}\) decreases. That’s because a high within-group variance makes experiments less informative – they’re more likely to give you the wrong answer.</li>
+  <li>As the variance prior on \(\Delta\) increases, \(\hat{L}\) increases. This also make sense. The more impactful (positive or negative) you think the product change might be, the more value you will get from experimentation.</li>
 </ul>
 
 <p>You can try this out using the <code class="language-plaintext highlighter-rouge">get_lift_via_closed_form</code> formula in the <a href="https://github.com/csaid/optimizing-sample-sizes-in-AB-testing/blob/master/Optimizing%20sample%20sizes%20in%20AB%20testing.ipynb">Notebook</a>.</p>
 
 <h2 id="demonstration-via-simulation">Demonstration via simulation</h2>
-<p>In the previous section, we derived a formula for $\hat{L}$. Should you trust a formula you found on a random internet blog? Yes! Let’s put the formula to the test, by comparing its predictions to actual simulations.</p>
+<p>In the previous section, we derived a formula for \(\hat{L}\). Should you trust a formula you found on a random internet blog? Yes! Let’s put the formula to the test, by comparing its predictions to actual simulations.</p>
 
-<p>First, let’s consider the case where the outcome is a continuous variable, such as the number of clicks. Let’s set $ \sigma_D^2 = 2 $ and $ \sigma_X^2 = 100 $. We then measure $\hat{L}$ for a range of sample sizes, using both the closed-form solution and simulations. To see how we determine $\hat{L}$ for simulations, refer to the box below.</p>
+<p>First, let’s consider the case where the outcome is a continuous variable, such as the number of clicks. Let’s set \(\sigma_D^2 = 2\) and \(\sigma_X^2 = 100\). We then measure \(\hat{L}\) for a range of sample sizes, using both the closed-form solution and simulations. To see how we determine \(\hat{L}\) for simulations, refer to the box below.</p>
 
 <div class="box">
-<strong>Procedure for finding $\hat{L}$ with simulations</strong><br /><br />
-Loop through thousands of simulated experiments. On each each experiment doing the following:<br /><br />
-<ol>
-<li>Sample a true group difference $\Delta$ from $\mathcal{N}(0, \sigma_D^2)$</li>
-<li>Sample an $X$ for each of the $n$ users in each bucket A and B, using Normal distributions $\mathcal{N}(\frac{\Delta}{2}, \sigma_X^2)$ and $\mathcal{N}(-\frac{\Delta}{2}, \sigma_X^2)$, respectively.</li>
-<li>Compute $ \delta = \overline{X}_B - \overline{X}_A $.</li>
-<li>If $\delta &lt;= 0$, stick with A and accrue zero lift.</li>
-<li>If $\delta &gt; 0$, ship B and accrue the per-user lift of $\Delta$, which will probably, but not necessarily, be positive.</li>
-</ol>
-We run these experiments thousands of times, each time computing the per-user lift. Finally, we average all the per-user lifts together to get $\hat{L}$. See the get_lift_via_simulations_continuous function in the <a href="https://github.com/csaid/optimizing-sample-sizes-in-AB-testing/blob/master/Optimizing%20sample%20sizes%20in%20AB%20testing.ipynb">notebook</a> for an implementation.
+  <p><strong>Procedure for finding \(\hat{L}\) with simulations</strong></p>
+
+  <p>Loop through thousands of simulated experiments. On each each experiment doing the following:</p>
+
+  <ul>
+    <li>Sample a true group difference \(\Delta\) from \(\mathcal{N}(0, \sigma_D^2)\)</li>
+    <li>Sample an \(X\) for each of the \(n\) users in each bucket A and B, using Normal distributions \(\mathcal{N}(\frac{\Delta}{2}, \sigma_X^2)\) and \(\mathcal{N}(-\frac{\Delta}{2}, \sigma_X^2)\), respectively.</li>
+    <li>Compute \(\delta = \overline{X}_B - \overline{X}_A\).</li>
+    <li>If \(\delta &lt;= 0\), stick with A and accrue zero lift.</li>
+    <li>If \(\delta &gt; 0\), ship B and accrue the per-user lift of \(\Delta\), which will probably, but not necessarily, be positive.</li>
+  </ul>
+
+  <p>We run these experiments thousands of times, each time computing the per-user lift. Finally, we average all the per-user lifts together to get \(\hat{L}\). See the get_lift_via_simulations_continuous function in the <a href="https://github.com/csaid/optimizing-sample-sizes-in-AB-testing/blob/master/Optimizing%20sample%20sizes%20in%20AB%20testing.ipynb">notebook</a> for an implementation.</p>
 </div>
+
 <p>As seen in Figure 7, below, the results of the simulation closely match the closed-form solution.</p>
 
-<div class="wrapper">
-  <img src="/assets/2020_optimizing_sample_sizes/lift_by_n_continuous.png" class="inner" style="position:relative border: #222 2px solid; max-width:100%;" />
-  <div class="caption"><strong>Figure 7</strong>.
-  </div>
+<p><img src="/assets/2020_optimizing_sample_sizes/lift_by_n_continuous.png" /></p>
+<div class="caption">
+  <p><strong>Figure 7</strong>.</p>
 </div>
-<p><br /></p>
 
-<p>Second, let’s consider the case where the variable is binary, as in conversion rates. For reasonably large values of $ n $, we can safely assume that the error variance is normally distributed with variance $ \sigma_X^2 = p(1-p) $, where $ p $ is the baseline conversion rate. For this example, let’s set the baseline conversion rate $p = 0.1$, and let’s set $ \sigma_\Delta^2 = 0.01^2 $. The results of the simulation closely match the closed-form solution.</p>
+<p>Second, let’s consider the case where the variable is binary, as in conversion rates. For reasonably large values of \(n\), we can safely assume that the error variance is normally distributed with variance \(\sigma_X^2 = p(1-p)\), where \(p\) is the baseline conversion rate. For this example, let’s set the baseline conversion rate \(p = 0.1\), and let’s set \(\sigma_\Delta^2 = 0.01^2\). The results of the simulation closely match the closed-form solution.</p>
 
-<div class="wrapper">
-  <img src="/assets/2020_optimizing_sample_sizes/lift_by_n_binary.png" class="inner" style="position:relative border: #222 2px solid; max-width:100%;" />
-  <div class="caption"><strong>Figure 8</strong>.
-  </div>
+<p><img src="/assets/2020_optimizing_sample_sizes/lift_by_n_binary.png" /></p>
+<div class="caption">
+  <p><strong>Figure 8</strong>.</p>
 </div>
-<p><br /></p>
 
 <h2 id="thinking-about-costs-and-a-preview-of-part-iii">Thinking about costs, and a preview of Part III</h2>
 
-<p>In this blog post, we saw how increasing the sample size improves the expected post-experiment per-user lift, $\hat{L}$. But to determine the <em>optimal</em> sample size, we need to think about costs.</p>
+<p>In this blog post, we saw how increasing the sample size improves the expected post-experiment per-user lift, \(\hat{L}\). But to determine the <em>optimal</em> sample size, we need to think about costs.</p>
 
-<p>The cost in dollars of an experiment can be described as $f + vn$, where $f$ is a fixed cost and $ v $ is the variable cost per participant. If you already know these costs, and if you already know the revenue increase $ u $ from each unit increase in lift, you can calculate the net revenue $R$ as</p>
+<p>The cost in dollars of an experiment can be described as \(f + vn\), where \(f\) is a fixed cost and \(v\) is the variable cost per participant. If you already know these costs, and if you already know the revenue increase \(u\) from each unit increase in lift, you can calculate the net revenue \(R\) as</p>
 
-<script type="math/tex; mode=display">R = u\hat{L}  - f - vn</script>
+\[R = u\hat{L}  - f - vn\]
 
-<p>and then find the sample size $ n $ that maximizes $ R $.</p>
+<p>and then find the sample size \(n\) that maximizes \(R\).</p>
 
 <p>Unfortunately, these costs aren’t always readily available. The good news is that there is a really nice way to calculate the most important cost: the forfeited benefit that comes from prolonging your experiment. To read about that, and about how to optimize your sample size, please continue to <a href="/2020/01/10/optimizing-sample-sizes-in-ab-testing-part-III/">Part III</a>.</p>
 
 <h2 id="appendix">Appendix</h2>
-<p>To determine $\hat{L}$, we start with the probability-weighted lifts on the right panel of Figure 5. This is a bivariate normal distribution over $ \Delta $ and $ \delta $, multiplied by $ \Delta $.</p>
+<p>To determine \(\hat{L}\), we start with the probability-weighted lifts on the right panel of Figure 5. This is a bivariate normal distribution over \(\Delta\) and \(\delta\), multiplied by \(\Delta\).</p>
 
-<script type="math/tex; mode=display">f(\Delta, \delta) = \frac{\Delta}{2 \pi \sigma_\Delta \sigma_\delta \sqrt{1-\rho^2}} e^{-\frac{
+\[f(\Delta, \delta) = \frac{\Delta}{2 \pi \sigma_\Delta \sigma_\delta \sqrt{1-\rho^2}} e^{-\frac{
 \frac{\Delta^2}{\sigma_\Delta^2} - \frac{2 \rho \Delta \delta}{\sigma_\Delta \sigma_\delta} + \frac{\delta^2}{\sigma_\delta^2}
 }{2(1-\rho^2)}
-}</script>
+}\]
 
-<p>where the correlation coefficient $ \rho $, is <a href="http://athenasc.com/Bivariate-Normal.pdf">defined</a> as:</p>
+<p>where the correlation coefficient \(\rho\), is <a href="http://athenasc.com/Bivariate-Normal.pdf">defined</a> as:</p>
 
-<script type="math/tex; mode=display">\rho = \sqrt{1 - \frac{\sigma_c^2}{\sigma_\Delta^2 + \sigma_c^2}}</script>
+\[\rho = \sqrt{1 - \frac{\sigma_c^2}{\sigma_\Delta^2 + \sigma_c^2}}\]
 
-<p>and $\sigma_\delta^2$ is the variance on $\delta$. By the <a href="/2019/05/18/variance_after_scaling_and_summing/">variance addition rules</a>, $\sigma_\delta^2$ is defined as</p>
+<p>and \(\sigma_\delta^2\) is the variance on \(\delta\). By the <a href="/2019/05/18/variance_after_scaling_and_summing/">variance addition rules</a>, \(\sigma_\delta^2\) is defined as</p>
 
-<script type="math/tex; mode=display">\sigma_\delta^2 = \sigma_\Delta^2 + \sigma_c^2</script>
+\[\sigma_\delta^2 = \sigma_\Delta^2 + \sigma_c^2\]
 
-<p>We next need to sum up the probability-weighted values in $f(\Delta, \delta)$. To obtain a closed form solution, we can use integration.</p>
+<p>We next need to sum up the probability-weighted values in \(f(\Delta, \delta)\). To obtain a closed form solution, we can use integration.</p>
 
-<script type="math/tex; mode=display">\hat{L} = \int_{0}^{\infty} \int_{-\infty}^{\infty} {\frac{\Delta}{2 \pi \sigma_\Delta \sigma_\delta \sqrt{1-\rho^2}} e^{-\frac{
+\[\hat{L} = \int_{0}^{\infty} \int_{-\infty}^{\infty} {\frac{\Delta}{2 \pi \sigma_\Delta \sigma_\delta \sqrt{1-\rho^2}} e^{-\frac{
 
 \frac{\Delta^2}{\sigma_\Delta^2} - \frac{2 \rho \Delta \delta}{\sigma_\Delta \sigma_\delta} + \frac{\delta^2}{\sigma_\delta^2}
 
@@ -285,13 +275,13 @@ We run these experiments thousands of times, each time computing the per-user li
 
 }
 \,d\Delta\,d\delta
-}</script>
+}\]
 
-<p>The integration limits on $ \delta $ start at zero because the lift will always be zero if $ \delta &lt; 0 $ (i.e if the status quo bucket A wins the experiment).</p>
+<p>The integration limits on \(\delta\) start at zero because the lift will always be zero if \(\delta &lt; 0\) (i.e if the status quo bucket A wins the experiment).</p>
 
 <p>Thanks to my 15-day free trial of <a href="https://www.wolfram.com/mathematica/">Mathematica</a>, I determined that this integral comes out to the surprisingly simple </p>
 
-<script type="math/tex; mode=display">\hat{L} = \rho \frac{\sigma_\Delta}{\sqrt{2\pi}}</script>
+\[\hat{L} = \rho \frac{\sigma_\Delta}{\sqrt{2\pi}}\]
 
 <p>The command I used was:</p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Integrate[(t / (2*\[Pi]*s1*s2*Sqrt[1 - p^2]))*Exp[-((t^2/s1^2 - \
@@ -300,9 +290,9 @@ We run these experiments thousands of times, each time computing the per-user li
 0 &amp;&amp; s2 &gt; 0]
 </code></pre></div></div>
 
-<p>If we then substitute in previously defined formulas for $ \rho $ and $ \sigma_c^2 $, we can produce a formula that accepts more readily-available inputs.</p>
+<p>If we then substitute in previously defined formulas for \(\rho\) and \(\sigma_c^2\), we can produce a formula that accepts more readily-available inputs.</p>
 
-<script type="math/tex; mode=display">\hat{L} = \frac{\sigma_\Delta^2}{\sqrt{2\pi(\sigma_\Delta^2 + \frac{2\sigma_X^2}{n})}}</script>
+\[\hat{L} = \frac{\sigma_\Delta^2}{\sqrt{2\pi(\sigma_\Delta^2 + \frac{2\sigma_X^2}{n})}}\]
 
 <p>Continue to <a href="/2020/01/10/optimizing-sample-sizes-in-ab-testing-part-III/">Part III</a>.</p>
 
@@ -341,22 +331,27 @@ We run these experiments thousands of times, each time computing the per-user li
   </body>
 </html>
 
-<!-- mathjax config similar to math.stackexchange -->
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  jax: ["input/TeX", "output/HTML-CSS"],
-  tex2jax: {
-    inlineMath: [ ['$', '$'] ],
-    displayMath: [ ['$$', '$$']],
-    processEscapes: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-  },
-  messageStyle: "none",
-  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
-});
+<!-- http://docs.mathjax.org/en/latest/upgrading/v2.html#changes-in-the-mathjax-api -->
+MathJax = {
+  options: {
+    renderActions: {
+      find: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+};
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
-
 
 <script>window.twttr = (function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0],
