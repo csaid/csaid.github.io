@@ -104,20 +104,20 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
       <div class="post">
   <h1 class="post-title">Upgrading to MathJax 3.0 after the Kramdown update in Github Pages</h1>
   <span class="post-date">05 Sep 2020</span>
-  <p>If you’re like me, you run a Github Pages blog that uses MathJax for formulas. You pushed some changes and now your math isn’t rendering correctly. The math looks fine locally, but it’s all messed up remotely. What happened?</p>
+  <p>If you run a Github Pages blog that uses MathJax for formulas, you’ve probably had some problems recently. Most likely, you pushed some changes and now your math isn’t rendering correctly. The math looks fine locally, but it’s all messed up remotely. What happened?</p>
 
 <p>The cause of your problem is likely that in early August 2020 Github Pages <a href="https://github.com/github/pages-gem/pull/704">updated</a> Kramdown to 2.3.0, which as far as I can tell does not support MathJax 2.x.</p>
 
 <p>Here’s a simple 3-step process for getting your math back to normal. Everything here comes from officially sanctioned documentation. No weird hacks.</p>
 
 <h4 id="step-1-reproduce-the-issue-locally">Step 1. Reproduce the issue locally.</h4>
-<p>You need to get the new version of Github Pages and Kramdown</p>
+<p>Get the latest versions of Github Pages and Kramdown</p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bundle update
 </code></pre></div></div>
-<p>Now when you launch your blog locally, you’ll be able to see that much of your math is no longer rendering properly.</p>
+<p>Now when you launch your blog locally, you’ll see that much of your math is no longer rendering properly.</p>
 
 <h4 id="step-2-upgrade-to-mathjax-30">Step 2. Upgrade to MathJax 3.0</h4>
-<p>Now, find wherever you included MathJax (probably an HTML file in your <code class="language-plaintext highlighter-rouge">_layouts</code> directory) and replace <em>all of it</em> with the code below, which comes directly from MathJax’s own <a href="http://docs.mathjax.org/en/latest/web/configuration.html#loading-mathjax">instructions</a>.</p>
+<p>Now, find wherever you included MathJax (probably an HTML file in your <code class="language-plaintext highlighter-rouge">_layouts</code> directory) and replace <em>all of it</em> (including configurations) with the code below, which comes directly from MathJax’s own <a href="http://docs.mathjax.org/en/latest/web/configuration.html#loading-mathjax">instructions</a>.</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;script type="text/javascript" id="MathJax-script" async
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"&gt;
