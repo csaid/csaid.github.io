@@ -268,7 +268,7 @@ $$ \sigma_{p}^{2} = \sum\limits_{i} \sum\limits_{j} w_i w_j \sigma_i \sigma_j \r
 
 where each $$ w_i $$ and $$ w_j $$ are weights assigned to $$ X_i $$ and $$ X_j $$, where each $$ X_i $$ and $$ X_j $$ have standard deviations $$ \sigma_i $$ and $$ \sigma_j $$, and where the correlation between $$ X_i $$ and $$ X_j $$ is $$ \rho_{ij} $$. The term $$ \sigma_i \sigma_j \rho_{ij} $$ is a scalar quantity representing the covariance between $$ X_i $$ and $$ X_j $$.
 
-<br><br>If none of the variables are correlated, then all the cases where $$ i \neq j $$ go to zero, and the formula reduces to 
+If none of the variables are correlated, then all the cases where $$ i \neq j $$ go to zero, and the formula reduces to 
 
 $$ \sigma_{p}^{2} = \sum{w^2_i \sigma^2_i} $$
 

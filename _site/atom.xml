@@ -4,7 +4,7 @@
  <title>Chris Said</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2020-09-07T21:14:09-07:00</updated>
+ <updated>2020-09-07T21:15:20-07:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -1220,7 +1220,7 @@ and we can use Inverse Variance Weighting to obtain weights \(w_1=0.4, w_2=0.4, 
 
   &lt;p&gt;where each \(w_i\) and \(w_j\) are weights assigned to \(X_i\) and \(X_j\), where each \(X_i\) and \(X_j\) have standard deviations \(\sigma_i\) and \(\sigma_j\), and where the correlation between \(X_i\) and \(X_j\) is \(\rho_{ij}\). The term \(\sigma_i \sigma_j \rho_{ij}\) is a scalar quantity representing the covariance between \(X_i\) and \(X_j\).&lt;/p&gt;
 
-  &lt;p&gt;&lt;br /&gt;&lt;br /&gt;If none of the variables are correlated, then all the cases where \(i \neq j\) go to zero, and the formula reduces to&lt;/p&gt;
+  &lt;p&gt;If none of the variables are correlated, then all the cases where \(i \neq j\) go to zero, and the formula reduces to&lt;/p&gt;
 
 \[\sigma_{p}^{2} = \sum{w^2_i \sigma^2_i}\]
 
