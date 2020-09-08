@@ -16,7 +16,7 @@ Below are links to blog posts I've written, as well as some other projects. I ca
 
 #### Other Projects
 * [RapidTests.org](https://www.rapidtests.org/) (2020). All-volunteer groups advocating for frequent rapid tests for SARS-CoV-2.
-* [Which famous economist are you most similar to?](http://whichfamouseconomistareyoumostsimilarto.com/) (2013-2015). Interactive economics quiz featured in the Washington Post, Wall Street Journal, Slate, and Gawker.
+* [Which famous economist are you most similar to?](http://whichfamouseconomistareyoumostsimilarto.com/) (2013-2015). Interactive economics quiz featured in the Washington Post, Wall Street Journal, and NPR.
 
 #### Full Blog Archive
 
