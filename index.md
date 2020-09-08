@@ -15,8 +15,8 @@ Below are links to blog posts I've written, as well as some other projects. I ca
 * [Four pitfalls of hill climbing](/2016/02/28/four-pitfalls-of-hill-climbing/) (28 Feb 2016)
 
 #### Other Projects
-* [RapidTests.org](https://www.rapidtests.org/) (2020-)
-* [Which famous economist are you most similar to?](http://whichfamouseconomistareyoumostsimilarto.com/) (2013-2015)
+* [RapidTests.org](https://www.rapidtests.org/) (2020). All-volunteer groups advocating for frequent rapid tests for SARS-CoV-2.
+* [Which famous economist are you most similar to?](http://whichfamouseconomistareyoumostsimilarto.com/) (2013-2015). Interactive economics quiz featured in the Washington Post, Wall Street Journal, Slate, and Gawker.
 
 #### Full Blog Archive
 
