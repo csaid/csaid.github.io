@@ -275,4 +275,5 @@ $$ \sigma_{p}^{2} = \sum{w^2_i \sigma^2_i} $$
 And finally, if we are computing a simple sum of random variables where all the weights are 1, then the formula reduces to
 
 $$ \sigma_{p}^{2} = \sum{\sigma^2_i} $$
+
 </div>

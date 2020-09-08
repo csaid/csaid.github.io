@@ -4,7 +4,7 @@
  <title>Chris Said</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2020-09-05T19:24:37-07:00</updated>
+ <updated>2020-09-07T21:14:09-07:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -38,7 +38,7 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h4 id=&quot;step-3-if-applicable-change-your--signs-to--signs&quot;&gt;Step 3 [if applicable]. Change your $ signs to $$ signs.&lt;/h4&gt;
-&lt;p&gt;I ran into some trouble because a lot of my in-line math was delimited with single &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$&lt;/code&gt; signs rather than double &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$$&lt;/code&gt; signs. I wasn’t able to configure MathJax to accept the single &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$&lt;/code&gt; signs, so I just changed them all to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$$&lt;/code&gt;. While it was a little tedious, it felt like the right thing to do. The single &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$&lt;/code&gt; was too ambiguous.&lt;/p&gt;
+&lt;p&gt;I ran into some trouble because a lot of my in-line math was delimited with single &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$&lt;/code&gt; signs rather than double &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$$&lt;/code&gt; signs. I wasn’t able to configure MathJax to accept the single &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$&lt;/code&gt; signs, so I just changed them all to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$$&lt;/code&gt;. While tedious, it felt like the right thing to do. The single &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$&lt;/code&gt; was too ambiguous.&lt;/p&gt;
 </content>
  </entry>
  
@@ -1226,7 +1226,8 @@ and we can use Inverse Variance Weighting to obtain weights \(w_1=0.4, w_2=0.4, 
 
   &lt;p&gt;And finally, if we are computing a simple sum of random variables where all the weights are 1, then the formula reduces to&lt;/p&gt;
 
-  &lt;p&gt;\(\sigma_{p}^{2} = \sum{\sigma^2_i}\)&lt;/p&gt;
+\[\sigma_{p}^{2} = \sum{\sigma^2_i}\]
+
 &lt;/div&gt;
 </content>
  </entry>
