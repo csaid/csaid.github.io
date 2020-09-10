@@ -13,16 +13,22 @@ I just finished an excellent fellowship at [Insight Data Science](http://insight
 
 This all started earlier this summer when I went to Craigslist to find a used car. There were lots of good deals on Craigslist, but it took way too long to find them. When I searched for a particular model, I got hundreds of hits, but only a few of the hits included the mileage in the posting title. Since I needed the mileage to know whether I was getting a good deal, I had to click on each of the hundreds of listings. Pretty time consuming.
 
-
-[{% include image_with_border.html url="/assets/listings.png" %}](http://www.dealspotter.info)
+<div class="wrapper" markdown="0">
+    <a class="inner" href = "http://www.dealspotter.info" target="_blank" markdown="0">
+        <img src="/assets/listings.png" border="2px">
+    </a>
+</div>
 
 A larger problem was that even if I clicked on every post, I didn’t always have a sense for what was the best deal. For example, if I had $3,000, was it better to spend it on a 2001 model with 100K miles, or a 2003 model with 140K miles?
 
 [_DealSpotter_](http://www.dealspotter.info) is a proof-of-concept website that shows how these problems could be solved. DealSpotter grabs all the Craigslist car postings in the San Francisco Bay Area and automatically shows you the best deals. It knows how much each car should be priced, based on the model, year, and mileage. Cars that are priced lower than DealSpotter expects them to be are shown at the top of the list. DealSpotter also presents the same information in a visual format called “Graph” mode, where the best deals are highlighted in blue.
 
 
-[{% include image_with_border.html url="/assets/full.png" %}](http://www.dealspotter.info)
-
+<div class="wrapper" markdown="0">
+    <a class="inner" href = "http://www.dealspotter.info" target="_blank" markdown="0">
+        <img src="/assets/full.png" border="2px">
+    </a>
+</div>
 
 To determine how much each car should be priced, DealSpotter doesn’t use Kelley Blue Book, which tends to overprice cars, especially newer models. Instead, DealSpotter builds its own pricing model based on the actual Craigslist market. In particular, it uses a [Random Forest](http://en.wikipedia.org/wiki/Random_forest) pricing model because, unlike smooth parametric models, Random Forests are able to detect sharp discontinuities in prices that may be caused by factors such as manufacturer design overhauls.
 

@@ -12,16 +12,16 @@ Binocular rivalry is a visual illusion that occurs when the two eyes are present
 
 .
 
-{% include image.html url="/assets/fig_dichop1.png" %}
+<img src='/assets/fig_dichop1.png'>
 
 .
+
 
 Binocular rivalry is more than just an interesting illusion: it reflects actual inhibitory competition between neurons in the brain, and therefore provides a rare window into neural dynamics. To help us understand these mechanisms, researchers have developed several models of the phenomenon. Yet surprisingly, all of these models make a big incorrect prediction about a type of stimulus known as “binocular plaids”. You can view some binocular plaids by crossing your eyes on the boxes below, or simply by looking at one of the boxes normally.
 
 .
 
-{% include image.html url="/assets/fig_binoc.png" %}
-
+<img src='/assets/fig_binoc.png'>
 
 .
 

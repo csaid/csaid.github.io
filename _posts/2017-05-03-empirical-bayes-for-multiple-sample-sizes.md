@@ -6,10 +6,6 @@ description: The James-Stein Estimator with unequal variances
 
 Here's a data problem I encounter *all the time*. Let's say I'm running a website where users can submit movie ratings on a continuous 1-10 scale. For the sake of argument, let's say that the users who rate each movie are an unbiased random sample from the population of users. I'd like to compute the average rating for each movie so that I can create a ranked list of the best movies.
 
-<!-- 
-{% include image.html url="/assets/2017_shrinkage/fig_movies.png" description="My cat, Robert Downey Jr." %}
-{% include image.html url="/assets/fig_eeg2.png" %} -->
-
 Take a look at my data:
 
 <img src="/assets/2017_shrinkage/fig_movies.png">
