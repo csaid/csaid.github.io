@@ -58,7 +58,7 @@ I summarize my conclusions as a dialogue.
 </div>
 
 **Q:** _That makes me feel better. But how reliable is this system?_
-<br> **A:** Not as reliable as you might like. [One-third of major storms arrive unexpectedly](https://www.thespacereview.com/article/1553/2), according to the SWPC’s own 2010 analysis. And that’s not just the small storms. According to a news article in [Science](https://science.sciencemag.org.sci-hub.tw/content/324/5935/1640), the SWPC might be also be poor at identifying the characteristics of severe storms, since they are so rare.
+<br> **A:** Not as reliable as you might like. [One-third of major storms arrive unexpectedly](https://www.thespacereview.com/article/1553/2), according to the SWPC’s own 2010 analysis. And that’s not just the small storms. According to a news article in [Science](https://science.sciencemag.org.sci-hub.tw/content/324/5935/1640), the SWPC might also be poor at identifying the characteristics of severe storms, since they are so rare.
 
 **Q:** _Wait, what? Did you say we miss one-third of the storms? And that we might even miss the big ones? We’re screwed!_
 <br> **A:** Well, the good news is that even if the storm goes undetected, the transformers won’t fry up immediately. It will take several minutes for them to heat up. The utility companies can monitor them in realtime and turn them off if they get too hot (see [NERC guidelines](https://www.nerc.com/comm/PC/Geomagnetic%20Disturbance%20Task%20Force%20GMDTF%202013/Template_TOP.pdf) and [Section 3.8.2 of this manual](https://www.pjm.com/~/media/documents/manuals/m13.ashx)).
@@ -69,7 +69,7 @@ I summarize my conclusions as a dialogue.
 **Q:** _I’m still not convinced._
 <br> **A:** Well, even if the utility companies completely fail to react, many engineers [believe](https://othjournal.com/wp-content/uploads/2019/08/EMP-Threats-to-Americas-Electric-Grid.pdf) that the voltage collapse caused by a severe solar storm will ultimately save the transformers, since the circuit breakers will open automatically. But this is [disputed](https://othjournal.com/wp-content/uploads/2019/08/EMP-Threats-to-Americas-Electric-Grid.pdf). 
 
-Overall, the combination of human intervention and automatic grid self-protection makes me feel that catastrophic long-term collapse from a solar storm is unlikely. But we should still take preparedness extremely seriously. 
+Overall, the combination of human intervention and automatic grid self-protection makes me feel that catastrophic long-term collapse from a solar storm is unlikely but possible. We should take preparedness extremely seriously. 
 
 Should we move on to EMP attacks?
 

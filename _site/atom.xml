@@ -4,7 +4,7 @@
  <title>Chris Said</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2020-09-07T21:29:27-07:00</updated>
+ <updated>2020-09-09T21:16:00-07:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -207,7 +207,7 @@
 &lt;/div&gt;
 
 &lt;p&gt;&lt;strong&gt;Q:&lt;/strong&gt; &lt;em&gt;That makes me feel better. But how reliable is this system?&lt;/em&gt;
-&lt;br /&gt; &lt;strong&gt;A:&lt;/strong&gt; Not as reliable as you might like. &lt;a href=&quot;https://www.thespacereview.com/article/1553/2&quot;&gt;One-third of major storms arrive unexpectedly&lt;/a&gt;, according to the SWPC’s own 2010 analysis. And that’s not just the small storms. According to a news article in &lt;a href=&quot;https://science.sciencemag.org.sci-hub.tw/content/324/5935/1640&quot;&gt;Science&lt;/a&gt;, the SWPC might be also be poor at identifying the characteristics of severe storms, since they are so rare.&lt;/p&gt;
+&lt;br /&gt; &lt;strong&gt;A:&lt;/strong&gt; Not as reliable as you might like. &lt;a href=&quot;https://www.thespacereview.com/article/1553/2&quot;&gt;One-third of major storms arrive unexpectedly&lt;/a&gt;, according to the SWPC’s own 2010 analysis. And that’s not just the small storms. According to a news article in &lt;a href=&quot;https://science.sciencemag.org.sci-hub.tw/content/324/5935/1640&quot;&gt;Science&lt;/a&gt;, the SWPC might also be poor at identifying the characteristics of severe storms, since they are so rare.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Q:&lt;/strong&gt; &lt;em&gt;Wait, what? Did you say we miss one-third of the storms? And that we might even miss the big ones? We’re screwed!&lt;/em&gt;
 &lt;br /&gt; &lt;strong&gt;A:&lt;/strong&gt; Well, the good news is that even if the storm goes undetected, the transformers won’t fry up immediately. It will take several minutes for them to heat up. The utility companies can monitor them in realtime and turn them off if they get too hot (see &lt;a href=&quot;https://www.nerc.com/comm/PC/Geomagnetic%20Disturbance%20Task%20Force%20GMDTF%202013/Template_TOP.pdf&quot;&gt;NERC guidelines&lt;/a&gt; and &lt;a href=&quot;https://www.pjm.com/~/media/documents/manuals/m13.ashx&quot;&gt;Section 3.8.2 of this manual&lt;/a&gt;).&lt;/p&gt;
@@ -218,7 +218,7 @@
 &lt;p&gt;&lt;strong&gt;Q:&lt;/strong&gt; &lt;em&gt;I’m still not convinced.&lt;/em&gt;
 &lt;br /&gt; &lt;strong&gt;A:&lt;/strong&gt; Well, even if the utility companies completely fail to react, many engineers &lt;a href=&quot;https://othjournal.com/wp-content/uploads/2019/08/EMP-Threats-to-Americas-Electric-Grid.pdf&quot;&gt;believe&lt;/a&gt; that the voltage collapse caused by a severe solar storm will ultimately save the transformers, since the circuit breakers will open automatically. But this is &lt;a href=&quot;https://othjournal.com/wp-content/uploads/2019/08/EMP-Threats-to-Americas-Electric-Grid.pdf&quot;&gt;disputed&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;Overall, the combination of human intervention and automatic grid self-protection makes me feel that catastrophic long-term collapse from a solar storm is unlikely. But we should still take preparedness extremely seriously.&lt;/p&gt;
+&lt;p&gt;Overall, the combination of human intervention and automatic grid self-protection makes me feel that catastrophic long-term collapse from a solar storm is unlikely but possible. We should take preparedness extremely seriously.&lt;/p&gt;
 
 &lt;p&gt;Should we move on to EMP attacks?&lt;/p&gt;
 
@@ -2122,8 +2122,7 @@ relative --&gt;
 &lt;div class=&quot;wrapper&quot;&gt;
   &lt;p&gt;&lt;img src=&quot;/assets/kantorovich.jpg&quot; height=&quot;300&quot; class=&quot;inner&quot; style=&quot;position:relative&quot; /&gt;&lt;/p&gt;
   &lt;div class=&quot;caption&quot;&gt;
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;strong&amp;gt;Figure 2.&amp;lt;/strong&amp;gt; Leonid Kantorovich, inventor of linear programming and winner of the 1975 Nobel Prize in Economics.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;&lt;strong&gt;Figure 2.&lt;/strong&gt; Leonid Kantorovich, inventor of linear programming and winner of the 1975 Nobel Prize in Economics.&lt;/p&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 

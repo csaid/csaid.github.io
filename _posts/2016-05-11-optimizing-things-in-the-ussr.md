@@ -56,7 +56,7 @@ relative -->
   <div id="chart" class="inner" style="position:relative"></div>
   <!-- <div id="econ_scatter" class="inner" style="position:relative"></div> -->
   <div class="caption">
-<strong>Figure 1.</strong> Some example inputs and outputs in the Soviet economy in 1951, described in units of weight. This summary shows an extreme dimensionality reduction, more extreme than was ever used in planning. In this diagram, most commodities are excluded and each displayed commodity collapses across multiple different product types. Multiple steps in the supply chain are collapsed into a single step. (Source: <a href = "http://www.foia.cia.gov/sites/default/files/document_conversions/89801/DOC_0000380738.pdf">CIA</a>)
+  **Figure 1.** Some example inputs and outputs in the Soviet economy in 1951, described in units of weight. This summary shows an extreme dimensionality reduction, more extreme than was ever used in planning. In this diagram, most commodities are excluded and each displayed commodity collapses across multiple different product types. Multiple steps in the supply chain are collapsed into a single step. (Source: [CIA](http://www.foia.cia.gov/sites/default/files/document_conversions/89801/DOC_0000380738.pdf))
   </div>
 </div>
 
@@ -70,7 +70,7 @@ In the late 1960’s, a group of economists and computer scientists known as the
 <div class="wrapper">
   <img src='/assets/kantorovich.jpg' height="300" class="inner" style="position:relative">
   <div class="caption">
-    <strong>Figure 2.</strong> Leonid Kantorovich, inventor of linear programming and winner of the 1975 Nobel Prize in Economics.
+  **Figure 2.** Leonid Kantorovich, inventor of linear programming and winner of the 1975 Nobel Prize in Economics.
   </div>
 </div>
 
