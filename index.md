@@ -3,7 +3,7 @@ layout: home
 title: Chris Said
 ---
 
-Below are links to blog posts I've written, as well as some other projects. I can also be found on [Twitter](https://twitter.com/Chris_Said), [LinkedIn](https://www.linkedin.com/in/chris-said-97986b6b/), and [Github](https://github.com/csaid).
+Below are links to blog posts I've written, as well as some other projects. I can also be found on [Twitter](https://twitter.com/Chris_Said) and [LinkedIn](https://www.linkedin.com/in/chris-said-97986b6b/).
 
 #### Selected Blog Posts (Statistics)
 * [Optimizing sample sizes in A/B testing, Part I: General summary](/2020/01/10/optimizing-sample-sizes-in-ab-testing-part-I/) ([Part II](/2020/01/10/optimizing-sample-sizes-in-ab-testing-part-II/), [Part III](/2020/01/10/optimizing-sample-sizes-in-ab-testing-part-III/)) (10 Jan 2020)
