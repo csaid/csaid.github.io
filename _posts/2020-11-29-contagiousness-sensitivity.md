@@ -46,7 +46,7 @@ What follows is evidence that contagiousness can be reasonably and approximately
 * In ideal laboratory conditions, [most studies](https://docs.google.com/document/d/14mpvkKFhg_z9nGW5mYAhibF-QGIl8f_CM1katmCFybI/edit#) cannot culture the virus from samples where viral count is < $$ 10^5 $$ cp/mL. Only two studies have been able to do this at $$ 10^4 $$ cp/mL, and they could do so only in a very small fraction of samples. The plot below shows this on a log scale, where each increment represents a 10x increase in viral count.(cp/mL)
 <img src='/assets/2020_contagiousness/fig_contagiousness_log.png'>
 <div class="caption">
-**Figure 3**. Viral kinetics in a typical COVID-19 case. Each blue line corresponds to a study and shows the threshold at which no or virtually no virus could be cultured in laboratory conditions. Data is shown on a log scale, where each increment represents a 10x increase in viral count.
+**Figure 3**. Viral kinetics in a typical COVID-19 case. Each blue line corresponds to a study and shows the threshold at which no or virtually no virus could be cultured in laboratory conditions. The vertical axis is on a log scale, where each increment represents a 10x increase in viral count. Viral kinetics from [Larremore et al., 2020](https://advances.sciencemag.org/content/early/2020/11/20/sciadv.abd5393.1).
 </div>
 
 

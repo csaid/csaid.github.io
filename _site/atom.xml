@@ -4,7 +4,7 @@
  <title>Chris Said</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2020-11-29T15:03:03-05:00</updated>
+ <updated>2020-11-29T15:43:49-05:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -60,7 +60,7 @@
 &lt;img src=&quot;/assets/2020_contagiousness/fig_contagiousness_log.png&quot; /&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class=&quot;caption&quot;&gt;
-  &lt;p&gt;&lt;strong&gt;Figure 3&lt;/strong&gt;. Viral kinetics in a typical COVID-19 case. Each blue line corresponds to a study and shows the threshold at which no or virtually no virus could be cultured in laboratory conditions. Data is shown on a log scale, where each increment represents a 10x increase in viral count.&lt;/p&gt;
+  &lt;p&gt;&lt;strong&gt;Figure 3&lt;/strong&gt;. Viral kinetics in a typical COVID-19 case. Each blue line corresponds to a study and shows the threshold at which no or virtually no virus could be cultured in laboratory conditions. The vertical axis is on a log scale, where each increment represents a 10x increase in viral count. Viral kinetics from &lt;a href=&quot;https://advances.sciencemag.org/content/early/2020/11/20/sciadv.abd5393.1&quot;&gt;Larremore et al., 2020&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;ul&gt;
