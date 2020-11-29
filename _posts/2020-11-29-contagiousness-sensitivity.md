@@ -4,7 +4,9 @@ title: Contagiousness sensitivity&#58; The metric that could control the pandemi
 description: Misguided demands for academic precision have delayed access to rapid antigen tests.
 ---
 
-_TL;DR: To help control the pandemic, medical professionals should start using an imprecise but useful metric, instead of relying on a precise but far less useful metric._
+_**TL;DR:** To help control the pandemic, medical professionals should start using an imprecise but useful metric, instead of relying on a precise but far less useful metric._
+
+_**Disclaimer:** I'm not a medical professional, but I've been working closely with testing experts since July._
 
 ---
 
