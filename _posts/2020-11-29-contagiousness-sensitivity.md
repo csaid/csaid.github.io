@@ -89,3 +89,7 @@ The FDA could greatly speed up the process and justifiably approve antigen tests
 
 ### A plea for the medical community
 If there are any medical experts reading this, my plea to you is to help make contagiousness sensitivity a formal metric in your profession. If you are a scientist, use this metric in your papers (many already are). And if you are a regulator, consider using this metric as your standard for public health tests. Doing so could save hundreds of thousands of lives.
+
+<div class='caption'>
+Special thanks to Jon Frankle and Jonas Binding for comments on an earlier draft.
+</div>

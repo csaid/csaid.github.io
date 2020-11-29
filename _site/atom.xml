@@ -4,7 +4,7 @@
  <title>Chris Said</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2020-11-29T11:46:33-05:00</updated>
+ <updated>2020-11-29T15:03:03-05:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -105,6 +105,10 @@
 
 &lt;h3 id=&quot;a-plea-for-the-medical-community&quot;&gt;A plea for the medical community&lt;/h3&gt;
 &lt;p&gt;If there are any medical experts reading this, my plea to you is to help make contagiousness sensitivity a formal metric in your profession. If you are a scientist, use this metric in your papers (many already are). And if you are a regulator, consider using this metric as your standard for public health tests. Doing so could save hundreds of thousands of lives.&lt;/p&gt;
+
+&lt;div class=&quot;caption&quot;&gt;
+  &lt;p&gt;Special thanks to Jon Frankle and Jonas Binding for comments on an earlier draft.&lt;/p&gt;
+&lt;/div&gt;
 </content>
  </entry>
  
