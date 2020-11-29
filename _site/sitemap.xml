@@ -3,9 +3,24 @@
   
     
     <url>
+      <loc>http://localhost:4000/2020/11/29/contagiousness-sensitivity/</loc>
+      
+        <lastmod>2020-11-29T00:00:00-05:00</lastmod>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.5</priority>
+      
+    </url>
+    
+  
+    
+    <url>
       <loc>http://localhost:4000/2020/09/05/upgrading-to-mathjax-3-after-the-kramdown-update-in-github-pages/</loc>
       
-        <lastmod>2020-09-05T00:00:00-07:00</lastmod>
+        <lastmod>2020-09-05T00:00:00-04:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -20,7 +35,7 @@
     <url>
       <loc>http://localhost:4000/2020/07/15/why-inaccurate-antigen-tests-are-better-than-slow-pcr-tests/</loc>
       
-        <lastmod>2020-07-15T00:00:00-07:00</lastmod>
+        <lastmod>2020-07-15T00:00:00-04:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -35,7 +50,7 @@
     <url>
       <loc>http://localhost:4000/2020/06/18/everything-ive-learned-about-solar-storm-risk-and-emp-attacks/</loc>
       
-        <lastmod>2020-06-18T00:00:00-07:00</lastmod>
+        <lastmod>2020-06-18T00:00:00-04:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -50,7 +65,7 @@
     <url>
       <loc>http://localhost:4000/2020/04/14/fragmented-data-pipelines/</loc>
       
-        <lastmod>2020-04-14T00:00:00-07:00</lastmod>
+        <lastmod>2020-04-14T00:00:00-04:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -65,7 +80,7 @@
     <url>
       <loc>http://localhost:4000/2020/02/08/the-shower-problem/</loc>
       
-        <lastmod>2020-02-08T00:00:00-08:00</lastmod>
+        <lastmod>2020-02-08T00:00:00-05:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -80,7 +95,7 @@
     <url>
       <loc>http://localhost:4000/2020/01/10/optimizing-sample-sizes-in-ab-testing-part-III/</loc>
       
-        <lastmod>2020-01-10T00:00:00-08:00</lastmod>
+        <lastmod>2020-01-10T00:00:00-05:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -95,7 +110,7 @@
     <url>
       <loc>http://localhost:4000/2020/01/10/optimizing-sample-sizes-in-ab-testing-part-II/</loc>
       
-        <lastmod>2020-01-10T00:00:00-08:00</lastmod>
+        <lastmod>2020-01-10T00:00:00-05:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -110,7 +125,7 @@
     <url>
       <loc>http://localhost:4000/2020/01/10/optimizing-sample-sizes-in-ab-testing-part-I/</loc>
       
-        <lastmod>2020-01-10T00:00:00-08:00</lastmod>
+        <lastmod>2020-01-10T00:00:00-05:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -125,7 +140,7 @@
     <url>
       <loc>http://localhost:4000/2019/05/18/variance_after_scaling_and_summing/</loc>
       
-        <lastmod>2019-05-18T00:00:00-07:00</lastmod>
+        <lastmod>2019-05-18T00:00:00-04:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -140,7 +155,7 @@
     <url>
       <loc>http://localhost:4000/2018/08/06/cone-of-confusion/</loc>
       
-        <lastmod>2018-08-06T00:00:00-07:00</lastmod>
+        <lastmod>2018-08-06T00:00:00-04:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -155,7 +170,7 @@
     <url>
       <loc>http://localhost:4000/2018/02/04/hyperbolic-discounting/</loc>
       
-        <lastmod>2018-02-04T00:00:00-08:00</lastmod>
+        <lastmod>2018-02-04T00:00:00-05:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -170,7 +185,7 @@
     <url>
       <loc>http://localhost:4000/2017/12/02/religions-as-firms/</loc>
       
-        <lastmod>2017-12-02T00:00:00-08:00</lastmod>
+        <lastmod>2017-12-02T00:00:00-05:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -185,7 +200,7 @@
     <url>
       <loc>http://localhost:4000/2017/07/09/part-2-a-bipartisan-list-of-people-who-argue-in-good-faith/</loc>
       
-        <lastmod>2017-07-09T00:00:00-07:00</lastmod>
+        <lastmod>2017-07-09T00:00:00-04:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -200,7 +215,7 @@
     <url>
       <loc>http://localhost:4000/2017/07/09/part-1-a-bipartisan-list-of-people-who-are-bad-for-america/</loc>
       
-        <lastmod>2017-07-09T00:00:00-07:00</lastmod>
+        <lastmod>2017-07-09T00:00:00-04:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -215,7 +230,7 @@
     <url>
       <loc>http://localhost:4000/2017/06/19/three-questions-for-social-scientists/</loc>
       
-        <lastmod>2017-06-19T00:00:00-07:00</lastmod>
+        <lastmod>2017-06-19T00:00:00-04:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -230,7 +245,7 @@
     <url>
       <loc>http://localhost:4000/2017/05/22/keyboard-shortcuts-i-couldnt-live-without/</loc>
       
-        <lastmod>2017-05-22T00:00:00-07:00</lastmod>
+        <lastmod>2017-05-22T00:00:00-04:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -245,7 +260,7 @@
     <url>
       <loc>http://localhost:4000/2017/05/08/learning-by-flip-flopping/</loc>
       
-        <lastmod>2017-05-08T00:00:00-07:00</lastmod>
+        <lastmod>2017-05-08T00:00:00-04:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -260,7 +275,7 @@
     <url>
       <loc>http://localhost:4000/2017/05/03/empirical-bayes-for-multiple-sample-sizes/</loc>
       
-        <lastmod>2017-05-03T00:00:00-07:00</lastmod>
+        <lastmod>2017-05-03T00:00:00-04:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -275,7 +290,7 @@
     <url>
       <loc>http://localhost:4000/2016/05/11/optimizing-things-in-the-ussr/</loc>
       
-        <lastmod>2016-05-11T00:00:00-07:00</lastmod>
+        <lastmod>2016-05-11T00:00:00-04:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -290,7 +305,7 @@
     <url>
       <loc>http://localhost:4000/2016/04/10/comparing-the-opinions-of-economic-experts/</loc>
       
-        <lastmod>2016-04-10T00:00:00-07:00</lastmod>
+        <lastmod>2016-04-10T00:00:00-04:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -305,7 +320,7 @@
     <url>
       <loc>http://localhost:4000/2016/02/28/four-pitfalls-of-hill-climbing/</loc>
       
-        <lastmod>2016-02-28T00:00:00-08:00</lastmod>
+        <lastmod>2016-02-28T00:00:00-05:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -320,7 +335,7 @@
     <url>
       <loc>http://localhost:4000/2016/02/13/how-to-make-polished-jupyter-presentations-with-optional-code-visibility/</loc>
       
-        <lastmod>2016-02-13T00:00:00-08:00</lastmod>
+        <lastmod>2016-02-13T00:00:00-05:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -335,7 +350,7 @@
     <url>
       <loc>http://localhost:4000/2015/09/16/new-blog-address/</loc>
       
-        <lastmod>2015-09-16T00:00:00-07:00</lastmod>
+        <lastmod>2015-09-16T00:00:00-04:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -350,7 +365,7 @@
     <url>
       <loc>http://localhost:4000/2015/08/08/10-classic-dialogues/</loc>
       
-        <lastmod>2015-08-08T15:52:24-07:00</lastmod>
+        <lastmod>2015-08-08T18:52:24-04:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -365,7 +380,7 @@
     <url>
       <loc>http://localhost:4000/2015/05/31/were-getting-better-at-picking-metrics-to-optimize/</loc>
       
-        <lastmod>2015-05-31T12:21:07-07:00</lastmod>
+        <lastmod>2015-05-31T15:21:07-04:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -380,7 +395,7 @@
     <url>
       <loc>http://localhost:4000/2014/11/30/independent-t-tests-and-the-83-confidence-interval-a-useful-trick-for-eyeballing-your-data/</loc>
       
-        <lastmod>2014-11-30T19:47:37-08:00</lastmod>
+        <lastmod>2014-11-30T22:47:37-05:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -395,7 +410,7 @@
     <url>
       <loc>http://localhost:4000/2014/10/16/jumping-quickly-between-deep-directories/</loc>
       
-        <lastmod>2014-10-16T14:11:00-07:00</lastmod>
+        <lastmod>2014-10-16T17:11:00-04:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -410,7 +425,7 @@
     <url>
       <loc>http://localhost:4000/2014/07/10/how-failed-replications-change-our-effect-size-estimates/</loc>
       
-        <lastmod>2014-07-10T12:10:32-07:00</lastmod>
+        <lastmod>2014-07-10T15:10:32-04:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -425,7 +440,7 @@
     <url>
       <loc>http://localhost:4000/2014/07/07/jason-mitchells-essay/</loc>
       
-        <lastmod>2014-07-07T11:16:51-07:00</lastmod>
+        <lastmod>2014-07-07T14:16:51-04:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -440,7 +455,7 @@
     <url>
       <loc>http://localhost:4000/2014/05/14/how-i-use-twitter/</loc>
       
-        <lastmod>2014-05-14T07:31:13-07:00</lastmod>
+        <lastmod>2014-05-14T10:31:13-04:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -455,7 +470,7 @@
     <url>
       <loc>http://localhost:4000/2014/02/22/high-school-stem-curriculum-wishlist/</loc>
       
-        <lastmod>2014-02-22T14:38:59-08:00</lastmod>
+        <lastmod>2014-02-22T17:38:59-05:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -470,7 +485,7 @@
     <url>
       <loc>http://localhost:4000/2014/02/08/is-your-job-in-another-state/</loc>
       
-        <lastmod>2014-02-08T14:49:08-08:00</lastmod>
+        <lastmod>2014-02-08T17:49:08-05:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -485,7 +500,7 @@
     <url>
       <loc>http://localhost:4000/2013/10/12/my-insight-data-science-project/</loc>
       
-        <lastmod>2013-10-12T13:59:14-07:00</lastmod>
+        <lastmod>2013-10-12T16:59:14-04:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -500,7 +515,7 @@
     <url>
       <loc>http://localhost:4000/2013/08/19/which-famous-economist/</loc>
       
-        <lastmod>2013-08-19T11:44:46-07:00</lastmod>
+        <lastmod>2013-08-19T14:44:46-04:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -515,7 +530,7 @@
     <url>
       <loc>http://localhost:4000/2013/03/30/new-model-of-binocular-rivalry/</loc>
       
-        <lastmod>2013-03-30T08:23:03-07:00</lastmod>
+        <lastmod>2013-03-30T11:23:03-04:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -530,7 +545,7 @@
     <url>
       <loc>http://localhost:4000/2013/03/21/165/</loc>
       
-        <lastmod>2013-03-21T06:08:46-07:00</lastmod>
+        <lastmod>2013-03-21T09:08:46-04:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -545,7 +560,7 @@
     <url>
       <loc>http://localhost:4000/2013/01/15/8-lessons-from-the-reproducibility-crisis/</loc>
       
-        <lastmod>2013-01-15T16:04:46-08:00</lastmod>
+        <lastmod>2013-01-15T19:04:46-05:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -560,7 +575,7 @@
     <url>
       <loc>http://localhost:4000/2013/01/09/in-defense-of-correlationcausation-blowhards/</loc>
       
-        <lastmod>2013-01-09T07:19:10-08:00</lastmod>
+        <lastmod>2013-01-09T10:19:10-05:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -575,7 +590,7 @@
     <url>
       <loc>http://localhost:4000/2012/12/29/new-paper-on-autism/</loc>
       
-        <lastmod>2012-12-29T14:20:55-08:00</lastmod>
+        <lastmod>2012-12-29T17:20:55-05:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -590,7 +605,7 @@
     <url>
       <loc>http://localhost:4000/2012/10/04/why-are-contrast-response-functions-linear-in-fmri-and-nonmonotonic-in-eeg/</loc>
       
-        <lastmod>2012-10-04T08:43:41-07:00</lastmod>
+        <lastmod>2012-10-04T11:43:41-04:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -605,7 +620,7 @@
     <url>
       <loc>http://localhost:4000/2012/05/29/national-labs-for-all-the-sciences/</loc>
       
-        <lastmod>2012-05-29T08:26:00-07:00</lastmod>
+        <lastmod>2012-05-29T11:26:00-04:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -620,7 +635,7 @@
     <url>
       <loc>http://localhost:4000/2012/04/18/faq/</loc>
       
-        <lastmod>2012-04-18T10:29:46-07:00</lastmod>
+        <lastmod>2012-04-18T13:29:46-04:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -635,7 +650,7 @@
     <url>
       <loc>http://localhost:4000/2012/04/17/its-the-incentives-structure-people-why-science-reform-must-come-from-the-granting-agencies/</loc>
       
-        <lastmod>2012-04-17T13:35:49-07:00</lastmod>
+        <lastmod>2012-04-17T16:35:49-04:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -655,7 +670,7 @@
     <url>
       <loc>http://localhost:4000404.html</loc>
       
-        <lastmod>2020-09-09T21:33:08-07:00</lastmod>
+        <lastmod>2020-11-29T11:05:40-05:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -693,7 +708,7 @@
         <url>
           <loc>http://localhost:4000/2012/04/17/its-the-incentives-structure-people-why-science-reform-must-come-from-the-granting-agencies/</loc>
           
-            <lastmod>2012-04-17T13:35:49-07:00</lastmod>
+            <lastmod>2012-04-17T16:35:49-04:00</lastmod>
           
           
             <changefreq>monthly</changefreq>
@@ -706,7 +721,7 @@
         <url>
           <loc>http://localhost:4000/2012/04/18/faq/</loc>
           
-            <lastmod>2012-04-18T10:29:46-07:00</lastmod>
+            <lastmod>2012-04-18T13:29:46-04:00</lastmod>
           
           
             <changefreq>monthly</changefreq>
@@ -719,7 +734,7 @@
         <url>
           <loc>http://localhost:4000/2012/05/29/national-labs-for-all-the-sciences/</loc>
           
-            <lastmod>2012-05-29T08:26:00-07:00</lastmod>
+            <lastmod>2012-05-29T11:26:00-04:00</lastmod>
           
           
             <changefreq>monthly</changefreq>
@@ -732,7 +747,7 @@
         <url>
           <loc>http://localhost:4000/2012/10/04/why-are-contrast-response-functions-linear-in-fmri-and-nonmonotonic-in-eeg/</loc>
           
-            <lastmod>2012-10-04T08:43:41-07:00</lastmod>
+            <lastmod>2012-10-04T11:43:41-04:00</lastmod>
           
           
             <changefreq>monthly</changefreq>
@@ -745,7 +760,7 @@
         <url>
           <loc>http://localhost:4000/2012/12/29/new-paper-on-autism/</loc>
           
-            <lastmod>2012-12-29T14:20:55-08:00</lastmod>
+            <lastmod>2012-12-29T17:20:55-05:00</lastmod>
           
           
             <changefreq>monthly</changefreq>
@@ -758,7 +773,7 @@
         <url>
           <loc>http://localhost:4000/2013/01/09/in-defense-of-correlationcausation-blowhards/</loc>
           
-            <lastmod>2013-01-09T07:19:10-08:00</lastmod>
+            <lastmod>2013-01-09T10:19:10-05:00</lastmod>
           
           
             <changefreq>monthly</changefreq>
@@ -771,7 +786,7 @@
         <url>
           <loc>http://localhost:4000/2013/01/15/8-lessons-from-the-reproducibility-crisis/</loc>
           
-            <lastmod>2013-01-15T16:04:46-08:00</lastmod>
+            <lastmod>2013-01-15T19:04:46-05:00</lastmod>
           
           
             <changefreq>monthly</changefreq>
@@ -784,7 +799,7 @@
         <url>
           <loc>http://localhost:4000/2013/03/21/165/</loc>
           
-            <lastmod>2013-03-21T06:08:46-07:00</lastmod>
+            <lastmod>2013-03-21T09:08:46-04:00</lastmod>
           
           
             <changefreq>monthly</changefreq>
@@ -797,7 +812,7 @@
         <url>
           <loc>http://localhost:4000/2013/03/30/new-model-of-binocular-rivalry/</loc>
           
-            <lastmod>2013-03-30T08:23:03-07:00</lastmod>
+            <lastmod>2013-03-30T11:23:03-04:00</lastmod>
           
           
             <changefreq>monthly</changefreq>
@@ -810,7 +825,7 @@
         <url>
           <loc>http://localhost:4000/2013/08/19/which-famous-economist/</loc>
           
-            <lastmod>2013-08-19T11:44:46-07:00</lastmod>
+            <lastmod>2013-08-19T14:44:46-04:00</lastmod>
           
           
             <changefreq>monthly</changefreq>
@@ -823,7 +838,7 @@
         <url>
           <loc>http://localhost:4000/2013/10/12/my-insight-data-science-project/</loc>
           
-            <lastmod>2013-10-12T13:59:14-07:00</lastmod>
+            <lastmod>2013-10-12T16:59:14-04:00</lastmod>
           
           
             <changefreq>monthly</changefreq>
@@ -836,7 +851,7 @@
         <url>
           <loc>http://localhost:4000/2014/02/08/is-your-job-in-another-state/</loc>
           
-            <lastmod>2014-02-08T14:49:08-08:00</lastmod>
+            <lastmod>2014-02-08T17:49:08-05:00</lastmod>
           
           
             <changefreq>monthly</changefreq>
@@ -849,7 +864,7 @@
         <url>
           <loc>http://localhost:4000/2014/02/22/high-school-stem-curriculum-wishlist/</loc>
           
-            <lastmod>2014-02-22T14:38:59-08:00</lastmod>
+            <lastmod>2014-02-22T17:38:59-05:00</lastmod>
           
           
             <changefreq>monthly</changefreq>
@@ -862,7 +877,7 @@
         <url>
           <loc>http://localhost:4000/2014/05/14/how-i-use-twitter/</loc>
           
-            <lastmod>2014-05-14T07:31:13-07:00</lastmod>
+            <lastmod>2014-05-14T10:31:13-04:00</lastmod>
           
           
             <changefreq>monthly</changefreq>
@@ -875,7 +890,7 @@
         <url>
           <loc>http://localhost:4000/2014/07/07/jason-mitchells-essay/</loc>
           
-            <lastmod>2014-07-07T11:16:51-07:00</lastmod>
+            <lastmod>2014-07-07T14:16:51-04:00</lastmod>
           
           
             <changefreq>monthly</changefreq>
@@ -888,7 +903,7 @@
         <url>
           <loc>http://localhost:4000/2014/07/10/how-failed-replications-change-our-effect-size-estimates/</loc>
           
-            <lastmod>2014-07-10T12:10:32-07:00</lastmod>
+            <lastmod>2014-07-10T15:10:32-04:00</lastmod>
           
           
             <changefreq>monthly</changefreq>
@@ -901,7 +916,7 @@
         <url>
           <loc>http://localhost:4000/2014/10/16/jumping-quickly-between-deep-directories/</loc>
           
-            <lastmod>2014-10-16T14:11:00-07:00</lastmod>
+            <lastmod>2014-10-16T17:11:00-04:00</lastmod>
           
           
             <changefreq>monthly</changefreq>
@@ -914,7 +929,7 @@
         <url>
           <loc>http://localhost:4000/2014/11/30/independent-t-tests-and-the-83-confidence-interval-a-useful-trick-for-eyeballing-your-data/</loc>
           
-            <lastmod>2014-11-30T19:47:37-08:00</lastmod>
+            <lastmod>2014-11-30T22:47:37-05:00</lastmod>
           
           
             <changefreq>monthly</changefreq>
@@ -927,7 +942,7 @@
         <url>
           <loc>http://localhost:4000/2015/05/31/were-getting-better-at-picking-metrics-to-optimize/</loc>
           
-            <lastmod>2015-05-31T12:21:07-07:00</lastmod>
+            <lastmod>2015-05-31T15:21:07-04:00</lastmod>
           
           
             <changefreq>monthly</changefreq>
@@ -940,7 +955,7 @@
         <url>
           <loc>http://localhost:4000/2015/08/08/10-classic-dialogues/</loc>
           
-            <lastmod>2015-08-08T15:52:24-07:00</lastmod>
+            <lastmod>2015-08-08T18:52:24-04:00</lastmod>
           
           
             <changefreq>monthly</changefreq>
@@ -953,7 +968,7 @@
         <url>
           <loc>http://localhost:4000/2015/09/16/new-blog-address/</loc>
           
-            <lastmod>2015-09-16T00:00:00-07:00</lastmod>
+            <lastmod>2015-09-16T00:00:00-04:00</lastmod>
           
           
             <changefreq>monthly</changefreq>
@@ -966,7 +981,7 @@
         <url>
           <loc>http://localhost:4000/2016/02/13/how-to-make-polished-jupyter-presentations-with-optional-code-visibility/</loc>
           
-            <lastmod>2016-02-13T00:00:00-08:00</lastmod>
+            <lastmod>2016-02-13T00:00:00-05:00</lastmod>
           
           
             <changefreq>monthly</changefreq>
@@ -979,7 +994,7 @@
         <url>
           <loc>http://localhost:4000/2016/02/28/four-pitfalls-of-hill-climbing/</loc>
           
-            <lastmod>2016-02-28T00:00:00-08:00</lastmod>
+            <lastmod>2016-02-28T00:00:00-05:00</lastmod>
           
           
             <changefreq>monthly</changefreq>
@@ -992,7 +1007,7 @@
         <url>
           <loc>http://localhost:4000/2016/04/10/comparing-the-opinions-of-economic-experts/</loc>
           
-            <lastmod>2016-04-10T00:00:00-07:00</lastmod>
+            <lastmod>2016-04-10T00:00:00-04:00</lastmod>
           
           
             <changefreq>monthly</changefreq>
@@ -1005,7 +1020,7 @@
         <url>
           <loc>http://localhost:4000/2016/05/11/optimizing-things-in-the-ussr/</loc>
           
-            <lastmod>2016-05-11T00:00:00-07:00</lastmod>
+            <lastmod>2016-05-11T00:00:00-04:00</lastmod>
           
           
             <changefreq>monthly</changefreq>
@@ -1018,7 +1033,7 @@
         <url>
           <loc>http://localhost:4000/2017/05/03/empirical-bayes-for-multiple-sample-sizes/</loc>
           
-            <lastmod>2017-05-03T00:00:00-07:00</lastmod>
+            <lastmod>2017-05-03T00:00:00-04:00</lastmod>
           
           
             <changefreq>monthly</changefreq>
@@ -1031,7 +1046,7 @@
         <url>
           <loc>http://localhost:4000/2017/05/08/learning-by-flip-flopping/</loc>
           
-            <lastmod>2017-05-08T00:00:00-07:00</lastmod>
+            <lastmod>2017-05-08T00:00:00-04:00</lastmod>
           
           
             <changefreq>monthly</changefreq>
@@ -1044,7 +1059,7 @@
         <url>
           <loc>http://localhost:4000/2017/05/22/keyboard-shortcuts-i-couldnt-live-without/</loc>
           
-            <lastmod>2017-05-22T00:00:00-07:00</lastmod>
+            <lastmod>2017-05-22T00:00:00-04:00</lastmod>
           
           
             <changefreq>monthly</changefreq>
@@ -1057,7 +1072,7 @@
         <url>
           <loc>http://localhost:4000/2017/06/19/three-questions-for-social-scientists/</loc>
           
-            <lastmod>2017-06-19T00:00:00-07:00</lastmod>
+            <lastmod>2017-06-19T00:00:00-04:00</lastmod>
           
           
             <changefreq>monthly</changefreq>
@@ -1070,7 +1085,7 @@
         <url>
           <loc>http://localhost:4000/2017/07/09/part-1-a-bipartisan-list-of-people-who-are-bad-for-america/</loc>
           
-            <lastmod>2017-07-09T00:00:00-07:00</lastmod>
+            <lastmod>2017-07-09T00:00:00-04:00</lastmod>
           
           
             <changefreq>monthly</changefreq>
@@ -1083,7 +1098,7 @@
         <url>
           <loc>http://localhost:4000/2017/07/09/part-2-a-bipartisan-list-of-people-who-argue-in-good-faith/</loc>
           
-            <lastmod>2017-07-09T00:00:00-07:00</lastmod>
+            <lastmod>2017-07-09T00:00:00-04:00</lastmod>
           
           
             <changefreq>monthly</changefreq>
@@ -1096,7 +1111,7 @@
         <url>
           <loc>http://localhost:4000/2017/12/02/religions-as-firms/</loc>
           
-            <lastmod>2017-12-02T00:00:00-08:00</lastmod>
+            <lastmod>2017-12-02T00:00:00-05:00</lastmod>
           
           
             <changefreq>monthly</changefreq>
@@ -1109,7 +1124,7 @@
         <url>
           <loc>http://localhost:4000/2018/02/04/hyperbolic-discounting/</loc>
           
-            <lastmod>2018-02-04T00:00:00-08:00</lastmod>
+            <lastmod>2018-02-04T00:00:00-05:00</lastmod>
           
           
             <changefreq>monthly</changefreq>
@@ -1122,7 +1137,7 @@
         <url>
           <loc>http://localhost:4000/2018/08/06/cone-of-confusion/</loc>
           
-            <lastmod>2018-08-06T00:00:00-07:00</lastmod>
+            <lastmod>2018-08-06T00:00:00-04:00</lastmod>
           
           
             <changefreq>monthly</changefreq>
@@ -1135,7 +1150,7 @@
         <url>
           <loc>http://localhost:4000/2019/05/18/variance_after_scaling_and_summing/</loc>
           
-            <lastmod>2019-05-18T00:00:00-07:00</lastmod>
+            <lastmod>2019-05-18T00:00:00-04:00</lastmod>
           
           
             <changefreq>monthly</changefreq>
@@ -1148,7 +1163,7 @@
         <url>
           <loc>http://localhost:4000/2020/01/10/optimizing-sample-sizes-in-ab-testing-part-I/</loc>
           
-            <lastmod>2020-01-10T00:00:00-08:00</lastmod>
+            <lastmod>2020-01-10T00:00:00-05:00</lastmod>
           
           
             <changefreq>monthly</changefreq>
@@ -1161,7 +1176,7 @@
         <url>
           <loc>http://localhost:4000/2020/01/10/optimizing-sample-sizes-in-ab-testing-part-II/</loc>
           
-            <lastmod>2020-01-10T00:00:00-08:00</lastmod>
+            <lastmod>2020-01-10T00:00:00-05:00</lastmod>
           
           
             <changefreq>monthly</changefreq>
@@ -1174,7 +1189,7 @@
         <url>
           <loc>http://localhost:4000/2020/01/10/optimizing-sample-sizes-in-ab-testing-part-III/</loc>
           
-            <lastmod>2020-01-10T00:00:00-08:00</lastmod>
+            <lastmod>2020-01-10T00:00:00-05:00</lastmod>
           
           
             <changefreq>monthly</changefreq>
@@ -1187,7 +1202,7 @@
         <url>
           <loc>http://localhost:4000/2020/02/08/the-shower-problem/</loc>
           
-            <lastmod>2020-02-08T00:00:00-08:00</lastmod>
+            <lastmod>2020-02-08T00:00:00-05:00</lastmod>
           
           
             <changefreq>monthly</changefreq>
@@ -1200,7 +1215,7 @@
         <url>
           <loc>http://localhost:4000/2020/04/14/fragmented-data-pipelines/</loc>
           
-            <lastmod>2020-04-14T00:00:00-07:00</lastmod>
+            <lastmod>2020-04-14T00:00:00-04:00</lastmod>
           
           
             <changefreq>monthly</changefreq>
@@ -1213,7 +1228,7 @@
         <url>
           <loc>http://localhost:4000/2020/06/18/everything-ive-learned-about-solar-storm-risk-and-emp-attacks/</loc>
           
-            <lastmod>2020-06-18T00:00:00-07:00</lastmod>
+            <lastmod>2020-06-18T00:00:00-04:00</lastmod>
           
           
             <changefreq>monthly</changefreq>
@@ -1226,7 +1241,7 @@
         <url>
           <loc>http://localhost:4000/2020/07/15/why-inaccurate-antigen-tests-are-better-than-slow-pcr-tests/</loc>
           
-            <lastmod>2020-07-15T00:00:00-07:00</lastmod>
+            <lastmod>2020-07-15T00:00:00-04:00</lastmod>
           
           
             <changefreq>monthly</changefreq>
@@ -1239,7 +1254,20 @@
         <url>
           <loc>http://localhost:4000/2020/09/05/upgrading-to-mathjax-3-after-the-kramdown-update-in-github-pages/</loc>
           
-            <lastmod>2020-09-05T00:00:00-07:00</lastmod>
+            <lastmod>2020-09-05T00:00:00-04:00</lastmod>
+          
+          
+            <changefreq>monthly</changefreq>
+          
+          
+            <priority>0.3</priority>
+          
+        </url>
+      
+        <url>
+          <loc>http://localhost:4000/2020/11/29/contagiousness-sensitivity/</loc>
+          
+            <lastmod>2020-11-29T00:00:00-05:00</lastmod>
           
           
             <changefreq>monthly</changefreq>
