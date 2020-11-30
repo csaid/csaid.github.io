@@ -4,7 +4,7 @@
  <title>Chris Said</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2020-11-30T08:42:05-05:00</updated>
+ <updated>2020-11-30T08:45:58-05:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -49,7 +49,7 @@
 
 &lt;p&gt;Critics say that we can’t be certain of this cutoff. What if the cutoff is &lt;a href=&quot;https://www.nytimes.com/2020/11/02/health/coronavirus-testing-quidel-sofia.html&quot;&gt;actually&lt;/a&gt; \(10^4\) or \(10^6\)? What if there are &lt;a href=&quot;https://www.fda.gov/media/143957/download&quot;&gt;other factors&lt;/a&gt; besides viral count?&lt;/p&gt;
 
-&lt;p&gt;The critics aren’t wrong. But in a public health crisis, we cannot afford this level of precision – it sets up the perfect as the enemy of the good.&lt;/p&gt;
+&lt;p&gt;The critics aren’t wrong. But in a public health crisis, &lt;a href=&quot;https://twitter.com/AbraarKaran/status/1257526025245855747&quot;&gt;we cannot afford this level of precision&lt;/a&gt; – it sets up the perfect as the enemy of the good.&lt;/p&gt;
 
 &lt;p&gt;What follows is evidence that contagiousness can be reasonably and approximately defined as a viral count &amp;gt; \(10^5\).&lt;/p&gt;
 

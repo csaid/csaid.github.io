@@ -36,7 +36,7 @@ What makes someone contagious? There are several factors, but a reasonable defin
 
 Critics say that we can’t be certain of this cutoff. What if the cutoff is [actually](https://www.nytimes.com/2020/11/02/health/coronavirus-testing-quidel-sofia.html) $$ 10^4 $$ or $$ 10^6 $$? What if there are [other factors](https://www.fda.gov/media/143957/download) besides viral count?
 
-The critics aren’t wrong. But in a public health crisis, we cannot afford this level of precision – it sets up the perfect as the enemy of the good. 
+The critics aren’t wrong. But in a public health crisis, [we cannot afford this level of precision](https://twitter.com/AbraarKaran/status/1257526025245855747) – it sets up the perfect as the enemy of the good. 
 
 What follows is evidence that contagiousness can be reasonably and approximately defined as a viral count > $$ 10^5 $$.
 
