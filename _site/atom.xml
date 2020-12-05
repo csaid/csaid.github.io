@@ -4,7 +4,7 @@
  <title>Chris Said</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2020-11-30T08:45:58-05:00</updated>
+ <updated>2020-12-04T20:28:45-05:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -27,12 +27,14 @@
 
 &lt;p&gt;Antigen tests have &lt;a href=&quot;https://www.medrxiv.org/content/10.1101/2020.11.18.20234104v1.full.pdf&quot;&gt;very high&lt;/a&gt; &lt;em&gt;contagiousness sensitivity&lt;/em&gt;, defined as the percentage of contagious people that the test detects. This is a crucial metric for public health.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/2020_contagiousness/venn_contagious.png&quot; /&gt;&lt;/p&gt;
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/assets/2020_contagiousness/venn_contagious.png&quot; height=&quot;200&quot; class=&quot;inner&quot; style=&quot;position:relative&quot; /&gt;&lt;/p&gt;
+&lt;/div&gt;
 &lt;div class=&quot;caption&quot;&gt;
   &lt;p&gt;&lt;strong&gt;Figure 1&lt;/strong&gt;. Venn diagram showing that most infected people are not likely contagious&lt;/p&gt;
 &lt;/div&gt;
 
-&lt;p&gt;Another metric is &lt;em&gt;diagnostic sensitivity&lt;/em&gt;, the percentage of infected people a test detects.  While useful for medical purposes, diagnostic sensitivity is far less useful for public health. That’s because it includes many people who have trace viral RNA fragments that can remain for weeks after they have &lt;a href=&quot;https://www.medrxiv.org/content/10.1101/2020.08.04.20167932v4.full.pdf&quot;&gt;stopped being contagious&lt;/a&gt;. In some populations, antigen tests may have &amp;gt;95% contagiousness sensitivity, but only 40% diagnostic sensitivity. When it comes to stopping spread of the virus, the number that matters is the 95%, not the 40%. Almost everyone the antigen test “misses” is no longer contagious.&lt;/p&gt;
+&lt;p&gt;There is another metric, however, which is much less useful for public health. This metric is called &lt;em&gt;diagnostic sensitivity&lt;/em&gt;, and is defined as the percentage of infected people a test detects. While useful for medical purposes, diagnostic sensitivity is far less useful for public health. That’s because it includes many people who have trace viral RNA fragments that can remain for weeks after they have &lt;a href=&quot;https://www.medrxiv.org/content/10.1101/2020.08.04.20167932v4.full.pdf&quot;&gt;stopped being contagious&lt;/a&gt;. In some populations, antigen tests may have &amp;gt;95% contagiousness sensitivity, but only 40% diagnostic sensitivity. When it comes to stopping spread of the virus, the number that matters is the 95%, not the 40%. Almost everyone the antigen test “misses” is no longer contagious.&lt;/p&gt;
 
 &lt;p&gt;Although easy access to antigen tests was proposed very early in the pandemic, we still don’t have it in the US. The few tests available are only approved for symptomatic use cases, even though they would be most useful for preventing asymptomatic spread. The only at-home test requires a doctor’s prescription.&lt;/p&gt;
 
@@ -92,7 +94,9 @@
 
 &lt;p&gt;From a public health point of view, this makes little sense. To control the virus, you need to identify contagious individuals. Symptomatic people tend to have more virus than asymptomatic people, so it’s no surprise that antigen tests have higher diagnostic sensitivity among symptomatic people. What matters to public health is contagiousness sensitivity, which is equally high in both asymptomatics and symptomatics (&lt;a href=&quot;https://www.medrxiv.org/content/10.1101/2020.10.30.20223198v1.full.pdf&quot;&gt;95% in the most recent study&lt;/a&gt;)! In other words, if a test is good at detecting contagious symptomatics, it will also be good at detecting contagious asymptomatics.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/2020_contagiousness/venn_contagious_and_symptomatic.png&quot; /&gt;&lt;/p&gt;
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/assets/2020_contagiousness/venn_contagious_and_symptomatic.png&quot; height=&quot;200&quot; class=&quot;inner&quot; style=&quot;position:relative&quot; /&gt;&lt;/p&gt;
+&lt;/div&gt;
 &lt;div class=&quot;caption&quot;&gt;
   &lt;p&gt;&lt;strong&gt;Figure 5&lt;/strong&gt;. Venn diagram showing that most asymptomatic infections are not contagious, and yet a large fraction of contagious people are asymptomatic.&lt;/p&gt;
 &lt;/div&gt;

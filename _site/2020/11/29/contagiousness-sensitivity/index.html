@@ -114,12 +114,14 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
 
 <p>Antigen tests have <a href="https://www.medrxiv.org/content/10.1101/2020.11.18.20234104v1.full.pdf">very high</a> <em>contagiousness sensitivity</em>, defined as the percentage of contagious people that the test detects. This is a crucial metric for public health.</p>
 
-<p><img src="/assets/2020_contagiousness/venn_contagious.png" /></p>
+<div class="wrapper">
+  <p><img src="/assets/2020_contagiousness/venn_contagious.png" height="200" class="inner" style="position:relative" /></p>
+</div>
 <div class="caption">
   <p><strong>Figure 1</strong>. Venn diagram showing that most infected people are not likely contagious</p>
 </div>
 
-<p>Another metric is <em>diagnostic sensitivity</em>, the percentage of infected people a test detects.  While useful for medical purposes, diagnostic sensitivity is far less useful for public health. That’s because it includes many people who have trace viral RNA fragments that can remain for weeks after they have <a href="https://www.medrxiv.org/content/10.1101/2020.08.04.20167932v4.full.pdf">stopped being contagious</a>. In some populations, antigen tests may have &gt;95% contagiousness sensitivity, but only 40% diagnostic sensitivity. When it comes to stopping spread of the virus, the number that matters is the 95%, not the 40%. Almost everyone the antigen test “misses” is no longer contagious.</p>
+<p>There is another metric, however, which is much less useful for public health. This metric is called <em>diagnostic sensitivity</em>, and is defined as the percentage of infected people a test detects. While useful for medical purposes, diagnostic sensitivity is far less useful for public health. That’s because it includes many people who have trace viral RNA fragments that can remain for weeks after they have <a href="https://www.medrxiv.org/content/10.1101/2020.08.04.20167932v4.full.pdf">stopped being contagious</a>. In some populations, antigen tests may have &gt;95% contagiousness sensitivity, but only 40% diagnostic sensitivity. When it comes to stopping spread of the virus, the number that matters is the 95%, not the 40%. Almost everyone the antigen test “misses” is no longer contagious.</p>
 
 <p>Although easy access to antigen tests was proposed very early in the pandemic, we still don’t have it in the US. The few tests available are only approved for symptomatic use cases, even though they would be most useful for preventing asymptomatic spread. The only at-home test requires a doctor’s prescription.</p>
 
@@ -179,7 +181,9 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
 
 <p>From a public health point of view, this makes little sense. To control the virus, you need to identify contagious individuals. Symptomatic people tend to have more virus than asymptomatic people, so it’s no surprise that antigen tests have higher diagnostic sensitivity among symptomatic people. What matters to public health is contagiousness sensitivity, which is equally high in both asymptomatics and symptomatics (<a href="https://www.medrxiv.org/content/10.1101/2020.10.30.20223198v1.full.pdf">95% in the most recent study</a>)! In other words, if a test is good at detecting contagious symptomatics, it will also be good at detecting contagious asymptomatics.</p>
 
-<p><img src="/assets/2020_contagiousness/venn_contagious_and_symptomatic.png" /></p>
+<div class="wrapper">
+  <p><img src="/assets/2020_contagiousness/venn_contagious_and_symptomatic.png" height="200" class="inner" style="position:relative" /></p>
+</div>
 <div class="caption">
   <p><strong>Figure 5</strong>. Venn diagram showing that most asymptomatic infections are not contagious, and yet a large fraction of contagious people are asymptomatic.</p>
 </div>
