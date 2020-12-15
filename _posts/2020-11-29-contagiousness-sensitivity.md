@@ -12,7 +12,7 @@ Until vaccines are widely adopted, rapid antigen tests are one of our best hopes
 
 Antigen tests work because they can identify people who are contagious. Knowing you are contagious lets you isolate yourself before you infect others.
 
-Antigen tests have [very high](https://www.medrxiv.org/content/10.1101/2020.11.18.20234104v1.full.pdf) _contagiousness sensitivity_, defined as the percentage of contagious people that the test detects. This is a crucial metric for public health.
+Most antigen tests have [very high](https://www.medrxiv.org/content/10.1101/2020.11.18.20234104v1.full.pdf) _contagiousness sensitivity_, defined as the percentage of contagious people that the test detects. This is a crucial metric for public health.
 
 <div class="wrapper">
   <img src='/assets/2020_contagiousness/venn_contagious.png' height="200" class="inner" style="position:relative">
@@ -36,7 +36,7 @@ What makes someone contagious? There are several factors, but a reasonable defin
 **Figure 2**. Likely levels of contagiousness as a function of viral concentration (cp/mL)
 </div>
 
-Critics say that we can’t be certain of this cutoff. What if the cutoff is [actually](https://www.nytimes.com/2020/11/02/health/coronavirus-testing-quidel-sofia.html) $$ 10^4 $$ or $$ 10^6 $$? What if there are [other factors](https://www.fda.gov/media/143957/download) besides viral count?
+Critics say that we can’t be certain of this cutoff. What if the cutoff is [actually](https://www.nytimes.com/2020/11/02/health/coronavirus-testing-quidel-sofia.html) $$ 10^4 $$ or $$ 10^6 $$? What if there are [other factors](https://www.fda.gov/media/143957/download) besides viral count? What if the same viral count is more contagious when the virus is spreading than when it's being removed?
 
 The critics aren’t wrong. But in a public health crisis, [we cannot afford this level of precision](https://twitter.com/AbraarKaran/status/1257526025245855747) – it sets up the perfect as the enemy of the good. 
 
