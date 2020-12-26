@@ -17,7 +17,7 @@ $$H(p, q) = -\sum_{j=1}^M{p_j log (q_j)}$$
 
 … where $$p$$ is the true distribution of outcomes and $$q$$ is the approximating distribution.
 
-But in machine learning, the cross entropy is defined as:
+But in machine learning, the cross-entropy is defined as:
 
 $$H(y, p) = -\sum_{j=1}^M{y_j log (p(y_j))}$$
 
