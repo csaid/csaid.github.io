@@ -53,7 +53,7 @@ The image below shows these two formulas broken into their components.
 </div>
 
 ### Where to learn about cross-entropy
-I don’t know if there is a single best place to learn about cross-entropy, but here a few places that were helpful.
+I don’t know if there is a single best place to learn about cross-entropy, but below are a few places that were helpful. If you read them make sure you think about (a) which notation they are using (b) whether they are writing about single trials or multiple trials and (c) whether they are writing about binary classes or multi classes.  
 
 - [Statistical Rethinking](https://xcelab.net/rm/statistical-rethinking). Information theory notation, single trial case, multiple classes. 
 - [Andrew Webb](http://www.awebb.info/probability/2017/05/18/cross-entropy-and-log-likelihood.html). Both notations, both the single and multiple trial case, multiple classes.
