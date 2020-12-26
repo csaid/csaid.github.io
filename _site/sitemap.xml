@@ -3,6 +3,21 @@
   
     
     <url>
+      <loc>http://localhost:4000/2020/12/26/two-things-that-confused-me-about-cross-entropy/</loc>
+      
+        <lastmod>2020-12-26T00:00:00-05:00</lastmod>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.5</priority>
+      
+    </url>
+    
+  
+    
+    <url>
       <loc>http://localhost:4000/2020/11/29/contagiousness-sensitivity/</loc>
       
         <lastmod>2020-11-29T00:00:00-05:00</lastmod>
@@ -670,7 +685,7 @@
     <url>
       <loc>http://localhost:4000404.html</loc>
       
-        <lastmod>2020-12-04T20:28:45-05:00</lastmod>
+        <lastmod>2020-12-26T12:51:59-05:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -1268,6 +1283,19 @@
           <loc>http://localhost:4000/2020/11/29/contagiousness-sensitivity/</loc>
           
             <lastmod>2020-11-29T00:00:00-05:00</lastmod>
+          
+          
+            <changefreq>monthly</changefreq>
+          
+          
+            <priority>0.3</priority>
+          
+        </url>
+      
+        <url>
+          <loc>http://localhost:4000/2020/12/26/two-things-that-confused-me-about-cross-entropy/</loc>
+          
+            <lastmod>2020-12-26T00:00:00-05:00</lastmod>
           
           
             <changefreq>monthly</changefreq>

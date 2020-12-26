@@ -4,13 +4,74 @@
  <title>Chris Said</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2020-12-04T20:28:45-05:00</updated>
+ <updated>2020-12-26T12:51:59-05:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
    <email></email>
  </author>
 
+ 
+ <entry>
+   <title>Two things that confused me about cross-entropy</title>
+   <link href="http://localhost:4000/2020/12/26/two-things-that-confused-me-about-cross-entropy/"/>
+   <updated>2020-12-26T00:00:00-05:00</updated>
+   <id>http://localhost:4000/2020/12/26/two-things-that-confused-me-about-cross-entropy</id>
+   <content type="html">&lt;p&gt;Every once in a while, I try to better understand cross-entropy by skimming over some Medium posts and StackExchange answers. I always come away only half-understanding it.&lt;/p&gt;
+
+&lt;p&gt;A major cause of confusion is that different sources use different notations and conventions. Here are two that have tripped me up.&lt;/p&gt;
+
+&lt;h3 id=&quot;p-and-q-vs-y-and-p&quot;&gt;p and q vs y and p&lt;/h3&gt;
+
+&lt;p&gt;In information theory, the cross-entropy for an event with \(M\) discrete outcome classes is&lt;/p&gt;
+
+\[H(p, q) = -\sum_{j=1}^M{p_j log (q_j)}\]
+
+&lt;p&gt;… where \(p\) is the true distribution of outcomes and \(q\) is the approximating distribution.&lt;/p&gt;
+
+&lt;p&gt;But in machine learning, the cross entropy is defined as:&lt;/p&gt;
+
+\[H(y, p) = -\sum_{j=1}^M{y_j log (p(y_j))}\]
+
+&lt;p&gt;… where \(y\) are the true labels and \(p(y)\) is the approximating distribution, i.e. the classifier’s probability predictions.&lt;/p&gt;
+
+&lt;p&gt;Notice that the meaning of \(p\) has been reversed! In information theory, it is the true distribution. In machine learning, it is the approximating distribution.&lt;/p&gt;
+
+&lt;p&gt;There is a key difference between generic information theory and machine learning applications. In information theory, the target distribution \(p\) is a probability distribution where the probability mass can be distributed broadly over the classes. In machine learning, the target distribution \(y\) has all of its mass allocated to a known label.&lt;/p&gt;
+
+&lt;h3 id=&quot;multiple-trials-vs-multiple-classes&quot;&gt;Multiple trials vs multiple classes&lt;/h3&gt;
+
+&lt;p&gt;As shown above, the cross-entropy for a single event with \(M\) classes is:&lt;/p&gt;
+
+\[H(y, p) = -\sum_{j=1}^M{y_j log (p(y_j))}\]
+
+&lt;p&gt;If there are multiple trials, you just need to sum up all of the cross-entropies so that the total cross-entropy is:&lt;/p&gt;
+
+\[H(y, p) = -\sum_{i=1}^N \sum_{j=1}^M{y_j^{(i)} log (p(y_j^{(i)}))}\]
+
+&lt;p&gt;… where \(N\) is the number of trials.&lt;/p&gt;
+
+&lt;p&gt;This all makes notational sense. Unfortunately, confusion arises when some sources use non-compact notation for summing over binary classes. When dealing with binary classification, it’s common to see cross-entropy defined as:&lt;/p&gt;
+
+\[H(y, p) = -\sum_{i=1}^N{y_i log (p(y_i)) + (1-y_i) log (1 -p(y_i))}\]
+
+&lt;p&gt;Superficially, this looks a lot like the first formula. Both have a single summation sign, but one of them includes a \(1-y\) term. This can be confusing, until you realize that the two summation signs mean different things. One sums over classes, while the other sums over trials.&lt;/p&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/assets/2020_cross_entropy/cross-entropy.png&quot; height=&quot;200&quot; class=&quot;inner&quot; style=&quot;position:relative&quot; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;where-to-learn-about-cross-entropy&quot;&gt;Where to learn about cross-entropy&lt;/h3&gt;
+&lt;p&gt;I don’t know if there are is a single best place to learn about cross-entropy, but here a few places that were helpful.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://xcelab.net/rm/statistical-rethinking&quot;&gt;Statistical Rethinking&lt;/a&gt;. Information theory notation, single trial case, multiple classes.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.awebb.info/probability/2017/05/18/cross-entropy-and-log-likelihood.html&quot;&gt;Andrew Webb&lt;/a&gt;. Both notations, both the single and multiple trial case, multiple classes.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://towardsdatascience.com/log-loss-function-math-explained-5b83cd8d9c83&quot;&gt;Harshith&lt;/a&gt;. ML notation, multiple trials, binary classes.&lt;/li&gt;
+&lt;/ul&gt;
+
+</content>
+ </entry>
  
  <entry>
    <title>Contagiousness sensitivity&#58; The metric that could control the pandemic</title>
@@ -25,7 +86,7 @@
 
 &lt;p&gt;Antigen tests work because they can identify people who are contagious. Knowing you are contagious lets you isolate yourself before you infect others.&lt;/p&gt;
 
-&lt;p&gt;Antigen tests have &lt;a href=&quot;https://www.medrxiv.org/content/10.1101/2020.11.18.20234104v1.full.pdf&quot;&gt;very high&lt;/a&gt; &lt;em&gt;contagiousness sensitivity&lt;/em&gt;, defined as the percentage of contagious people that the test detects. This is a crucial metric for public health.&lt;/p&gt;
+&lt;p&gt;Most antigen tests have &lt;a href=&quot;https://www.medrxiv.org/content/10.1101/2020.11.18.20234104v1.full.pdf&quot;&gt;very high&lt;/a&gt; &lt;em&gt;contagiousness sensitivity&lt;/em&gt;, defined as the percentage of contagious people that the test detects. This is a crucial metric for public health.&lt;/p&gt;
 
 &lt;div class=&quot;wrapper&quot;&gt;
   &lt;p&gt;&lt;img src=&quot;/assets/2020_contagiousness/venn_contagious.png&quot; height=&quot;200&quot; class=&quot;inner&quot; style=&quot;position:relative&quot; /&gt;&lt;/p&gt;
@@ -49,7 +110,7 @@
   &lt;p&gt;&lt;strong&gt;Figure 2&lt;/strong&gt;. Likely levels of contagiousness as a function of viral concentration (cp/mL)&lt;/p&gt;
 &lt;/div&gt;
 
-&lt;p&gt;Critics say that we can’t be certain of this cutoff. What if the cutoff is &lt;a href=&quot;https://www.nytimes.com/2020/11/02/health/coronavirus-testing-quidel-sofia.html&quot;&gt;actually&lt;/a&gt; \(10^4\) or \(10^6\)? What if there are &lt;a href=&quot;https://www.fda.gov/media/143957/download&quot;&gt;other factors&lt;/a&gt; besides viral count?&lt;/p&gt;
+&lt;p&gt;Critics say that we can’t be certain of this cutoff. What if the cutoff is &lt;a href=&quot;https://www.nytimes.com/2020/11/02/health/coronavirus-testing-quidel-sofia.html&quot;&gt;actually&lt;/a&gt; \(10^4\) or \(10^6\)? What if there are &lt;a href=&quot;https://www.fda.gov/media/143957/download&quot;&gt;other factors&lt;/a&gt; besides viral count? What if the same viral count is more contagious when the virus is spreading than when it’s being removed?&lt;/p&gt;
 
 &lt;p&gt;The critics aren’t wrong. But in a public health crisis, &lt;a href=&quot;https://twitter.com/AbraarKaran/status/1257526025245855747&quot;&gt;we cannot afford this level of precision&lt;/a&gt; – it sets up the perfect as the enemy of the good.&lt;/p&gt;
 
