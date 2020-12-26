@@ -44,7 +44,7 @@ This all makes notational sense. Unfortunately, confusion arises when people use
 
 $$H(y, p) = -\sum_{i=1}^N{y_i log (p(y_i)) + (1-y_i) log (1 -p(y_i))}$$
 
-Superficially, this looks a lot like the first formula, but it's actually just a clever way of writing the second formula for binary classes. The first and third formulas confusingly look very similar, but the confusion goes away when you realize the two summations signs mean different things. One sums over classes, while the other sums over trials.
+Superficially, this looks a lot like the first formula, but it's actually just a clever way of writing the second formula for binary classes. The first and third formulas confusingly look very similar, but the confusion goes away when you realize the two summation signs mean different things. One sums over classes, while the other sums over trials.
 
 The image below shows these two formulas broken into their components.
 

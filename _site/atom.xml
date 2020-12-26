@@ -4,7 +4,7 @@
  <title>Chris Said</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2020-12-26T13:17:46-05:00</updated>
+ <updated>2020-12-26T13:23:14-05:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -55,7 +55,7 @@
 
 \[H(y, p) = -\sum_{i=1}^N{y_i log (p(y_i)) + (1-y_i) log (1 -p(y_i))}\]
 
-&lt;p&gt;Superficially, this looks a lot like the first formula, but it’s actually just a clever way of writing the second formula for binary classes. The first and third formulas confusingly look very similar, but the confusion goes away when you realize the two summations signs mean different things. One sums over classes, while the other sums over trials.&lt;/p&gt;
+&lt;p&gt;Superficially, this looks a lot like the first formula, but it’s actually just a clever way of writing the second formula for binary classes. The first and third formulas confusingly look very similar, but the confusion goes away when you realize the two summation signs mean different things. One sums over classes, while the other sums over trials.&lt;/p&gt;
 
 &lt;p&gt;The image below shows these two formulas broken into their components.&lt;/p&gt;
 
