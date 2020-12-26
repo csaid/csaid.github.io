@@ -4,7 +4,7 @@
  <title>Chris Said</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2020-12-26T12:51:59-05:00</updated>
+ <updated>2020-12-26T12:59:41-05:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -39,13 +39,13 @@
 
 &lt;p&gt;There is a key difference between generic information theory and machine learning applications. In information theory, the target distribution \(p\) is a probability distribution where the probability mass can be distributed broadly over the classes. In machine learning, the target distribution \(y\) has all of its mass allocated to a known label.&lt;/p&gt;
 
-&lt;h3 id=&quot;multiple-trials-vs-multiple-classes&quot;&gt;Multiple trials vs multiple classes&lt;/h3&gt;
+&lt;h3 id=&quot;multiple-classes-vs-multiple-trials&quot;&gt;Multiple classes vs multiple trials&lt;/h3&gt;
 
 &lt;p&gt;As shown above, the cross-entropy for a single event with \(M\) classes is:&lt;/p&gt;
 
 \[H(y, p) = -\sum_{j=1}^M{y_j log (p(y_j))}\]
 
-&lt;p&gt;If there are multiple trials, you just need to sum up all of the cross-entropies so that the total cross-entropy is:&lt;/p&gt;
+&lt;p&gt;If there are multiple trials, you just need to sum up the cross-entropies from all the trials so that the total cross-entropy is:&lt;/p&gt;
 
 \[H(y, p) = -\sum_{i=1}^N \sum_{j=1}^M{y_j^{(i)} log (p(y_j^{(i)}))}\]
 
@@ -57,12 +57,14 @@
 
 &lt;p&gt;Superficially, this looks a lot like the first formula. Both have a single summation sign, but one of them includes a \(1-y\) term. This can be confusing, until you realize that the two summation signs mean different things. One sums over classes, while the other sums over trials.&lt;/p&gt;
 
+&lt;p&gt;The image below shows these two formulas broken into their components.&lt;/p&gt;
+
 &lt;div class=&quot;wrapper&quot;&gt;
   &lt;p&gt;&lt;img src=&quot;/assets/2020_cross_entropy/cross-entropy.png&quot; height=&quot;200&quot; class=&quot;inner&quot; style=&quot;position:relative&quot; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;h3 id=&quot;where-to-learn-about-cross-entropy&quot;&gt;Where to learn about cross-entropy&lt;/h3&gt;
-&lt;p&gt;I don’t know if there are is a single best place to learn about cross-entropy, but here a few places that were helpful.&lt;/p&gt;
+&lt;p&gt;I don’t know if there is a single best place to learn about cross-entropy, but here a few places that were helpful.&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://xcelab.net/rm/statistical-rethinking&quot;&gt;Statistical Rethinking&lt;/a&gt;. Information theory notation, single trial case, multiple classes.&lt;/li&gt;

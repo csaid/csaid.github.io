@@ -28,13 +28,13 @@ Notice that the meaning of $$p$$ has been reversed! In information theory, it is
 There is a key difference between generic information theory and machine learning applications. In information theory, the target distribution $$p$$ is a probability distribution where the probability mass can be distributed broadly over the classes. In machine learning, the target distribution $$y$$ has all of its mass allocated to a known label.
 
 
-### Multiple trials vs multiple classes
+### Multiple classes vs multiple trials
 
 As shown above, the cross-entropy for a single event with $$M$$ classes is:
 
 $$H(y, p) = -\sum_{j=1}^M{y_j log (p(y_j))}$$
 
-If there are multiple trials, you just need to sum up all of the cross-entropies so that the total cross-entropy is:
+If there are multiple trials, you just need to sum up the cross-entropies from all the trials so that the total cross-entropy is:
 
 $$H(y, p) = -\sum_{i=1}^N \sum_{j=1}^M{y_j^{(i)} log (p(y_j^{(i)}))}$$
 
@@ -46,12 +46,14 @@ $$H(y, p) = -\sum_{i=1}^N{y_i log (p(y_i)) + (1-y_i) log (1 -p(y_i))}$$
 
 Superficially, this looks a lot like the first formula. Both have a single summation sign, but one of them includes a $$1-y$$ term. This can be confusing, until you realize that the two summation signs mean different things. One sums over classes, while the other sums over trials.
 
+The image below shows these two formulas broken into their components.
+
 <div class="wrapper">
   <img src='/assets/2020_cross_entropy/cross-entropy.png' height="200" class="inner" style="position:relative">
 </div>
 
 ### Where to learn about cross-entropy
-I don’t know if there are is a single best place to learn about cross-entropy, but here a few places that were helpful.
+I don’t know if there is a single best place to learn about cross-entropy, but here a few places that were helpful.
 
 - [Statistical Rethinking](https://xcelab.net/rm/statistical-rethinking). Information theory notation, single trial case, multiple classes. 
 - [Andrew Webb](http://www.awebb.info/probability/2017/05/18/cross-entropy-and-log-likelihood.html). Both notations, both the single and multiple trial case, multiple classes.
