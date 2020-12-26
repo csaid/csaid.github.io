@@ -4,7 +4,7 @@
  <title>Chris Said</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2020-12-26T13:23:14-05:00</updated>
+ <updated>2020-12-26T17:45:44-05:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -59,9 +59,7 @@
 
 &lt;p&gt;The image below shows these two formulas broken into their components.&lt;/p&gt;
 
-&lt;div class=&quot;wrapper&quot;&gt;
-  &lt;p&gt;&lt;img src=&quot;/assets/2020_cross_entropy/cross-entropy.png&quot; height=&quot;200&quot; class=&quot;inner&quot; style=&quot;position:relative&quot; /&gt;&lt;/p&gt;
-&lt;/div&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/2020_cross_entropy/cross-entropy.png&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;where-to-learn-about-cross-entropy&quot;&gt;Where to learn about cross-entropy&lt;/h3&gt;
 &lt;p&gt;I don’t know if there is a single best place to learn about cross-entropy, but below are a few places that were helpful. If you read them make sure you think about (a) which notation they are using (b) whether they are writing about single trials or multiple trials and (c) whether they are writing about binary classes or multi classes.&lt;/p&gt;
