@@ -40,11 +40,11 @@ $$H(y, p) = -\sum_{i=1}^N \sum_{j=1}^M{y_j^{(i)} log (p(y_j^{(i)}))}$$
 
 … where $$N$$ is the number of trials.
 
-This all makes notational sense. Unfortunately, confusion arises when some sources use non-compact notation for summing over binary classes. When dealing with binary classification, it’s common to see cross-entropy defined as:
+This all makes notational sense. Unfortunately, confusion arises when people use non-compact notation for summing over binary classes. When dealing with binary classification, it’s common to see cross-entropy defined as:
 
 $$H(y, p) = -\sum_{i=1}^N{y_i log (p(y_i)) + (1-y_i) log (1 -p(y_i))}$$
 
-Superficially, this looks a lot like the first formula. Both have a single summation sign, but one of them includes a $$1-y$$ term. This can be confusing, until you realize that the two summation signs mean different things. One sums over classes, while the other sums over trials.
+Superficially, this looks a lot like the first formula, but it's actually just a clever way of writing the second formula for binary classes. The first and third formulas confusingly look very similar, but the confusion goes away when you realize the two summations signs mean different things. One sums over classes, while the other sums over trials.
 
 The image below shows these two formulas broken into their components.
 
