@@ -25,7 +25,7 @@ $$H(y, p) = -\sum_{j=1}^M{y_j log (p(y_j))}$$
 
 Notice that the meaning of $$p$$ has been reversed! In information theory, it is the true distribution. In machine learning, it is the approximating distribution.
 
-There is a key difference between generic information theory and machine learning applications. In information theory, the target distribution $$p$$ is a probability distribution where the probability mass can be distributed broadly over the classes. In machine learning, the target distribution $$y$$ has all of its mass allocated to a known label.
+This points to a key difference between generic information theory and machine learning applications. In information theory, the target distribution $$p$$ is a probability distribution where the probability mass can be distributed broadly over the classes. In machine learning, the target distribution $$y$$ has all of its mass allocated to a known label.
 
 
 ### Multiple classes vs multiple trials
