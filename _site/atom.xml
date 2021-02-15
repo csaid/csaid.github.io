@@ -4,7 +4,7 @@
  <title>Chris Said</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2021-02-15T17:01:52-05:00</updated>
+ <updated>2021-02-15T17:02:16-05:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -62,7 +62,7 @@
   &lt;li&gt;While not a notational difference, this formula sums over events (and then enumerates a sum over classes), whereas the first formula in this section only sums over classes.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;The image below summarizes the many confusing difference between these formulas.&lt;/p&gt;
+&lt;p&gt;The image below summarizes the many confusing differences between these formulas.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/2020_cross_entropy/cross-entropy.png&quot; /&gt;&lt;/p&gt;
 

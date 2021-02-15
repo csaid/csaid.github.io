@@ -49,7 +49,7 @@ Superficially, this looks a lot like the first formula, but it’s actually just
 * Second, $$ y_i $$ (when not wrapped by a $$ p $$) is a *label*, not an indicator! When the event has an outcome of 1, $$ y_i $$ is 1. When it has an outcome of 0, $$ y_i $$ is 0. In previous formulas, as you loop through classes you would set $$ y_j $$ to be 1 whenever the outcome was the class being considered; otherwise you set it to 0.
 * While not a notational difference, this formula sums over events (and then enumerates a sum over classes), whereas the first formula in this section only sums over classes. 
 
-The image below summarizes the many confusing difference between these formulas.
+The image below summarizes the many confusing differences between these formulas.
 
 <img src='/assets/2020_cross_entropy/cross-entropy.png'>
 
