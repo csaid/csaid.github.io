@@ -46,7 +46,7 @@ $$H(y, p) = -\sum_{i=1}^N{y_i log (p(y_i)) + (1-y_i) log (1 -p(y_i))}$$
 
 Superficially, this looks a lot like the first formula, but it’s actually just a clever and somewhat confusing way of writing the second formula for binary classes. Its notation differs from previous formulas in a few ways:
 * First, $$ p(y_i) $$ always refers to the probability of a positive result. In previous formulas, $$ p(y_j) $$ referred to the probability of the particular class being considered in the summation loop.
-* Second, $$ y_i $$ (when not wrapped by a $$ p $$) is a *label*, not an indicator! When the event has an outcome of 1, $$ y_i $$ is 1. When it has an outcome of 0, $$ y_i $$ is 0. In previous formulas, as you loop through classes you would set $$ y_j $$ to be 1 whenever the outcome was the class being considered; otherwise you set it to zero.
+* Second, $$ y_i $$ (when not wrapped by a $$ p $$) is a *label*, not an indicator! When the event has an outcome of 1, $$ y_i $$ is 1. When it has an outcome of 0, $$ y_i $$ is 0. In previous formulas, as you loop through classes you would set $$ y_j $$ to be 1 whenever the outcome was the class being considered; otherwise you set it to 0.
 * While not a notational difference, this formula sums over events (and then enumerates a sum over classes), whereas the first formula in this section only sums over classes. 
 
 The image below summarizes the many confusing difference between these formulas.

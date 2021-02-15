@@ -4,7 +4,7 @@
  <title>Chris Said</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2021-02-15T16:58:20-05:00</updated>
+ <updated>2021-02-15T17:01:52-05:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -58,7 +58,7 @@
 &lt;p&gt;Superficially, this looks a lot like the first formula, but it’s actually just a clever and somewhat confusing way of writing the second formula for binary classes. Its notation differs from previous formulas in a few ways:&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;First, \(p(y_i)\) always refers to the probability of a positive result. In previous formulas, \(p(y_j)\) referred to the probability of the particular class being considered in the summation loop.&lt;/li&gt;
-  &lt;li&gt;Second, \(y_i\) (when not wrapped by a \(p\)) is a &lt;em&gt;label&lt;/em&gt;, not an indicator! When the event has an outcome of 1, \(y_i\) is 1. When it has an outcome of 0, \(y_i\) is 0. In previous formulas, as you loop through classes you would set \(y_j\) to be 1 whenever the outcome was the class being considered; otherwise you set it to zero.&lt;/li&gt;
+  &lt;li&gt;Second, \(y_i\) (when not wrapped by a \(p\)) is a &lt;em&gt;label&lt;/em&gt;, not an indicator! When the event has an outcome of 1, \(y_i\) is 1. When it has an outcome of 0, \(y_i\) is 0. In previous formulas, as you loop through classes you would set \(y_j\) to be 1 whenever the outcome was the class being considered; otherwise you set it to 0.&lt;/li&gt;
   &lt;li&gt;While not a notational difference, this formula sums over events (and then enumerates a sum over classes), whereas the first formula in this section only sums over classes.&lt;/li&gt;
 &lt;/ul&gt;
 
