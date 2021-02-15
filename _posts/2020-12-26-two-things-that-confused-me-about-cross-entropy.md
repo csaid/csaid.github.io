@@ -49,12 +49,12 @@ Superficially, this looks a lot like the first formula, but it’s actually just
 * Second, $$ y_i $$ (when not wrapped by a $$ p $$) is a *label*, not an indicator! When the event has an outcome of 1, $$ y_i $$ is 1. When it has an outcome of 0, $$ y_i $$ is 0. In previous formulas, as you loop through categories you would set $$ y_j $$ to be 1 whenever the outcome was the category being considered; otherwise you set it to zero.
 * While not a notational difference, this formula sums over events (and then enumerates a sum over categories), whereas the first formula in this section only sums over categories. 
 
-The image below shows summarizes the many confusing difference between these formulas.
+The image below summarizes the many confusing difference between these formulas.
 
 <img src='/assets/2020_cross_entropy/cross-entropy.png'>
 
 ### Where to learn about cross-entropy
-I don’t know if there is a single best place to learn about cross-entropy, but below are a few places that were helpful. If you read them make sure you think about (a) which notation they are using (b) whether they are writing about single trials or multiple trials (c) whether they are writing about binary classes or multi classes and (d) whether the $$ y $$'s are indicators or labels.
+I don’t know if there is a single best place to learn about cross-entropy, but below are a few places that were helpful. If you read them make sure you think about (a) how they are notating the true distribution and the approximating distribution (b) whether they are writing about single trials or multiple trials (c) whether they are writing about binary classes or multi classes and (d) whether the $$ y $$'s are indicators or labels.
 
 - [Statistical Rethinking](https://xcelab.net/rm/statistical-rethinking). Information theory notation, single trial case, multiple classes. 
 - [Andrew Webb](http://www.awebb.info/probability/2017/05/18/cross-entropy-and-log-likelihood.html). Both notations, both the single and multiple trial case, multiple classes.
