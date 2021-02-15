@@ -44,14 +44,17 @@ This all makes notational sense. Unfortunately, confusion arises when people use
 
 $$H(y, p) = -\sum_{i=1}^N{y_i log (p(y_i)) + (1-y_i) log (1 -p(y_i))}$$
 
-Superficially, this looks a lot like the first formula, but it's actually just a clever way of writing the second formula for binary classes. The first and third formulas confusingly look very similar, but the confusion goes away when you realize the two summation signs mean different things. One sums over classes, while the other sums over trials.
+Superficially, this looks a lot like the first formula, but it’s actually just a clever and somewhat confusing way of writing the second formula for binary classes. Its notation differs from previous formulas in a few ways:
+* First, $$ p(y_i) $$ always refers to the probability of a positive result. In previous formulas, $$ p(y_j) $$ referred to the probability of the particular category being considered in the summation loop.
+* Second, $$ y_i $$ (when not wrapped by a $$ p $$) is a *label*, not an indicator! When the event has an outcome of 1, $$ y_i $$ is 1. When it has an outcome of 0, $$ y_i $$ is 0. In previous formulas, as you loop through categories you would set $$ y_j $$ to be 1 whenever the outcome was the category being considered; otherwise you set it to zero.
+* While not a notational difference, notice that this formula sums over events (and then enumerates a sum over categories), whereas the first formula in this section only sums over categories. 
 
-The image below shows these two formulas broken into their components.
+The image below shows these two formulas broken into their components, with notes about notational differences.
 
 <img src='/assets/2020_cross_entropy/cross-entropy.png'>
 
 ### Where to learn about cross-entropy
-I don’t know if there is a single best place to learn about cross-entropy, but below are a few places that were helpful. If you read them make sure you think about (a) which notation they are using (b) whether they are writing about single trials or multiple trials and (c) whether they are writing about binary classes or multi classes.  
+I don’t know if there is a single best place to learn about cross-entropy, but below are a few places that were helpful. If you read them make sure you think about (a) which notation they are using (b) whether they are writing about single trials or multiple trials (c) whether they are writing about binary classes or multi classes and (d) whether the $$ y $$'s are indicators or labels.
 
 - [Statistical Rethinking](https://xcelab.net/rm/statistical-rethinking). Information theory notation, single trial case, multiple classes. 
 - [Andrew Webb](http://www.awebb.info/probability/2017/05/18/cross-entropy-and-log-likelihood.html). Both notations, both the single and multiple trial case, multiple classes.
