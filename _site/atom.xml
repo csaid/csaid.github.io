@@ -4,7 +4,7 @@
  <title>Chris Said</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2021-02-15T17:02:16-05:00</updated>
+ <updated>2021-02-15T17:04:06-05:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -19,7 +19,7 @@
    <id>http://localhost:4000/2020/12/26/two-things-that-confused-me-about-cross-entropy</id>
    <content type="html">&lt;p&gt;Every once in a while, I try to better understand cross-entropy by skimming over some Medium posts and StackExchange answers. I always come away only half-understanding it.&lt;/p&gt;
 
-&lt;p&gt;A major cause of confusion is that different sources use different notations and conventions. Here are two that have tripped me up.&lt;/p&gt;
+&lt;p&gt;A major cause of confusion is that different sources use different notations and conventions. Here are some that tripped me up.&lt;/p&gt;
 
 &lt;h3 id=&quot;p-and-q-vs-y-and-p&quot;&gt;p and q vs y and p&lt;/h3&gt;
 

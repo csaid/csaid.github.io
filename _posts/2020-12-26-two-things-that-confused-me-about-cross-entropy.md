@@ -7,7 +7,7 @@ image: /assets/2020_cross_entropy/H_p_q.png
 
 Every once in a while, I try to better understand cross-entropy by skimming over some Medium posts and StackExchange answers. I always come away only half-understanding it.
 
-A major cause of confusion is that different sources use different notations and conventions. Here are two that have tripped me up.
+A major cause of confusion is that different sources use different notations and conventions. Here are some that tripped me up.
 
 ### p and q vs y and p
 
