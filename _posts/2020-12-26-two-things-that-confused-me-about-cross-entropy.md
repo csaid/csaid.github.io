@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Two things that confused me about cross-entropy
+title: Things that confused me about cross-entropy
 description: Some warnings about unstandardized notation
 image: /assets/2020_cross_entropy/H_p_q.png
 ---
@@ -28,7 +28,7 @@ Notice that the meaning of $$p$$ has been reversed! In information theory, it is
 This points to a key difference between generic information theory and machine learning applications. In information theory, the target distribution $$p$$ is a probability distribution where the probability mass can be distributed broadly over the classes. In machine learning, the target distribution $$y$$ has all of its mass allocated to a known label.
 
 
-### Multiple classes vs multiple trials
+### Multiple classes vs multiple trials, and indicators vs labels
 
 As shown above, the cross-entropy for a single event with $$M$$ classes is:
 

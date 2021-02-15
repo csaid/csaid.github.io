@@ -4,7 +4,7 @@
  <title>Chris Said</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2021-02-15T16:57:11-05:00</updated>
+ <updated>2021-02-15T16:58:20-05:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -13,7 +13,7 @@
 
  
  <entry>
-   <title>Two things that confused me about cross-entropy</title>
+   <title>Things that confused me about cross-entropy</title>
    <link href="http://localhost:4000/2020/12/26/two-things-that-confused-me-about-cross-entropy/"/>
    <updated>2020-12-26T00:00:00-05:00</updated>
    <id>http://localhost:4000/2020/12/26/two-things-that-confused-me-about-cross-entropy</id>
@@ -39,7 +39,7 @@
 
 &lt;p&gt;This points to a key difference between generic information theory and machine learning applications. In information theory, the target distribution \(p\) is a probability distribution where the probability mass can be distributed broadly over the classes. In machine learning, the target distribution \(y\) has all of its mass allocated to a known label.&lt;/p&gt;
 
-&lt;h3 id=&quot;multiple-classes-vs-multiple-trials&quot;&gt;Multiple classes vs multiple trials&lt;/h3&gt;
+&lt;h3 id=&quot;multiple-classes-vs-multiple-trials-and-indicators-vs-labels&quot;&gt;Multiple classes vs multiple trials, and indicators vs labels&lt;/h3&gt;
 
 &lt;p&gt;As shown above, the cross-entropy for a single event with \(M\) classes is:&lt;/p&gt;
 
