@@ -66,7 +66,7 @@ While practically useful, contagiousness sensitivity does not have official reco
 Let’s look at two examples.
 
 #### Journalism
-A recent New York Times article headlined “[A Rapid Test Falters in People Without Symptoms](https://www.nytimes.com/2020/11/02/health/coronavirus-testing-quidel-sofia.html)” highlighted low diagnostic sensitivity in antigen tests (30% in some populations!). Only after 21 paragraphs did the article mention the much more relevant contagiousness sensitivity metric, which showed strong real world performance at 85%. By highlighting the irrelevant metric rather than the relevant metric, the article gave readers the false impression that antigen tests are inaccurate. In fact, antigen tests are accurate -- for the job that they are intended to do.
+A recent New York Times article headlined “[A Rapid Test Falters in People Without Symptoms](https://www.nytimes.com/2020/11/02/health/coronavirus-testing-quidel-sofia.html)” highlighted low diagnostic sensitivity in antigen tests (30% in some populations!). Only after 21 paragraphs did the article mention the much more relevant contagiousness sensitivity metric, which showed strong real world performance at 85%. By highlighting the irrelevant metric rather than the relevant metric, the article gave readers the impression that antigen tests are inaccurate. In fact, antigen tests are accurate -- for the job that they are intended to do.
 
 Why did the journalist wait so long to introduce the contagiousness sensitivity metric? Because of concerns that appear overly academic. “There is no universal ‘magic-number cutoff’, one researcher was quoted as saying. Failure to culture the virus is not a “guarantee” of lack of contagiousness, said another. 
 
@@ -90,7 +90,7 @@ Because the FDA does not use contagious sensitivity, it overlooks this critical 
 The FDA could greatly speed up the process and justifiably approve antigen tests if they based their decisions on contagiousness sensitivity, a step which would dissolve the unnecessary requirement to show separate data for symptomatics and asymptomatics.
 
 ### A plea for the medical community
-If there are any medical experts reading this, my plea to you is to help make contagiousness sensitivity a formal metric in your profession. If you are a scientist, use this metric in your papers (many already are). And if you are a regulator, consider using this metric as your standard for public health tests. Doing so could save hundreds of thousands of lives.
+If there are any medical experts reading this, my plea to you is to help make contagiousness sensitivity a formal metric in your profession. If you are a scientist, use this metric in your papers (many already are). And if you are a regulator, consider using this metric as your standard for public health tests.
 
 <div class='caption'>
 Special thanks to Jon Frankle and Jonas Binding for comments on an earlier draft.
