@@ -21,7 +21,7 @@ Most antigen tests have [very high](https://www.medrxiv.org/content/10.1101/2020
 **Figure 1**. Venn diagram showing that most infected people are not likely contagious
 </div>
 
-There is another metric, however, which is much less useful for public health. This metric is called _diagnostic sensitivity_, and is defined as the percentage of infected people a test detects. While useful for medical purposes, diagnostic sensitivity is far less useful for public health. That’s because it includes many people who have trace viral RNA fragments that can remain for weeks after they have [stopped being contagious](https://www.medrxiv.org/content/10.1101/2020.08.04.20167932v4.full.pdf). In some populations, antigen tests may have >95% contagiousness sensitivity, but only 40% diagnostic sensitivity. When it comes to stopping spread of the virus, the number that matters is the 95%, not the 40%. Almost everyone the antigen test “misses” is no longer contagious.
+There is another metric, however, called _diagnostic sensitivity_. It is defined as the percentage of infected people a test detects. While useful for medical purposes, diagnostic sensitivity is far less useful for public health. That’s because it includes many people who have trace viral RNA fragments that can remain for weeks after they have [stopped being contagious](https://www.medrxiv.org/content/10.1101/2020.08.04.20167932v4.full.pdf). In some populations, antigen tests may have >95% contagiousness sensitivity, but only 40% diagnostic sensitivity. When it comes to stopping spread of the virus, the number that matters is the 95%, not the 40%. Almost everyone the antigen test “misses” is no longer contagious.
 
 Although easy access to antigen tests was proposed very early in the pandemic, we still don’t have it in the US. The few tests available are only approved for symptomatic use cases, even though they would be most useful for preventing asymptomatic spread. The only at-home test requires a doctor’s prescription.
 
@@ -70,7 +70,7 @@ A recent New York Times article headlined “[A Rapid Test Falters in People Wit
 
 Why did the journalist wait so long to introduce the contagiousness sensitivity metric? Because of concerns that appear overly academic. “There is no universal ‘magic-number cutoff’, one researcher was quoted as saying. Failure to culture the virus is not a “guarantee” of lack of contagiousness, said another. 
 
-Both of these critics are technically correct! It’s just that the level of precision they are demanding is wholly inappropriate for a public health testing goal. In public health, a practical but imprecise metric is better than a precise but irrelevant metric. Measures that are merely reasonably good, like vaccines and masks, can help break transmission chains.
+Both of these critics are technically correct! It’s just that the level of precision they are demanding isn't inappropriate for a public health testing goal. In public health, a practical but imprecise metric is better than a precise but irrelevant metric. Measures that are merely reasonably good, like vaccines and masks, can help break transmission chains.
 
 #### FDA Regulations
 According to the diagnostic sensitivity metric, antigen tests are less sensitive in asymptomatics than in symptomatics. Because the FDA uses this metric, they have not approved any antigen tests for asymptomatic use.
