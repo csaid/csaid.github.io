@@ -4,7 +4,7 @@
  <title>Chris Said</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2021-03-13T16:20:44-05:00</updated>
+ <updated>2021-03-13T16:23:34-05:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -14,9 +14,9 @@
  
  <entry>
    <title>Instrumental variable analysis for non-economists</title>
-   <link href="http://localhost:4000/2021/03/11/instrumental-variables/"/>
-   <updated>2021-03-11T00:00:00-05:00</updated>
-   <id>http://localhost:4000/2021/03/11/instrumental-variables</id>
+   <link href="http://localhost:4000/2021/03/13/instrumental-variables/"/>
+   <updated>2021-03-13T00:00:00-05:00</updated>
+   <id>http://localhost:4000/2021/03/13/instrumental-variables</id>
    <content type="html">&lt;p&gt;Instrumental Variables estimation is one of the most popular techniques in causal inference. But it can be a little hard to understand, especially when it is presented with terms mostly familiar to economists, such as “endogeneity” and “correlated with the error term”. In this blog post, I share some visualizations that gave me better intuitions about it. The post is designed for scientists and engineers who are familiar with causal inference, but who have a visual way of thinking that differs from how economists think.&lt;/p&gt;
 
 &lt;p&gt;Imagine that you have a treatment variable \(D\) that causes an outcome \(Y\). The true data-generating process is&lt;/p&gt;
