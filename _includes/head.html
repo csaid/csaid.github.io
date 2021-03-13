@@ -16,16 +16,16 @@
     <meta name="description" content="A blog post by Chris Said">
   {% endif %}
 
-  <!-- twitter standard -->
-  <meta name="twitter:card" content="summary_large_image" />  
-  <meta name="twitter:site" content="@chris_said" />
-  <meta name="twitter:title" content="{{ page.title }}" />
-  <meta name="twitter:description" content="{{ page.description }}" />
-
   <!-- To get a link preview image, just set the image attribute in your _post -->
   {% if page.image %}
     <meta content="{{ site.url }}{{ page.image }}" property="og:image"/>
   {% endif %}
+
+  <!-- twitter standard -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@chris_said" />
+  <meta name="twitter:title" content="{{ page.title }}" />
+  <meta name="twitter:description" content="{{ page.description }}" />
 
 
   <title>
