@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Instrumental variable analysis for non-economists
+title: Instrumental variables analysis for non-economists
 description: Visualizations for scientists and engineers
 image: /assets/2021_instrumental_variables/fig_wrap_up_no_z.png
 ---
