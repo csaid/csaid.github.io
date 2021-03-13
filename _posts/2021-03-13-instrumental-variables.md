@@ -60,7 +60,7 @@ That would be nice. But how can we isolate $$\hat{D}$$? By regressing $$D$$ on $
 
 <img src='/assets/2021_instrumental_variables/fig_left_side_small.png'>
 
-Putting it all together, to estimate $$\delta$$ we need to avoid any part of $$D$$ that comes from $$U$$, since $$U$$ is an unobservable confound. Fortunately, there is a part of $$D$$ that we can isolate. It’s the part that comes from $$Z$$, and we call it $$\hat{D}$$. To isolate $$\hat{D}$$, we regress $$D$$ on $$Z$$ and then use the model to make a prediction from input $$Z$$. Once we have $$\hat{D}$$, we can regress $$Y$$ on $$\hat{D}$$ to estimate $$\delta$$. By assumption, this $$\delta$$ is the same $$\delta$$ that comes from other other parts of $$D$$, and is therefore the average treatment effect we want to estimate.
+Putting it all together, to estimate $$\delta$$ we need to avoid any part of $$D$$ that comes from $$U$$, since $$U$$ is an unobservable confound. Fortunately, there is a part of $$D$$ that we can isolate. It’s the part that comes from $$Z$$, and we call it $$\hat{D}$$. To isolate $$\hat{D}$$, we regress $$D$$ on $$Z$$ and then use the model to make a prediction from input $$Z$$. Once we have $$\hat{D}$$, we can regress $$Y$$ on $$\hat{D}$$ to estimate $$\delta$$. By assumption, this $$\delta$$ is the same $$\delta$$ that comes from the other parts of $$D$$, and is therefore the average treatment effect we want to estimate.
 
 
 <img src='/assets/2021_instrumental_variables/fig_wrap_up.png'>
