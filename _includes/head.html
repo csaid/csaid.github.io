@@ -16,6 +16,9 @@
     <meta name="description" content="A blog post by Chris Said">
   {% endif %}
 
+  {$ if page.summary_large_image}
+    <meta name="twitter:card" content="summary_large_image">
+
   <!-- To get a link preview image, just set the image attribute in your _post -->
   {% if page.image %}
     <meta content="{{ site.url }}{{ page.image }}" property="og:image"/>
