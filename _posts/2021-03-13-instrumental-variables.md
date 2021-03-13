@@ -2,7 +2,7 @@
 layout: post
 title: Instrumental variable analysis for non-economists
 description: Visualizations for scientists and engineers
-image: /assets/2021_instrumental_variables/fig_wrap_up_no_annotations.png
+image: /assets/2021_instrumental_variables/fig_wrap_up.png
 ---
 
 Instrumental Variables estimation is one of the most popular techniques in causal inference. But it can be a little hard to understand, especially when it is presented with terms mostly familiar to economists, such as "endogeneity" and "correlated with the error term". In this blog post, I share some visualizations that gave me better intuitions about it. The post is designed for scientists and engineers who are familiar with causal inference, but who have a visual way of thinking that differs from how economists think.
