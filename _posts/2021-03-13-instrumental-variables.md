@@ -13,7 +13,7 @@ $$Y = \delta D + \varepsilon$$
 
 where $$\delta$$ is the average treatment effect and $$\varepsilon$$ is some error. $$Y$$, $$D$$, and $$\varepsilon$$ are vectors and $$\delta$$ is scalar.
 
-The causal graph is shown below. Whereas the equation above puts outcome $$Y$$ on the left side, causal graphs typically put the outcome $$Y$$ on the right side. The graph shows simulated data for 16 units, each represented by a bar. The height of each bar represents the value for that unit and that variable. The treatment variable $$D$$ takes on continuous values, and the outcome $$Y$$ is the sum of the contributions from $$D$$ and its own error. 
+The causal graph is shown below. Whereas the equation above puts outcome $$Y$$ on the left side, causal graphs typically put the outcome $$Y$$ on the right side. The graph shows simulated data for 16 units, each represented by a bar. The height of each bar represents the value for that unit and that variable. The treatment variable $$D$$ takes on continuous values, and the outcome $$Y$$ is decomposed into its two components: $$D$$ and its own error. 
 
 <img src='/assets/2021_instrumental_variables/fig_basic_reg_small.png'>
 

@@ -4,7 +4,7 @@
  <title>Chris Said</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2021-03-13T17:39:29-05:00</updated>
+ <updated>2021-03-13T18:05:50-05:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -25,7 +25,7 @@
 
 &lt;p&gt;where \(\delta\) is the average treatment effect and \(\varepsilon\) is some error. \(Y\), \(D\), and \(\varepsilon\) are vectors and \(\delta\) is scalar.&lt;/p&gt;
 
-&lt;p&gt;The causal graph is shown below. Whereas the equation above puts outcome \(Y\) on the left side, causal graphs typically put the outcome \(Y\) on the right side. The graph shows simulated data for 16 units, each represented by a bar. The height of each bar represents the value for that unit and that variable. The treatment variable \(D\) takes on continuous values, and the outcome \(Y\) is the sum of the contributions from \(D\) and its own error.&lt;/p&gt;
+&lt;p&gt;The causal graph is shown below. Whereas the equation above puts outcome \(Y\) on the left side, causal graphs typically put the outcome \(Y\) on the right side. The graph shows simulated data for 16 units, each represented by a bar. The height of each bar represents the value for that unit and that variable. The treatment variable \(D\) takes on continuous values, and the outcome \(Y\) is decomposed into its two components: \(D\) and its own error.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/2021_instrumental_variables/fig_basic_reg_small.png&quot; /&gt;&lt;/p&gt;
 
