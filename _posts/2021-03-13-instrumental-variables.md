@@ -2,7 +2,7 @@
 layout: post
 title: Instrumental variable analysis for non-economists
 description: A visual introduction for scientists and engineers
-image: /assets/2021_instrumental_variables/fig_wrap_up.png
+image: /assets/2021_instrumental_variables/fig_wrap_up_no_annotations.png
 summary_large_image: True
 ---
 
