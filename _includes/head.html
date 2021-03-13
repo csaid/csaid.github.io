@@ -16,8 +16,7 @@
     <meta name="description" content="A blog post by Chris Said">
   {% endif %}
 
-  {$ if page.summary_large_image}
-    <meta name="twitter:card" content="summary_large_image">
+
 
   <!-- To get a link preview image, just set the image attribute in your _post -->
   {% if page.image %}
@@ -25,7 +24,12 @@
   {% endif %}
 
   <!-- twitter standard -->
-  <meta name="twitter:card" content="summary" />
+  {$ if page.summary_large_image}
+    <meta name="twitter:card" content="summary_large_image">
+  {% else %}
+    <meta name="twitter:card" content="summary" />
+  {% endif %}
+  
   <meta name="twitter:site" content="@chris_said" />
   <meta name="twitter:title" content="{{ page.title }}" />
   <meta name="twitter:description" content="{{ page.description }}" />
