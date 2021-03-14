@@ -4,7 +4,7 @@
  <title>Chris Said</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2021-03-14T09:11:20-04:00</updated>
+ <updated>2021-03-14T09:27:08-04:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -67,7 +67,7 @@
 
 &lt;p&gt;&lt;img src=&quot;/assets/2021_instrumental_variables/fig_left_side_small.png&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Putting it all together, to estimate \(\delta\) we need to avoid any part of \(D\) that comes from \(U\), since \(U\) is an unobservable confound. Fortunately, there is a part of \(D\) that we can isolate. It’s the part that comes from \(Z\), and we call it \(\hat{D}\). To isolate \(\hat{D}\), we regress \(D\) on \(Z\) and then use the model to make a prediction from input \(Z\). Once we have \(\hat{D}\), we can regress \(Y\) on \(\hat{D}\) to estimate \(\delta\). By assumption, this \(\delta\) is the same \(\delta\) that comes from the other parts of \(D\), and is therefore the average treatment effect we want to estimate. (Note: This approach, called Two-Stage Least Squares, will &lt;a href=&quot;https://stats.stackexchange.com/questions/126313/standard-errors-of-a-two-stage-least-squares-regression-stata&quot;&gt;underestimate&lt;/a&gt; the standard errors on \(\delta\))&lt;/p&gt;
+&lt;p&gt;Putting it all together, to estimate \(\delta\) we need to avoid any part of \(D\) that comes from \(U\), since \(U\) is an unobservable confound. Fortunately, there is a part of \(D\) that we can isolate. It’s the part that comes from \(Z\), and we call it \(\hat{D}\). To isolate \(\hat{D}\), we regress \(D\) on \(Z\) and then use the model to make a prediction from input \(Z\). Once we have \(\hat{D}\), we can regress \(Y\) on \(\hat{D}\) to estimate \(\delta\). By assumption, this \(\delta\) is the same \(\delta\) that comes from the other parts of \(D\), and is therefore the average treatment effect we want to estimate. (Note: This approach, called Two-Stage Least Squares, will &lt;a href=&quot;https://stats.stackexchange.com/questions/126313/standard-errors-of-a-two-stage-least-squares-regression-stata&quot;&gt;underestimate&lt;/a&gt; the standard errors on \(\delta\).)&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/2021_instrumental_variables/fig_wrap_up.png&quot; /&gt;&lt;/p&gt;
 
@@ -94,11 +94,11 @@
 &lt;span class=&quot;c1&quot;&gt;# First stage regression in IV approach
 &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mod1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;LinearRegression&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;mod1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;z&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;d_from_z&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mod1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;predict&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;z&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;d_hat&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mod1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;predict&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;z&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 
 &lt;span class=&quot;c1&quot;&gt;# Second stage regression in IV approach
 &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mod2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;LinearRegression&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;mod2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;d_from_z&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;mod2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;d_hat&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mod2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;coef_&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# Unbiased estimate of delta
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 

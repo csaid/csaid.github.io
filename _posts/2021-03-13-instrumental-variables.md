@@ -60,7 +60,7 @@ That would be nice. But how can we isolate $$\hat{D}$$? By regressing $$D$$ on $
 
 <img src='/assets/2021_instrumental_variables/fig_left_side_small.png'>
 
-Putting it all together, to estimate $$\delta$$ we need to avoid any part of $$D$$ that comes from $$U$$, since $$U$$ is an unobservable confound. Fortunately, there is a part of $$D$$ that we can isolate. It’s the part that comes from $$Z$$, and we call it $$\hat{D}$$. To isolate $$\hat{D}$$, we regress $$D$$ on $$Z$$ and then use the model to make a prediction from input $$Z$$. Once we have $$\hat{D}$$, we can regress $$Y$$ on $$\hat{D}$$ to estimate $$\delta$$. By assumption, this $$\delta$$ is the same $$\delta$$ that comes from the other parts of $$D$$, and is therefore the average treatment effect we want to estimate. (Note: This approach, called Two-Stage Least Squares, will [underestimate](https://stats.stackexchange.com/questions/126313/standard-errors-of-a-two-stage-least-squares-regression-stata) the standard errors on $$\delta$$)
+Putting it all together, to estimate $$\delta$$ we need to avoid any part of $$D$$ that comes from $$U$$, since $$U$$ is an unobservable confound. Fortunately, there is a part of $$D$$ that we can isolate. It’s the part that comes from $$Z$$, and we call it $$\hat{D}$$. To isolate $$\hat{D}$$, we regress $$D$$ on $$Z$$ and then use the model to make a prediction from input $$Z$$. Once we have $$\hat{D}$$, we can regress $$Y$$ on $$\hat{D}$$ to estimate $$\delta$$. By assumption, this $$\delta$$ is the same $$\delta$$ that comes from the other parts of $$D$$, and is therefore the average treatment effect we want to estimate. (Note: This approach, called Two-Stage Least Squares, will [underestimate](https://stats.stackexchange.com/questions/126313/standard-errors-of-a-two-stage-least-squares-regression-stata) the standard errors on $$\delta$$.)
 
 
 <img src='/assets/2021_instrumental_variables/fig_wrap_up.png'>
@@ -89,11 +89,11 @@ print(mod0.coef_) # Will be too high
 # First stage regression in IV approach
 mod1 = LinearRegression()
 mod1.fit(z, d)
-d_from_z = mod1.predict(z)
+d_hat = mod1.predict(z)
 
 # Second stage regression in IV approach
 mod2 = LinearRegression()
-mod2.fit(d_from_z, y)
+mod2.fit(d_hat, y)
 print(mod2.coef_) # Unbiased estimate of delta
 ```
 
