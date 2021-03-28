@@ -2,7 +2,7 @@
 layout: post
 title: You’re probably measuring your treatment effect incorrectly
 description: A simple question with a simple answer that was only discovered recently
-image: /assets/2021_youre_measuring/drake.png
+image: /assets/2021_youre_measuring/drake_border.png
 ---
 
 You've developed a new health program and you want to measure its impact. You run a randomized experiment where half of participants are allowed to get treatment, and half are not. Of those allowed to get treatment, 80% actually choose to get treated.
