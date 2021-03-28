@@ -106,9 +106,9 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
       <div class="post">
   <h1 class="post-title">You’re probably measuring your treatment effect incorrectly</h1>
   <span class="post-date">28 Mar 2021</span>
-  <p>You’ve developed a new health program and you want to measure its impact. You run a randomized experiment where half of participants are allowed to get treatment, and half of participants are not. Of those allowed to get treatment, 80% actually choose to get treated.</p>
+  <p>You’ve developed a new health program and you want to measure its impact. You run a randomized experiment where half of participants are allowed to get treatment, and half are not. Of those allowed to get treatment, 80% actually choose to get treated.</p>
 
-<p>You would like to report the answer to a very basic question: <em>How much did the treatment help the people who got treated?</em> You might think that’s a simple question to answer. You might think that. But you’d be wrong.</p>
+<p>You would like to report the answer to a very basic question: <em>How much did the treatment help the people who got treated?</em> You might think that’s a simple question to answer. But you’d be wrong.</p>
 
 <div class="wrapper">
   <p><img src="/assets/2021_youre_measuring/sankey.png" class="inner" style="position:relative border: #222 2px solid; max-width:100%;" /></p>
@@ -117,7 +117,7 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
   </div>
 </div>
 
-<p>Before getting started, I know many readers might wish to suggest a different research question: <em>What was the impact of making the treatment available, regardless of whether the eligible users got treated?</em> That’s an important question that we’ll get to later. For now, let’s focus on the impact to those who actually got treated.</p>
+<p>Before getting started, I know many readers might wish to suggest a different question: <em>What was the impact of making the treatment available, regardless of whether the eligible users got treated?</em> That’s an important question that we’ll get to later. For now, let’s focus on the impact to those who actually got treated. There’s a few ways you might think this could be answered, but most of them are wrong.</p>
 
 <h2 id="wrong-approach-1">Wrong approach #1</h2>
 <p>Suppose you are measuring a health score. One idea is to compute the difference between the average outcome in the treated subset and the average outcome in the control group.</p>
@@ -129,13 +129,13 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
 <p>This approach has a bad selection bias problem. Compliers may comply because they have poorer health to begin with. Suppose the average health score in the overall population is \(Y=50\), and that compliers start out with score of \(Y_{cp,z=1} = 40\). Even even if the treatment improves the health of the compliers by, say, \(4\) points, they will still end up with lower health (\(44\)) than the control group. This analysis could make a useful treatment look like it was harming people’s health!</p>
 
 <h2 id="wrong-approach-2">Wrong approach #2</h2>
-<p>To correct for baseline differences, my natural inclination is to compute the post-treatment vs pre-treatment difference for the treated compliers, and then compare that difference to the same post- vs pre- comparison for the control group. This aproach, which is called Differences-in-Differences (DD), estimates the treatment effect for compliers as</p>
+<p>To correct for baseline differences, my natural inclination is to compute the post-treatment vs pre-treatment difference for the treated compliers, and then compare that difference to the same post- vs pre- difference for the control group. This aproach, which is called Differences-in-Differences (DD), estimates the treatment effect for compliers as</p>
 
 \[(Y_{cp, z=1} - Y_{cp, z=1,pre}) - (Y_{z=0} - Y_{z=0,pre})\]
 
 <p>where \(Y_{cp, z=1}\) is the post-treatment health of the treated compliers and \(Y_{cp, z=1,pre}\) is their pre-treatment health.</p>
 
-<p>In Figure 2, the health of the treated compliers declines slower than the health of the control group. By the logic of DD, the treatment must have helped the compliers, since otherwise their health would have been poorer. This counterfactual health of the compliers, were they not to be treated, is denoted by \(Y_{cp, z=1}^0\) where the superscript indicates a counterfactual world where they are not treated.</p>
+<p>Figure 2 shows how this works. Upon taking the treatment, the health of the treated compliers declines slower than the health of the control group. By the logic of DD, the treatment must have helped the compliers, since otherwise their health would have been poorer. This counterfactual health of the compliers, were they not to be treated, is denoted by \(Y_{cp, z=1}^0\) where the superscript indicates a counterfactual world where they are not treated.</p>
 
 <div class="wrapper">
   <p><img src="/assets/2021_youre_measuring/fig_parallel.png" class="inner" style="position:relative border: #222 2px solid; max-width:100%;" /></p>
@@ -158,7 +158,7 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
 <h2 id="correct-approach-the-local-average-treatment-effect">Correct approach: The Local Average Treatment Effect</h2>
 <p>DD is a reasonable approach in situations where there is no randomization. But because our experiment is randomized, there is a clever trick we can use to get a much better estimate.</p>
 
-<p>The parameter we really want to estimate is \(\delta_{cp}\), which is the difference between the treated compliers’ outcome and their counterfactual outcome if it didn’t receive treatment, as shown in Figure 3.</p>
+<p>The parameter we ultimately want to estimate is \(\delta_{cp}\), which is the difference between the treated compliers’ outcome and their counterfactual outcome if it didn’t receive treatment, as shown in Figure 3.</p>
 
 \[\delta_{cp}=Y_{cp, z=1} - Y_{cp, z=1}^0\]
 
@@ -186,7 +186,7 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
 
 \[\delta_{cp} = \frac{Y_{z=1} - Y_{z=0}}{\pi_{cp}}\]
 
-<p>This is a remarkably simple formula. The impact on treated compliers is just the difference between the treatment group and control, divided by the fraction of compliers. Even more remarkable is that this formula was only discovered recently. Not only is the question <em>“How much did the treatment affect the people who took it”</em> deceptively difficult, its solution looks embarrassingly simple.</p>
+<p>This is a remarkably simple formula. The impact on treated compliers is just the difference between the treatment group and control group, divided by the fraction of compliers. Even more remarkable is that this formula was only discovered <a href="https://www.nber.org/system/files/working_papers/t0118/t0118.pdf">recently</a>. Not only is the question <em>“How much did the treatment affect the people who took it”</em> deceptively difficult, its solution is simple.</p>
 
 <p>To help us summarize this, let’s hand it over to Drake.</p>
 
@@ -200,7 +200,7 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
 <h2 id="additional-comments">Additional comments</h2>
 
 <h3 id="complier-biases-that-late-does-and-does-not-account-for">Complier biases that LATE does and does not account for</h3>
-<p>The LATE tell you how much the treatment affects the people who actually got treated. This group of people is biased in two ways, and LATE only accounts for one of these biases. The first bias is that this group’s counterfactual measurements might be different from other groups. LATE accounts for that by correctly reporting the impact of the treatment relative to the counterfactual. The second bias is that the treatment might be more effective in the complier group than in the never-taker group. That bias is unescapable and is known as a <em>heterogenous treatment effect</em>. The way to deal with this bias is to acknowledge it transparently.</p>
+<p>The LATE tells you how much the treatment affects the people who actually got treated. This group of people is biased in two ways, and LATE only accounts for one of these biases. The first bias is that this group’s counterfactual outcomes might be different from other groups. LATE accounts for that by correctly reporting the impact of the treatment relative to the counterfactual. The second bias is that the treatment might be more effective in the complier group than in the never-taker group. That bias is unescapable and is known as a <em>heterogenous treatment effect</em>. The way to deal with this bias is to acknowledge it transparently.</p>
 
 <h3 id="late-and-intention-to-treat">LATE and Intention To Treat</h3>
 <p>The fact that the treatment may have a different effect in the treated compliers is one limitation of LATE. But there are a couple other limitations as well. One is that LATE doesn’t tell you about the <em>overall</em> impact of your policy. If only 10% of people in the treatment group actually choose to take the treatment, the overall impact of your policy might be small, and you might want to consider treatments with higher uptake. The other limitation is that in many medical applications, the treatment involves more than a single dose, and people can withdraw midway through the program. This means that the distinction between complier and never-taker can be strongly driven by the effectiveness of the treatment, making the LATE a less generalizable metric. For these reasons, researchers often report the Intention To Treat (ITT) metric, which is the impact of being <em>assigned</em> to treatment (\(Y_{z=1} - Y_{z=0})\) rather than the impact of being treated. While suffering from its own limitations, ITT should always be reported, often as the headline metric. Nevertheless, for <a href="https://www.nejm.org/doi/full/10.1056/nejmsa1212321">many applications</a>, particularly those involving one-time enrollments, the LATE is a critical and complementary metric, and one that’s trickier than I ever imagined.</p>
