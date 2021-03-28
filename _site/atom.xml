@@ -4,7 +4,7 @@
  <title>Chris Said</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2021-03-28T11:15:20-04:00</updated>
+ <updated>2021-03-28T11:26:13-04:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -17,7 +17,12 @@
    <link href="http://localhost:4000/2021/03/28/youre-measuring-wrong/"/>
    <updated>2021-03-28T00:00:00-04:00</updated>
    <id>http://localhost:4000/2021/03/28/youre-measuring-wrong</id>
-   <content type="html">&lt;p&gt;You’ve developed a new health program and you want to measure its impact. You run a randomized experiment where half of participants are allowed to get treatment, and half are not. Of those allowed to get treatment, 80% actually choose to get treated.&lt;/p&gt;
+   <content type="html">&lt;div class=&quot;caption&quot;&gt;
+  &lt;p&gt;&lt;em&gt;A special thanks to &lt;a href=&quot;https://twitter.com/causalinf&quot;&gt;Scott Cunningham&lt;/a&gt; and &lt;a href=&quot;https://twitter.com/deaneckles&quot;&gt;Dean Eckles&lt;/a&gt; for &lt;a href=&quot;https://twitter.com/causalinf/status/1371233216795934720&quot;&gt;helping&lt;/a&gt; me clear up my own confusion and inspiring me to write this blog post, and to Scott for his excellent &lt;a href=&quot;https://www.scunning.com/mixtape.html&quot;&gt;book&lt;/a&gt;, which taught me a lot of background on this.&lt;/em&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;You’ve developed a new health program and you want to measure its impact. You run a randomized experiment where half of participants are allowed to get treatment, and half are not. Of those allowed to get treatment, 80% actually choose to get treated.&lt;/p&gt;
 
 &lt;p&gt;You would like to report the answer to a very basic question: &lt;em&gt;How much did the treatment help the people who got treated?&lt;/em&gt; You might think that’s a simple question to answer. But you’d be wrong.&lt;/p&gt;
 

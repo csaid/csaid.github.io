@@ -5,6 +5,11 @@ description: A simple question with a simple answer that was only discovered rec
 image: /assets/2021_youre_measuring/drake_border.png
 ---
 
+<div class="caption">
+_A special thanks to [Scott Cunningham](https://twitter.com/causalinf) and [Dean Eckles](https://twitter.com/deaneckles) for [helping](https://twitter.com/causalinf/status/1371233216795934720) me clear up my own confusion and inspiring me to write this blog post, and to Scott for his excellent [book](https://www.scunning.com/mixtape.html), which taught me a lot of background on this._
+</div>
+---
+
 You've developed a new health program and you want to measure its impact. You run a randomized experiment where half of participants are allowed to get treatment, and half are not. Of those allowed to get treatment, 80% actually choose to get treated.
 
 You would like to report the answer to a very basic question: _How much did the treatment help the people who got treated?_ You might think that's a simple question to answer. But you'd be wrong.
