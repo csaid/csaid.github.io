@@ -4,7 +4,7 @@
  <title>Chris Said</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2021-03-28T11:47:38-04:00</updated>
+ <updated>2021-03-28T14:58:37-04:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -18,7 +18,7 @@
    <updated>2021-03-28T00:00:00-04:00</updated>
    <id>http://localhost:4000/2021/03/28/youre-measuring-wrong</id>
    <content type="html">&lt;div class=&quot;caption&quot;&gt;
-  &lt;p&gt;&lt;em&gt;A special thanks to &lt;a href=&quot;https://twitter.com/causalinf&quot;&gt;Scott Cunningham&lt;/a&gt; and &lt;a href=&quot;https://twitter.com/deaneckles&quot;&gt;Dean Eckles&lt;/a&gt; for &lt;a href=&quot;https://twitter.com/causalinf/status/1371233216795934720&quot;&gt;helping&lt;/a&gt; me clear up my own confusion and inspiring me to write this blog post, and to Scott for his excellent &lt;a href=&quot;https://www.scunning.com/mixtape.html&quot;&gt;book&lt;/a&gt;, which taught me a lot of background on this.&lt;/em&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;em&gt;A special thanks to &lt;a href=&quot;https://twitter.com/causalinf&quot;&gt;Scott Cunningham&lt;/a&gt; and &lt;a href=&quot;https://twitter.com/deaneckles&quot;&gt;Dean Eckles&lt;/a&gt; for &lt;a href=&quot;https://twitter.com/causalinf/status/1371233216795934720&quot;&gt;helping&lt;/a&gt; me clear up my own confusion and inspiring me to write this blog post, and to Scott for his excellent &lt;a href=&quot;https://www.scunning.com/mixtape.html&quot;&gt;book&lt;/a&gt;, which taught me a lot of background for this.&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;hr /&gt;
 
@@ -71,7 +71,7 @@
   &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;h2 id=&quot;correct-approach-instrumental-variables-and-the-local-average-treatment-effect&quot;&gt;Correct approach: Instrumental Variables and The Local Average Treatment Effect&lt;/h2&gt;
+&lt;h2 id=&quot;correct-approach-instrumental-variables-and-the-local-average-treatment-effect&quot;&gt;Correct approach: Instrumental Variables and the Local Average Treatment Effect&lt;/h2&gt;
 &lt;p&gt;DD is a reasonable approach in situations where there is no randomization. But because our experiment is randomized, there is a clever trick we can use to get a much better estimate.&lt;/p&gt;
 
 &lt;p&gt;The parameter we ultimately want to estimate is \(\delta_{cp}\), which is the difference between the treated compliers’ outcome and their counterfactual outcome if it didn’t receive treatment, as shown in Figure 3.&lt;/p&gt;

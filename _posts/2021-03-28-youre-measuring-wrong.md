@@ -6,7 +6,7 @@ image: /assets/2021_youre_measuring/drake_border.png
 ---
 
 <div class="caption">
-_A special thanks to [Scott Cunningham](https://twitter.com/causalinf) and [Dean Eckles](https://twitter.com/deaneckles) for [helping](https://twitter.com/causalinf/status/1371233216795934720) me clear up my own confusion and inspiring me to write this blog post, and to Scott for his excellent [book](https://www.scunning.com/mixtape.html), which taught me a lot of background on this._
+_A special thanks to [Scott Cunningham](https://twitter.com/causalinf) and [Dean Eckles](https://twitter.com/deaneckles) for [helping](https://twitter.com/causalinf/status/1371233216795934720) me clear up my own confusion and inspiring me to write this blog post, and to Scott for his excellent [book](https://www.scunning.com/mixtape.html), which taught me a lot of background for this._
 </div>
 ---
 
@@ -60,7 +60,7 @@ Figure 3 shows this in action, where $$Y_{cp, z=1}^0$$ is lower than assumed by 
   </div>
 </div>
 
-## Correct approach: Instrumental Variables and The Local Average Treatment Effect
+## Correct approach: Instrumental Variables and the Local Average Treatment Effect
 DD is a reasonable approach in situations where there is no randomization. But because our experiment is randomized, there is a clever trick we can use to get a much better estimate. 
 
 The parameter we ultimately want to estimate is $$\delta_{cp}$$, which is the difference between the treated compliers’ outcome and their counterfactual outcome if it didn’t receive treatment, as shown in Figure 3.
