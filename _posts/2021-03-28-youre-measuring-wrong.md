@@ -60,7 +60,7 @@ Figure 3 shows this in action, where $$Y_{cp, z=1}^0$$ is lower than assumed by 
   </div>
 </div>
 
-## Correct approach: The Local Average Treatment Effect
+## Correct approach: Instrumental Variables and The Local Average Treatment Effect
 DD is a reasonable approach in situations where there is no randomization. But because our experiment is randomized, there is a clever trick we can use to get a much better estimate. 
 
 The parameter we ultimately want to estimate is $$\delta_{cp}$$, which is the difference between the treated compliers’ outcome and their counterfactual outcome if it didn’t receive treatment, as shown in Figure 3.
@@ -71,7 +71,7 @@ This value is called the Local Average Treatment Effect (LATE), since it reflect
 
 To compute the LATE we only need to know two numbers: $$Y_{cp, z=1}$$ and $$Y_{cp, z=1}^0$$. It’s easy to get $$Y_{cp, z=1}$$. That’s just the actual outcome of the treated compliers. But how could we possibly know the counterfactual $$Y_{cp, z=1}^0$$? The DD approach attempted to estimate it with some flawed assumptions, but how can we possibly do better than that?
 
-Remarkably, there is a great way to estimate $$Y_{cp, z=1}^0$$ without relying on the flawed assumptions of DD! Here’s the trick: Because of randomization, we should expect the control group’s outcomes to be the same as the treatment-available group’s outcomes in the counterfactual world where no one got treated.
+Remarkably, there is a great way to estimate $$Y_{cp, z=1}^0$$ without relying on the flawed assumptions of DD! Here’s the trick, which is based on the the logic of [Instrumental Variables](https://chris-said.io/2021/03/13/instrumental-variables/): Because of randomization, we should expect the control group’s outcomes to be the same as the treatment-available group’s outcomes in the counterfactual world where no one got treated.
 
 $$Y_{z=0} = Y_{z=1}^0$$
 

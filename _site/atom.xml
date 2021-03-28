@@ -4,7 +4,7 @@
  <title>Chris Said</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2021-03-28T11:26:13-04:00</updated>
+ <updated>2021-03-28T11:45:36-04:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -71,7 +71,7 @@
   &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;h2 id=&quot;correct-approach-the-local-average-treatment-effect&quot;&gt;Correct approach: The Local Average Treatment Effect&lt;/h2&gt;
+&lt;h2 id=&quot;correct-approach-instrumental-variables-and-the-local-average-treatment-effect&quot;&gt;Correct approach: Instrumental Variables and The Local Average Treatment Effect&lt;/h2&gt;
 &lt;p&gt;DD is a reasonable approach in situations where there is no randomization. But because our experiment is randomized, there is a clever trick we can use to get a much better estimate.&lt;/p&gt;
 
 &lt;p&gt;The parameter we ultimately want to estimate is \(\delta_{cp}\), which is the difference between the treated compliers’ outcome and their counterfactual outcome if it didn’t receive treatment, as shown in Figure 3.&lt;/p&gt;
@@ -82,7 +82,7 @@
 
 &lt;p&gt;To compute the LATE we only need to know two numbers: \(Y_{cp, z=1}\) and \(Y_{cp, z=1}^0\). It’s easy to get \(Y_{cp, z=1}\). That’s just the actual outcome of the treated compliers. But how could we possibly know the counterfactual \(Y_{cp, z=1}^0\)? The DD approach attempted to estimate it with some flawed assumptions, but how can we possibly do better than that?&lt;/p&gt;
 
-&lt;p&gt;Remarkably, there is a great way to estimate \(Y_{cp, z=1}^0\) without relying on the flawed assumptions of DD! Here’s the trick: Because of randomization, we should expect the control group’s outcomes to be the same as the treatment-available group’s outcomes in the counterfactual world where no one got treated.&lt;/p&gt;
+&lt;p&gt;Remarkably, there is a great way to estimate \(Y_{cp, z=1}^0\) without relying on the flawed assumptions of DD! Here’s the trick, which is based on the the logic of &lt;a href=&quot;https://chris-said.io/2021/03/13/instrumental-variables/&quot;&gt;Instrumental Variables&lt;/a&gt;: Because of randomization, we should expect the control group’s outcomes to be the same as the treatment-available group’s outcomes in the counterfactual world where no one got treated.&lt;/p&gt;
 
 \[Y_{z=0} = Y_{z=1}^0\]
 
