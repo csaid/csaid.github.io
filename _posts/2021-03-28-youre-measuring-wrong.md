@@ -63,7 +63,7 @@ Figure 3 shows this in action, where $$Y_{cp, z=1}^0$$ is lower than assumed by 
 ## Correct approach: Instrumental Variables and the Local Average Treatment Effect
 DD is a reasonable approach in situations where there is no randomization. But because our experiment is randomized, there is a clever trick we can use to get a much better estimate. 
 
-The parameter we ultimately want to estimate is $$\delta_{cp}$$, which is the difference between the treated compliers’ outcome and their counterfactual outcome if it didn’t receive treatment, as shown in Figure 3.
+The parameter we ultimately want to estimate is $$\delta_{cp}$$, which is the difference between the treated compliers’ outcome and their counterfactual outcome if they didn’t receive treatment, as shown in Figure 3.
 
 $$\delta_{cp}=Y_{cp, z=1} - Y_{cp, z=1}^0$$
 
