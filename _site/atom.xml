@@ -4,7 +4,7 @@
  <title>Chris Said</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2021-06-26T15:11:12-04:00</updated>
+ <updated>2021-06-26T15:17:03-04:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -26,14 +26,14 @@
   &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;p&gt;While all the studies were observational, they all took care to control for maternal age, education, birth year, and other confounders. One study, which I will address in the comments below, shows that the beneficial effect of folic acid is specific to people who have a gene variant that makes it hard to process folate. Another study found that folate receptor antibody concentrations are &lt;a href=&quot;https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3578948/&quot;&gt;higher&lt;/a&gt; among children who have autism than controls.&lt;/p&gt;
+&lt;p&gt;While all the studies were observational, they all took care to control for maternal age, education, birth year, and other confounders. One study, which I will address in the comments below, found that the beneficial effect of folic acid is specific to people who have a gene variant that makes it hard to process folate. Another study found that folate receptor antibody concentrations are &lt;a href=&quot;https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3578948/&quot;&gt;higher&lt;/a&gt; among children who have autism than controls.&lt;/p&gt;
 
 &lt;p&gt;The biological mechanisms for folic acid’s protective effect are plausible. Folic acid taken near conception is known with certainty to &lt;a href=&quot;https://www.cdc.gov/ncbddd/folicacid/features/folic-acid-helps-prevent-some-birth-defects.html&quot;&gt;reduce neural tube defects&lt;/a&gt;. Periconceptual folic acid intake &lt;a href=&quot;https://pubmed.ncbi.nlm.nih.gov/19924280/&quot;&gt;increases DNA methylation&lt;/a&gt; of specific gene regions of the child, and DNA methylation is known to be &lt;a href=&quot;https://pubmed.ncbi.nlm.nih.gov/16987877/&quot;&gt;abnormal&lt;/a&gt; in autism. Taking all the evidence together, one review from 2014 &lt;a href=&quot;https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3997376/&quot;&gt;concluded&lt;/a&gt; that of all nutritional factors for autism, folic acid likely has the “strongest” impact.&lt;/p&gt;
 
 &lt;h3 id=&quot;the-trend-without-a-blip&quot;&gt;The trend without a blip&lt;/h3&gt;
 &lt;p&gt;These are promising claims. But how much can they be believed? To dig deeper, let’s go back to something that happened in 1997.&lt;/p&gt;
 
-&lt;p&gt;Because folic acid taken near conception is known to reduce the risk of neural tube defects, the FDA in 1997 started to &lt;a href=&quot;https://doi.org/10.3390/nu3030370&quot;&gt;mandate folic acid fortification in cereal grain products&lt;/a&gt;. This caused a sharp increase in average folic acid intake in the United States. As intended, fortification also caused a &lt;a href=&quot;https://jamanetwork.com/journals/jama/fullarticle/193937&quot;&gt;clear decrease in neural tube defects&lt;/a&gt;, with &lt;a href=&quot;https://doi.org/10.1093/ajcn/86.5.1773&quot;&gt;properly estimated&lt;/a&gt; reductions &lt;a href=&quot;https://pubmed.ncbi.nlm.nih.gov/12211618/&quot;&gt;coming in at 40%&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Because folic acid taken near conception is known to reduce the risk of neural tube defects, the FDA in 1997 started to &lt;a href=&quot;https://doi.org/10.3390/nu3030370&quot;&gt;mandate folic acid fortification in cereal grain products&lt;/a&gt;. This caused a sharp increase in average folic acid intake in the United States. As intended, fortification also caused a &lt;a href=&quot;https://jamanetwork.com/journals/jama/fullarticle/193937&quot;&gt;sharp decrease in neural tube defects&lt;/a&gt;, with &lt;a href=&quot;https://doi.org/10.1093/ajcn/86.5.1773&quot;&gt;properly estimated&lt;/a&gt; reductions &lt;a href=&quot;https://pubmed.ncbi.nlm.nih.gov/12211618/&quot;&gt;coming in at 40%&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;But what about autism? If the literature is correct, and folic acid really causes a &lt;a href=&quot;https://pubmed.ncbi.nlm.nih.gov/30466185/&quot;&gt;42% reduction in autism&lt;/a&gt;, we should see a sharp decrease in autism diagnosis for births starting in 1997. Instead, autism rates continued to increase at exactly the same rate they had before. There is nothing in the data to suggest even a small drop in autism around the time of folic acid fortification.&lt;/p&gt;
 
