@@ -91,7 +91,7 @@ Further rearrangement gives us
 
 $$\delta_{cp} = \frac{Y_{z=1} - Y_{z=0}}{\pi_{cp}}$$
 
-This is a remarkably simple formula. The impact on treated compliers is just the difference between the treatment group and control group, divided by the fraction of compliers. Even more remarkable is that this formula was only discovered [recently](https://www.nber.org/system/files/working_papers/t0118/t0118.pdf). Not only is the question _“How much did the treatment affect the people who took it”_ deceptively difficult, its solution is simple.
+This is a remarkably simple formula. The impact on treated compliers is just the difference between the treatment group and control group, divided by the fraction of compliers. Even more remarkable is that this formula was only discovered [recently](https://www.nber.org/system/files/working_papers/t0118/t0118.pdf).
 
 To help us summarize this, let’s hand it over to Drake.
 

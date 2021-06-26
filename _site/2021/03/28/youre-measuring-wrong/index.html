@@ -163,7 +163,7 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
 <h2 id="correct-approach-instrumental-variables-and-the-local-average-treatment-effect">Correct approach: Instrumental Variables and the Local Average Treatment Effect</h2>
 <p>DD is a reasonable approach in situations where there is no randomization. But because our experiment is randomized, there is a clever trick we can use to get a much better estimate.</p>
 
-<p>The parameter we ultimately want to estimate is \(\delta_{cp}\), which is the difference between the treated compliers’ outcome and their counterfactual outcome if it didn’t receive treatment, as shown in Figure 3.</p>
+<p>The parameter we ultimately want to estimate is \(\delta_{cp}\), which is the difference between the treated compliers’ outcome and their counterfactual outcome if they didn’t receive treatment, as shown in Figure 3.</p>
 
 \[\delta_{cp}=Y_{cp, z=1} - Y_{cp, z=1}^0\]
 
@@ -191,7 +191,7 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
 
 \[\delta_{cp} = \frac{Y_{z=1} - Y_{z=0}}{\pi_{cp}}\]
 
-<p>This is a remarkably simple formula. The impact on treated compliers is just the difference between the treatment group and control group, divided by the fraction of compliers. Even more remarkable is that this formula was only discovered <a href="https://www.nber.org/system/files/working_papers/t0118/t0118.pdf">recently</a>. Not only is the question <em>“How much did the treatment affect the people who took it”</em> deceptively difficult, its solution is simple.</p>
+<p>This is a remarkably simple formula. The impact on treated compliers is just the difference between the treatment group and control group, divided by the fraction of compliers. Even more remarkable is that this formula was only discovered <a href="https://www.nber.org/system/files/working_papers/t0118/t0118.pdf">recently</a>.</p>
 
 <p>To help us summarize this, let’s hand it over to Drake.</p>
 

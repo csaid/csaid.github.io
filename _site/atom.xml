@@ -4,13 +4,81 @@
  <title>Chris Said</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2021-03-28T14:58:37-04:00</updated>
+ <updated>2021-06-26T15:11:12-04:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
    <email></email>
  </author>
 
+ 
+ <entry>
+   <title>Autism, folic acid, and the trend without a blip</title>
+   <link href="http://localhost:4000/2021/06/27/autism-and-folic-acid/"/>
+   <updated>2021-06-27T00:00:00-04:00</updated>
+   <id>http://localhost:4000/2021/06/27/autism-and-folic-acid</id>
+   <content type="html">&lt;p&gt;What are some ways to reduce the risk of autism? According to published research, one of the most powerful interventions is for mothers to take folic acid around the time of conception. A recent meta-analysis of 10 studies found that folic acid supplementation reduced the odds of autism by &lt;a href=&quot;https://onlinelibrary.wiley.com/doi/abs/10.1111/apa.14657&quot;&gt;about 42%&lt;/a&gt;. A large cohort study from Norway found an &lt;a href=&quot;https://doi.org/10.1001/jama.2012.155925&quot;&gt;odds reduction of 49%&lt;/a&gt;, and some studies have even found reductions of &lt;a href=&quot;https://dx.doi.org/10.1007%2Fs10803-014-2114-x&quot;&gt;more than 80%&lt;/a&gt;. These are massive effects.&lt;/p&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/assets/2021_autism_and_folic_acid/forest_plot.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:80%;&quot; /&gt;&lt;/p&gt;
+  &lt;div class=&quot;caption&quot;&gt;
+    &lt;p&gt;&lt;strong&gt;Figure 1&lt;/strong&gt;. Reproduction of the forest plot from the &lt;a href=&quot;https://onlinelibrary.wiley.com/doi/abs/10.1111/apa.14657&quot;&gt;Iglesias Vázquez meta-analysis&lt;/a&gt; of 10 studies.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;While all the studies were observational, they all took care to control for maternal age, education, birth year, and other confounders. One study, which I will address in the comments below, shows that the beneficial effect of folic acid is specific to people who have a gene variant that makes it hard to process folate. Another study found that folate receptor antibody concentrations are &lt;a href=&quot;https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3578948/&quot;&gt;higher&lt;/a&gt; among children who have autism than controls.&lt;/p&gt;
+
+&lt;p&gt;The biological mechanisms for folic acid’s protective effect are plausible. Folic acid taken near conception is known with certainty to &lt;a href=&quot;https://www.cdc.gov/ncbddd/folicacid/features/folic-acid-helps-prevent-some-birth-defects.html&quot;&gt;reduce neural tube defects&lt;/a&gt;. Periconceptual folic acid intake &lt;a href=&quot;https://pubmed.ncbi.nlm.nih.gov/19924280/&quot;&gt;increases DNA methylation&lt;/a&gt; of specific gene regions of the child, and DNA methylation is known to be &lt;a href=&quot;https://pubmed.ncbi.nlm.nih.gov/16987877/&quot;&gt;abnormal&lt;/a&gt; in autism. Taking all the evidence together, one review from 2014 &lt;a href=&quot;https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3997376/&quot;&gt;concluded&lt;/a&gt; that of all nutritional factors for autism, folic acid likely has the “strongest” impact.&lt;/p&gt;
+
+&lt;h3 id=&quot;the-trend-without-a-blip&quot;&gt;The trend without a blip&lt;/h3&gt;
+&lt;p&gt;These are promising claims. But how much can they be believed? To dig deeper, let’s go back to something that happened in 1997.&lt;/p&gt;
+
+&lt;p&gt;Because folic acid taken near conception is known to reduce the risk of neural tube defects, the FDA in 1997 started to &lt;a href=&quot;https://doi.org/10.3390/nu3030370&quot;&gt;mandate folic acid fortification in cereal grain products&lt;/a&gt;. This caused a sharp increase in average folic acid intake in the United States. As intended, fortification also caused a &lt;a href=&quot;https://jamanetwork.com/journals/jama/fullarticle/193937&quot;&gt;clear decrease in neural tube defects&lt;/a&gt;, with &lt;a href=&quot;https://doi.org/10.1093/ajcn/86.5.1773&quot;&gt;properly estimated&lt;/a&gt; reductions &lt;a href=&quot;https://pubmed.ncbi.nlm.nih.gov/12211618/&quot;&gt;coming in at 40%&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;But what about autism? If the literature is correct, and folic acid really causes a &lt;a href=&quot;https://pubmed.ncbi.nlm.nih.gov/30466185/&quot;&gt;42% reduction in autism&lt;/a&gt;, we should see a sharp decrease in autism diagnosis for births starting in 1997. Instead, autism rates continued to increase at exactly the same rate they had before. There is nothing in the data to suggest even a small drop in autism around the time of folic acid fortification.&lt;/p&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/assets/2021_autism_and_folic_acid/trend.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:80%;&quot; /&gt;&lt;/p&gt;
+  &lt;div class=&quot;caption&quot;&gt;
+    &lt;p&gt;&lt;strong&gt;Figure 2&lt;/strong&gt;. Trends in autism in 9-year olds in the United States plotted against birth year. Adapted from &lt;a href=&quot;https://pubmed.ncbi.nlm.nih.gov/25189402/&quot;&gt;Nevison (2014)&lt;/a&gt;, with data obtained from the Individuals with Disabilities Education Act (IDEA) database.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Some might say that autism trends were increasing at the time because of better diagnosis, and that the trend would have been even stronger if it weren’t for folic acid fortification. But the 1997 fortification mandate was a sharp discontinuity. If it helped, you would still expect to see a cliff-like “drop” in the curve at that time, followed by a resumption of the trend.&lt;/p&gt;
+
+&lt;p&gt;Others might say that the 1997 fortification didn’t provide &lt;em&gt;enough&lt;/em&gt; folic acid to meaningfully decrease the rates of autism. And indeed, the fortification was only responsible for an average increase of 100-250 micrograms per day (&lt;a href=&quot;https://www.mdpi.com/2072-6643/3/3/370/htm&quot;&gt;1&lt;/a&gt;, &lt;a href=&quot;https://doi.org/10.1093/ajcn/77.1.221&quot;&gt;2&lt;/a&gt;), which is less than the high 800 microgram doses found in many supplements. Given that most medical dose response curves are &lt;a href=&quot;http://esteve.org/wp-content/uploads/2018/01/138167.pdf&quot;&gt;sublinear&lt;/a&gt;, one might expect the 100-250 microgram dose to provide about half the benefit, or a 20% reduction in risk. Such a reduction should be dramatically apparent in the time series around 1997. Instead, the actual time series doesn’t even show a blip. Even if you conservatively assume a linear dose response curve, a 100-250 microgram increase should still cause a 5-13% reduction in autism rates, but nothing remotely like that is visible in the data.&lt;/p&gt;
+
+&lt;h3 id=&quot;could-it-be-a-confounder&quot;&gt;Could it be a confounder?&lt;/h3&gt;
+&lt;p&gt;If folic acid fortification starting in 1997 failed to cause any change in autism trends, why did so many studies find a strong relationship between folic acid intake and autism?&lt;/p&gt;
+
+&lt;p&gt;One obvious explanation is confounders, a prospect that researchers in the field candidly acknowledge. For example, the mothers who took folic acid also tended to take other vitamins, and perhaps one of those vitamins is the true causal factor. Frustratingly, the literature is mixed on whether the benefits are driven by the folic acid or the other vitamins. &lt;a href=&quot;https://doi.org/10.1136/bmj.j4273&quot;&gt;One large study&lt;/a&gt; concluded it was the multivitamins rather the folic acid. &lt;a href=&quot;https://doi.org/10.1001/jama.2012.155925&quot;&gt;Another large study&lt;/a&gt; concluded it was the reverse. I’ve read both of those papers fairly closely and I can’t figure out a good explanation for the discrepancy.&lt;/p&gt;
+
+&lt;p&gt;If other vitamins aren’t the answer, maybe there is another confounder that we are simply not aware of. One clue that something else is going on can be found in &lt;a href=&quot;https://dx.doi.org/10.1001%2Fjamapsychiatry.2017.4050&quot;&gt;Levine (2018)&lt;/a&gt;, which reported that folic acid taken 2 years before conception (but not anytime closer to conception) reduced autism just as much as folic acid taken directly prior to conception! If true, that effect is likely driven by something else the mothers are doing, rather than a folic acid effect that persists for two years after supplementation has stopped.&lt;/p&gt;
+
+&lt;h3 id=&quot;how-good-is-this-literature-really&quot;&gt;How good is this literature, really?&lt;/h3&gt;
+&lt;p&gt;The other possibility is that this subfield has the same high levels of publication bias and questionable research practices, inadvertent or otherwise, that so many other medical subfields have. Some literatures have it so bad that they are driven &lt;a href=&quot;https://slatestarcodex.com/2019/05/07/5-httlpr-a-pointed-review/&quot;&gt;entirely&lt;/a&gt; by p-hacking and publication bias, with zero underlying true effect.&lt;/p&gt;
+
+&lt;p&gt;It’s tough to say whether the same thing is happening with autism and folic acid, and I don’t want to malign all these studies. But there are few hints in the data that something is amiss.&lt;/p&gt;
+
+&lt;p&gt;Let’s sort the studies in the &lt;a href=&quot;https://onlinelibrary.wiley.com/doi/abs/10.1111/apa.14657&quot;&gt;meta-analysis&lt;/a&gt; by the size of their effects. As you can see in Figure 3, the studies with the largest benefits of folic acid also had the largest error bars. The studies with weaker or null effects had smaller error bars and larger sample sizes. This trend is a hallmark of publication bias. With enough research degrees of freedom, it’s just a lot easier to find something in a low-powered study than a high-powered study.&lt;/p&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/assets/2021_autism_and_folic_acid/forest_plot_colored.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:80%;&quot; /&gt;&lt;/p&gt;
+  &lt;div class=&quot;caption&quot;&gt;
+    &lt;p&gt;&lt;strong&gt;Figure 3&lt;/strong&gt;. Alternative display of forest plot from the &lt;a href=&quot;https://onlinelibrary.wiley.com/doi/abs/10.1111/apa.14657&quot;&gt;meta-analysis&lt;/a&gt; of 10 studies, with studies sorted by effect size, and shared coloring (blue or pink) if using overlapping or similar datasets. Schmidt (2011), Schmidt (2012), and Goodrich (2018) all used overlapping datasets. Braun (2014) was a single study, although it was included in the meta-analysis as two separate findings. Suren (2013) and Nilsen (2013) are sufficiently different that I have left them as gray. Nevertheless, they were conducted by the same research group, and their data was sampled from similar populations (Norwegian mothers during the same time period).&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Moreover, many of the studies that found a beneficial effect used highly overlapping datasets, which I’ve indicated with color coding. This means that while many &lt;em&gt;studies&lt;/em&gt; found a beneficial effect of folic acid, far fewer &lt;em&gt;datasets&lt;/em&gt; showed a beneficial effect. It also means that when research groups found a beneficial effect in a dataset, they were likely to publish again from the same dataset. When research groups did not find an effect, they only published once. I wonder how many groups, upon finding no effect, even published at all?&lt;/p&gt;
+
+&lt;p&gt;Overall, I am skeptical that periconceptual folic acid has any effect on autism. There is likely residual confounding, and I suspect there is publication bias as well. The claims are reminiscent of other claims in the vitamin literature, which has a &lt;a href=&quot;https://fivethirtyeight.com/features/dont-take-your-vitamins/&quot;&gt;long history&lt;/a&gt; of large effects in observational studies that disappear when a randomized trial is finally run.&lt;/p&gt;
+
+&lt;h3 id=&quot;what-does-this-mean-for-you&quot;&gt;What does this mean for you?&lt;/h3&gt;
+&lt;p&gt;In line with the CDC, those who are considering becoming pregnant should still take folic acid for its protective effects against neural tube defects, even if it might not have any effect on autism. And given that folic acid’s association with autism may be due to confounders, those considering pregnancy may want to just copy whatever else the mothers who take folic acid are doing.&lt;/p&gt;
+
+&lt;p&gt;As for the research field, my strong belief is that more medical research should be pre-registered, and &lt;a href=&quot;https://chris-said.io/2012/04/17/its-the-incentives-structure-people-why-science-reform-must-come-from-the-granting-agencies/&quot;&gt;funding agencies should fundamentally reshape science incentives&lt;/a&gt;.&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>You’re probably measuring your treatment effect incorrectly</title>
@@ -74,7 +142,7 @@
 &lt;h2 id=&quot;correct-approach-instrumental-variables-and-the-local-average-treatment-effect&quot;&gt;Correct approach: Instrumental Variables and the Local Average Treatment Effect&lt;/h2&gt;
 &lt;p&gt;DD is a reasonable approach in situations where there is no randomization. But because our experiment is randomized, there is a clever trick we can use to get a much better estimate.&lt;/p&gt;
 
-&lt;p&gt;The parameter we ultimately want to estimate is \(\delta_{cp}\), which is the difference between the treated compliers’ outcome and their counterfactual outcome if it didn’t receive treatment, as shown in Figure 3.&lt;/p&gt;
+&lt;p&gt;The parameter we ultimately want to estimate is \(\delta_{cp}\), which is the difference between the treated compliers’ outcome and their counterfactual outcome if they didn’t receive treatment, as shown in Figure 3.&lt;/p&gt;
 
 \[\delta_{cp}=Y_{cp, z=1} - Y_{cp, z=1}^0\]
 
@@ -102,7 +170,7 @@
 
 \[\delta_{cp} = \frac{Y_{z=1} - Y_{z=0}}{\pi_{cp}}\]
 
-&lt;p&gt;This is a remarkably simple formula. The impact on treated compliers is just the difference between the treatment group and control group, divided by the fraction of compliers. Even more remarkable is that this formula was only discovered &lt;a href=&quot;https://www.nber.org/system/files/working_papers/t0118/t0118.pdf&quot;&gt;recently&lt;/a&gt;. Not only is the question &lt;em&gt;“How much did the treatment affect the people who took it”&lt;/em&gt; deceptively difficult, its solution is simple.&lt;/p&gt;
+&lt;p&gt;This is a remarkably simple formula. The impact on treated compliers is just the difference between the treatment group and control group, divided by the fraction of compliers. Even more remarkable is that this formula was only discovered &lt;a href=&quot;https://www.nber.org/system/files/working_papers/t0118/t0118.pdf&quot;&gt;recently&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;To help us summarize this, let’s hand it over to Drake.&lt;/p&gt;
 
