@@ -4,7 +4,7 @@
  <title>Chris Said</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2021-06-26T15:17:03-04:00</updated>
+ <updated>2021-06-26T15:27:01-04:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -20,7 +20,7 @@
    <content type="html">&lt;p&gt;What are some ways to reduce the risk of autism? According to published research, one of the most powerful interventions is for mothers to take folic acid around the time of conception. A recent meta-analysis of 10 studies found that folic acid supplementation reduced the odds of autism by &lt;a href=&quot;https://onlinelibrary.wiley.com/doi/abs/10.1111/apa.14657&quot;&gt;about 42%&lt;/a&gt;. A large cohort study from Norway found an &lt;a href=&quot;https://doi.org/10.1001/jama.2012.155925&quot;&gt;odds reduction of 49%&lt;/a&gt;, and some studies have even found reductions of &lt;a href=&quot;https://dx.doi.org/10.1007%2Fs10803-014-2114-x&quot;&gt;more than 80%&lt;/a&gt;. These are massive effects.&lt;/p&gt;
 
 &lt;div class=&quot;wrapper&quot;&gt;
-  &lt;p&gt;&lt;img src=&quot;/assets/2021_autism_and_folic_acid/forest_plot.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:80%;&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;/assets/2021_autism_and_folic_acid/forest_plot.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:90%;&quot; /&gt;&lt;/p&gt;
   &lt;div class=&quot;caption&quot;&gt;
     &lt;p&gt;&lt;strong&gt;Figure 1&lt;/strong&gt;. Reproduction of the forest plot from the &lt;a href=&quot;https://onlinelibrary.wiley.com/doi/abs/10.1111/apa.14657&quot;&gt;Iglesias Vázquez meta-analysis&lt;/a&gt; of 10 studies.&lt;/p&gt;
   &lt;/div&gt;
@@ -38,7 +38,7 @@
 &lt;p&gt;But what about autism? If the literature is correct, and folic acid really causes a &lt;a href=&quot;https://pubmed.ncbi.nlm.nih.gov/30466185/&quot;&gt;42% reduction in autism&lt;/a&gt;, we should see a sharp decrease in autism diagnosis for births starting in 1997. Instead, autism rates continued to increase at exactly the same rate they had before. There is nothing in the data to suggest even a small drop in autism around the time of folic acid fortification.&lt;/p&gt;
 
 &lt;div class=&quot;wrapper&quot;&gt;
-  &lt;p&gt;&lt;img src=&quot;/assets/2021_autism_and_folic_acid/trend.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:80%;&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;/assets/2021_autism_and_folic_acid/trend.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:90%;&quot; /&gt;&lt;/p&gt;
   &lt;div class=&quot;caption&quot;&gt;
     &lt;p&gt;&lt;strong&gt;Figure 2&lt;/strong&gt;. Trends in autism in 9-year olds in the United States plotted against birth year. Adapted from &lt;a href=&quot;https://pubmed.ncbi.nlm.nih.gov/25189402/&quot;&gt;Nevison (2014)&lt;/a&gt;, with data obtained from the Individuals with Disabilities Education Act (IDEA) database.&lt;/p&gt;
   &lt;/div&gt;
@@ -63,7 +63,7 @@
 &lt;p&gt;Let’s sort the studies in the &lt;a href=&quot;https://onlinelibrary.wiley.com/doi/abs/10.1111/apa.14657&quot;&gt;meta-analysis&lt;/a&gt; by the size of their effects. As you can see in Figure 3, the studies with the largest benefits of folic acid also had the largest error bars. The studies with weaker or null effects had smaller error bars and larger sample sizes. This trend is a hallmark of publication bias. With enough research degrees of freedom, it’s just a lot easier to find something in a low-powered study than a high-powered study.&lt;/p&gt;
 
 &lt;div class=&quot;wrapper&quot;&gt;
-  &lt;p&gt;&lt;img src=&quot;/assets/2021_autism_and_folic_acid/forest_plot_colored.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:80%;&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;/assets/2021_autism_and_folic_acid/forest_plot_colored.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:90%;&quot; /&gt;&lt;/p&gt;
   &lt;div class=&quot;caption&quot;&gt;
     &lt;p&gt;&lt;strong&gt;Figure 3&lt;/strong&gt;. Alternative display of forest plot from the &lt;a href=&quot;https://onlinelibrary.wiley.com/doi/abs/10.1111/apa.14657&quot;&gt;meta-analysis&lt;/a&gt; of 10 studies, with studies sorted by effect size, and shared coloring (blue or pink) if using overlapping or similar datasets. Schmidt (2011), Schmidt (2012), and Goodrich (2018) all used overlapping datasets. Braun (2014) was a single study, although it was included in the meta-analysis as two separate findings. Suren (2013) and Nilsen (2013) are sufficiently different that I have left them as gray. Nevertheless, they were conducted by the same research group, and their data was sampled from similar populations (Norwegian mothers during the same time period).&lt;/p&gt;
   &lt;/div&gt;
