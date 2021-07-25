@@ -4,7 +4,7 @@
  <title>Chris Said</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2021-07-25T13:40:01-04:00</updated>
+ <updated>2021-07-25T14:00:34-04:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -13,7 +13,7 @@
 
  
  <entry>
-   <title>The FDA is 5 times too worried about long term credibility</title>
+   <title>The FDA is 5X too worried about long term credibility</title>
    <link href="http://localhost:4000/2021/07/25/fda-and-vaccines/"/>
    <updated>2021-07-25T00:00:00-04:00</updated>
    <id>http://localhost:4000/2021/07/25/fda-and-vaccines</id>
