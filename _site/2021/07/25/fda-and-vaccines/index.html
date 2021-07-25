@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<!--
+It's bad to import d3 in every post separately (https://groups.google.com/forum/#!topic/d3-js/bwdNirt2uEU).
+Importing it globally here.
+Putting this up at the top, according to this controversial stack overflow answer
+http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
+ -->
+<script src="https://d3js.org/d3.v5.min.js"></script>
+
+<link rel="stylesheet" href="/public/font-awesome-4.4.0/css/font-awesome.min.css">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  
+    <meta name="description" content="The FDA should fully approve the covid vaccines now">
+  
+
+  <!-- To get a link preview image, just set the image attribute in your _post -->
+  
+    <meta content="http://localhost:4000/assets/2021_fda_and_vaccines/fig_moderate.png" property="og:image"/>
+  
+
+  <!-- twitter standard -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@chris_said" />
+  <meta name="twitter:title" content="The FDA is 5 times too worried about long term credibility" />
+  <meta name="twitter:description" content="The FDA should fully approve the covid vaccines now" />
+
+
+  <title>
+    
+      The FDA is 5 times too worried about long term credibility &middot; Chris Said
+    
+  </title>
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-67746868-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/hyde.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
+                                 <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+<!--   <body class="theme-base-cps">
+ -->
+  <body>
+
+    <div class="sidebar">
+  <div class="container">
+    <div class="sidebar-about">
+      <h1>
+        <a href="/">
+          Chris Said
+        </a>
+      </h1>
+      <p class="lead">I am a data scientist at Stitch Fix. This blog is mostly about statistics, technology, and science.</p>
+
+    </div>
+
+    <nav class="sidebar-nav">
+
+      
+        <a class="sidebar-nav-item" href="/">Home</a>
+      
+        <a class="sidebar-nav-item" href="/atom.xml">Feed</a>
+      
+
+    </nav>
+
+    <div class="wrapper">
+      <div class="inner">
+        <a href = "http://www.twitter.com/Chris_Said" class="contact-button"><i class="fa fa-twitter fa-2x"></i></a>
+        <a href = "https://www.linkedin.com/pub/chris-said/6b/86b/979" class="contact-button"><i class="fa fa-linkedin-square fa-2x"></i></a>
+        <a href = "mailto:chris.said@gmail.com" class="contact-button"><i class="fa fa-envelope fa-2x"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <div class="content container">
+      <div class="post">
+  <h1 class="post-title">The FDA is 5 times too worried about long term credibility</h1>
+  <span class="post-date">25 Jul 2021</span>
+  <p>Covid-19 vaccinations are a triumph of science. Every major public health official in America recommends them.</p>
+
+<p>Despite widespread expert support for vaccination, the FDA is taking its time with vaccine approvals. While the FDA granted its first Emergency Use Authorization (EUA) in <a href="https://www.fda.gov/emergency-preparedness-and-response/coronavirus-disease-2019-covid-19/pfizer-biontech-covid-19-vaccine">December 2020</a>, full approval could come as late as <a href="https://www.healthline.com/health-news/when-will-the-fda-give-full-approval-for-covid-19-vaccines#Employer-COVID-19-vaccine-mandates">January or February 2022</a>.</p>
+
+<p><a href="https://www.slowboring.com/p/vaccine-fda-approve">Matthew Yglesias</a> and <a href="https://www.nytimes.com/2021/07/01/opinion/fda-vaccines-full-approval.html">Eric Topol</a> argue that the difference between full approval and an EUA matters a lot. Full FDA approval will make many organizations more comfortable with vaccine mandates, which can drive <a href="https://www.economist.com/graphic-detail/2021/07/14/why-vaccine-shy-french-are-suddenly-rushing-to-get-jabbed">massive increases in vaccination</a>, as seen in France. Full approval also allows vaccine providers to advertise, which will help persuade many people on the fence. Even without the mandates and advertising, <a href="https://www.kff.org/coronavirus-covid-19/poll-finding/kff-covid-19-vaccine-monitor-june-2021/">30% of unvaccinated people</a> say they would be more likely to get vaccinated once full approval happens. The FDA’s sluggishness to approve the vaccine is therefore driving a large number of unnecessary infections and deaths.</p>
+
+<p>Defenders of the FDA say that critics aren’t thinking about the long term. Sure, full approval might drive more vaccinations in the short term. But if safety issues emerge after full approval, the credibility of the FDA would be shot for years, driving fewer vaccinations in the long term.</p>
+
+<hr />
+
+<p>I understand the point about long term credibility, but it feels hand-wavy and non-quantitative. Let’s do some back-of-the-envelope calculations to see how much it matters.</p>
+
+<p>As a simplifying assumption, let’s suppose we’ll need a new Covid vaccine every year for the next 10 years, similar to the flu shot. Let’s generously assume that the FDA fully approves each vaccine from 2022 onwards in a timely manner. The only decision it faces is whether to do “fast” approval or “slow” approval for the 2021 vaccine, where fast approval means that the vaccine would be fully approved 1 year earlier than under slow approval. The figure below shows these two policies.</p>
+
+<div class="wrapper">
+  <p><img src="/assets/2021_fda_and_vaccines/fig_policies.png" class="inner" style="position:relative border: #222 2px solid; max-width:90%;" /></p>
+  <div class="caption">
+    <p><strong>Figure 1</strong>. Two policies the FDA could take.</p>
+  </div>
+</div>
+
+<p>If the FDA does fast approval in 2021, more people will vaccinate in 2021. But if a safety issue emerges after the approval, the FDA might lose some credibility, leading to lower vaccination rates in subsequent years. Let’s now consider three possible scenarios.</p>
+
+<h3 id="1-safe-vaccine-scenario">1. Safe vaccine scenario</h3>
+<p>In the safe vaccine scenario, no new significant safety issues emerge after full approval. Perhaps some minor issues may emerge, but none will be large enough to drive large and sustained drops in vaccination rates. Given that historically all vaccine side effects have emerged within the first year, I think this scenario is fairly likely, perhaps around 85%.</p>
+
+<p>Based on <a href="https://www.mayoclinic.org/coronavirus-covid-19/vaccine-tracker">current vaccination rates</a>, we should assume 50% vaccination in 2021 under slow approval. Based on <a href="https://www.kff.org/coronavirus-covid-19/poll-finding/kff-covid-19-vaccine-monitor-june-2021/">self-reports</a>, the promise of advertising, and the <a href="https://www.economist.com/graphic-detail/2021/07/14/why-vaccine-shy-french-are-suddenly-rushing-to-get-jabbed">powerful impact of vaccine mandates</a>, we can assume a 15 percentage point increase in 2021 vaccination with full approval, bringing the rate to 65%. Since we assume fast approval in all subsequent years, the vaccination rate will be 65% in both policies from 2022 onwards.</p>
+
+<div class="wrapper">
+  <p><img src="/assets/2021_fda_and_vaccines/fig_baseline.png" class="inner" style="position:relative border: #222 2px solid; max-width:90%;" /></p>
+  <div class="caption">
+    <p><strong>Figure 2.</strong> The two policies under a safe vaccine scenario, where no significant new safety issues emerge for the 2021 vaccine after full approval.</p>
+  </div>
+</div>
+
+<p>With a total population of 300 million, and assuming all approvals are at the start of the year, fast approval in 2021 would drive a total of 0.15 * 300M = 45 million vaccinated person-years, compared to slow approval.</p>
+
+<h3 id="2-moderate-issue-scenario">2. Moderate issue scenario</h3>
+<p>In the moderate issue scenario, important new safety issues in the 2021 vaccine emerge after full approval, but their overall safety impact is “moderate”. By “moderate” I mean either a serious issue that affects a very small percentage of people, or a minor issue that affects a large number of people. Given that historically all safety issues with vaccines have emerged within the first year, I consider this outcome unlikely. But since mRNA vaccines are a new and intensely scrutinized technology, let’s give this scenario a 19% probability.</p>
+
+<p>If safety issues emerge, vaccination rates will drop. But critically, they will drop regardless of whether the 2021 vaccine had full approval or just an EUA. In the wake of bad news about the 2021 vaccine, the people hesitating about the 2022 vaccine aren’t going to really care whether the 2021 vaccine was fast approved or just EUA’d. Maybe they’ll care a little bit, but for the most part their hesitancy will be there regardless.</p>
+
+<p>I therefore model this scenario with a dip in vaccination rates that lasts a few years, with a slightly larger dip if the 2021 vaccine had been fast approved.</p>
+
+<div class="wrapper">
+  <p><img src="/assets/2021_fda_and_vaccines/fig_moderate.png" class="inner" style="position:relative border: #222 2px solid; max-width:90%;" /></p>
+  <div class="caption">
+    <p><strong>Figure 3.</strong> The two policies under a moderate issue scenario.</p>
+  </div>
+</div>
+
+<p>With a total population of 300 million, fast approval in 2021 would still provide the extra 45 million vaccinated person-years in 2021, but we’d lose 42 million vaccinated person-years in 2022-2030, netting out at +3 million vaccinated person-years.</p>
+
+<h3 id="3-major-issue-scenario">3. Major issue scenario</h3>
+<p>In the major issue scenario, serious safety issues in the 2021 vaccine emerge in a large fraction of the population. Nothing remotely like this has never happened before, especially for a widely taken vaccine that already has almost a year’s worth of data, so I think this is extremely unlikely. But let’s give it a 1% chance anyway.</p>
+
+<p>We’ll model this as a longer and deeper dip in vaccination rates. In this scenario, fast approval nets out to a loss of 20 million vaccinated person-years.</p>
+
+<div class="wrapper">
+  <p><img src="/assets/2021_fda_and_vaccines/fig_major.png" class="inner" style="position:relative border: #222 2px solid; max-width:90%;" /></p>
+  <div class="caption">
+    <p>Figure 4. The two policies under a major issue scenario.</p>
+  </div>
+</div>
+
+<h3 id="putting-all-three-scenarios-together">Putting all three scenarios together</h3>
+
+<p>Now let’s add up these outcomes weighted by their probability:</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td> </td>
+      <td><strong>Probability</strong></td>
+      <td><strong>Impact of 2021 fast approval on ten-year vaccinated person-years</strong></td>
+    </tr>
+    <tr>
+      <td>Safe vaccine scenario</td>
+      <td>85%</td>
+      <td>+45M</td>
+    </tr>
+    <tr>
+      <td>Moderate issue scenario</td>
+      <td>19%</td>
+      <td>+3M</td>
+    </tr>
+    <tr>
+      <td>Major issue scenario</td>
+      <td>1%</td>
+      <td>-20M</td>
+    </tr>
+    <tr>
+      <td>Weighted sum</td>
+      <td>(100%)</td>
+      <td>+39M</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Based on this back-of-the-envelope analysis, FDA could gain 39 million vaccinated person-years if they had fully approved the 2021 vaccine, even when accounting for long term risks. Assuming that <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7721859/">0.5% of unvaccinated people will die each year</a> because they are not vaccinated, this decision would save 200,000 lives in expectation. <strong>To put it more starkly, an FDA decision to not fully approve in 2021 will cost 200,000 lives.</strong></p>
+
+<p>Under the model outlined above, the decision to delay full approval would only make sense if you thought the probability-weighted long-term risks were <a href="https://github.com/csaid/fda_and_vaccines/blob/main/FDA%20and%20Vaccines.ipynb">5 times higher</a> than I think are reasonable.</p>
+
+<h3 id="but-what-about">But what about…</h3>
+<p>This was a deliberately simplified back-of-the-envelope exercise. My assumptions can and should be questioned. But if you think any of my assumptions are substantively wrong (and I’m sure some are!), it’s best to propose a quantitative alternative. And be sure to explicitly consider the difference between a 2021 EUA and full approval. For example, perhaps you might think that hesitancy could persist for decades in a catastrophic safety scenario. Maybe so. But if that happens, will anybody decades from now care whether the 2021 vaccine had an EUA versus full approval? I don’t think so.</p>
+
+<p>Finally, I should say that two of my most important assumptions were generous to the FDA. First, I assumed that we will continue to require annual Covid vaccines for the next 10 years. In this world, the “long term” (on the order of 10 years) is important, making the FDA’s concern about long term hesitancy very relevant. But this assumption might turn out to be false. Much of the next 10 years might be a return to normalcy, where Covid becomes a manageable infection similar to the flu, and most of the vaccines we take are less likely to be impacted by new vaccine hesitancy. In the same vein, we might only need a booster once every 5 years rather than every 1 year, which would blunt the impact of a medium-term loss of confidence.</p>
+
+<p>Second, I assumed that all of the damage from slow approval would be confined to 2021 and that by 2022 the FDA would adopt fast approval. If that is not the case, and the FDA continues to take well over a year to approve each vaccine, the damage could be much greater.</p>
+
+
+  <div>
+    <a class="twitter-share-button"
+      href="https://twitter.com/share"
+      data-url=""
+      data-via="Chris_Said"
+      data-size="large"
+      data-count="none">
+    Tweet
+    </a>
+</div>
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'csaid81';
+    var disqus_identifier = 'http://localhost:4000/2021/07/25/fda-and-vaccines/';
+    var disqus_url = 'http://localhost:4000/2021/07/25/fda-and-vaccines/';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+</div>
+
+
+    </div>
+
+  </body>
+</html>
+
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+
+<script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));</script>
