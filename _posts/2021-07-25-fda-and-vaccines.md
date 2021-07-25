@@ -93,5 +93,5 @@ Finally, note that two of my most important assumptions were generous to the FDA
 Second, I assumed that all of the damage from slow approval would be confined to 2021 and that by 2022 the FDA would adopt fast approval. If that is not the case, and the FDA continues to take well over a year to approve each vaccine, the damage could be much greater.
 
 <div class="caption">
-Special thanks to Fábio Rocha for comments on a draft. My code is availabe [here](https://github.com/csaid/fda_and_vaccines/blob/main/FDA%20and%20Vaccines.ipynb).
+Special thanks to Fábio Rocha and Abhinav Nellore for comments on a draft. My code is availabe [here](https://github.com/csaid/fda_and_vaccines/blob/main/FDA%20and%20Vaccines.ipynb).
 </div>

@@ -4,7 +4,7 @@
  <title>Chris Said</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2021-07-25T15:45:46-04:00</updated>
+ <updated>2021-07-25T19:03:39-04:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -128,7 +128,7 @@
 &lt;p&gt;Second, I assumed that all of the damage from slow approval would be confined to 2021 and that by 2022 the FDA would adopt fast approval. If that is not the case, and the FDA continues to take well over a year to approve each vaccine, the damage could be much greater.&lt;/p&gt;
 
 &lt;div class=&quot;caption&quot;&gt;
-  &lt;p&gt;Special thanks to Fábio Rocha for comments on a draft. My code is availabe &lt;a href=&quot;https://github.com/csaid/fda_and_vaccines/blob/main/FDA%20and%20Vaccines.ipynb&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+  &lt;p&gt;Special thanks to Fábio Rocha and Abhinav Nellore for comments on a draft. My code is availabe &lt;a href=&quot;https://github.com/csaid/fda_and_vaccines/blob/main/FDA%20and%20Vaccines.ipynb&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 </content>
  </entry>
