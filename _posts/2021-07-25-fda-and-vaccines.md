@@ -81,7 +81,7 @@ Now let’s add up these outcomes weighted by their probability:
 |Weighted sum|(100%)|+39M|
 
 
-Based on this back-of-the-envelope analysis, FDA could gain 39 million vaccinated person-years if they had fully approved the 2021 vaccine, even when accounting for long term risks. Assuming that [0.5% of unvaccinated people will die each year](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7721859/) because they are not vaccinated, this decision would save 200,000 lives in expectation. **To put it more starkly, an FDA decision to not fully approve in 2021 will cost 200,000 lives.**
+Based on this back-of-the-envelope analysis, FDA could gain 39 million vaccinated person-years if they had fully approved the 2021 vaccine, even when accounting for long term risks. Assuming that [0.3% of unvaccinated people will die each year](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7721859/) because they are not vaccinated, this decision would save 115,000 lives in expectation. **To put it more starkly, an FDA decision to not fully approve in 2021 will cost 115,000 lives.** I have no doubt that the FDA is well-intentioned, but I really think they should reconsider their extreme cautiousness on this issue.
 
 Under the model outlined above, the decision to delay full approval would only make sense if you thought the probability-weighted long-term risks were [5 times higher](https://github.com/csaid/fda_and_vaccines/blob/main/FDA%20and%20Vaccines.ipynb) than I think are reasonable.
 
