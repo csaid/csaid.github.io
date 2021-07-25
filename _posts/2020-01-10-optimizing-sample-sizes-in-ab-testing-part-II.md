@@ -41,7 +41,7 @@ Collectively, this all forms a bivariate normal distribution of outcomes, shown 
 
 <img src='/assets/2020_optimizing_sample_sizes/bivariate_normal.png'>
 <div class="caption">
-**Figure 2**. Probabilities of possible outcomes, based on your prior beliefs. The horizontal axis is the true difference in means, and the vertical axis is the served difference in means.
+**Figure 2**. Probabilities of possible outcomes, based on your prior beliefs. The horizontal axis is the true difference in means, and the vertical axis is the observed difference in means.
 </div><br>
 
 To gain some more intuition about this, take a look at Figure 3. As sample size increases, $$ \sigma^2_c $$ decreases.

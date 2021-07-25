@@ -4,13 +4,131 @@
  <title>Chris Said</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2021-06-26T15:33:25-04:00</updated>
+ <updated>2021-07-25T13:23:04-04:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
    <email></email>
  </author>
 
+ 
+ <entry>
+   <title>The FDA is 5 times too worried about long term credibility</title>
+   <link href="http://localhost:4000/2021/07/25/fda-and-vaccines/"/>
+   <updated>2021-07-25T00:00:00-04:00</updated>
+   <id>http://localhost:4000/2021/07/25/fda-and-vaccines</id>
+   <content type="html">&lt;p&gt;Covid-19 vaccinations are a triumph of science. Every major public health official in America recommends them.&lt;/p&gt;
+
+&lt;p&gt;Despite widespread expert support for vaccination, the FDA is taking its time with vaccine approvals. While the FDA granted its first Emergency Use Authorization (EUA) in &lt;a href=&quot;https://www.fda.gov/emergency-preparedness-and-response/coronavirus-disease-2019-covid-19/pfizer-biontech-covid-19-vaccine&quot;&gt;December 2020&lt;/a&gt;, full approval could come as late as &lt;a href=&quot;https://www.healthline.com/health-news/when-will-the-fda-give-full-approval-for-covid-19-vaccines#Employer-COVID-19-vaccine-mandates&quot;&gt;January or February 2022&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.slowboring.com/p/vaccine-fda-approve&quot;&gt;Matthew Yglesias&lt;/a&gt; and &lt;a href=&quot;https://www.nytimes.com/2021/07/01/opinion/fda-vaccines-full-approval.html&quot;&gt;Eric Topol&lt;/a&gt; argue that the difference between full approval and an EUA matters a lot. Full FDA approval will make many organizations more comfortable with vaccine mandates, which can drive &lt;a href=&quot;https://www.economist.com/graphic-detail/2021/07/14/why-vaccine-shy-french-are-suddenly-rushing-to-get-jabbed&quot;&gt;massive increases in vaccination&lt;/a&gt;, as seen in France. Full approval also allows vaccine providers to advertise, which will help persuade many people on the fence. Even without the mandates and advertising, &lt;a href=&quot;https://www.kff.org/coronavirus-covid-19/poll-finding/kff-covid-19-vaccine-monitor-june-2021/&quot;&gt;30% of unvaccinated people&lt;/a&gt; say they would be more likely to get vaccinated once full approval happens. The FDA’s sluggishness to approve the vaccine is therefore driving a large number of unnecessary infections and deaths.&lt;/p&gt;
+
+&lt;p&gt;Defenders of the FDA say that critics aren’t thinking about the long term. Sure, full approval might drive more vaccinations in the short term. But if safety issues emerge after full approval, the credibility of the FDA would be shot for years, driving fewer vaccinations in the long term.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;I understand the point about long term credibility, but it feels hand-wavy and non-quantitative. Let’s do some back-of-the-envelope calculations to see how much it matters.&lt;/p&gt;
+
+&lt;p&gt;As a simplifying assumption, let’s suppose we’ll need a new Covid vaccine every year for the next 10 years, similar to the flu shot. Let’s generously assume that the FDA fully approves each vaccine from 2022 onwards in a timely manner. The only decision it faces is whether to do “fast” approval or “slow” approval for the 2021 vaccine, where fast approval means that the vaccine would be fully approved 1 year earlier than under slow approval. The figure below shows these two policies.&lt;/p&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/assets/2021_fda_and_vaccines/fig_policies.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:90%;&quot; /&gt;&lt;/p&gt;
+  &lt;div class=&quot;caption&quot;&gt;
+    &lt;p&gt;&lt;strong&gt;Figure 1&lt;/strong&gt;. Two policies the FDA could take.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;If the FDA does fast approval in 2021, more people will vaccinate in 2021. But if a safety issue emerges after the approval, the FDA might lose some credibility, leading to lower vaccination rates in subsequent years. Let’s now consider three possible scenarios.&lt;/p&gt;
+
+&lt;h3 id=&quot;1-safe-vaccine-scenario&quot;&gt;1. Safe vaccine scenario&lt;/h3&gt;
+&lt;p&gt;In the safe vaccine scenario, no new significant safety issues emerge after full approval. Perhaps some minor issues may emerge, but none will be large enough to drive large and sustained drops in vaccination rates. Given that historically all vaccine side effects have emerged within the first year, I think this scenario is fairly likely, perhaps around 85%.&lt;/p&gt;
+
+&lt;p&gt;Based on &lt;a href=&quot;https://www.mayoclinic.org/coronavirus-covid-19/vaccine-tracker&quot;&gt;current vaccination rates&lt;/a&gt;, we should assume 50% vaccination in 2021 under slow approval. Based on &lt;a href=&quot;https://www.kff.org/coronavirus-covid-19/poll-finding/kff-covid-19-vaccine-monitor-june-2021/&quot;&gt;self-reports&lt;/a&gt;, the promise of advertising, and the &lt;a href=&quot;https://www.economist.com/graphic-detail/2021/07/14/why-vaccine-shy-french-are-suddenly-rushing-to-get-jabbed&quot;&gt;powerful impact of vaccine mandates&lt;/a&gt;, we can assume a 15 percentage point increase in 2021 vaccination with full approval, bringing the rate to 65%. Since we assume fast approval in all subsequent years, the vaccination rate will be 65% in both policies from 2022 onwards.&lt;/p&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/assets/2021_fda_and_vaccines/fig_baseline.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:90%;&quot; /&gt;&lt;/p&gt;
+  &lt;div class=&quot;caption&quot;&gt;
+    &lt;p&gt;&lt;strong&gt;Figure 2.&lt;/strong&gt; The two policies under a safe vaccine scenario, where no significant new safety issues emerge for the 2021 vaccine after full approval.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;With a total population of 300 million, and assuming all approvals are at the start of the year, fast approval in 2021 would drive a total of 0.15 * 300M = 45 million vaccinated person-years, compared to slow approval.&lt;/p&gt;
+
+&lt;h3 id=&quot;2-moderate-issue-scenario&quot;&gt;2. Moderate issue scenario&lt;/h3&gt;
+&lt;p&gt;In the moderate issue scenario, important new safety issues in the 2021 vaccine emerge after full approval, but their overall safety impact is “moderate”. By “moderate” I mean either a serious issue that affects a very small percentage of people, or a minor issue that affects a large number of people. Given that historically all safety issues with vaccines have emerged within the first year, I consider this outcome unlikely. But since mRNA vaccines are a new and intensely scrutinized technology, let’s give this scenario a 19% probability.&lt;/p&gt;
+
+&lt;p&gt;If safety issues emerge, vaccination rates will drop. But critically, they will drop regardless of whether the 2021 vaccine had full approval or just an EUA. In the wake of bad news about the 2021 vaccine, the people hesitating about the 2022 vaccine aren’t going to really care whether the 2021 vaccine was fast approved or just EUA’d. Maybe they’ll care a little bit, but for the most part their hesitancy will be there regardless.&lt;/p&gt;
+
+&lt;p&gt;I therefore model this scenario with a dip in vaccination rates that lasts a few years, with a slightly larger dip if the 2021 vaccine had been fast approved.&lt;/p&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/assets/2021_fda_and_vaccines/fig_moderate.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:90%;&quot; /&gt;&lt;/p&gt;
+  &lt;div class=&quot;caption&quot;&gt;
+    &lt;p&gt;&lt;strong&gt;Figure 3.&lt;/strong&gt; The two policies under a moderate issue scenario.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;With a total population of 300 million, fast approval in 2021 would still provide the extra 45 million vaccinated person-years in 2021, but we’d lose 42 million vaccinated person-years in 2022-2030, netting out at +3 million vaccinated person-years.&lt;/p&gt;
+
+&lt;h3 id=&quot;3-major-issue-scenario&quot;&gt;3. Major issue scenario&lt;/h3&gt;
+&lt;p&gt;In the major issue scenario, serious safety issues in the 2021 vaccine emerge in a large fraction of the population. Nothing remotely like this has never happened before, especially for a widely taken vaccine that already has almost a year’s worth of data, so I think this is extremely unlikely. But let’s give it a 1% chance anyway.&lt;/p&gt;
+
+&lt;p&gt;We’ll model this as a longer and deeper dip in vaccination rates. In this scenario, fast approval nets out to a loss of 20 million vaccinated person-years.&lt;/p&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/assets/2021_fda_and_vaccines/fig_major.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:90%;&quot; /&gt;&lt;/p&gt;
+  &lt;div class=&quot;caption&quot;&gt;
+    &lt;p&gt;Figure 4. The two policies under a major issue scenario.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;putting-all-three-scenarios-together&quot;&gt;Putting all three scenarios together&lt;/h3&gt;
+
+&lt;p&gt;Now let’s add up these outcomes weighted by their probability:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Probability&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Impact of 2021 fast approval on ten-year vaccinated person-years&lt;/strong&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Safe vaccine scenario&lt;/td&gt;
+      &lt;td&gt;85%&lt;/td&gt;
+      &lt;td&gt;+45M&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Moderate issue scenario&lt;/td&gt;
+      &lt;td&gt;19%&lt;/td&gt;
+      &lt;td&gt;+3M&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Major issue scenario&lt;/td&gt;
+      &lt;td&gt;1%&lt;/td&gt;
+      &lt;td&gt;-20M&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Weighted sum&lt;/td&gt;
+      &lt;td&gt;(100%)&lt;/td&gt;
+      &lt;td&gt;+39M&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Based on this back-of-the-envelope analysis, FDA could gain 39 million vaccinated person-years if they had fully approved the 2021 vaccine, even when accounting for long term risks. Assuming that &lt;a href=&quot;https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7721859/&quot;&gt;0.5% of unvaccinated people will die each year&lt;/a&gt; because they are not vaccinated, this decision would save 200,000 lives in expectation. &lt;strong&gt;To put it more starkly, an FDA decision to not fully approve in 2021 will cost 200,000 lives.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Under the model outlined above, the decision to delay full approval would only make sense if you thought the probability-weighted long-term risks were &lt;a href=&quot;https://github.com/csaid/fda_and_vaccines/blob/main/FDA%20and%20Vaccines.ipynb&quot;&gt;5 times higher&lt;/a&gt; than I think are reasonable.&lt;/p&gt;
+
+&lt;h3 id=&quot;but-what-about&quot;&gt;But what about…&lt;/h3&gt;
+&lt;p&gt;This was a deliberately simplified back-of-the-envelope exercise. My assumptions can and should be questioned. But if you think any of my assumptions are substantively wrong (and I’m sure some are!), it’s best to propose a quantitative alternative. And be sure to explicitly consider the difference between a 2021 EUA and full approval. For example, perhaps you might think that hesitancy could persist for decades in a catastrophic safety scenario. Maybe so. But if that happens, will anybody decades from now care whether the 2021 vaccine had an EUA versus full approval? I don’t think so.&lt;/p&gt;
+
+&lt;p&gt;Finally, I should say that two of my most important assumptions were generous to the FDA. First, I assumed that we will continue to require annual Covid vaccines for the next 10 years. In this world, the “long term” (on the order of 10 years) is important, making the FDA’s concern about long term hesitancy very relevant. But this assumption might turn out to be false. Much of the next 10 years might be a return to normalcy, where Covid becomes a manageable infection similar to the flu, and most of the vaccines we take are less likely to be impacted by new vaccine hesitancy. In the same vein, we might only need a booster once every 5 years rather than every 1 year, which would blunt the impact of a medium-term loss of confidence.&lt;/p&gt;
+
+&lt;p&gt;Second, I assumed that all of the damage from slow approval would be confined to 2021 and that by 2022 the FDA would adopt fast approval. If that is not the case, and the FDA continues to take well over a year to approve each vaccine, the damage could be much greater.&lt;/p&gt;
+
+</content>
+ </entry>
  
  <entry>
    <title>Autism, folic acid, and the trend without a blip</title>
@@ -187,7 +305,7 @@
 &lt;p&gt;The LATE tells you how much the treatment affects the people who actually got treated. This group of people is biased in two ways, and LATE only accounts for one of these biases. The first bias is that this group’s counterfactual outcomes might be different from other groups. LATE accounts for that by correctly reporting the impact of the treatment relative to the counterfactual. The second bias is that the treatment might be more effective in the complier group than in the never-taker group. That bias is unescapable and is known as a &lt;em&gt;heterogenous treatment effect&lt;/em&gt;. The way to deal with this bias is to acknowledge it transparently.&lt;/p&gt;
 
 &lt;h3 id=&quot;late-and-intention-to-treat&quot;&gt;LATE and Intention To Treat&lt;/h3&gt;
-&lt;p&gt;The fact that the treatment may have a different effect in the treated compliers is one limitation of LATE. But there are a couple other limitations as well. One is that LATE doesn’t tell you about the &lt;em&gt;overall&lt;/em&gt; impact of your policy. If only 10% of people in the treatment group actually choose to take the treatment, the overall impact of your policy might be small, and you might want to consider treatments with higher uptake. The other limitation is that in many medical applications, the treatment involves more than a single dose, and people can withdraw midway through the program. This means that the distinction between complier and never-taker can be strongly driven by the effectiveness of the treatment, making the LATE a less generalizable metric. For these reasons, researchers often report the Intention To Treat (ITT) metric, which is the impact of being &lt;em&gt;assigned&lt;/em&gt; to treatment (\(Y_{z=1} - Y_{z=0})\) rather than the impact of being treated. While suffering from its own limitations, ITT should always be reported, often as the headline metric. Nevertheless, for &lt;a href=&quot;https://www.nejm.org/doi/full/10.1056/nejmsa1212321&quot;&gt;many applications&lt;/a&gt;, particularly those involving one-time enrollments, the LATE is a critical and complementary metric, and one that’s trickier than I ever imagined.&lt;/p&gt;
+&lt;p&gt;The fact that the treatment may have a different effect in the treated compliers is one limitation of LATE. But there are a couple other limitations as well. One is that LATE doesn’t tell you about the &lt;em&gt;overall&lt;/em&gt; impact of your policy. If only 10% of people in the treatment group actually choose to take the treatment, the overall impact of your policy might be small, and you might want to consider treatments with higher uptake. The other limitation is that in many medical applications, the treatment involves more than a single dose, and people can withdraw midway through the program. This means that the distinction between complier and never-taker can be strongly driven by the effectiveness of the treatment, making the LATE a less generalizable metric. For these reasons, researchers often report the Intention To Treat (ITT) metric, which is the impact of being &lt;em&gt;assigned&lt;/em&gt; to treatment (\(Y_{z=1} - Y_{z=0})\) rather than the impact of being treated. While suffering from its own limitations, ITT should always be reported, often as the headline metric. Nevertheless, for &lt;a href=&quot;https://www.nejm.org/doi/full/10.1056/nejmsa1212321&quot;&gt;many applications&lt;/a&gt;, particularly those involving one-time enrollments, the LATE is a critical and complementary metric, and one that’s trickier – and yet in some ways simpler – than I ever imagined.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/2021_youre_measuring/whynotboth.png&quot; /&gt;&lt;/p&gt;
 </content>
@@ -642,7 +760,7 @@
 &lt;br /&gt; &lt;strong&gt;A:&lt;/strong&gt; The electromagnetic pulse can induce a quasi-direct current in power transmission lines, which can cause transformers to &lt;a href=&quot;http://www.firstempcommission.org/uploads/1/1/9/5/119571849/executive_report_on_assessing_the_threat_from_emp_-_final_april2018.pdf&quot;&gt;overheat&lt;/a&gt; and be permanently damaged. If enough of these transformers go down, we could be in serious long term trouble.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Q:&lt;/strong&gt; &lt;em&gt;Are dangerous solar storms common?&lt;/em&gt;
-&lt;br /&gt; &lt;strong&gt;A:&lt;/strong&gt; Yes. The &lt;a href=&quot;https://en.wikipedia.org/wiki/March_1989_geomagnetic_storm&quot;&gt;March 1989 geomagnetic storm&lt;/a&gt; caused a nine-hour complete outage of the Hyro-Quebec grid. The &lt;a href=&quot;https://en.wikipedia.org/wiki/May_1921_geomagnetic_storm&quot;&gt;1921 Railroad Storm&lt;/a&gt; was &lt;a href=&quot;https://www.thespacereview.com/article/1553/1&quot;&gt;10 times stronger&lt;/a&gt; than the Quebec storm. And the &lt;a href=&quot;https://en.wikipedia.org/wiki/September_1859_geomagnetic_storm#:~:text=The%20September%201859%20geomagnetic%20storm,September%201%E2%80%932%2C%201859.&quot;&gt;1859 Carrington Event&lt;/a&gt; is estimated to be &lt;a href=&quot;https://republicans-oversight.house.gov/wp-content/uploads/2015/05/Pry-Statement-5-13-EMP.pdf&quot;&gt;10 times stronger&lt;/a&gt; than the 1921 storm. That is, the Carrington Event was 100 times stronger than the storm that took down the Quebec grid. Storms as large as the Carrington Event have a &lt;a href=&quot;https://agupubs.onlinelibrary.wiley.com/doi/pdf/10.1002/2016SW001470%4010.1002/%28ISSN%291542-7390.swqv14i1&quot;&gt;10% chance of happening every decade&lt;/a&gt;. Larger storms may be possible.&lt;/p&gt;
+&lt;br /&gt; &lt;strong&gt;A:&lt;/strong&gt; Yes. The &lt;a href=&quot;https://en.wikipedia.org/wiki/March_1989_geomagnetic_storm&quot;&gt;March 1989 geomagnetic storm&lt;/a&gt; caused a nine-hour complete outage of the Hyro-Quebec grid. The &lt;a href=&quot;https://en.wikipedia.org/wiki/May_1921_geomagnetic_storm&quot;&gt;1921 Railroad Storm&lt;/a&gt; was &lt;a href=&quot;https://www.thespacereview.com/article/1553/1&quot;&gt;10 times stronger&lt;/a&gt; than the Quebec storm. And the &lt;a href=&quot;https://en.wikipedia.org/wiki/September_1859_geomagnetic_storm#:~:text=The%20September%201859%20geomagnetic%20storm,September%201%E2%80%932%2C%201859.&quot;&gt;1859 Carrington Event&lt;/a&gt; is estimated to be &lt;a href=&quot;https://republicans-oversight.house.gov/wp-content/uploads/2015/05/Pry-Statement-5-13-EMP.pdf&quot;&gt;10 times stronger&lt;/a&gt; than the 1921 storm. That is, the Carrington Event was 100 times stronger than the storm that took down the Quebec grid. Storms as large as the Carrington Event have a &lt;a href=&quot;https://agupubs.onlinelibrary.wiley.com/doi/pdf/10.1002/2016SW001470%4010.1002/%28ISSN%291542-7390.swqv14i1&quot;&gt;10% chance of happening every decade&lt;/a&gt;, although &lt;a href=&quot;https://davidroodman.com/david/The%20risk%20of%20geomagnetic%20storms%205%20dr.pdf&quot;&gt;some say this estimate is too high&lt;/a&gt;. Larger storms may be possible.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Q:&lt;/strong&gt; &lt;em&gt;This is terrifying! What hope do we have?&lt;/em&gt;
 &lt;br /&gt; &lt;strong&gt;A:&lt;/strong&gt; The good news is that we will probably have advance warning. A team at the &lt;a href=&quot;https://www.swpc.noaa.gov/&quot;&gt;Space Weather Prediction Center&lt;/a&gt; (SWPC) monitors activity on the sun and activity in the earth’s magnetosphere. They can alert utilities of a CME with several hours to days notice, depending on its severity. This puts the utilities on high alert to turn off their transformers if needed.&lt;/p&gt;
@@ -943,7 +1061,11 @@
 &lt;p&gt;But how do you turn that into a policy for exploring the space? Does anybody know?&lt;/p&gt;
 
 &lt;h3 id=&quot;submissions&quot;&gt;Submissions&lt;/h3&gt;
-&lt;p&gt;If you would like to submit a proposal, please report your average duration for the sample of 20,000 \(\tau\)’s provided &lt;a href=&quot;https://gist.github.com/csaid/a57c4ebaa1c7b0671cdc9692638ea4c4&quot;&gt;here&lt;/a&gt;. Currently, &lt;a href=&quot;https://twitter.com/Cmrn_DP&quot;&gt;Cameron Davidson-Pilon&lt;/a&gt; is in the lead with an average duration of &lt;a href=&quot;https://gist.github.com/CamDavidsonPilon/be1333d348865fbf1ab13c409e849ee2&quot;&gt;111.365 seconds&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;If you would like to submit a proposal, please report your average duration for the sample of 20,000 \(\tau\)’s provided &lt;a href=&quot;https://gist.github.com/csaid/a57c4ebaa1c7b0671cdc9692638ea4c4&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;On February 9, 2020, &lt;a href=&quot;https://twitter.com/Cmrn_DP&quot;&gt;Cameron Davidson-Pilon&lt;/a&gt; took an early lead, with an average duration of &lt;a href=&quot;https://gist.github.com/CamDavidsonPilon/be1333d348865fbf1ab13c409e849ee2&quot;&gt;111.4 seconds&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;On June 22, 2021, &lt;a href=&quot;https://twitter.com/AllenDowney&quot;&gt;Allen Downey&lt;/a&gt; took the lead with an average time of &lt;a href=&quot;https://github.com/AllenDowney/ThinkBayes2/blob/master/examples/shower.ipynb&quot;&gt;102 seconds&lt;/a&gt;, pending verification.&lt;/p&gt;
 
 &lt;h3 id=&quot;bonus-problem-plumbing-realities-and-the-elusive-middle-solution&quot;&gt;Bonus problem: Plumbing realities and the elusive “Middle Solution”&lt;/h3&gt;
 &lt;p&gt;The baseline shower problem assumes a simplified version of reality, where the shower is memoryless and there is only a single pipe. If you want a harder problem, I have written a comment below that describes some of the plumbing realities, including lag and the existence of separate hot and cold pipes. The comment explores the tantalizing possibility that we’ve all been fiddling with our showers wrong this whole time. Instead of swinging the knob between one extreme and the other, what if the optimal solution is to start by putting the knob in the middle? To read more, see the comment below.&lt;/p&gt;
@@ -1139,7 +1261,7 @@
 
 &lt;p&gt;&lt;img src=&quot;/assets/2020_optimizing_sample_sizes/bivariate_normal.png&quot; /&gt;&lt;/p&gt;
 &lt;div class=&quot;caption&quot;&gt;
-  &lt;p&gt;&lt;strong&gt;Figure 2&lt;/strong&gt;. Probabilities of possible outcomes, based on your prior beliefs. The horizontal axis is the true difference in means, and the vertical axis is the served difference in means.&lt;/p&gt;
+  &lt;p&gt;&lt;strong&gt;Figure 2&lt;/strong&gt;. Probabilities of possible outcomes, based on your prior beliefs. The horizontal axis is the true difference in means, and the vertical axis is the observed difference in means.&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
