@@ -4,7 +4,7 @@
  <title>Chris Said</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2021-07-25T14:13:56-04:00</updated>
+ <updated>2021-07-25T14:47:49-04:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -27,7 +27,7 @@
 
 &lt;hr /&gt;
 
-&lt;p&gt;I understand the point about long term credibility, but it feels hand-wavy and non-quantitative. So I decided to do some back-of-the-envelope math to see how much it matters.&lt;/p&gt;
+&lt;p&gt;I understand the point about long term credibility, but it feels hand-wavy and non-quantitative. So I decided to do some &lt;a href=&quot;https://github.com/csaid/fda_and_vaccines/blob/main/FDA%20and%20Vaccines.ipynb&quot;&gt;back-of-the-envelope math&lt;/a&gt; to see how much it matters.&lt;/p&gt;
 
 &lt;p&gt;As a simplifying assumption, let’s suppose we’ll need a new Covid vaccine every year for the next 10 years, similar to the flu shot. Let’s generously assume that the FDA fully approves each vaccine from 2022 onwards in a timely manner. The only decision it faces is whether to do “fast” approval or “slow” approval for the 2021 vaccine, where fast approval means that the vaccine would be fully approved 1 year earlier than under slow approval. The figure below shows these two policies.&lt;/p&gt;
 
@@ -57,7 +57,7 @@
 &lt;h3 id=&quot;2-moderate-issue-scenario&quot;&gt;2. Moderate issue scenario&lt;/h3&gt;
 &lt;p&gt;In the moderate issue scenario, important new safety issues in the 2021 vaccine emerge after full approval, but their overall safety impact is “moderate”. By “moderate” I mean either a serious issue that affects a very small percentage of people, or a minor issue that affects a large number of people. Given that historically all safety issues with vaccines have emerged well within the first year, I consider this outcome unlikely. But since mRNA vaccines are a new and intensely scrutinized technology, let’s give this scenario a 19% probability.&lt;/p&gt;
 
-&lt;p&gt;If safety issues emerge, vaccination rates will drop. But critically, they will drop regardless of whether the 2021 vaccine had full approval or just an EUA. In the wake of bad news about the 2021 vaccine, the people hesitating about the 2022 vaccine aren’t going to really care whether the 2021 vaccine was fast approved or just EUA’d. Maybe they’ll care a little bit, but for the most part their hesitancy will be there regardless.&lt;/p&gt;
+&lt;p&gt;If safety issues emerge, vaccination rates will drop. But critically, they will drop regardless of whether the 2021 vaccine had full approval or just an EUA. In the wake of bad news about the 2021 vaccine, the people hesitating about the 2022 vaccine won’t really care whether the 2021 vaccine was fast approved or just EUA’d. Maybe they’ll care a little bit, but for the most part their hesitancy will be there regardless.&lt;/p&gt;
 
 &lt;p&gt;I therefore model this scenario with a dip in vaccination rates that lasts a few years, with a slightly larger dip if the 2021 vaccine had been fast approved.&lt;/p&gt;
 
@@ -126,6 +126,8 @@
 &lt;p&gt;Finally, I should say that two of my most important assumptions were generous to the FDA. First, I assumed that we will continue to require annual Covid vaccines for the next 10 years. In this world, the “long term” (on the order of 10 years) is important, making the FDA’s concern about long term hesitancy very relevant. But this assumption might turn out to be false. Much of the next 10 years might be a return to normalcy, where Covid becomes a manageable infection similar to the flu, and most of the vaccines we take are less likely to be impacted by new vaccine hesitancy. In the same vein, we might only need a booster once every 5 years rather than every 1 year, which would blunt the impact of a medium-term loss of confidence.&lt;/p&gt;
 
 &lt;p&gt;Second, I assumed that all of the damage from slow approval would be confined to 2021 and that by 2022 the FDA would adopt fast approval. If that is not the case, and the FDA continues to take well over a year to approve each vaccine, the damage could be much greater.&lt;/p&gt;
+
+&lt;p&gt;Special thanks to Fábio Rocha for comments ona  draft. My code is availabe &lt;a href=&quot;https://github.com/csaid/fda_and_vaccines/blob/main/FDA%20and%20Vaccines.ipynb&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
 
 </content>
  </entry>
