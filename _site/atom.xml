@@ -4,7 +4,7 @@
  <title>Chris Said</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2021-07-25T14:54:37-04:00</updated>
+ <updated>2021-07-25T15:44:33-04:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -1069,6 +1069,8 @@
 &lt;p&gt;On February 9, 2020, &lt;a href=&quot;https://twitter.com/Cmrn_DP&quot;&gt;Cameron Davidson-Pilon&lt;/a&gt; took an early lead, with an average duration of &lt;a href=&quot;https://gist.github.com/CamDavidsonPilon/be1333d348865fbf1ab13c409e849ee2&quot;&gt;111.4 seconds&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;On June 22, 2021, &lt;a href=&quot;https://twitter.com/AllenDowney&quot;&gt;Allen Downey&lt;/a&gt; took the lead with an average time of &lt;a href=&quot;https://github.com/AllenDowney/ThinkBayes2/blob/master/examples/shower.ipynb&quot;&gt;102 seconds&lt;/a&gt;, pending verification.&lt;/p&gt;
+
+&lt;p&gt;On &lt;a href=&quot;https://twitter.com/CookieSci/status/1414331761400717314&quot;&gt;July 11, 2021&lt;/a&gt;, &lt;a href=&quot;https://twitter.com/CookieSci&quot;&gt;Jake Westfall&lt;/a&gt; took the lead with an average time of &lt;a href=&quot;https://colab.research.google.com/drive/1SL664cbudJnjV0Qo8PmP0klng9vhVopr?usp=sharing&quot;&gt;101.5 seconds&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;bonus-problem-plumbing-realities-and-the-elusive-middle-solution&quot;&gt;Bonus problem: Plumbing realities and the elusive “Middle Solution”&lt;/h3&gt;
 &lt;p&gt;The baseline shower problem assumes a simplified version of reality, where the shower is memoryless and there is only a single pipe. If you want a harder problem, I have written a comment below that describes some of the plumbing realities, including lag and the existence of separate hot and cold pipes. The comment explores the tantalizing possibility that we’ve all been fiddling with our showers wrong this whole time. Instead of swinging the knob between one extreme and the other, what if the optimal solution is to start by putting the knob in the middle? To read more, see the comment below.&lt;/p&gt;

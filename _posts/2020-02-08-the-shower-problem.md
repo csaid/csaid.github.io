@@ -41,5 +41,7 @@ On February 9, 2020, [Cameron Davidson-Pilon](https://twitter.com/Cmrn_DP) took 
 
 On June 22, 2021, [Allen Downey](https://twitter.com/AllenDowney) took the lead with an average time of [102 seconds](https://github.com/AllenDowney/ThinkBayes2/blob/master/examples/shower.ipynb), pending verification.
 
+On [July 11, 2021](https://twitter.com/CookieSci/status/1414331761400717314), [Jake Westfall](https://twitter.com/CookieSci) took the lead with an average time of [101.5 seconds](https://colab.research.google.com/drive/1SL664cbudJnjV0Qo8PmP0klng9vhVopr?usp=sharing)
+
 ### Bonus problem: Plumbing realities and the elusive “Middle Solution”
 The baseline shower problem assumes a simplified version of reality, where the shower is memoryless and there is only a single pipe. If you want a harder problem, I have written a comment below that describes some of the plumbing realities, including lag and the existence of separate hot and cold pipes. The comment explores the tantalizing possibility that we’ve all been fiddling with our showers wrong this whole time. Instead of swinging the knob between one extreme and the other, what if the optimal solution is to start by putting the knob in the middle? To read more, see the comment below.
