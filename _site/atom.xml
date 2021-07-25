@@ -4,7 +4,7 @@
  <title>Chris Said</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2021-07-25T14:48:33-04:00</updated>
+ <updated>2021-07-25T14:54:37-04:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -71,9 +71,9 @@
 &lt;p&gt;With a total population of 300 million, fast approval in 2021 would still provide the extra 45 million vaccinated person-years in 2021, but we’d lose 42 million vaccinated person-years in 2022-2030, netting out at +3 million vaccinated person-years.&lt;/p&gt;
 
 &lt;h3 id=&quot;3-major-issue-scenario&quot;&gt;3. Major issue scenario&lt;/h3&gt;
-&lt;p&gt;In the major issue scenario, serious safety issues in the 2021 vaccine emerge in a large fraction of the population. Nothing remotely like this has never happened before, especially for a widely taken vaccine that already has almost a year’s worth of data, so I think this is extremely unlikely. But let’s give it a 1% chance anyway.&lt;/p&gt;
+&lt;p&gt;In the major issue scenario, serious safety issues in the 2021 vaccine emerge in a large fraction of the population. Nothing remotely like this has ever happened before, especially for a widely taken vaccine that already has almost a year’s worth of data, so I think this is extremely unlikely. But let’s give it a 1% chance anyway.&lt;/p&gt;
 
-&lt;p&gt;We’ll model this as a longer and deeper dip in vaccination rates. In this scenario, fast approval nets out to a loss of 20 million vaccinated person-years.&lt;/p&gt;
+&lt;p&gt;We’ll model this as a longer and deeper dip in vaccination rates. In this scenario, fast approval nets out to a &lt;em&gt;loss&lt;/em&gt; of 20 million vaccinated person-years.&lt;/p&gt;
 
 &lt;div class=&quot;wrapper&quot;&gt;
   &lt;p&gt;&lt;img src=&quot;/assets/2021_fda_and_vaccines/fig_major.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:90%;&quot; /&gt;&lt;/p&gt;
@@ -123,12 +123,13 @@
 &lt;h3 id=&quot;but-what-about&quot;&gt;But what about…&lt;/h3&gt;
 &lt;p&gt;Readers should absolutely question my assumptions. This post is a simplified back-of-the-envelope exercise because I believe all of the discussion so far has only been qualitative. If you think any of my assumptions are substantively wrong (and I’m sure some are!), it’s best to propose a &lt;em&gt;quantitative&lt;/em&gt; alternative. And be sure to explicitly consider the difference between a 2021 EUA and full approval. For example, perhaps you might think that hesitancy could persist for decades in a catastrophic safety scenario. Maybe so. But if that happens, will anybody decades from now care whether the 2021 vaccine had an EUA versus full approval? I don’t think so.&lt;/p&gt;
 
-&lt;p&gt;Finally, I should say that two of my most important assumptions were generous to the FDA. First, I assumed that we will continue to require annual Covid vaccines for the next 10 years. In this world, the “long term” (on the order of 10 years) is important, making the FDA’s concern about long term hesitancy very relevant. But this assumption might turn out to be false. Much of the next 10 years might be a return to normalcy, where Covid becomes a manageable infection similar to the flu, and most of the vaccines we take are less likely to be impacted by new vaccine hesitancy. In the same vein, we might only need a booster once every 5 years rather than every 1 year, which would blunt the impact of a medium-term loss of confidence.&lt;/p&gt;
+&lt;p&gt;Finally, note that two of my most important assumptions were generous to the FDA. First, I assumed that we will continue to require annual Covid vaccines for the next 10 years. In this world, the “long term” (on the order of 10 years) is important, making the FDA’s concern about long term hesitancy very relevant. But this assumption might turn out to be false. Much of the next 10 years might be a return to normalcy, where Covid becomes a manageable infection similar to the flu, and most of the vaccines we take are less likely to be impacted by new vaccine hesitancy. In the same vein, we might only need a booster once every 5 years rather than every 1 year, which would blunt the impact of a medium-term loss of confidence.&lt;/p&gt;
 
 &lt;p&gt;Second, I assumed that all of the damage from slow approval would be confined to 2021 and that by 2022 the FDA would adopt fast approval. If that is not the case, and the FDA continues to take well over a year to approve each vaccine, the damage could be much greater.&lt;/p&gt;
 
-&lt;p&gt;Special thanks to Fábio Rocha for comments ona  draft. My code is availabe &lt;a href=&quot;https://github.com/csaid/fda_and_vaccines/blob/main/FDA%20and%20Vaccines.ipynb&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
-
+&lt;div class=&quot;caption&quot;&gt;
+  &lt;p&gt;Special thanks to Fábio Rocha for comments on a draft. My code is availabe &lt;a href=&quot;https://github.com/csaid/fda_and_vaccines/blob/main/FDA%20and%20Vaccines.ipynb&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
 </content>
  </entry>
  
