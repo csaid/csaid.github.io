@@ -1,7 +1,7 @@
 ---
 layout: post
 title: The FDA is 5 times too worried about long term credibility
-description: The FDA should fully approve the Covid vaccines now.
+description: Back-of-the-envelope estimates show the FDA should fully approve the Covid vaccines now.
 image: /assets/2021_fda_and_vaccines/fig_moderate.png
 ---
 
