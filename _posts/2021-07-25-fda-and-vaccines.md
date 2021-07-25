@@ -66,7 +66,7 @@ We’ll model this as a longer and deeper dip in vaccination rates. In this scen
 
 <div class="wrapper">
   <img src='/assets/2021_fda_and_vaccines/fig_major.png' class="inner" style="position:relative border: #222 2px solid; max-width:90%;" >
-  <div class="caption">Figure 4. The two policies under a major issue scenario.
+  <div class="caption">**Figure 4**. The two policies under a major issue scenario.
   </div>
 </div>
 

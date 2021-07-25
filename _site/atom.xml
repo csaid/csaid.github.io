@@ -4,7 +4,7 @@
  <title>Chris Said</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2021-07-25T14:47:49-04:00</updated>
+ <updated>2021-07-25T14:48:33-04:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -78,7 +78,7 @@
 &lt;div class=&quot;wrapper&quot;&gt;
   &lt;p&gt;&lt;img src=&quot;/assets/2021_fda_and_vaccines/fig_major.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:90%;&quot; /&gt;&lt;/p&gt;
   &lt;div class=&quot;caption&quot;&gt;
-    &lt;p&gt;Figure 4. The two policies under a major issue scenario.&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;Figure 4&lt;/strong&gt;. The two policies under a major issue scenario.&lt;/p&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 
