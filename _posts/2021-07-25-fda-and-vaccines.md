@@ -16,7 +16,7 @@ Defenders of the FDA say that critics aren’t thinking about the long term. Sur
 
 ---
 
-I understand the point about long term credibility, but it feels hand-wavy and non-quantitative. Let’s do some back-of-the-envelope calculations to see how much it matters.
+I understand the point about long term credibility, but it feels hand-wavy and non-quantitative. So I decided to do some back-of-the-envelope math to see how much it matters.
 
 As a simplifying assumption, let’s suppose we’ll need a new Covid vaccine every year for the next 10 years, similar to the flu shot. Let’s generously assume that the FDA fully approves each vaccine from 2022 onwards in a timely manner. The only decision it faces is whether to do “fast” approval or “slow” approval for the 2021 vaccine, where fast approval means that the vaccine would be fully approved 1 year earlier than under slow approval. The figure below shows these two policies.
 
