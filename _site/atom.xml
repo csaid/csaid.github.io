@@ -4,7 +4,7 @@
  <title>Chris Said</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2021-07-25T19:03:39-04:00</updated>
+ <updated>2021-07-26T08:23:51-04:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -116,7 +116,7 @@
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;Based on this back-of-the-envelope analysis, FDA could gain 39 million vaccinated person-years if they had fully approved the 2021 vaccine, even when accounting for long term risks. Assuming that &lt;a href=&quot;https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7721859/&quot;&gt;0.3% of unvaccinated people will die each year&lt;/a&gt; because they are not vaccinated, this decision would save 115,000 lives in expectation. &lt;strong&gt;To put it more starkly, an FDA decision to not fully approve in 2021 will cost 115,000 lives.&lt;/strong&gt; I have no doubt that the FDA is well-intentioned, but I really think they should reconsider their extreme cautiousness on this issue.&lt;/p&gt;
+&lt;p&gt;Based on this back-of-the-envelope analysis, FDA could gain 39 million vaccinated person-years if they had fully approved the 2021 vaccine, even when accounting for long term risks. Assuming that &lt;a href=&quot;https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7721859/&quot;&gt;0.2% of unvaccinated people will die each year&lt;/a&gt; because they are not vaccinated, this decision would save 80,000 lives in expectation. &lt;strong&gt;To put it more starkly, an FDA decision to not fully approve in 2021 will cost 80,000 lives.&lt;/strong&gt; I have no doubt that the FDA is well-intentioned, but I really think they should reconsider their extreme cautiousness on this issue.&lt;/p&gt;
 
 &lt;p&gt;Under the model outlined above, the decision to delay full approval would only make sense if you thought the probability-weighted long-term risks were &lt;a href=&quot;https://github.com/csaid/fda_and_vaccines/blob/main/FDA%20and%20Vaccines.ipynb&quot;&gt;5 times higher&lt;/a&gt; than I think are reasonable.&lt;/p&gt;
 
