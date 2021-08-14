@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Teens, loneliness, and the social media paradox
-description: How network effects may drive the relation between social media and teen mental health
+description: How network effects may drive the relation between social media and teen mental health.
 image: /assets/2021_teens_loneliness_social_media/cartoon_trap.png
 ---
 
@@ -14,8 +14,7 @@ Starting around 2012, teen loneliness and depression [increased dramatically](ht
   </div>
 </div>
 
-
-Recently, some researchers have begun to [question](https://www.nytimes.com/2020/01/17/technology/kids-smartphones-depression.html) this narrative. In one large study, [Orben and Przybylski (2019)](https://www.nature.com/articles/s41562-018-0506-1) found that teens who used digital technology heavily were only slightly more likely to have poor mental health than those who used it lightly. The correlation for social media in particular was stronger but still weak. Because of the weak individual-level correlation between social media use and well-being, the researchers concluded that the impact of social media was “too small to warrant policy change”.
+Recently, some researchers have begun to [question](https://www.nytimes.com/2020/01/17/technology/kids-smartphones-depression.html) this narrative. In one large study, [Orben and Przybylski (2019)](https://www.nature.com/articles/s41562-018-0506-1) found that teens who used social media heavily were only slightly more likely to have poor mental health than those who used it lightly (but see [Twenge et al. (2020)](https://www.nature.com/articles/s41562-020-0839-4.epdf?author_access_token=AMli-v_NVizlRHfiHJUs2NRgN0jAjWel9jnR3ZoTv0NyO6WHXhaam3zaljiEGjfZWSw5xRcCYPYjudNb4RKEc1H5eAeNLyrwNMcZ3q6A3hZiGMwJNpRy1HGyUwXOLDn2TDAS79zv5Lgv80kc2gm_6A%3D%3D)). Because of the weak individual-level correlation, the researchers concluded that the impact of social media was “too small to warrant policy change”.
 
 I’m not sure I agree. It’s totally possible and indeed likely that social media has caused a major drop in teen well-being even though the cross-sectional data shows only weak correlations between social media use and well-being. 
 
