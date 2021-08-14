@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Teens, loneliness, and the social media paradox
-description: Back-of-the-envelope estimates show the FDA should fully approve the Covid vaccines now.
+description: How network effects may drive the relation between social media and teen mental health
 image: /assets/2021_teens_loneliness_social_media/cartoon_trap.png
 ---
 
