@@ -45,7 +45,7 @@ If other vitamins aren’t the answer, maybe there is another confounder that we
 ### How good is this literature, really?
 The other possibility is that this subfield has the same high levels of publication bias and questionable research practices, inadvertent or otherwise, that so many other medical subfields have. Some literatures have it so bad that they are driven [entirely](https://slatestarcodex.com/2019/05/07/5-httlpr-a-pointed-review/) by p-hacking and publication bias, with zero underlying true effect.
 
-It’s tough to say whether the same thing is happening with autism and folic acid, and I don’t want to malign all these studies. But there are few hints in the data that something is amiss. 
+It’s tough to say whether the same thing is happening with autism and folic acid, and I don’t want to malign all these studies. But there are a few hints in the data that something is amiss. 
 
 Let’s sort the studies in the [meta-analysis](https://onlinelibrary.wiley.com/doi/abs/10.1111/apa.14657) by the size of their effects. As you can see in Figure 3, the studies with the largest benefits of folic acid also had the largest error bars. The studies with weaker or null effects had smaller error bars and larger sample sizes. This trend is a hallmark of publication bias. With enough research degrees of freedom, it’s just a lot easier to find something in a low-powered study than a high-powered study.
 
