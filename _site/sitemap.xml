@@ -3,6 +3,21 @@
   
     
     <url>
+      <loc>http://localhost:4000/2021/12/18/pandemic-virus-prediction/</loc>
+      
+        <lastmod>2021-12-18T00:00:00-05:00</lastmod>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.5</priority>
+      
+    </url>
+    
+  
+    
+    <url>
       <loc>http://localhost:4000/2021/08/14/teens-loneliness-social-media/</loc>
       
         <lastmod>2021-08-14T00:00:00-04:00</lastmod>
@@ -760,7 +775,7 @@
     <url>
       <loc>http://localhost:4000404.html</loc>
       
-        <lastmod>2021-08-14T08:03:29-04:00</lastmod>
+        <lastmod>2021-12-18T08:58:13-05:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -1436,6 +1451,19 @@
           <loc>http://localhost:4000/2021/08/14/teens-loneliness-social-media/</loc>
           
             <lastmod>2021-08-14T00:00:00-04:00</lastmod>
+          
+          
+            <changefreq>monthly</changefreq>
+          
+          
+            <priority>0.3</priority>
+          
+        </url>
+      
+        <url>
+          <loc>http://localhost:4000/2021/12/18/pandemic-virus-prediction/</loc>
+          
+            <lastmod>2021-12-18T00:00:00-05:00</lastmod>
           
           
             <changefreq>monthly</changefreq>

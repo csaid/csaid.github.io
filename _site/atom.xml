@@ -4,13 +4,62 @@
  <title>Chris Said</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2021-08-14T08:03:29-04:00</updated>
+ <updated>2021-12-18T08:58:13-05:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
    <email></email>
  </author>
 
+ 
+ <entry>
+   <title>Pandemic virus prediction&#58; All risk and minimal benefit</title>
+   <link href="http://localhost:4000/2021/12/18/pandemic-virus-prediction/"/>
+   <updated>2021-12-18T00:00:00-05:00</updated>
+   <id>http://localhost:4000/2021/12/18/pandemic-virus-prediction</id>
+   <content type="html">&lt;p&gt;At this moment, a growing number of scientists are seeking to understand and publish information about how deadly certain viruses are, a research activity that has been dubbed &lt;strong&gt;pandemic virus prediction&lt;/strong&gt;. Some of these viruses are found in animal populations. Others are engineered by scientists, often specifically to make them more deadly or more transmissible. Scientists who conduct this type of research say it could help us get ahead of the next pandemic. Critics say it’s risky.&lt;/p&gt;
+
+&lt;p&gt;I am here to tell you that the risks are far higher than you think, and the benefits far lower than you think. Much of this post is based on &lt;a href=&quot;https://drive.google.com/file/d/1v9SYi_SsGbE-H4RrtEqHT9JlRe4HzmFa/view&quot;&gt;congressional testimony&lt;/a&gt; and an extraordinary &lt;a href=&quot;http://rationallyspeakingpodcast.org/261-dangerous-biological-research-is-it-worth-it-kevin-esvelt/&quot;&gt;interview&lt;/a&gt; on Julia Galef’s podcast with MIT biosecurity researcher &lt;a href=&quot;https://www.sculptingevolution.org/kevin-m-esvelt&quot;&gt;Kevin Esvelt&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;the-risks-its-not-the-lab-leaks-its-the-mail-order-dna&quot;&gt;The risks: It’s not the lab leaks, it’s the mail-order DNA&lt;/h3&gt;
+&lt;p&gt;Much of the debate about pandemic virus prediction centers around lab leaks. Lab leaks are &lt;a href=&quot;https://twitter.com/Chris_Said/status/1396827966395625474&quot;&gt;common&lt;/a&gt;, and many biosecurity experts believe that risk alone outweighs the benefits.&lt;/p&gt;
+
+&lt;p&gt;But do you know what’s scarier than lab leaks? Exponentially decreasing costs of mail-order DNA and virus assembly. At this moment, &lt;a href=&quot;https://drive.google.com/file/d/1v9SYi_SsGbE-H4RrtEqHT9JlRe4HzmFa/view&quot;&gt;thousands&lt;/a&gt; of individuals are capable of assembling a pandemic-capable virus, once we identify one. As the cost of synthetic DNA and virus assembly continues to decline, even more people will be able to do this.&lt;/p&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/assets/2021_pandemic_virus_prediction/dna_costs.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:100%;&quot; /&gt;&lt;/p&gt;
+  &lt;div class=&quot;caption&quot;&gt;
+    &lt;p&gt;&lt;strong&gt;Figure 1&lt;/strong&gt;. Price per base of DNA sequencing and synthesis, log scale (Source: &lt;a href=&quot;http://www.bioeconomycapital.com/bioeconomy-dashboard&quot;&gt;Bioeconomy Capital&lt;/a&gt;).&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;The risk here is unfathomable. Unlike nuclear warfare, which had the comforting stability of large rational actors, bioterrorism can be untraceable and asymmetric. It just takes one crazy person to create a pandemic. All they have to do is look up the published sequence to a deadly pandemic virus, order the nucleic acids in the mail, and assemble a virus using known protocols. This is scary stuff.&lt;/p&gt;
+
+&lt;h3 id=&quot;the-benefits&quot;&gt;The benefits:&lt;/h3&gt;
+&lt;p&gt;Researchers who conduct pandemic virus prediction say it will help us “get ahead” of the next pandemic. But upon deeper inspection, these claims are rather weak.&lt;/p&gt;
+
+&lt;p&gt;The first claim is that if we can identify a future pandemic pathogen, we can develop vaccines for it in advance. But with new mRNA technology that allows vaccine development within days, there is no longer any advantage to developing the vaccine in advance. Some say that even if this research doesn’t help us develop a vaccine in advance, it can at least help us run a Phase 1 safety trial in advance, so that we don’t have to waste time running it after the pandemic has already started. But according to Esvelt, a Phase I trial would be &lt;a href=&quot;https://drive.google.com/file/d/1v9SYi_SsGbE-H4RrtEqHT9JlRe4HzmFa/view&quot;&gt;combined&lt;/a&gt; with a Phase II trial if we were ever in a serious pandemic, which means there is no advantage to doing a Phase I trial in advance.&lt;/p&gt;
+
+&lt;p&gt;The second claim is that knowing about potential pathogens can help us develop broad-spectrum therapeutics or vaccines. These drugs can protect us not just against existing strains but future strains that haven’t yet crossed over into humans. Indeed, many studies have measured the coverage of broad-spectrum drugs against animal viruses that have not yet crossed over to humans (&lt;a href=&quot;https://www.science.org/doi/10.1126/scitranslmed.aal3653&quot;&gt;1&lt;/a&gt;,&lt;a href=&quot;https://www.science.org/doi/10.1126/scitranslmed.abb5883&quot;&gt;2&lt;/a&gt;,&lt;a href=&quot;https://www.nature.com/articles/s41586-021-03594-0&quot;&gt;3&lt;/a&gt;,&lt;a href=&quot;https://www.science.org/doi/10.1126/science.abf4830&quot;&gt;4&lt;/a&gt;,&lt;a href=&quot;https://www.biorxiv.org/content/10.1101/2021.04.27.441655v1&quot;&gt;5&lt;/a&gt;). But when I &lt;a href=&quot;https://twitter.com/Chris_Said/status/1462155251985928193&quot;&gt;looked&lt;/a&gt; into these studies more closely, most of the benefit could be achieved by using viruses that have already circulated in humans, which already span a similar breadth of the evolutionary tree.&lt;/p&gt;
+
+&lt;p&gt;Esvelt says that while there is some minor benefit to finding and sequencing more viruses in the spectrum (an activity he does not think is worth the risks), there is less advantage to characterizing and publishing how dangeous each of them are, the activity that he calls pandemic virus prediction. This type of activity doesn’t really tell us where to focus our broad-spectrum antiviral research. The really dangerous types of mutations can happen on multiple branches of the evolutionary tree, and are mostly &lt;a href=&quot;https://twitter.com/kesvelt/status/1470206824402063366&quot;&gt;orthogonal&lt;/a&gt; to the ability of vaccines or antivirals to recognize the virus.&lt;/p&gt;
+
+&lt;p&gt;EcoHealth Alliance and its affiliate The Global Virome Project wish to identify and characterize &lt;a href=&quot;https://www.globalviromeproject.org/our-history&quot;&gt;99% of the world’s zoonotic viruses&lt;/a&gt;. Based on everything I’ve read, identifying 99% of the world’s zoonotic viruses has extremely diminishing returns. And based on their plans to &lt;a href=&quot;http://rationallyspeakingpodcast.org/261-dangerous-biological-research-is-it-worth-it-kevin-esvelt/&quot;&gt;publish the list of sequences and rank them by pandemic potential&lt;/a&gt;, which, to remind you, can then be assembled into viruses by thousands of people anonymously, it is inconceivable that the benefits exceed the risks.&lt;/p&gt;
+
+&lt;h3 id=&quot;what-can-be-done&quot;&gt;What can be done&lt;/h3&gt;
+&lt;p&gt;To recap, well-meaning scientists are doing research of dubious value and unfathomable risk. What can be come? In &lt;a href=&quot;https://drive.google.com/file/d/1v9SYi_SsGbE-H4RrtEqHT9JlRe4HzmFa/view&quot;&gt;testimony&lt;/a&gt; before the House Foreign Affairs Committee last week, Esvelt laid out several steps. I will list a few here:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Stop funding pandemic virus prediction research.&lt;/li&gt;
+  &lt;li&gt;Move oversight away from the funding agencies and towards regulators with security experience&lt;/li&gt;
+  &lt;li&gt;Cooperate with China. Use the Biological Weapons Convention to block this type of research.&lt;/li&gt;
+  &lt;li&gt;Prohibit DNA synthesis companies from shipping DNA with pandemic potential.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;I hope that Congress will act promptly to implement these measures.&lt;/p&gt;
+
+</content>
+ </entry>
  
  <entry>
    <title>Teens, loneliness, and the social media paradox</title>
@@ -175,7 +224,7 @@
 &lt;p&gt;Second, I assumed that all of the damage from slow approval would be confined to 2021 and that by 2022 the FDA would adopt fast approval. If that is not the case, and the FDA continues to take well over a year to approve each vaccine, the damage could be much greater.&lt;/p&gt;
 
 &lt;div class=&quot;caption&quot;&gt;
-  &lt;p&gt;Special thanks to Fábio Rocha and Abhinav Nellore for comments on a draft. My code is availabe &lt;a href=&quot;https://github.com/csaid/fda_and_vaccines/blob/main/FDA%20and%20Vaccines.ipynb&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+  &lt;p&gt;Special thanks to Fábio Rocha and Abhinav Nellore for comments on a draft. My code is available &lt;a href=&quot;https://github.com/csaid/fda_and_vaccines/blob/main/FDA%20and%20Vaccines.ipynb&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 </content>
  </entry>
@@ -226,7 +275,7 @@
 &lt;h3 id=&quot;how-good-is-this-literature-really&quot;&gt;How good is this literature, really?&lt;/h3&gt;
 &lt;p&gt;The other possibility is that this subfield has the same high levels of publication bias and questionable research practices, inadvertent or otherwise, that so many other medical subfields have. Some literatures have it so bad that they are driven &lt;a href=&quot;https://slatestarcodex.com/2019/05/07/5-httlpr-a-pointed-review/&quot;&gt;entirely&lt;/a&gt; by p-hacking and publication bias, with zero underlying true effect.&lt;/p&gt;
 
-&lt;p&gt;It’s tough to say whether the same thing is happening with autism and folic acid, and I don’t want to malign all these studies. But there are few hints in the data that something is amiss.&lt;/p&gt;
+&lt;p&gt;It’s tough to say whether the same thing is happening with autism and folic acid, and I don’t want to malign all these studies. But there are a few hints in the data that something is amiss.&lt;/p&gt;
 
 &lt;p&gt;Let’s sort the studies in the &lt;a href=&quot;https://onlinelibrary.wiley.com/doi/abs/10.1111/apa.14657&quot;&gt;meta-analysis&lt;/a&gt; by the size of their effects. As you can see in Figure 3, the studies with the largest benefits of folic acid also had the largest error bars. The studies with weaker or null effects had smaller error bars and larger sample sizes. This trend is a hallmark of publication bias. With enough research degrees of freedom, it’s just a lot easier to find something in a low-powered study than a high-powered study.&lt;/p&gt;
 
