@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Pandemic virus prediction&#58; All risk and minimal benefit
-description: How network effects may drive the relation between social media and teen mental health.
+description: Well-meaning scientists are doing research of dubious value and unfathomable risk.
 image: /assets/2021_pandemic_virus_prediction/dna_costs.png
 ---
 
