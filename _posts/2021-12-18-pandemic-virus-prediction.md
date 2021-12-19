@@ -5,7 +5,7 @@ description: Well-meaning scientists are doing research of dubious value and unf
 image: /assets/2021_pandemic_virus_prediction/dna_costs.png
 ---
 
-At this moment, a growing number of scientists are studying viruses that have not yet infected human populations, seeking to understand and publish information about how deadly they are. Some of these viruses are found in animal populations. Others are engineered by scientists, often specifically to make them more deadly or more transmissible. Scientists who conduct this type of research, which has been called **pandemic virus prediction**, say it could help us get ahead of the next pandemic. Critics say it’s risky.
+At this moment, a growing number of scientists are studying viruses that have not yet infected human populations, seeking to understand and publish information about how deadly they are. Some of these viruses are found in animal populations. Others are partially engineered by scientists, often specifically to make them more deadly or more transmissible. Scientists who conduct this type of research, which has been called **pandemic virus prediction**, say it could help us get ahead of the next pandemic. Critics say it’s risky.
 
 I am here to tell you that the risks are far higher than you think, and the benefits far lower than you think. Much of this post is based on [congressional testimony](https://drive.google.com/file/d/1v9SYi_SsGbE-H4RrtEqHT9JlRe4HzmFa/view) and an extraordinary [interview](http://rationallyspeakingpodcast.org/261-dangerous-biological-research-is-it-worth-it-kevin-esvelt/) on Julia Galef’s podcast with MIT biosecurity researcher [Kevin Esvelt](https://www.sculptingevolution.org/kevin-m-esvelt).
 
