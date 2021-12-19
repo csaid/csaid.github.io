@@ -32,10 +32,9 @@ The second claim is that knowing about potential pathogens can help us develop b
 
 Esvelt says that while there is some minor benefit to finding and sequencing more viruses in the spectrum (an activity he does not think is worth the risks), there is less advantage to characterizing and publishing how dangerous each of them is, the activity that he calls pandemic virus prediction. This type of activity doesn’t really tell us where to focus our broad-spectrum antiviral research. The really dangerous types of mutations can happen on multiple branches of the evolutionary tree, and are mostly [independent](https://twitter.com/kesvelt/status/1470206824402063366) of the ability of vaccines or antivirals to recognize the virus.
 
-EcoHealth Alliance and its affiliate The Global Virome Project wish to identify and characterize [99% of the world’s zoonotic viruses](https://www.globalviromeproject.org/our-history). Based on everything I've read, identifying 99% of the world’s zoonotic viruses has extremely diminishing returns. And based on their plans to [publish the list of sequences and rank them by pandemic potential](http://rationallyspeakingpodcast.org/261-dangerous-biological-research-is-it-worth-it-kevin-esvelt/), which, to remind you, can then be assembled into viruses by thousands of people anonymously, it is inconceivable that the benefits exceed the risks.
 
 ### What can be done
-To recap, well-meaning scientists are doing research of dubious value and unfathomable risk. What can be come? In [testimony](https://drive.google.com/file/d/1v9SYi_SsGbE-H4RrtEqHT9JlRe4HzmFa/view) before the House Foreign Affairs Committee last week, Esvelt laid out several steps. I will list a few here:
+To recap, well-meaning scientists are doing research of dubious value and unfathomable risk, publishing information about dangerous viruses the world has never seen, which thousands of people can assemble themselves. What can be done? In [testimony](https://drive.google.com/file/d/1v9SYi_SsGbE-H4RrtEqHT9JlRe4HzmFa/view) before the House Foreign Affairs Committee last week, Esvelt laid out several steps. I will list a few here:
 
 
 1. Stop funding pandemic virus prediction research.
