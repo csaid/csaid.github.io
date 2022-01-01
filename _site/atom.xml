@@ -4,7 +4,7 @@
  <title>Chris Said</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2022-01-01T13:02:11-05:00</updated>
+ <updated>2022-01-01T13:06:12-05:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -43,7 +43,7 @@
 &lt;p&gt;The first observation is that reducing R0 can drive a long-term reduction in cases, even if it doesn’t eliminate waves.&lt;/p&gt;
 
 &lt;div class=&quot;wrapper&quot;&gt;
-  &lt;p&gt;&lt;img src=&quot;/assets/2022_paradox_of_r0/fig_obs1_infected.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:100%;&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;/assets/2022_paradox_of_r0/fig_obs1_infected_and_R0.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:100%;&quot; /&gt;&lt;/p&gt;
   &lt;div class=&quot;caption&quot;&gt;
     &lt;p&gt;&lt;strong&gt;Figure 2.&lt;/strong&gt; Reducing R0 via NPIs or other methods will always lead to fewer infections.&lt;/p&gt;
   &lt;/div&gt;

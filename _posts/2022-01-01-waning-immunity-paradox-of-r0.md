@@ -31,7 +31,7 @@ My analysis focuses on years 2-6 of the epidemic and my code can be found [here]
 The first observation is that reducing R0 can drive a long-term reduction in cases, even if it doesn’t eliminate waves. 
 
 <div class="wrapper">
-  <img src='/assets/2022_paradox_of_r0/fig_obs1_infected.png' class="inner" style="position:relative border: #222 2px solid; max-width:100%;" >
+  <img src='/assets/2022_paradox_of_r0/fig_obs1_infected_and_R0.png' class="inner" style="position:relative border: #222 2px solid; max-width:100%;" >
   <div class="caption">**Figure 2.** Reducing R0 via NPIs or other methods will always lead to fewer infections. 
   </div>
 </div>
