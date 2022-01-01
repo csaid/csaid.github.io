@@ -5,7 +5,7 @@ description: Reducing R0 reduces infections, but can it sometimes cause sharper 
 image: /assets/2022_paradox_of_r0/fig_infected_and_R0.png
 ---
 
-_**Disclaimer:** I'm not an epidemiologist, so adjust your priors accordingly._ Code available [here](https://gist.github.com/csaid/2f1c8247d3e9dd015da6d36c1fcf882a). 
+_**Disclaimer:** I'm not an epidemiologist, so adjust your priors accordingly. Code available [here](https://gist.github.com/csaid/2f1c8247d3e9dd015da6d36c1fcf882a)._ 
 
 A classic finding from epidemiology is that in a single wave epidemic, reducing R0 lowers the number of cases. To reduce R0, most countries have adopted some combination of Non-Pharmaceutical Interventions (NPIs) like masks and testing.
 
@@ -39,15 +39,15 @@ The first observation is that reducing R0 can drive a long-term reduction in cas
 
 Why is this relevant? A lot of people have pointed out the UK has widespread access to rapid tests, and yet [still got hit by a strong Omicron wave](https://twitter.com/mattyglesias/status/1476614925917302788). Some have claimed that this demonstrates the [futility](https://twitter.com/RichardHanania/status/1476578527835156481) of rapid tests.
 
-But as these simulations show, it’s entirely possible that a reduction in R0 driven by UK rapid tests may have significantly reduced cases, relative to what they would be otherwise. Rapid tests won't end the pandemic, but they can still drive a useful reduction in infection. 
+But as these simulations show, it’s entirely possible that a reduction in R0 driven by UK rapid tests may have significantly reduced infection, relative to what they would be otherwise. Rapid tests won't end the pandemic, but they can still drive a useful reduction in infection. 
 
 ### Observation 2: Reducing R0 can sometimes cause higher peaks
 
-The second and more interesting observation is that in many parts of the parameter space – particularly where baseline R0 is high – a reduction in R0 can paradoxically cause higher peaks. That's because by preventing infections during the summer months, we might create a more vulnerable population during the winter months. 
+The second and more interesting observation is that in many parts of the parameter space – particularly where baseline R0 is high – a reduction in R0 can paradoxically cause _higher_ peaks. That's because by preventing infections during the summer months, we might create a more vulnerable population during the winter months. 
 
 
 <div class="wrapper">
-  <img src='/assets/2022_paradox_of_r0/fig_obs2_infected_and_r0.png' class="inner" style="position:relative border: #222 2px solid; max-width:100%;" >
+  <img src='/assets/2022_paradox_of_r0/fig_obs2_infected_and_R0.png' class="inner" style="position:relative border: #222 2px solid; max-width:100%;" >
   <div class="caption">**Figure 3.** In some sitautions, reducing R0 can paradoxically lead to stonger peaks after the first year, even though the total number of infections is reduced. 
   </div>
 </div>
@@ -61,7 +61,7 @@ This means there is a kernel of truth to the contrarian hypothesis about R0. Fig
 When considering load on our medical system, it is worrisome that reducing R0 might paradoxically _increase_ the strength of waves. Thankfully, this effect can be mitigated by preferentially reducing R0 when infections go up, for example via stronger testing or social distancing. 
 
 <div class="wrapper">
-  <img src='/assets/2022_paradox_of_r0/fig_obs3_infected_and_r0.png' class="inner" style="position:relative border: #222 2px solid; max-width:100%;" >
+  <img src='/assets/2022_paradox_of_r0/fig_obs3_infected_and_R0.png' class="inner" style="position:relative border: #222 2px solid; max-width:100%;" >
   <div class="caption">**Figure 4.** As in Figure 3, a blanket reduction in R0 (solid pink) can cause higher peaks. But if R0 is reduced even further during infection peaks (dotted pink), the infection peaks can be brought under control. 
   </div>
 </div>
