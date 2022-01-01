@@ -4,13 +4,112 @@
  <title>Chris Said</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2021-12-19T11:02:24-05:00</updated>
+ <updated>2022-01-01T12:48:28-05:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
    <email></email>
  </author>
 
+ 
+ <entry>
+   <title>Waning immunity and the little paradox of R0</title>
+   <link href="http://localhost:4000/2022/01/01/waning-immunity-paradox-of-r0/"/>
+   <updated>2022-01-01T00:00:00-05:00</updated>
+   <id>http://localhost:4000/2022/01/01/waning-immunity-paradox-of-r0</id>
+   <content type="html">&lt;p&gt;&lt;em&gt;&lt;strong&gt;Disclaimer:&lt;/strong&gt; I’m not an epidemiologist, so adjust your priors accordingly.&lt;/em&gt; Code available &lt;a href=&quot;https://gist.github.com/csaid/2f1c8247d3e9dd015da6d36c1fcf882a&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;A classic finding from epidemiology is that in a single wave epidemic, reducing R0 lowers the number of cases. To reduce R0, most countries have adopted some combination of Non-Pharmaceutical Interventions (NPIs) like masks and testing.&lt;/p&gt;
+
+&lt;p&gt;But in a multi-wave epidemic with waning immunity, a contrarian intuition about R0 might cross one’s mind. By keeping cases low, might we be making our population &lt;em&gt;more vulnerable&lt;/em&gt; to the next wave? The dynamic could be similar to forest fires. We might be able to stop forest fires now, but we’ll just build up dry tinder for a worse forest fire later. Since waves of Covid are inevitable, why bother fighting it?&lt;/p&gt;
+
+&lt;p&gt;These ideas are important but hand-wavy, so I decided to build a model. What I found was at once surprising and clarifying.&lt;/p&gt;
+
+&lt;h3 id=&quot;model-background&quot;&gt;Model background&lt;/h3&gt;
+
+&lt;p&gt;I used a standard &lt;a href=&quot;https://www.nature.com/articles/s41592-020-0856-2&quot;&gt;SIR model&lt;/a&gt; with seasonality and waning immunity. Slow seasonally-based changes in R0 drive sharp seasonal waves of infection. Because of waning immunity, the sharp waves of infection continue indefinitely.&lt;/p&gt;
+
+&lt;p&gt;My analysis focuses on years 2-6 of the epidemic and my code can be found &lt;a href=&quot;https://gist.github.com/csaid/2f1c8247d3e9dd015da6d36c1fcf882a&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/assets/2022_paradox_of_r0/fig_infected_and_R0.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:100%;&quot; /&gt;&lt;/p&gt;
+  &lt;div class=&quot;caption&quot;&gt;
+    &lt;p&gt;&lt;strong&gt;Figure 1.&lt;/strong&gt; A standard SIR model with seasonality and waning immunity. R0 is determined by seasonality, increasing as people spend more time indoors in the winter. Waning immunity (not shown) replenishes the susceptible population, allowing the waves of infection to continue indefinitely.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;observation-1-reducing-r0-reduces-total-infections-even-with-waning-immunity&quot;&gt;Observation 1: Reducing R0 reduces total infections, even with waning immunity&lt;/h3&gt;
+
+&lt;p&gt;The first observation is that reducing R0 can drive a long-term reduction in cases, even if it doesn’t eliminate waves.&lt;/p&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/assets/2022_paradox_of_r0/fig_obs1_infected.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:100%;&quot; /&gt;&lt;/p&gt;
+  &lt;div class=&quot;caption&quot;&gt;
+    &lt;p&gt;&lt;strong&gt;Figure 2.&lt;/strong&gt; Reducing R0 via NPIs or other methods will always lead to fewer infections.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Why is this relevant? A lot of people have pointed out the UK has widespread access to rapid tests, and yet &lt;a href=&quot;https://twitter.com/mattyglesias/status/1476614925917302788&quot;&gt;still got hit by a strong Omicron wave&lt;/a&gt;. Some have claimed that this demonstrates the &lt;a href=&quot;https://twitter.com/RichardHanania/status/1476578527835156481&quot;&gt;futility&lt;/a&gt; of rapid tests.&lt;/p&gt;
+
+&lt;p&gt;But as these simulations show, it’s entirely possible that a reduction in R0 driven by UK rapid tests may have significantly reduced cases, relative to what they would be otherwise. Rapid tests won’t end the pandemic, but they can still drive a useful reduction in infection.&lt;/p&gt;
+
+&lt;h3 id=&quot;observation-2-reducing-r0-can-sometimes-cause-higher-peaks&quot;&gt;Observation 2: Reducing R0 can sometimes cause higher peaks&lt;/h3&gt;
+
+&lt;p&gt;The second and more interesting observation is that in many parts of the parameter space – particularly where baseline R0 is high – a reduction in R0 can paradoxically cause higher peaks. That’s because by preventing infections during the summer months, we might create a more vulnerable population during the winter months.&lt;/p&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/assets/2022_paradox_of_r0/fig_obs2_infected_and_r0.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:100%;&quot; /&gt;&lt;/p&gt;
+  &lt;div class=&quot;caption&quot;&gt;
+    &lt;p&gt;&lt;strong&gt;Figure 3.&lt;/strong&gt; In some sitautions, reducing R0 can paradoxically lead to stonger peaks after the first year, even though the total number of infections is reduced.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;I must stress though, that in all cases where lower R0 caused stronger waves, the overall number of infections (i.e. including both peaks and troughs) was lower.&lt;/p&gt;
+
+&lt;p&gt;This means there is a kernel of truth to the contrarian hypothesis about R0. Fighting forest fires always reduces the overall amount of fire; but because of all the dry tinder you build up, you risk some really bad fires.&lt;/p&gt;
+
+&lt;h3 id=&quot;observation-3-r0-induced-waves-can-be-mitigated-by-adapting-behavior&quot;&gt;Observation 3: R0-induced waves can be mitigated by adapting behavior&lt;/h3&gt;
+
+&lt;p&gt;When considering load on our medical system, it is worrisome that reducing R0 might paradoxically &lt;em&gt;increase&lt;/em&gt; the strength of waves. Thankfully, this effect can be mitigated by preferentially reducing R0 when infections go up, for example via stronger testing or social distancing.&lt;/p&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/assets/2022_paradox_of_r0/fig_obs3_infected_and_r0.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:100%;&quot; /&gt;&lt;/p&gt;
+  &lt;div class=&quot;caption&quot;&gt;
+    &lt;p&gt;&lt;strong&gt;Figure 4.&lt;/strong&gt; As in Figure 3, a blanket reduction in R0 (solid pink) can cause higher peaks. But if R0 is reduced even further during infection peaks (dotted pink), the infection peaks can be brought under control.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;these-results-are-pretty-robust&quot;&gt;These results are pretty robust&lt;/h3&gt;
+&lt;p&gt;The main observation that reducing R0 reduces cases is robust to a wide range in parameters. And if you push R0 down hard enough you can even get to Zero Covid.&lt;/p&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/assets/2022_paradox_of_r0/fig_robustness_avg.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:100%;&quot; /&gt;&lt;/p&gt;
+  &lt;div class=&quot;caption&quot;&gt;
+    &lt;p&gt;&lt;strong&gt;Figure 5.&lt;/strong&gt; Average number of infected individuals per day under a wide range of parameters, restricted to years 2-6 of the epidemic. In all cases, reducing R0 (vertical axis), reduces the number of infections.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;The “dry tinder” observation is less robust, but still very real in much of the space. For a wide range of parameters – particularly where R0 is already high – reducing R0 can paradoxically increase the peaks of waves. Adapting behavior during peaks can mitigate this effect.&lt;/p&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/assets/2022_paradox_of_r0/fig_robustness_max.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:100%;&quot; /&gt;&lt;/p&gt;
+  &lt;div class=&quot;caption&quot;&gt;
+    &lt;p&gt;&lt;strong&gt;Figure 6.&lt;/strong&gt; Peak number of infected individuals under a wide range of parameters, restricted to years 2-6 of the epidemic. For much of the space, particularly where baseline R0 is already high, reductions in R0 can cause a paradoxical increase in peak infections. Once R0 is sufficiently low, the effect reverses and infections trend towards zero.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;implications&quot;&gt;Implications&lt;/h3&gt;
+
+&lt;p&gt;The modeling tells us that reducing R0 a little bit (e.g. via NPIs like masks or testing) can somewhat reduce infections, even though waning immunity might mean we continue to experience large waves indefinitely.&lt;/p&gt;
+
+&lt;p&gt;But what should our policy be? Do we really want to mask indefinitely so we can slightly reduce infections? Some people highly value a reduction in infections, and they will call for continued use of NPIs. Others point out that vaccines have made the disease milder, and the social burden of NPIs may not be worth it, particularly for children and those who can’t work from home. Those questions are outside the scope of this post, but they can and should be answered &lt;a href=&quot;https://twitter.com/ezraklein/status/1476925243755307009&quot;&gt;democratically&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;limitations&quot;&gt;Limitations&lt;/h3&gt;
+
+&lt;p&gt;Among the many things not accounted for in the model are exposure periods, hetereogeneity, network clustering, new variants, partial immunity, cross immunity, vaccination, and boosting. Vaccination works by reducing the number of susceptible people in the population. This can dramatically drive down infections but should not fundamentally change the dynamics of R0-reducing initiatives like NPIs. The model was not fit to real world data, although it did explore a large region of parameter space.&lt;/p&gt;
+
+</content>
+ </entry>
  
  <entry>
    <title>Pandemic virus prediction&#58; All risk and minimal benefit</title>

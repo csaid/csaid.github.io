@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<!--
+It's bad to import d3 in every post separately (https://groups.google.com/forum/#!topic/d3-js/bwdNirt2uEU).
+Importing it globally here.
+Putting this up at the top, according to this controversial stack overflow answer
+http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
+ -->
+<script src="https://d3js.org/d3.v5.min.js"></script>
+
+<link rel="stylesheet" href="/public/font-awesome-4.4.0/css/font-awesome.min.css">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  
+    <meta name="description" content="Reducing R0 reduces infections, but can it sometimes cause sharper waves?">
+  
+
+  <!-- To get a link preview image, just set the image attribute in your _post -->
+  
+    <meta content="http://localhost:4000/assets/2022_paradox_of_r0/dna_costs.png" property="og:image"/>
+  
+
+  <!-- twitter standard -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@chris_said" />
+  <meta name="twitter:title" content="Waning immunity and the little paradox of R0" />
+  <meta name="twitter:description" content="Reducing R0 reduces infections, but can it sometimes cause sharper waves?" />
+
+
+  <title>
+    
+      Waning immunity and the little paradox of R0 &middot; Chris Said
+    
+  </title>
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-67746868-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/hyde.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
+                                 <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+<!--   <body class="theme-base-cps">
+ -->
+  <body>
+
+    <div class="sidebar">
+  <div class="container">
+    <div class="sidebar-about">
+      <h1>
+        <a href="/">
+          Chris Said
+        </a>
+      </h1>
+      <p class="lead">I am a data scientist at Stitch Fix. This blog is mostly about statistics, technology, and science.</p>
+
+    </div>
+
+    <nav class="sidebar-nav">
+
+      
+        <a class="sidebar-nav-item" href="/">Home</a>
+      
+        <a class="sidebar-nav-item" href="/atom.xml">Feed</a>
+      
+
+    </nav>
+
+    <div class="wrapper">
+      <div class="inner">
+        <a href = "http://www.twitter.com/Chris_Said" class="contact-button"><i class="fa fa-twitter fa-2x"></i></a>
+        <a href = "https://www.linkedin.com/pub/chris-said/6b/86b/979" class="contact-button"><i class="fa fa-linkedin-square fa-2x"></i></a>
+        <a href = "mailto:chris.said@gmail.com" class="contact-button"><i class="fa fa-envelope fa-2x"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <div class="content container">
+      <div class="post">
+  <h1 class="post-title">Waning immunity and the little paradox of R0</h1>
+  <span class="post-date">01 Jan 2022</span>
+  <p><em><strong>Disclaimer:</strong> I’m not an epidemiologist, so adjust your priors accordingly.</em> Code available <a href="https://gist.github.com/csaid/2f1c8247d3e9dd015da6d36c1fcf882a">here</a>.</p>
+
+<p>A classic finding from epidemiology is that in a single wave epidemic, reducing R0 lowers the number of cases. To reduce R0, most countries have adopted some combination of Non-Pharmaceutical Interventions (NPIs) like masks and testing.</p>
+
+<p>But in a multi-wave epidemic with waning immunity, a contrarian intuition about R0 might cross one’s mind. By keeping cases low, might we be making our population <em>more vulnerable</em> to the next wave? The dynamic could be similar to forest fires. We might be able to stop forest fires now, but we’ll just build up dry tinder for a worse forest fire later. Since waves of Covid are inevitable, why bother fighting it?</p>
+
+<p>These ideas are important but hand-wavy, so I decided to build a model. What I found was at once surprising and clarifying.</p>
+
+<h3 id="model-background">Model background</h3>
+
+<p>I used a standard <a href="https://www.nature.com/articles/s41592-020-0856-2">SIR model</a> with seasonality and waning immunity. Slow seasonally-based changes in R0 drive sharp seasonal waves of infection. Because of waning immunity, the sharp waves of infection continue indefinitely.</p>
+
+<p>My analysis focuses on years 2-6 of the epidemic and my code can be found <a href="https://gist.github.com/csaid/2f1c8247d3e9dd015da6d36c1fcf882a">here</a>.</p>
+
+<div class="wrapper">
+  <p><img src="/assets/2022_paradox_of_r0/fig_infected_and_R0.png" class="inner" style="position:relative border: #222 2px solid; max-width:100%;" /></p>
+  <div class="caption">
+    <p><strong>Figure 1.</strong> A standard SIR model with seasonality and waning immunity. R0 is determined by seasonality, increasing as people spend more time indoors in the winter. Waning immunity (not shown) replenishes the susceptible population, allowing the waves of infection to continue indefinitely.</p>
+  </div>
+</div>
+
+<h3 id="observation-1-reducing-r0-reduces-total-infections-even-with-waning-immunity">Observation 1: Reducing R0 reduces total infections, even with waning immunity</h3>
+
+<p>The first observation is that reducing R0 can drive a long-term reduction in cases, even if it doesn’t eliminate waves.</p>
+
+<div class="wrapper">
+  <p><img src="/assets/2022_paradox_of_r0/fig_obs1_infected.png" class="inner" style="position:relative border: #222 2px solid; max-width:100%;" /></p>
+  <div class="caption">
+    <p><strong>Figure 2.</strong> Reducing R0 via NPIs or other methods will always lead to fewer infections.</p>
+  </div>
+</div>
+
+<p>Why is this relevant? A lot of people have pointed out the UK has widespread access to rapid tests, and yet <a href="https://twitter.com/mattyglesias/status/1476614925917302788">still got hit by a strong Omicron wave</a>. Some have claimed that this demonstrates the <a href="https://twitter.com/RichardHanania/status/1476578527835156481">futility</a> of rapid tests.</p>
+
+<p>But as these simulations show, it’s entirely possible that a reduction in R0 driven by UK rapid tests may have significantly reduced cases, relative to what they would be otherwise. Rapid tests won’t end the pandemic, but they can still drive a useful reduction in infection.</p>
+
+<h3 id="observation-2-reducing-r0-can-sometimes-cause-higher-peaks">Observation 2: Reducing R0 can sometimes cause higher peaks</h3>
+
+<p>The second and more interesting observation is that in many parts of the parameter space – particularly where baseline R0 is high – a reduction in R0 can paradoxically cause higher peaks. That’s because by preventing infections during the summer months, we might create a more vulnerable population during the winter months.</p>
+
+<div class="wrapper">
+  <p><img src="/assets/2022_paradox_of_r0/fig_obs2_infected_and_r0.png" class="inner" style="position:relative border: #222 2px solid; max-width:100%;" /></p>
+  <div class="caption">
+    <p><strong>Figure 3.</strong> In some sitautions, reducing R0 can paradoxically lead to stonger peaks after the first year, even though the total number of infections is reduced.</p>
+  </div>
+</div>
+
+<p>I must stress though, that in all cases where lower R0 caused stronger waves, the overall number of infections (i.e. including both peaks and troughs) was lower.</p>
+
+<p>This means there is a kernel of truth to the contrarian hypothesis about R0. Fighting forest fires always reduces the overall amount of fire; but because of all the dry tinder you build up, you risk some really bad fires.</p>
+
+<h3 id="observation-3-r0-induced-waves-can-be-mitigated-by-adapting-behavior">Observation 3: R0-induced waves can be mitigated by adapting behavior</h3>
+
+<p>When considering load on our medical system, it is worrisome that reducing R0 might paradoxically <em>increase</em> the strength of waves. Thankfully, this effect can be mitigated by preferentially reducing R0 when infections go up, for example via stronger testing or social distancing.</p>
+
+<div class="wrapper">
+  <p><img src="/assets/2022_paradox_of_r0/fig_obs3_infected_and_r0.png" class="inner" style="position:relative border: #222 2px solid; max-width:100%;" /></p>
+  <div class="caption">
+    <p><strong>Figure 4.</strong> As in Figure 3, a blanket reduction in R0 (solid pink) can cause higher peaks. But if R0 is reduced even further during infection peaks (dotted pink), the infection peaks can be brought under control.</p>
+  </div>
+</div>
+
+<h3 id="these-results-are-pretty-robust">These results are pretty robust</h3>
+<p>The main observation that reducing R0 reduces cases is robust to a wide range in parameters. And if you push R0 down hard enough you can even get to Zero Covid.</p>
+
+<div class="wrapper">
+  <p><img src="/assets/2022_paradox_of_r0/fig_robustness_avg.png" class="inner" style="position:relative border: #222 2px solid; max-width:100%;" /></p>
+  <div class="caption">
+    <p><strong>Figure 5.</strong> Average number of infected individuals per day under a wide range of parameters, restricted to years 2-6 of the epidemic. In all cases, reducing R0 (vertical axis), reduces the number of infections.</p>
+  </div>
+</div>
+
+<p>The “dry tinder” observation is less robust, but still very real in much of the space. For a wide range of parameters – particularly where R0 is already high – reducing R0 can paradoxically increase the peaks of waves. Adapting behavior during peaks can mitigate this effect.</p>
+
+<div class="wrapper">
+  <p><img src="/assets/2022_paradox_of_r0/fig_robustness_max.png" class="inner" style="position:relative border: #222 2px solid; max-width:100%;" /></p>
+  <div class="caption">
+    <p><strong>Figure 6.</strong> Peak number of infected individuals under a wide range of parameters, restricted to years 2-6 of the epidemic. For much of the space, particularly where baseline R0 is already high, reductions in R0 can cause a paradoxical increase in peak infections. Once R0 is sufficiently low, the effect reverses and infections trend towards zero.</p>
+  </div>
+</div>
+
+<h3 id="implications">Implications</h3>
+
+<p>The modeling tells us that reducing R0 a little bit (e.g. via NPIs like masks or testing) can somewhat reduce infections, even though waning immunity might mean we continue to experience large waves indefinitely.</p>
+
+<p>But what should our policy be? Do we really want to mask indefinitely so we can slightly reduce infections? Some people highly value a reduction in infections, and they will call for continued use of NPIs. Others point out that vaccines have made the disease milder, and the social burden of NPIs may not be worth it, particularly for children and those who can’t work from home. Those questions are outside the scope of this post, but they can and should be answered <a href="https://twitter.com/ezraklein/status/1476925243755307009">democratically</a>.</p>
+
+<h3 id="limitations">Limitations</h3>
+
+<p>Among the many things not accounted for in the model are exposure periods, hetereogeneity, network clustering, new variants, partial immunity, cross immunity, vaccination, and boosting. Vaccination works by reducing the number of susceptible people in the population. This can dramatically drive down infections but should not fundamentally change the dynamics of R0-reducing initiatives like NPIs. The model was not fit to real world data, although it did explore a large region of parameter space.</p>
+
+
+  <div>
+    <a class="twitter-share-button"
+      href="https://twitter.com/share"
+      data-url=""
+      data-via="Chris_Said"
+      data-size="large"
+      data-count="none">
+    Tweet
+    </a>
+</div>
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'csaid81';
+    var disqus_identifier = 'http://localhost:4000/2022/01/01/waning-immunity-paradox-of-r0/';
+    var disqus_url = 'http://localhost:4000/2022/01/01/waning-immunity-paradox-of-r0/';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+</div>
+
+
+    </div>
+
+  </body>
+</html>
+
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+
+<script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));</script>
