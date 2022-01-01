@@ -7,7 +7,7 @@ image: /assets/2022_paradox_of_r0/fig_infected_and_R0.png
 
 _**Disclaimer:** I'm not an epidemiologist, so adjust your priors accordingly. Code available [here](https://gist.github.com/csaid/2f1c8247d3e9dd015da6d36c1fcf882a)._ 
 
-A classic finding from epidemiology is that in a single wave epidemic, reducing R0 lowers the number of cases. To reduce R0, most countries have adopted some combination of Non-Pharmaceutical Interventions (NPIs) like masks and testing.
+A classic finding from epidemiology is that in a single-wave epidemic, reducing R0 lowers the number of cases. To reduce R0, most countries have adopted some combination of Non-Pharmaceutical Interventions (NPIs) like masks and testing.
 
 But in a multi-wave epidemic with waning immunity, a contrarian intuition about R0 might cross one’s mind. By keeping cases low, might we be making our population _more vulnerable_ to the next wave? The dynamic could be similar to forest fires. We might be able to stop forest fires now, but we’ll just build up dry tinder for a worse forest fire later. Since waves of Covid are inevitable, why bother fighting it?
 
@@ -28,7 +28,7 @@ My analysis focuses on years 2-6 of the epidemic and my code can be found [here]
 
 ### Observation 1: Reducing R0 reduces total infections, even with waning immunity
 
-The first observation is that reducing R0 can drive a long-term reduction in cases, even if it doesn’t eliminate waves. 
+The first observation is that reducing R0 always drives a long-term reduction in cases, even if it doesn’t eliminate waves. 
 
 <div class="wrapper">
   <img src='/assets/2022_paradox_of_r0/fig_obs1_infected_and_R0.png' class="inner" style="position:relative border: #222 2px solid; max-width:100%;" >
@@ -52,9 +52,9 @@ The second and more interesting observation is that in many parts of the paramet
   </div>
 </div>
 
-I must stress though, that in all cases where lower R0 caused stronger waves, the overall number of infections (i.e. including both peaks and troughs) was lower.
+I must stress though, that in all scenarios where lower R0 caused stronger waves, the overall number of infections (i.e. including both peaks and troughs) was lower.
 
-This means there is a kernel of truth to the contrarian hypothesis about R0. Fighting forest fires always reduces the overall amount of fire; but because of all the dry tinder you build up, you risk some really bad fires.
+This means there is a kernel of truth to the contrarian hypothesis about R0. Fighting forest fires always reduces the overall amount of fire; but because of the dry tinder you build up, you risk some really bad fires.
 
 ### Observation 3: R0-induced waves can be mitigated by adapting behavior
 
@@ -68,7 +68,7 @@ When considering load on our medical system, it is worrisome that reducing R0 mi
 
 
 ### These results are pretty robust
-The main observation that reducing R0 reduces cases is robust to a wide range in parameters. And if you push R0 down hard enough you can even get to Zero Covid. 
+My main observation is robust to a wide range of parameters. In all scenarios, reducing R0 reduces the overall count of cases. And if you push R0 down hard enough you can even get to Zero Covid. 
 
 
 <div class="wrapper">
