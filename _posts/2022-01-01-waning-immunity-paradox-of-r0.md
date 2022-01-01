@@ -2,7 +2,7 @@
 layout: post
 title: Waning immunity and the little paradox of R0
 description: Reducing R0 reduces infections, but can it sometimes cause sharper waves?
-image: /assets/2022_paradox_of_r0/dna_costs.png
+image: /assets/2022_paradox_of_r0/fig_infected_and_R0.png
 ---
 
 _**Disclaimer:** I'm not an epidemiologist, so adjust your priors accordingly._ Code available [here](https://gist.github.com/csaid/2f1c8247d3e9dd015da6d36c1fcf882a). 
