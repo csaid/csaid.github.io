@@ -44,7 +44,7 @@ Based on [current vaccination rates](https://www.mayoclinic.org/coronavirus-covi
 With a total population of 300 million, and assuming all approvals are at the start of the year, fast approval in 2021 would drive a total of 0.15 * 300M = 45 million vaccinated person-years, compared to slow approval. 
 
 ### 2. Moderate issue scenario
-In the moderate issue scenario, important new safety issues in the 2021 vaccine emerge after full approval, but their overall safety impact is “moderate”. By “moderate” I mean either a serious issue that affects a very small percentage of people, or a minor issue that affects a large number of people. Given that historically all safety issues with vaccines have emerged well within the first year, I consider this outcome unlikely. But since mRNA vaccines are a new and intensely scrutinized technology, let’s give this scenario a 19% probability.
+In the moderate issue scenario, important new safety issues in the 2021 vaccine emerge after full approval, but their overall safety impact is “moderate”. By “moderate” I mean either a serious issue that affects a very small percentage of people, or a minor issue that affects a large number of people. Given that historically all safety issues with vaccines have emerged well within the first year, I consider this outcome unlikely. But since mRNA vaccines are a new and intensely scrutinized technology, let’s give this scenario a 14% probability.
 
 If safety issues emerge, vaccination rates will drop. But critically, they will drop regardless of whether the 2021 vaccine had full approval or just an EUA. In the wake of bad news about the 2021 vaccine, the people hesitating about the 2022 vaccine won't really care whether the 2021 vaccine was fast approved or just EUA’d. Maybe they’ll care a little bit, but for the most part their hesitancy will be there regardless.
 
@@ -76,12 +76,12 @@ Now let’s add up these outcomes weighted by their probability:
 
 | |**Probability**|**Impact of 2021 fast approval on ten-year vaccinated person-years**|
 |Safe vaccine scenario|85%|+45M|
-|Moderate issue scenario|19%|+3M|
+|Moderate issue scenario|14%|+3M|
 |Major issue scenario|1%|-20M|
-|Weighted sum|(100%)|+39M|
+|Weighted sum|(100%)|+38M|
 
 
-Based on this back-of-the-envelope analysis, FDA could gain 39 million vaccinated person-years if they had fully approved the 2021 vaccine, even when accounting for long term risks. Assuming that [0.2% of unvaccinated people will die each year](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7721859/) because they are not vaccinated, this decision would save 80,000 lives in expectation. **To put it more starkly, an FDA decision to not fully approve in 2021 will cost 80,000 lives.** I have no doubt that the FDA is well-intentioned, but I really think they should reconsider their extreme cautiousness on this issue.
+Based on this back-of-the-envelope analysis, FDA could gain 38 million vaccinated person-years if they had fully approved the 2021 vaccine, even when accounting for long term risks. Assuming that [0.2% of unvaccinated people will die each year](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7721859/) because they are not vaccinated, this decision would save 80,000 lives in expectation. **To put it more starkly, an FDA decision to not fully approve in 2021 will cost 80,000 lives.** I have no doubt that the FDA is well-intentioned, but I really think they should reconsider their extreme cautiousness on this issue.
 
 Under the model outlined above, the decision to delay full approval would only make sense if you thought the probability-weighted long-term risks were [5 times higher](https://github.com/csaid/fda_and_vaccines/blob/main/FDA%20and%20Vaccines.ipynb) than I think are reasonable.
 
