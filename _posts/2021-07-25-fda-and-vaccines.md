@@ -12,7 +12,7 @@ Despite widespread expert support for vaccination, the FDA is taking its time wi
 
 [Matthew Yglesias](https://www.slowboring.com/p/vaccine-fda-approve) and [Eric Topol](https://www.nytimes.com/2021/07/01/opinion/fda-vaccines-full-approval.html) argue that the difference between full approval and an EUA matters a lot. Full FDA approval will make many organizations more comfortable with vaccine mandates, which can drive [massive increases in vaccination](https://www.economist.com/graphic-detail/2021/07/14/why-vaccine-shy-french-are-suddenly-rushing-to-get-jabbed), as seen in France. Full approval also allows vaccine providers to advertise, which will help persuade many people on the fence. Even without the mandates and advertising, [30% of unvaccinated people](https://www.kff.org/coronavirus-covid-19/poll-finding/kff-covid-19-vaccine-monitor-june-2021/) say they would be more likely to get vaccinated once full approval happens. The FDA’s sluggishness to approve the vaccine is therefore driving a large number of unnecessary infections and deaths.
 
-Defenders of the FDA say that critics aren’t thinking about the long term. Sure, full approval might drive more vaccinations in the short term. But if safety issues emerge after full approval, the credibility of the FDA would be shot for years, driving fewer vaccinations in the long term.
+Defenders of the FDA say that critics aren’t thinking about the long term. If safety issues emerge after full approval, FDA defenders say, the credibility of the FDA would be shot for years, driving fewer vaccinations in the long term.
 
 ---
 
