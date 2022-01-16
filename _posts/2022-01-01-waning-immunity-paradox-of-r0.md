@@ -39,7 +39,7 @@ The first observation is that reducing R0 always drives a long-term reduction in
 
 Why is this relevant? A lot of people have pointed out the UK has widespread access to rapid tests, and yet [still got hit by a strong Omicron wave](https://twitter.com/mattyglesias/status/1476614925917302788). Some have claimed that this demonstrates the [futility](https://twitter.com/RichardHanania/status/1476578527835156481) of rapid tests.
 
-But as these simulations show, it’s entirely possible that a reduction in R0 driven by UK rapid tests may have significantly reduced infection, relative to what it would be otherwise. Rapid tests won't end the pandemic, but they can still drive a useful reduction in infection. 
+But as these simulations show, it’s entirely possible that UK rapid tests may have significantly reduced infection, relative to what it would be otherwise. Rapid tests won't end the pandemic, but they can still drive a useful reduction in infection. 
 
 ### Observation 2: Reducing R0 can sometimes cause higher peaks
 
