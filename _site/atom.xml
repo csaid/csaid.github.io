@@ -4,13 +4,122 @@
  <title>Chris Said</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2022-01-01T21:15:37-05:00</updated>
+ <updated>2022-02-10T19:31:54-05:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
    <email></email>
  </author>
 
+ 
+ <entry>
+   <title>10x the viral count, 10x the infectiousness</title>
+   <link href="http://localhost:4000/2022/02/10/viral-count-and-infectiousness/"/>
+   <updated>2022-02-10T00:00:00-05:00</updated>
+   <id>http://localhost:4000/2022/02/10/viral-count-and-infectiousness</id>
+   <content type="html">&lt;p&gt;[&lt;a href=&quot;https://gist.github.com/csaid/84819e16bae145b0139b57521f852a11&quot;&gt;Code&lt;/a&gt;]&lt;/p&gt;
+
+&lt;p&gt;Here’s a plot of SARS-CoV-2 “viral load” over the course of an infection, where “viral load” is measured by PCR. At the start of infection the number of viral RNA copies is close to zero, but it quickly and exponentially shoots up to about a billion cp/mL before dropping back down again.&lt;/p&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/assets/2022_10x_the_viral_count/rna.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:100%;&quot; /&gt;&lt;/p&gt;
+  &lt;div class=&quot;caption&quot;&gt;
+    &lt;p&gt;&lt;strong&gt;Figure 1.&lt;/strong&gt; Viral load over time for a typical infection, as measured by PCR in RNA copies/mL (&lt;a href=&quot;https://www.nejm.org/doi/full/10.1056/NEJMc2102507&quot;&gt;Kissler, 2021&lt;/a&gt;). Y-axis is in log units.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;A question that everyone asks is: &lt;em&gt;When are you infectious?&lt;/em&gt; It would be extremely useful if RNA count could be converted into a probability of infecting others. If we knew that relationship, we would better understand when it’s safe for infected people to return to school or work.&lt;/p&gt;
+
+&lt;p&gt;Many people have an intuition that infectiousness is proportional to the logarithm of the RNA count (Figure 2). Under this view, someone at 10\(^8\) cp/mL is twice as infectious as someone at 10\(^4\) cp/mL. If this view is true, people should arguably not return to school or work until all of the viral RNA has left their body.&lt;/p&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/assets/2022_10x_the_viral_count/rna_log.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:100%;&quot; /&gt;&lt;/p&gt;
+  &lt;div class=&quot;caption&quot;&gt;
+    &lt;p&gt;&lt;strong&gt;Figure 2.&lt;/strong&gt; The logarithmic view of infectiousness, where infectiousness is proportional to the logarithm of viral count, as measured by PCR. Transmission probability (blue, right hand side y-axis) is the probability of transmission between two people in a short one-hour interaction.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Other people have the intuition that infectiousness is directly proportional or “&lt;em&gt;linearly&lt;/em&gt;” related to RNA count (Figure 3). Under this view, someone at 10\(^8\) cp/mL is 10,000 times more infectious than someone at 10\(^4\) cp/mL. If this view is true, people should return to school when their RNA count dips below 10\(^5\) cp/mL or even 10\(^6\) cp/mL, which is typically around the point that antigen tests stop being positive.&lt;/p&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/assets/2022_10x_the_viral_count/rna_linear.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:100%;&quot; /&gt;&lt;/p&gt;
+  &lt;div class=&quot;caption&quot;&gt;
+    &lt;p&gt;&lt;strong&gt;Figure 3.&lt;/strong&gt; The linear view of infectiousness, where infectiousness is directly proportional to viral count.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;So who’s right? To find out, let’s turn to some quantitative models of transmission via aerosols. Not to spoil the fun, but we’ll learn how the relationship is mostly linear, but a little less linear when accounting for the uncertainty between RNA count and infectious virus count.&lt;/p&gt;
+
+&lt;h3 id=&quot;transmission-hazard-rate-is-proportional-to-virus-count&quot;&gt;Transmission hazard rate is proportional to virus count&lt;/h3&gt;
+&lt;p&gt;The aerosol box model of transmission (&lt;a href=&quot;https://www.sciencedirect.com/science/article/pii/S0160412020320675&quot;&gt;Buonanno, 2020&lt;/a&gt;; &lt;a href=&quot;https://pubs.acs.org/doi/pdf/10.1021/acs.est.1c06531&quot;&gt;Peng, 2022&lt;/a&gt;) is, as far as I can tell, the standard model of transmission in the literature. Essentially a &lt;a href=&quot;https://en.wikipedia.org/wiki/Survival_analysis&quot;&gt;survival analysis&lt;/a&gt; model, it describes how virus in the respiratory tract is exhaled into the air before getting partially ventilated, filtered, and decayed. Once in the air, the virus is inhaled into another person’s respiratory tract and probabilistically causes an infection. Take a couple minutes to look at this figure and pay attention to the colors, as I use them consistently in my graphs.&lt;/p&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/assets/2022_10x_the_viral_count/box_model.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:100%;&quot; /&gt;&lt;/p&gt;
+  &lt;div class=&quot;caption&quot;&gt;
+    &lt;p&gt;&lt;strong&gt;Figure 4.&lt;/strong&gt; The aerosol box model of transmission, with some extensions for measurement uncertainty.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;All steps in the model are a &lt;em&gt;linear&lt;/em&gt; function of the count of aerolizable virus inside the infected person. More precisely, the output of each step is &lt;em&gt;proportional&lt;/em&gt; to the input viral count. If you reflect on each step, linearity is the most plausible option.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The rate of exhaled viruses is proportional to the count of virus in aerosolizing parts of the respiratory tract. For evidence, see &lt;a href=&quot;https://www.researchsquare.com/article/rs-1104361/v1?s=09&quot;&gt;Figure 3B of Stakenborg (2021)&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;The virus concentration in the air is proportional to the count of exhaled viruses. Other dynamics are at play, including ventilation, filtration, deposition, and decay. But all of those dynamics are just &lt;em&gt;scale&lt;/em&gt; factors on concentration of virus in the air. I asked several experts whether any of these dynamics could significantly depend on virus concentration, and they all thought it was unlikely.&lt;/li&gt;
+  &lt;li&gt;The number of inhaled viruses is proportional to the concentration in the air. How could it not be?&lt;/li&gt;
+  &lt;li&gt;The hazard rate of infection (\(\lambda\)) is proportional to the number of inhaled viruses. Some researchers believe the dose response function might involve supralinear threshold effects. But such an assumption is &lt;a href=&quot;https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7202094/&quot;&gt;not very biologically plausible&lt;/a&gt;. Even if the relationship were supralinear, it would argue &lt;em&gt;even more strongly against the logarithmic view of infectiousness&lt;/em&gt;, which is sublinear.&lt;/li&gt;
+  &lt;li&gt;Transmission probability is by definition a sublinear function of the hazard rate. At low levels of virus, a doubling of the virus count doubles your risk of infection. But at very high levels of virus, you’re going to get infected no matter what.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;If we accept the linearity of each step above, then infectiousness, which is captured by the hazard rate, is proportional to the amount of aerosolizable virus in the infected person.&lt;/p&gt;
+
+&lt;p&gt;To demonstrate the linear effect, I &lt;a href=&quot;https://gist.github.com/csaid/84819e16bae145b0139b57521f852a11&quot;&gt;reproduced&lt;/a&gt; the box model of &lt;a href=&quot;https://www.sciencedirect.com/science/article/pii/S0160412020320675&quot;&gt;Buonanno (2020)&lt;/a&gt; and &lt;a href=&quot;https://pubs.acs.org/doi/pdf/10.1021/acs.est.1c06531&quot;&gt;Peng (2022)&lt;/a&gt; and extended it by inputting the viral load curves measured by &lt;a href=&quot;https://www.nejm.org/doi/full/10.1056/NEJMc2102507&quot;&gt;Kissler (2021)&lt;/a&gt;. I assumed that two people talk with each other for one hour in a 100 m\(^3\) room with ventilation levels similar to an office. One person is infectious and the other is not. As you can see in the plot below, the relationship between virus count and infectiousness is linear.&lt;/p&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/assets/2022_10x_the_viral_count/virus_linear.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:100%;&quot; /&gt;&lt;/p&gt;
+  &lt;div class=&quot;caption&quot;&gt;
+    &lt;p&gt;&lt;strong&gt;Figure 5.&lt;/strong&gt; Simulations based on the aerosol box model of transmission (Buonanno, 2020; Peng, 2022) demonstrate how infectiousness is proportional to virus count.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;virus-count-is-mostly-proportional-to-rna-count&quot;&gt;Virus count is mostly proportional to RNA count&lt;/h3&gt;
+
+&lt;p&gt;Attentive readers may have noticed that Figure 6 shows that hazard rate is proportional to &lt;em&gt;virus count&lt;/em&gt; (in green), whereas what we really care about is whether hazard rate is proportional to &lt;em&gt;RNA counts&lt;/em&gt; (shown elsewhere in blue), since that’s what’s most easily measured. For this to be true, the RNA count must be proportional to the virus count, an assumption that is sometimes &lt;a href=&quot;https://twitter.com/Chris_Said/status/1488688022073786369&quot;&gt;controversial&lt;/a&gt;. Last week, however, extraordinary data from a challenge trial emerged that clearly shows the two variables are proportional (&lt;a href=&quot;https://www.researchsquare.com/article/rs-1121993/v1&quot;&gt;Killingley, 2022&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;The plots from that paper show RNA count (blue) and a cultured virus count measurement known as FFU (red), which is proportional to the live virus count (Figure 6). The relationship is proportional, appearing as a vertical offset since both curves are on a log axis. Since RNA count is proportional to cultured FFU, it &lt;a href=&quot;https://www.virology.ws/2009/07/08/how-many-viruses-are-needed-to-form-a-plaque/&quot;&gt;must also be proportional&lt;/a&gt; to live virus. And since it is proportional to live virus, it must also be proportional to the transmission hazard rate, if we accept the aerosol box model of transmission.&lt;/p&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/assets/2022_10x_the_viral_count/challenge_trial.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:100%;&quot; /&gt;&lt;/p&gt;
+  &lt;div class=&quot;caption&quot;&gt;
+    &lt;p&gt;&lt;strong&gt;Figure 6.&lt;/strong&gt; I am only showing this horribly rasterized image because the data is so good. Cultured virus count is proportional to RNA count. Data is averaged over 36 volunteers. Individual curves can be viewed &lt;a href=&quot;https://assets.researchsquare.com/files/rs-1121993/v1/e72456613f3129a0e4c84bf3.pdf&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;but-uncertainty-in-the-relationship-weakens-the-linearity-to-infectiousness&quot;&gt;But uncertainty in the relationship weakens the linearity to infectiousness&lt;/h3&gt;
+&lt;p&gt;While the relationship between RNA count and infectious aerosolizable virus is mostly proportional, there are a couple ways the relationship could break down. First, PCR measurement of RNA can be unreliable. In particular, inter-test reliability has a standard deviation of about 0.75 logs (Figure 1A of &lt;a href=&quot;https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7302192/&quot;&gt;Arnaout, 2020&lt;/a&gt;, assuming 3 Cts per log). Second, there may be differences in virus count between the parts of the respiratory tract that are swabbed and those that produce aerosols. In particular, as the plot above shows, there may be differences in timing between the nose and the throat.&lt;/p&gt;
+
+&lt;p&gt;To capture this uncertainty, I ran some Monte Carlo simulations. Following &lt;a href=&quot;https://www.pnas.org/content/118/25/e2024815118&quot;&gt;Sender (2021)&lt;/a&gt;, I used a starting assumption of a 1:1 RNA:virus ratio, although the exact value of the ratio is arbitrary and not essential (see &lt;a href=&quot;https://gist.github.com/csaid/84819e16bae145b0139b57521f852a11&quot;&gt;notebook&lt;/a&gt;). I then randomly perturbed the virus count curve with a vertical standard deviation of 0.75 logs and horizontal standard deviation of 0.75 days.&lt;/p&gt;
+
+&lt;p&gt;On each iteration, I computed the probability of transmission at each point of the time series, and then averaged all the curves.&lt;/p&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/assets/2022_10x_the_viral_count/cthulhu.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:100%;&quot; /&gt;&lt;/p&gt;
+  &lt;div class=&quot;caption&quot;&gt;
+    &lt;p&gt;&lt;strong&gt;Figure 7.&lt;/strong&gt; Monte Carlo simulations to account for the uncertain relationship between the RNA count and the infectious aerosolizable viral count. &lt;strong&gt;Top:&lt;/strong&gt; Thousands of possible infectious virus count curves are generated from a single “observed” RNA count curve. &lt;strong&gt;Middle:&lt;/strong&gt; A Cthulhu-like illustration of how each virus count curve is passed through the aerosol box model (here, two people talking in a room for one hour) to generate a probability of transmission. &lt;strong&gt;Bottom:&lt;/strong&gt; Observed RNA count and probability of transmission, where the probability of transmission is averaged over all simulated probability curves in the middle plot.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;As expected, the addition of uncertainty made the relationship between observed RNA count and infectiousness less linear (Figure 7, bottom). Nevertheless, it was still far more linear than a full logarithmic relationship, and the probability of transmission when the RNA count was greater than 10\(^5\) cp/mL remained very low.&lt;/p&gt;
+
+&lt;p&gt;To summarize:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;The relationship between aerosolizable viral count and transmission hazard rate is linear.&lt;/li&gt;
+  &lt;li&gt;Because of uncertainty in the relationship between observed RNA count and viral count, the relationship between observed RNA count and transmission hazard is somewhat less linear, but still reasonably linear.&lt;/li&gt;
+  &lt;li&gt;You can go back to work or school once your RNA count is below 10\(^5\) cp/mL.&lt;/li&gt;
+  &lt;li&gt;This is the same level of virus at which rapid antigen tests stop being positive.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;[&lt;a href=&quot;https://gist.github.com/csaid/84819e16bae145b0139b57521f852a11&quot;&gt;Code&lt;/a&gt;]&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Waning immunity and the little paradox of R0</title>
@@ -51,7 +160,7 @@
 
 &lt;p&gt;Why is this relevant? A lot of people have pointed out the UK has widespread access to rapid tests, and yet &lt;a href=&quot;https://twitter.com/mattyglesias/status/1476614925917302788&quot;&gt;still got hit by a strong Omicron wave&lt;/a&gt;. Some have claimed that this demonstrates the &lt;a href=&quot;https://twitter.com/RichardHanania/status/1476578527835156481&quot;&gt;futility&lt;/a&gt; of rapid tests.&lt;/p&gt;
 
-&lt;p&gt;But as these simulations show, it’s entirely possible that a reduction in R0 driven by UK rapid tests may have significantly reduced infection, relative to what it would be otherwise. Rapid tests won’t end the pandemic, but they can still drive a useful reduction in infection.&lt;/p&gt;
+&lt;p&gt;But as these simulations show, it’s entirely possible that UK rapid tests may have significantly reduced infection, relative to what it would be otherwise. Rapid tests won’t end the pandemic, but they can still drive a useful reduction in infection.&lt;/p&gt;
 
 &lt;h3 id=&quot;observation-2-reducing-r0-can-sometimes-cause-higher-peaks&quot;&gt;Observation 2: Reducing R0 can sometimes cause higher peaks&lt;/h3&gt;
 
@@ -216,7 +325,7 @@
 
 &lt;p&gt;&lt;a href=&quot;https://www.slowboring.com/p/vaccine-fda-approve&quot;&gt;Matthew Yglesias&lt;/a&gt; and &lt;a href=&quot;https://www.nytimes.com/2021/07/01/opinion/fda-vaccines-full-approval.html&quot;&gt;Eric Topol&lt;/a&gt; argue that the difference between full approval and an EUA matters a lot. Full FDA approval will make many organizations more comfortable with vaccine mandates, which can drive &lt;a href=&quot;https://www.economist.com/graphic-detail/2021/07/14/why-vaccine-shy-french-are-suddenly-rushing-to-get-jabbed&quot;&gt;massive increases in vaccination&lt;/a&gt;, as seen in France. Full approval also allows vaccine providers to advertise, which will help persuade many people on the fence. Even without the mandates and advertising, &lt;a href=&quot;https://www.kff.org/coronavirus-covid-19/poll-finding/kff-covid-19-vaccine-monitor-june-2021/&quot;&gt;30% of unvaccinated people&lt;/a&gt; say they would be more likely to get vaccinated once full approval happens. The FDA’s sluggishness to approve the vaccine is therefore driving a large number of unnecessary infections and deaths.&lt;/p&gt;
 
-&lt;p&gt;Defenders of the FDA say that critics aren’t thinking about the long term. Sure, full approval might drive more vaccinations in the short term. But if safety issues emerge after full approval, the credibility of the FDA would be shot for years, driving fewer vaccinations in the long term.&lt;/p&gt;
+&lt;p&gt;Defenders of the FDA say that critics aren’t thinking about the long term. If safety issues emerge after full approval, FDA defenders say, the credibility of the FDA would be shot for years, driving fewer vaccinations in the long term.&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -248,7 +357,7 @@
 &lt;p&gt;With a total population of 300 million, and assuming all approvals are at the start of the year, fast approval in 2021 would drive a total of 0.15 * 300M = 45 million vaccinated person-years, compared to slow approval.&lt;/p&gt;
 
 &lt;h3 id=&quot;2-moderate-issue-scenario&quot;&gt;2. Moderate issue scenario&lt;/h3&gt;
-&lt;p&gt;In the moderate issue scenario, important new safety issues in the 2021 vaccine emerge after full approval, but their overall safety impact is “moderate”. By “moderate” I mean either a serious issue that affects a very small percentage of people, or a minor issue that affects a large number of people. Given that historically all safety issues with vaccines have emerged well within the first year, I consider this outcome unlikely. But since mRNA vaccines are a new and intensely scrutinized technology, let’s give this scenario a 19% probability.&lt;/p&gt;
+&lt;p&gt;In the moderate issue scenario, important new safety issues in the 2021 vaccine emerge after full approval, but their overall safety impact is “moderate”. By “moderate” I mean either a serious issue that affects a very small percentage of people, or a minor issue that affects a large number of people. Given that historically all safety issues with vaccines have emerged well within the first year, I consider this outcome unlikely. But since mRNA vaccines are a new and intensely scrutinized technology, let’s give this scenario a 14% probability.&lt;/p&gt;
 
 &lt;p&gt;If safety issues emerge, vaccination rates will drop. But critically, they will drop regardless of whether the 2021 vaccine had full approval or just an EUA. In the wake of bad news about the 2021 vaccine, the people hesitating about the 2022 vaccine won’t really care whether the 2021 vaccine was fast approved or just EUA’d. Maybe they’ll care a little bit, but for the most part their hesitancy will be there regardless.&lt;/p&gt;
 
@@ -293,7 +402,7 @@
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Moderate issue scenario&lt;/td&gt;
-      &lt;td&gt;19%&lt;/td&gt;
+      &lt;td&gt;14%&lt;/td&gt;
       &lt;td&gt;+3M&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -304,12 +413,12 @@
     &lt;tr&gt;
       &lt;td&gt;Weighted sum&lt;/td&gt;
       &lt;td&gt;(100%)&lt;/td&gt;
-      &lt;td&gt;+39M&lt;/td&gt;
+      &lt;td&gt;+38M&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;Based on this back-of-the-envelope analysis, FDA could gain 39 million vaccinated person-years if they had fully approved the 2021 vaccine, even when accounting for long term risks. Assuming that &lt;a href=&quot;https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7721859/&quot;&gt;0.2% of unvaccinated people will die each year&lt;/a&gt; because they are not vaccinated, this decision would save 80,000 lives in expectation. &lt;strong&gt;To put it more starkly, an FDA decision to not fully approve in 2021 will cost 80,000 lives.&lt;/strong&gt; I have no doubt that the FDA is well-intentioned, but I really think they should reconsider their extreme cautiousness on this issue.&lt;/p&gt;
+&lt;p&gt;Based on this back-of-the-envelope analysis, FDA could gain 38 million vaccinated person-years if they had fully approved the 2021 vaccine, even when accounting for long term risks. Assuming that &lt;a href=&quot;https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7721859/&quot;&gt;0.2% of unvaccinated people will die each year&lt;/a&gt; because they are not vaccinated, this decision would save 80,000 lives in expectation. &lt;strong&gt;To put it more starkly, an FDA decision to not fully approve in 2021 will cost 80,000 lives.&lt;/strong&gt; I have no doubt that the FDA is well-intentioned, but I really think they should reconsider their extreme cautiousness on this issue.&lt;/p&gt;
 
 &lt;p&gt;Under the model outlined above, the decision to delay full approval would only make sense if you thought the probability-weighted long-term risks were &lt;a href=&quot;https://github.com/csaid/fda_and_vaccines/blob/main/FDA%20and%20Vaccines.ipynb&quot;&gt;5 times higher&lt;/a&gt; than I think are reasonable.&lt;/p&gt;
 
