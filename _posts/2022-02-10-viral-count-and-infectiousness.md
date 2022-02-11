@@ -45,12 +45,12 @@ The aerosol box model of transmission ([Buonanno, 2020](https://www.sciencedirec
   </div>
 </div>
 
-All steps in the model are a _linear_ function of the count of aerolizable virus inside the infected person. More precisely, the output of each step is _proportional_ to the input viral count. If you reflect on each step, linearity is the most plausible option.
+Each step in the model is a _linear_ function of the count of aerolizable virus inside the infected person. More precisely, the output of each step is _proportional_ to the input viral count. If you reflect on each step, linearity is the most plausible option.
 
 * The rate of exhaled viruses is proportional to the count of virus in aerosolizing parts of the respiratory tract. For evidence, see [Figure 3B of Stakenborg (2021)](https://www.researchsquare.com/article/rs-1104361/v1?s=09).
 * The virus concentration in the air is proportional to the count of exhaled viruses. Other dynamics are at play, including ventilation, filtration, deposition, and decay. But all of those dynamics are just _scale_ factors on concentration of virus in the air. I asked several experts whether any of these dynamics could significantly depend on virus concentration, and they all thought it was unlikely.
 * The number of inhaled viruses is proportional to the concentration in the air. How could it not be?
-* The hazard rate of infection ($$ \lambda $$) is proportional to the number of inhaled viruses. Some researchers believe the dose response function might involve supralinear threshold effects. But such an assumption is [not very biologically plausible](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7202094/). Even if the relationship were supralinear, it would argue _even more strongly against the logarithmic view of infectiousness_, which is sublinear.
+* The hazard rate of infection ($$ \lambda $$) is proportional to the number of inhaled viruses. Some researchers believe the dose response function might involve supralinear threshold effects. But such an assumption is [not very biologically plausible](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7202094/). Even if the relationship were supralinear, it would argue _against_ the logarithmic view of infectiousness, which is sublinear.
 * Transmission probability is by definition a sublinear function of the hazard rate. At low levels of virus, a doubling of the virus count doubles your risk of infection. But at very high levels of virus, you’re going to get infected no matter what.
 
 If we accept the linearity of each step above, then infectiousness, which is captured by the hazard rate, is proportional to the amount of aerosolizable virus in the infected person. 

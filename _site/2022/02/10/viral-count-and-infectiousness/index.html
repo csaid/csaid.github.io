@@ -58,7 +58,7 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
   <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
 
   <!-- Icons -->
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/logo144.png">
                                  <link rel="shortcut icon" href="/public/favicon.ico">
 
   <!-- RSS -->
@@ -148,13 +148,13 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
   </div>
 </div>
 
-<p>All steps in the model are a <em>linear</em> function of the count of aerolizable virus inside the infected person. More precisely, the output of each step is <em>proportional</em> to the input viral count. If you reflect on each step, linearity is the most plausible option.</p>
+<p>Each step in the model is a <em>linear</em> function of the count of aerolizable virus inside the infected person. More precisely, the output of each step is <em>proportional</em> to the input viral count. If you reflect on each step, linearity is the most plausible option.</p>
 
 <ul>
   <li>The rate of exhaled viruses is proportional to the count of virus in aerosolizing parts of the respiratory tract. For evidence, see <a href="https://www.researchsquare.com/article/rs-1104361/v1?s=09">Figure 3B of Stakenborg (2021)</a>.</li>
   <li>The virus concentration in the air is proportional to the count of exhaled viruses. Other dynamics are at play, including ventilation, filtration, deposition, and decay. But all of those dynamics are just <em>scale</em> factors on concentration of virus in the air. I asked several experts whether any of these dynamics could significantly depend on virus concentration, and they all thought it was unlikely.</li>
   <li>The number of inhaled viruses is proportional to the concentration in the air. How could it not be?</li>
-  <li>The hazard rate of infection (\(\lambda\)) is proportional to the number of inhaled viruses. Some researchers believe the dose response function might involve supralinear threshold effects. But such an assumption is <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7202094/">not very biologically plausible</a>. Even if the relationship were supralinear, it would argue <em>even more strongly against the logarithmic view of infectiousness</em>, which is sublinear.</li>
+  <li>The hazard rate of infection (\(\lambda\)) is proportional to the number of inhaled viruses. Some researchers believe the dose response function might involve supralinear threshold effects. But such an assumption is <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7202094/">not very biologically plausible</a>. Even if the relationship were supralinear, it would argue <em>against</em> the logarithmic view of infectiousness, which is sublinear.</li>
   <li>Transmission probability is by definition a sublinear function of the hazard rate. At low levels of virus, a doubling of the virus count doubles your risk of infection. But at very high levels of virus, you’re going to get infected no matter what.</li>
 </ul>
 
