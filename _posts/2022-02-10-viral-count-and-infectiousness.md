@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 10x the viral count, 10x the infectiousness
-description: Infectiousness is a linear with viral count and slightly sublinear with observed RNA count 
+description: Infectiousness is mostly linear with viral count and slightly sublinear with observed RNA count 
 image: /assets/2022_10x_the_viral_count/preview2.png
 ---
 
