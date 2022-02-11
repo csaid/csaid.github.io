@@ -4,7 +4,7 @@
  <title>Chris Said</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2022-02-10T19:31:54-05:00</updated>
+ <updated>2022-02-10T19:35:05-05:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -111,7 +111,7 @@
 
 &lt;p&gt;To summarize:&lt;/p&gt;
 &lt;ol&gt;
-  &lt;li&gt;The relationship between aerosolizable viral count and transmission hazard rate is linear.&lt;/li&gt;
+  &lt;li&gt;The relationship between aerosolizable viral count and transmission hazard rate is mostly linear.&lt;/li&gt;
   &lt;li&gt;Because of uncertainty in the relationship between observed RNA count and viral count, the relationship between observed RNA count and transmission hazard is somewhat less linear, but still reasonably linear.&lt;/li&gt;
   &lt;li&gt;You can go back to work or school once your RNA count is below 10\(^5\) cp/mL.&lt;/li&gt;
   &lt;li&gt;This is the same level of virus at which rapid antigen tests stop being positive.&lt;/li&gt;

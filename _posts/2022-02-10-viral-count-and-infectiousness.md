@@ -92,7 +92,7 @@ On each iteration, I computed the probability of transmission at each point of t
 As expected, the addition of uncertainty made the relationship between observed RNA count and infectiousness less linear (Figure 7, bottom). Nevertheless, it was still far more linear than a full logarithmic relationship, and the probability of transmission when the RNA count was greater than 10$$ ^5 $$ cp/mL remained very low. 
 
 To summarize:
-1. The relationship between aerosolizable viral count and transmission hazard rate is linear.
+1. The relationship between aerosolizable viral count and transmission hazard rate is mostly linear.
 2. Because of uncertainty in the relationship between observed RNA count and viral count, the relationship between observed RNA count and transmission hazard is somewhat less linear, but still reasonably linear.
 3. You can go back to work or school once your RNA count is below 10$$ ^5 $$ cp/mL.
 4. This is the same level of virus at which rapid antigen tests stop being positive.
