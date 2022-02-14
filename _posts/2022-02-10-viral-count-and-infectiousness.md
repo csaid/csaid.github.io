@@ -34,7 +34,7 @@ Other people have the intuition that infectiousness is directly proportional or 
 </div>
 
 
-So who’s right? To find out, let’s turn to some quantitative models of transmission via aerosols. Not to spoil the fun, but we’ll learn:
+So who’s right? To find out, let’s turn to some quantitative models of transmission via aerosols. Not to spoil the fun, but we’ll learn that:
 * The relationship between live virus and infectiousness is mostly linear.
 * The relationship between observed RNA count and infectiousness is intermediate between linear and logarithmic, due to uncertainty between RNA count and infectious virus count.
 
