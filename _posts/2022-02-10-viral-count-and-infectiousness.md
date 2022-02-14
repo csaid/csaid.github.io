@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 10x the viral count, 10x the infectiousness
+title: 10x the live viral count, 10x the infectiousness
 description: Infectiousness is mostly linear with viral count and slightly sublinear with observed RNA count 
 image: /assets/2022_10x_the_viral_count/preview2.png
 ---
@@ -36,7 +36,7 @@ Other people have the intuition that infectiousness is directly proportional or 
 
 So who’s right? To find out, let’s turn to some quantitative models of transmission via aerosols. Not to spoil the fun, but we’ll learn how the relationship is mostly linear, but a little less linear when accounting for the uncertainty between RNA count and infectious virus count.
 
-### Transmission hazard rate is proportional to virus count
+### Transmission hazard rate is proportional to live virus count
 The aerosol box model of transmission ([Buonanno, 2020](https://www.sciencedirect.com/science/article/pii/S0160412020320675); [Peng, 2022](https://pubs.acs.org/doi/pdf/10.1021/acs.est.1c06531)) is, as far as I can tell, the standard model of transmission in the literature. Essentially a [survival analysis](https://en.wikipedia.org/wiki/Survival_analysis) model, it describes how virus in the respiratory tract is exhaled into the air before getting partially ventilated, filtered, and decayed. Once in the air, the virus is inhaled into another person’s respiratory tract and probabilistically causes an infection. Take a couple minutes to look at this figure and pay attention to the colors, as I use them consistently in my graphs.
 
 <div class="wrapper">
@@ -63,7 +63,7 @@ To demonstrate the linear effect, I [reproduced](https://gist.github.com/csaid/8
   </div>
 </div>
 
-### Virus count is mostly proportional to RNA count
+### Live virus count is mostly proportional to RNA count
 
 Attentive readers may have noticed that Figure 6 shows that hazard rate is proportional to _virus count_ (in green), whereas what we really care about is whether hazard rate is proportional to _RNA counts_ (shown elsewhere in blue), since that’s what’s most easily measured. For this to be true, the RNA count must be proportional to the virus count, an assumption that is sometimes [controversial](https://twitter.com/Chris_Said/status/1488688022073786369). Last week, however, extraordinary data from a challenge trial emerged that clearly shows the two variables are proportional ([Killingley, 2022](https://www.researchsquare.com/article/rs-1121993/v1)).
 
