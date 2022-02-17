@@ -2,7 +2,7 @@
 layout: post
 title: Ke (2021) is not logarithmic
 description: Infectiousness is mostly linear with viral count and slightly sublinear with observed RNA count 
-image: /assets/linear_log_power_bounded/preview2.png
+image: /assets/2022_ke_2019_is_not_logarithmic/linear_log_power_bounded.png
 ---
 
 [[Code](https://gist.github.com/csaid/84819e16bae145b0139b57521f852a11)]
