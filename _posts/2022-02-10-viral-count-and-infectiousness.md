@@ -36,7 +36,7 @@ Other people have the intuition that infectiousness is directly proportional or 
 
 So who’s right? To find out, let’s turn to some quantitative models of transmission via aerosols. Not to spoil the fun, but we’ll learn that:
 * The relationship between live virus and infectiousness is mostly linear.
-* The relationship between observed RNA count and infectiousness is intermediate between linear and logarithmic, due to uncertainty between RNA count and live virus count.
+* The relationship between observed RNA count and infectiousness is intermediate between linear and logarithmic, due to uncertainty between observed RNA count and live virus count.
 
 ### Transmission hazard rate is proportional to live virus count
 The aerosol box model of transmission ([Buonanno, 2020](https://www.sciencedirect.com/science/article/pii/S0160412020320675); [Peng, 2022](https://pubs.acs.org/doi/pdf/10.1021/acs.est.1c06531)) is, as far as I can tell, the standard model of transmission in the literature. Essentially a [survival analysis](https://en.wikipedia.org/wiki/Survival_analysis) model, it describes how virus in the respiratory tract is exhaled into the air before getting partially ventilated, filtered, and decayed. Once in the air, the virus is inhaled into another person’s respiratory tract and probabilistically causes an infection. Take a couple minutes to look at this figure and pay attention to the colors, as I use them consistently in my graphs.

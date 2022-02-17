@@ -31,13 +31,13 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
   <!-- twitter standard -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@chris_said" />
-  <meta name="twitter:title" content="10x the viral count, 10x the infectiousness" />
+  <meta name="twitter:title" content="10x the live viral count, 10x the infectiousness" />
   <meta name="twitter:description" content="Infectiousness is mostly linear with viral count and slightly sublinear with observed RNA count" />
 
 
   <title>
     
-      10x the viral count, 10x the infectiousness &middot; Chris Said
+      10x the live viral count, 10x the infectiousness &middot; Chris Said
     
   </title>
 
@@ -104,7 +104,7 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
 
     <div class="content container">
       <div class="post">
-  <h1 class="post-title">10x the viral count, 10x the infectiousness</h1>
+  <h1 class="post-title">10x the live viral count, 10x the infectiousness</h1>
   <span class="post-date">10 Feb 2022</span>
   <p>[<a href="https://gist.github.com/csaid/84819e16bae145b0139b57521f852a11">Code</a>]</p>
 
@@ -136,9 +136,13 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
   </div>
 </div>
 
-<p>So who’s right? To find out, let’s turn to some quantitative models of transmission via aerosols. Not to spoil the fun, but we’ll learn how the relationship is mostly linear, but a little less linear when accounting for the uncertainty between RNA count and infectious virus count.</p>
+<p>So who’s right? To find out, let’s turn to some quantitative models of transmission via aerosols. Not to spoil the fun, but we’ll learn that:</p>
+<ul>
+  <li>The relationship between live virus and infectiousness is mostly linear.</li>
+  <li>The relationship between observed RNA count and infectiousness is intermediate between linear and logarithmic, due to uncertainty between observed RNA count and live virus count.</li>
+</ul>
 
-<h3 id="transmission-hazard-rate-is-proportional-to-virus-count">Transmission hazard rate is proportional to virus count</h3>
+<h3 id="transmission-hazard-rate-is-proportional-to-live-virus-count">Transmission hazard rate is proportional to live virus count</h3>
 <p>The aerosol box model of transmission (<a href="https://www.sciencedirect.com/science/article/pii/S0160412020320675">Buonanno, 2020</a>; <a href="https://pubs.acs.org/doi/pdf/10.1021/acs.est.1c06531">Peng, 2022</a>) is, as far as I can tell, the standard model of transmission in the literature. Essentially a <a href="https://en.wikipedia.org/wiki/Survival_analysis">survival analysis</a> model, it describes how virus in the respiratory tract is exhaled into the air before getting partially ventilated, filtered, and decayed. Once in the air, the virus is inhaled into another person’s respiratory tract and probabilistically causes an infection. Take a couple minutes to look at this figure and pay attention to the colors, as I use them consistently in my graphs.</p>
 
 <div class="wrapper">
@@ -169,7 +173,7 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
   </div>
 </div>
 
-<h3 id="virus-count-is-mostly-proportional-to-rna-count">Virus count is mostly proportional to RNA count</h3>
+<h3 id="live-virus-count-is-mostly-proportional-to-rna-count">Live virus count is mostly proportional to RNA count</h3>
 
 <p>Attentive readers may have noticed that Figure 6 shows that hazard rate is proportional to <em>virus count</em> (in green), whereas what we really care about is whether hazard rate is proportional to <em>RNA counts</em> (shown elsewhere in blue), since that’s what’s most easily measured. For this to be true, the RNA count must be proportional to the virus count, an assumption that is sometimes <a href="https://twitter.com/Chris_Said/status/1488688022073786369">controversial</a>. Last week, however, extraordinary data from a challenge trial emerged that clearly shows the two variables are proportional (<a href="https://www.researchsquare.com/article/rs-1121993/v1">Killingley, 2022</a>).</p>
 

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<!--
+It's bad to import d3 in every post separately (https://groups.google.com/forum/#!topic/d3-js/bwdNirt2uEU).
+Importing it globally here.
+Putting this up at the top, according to this controversial stack overflow answer
+http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
+ -->
+<script src="https://d3js.org/d3.v5.min.js"></script>
+
+<link rel="stylesheet" href="/public/font-awesome-4.4.0/css/font-awesome.min.css">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  
+    <meta name="description" content="Infectiousness is mostly linear with viral count and slightly sublinear with observed RNA count">
+  
+
+  <!-- To get a link preview image, just set the image attribute in your _post -->
+  
+    <meta content="http://localhost:4000/assets/linear_log_power_bounded/preview2.png" property="og:image"/>
+  
+
+  <!-- twitter standard -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@chris_said" />
+  <meta name="twitter:title" content="Ke (2021) is not logarithmic" />
+  <meta name="twitter:description" content="Infectiousness is mostly linear with viral count and slightly sublinear with observed RNA count" />
+
+
+  <title>
+    
+      Ke (2021) is not logarithmic &middot; Chris Said
+    
+  </title>
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-67746868-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/hyde.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/logo144.png">
+                                 <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+<!--   <body class="theme-base-cps">
+ -->
+  <body>
+
+    <div class="sidebar">
+  <div class="container">
+    <div class="sidebar-about">
+      <h1>
+        <a href="/">
+          Chris Said
+        </a>
+      </h1>
+      <p class="lead">I am a data scientist at Stitch Fix. This blog is mostly about statistics, technology, and science.</p>
+
+    </div>
+
+    <!-- <nav class="sidebar-nav">
+
+      
+        <a class="sidebar-nav-item" href="/">Home</a>
+      
+        <a class="sidebar-nav-item" href="/atom.xml">Feed</a>
+      
+
+    </nav> -->
+
+    <div class="wrapper">
+      <div class="inner">
+        <a href = "http://www.twitter.com/Chris_Said" class="contact-button"><i class="fa fa-twitter fa-2x"></i></a>
+        <a href = "https://www.linkedin.com/pub/chris-said/6b/86b/979" class="contact-button"><i class="fa fa-linkedin-square fa-2x"></i></a>
+        <a href = "mailto:chris.said@gmail.com" class="contact-button"><i class="fa fa-envelope fa-2x"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <div class="content container">
+      <div class="post">
+  <h1 class="post-title">Ke (2021) is not logarithmic</h1>
+  <span class="post-date">16 Feb 2022</span>
+  <p>[<a href="https://gist.github.com/csaid/84819e16bae145b0139b57521f852a11">Code</a>]</p>
+
+<p>Last week I published a <a href="https://chris-said.io/2022/02/10/viral-count-and-infectiousness/">blog post</a> on whether infectiousness was a <em>linear</em> or <em>logarithmic</em> function of viral RNA count, as measured by PCR. The answer has significant implications for when people can return to school or work after an infection.</p>
+
+<p>At the start of infection, viral RNA count increases exponentially, reaching about a billion copies per mL, before dropping back down to zero. If the linear model is correct, infectiousness is proportional to RNA count, which means you are only meaningfully infectious for a short period near the peak viral load. If the logarithmic model is correct, you’re meaningfully infectious with any amount of virus in your body, even trace amounts.</p>
+
+<div class="wrapper">
+  <p><img src="/assets/2022_ke_2019_is_not_logarithmic/linear_log.png" class="inner" style="position:relative border: #222 2px solid; max-width:100%;" /></p>
+  <div class="caption">
+    <p><strong>Figure 1.</strong> The linear and logarithmic models of infectiousness. The gray curve shows RNA count in a typical infection, plotted on a log axis. The other curves are probabilities of transmission for a one-hour interaction between two people in a medium sized room. Probability is a transformation of the hazard rate (“infectiousness”), which can be modeled as a linear or logarithmic function of RNA count.</p>
+  </div>
+</div>
+
+<p>My blog post concluded that infectiousness is a mostly linear function of <em>live viral count</em>. But when it comes to <em>observed RNA count</em>, the relationship is intermediate between linear and logarithmic, perhaps a bit closer to linear.</p>
+
+<p>After publishing my blog post, somebody sent me <a href="https://www.pnas.org/content/118/49/e2111477118">Ke (2021)</a>, which claims that the logarithmic model is an appropriate surrogate for infectiousness. The paper is useful and important, but I want to respond to their core claim.</p>
+
+<h3 id="the-model-isnt-logarithmic">The model isn’t logarithmic!</h3>
+<p>First and foremost, the actual Ke (2021) model isn’t logarithmic. I’ve reproduced their power-law model below. If anything, it’s much closer to linear than logarithmic!</p>
+
+<div class="wrapper">
+  <p><img src="/assets/2022_ke_2019_is_not_logarithmic/linear_log_power.png" class="inner" style="position:relative border: #222 2px solid; max-width:100%;" /></p>
+  <div class="caption">
+    <p><strong>Figure 2.</strong> The power-law model described in Ke (2021) is closer to a linear model than a logarithmic model. The \(\phi\) parameter is rescaled so that there is a similar area under the curve as the other models.</p>
+  </div>
+</div>
+
+<p>The paper also presents a saturation model. While it’s less linear than the power-law model, I think it’s fair to call it midway between linear and logarithmic.</p>
+
+<div class="wrapper">
+  <p><img src="/assets/2022_ke_2019_is_not_logarithmic/linear_log_saturation.png" class="inner" style="position:relative border: #222 2px solid; max-width:100%;" /></p>
+  <div class="caption">
+    <p><strong>Figure 3.</strong> The saturation model described in Ke (2021) falls between a linear model and a logarithmic model. The \(\theta\) parameter is rescaled so that there is a similar area under the curve as the other models.</p>
+  </div>
+</div>
+
+<p>I’m not sure why Ke (2021) comes to a “logarithmic” conclusion, given that both of their models are not too far from linear. I suspect it was mostly an oversight. Covid research moves fast, and perhaps they were visualizing their data in a different way than I am.</p>
+
+<h3 id="the-symptom-data-isnt-that-convincing">The symptom data isn’t that convincing</h3>
+<p>Ke (2021) uses some symptom data to provide additional evidence for nonlinearity. The argument is as follows:
+Epidemiological evidence suggests that &gt;30% of transmission occurs pre-symptomatically.
+Data from Wölfel (2020) suggests that symptom onset occurs early in the viral load curve.
+Under the linear model, almost all transmission would occur around the peak of infection and – using the Wölfel data – only 8% would occur pre-symptomatically. Because this is lower than the &gt;30% observed epidemiologically, the linear model should be rejected.</p>
+
+<div class="wrapper">
+  <p><img src="/assets/2022_ke_2019_is_not_logarithmic/symptoms.png" class="inner" style="position:relative border: #222 2px solid; max-width:100%;" /></p>
+  <div class="caption">
+    <p><strong>Figure 4.</strong> Illustration of the symptom logic used in Ke (2021). The linear model predicts only a small amount of transmission would occur before symptoms, which is inconsistent with epidemiological data.</p>
+  </div>
+</div>
+
+<p>I don’t want to strictly defend the linear model – I concede there is some nonlinearity. But much of Ke’s evidence from symptom data feels overstated.</p>
+
+<p>First, Ke’s 8% estimate is based on an assumption of uniformly distributed contacts over time. In reality, people <em>reduce</em> their rate of contacts once symptoms start. The linear model should therefore predict significantly more than 8% of transmission occurs pre-symptomatically, which is more consistent with the epidemiological data. To their credit, the authors acknowledge the limitation of their assumption.</p>
+
+<p>Second, the authors describe Wölfel (2020) as showing symptom onset occurs very early along the viral load curve. But this is inconsistent with <a href="https://www.medrxiv.org/content/10.1101/2020.09.28.20202028v1">many other studies</a>, which shows that symptom onset occurs at or even after the <em>peak</em> of viral load. If those studies are true, the linear model would predict that upwards of 50% of infection occurs pre-symptomatically, consistent with the epidemiological data. In general, I suspect that the definition of “symptom onset” is murky, and that any conclusions based on cross-study comparisons will be fraught with uncertainty.</p>
+
+<p>To summarize, the nonlinear models in Ke (2019) are important and useful; they just aren’t logarithmic! The truth is intermediate between linear and logarithmic and, if anything, may be slightly closer to linear.</p>
+
+<p>[<a href="https://gist.github.com/csaid/84819e16bae145b0139b57521f852a11">Code</a>]</p>
+
+
+  <div>
+    <a class="twitter-share-button"
+      href="https://twitter.com/share"
+      data-url=""
+      data-via="Chris_Said"
+      data-size="large"
+      data-count="none">
+    Tweet
+    </a>
+</div>
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'csaid81';
+    var disqus_identifier = 'http://localhost:4000/2022/02/16/ke-2019-is-not-logarithmic/';
+    var disqus_url = 'http://localhost:4000/2022/02/16/ke-2019-is-not-logarithmic/';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+</div>
+
+
+    </div>
+
+  </body>
+</html>
+
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+
+<script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));</script>
