@@ -4,7 +4,7 @@
  <title>Chris Said</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2022-02-16T19:29:17-05:00</updated>
+ <updated>2022-02-16T19:35:28-05:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -189,6 +189,9 @@ Under the linear model, almost all transmission would occur around the peak of i
   &lt;li&gt;You can go back to work or school once your RNA count is below 10\(^5\) cp/mL.&lt;/li&gt;
   &lt;li&gt;This is the same level of virus at which rapid antigen tests stop being positive.&lt;/li&gt;
 &lt;/ol&gt;
+
+&lt;h3 id=&quot;update&quot;&gt;UPDATE&lt;/h3&gt;
+&lt;p&gt;After I published this post, somebody sent me &lt;a href=&quot;https://www.pnas.org/content/118/49/e2111477118&quot;&gt;Ke (2021)&lt;/a&gt;, which claims that the logarithmic model is an appropriate surrogate for infectiousness. It’s an important paper with useful models, but as I detail in a &lt;a href=&quot;https://chris-said.io/2022/02/16/ke-2019-is-not-logarithmic/&quot;&gt;followup post&lt;/a&gt;, their models aren’t logarithmic! Like my noise model, the models are intermediate between logarithmic and linear and, if anything, are closer to linear.&lt;/p&gt;
 
 &lt;p&gt;[&lt;a href=&quot;https://gist.github.com/csaid/84819e16bae145b0139b57521f852a11&quot;&gt;Code&lt;/a&gt;]&lt;/p&gt;
 </content>

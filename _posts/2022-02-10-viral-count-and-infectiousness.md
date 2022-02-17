@@ -99,4 +99,7 @@ To summarize:
 3. You can go back to work or school once your RNA count is below 10$$ ^5 $$ cp/mL.
 4. This is the same level of virus at which rapid antigen tests stop being positive.
 
+### UPDATE
+After I published this post, somebody sent me [Ke (2021)](https://www.pnas.org/content/118/49/e2111477118), which claims that the logarithmic model is an appropriate surrogate for infectiousness. It's an important paper with useful models, but as I detail in a [followup post](https://chris-said.io/2022/02/16/ke-2019-is-not-logarithmic/), their models aren't logarithmic! Like my noise model, the models are intermediate between logarithmic and linear and, if anything, are closer to linear.
+
 [[Code](https://gist.github.com/csaid/84819e16bae145b0139b57521f852a11)]
