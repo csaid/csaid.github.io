@@ -50,4 +50,4 @@ Because they like the attention, winners use social media just as much if not mo
 
 
 ### Conclusion
-I do not know which of these three mechanisms is correct, but I suspect that both play a role. Either way, I am not persuaded by individual-level correlations between social media use and well-being. To me, the time series trends and common sense mechanisms are much more persuasive, and I’d be very interested in any future studies that explore these kinds of network-based hypotheses.
+I do not know which of these three mechanisms is correct, but I suspect that more than one may play a role. Either way, I am not persuaded by individual-level correlations between social media use and well-being. To me, the time series trends and common sense mechanisms are much more persuasive, and I’d be very interested in any future studies that explore these kinds of network-based hypotheses.
