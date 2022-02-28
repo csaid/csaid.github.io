@@ -20,7 +20,7 @@ I’m not sure I agree. It’s totally possible and indeed likely that social me
 
 You might think that’s a paradox, but here are three simple ways it can happen.
 
-### Social media doesn't make you unhappy; it makes everyone around you unhappy
+### Social media doesn’t make you unhappy directly; it makes everyone around you less available, so everyone gets less happy
 The first mechanism is that while social media might not directly make you less happy, it degrades your in-person skills, making you less fun and less available to others. This in turn makes everyone else around you unhappy. And by the same token, since everyone around you is less fun and less available, you also become less happy, regardless of how much social media you use. If this hypothesis is true, the paradox would be resolved. As economists might say, the negative impacts of social media are fully *externalized*.
 
 Is there any evidence that social media reduces in-person social skills? Of course there is, just look around! Compare the social interactions you see today to any social interactions videotaped before the year 2000. Or compare the social skills of a Boomer to someone in Gen Z. The decline is undeniable.
