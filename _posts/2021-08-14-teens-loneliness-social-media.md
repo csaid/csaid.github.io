@@ -26,7 +26,7 @@ The first mechanism is that while social media might not directly make you less 
 Is there any evidence that social media reduces in-person social skills? Of course there is, just look around! Compare the social interactions you see today to any social interactions videotaped before the year 2000. Or compare the social skills of a Boomer to someone in Gen Z. The decline is undeniable.
 
 
-### Social media as a trap
+### Social media is a trap
 The second mechanism is that social media traps its users in an inferior equilibrium and punishes those who don't use it. Because social media is where all their friends are, most teens have no choice but to use it. Unlike in the first hypothesis, social media makes them vaguely unhappy, but its addictive properties and network effects pull them in anyway. Meanwhile, a minority of teens do not use it, but they are also unhappy because they miss out on the center of social activity. Everyone is therefore less happy, and there is no individual-level correlation between the amount of social media use and happiness. If this hypothesis is correct, the paradox would be resolved.
 
 
