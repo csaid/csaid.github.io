@@ -18,10 +18,16 @@ Recently, some researchers have begun to [question](https://www.nytimes.com/2020
 
 I’m not sure I agree. It’s totally possible and indeed likely that social media has caused a major drop in teen well-being even though the cross-sectional data shows only weak correlations between social media use and well-being. 
 
-You might think that’s a paradox, but here are two simple ways it can happen.
+You might think that’s a paradox, but here are three simple ways it can happen.
+
+### Social media doesn't make you unhappy; it makes everyone around you unhappy
+The first mechanism is that while social media might not directly make you less happy, it degrades your in-person skills, making you less fun and less available to others. This in turn makes everyone else around unhappy. And by the same token, since everyone around you is less fun and less available, you also become less happy, regardless of how much social media you use. If this hypothesis is true, the paradox would be resolved. As economists might say, the negative impacts of social media are fully *externalized*
+
+Is there any evidence that social media reduces in-person social skills? Of course there is, just look around! Compare the social interactions you see today to any social interactions videotaped before this century. Or compare the social skills of a Boomer to someone in Gen-Z. The decline is undeniable.
+
 
 ### Social media as a trap
-The first mechanism is that social media traps its users in inferior equilibrium and punishes those who don't use it. Because social media is where all their friends are, most teens have no choice but to use it. Social media makes them vaguely unhappy, but its addictive properties and network effects pull them in anyway. Meanwhile, a minority of teens do not use it, but they are also unhappy because they miss out on the center of social activity. Everyone is therefore less happy, and there is no individual-level correlation between the amount of social media use and happiness. If this hypothesis is correct, the paradox would be resolved.
+The second mechanism is that social media traps its users in inferior equilibrium and punishes those who don't use it. Because social media is where all their friends are, most teens have no choice but to use it. Social media makes them vaguely unhappy, but its addictive properties and network effects pull them in anyway. Meanwhile, a minority of teens do not use it, but they are also unhappy because they miss out on the center of social activity. Everyone is therefore less happy, and there is no individual-level correlation between the amount of social media use and happiness. If this hypothesis is correct, the paradox would be resolved.
 
 
 <div class="wrapper">
@@ -31,7 +37,7 @@ The first mechanism is that social media traps its users in inferior equilibrium
 </div>
 
 ### Social media makes the rich get richer and the poor get poorer
-The second mechanism is that social media creates a small group of social “winners” who enjoy unprecedented attention, while everyone else gets left behind. Before social media, analog throughput constraints limited how much attention could be consumed by one person. With social media, those scaling constraints were lifted, and attention that otherwise would be shared within groups gets redirected to a small set of winners. 
+The third mechanism is that social media creates a small group of social “winners” who enjoy unprecedented attention, while everyone else gets left behind. Before social media, analog throughput constraints limited how much attention could be consumed by one person. With social media, those scaling constraints were lifted, and attention that otherwise would be shared within groups gets redirected to a small set of winners. 
 
 Because they like the attention, winners use social media just as much if not more than the non-winners, pushing the correlation between social media use and well-being in a positive direction. But because most people are non-winners, overall well-being is lower. This hypothesis, which would also resolve the paradox, is supported by the [finding](https://spssi.onlinelibrary.wiley.com/doi/10.1111/sipr.12033) that “active” use of social media promotes well-being whereas “passive” use promotes the opposite.
 
@@ -44,4 +50,4 @@ Because they like the attention, winners use social media just as much if not mo
 
 
 ### Conclusion
-I do not know which of these two mechanisms is correct, but I suspect that both play a role. Either way, I am not persuaded by individual-level correlations between social media use and well-being. To me, the time series trends and common sense mechanisms are much more persuasive, and I’d be very interested in any future studies that explore these kinds of network-based hypotheses.
+I do not know which of these three mechanisms is correct, but I suspect that both play a role. Either way, I am not persuaded by individual-level correlations between social media use and well-being. To me, the time series trends and common sense mechanisms are much more persuasive, and I’d be very interested in any future studies that explore these kinds of network-based hypotheses.
