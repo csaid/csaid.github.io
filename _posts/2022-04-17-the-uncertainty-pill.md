@@ -2,7 +2,7 @@
 layout: post
 title: The uncertainty pill
 description: You’re way too confident about politics
-image: /assets/2022_the_uncertainty_pill/fig_pill_preview.png
+image: /assets/2022_the_uncertainty_pill/fig_pill_orange_preview.png
 ---
 
 
