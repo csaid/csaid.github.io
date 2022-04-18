@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<!--
+It's bad to import d3 in every post separately (https://groups.google.com/forum/#!topic/d3-js/bwdNirt2uEU).
+Importing it globally here.
+Putting this up at the top, according to this controversial stack overflow answer
+http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
+ -->
+<script src="https://d3js.org/d3.v5.min.js"></script>
+
+<link rel="stylesheet" href="/public/font-awesome-4.4.0/css/font-awesome.min.css">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  
+    <meta name="description" content="You’re way too confident about politics">
+  
+
+  <!-- To get a link preview image, just set the image attribute in your _post -->
+  
+    <meta content="http://localhost:4000/assets/2022_the_uncertainty_pill/fig_pill.png" property="og:image"/>
+  
+
+  <!-- twitter standard -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@chris_said" />
+  <meta name="twitter:title" content="The uncertainty pill" />
+  <meta name="twitter:description" content="You’re way too confident about politics" />
+
+
+  <title>
+    
+      The uncertainty pill &middot; Chris Said
+    
+  </title>
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-67746868-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/hyde.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/logo144.png">
+                                 <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+<!--   <body class="theme-base-cps">
+ -->
+  <body>
+
+    <div class="sidebar">
+  <div class="container">
+    <div class="sidebar-about">
+      <h1>
+        <a href="/">
+          Chris Said
+        </a>
+      </h1>
+      <p class="lead">I am a data scientist at Stitch Fix. This blog is mostly about statistics, technology, and science.</p>
+
+    </div>
+
+    <!-- <nav class="sidebar-nav">
+
+      
+        <a class="sidebar-nav-item" href="/">Home</a>
+      
+        <a class="sidebar-nav-item" href="/atom.xml">Feed</a>
+      
+
+    </nav> -->
+
+    <div class="wrapper">
+      <div class="inner">
+        <a href = "http://www.twitter.com/Chris_Said" class="contact-button"><i class="fa fa-twitter fa-2x"></i></a>
+        <a href = "https://www.linkedin.com/pub/chris-said/6b/86b/979" class="contact-button"><i class="fa fa-linkedin-square fa-2x"></i></a>
+        <a href = "mailto:chris.said@gmail.com" class="contact-button"><i class="fa fa-envelope fa-2x"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <div class="content container">
+      <div class="post">
+  <h1 class="post-title">The uncertainty pill</h1>
+  <span class="post-date">17 Apr 2022</span>
+  <p>Think of a view you hold politically. Bear with me, and ask yourself a few questions. How well do you <a href="https://www.psychologicalscience.org/news/releases/extreme-political-attitudes-may-stem-from-an-illusion-of-understanding.html">really understand</a> the issue? Have you thought through all of the second and third order consequences? Did you consider <a href="https://en.wikipedia.org/wiki/Perverse_incentive">perverse incentives</a>? What will happen when your plan is played out for <a href="https://forum.effectivealtruism.org/posts/LdZcit8zX89rofZf3/evidence-cluelessness-and-the-long-term-hilary-greaves">multiple generations</a>? Did you apply a discount factor? Do you know what the discount factor <a href="https://drive.google.com/file/d/16xd6X53FSnwwepdReuBzdxQOU1wHc1Hz/view">should</a> be? Are there risks to your plan that you haven’t thought of? How well can you <a href="https://www.lesswrong.com/tag/ideological-turing-tests">articulate the beliefs of your opponents</a>? Do you know why your opponents are so certain? Is there any chance those reasons could apply to you?</p>
+
+<p>With only few exceptions that I’ll address later, I think it’s weird to have strong political views. The world is a complex system, and complex systems are notoriously hard to reason about. <a href="https://en.wikipedia.org/wiki/Unintended_consequences">Unintended consequences</a> abound. And yet wherever I look, people fight about complex topics they don’t understand, certain that the other side is wrong or evil. Sometimes these fights tear families apart. It’s bad.</p>
+
+<p>I don’t have many strong opinions. I’ve been uncertainty-pilled, and I’d like to tell you about it.</p>
+
+<div class="wrapper">
+  <p><img src="/assets/2022_the_uncertainty_pill/fig_pill.png" class="inner" style="position:relative border: #222 2px solid; max-width:60%;" /></p>
+</div>
+
+<h3 id="what-is-the-uncertainty-pill">What is the uncertainty pill?</h3>
+<p>People who have taken the uncertainty pill think the future is extremely hard to predict, making it difficult to know the optimal policy. Consider the US political spectrum, as shown in the diagram below. Most on the Left (blue) or Right (pink) are certain that they are correct and their opponents are wrong. The uncertainty pill (gray) says that either of them may be correct and that both might be wrong.</p>
+
+<div class="wrapper">
+  <p><img src="/assets/2022_the_uncertainty_pill/fig_L_U_R.png" class="inner" style="position:relative border: #222 2px solid; max-width:60%;" /></p>
+</div>
+
+<h3 id="the-uncertainty-pill-is-not-centrism">The uncertainty pill is not centrism</h3>
+<p>The uncertainty pill is related to centrism, but is not the same. In the diagram below, a conventional centrist is certain that centrist policies are the correct policy (dark gray). An uncertainty-pilled centrist is not (light gray). To them, the centrist policy may be most likely to be correct, but there is still a decent chance that a Leftist policy or a Rightist policy is correct.</p>
+
+<div class="wrapper">
+  <p><img src="/assets/2022_the_uncertainty_pill/fig_C_U.png" class="inner" style="position:relative border: #222 2px solid; max-width:60%;" /></p>
+</div>
+
+<p>The uncertainty pill does not prevent you from picking sides. It is possible, for example, to be an uncertainty-pilled socialist. A conventional socialist is certain about their beliefs, thinks the other side is morally bankrupt, and cannot clearly articulate opposing points of view. An uncertainty-pilled socialist may prefer socialism, but recognizes a real likelihood that other views may be correct.</p>
+
+<div class="wrapper">
+  <p><img src="/assets/2022_the_uncertainty_pill/fig_S_U.png" class="inner" style="position:relative border: #222 2px solid; max-width:60%;" /></p>
+</div>
+
+<h3 id="the-uncertainty-pill-is-chill">The uncertainty pill is chill</h3>
+<p>High certainty people tend to be quick to judgment and quick to anger. Uncertainty-pilled people think that most other people have good intentions. They have the <a href="https://www.amazon.com/Scout-Mindset-Perils-Defensive-Thinking/dp/0735217556">scout mindset</a>, not the soldier mindset. The uncertainty pill makes you chill.</p>
+
+<p>So the next time you see people fighting about something they don’t really understand, take a bite of the uncertainty pill and relax. Maybe offer a few thoughts, but remember that the world is complex and none of us understand it as well as we think we do.</p>
+
+<h3 id="caveat-time">Caveat time</h3>
+<p>As an uncertainty-pilled person I love caveats, so let me close with one.</p>
+
+<p>While the uncertainty pill looks down on people who are overly certain, it is sympathetic to some forms of certainty. In particular, it’s reasonable for marginalized or oppressed people to fight for their own interests. Since those people are focused primarily on their own narrow well-being, they may correctly have some certainty about the impact on themselves. For example, a low-wage worker fighting for better working conditions at their company is probably fighting for an outcome truly in their own best interest.</p>
+
+<p>But if you privileged, you can afford to advocate for issues beyond your narrow self interest. If you do that, you’ll need to make claims about broader society and broad time horizons – precisely the claims where certainty is no longer justified. If you do this, it is your responsibility to be thoughtful, open-minded, and uncertain. The answers are not simple. And if you think they are, you haven’t thought about them enough!</p>
+
+<p><em>Related ideas: <a href="https://forum.effectivealtruism.org/tag/cluelessness">Consequentialist cluelessness</a></em></p>
+<div class="caption">
+  <p>Special thanks to John McDonnell for discussions</p>
+</div>
+
+  <div>
+    <a class="twitter-share-button"
+      href="https://twitter.com/share"
+      data-url=""
+      data-via="Chris_Said"
+      data-size="large"
+      data-count="none">
+    Tweet
+    </a>
+</div>
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'csaid81';
+    var disqus_identifier = 'http://localhost:4000/2022/04/17/the-uncertainty-pill/';
+    var disqus_url = 'http://localhost:4000/2022/04/17/the-uncertainty-pill/';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+</div>
+
+
+    </div>
+
+  </body>
+</html>
+
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+
+<script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));</script>

@@ -4,13 +4,67 @@
  <title>Chris Said</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2022-02-16T19:49:45-05:00</updated>
+ <updated>2022-04-17T21:21:03-04:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
    <email></email>
  </author>
 
+ 
+ <entry>
+   <title>The uncertainty pill</title>
+   <link href="http://localhost:4000/2022/04/17/the-uncertainty-pill/"/>
+   <updated>2022-04-17T00:00:00-04:00</updated>
+   <id>http://localhost:4000/2022/04/17/the-uncertainty-pill</id>
+   <content type="html">&lt;p&gt;Think of a view you hold politically. Bear with me, and ask yourself a few questions. How well do you &lt;a href=&quot;https://www.psychologicalscience.org/news/releases/extreme-political-attitudes-may-stem-from-an-illusion-of-understanding.html&quot;&gt;really understand&lt;/a&gt; the issue? Have you thought through all of the second and third order consequences? Did you consider &lt;a href=&quot;https://en.wikipedia.org/wiki/Perverse_incentive&quot;&gt;perverse incentives&lt;/a&gt;? What will happen when your plan is played out for &lt;a href=&quot;https://forum.effectivealtruism.org/posts/LdZcit8zX89rofZf3/evidence-cluelessness-and-the-long-term-hilary-greaves&quot;&gt;multiple generations&lt;/a&gt;? Did you apply a discount factor? Do you know what the discount factor &lt;a href=&quot;https://drive.google.com/file/d/16xd6X53FSnwwepdReuBzdxQOU1wHc1Hz/view&quot;&gt;should&lt;/a&gt; be? Are there risks to your plan that you haven’t thought of? How well can you &lt;a href=&quot;https://www.lesswrong.com/tag/ideological-turing-tests&quot;&gt;articulate the beliefs of your opponents&lt;/a&gt;? Do you know why your opponents are so certain? Is there any chance those reasons could apply to you?&lt;/p&gt;
+
+&lt;p&gt;With only few exceptions that I’ll address later, I think it’s weird to have strong political views. The world is a complex system, and complex systems are notoriously hard to reason about. &lt;a href=&quot;https://en.wikipedia.org/wiki/Unintended_consequences&quot;&gt;Unintended consequences&lt;/a&gt; abound. And yet wherever I look, people fight about complex topics they don’t understand, certain that the other side is wrong or evil. Sometimes these fights tear families apart. It’s bad.&lt;/p&gt;
+
+&lt;p&gt;I don’t have many strong opinions. I’ve been uncertainty-pilled, and I’d like to tell you about it.&lt;/p&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/assets/2022_the_uncertainty_pill/fig_pill.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:60%;&quot; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;what-is-the-uncertainty-pill&quot;&gt;What is the uncertainty pill?&lt;/h3&gt;
+&lt;p&gt;People who have taken the uncertainty pill think the future is extremely hard to predict, making it difficult to know the optimal policy. Consider the US political spectrum, as shown in the diagram below. Most on the Left (blue) or Right (pink) are certain that they are correct and their opponents are wrong. The uncertainty pill (gray) says that either of them may be correct and that both might be wrong.&lt;/p&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/assets/2022_the_uncertainty_pill/fig_L_U_R.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:60%;&quot; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;the-uncertainty-pill-is-not-centrism&quot;&gt;The uncertainty pill is not centrism&lt;/h3&gt;
+&lt;p&gt;The uncertainty pill is related to centrism, but is not the same. In the diagram below, a conventional centrist is certain that centrist policies are the correct policy (dark gray). An uncertainty-pilled centrist is not (light gray). To them, the centrist policy may be most likely to be correct, but there is still a decent chance that a Leftist policy or a Rightist policy is correct.&lt;/p&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/assets/2022_the_uncertainty_pill/fig_C_U.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:60%;&quot; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;The uncertainty pill does not prevent you from picking sides. It is possible, for example, to be an uncertainty-pilled socialist. A conventional socialist is certain about their beliefs, thinks the other side is morally bankrupt, and cannot clearly articulate opposing points of view. An uncertainty-pilled socialist may prefer socialism, but recognizes a real likelihood that other views may be correct.&lt;/p&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/assets/2022_the_uncertainty_pill/fig_S_U.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:60%;&quot; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;the-uncertainty-pill-is-chill&quot;&gt;The uncertainty pill is chill&lt;/h3&gt;
+&lt;p&gt;High certainty people tend to be quick to judgment and quick to anger. Uncertainty-pilled people think that most other people have good intentions. They have the &lt;a href=&quot;https://www.amazon.com/Scout-Mindset-Perils-Defensive-Thinking/dp/0735217556&quot;&gt;scout mindset&lt;/a&gt;, not the soldier mindset. The uncertainty pill makes you chill.&lt;/p&gt;
+
+&lt;p&gt;So the next time you see people fighting about something they don’t really understand, take a bite of the uncertainty pill and relax. Maybe offer a few thoughts, but remember that the world is complex and none of us understand it as well as we think we do.&lt;/p&gt;
+
+&lt;h3 id=&quot;caveat-time&quot;&gt;Caveat time&lt;/h3&gt;
+&lt;p&gt;As an uncertainty-pilled person I love caveats, so let me close with one.&lt;/p&gt;
+
+&lt;p&gt;While the uncertainty pill looks down on people who are overly certain, it is sympathetic to some forms of certainty. In particular, it’s reasonable for marginalized or oppressed people to fight for their own interests. Since those people are focused primarily on their own narrow well-being, they may correctly have some certainty about the impact on themselves. For example, a low-wage worker fighting for better working conditions at their company is probably fighting for an outcome truly in their own best interest.&lt;/p&gt;
+
+&lt;p&gt;But if you privileged, you can afford to advocate for issues beyond your narrow self interest. If you do that, you’ll need to make claims about broader society and broad time horizons – precisely the claims where certainty is no longer justified. If you do this, it is your responsibility to be thoughtful, open-minded, and uncertain. The answers are not simple. And if you think they are, you haven’t thought about them enough!&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Related ideas: &lt;a href=&quot;https://forum.effectivealtruism.org/tag/cluelessness&quot;&gt;Consequentialist cluelessness&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&quot;caption&quot;&gt;
+  &lt;p&gt;Special thanks to John McDonnell for discussions&lt;/p&gt;
+&lt;/div&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Ke (2021) is not logarithmic</title>
@@ -361,10 +415,15 @@ Under the linear model, almost all transmission would occur around the peak of i
 
 &lt;p&gt;I’m not sure I agree. It’s totally possible and indeed likely that social media has caused a major drop in teen well-being even though the cross-sectional data shows only weak correlations between social media use and well-being.&lt;/p&gt;
 
-&lt;p&gt;You might think that’s a paradox, but here are two simple ways it can happen.&lt;/p&gt;
+&lt;p&gt;You might think that’s a paradox, but here are three simple ways it can happen.&lt;/p&gt;
 
-&lt;h3 id=&quot;social-media-as-a-trap&quot;&gt;Social media as a trap&lt;/h3&gt;
-&lt;p&gt;The first mechanism is that social media traps its users in inferior equilibrium and punishes those who don’t use it. Because social media is where all their friends are, most teens have no choice but to use it. Social media makes them vaguely unhappy, but its addictive properties and network effects pull them in anyway. Meanwhile, a minority of teens do not use it, but they are also unhappy because they miss out on the center of social activity. Everyone is therefore less happy, and there is no individual-level correlation between the amount of social media use and happiness. If this hypothesis is correct, the paradox would be resolved.&lt;/p&gt;
+&lt;h3 id=&quot;social-media-doesnt-make-you-unhappy-directly-it-makes-you-less-fun-which-makes-everyone-else-unhappy&quot;&gt;Social media doesn’t make you unhappy directly. It makes you less fun, which makes everyone else unhappy.&lt;/h3&gt;
+&lt;p&gt;The first mechanism is that while social media might not directly make you less happy, it degrades your in-person skills, making you less fun and less available to others. This in turn makes everyone else around you unhappy. And by the same token, since everyone around you is on social media, they also become less fun and less available, which makes &lt;em&gt;you&lt;/em&gt; unhappy, regardless of how much social media you use. If this hypothesis is true, the paradox would be resolved. As economists might say, the negative impacts of social media are fully &lt;em&gt;externalized&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Is there any evidence that social media reduces in-person social skills? Of course there is, just look around! Compare the social interactions you see today to any social interactions videotaped before the year 2000. Or compare the social skills of a Boomer to someone in Gen Z. The decline is undeniable.&lt;/p&gt;
+
+&lt;h3 id=&quot;social-media-is-a-trap&quot;&gt;Social media is a trap&lt;/h3&gt;
+&lt;p&gt;The second mechanism is that social media traps its users in an inferior equilibrium and punishes those who don’t use it. Because social media is where all their friends are, most teens have no choice but to use it. Unlike in the first hypothesis, social media makes them vaguely unhappy, but its addictive properties and network effects pull them in anyway. Meanwhile, a minority of teens do not use it, but they are also unhappy because they miss out on the center of social activity. Everyone is therefore less happy, and there is no individual-level correlation between the amount of social media use and happiness. If this hypothesis is correct, the paradox would be resolved.&lt;/p&gt;
 
 &lt;div class=&quot;wrapper&quot;&gt;
   &lt;p&gt;&lt;img src=&quot;/assets/2021_teens_loneliness_social_media/cartoon_trap.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:90%;&quot; /&gt;&lt;/p&gt;
@@ -374,7 +433,7 @@ Under the linear model, almost all transmission would occur around the peak of i
 &lt;/div&gt;
 
 &lt;h3 id=&quot;social-media-makes-the-rich-get-richer-and-the-poor-get-poorer&quot;&gt;Social media makes the rich get richer and the poor get poorer&lt;/h3&gt;
-&lt;p&gt;The second mechanism is that social media creates a small group of social “winners” who enjoy unprecedented attention, while everyone else gets left behind. Before social media, analog throughput constraints limited how much attention could be consumed by one person. With social media, those scaling constraints were lifted, and attention that otherwise would be shared within groups gets redirected to a small set of winners.&lt;/p&gt;
+&lt;p&gt;The third mechanism is that social media creates a small group of social “winners” who enjoy unprecedented attention, while everyone else gets left behind. Before social media, analog throughput constraints limited how much attention could be consumed by one person. With social media, those scaling constraints were lifted, and attention that otherwise would be shared within groups gets redirected to a small set of winners.&lt;/p&gt;
 
 &lt;p&gt;Because they like the attention, winners use social media just as much if not more than the non-winners, pushing the correlation between social media use and well-being in a positive direction. But because most people are non-winners, overall well-being is lower. This hypothesis, which would also resolve the paradox, is supported by the &lt;a href=&quot;https://spssi.onlinelibrary.wiley.com/doi/10.1111/sipr.12033&quot;&gt;finding&lt;/a&gt; that “active” use of social media promotes well-being whereas “passive” use promotes the opposite.&lt;/p&gt;
 
@@ -386,7 +445,7 @@ Under the linear model, almost all transmission would occur around the peak of i
 &lt;/div&gt;
 
 &lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
-&lt;p&gt;I do not know which of these two mechanisms is correct, but I suspect that both play a role. Either way, I am not persuaded by individual-level correlations between social media use and well-being. To me, the time series trends and common sense mechanisms are much more persuasive, and I’d be very interested in any future studies that explore these kinds of network-based hypotheses.&lt;/p&gt;
+&lt;p&gt;I do not know which of these three mechanisms is correct, but I suspect that more than one may play a role. Either way, I am not persuaded by individual-level correlations between social media use and well-being. To me, the time series trends and common sense mechanisms are much more persuasive, and I’d be very interested in any future studies that explore these kinds of network-based hypotheses.&lt;/p&gt;
 </content>
  </entry>
  
