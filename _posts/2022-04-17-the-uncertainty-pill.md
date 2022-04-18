@@ -50,7 +50,7 @@ As an uncertainty-pilled person I love caveats, so let me close with one.
 
 While the uncertainty pill looks down on people who are overly certain, it is sympathetic to some forms of certainty. In particular, it’s reasonable for marginalized or oppressed people to fight for their own interests. Since those people are focused primarily on their own narrow well-being, they may correctly have some certainty about the impact on themselves. For example, a low-wage worker fighting for better working conditions at their company is probably fighting for an outcome truly in their own best interest.
 
-But if you privileged, you can afford to advocate for issues beyond your narrow self interest. If you do that, you’ll need to make claims about broader society and broad time horizons – precisely the claims where certainty is no longer justified. If you do this, it is your responsibility to be thoughtful, open-minded, and uncertain. The answers are not simple. And if you think they are, you haven’t thought about them enough!
+But if you are privileged, you can afford to advocate for issues beyond your narrow self interest. If you do that, you’ll need to make claims about broader society and broad time horizons – precisely the claims where certainty is no longer justified. If you do this, it is your responsibility to be thoughtful, open-minded, and uncertain. The answers are not simple. And if you think they are, you haven’t thought about them enough!
 
 _Related ideas: [Consequentialist cluelessness](https://forum.effectivealtruism.org/tag/cluelessness)_
 <div class="caption">
