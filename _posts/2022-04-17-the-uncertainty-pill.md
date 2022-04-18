@@ -32,7 +32,7 @@ The uncertainty pill is related to centrism, but is not the same. In the diagram
   <img src='/assets/2022_the_uncertainty_pill/fig_C_U.png' class="inner" style="position:relative border: #222 2px solid; max-width:60%;" >
 </div>
 
-### Uncertainy pilled people can still pick sides
+### Uncertainy-pilled people can still pick sides
 The uncertainty pill does not prevent you from picking sides. It is possible, for example, to be an uncertainty-pilled socialist. A conventional socialist is certain about their beliefs, thinks the other side is morally bankrupt, and cannot clearly articulate opposing points of view. An uncertainty-pilled socialist may prefer socialism, but recognizes a real likelihood that other views may be correct. 
 
 <div class="wrapper">
