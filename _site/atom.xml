@@ -4,7 +4,7 @@
  <title>Chris Said</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2022-05-10T09:51:33-04:00</updated>
+ <updated>2022-05-10T13:15:41-04:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -21,7 +21,7 @@
 
 &lt;p&gt;Major depressive episodes among teen girls have increased by 52% since 2005 (&lt;a href=&quot;https://prcp.psychiatryonline.org/doi/10.1176/appi.prcp.20190015&quot;&gt;Twenge, et al. 2020&lt;/a&gt;). Many reseachers believe social media is the primary cause (&lt;a href=&quot;https://docs.google.com/document/d/1w-HOfseF2wF9YIpXwUUtP65-olnkPyWcgF5BiAtBEy0/edit&quot;&gt;Haidt &amp;amp; Twenge&lt;/a&gt;).&lt;/p&gt;
 
-&lt;p&gt;Other researchers do not believe that social media is the cause, since the correlations between social media use and well-being are thought to be small. The correlation between overall screen time and well-being is -0.05. When &lt;a href=&quot;https://www.nature.com/articles/s41562-020-0839-4.epdf?author_access_token=AMli-v_NVizlRHfiHJUs2NRgN0jAjWel9jnR3ZoTv0NyO6WHXhaam3zaljiEGjfZWSw5xRcCYPYjudNb4RKEc1H5eAeNLyrwNMcZ3q6A3hZiGMwJNpRy1HGyUwXOLDn2TDAS79zv5Lgv80kc2gm_6A%3D%3D&quot;&gt;narrowing down&lt;/a&gt; to social media and girls, the correlation is -0.17. Some researchers describe these correlations as “so minimal that they hold little practical value” (&lt;a href=&quot;https://files.de-1.osf.io/v1/resources/q7pr4/providers/osfstorage/5de76058e1e62f000c37365c?action=download&amp;amp;version=1&amp;amp;direct&quot;&gt;Orben &amp;amp; Przybylski, 2019&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;Other researchers do not believe that social media is the cause, since the correlations between social media use and well-being are thought to be small. The correlation between overall screen time and well-being is -0.05. When &lt;a href=&quot;https://www.nature.com/articles/s41562-020-0839-4.epdf?author_access_token=AMli-v_NVizlRHfiHJUs2NRgN0jAjWel9jnR3ZoTv0NyO6WHXhaam3zaljiEGjfZWSw5xRcCYPYjudNb4RKEc1H5eAeNLyrwNMcZ3q6A3hZiGMwJNpRy1HGyUwXOLDn2TDAS79zv5Lgv80kc2gm_6A%3D%3D&quot;&gt;narrowing down&lt;/a&gt; to social media and girls, the correlation is -0.17. An influential paper describes these correlations as “so minimal that they hold little practical value” (&lt;a href=&quot;https://files.de-1.osf.io/v1/resources/q7pr4/providers/osfstorage/5de76058e1e62f000c37365c?action=download&amp;amp;version=1&amp;amp;direct&quot;&gt;Orben &amp;amp; Przybylski, 2019&lt;/a&gt;).&lt;/p&gt;
 
 &lt;p&gt;In this blog post, I use a simple linear+threshold model and back-of-the-envelope calculations to show that these correlations are not small and are in fact of significant practical importance. In particular, the -0.17 correlation for teen girls is enough to fully explain the 52% increase in depression since 2005.&lt;/p&gt;
 
