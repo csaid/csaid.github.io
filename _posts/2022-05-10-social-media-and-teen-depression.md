@@ -2,7 +2,7 @@
 layout: post
 title: Small correlations can drive large increases in teen depression
 description: How a small correlation with social media can drive a 50% increase in teen depression
-image: /assets/2022_teen_depression_and_social_media/fig_bars.png
+image: /assets/2022_teen_depression_and_social_media/fig_bars_preview.png
 ---
 [[Code](https://github.com/csaid/teen-depression-and-social-media/blob/main/Teen%20mental%20health%20and%20social%20media%20%E2%80%93%20Back%20of%20the%20envelope%20calculations.ipynb)]
 
