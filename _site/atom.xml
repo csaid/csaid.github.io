@@ -4,13 +4,76 @@
  <title>Chris Said</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2022-04-19T13:37:08-04:00</updated>
+ <updated>2022-05-10T09:35:31-04:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
    <email></email>
  </author>
 
+ 
+ <entry>
+   <title>Small correlations can drive large increases in teen depression</title>
+   <link href="http://localhost:4000/2022/05/10/social-media-and-teen-depression/"/>
+   <updated>2022-05-10T00:00:00-04:00</updated>
+   <id>http://localhost:4000/2022/05/10/social-media-and-teen-depression</id>
+   <content type="html">&lt;p&gt;[&lt;a href=&quot;https://github.com/csaid/teen-depression-and-social-media/blob/main/Teen%20mental%20health%20and%20social%20media%20%E2%80%93%20Back%20of%20the%20envelope%20calculations.ipynb&quot;&gt;Code&lt;/a&gt;]&lt;/p&gt;
+
+&lt;p&gt;Major depressive episodes among teen girls have increased by 52% since 2005 (&lt;a href=&quot;https://prcp.psychiatryonline.org/doi/10.1176/appi.prcp.20190015&quot;&gt;Twenge, et al. 2020&lt;/a&gt;). Many reseachers believe social media is the primary cause (&lt;a href=&quot;https://docs.google.com/document/d/1w-HOfseF2wF9YIpXwUUtP65-olnkPyWcgF5BiAtBEy0/edit&quot;&gt;Haidt &amp;amp; Twenge&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;Other researchers do not believe that social media is the cause, since the correlations between social media use and well-being are thought to be small. The correlation between overall screen time and well-being is -0.05. When &lt;a href=&quot;https://www.nature.com/articles/s41562-020-0839-4.epdf?author_access_token=AMli-v_NVizlRHfiHJUs2NRgN0jAjWel9jnR3ZoTv0NyO6WHXhaam3zaljiEGjfZWSw5xRcCYPYjudNb4RKEc1H5eAeNLyrwNMcZ3q6A3hZiGMwJNpRy1HGyUwXOLDn2TDAS79zv5Lgv80kc2gm_6A%3D%3D&quot;&gt;narrowing down&lt;/a&gt; to social media and girls, the correlation is -0.17. Some researchers describe these correlations as “so minimal that they hold little practical value” (&lt;a href=&quot;https://files.de-1.osf.io/v1/resources/q7pr4/providers/osfstorage/5de76058e1e62f000c37365c?action=download&amp;amp;version=1&amp;amp;direct&quot;&gt;Orben &amp;amp; Przybylski, 2019&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;In this blog post, I use a simple linear+threshold model and back-of-the-envelope calculations to show that these correlations are not small and are in fact of significant practical importance. In particular, the -0.17 correlation for teen girls is enough to fully explain the 52% increase in depression since 2005.&lt;/p&gt;
+
+&lt;h3 id=&quot;assumptions&quot;&gt;Assumptions&lt;/h3&gt;
+&lt;p&gt;My model makes the simplest possible assumptions.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Well-being is normally distributed. (The scale doesn’t matter)&lt;/li&gt;
+  &lt;li&gt;Social media use averages 2 hours per day with a light rightward skew in the distribution. (Scale doesn’t matter)&lt;/li&gt;
+  &lt;li&gt;Well-being is a linear function of social media use.&lt;/li&gt;
+  &lt;li&gt;Depression occurs when well-being falls below a threshold. The threshold was chosen to fit the baseline depression rate before social media.&lt;/li&gt;
+  &lt;li&gt;The correlation is causal.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/assets/2022_teen_depression_and_social_media/fig_hours.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:60%;&quot; /&gt;&lt;/p&gt;
+  &lt;div class=&quot;caption&quot;&gt;
+    &lt;p&gt;&lt;strong&gt;Figure 1.&lt;/strong&gt; I assume social media use averages 2 hours per day with a light rightward skew.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;results&quot;&gt;Results&lt;/h3&gt;
+&lt;p&gt;Using the simple linear+threshold model, a correlation of 0.17 would increase depression rates in girls by 50%, from the pre- social media baseline of 13% to a new value of 19%, which is almost the same value as observed in &lt;a href=&quot;https://prcp.psychiatryonline.org/doi/10.1176/appi.prcp.20190015&quot;&gt;Twenge, et al. (2020)&lt;/a&gt;.&lt;/p&gt;
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/assets/2022_teen_depression_and_social_media/fig_bars.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:60%;&quot; /&gt;&lt;/p&gt;
+  &lt;div class=&quot;caption&quot;&gt;
+    &lt;p&gt;&lt;strong&gt;Figure 2.&lt;/strong&gt; A model with a 0.17 correlation between social media and well-being in girls can successfuly predict a 50% increase in depression.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;In boys (see &lt;a href=&quot;https://github.com/csaid/teen-depression-and-social-media/blob/main/Teen%20mental%20health%20and%20social%20media%20%E2%80%93%20Back%20of%20the%20envelope%20calculations.ipynb&quot;&gt;notebook&lt;/a&gt;), the correlation between social media and well-being is much weaker, and the model predicts a much smaller increase in rates of depression, which is what we see in the data.&lt;/p&gt;
+
+&lt;h3 id=&quot;how-can-a-small-correlation-drive-a-large-increase-in-depression&quot;&gt;How can a “small” correlation drive a large increase in depression?&lt;/h3&gt;
+&lt;p&gt;Since depression starts out somewhat rare (13%), a “small” downward shift in the well-being distribution can cause a large relative change in the percentage of teens with well-being below the depression threshold. And regardless of threshold effects, the drop in well-being will not seem “small” to the teens experiencing it.&lt;/p&gt;
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/assets/2022_teen_depression_and_social_media/animation.gif&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:100%;&quot; /&gt;&lt;/p&gt;
+  &lt;div class=&quot;caption&quot;&gt;
+    &lt;p&gt;&lt;strong&gt;Figure 3.&lt;/strong&gt; Small changes in the slope between social media and well-being can drive a large relative change in the fraction of teens below the depression threshold (orange).&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;assumption-questioning-zone&quot;&gt;Assumption questioning zone&lt;/h3&gt;
+&lt;p&gt;This is a back-of-the-envelope model. Its purpose is &lt;em&gt;not&lt;/em&gt; to precisely describe the relationship between social media and well-being. Rather, it is meant to respond to claims that small correlations cannot possibly explain large increases in depression. As this model shows, they can.&lt;/p&gt;
+
+&lt;p&gt;If one wishes, the model’s assumptions could be further refined, which would variously strengthen or weaken the size of the effect.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Allowing noise in depression diagnoses, rather than a hard threshold, would weaken the effect.&lt;/li&gt;
+  &lt;li&gt;Adding &lt;a href=&quot;https://doi.org/10.1038/s41562-020-0839-4&quot;&gt;nonlinearities&lt;/a&gt; would strengthen the effect.&lt;/li&gt;
+  &lt;li&gt;Adding &lt;a href=&quot;https://chris-said.io/2021/08/14/teens-loneliness-social-media/&quot;&gt;network effects&lt;/a&gt; would strengthen the effect.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;For more discussion on social media and teen mental health, see this &lt;a href=&quot;https://docs.google.com/document/d/1w-HOfseF2wF9YIpXwUUtP65-olnkPyWcgF5BiAtBEy0/edit&quot;&gt;open source literature review&lt;/a&gt;, or see my &lt;a href=&quot;https://chris-said.io/2021/08/14/teens-loneliness-social-media/&quot;&gt;previous blog post on network effects&lt;/a&gt;.&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>The uncertainty pill</title>

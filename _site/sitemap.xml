@@ -3,6 +3,21 @@
   
     
     <url>
+      <loc>http://localhost:4000/2022/05/10/social-media-and-teen-depression/</loc>
+      
+        <lastmod>2022-05-10T00:00:00-04:00</lastmod>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.5</priority>
+      
+    </url>
+    
+  
+    
+    <url>
       <loc>http://localhost:4000/2022/04/17/the-uncertainty-pill/</loc>
       
         <lastmod>2022-04-17T00:00:00-04:00</lastmod>
@@ -835,7 +850,7 @@
     <url>
       <loc>http://localhost:4000404.html</loc>
       
-        <lastmod>2022-04-19T13:37:08-04:00</lastmod>
+        <lastmod>2022-05-10T09:35:31-04:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -1576,6 +1591,19 @@
           <loc>http://localhost:4000/2022/04/17/the-uncertainty-pill/</loc>
           
             <lastmod>2022-04-17T00:00:00-04:00</lastmod>
+          
+          
+            <changefreq>monthly</changefreq>
+          
+          
+            <priority>0.3</priority>
+          
+        </url>
+      
+        <url>
+          <loc>http://localhost:4000/2022/05/10/social-media-and-teen-depression/</loc>
+          
+            <lastmod>2022-05-10T00:00:00-04:00</lastmod>
           
           
             <changefreq>monthly</changefreq>
