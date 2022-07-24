@@ -19,7 +19,6 @@ Below are links to blog posts I've written, as well as some other projects. I ca
 * [Optimizing things in the USSR](/2016/05/11/optimizing-things-in-the-ussr/) (11 May 2016)
 * [Four pitfalls of hill climbing](/2016/02/28/four-pitfalls-of-hill-climbing/) (28 Feb 2016)
 
-
 #### Full Blog Archive
 
 {% for post in site.posts %}
