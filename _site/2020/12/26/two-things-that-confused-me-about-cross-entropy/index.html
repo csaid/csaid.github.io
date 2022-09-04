@@ -128,17 +128,17 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
 
 <p>This points to a key difference between generic information theory and machine learning applications. In information theory, the target distribution \(p\) is a probability distribution where the probability mass can be distributed broadly over the classes. In machine learning, the target distribution \(y\) has all of its mass allocated to a known label.</p>
 
-<h3 id="multiple-classes-vs-multiple-trials-and-indicators-vs-labels">Multiple classes vs multiple trials, and indicators vs labels</h3>
+<h3 id="multiple-classes-vs-multiple-events-and-indicators-vs-labels">Multiple classes vs multiple events, and indicators vs labels</h3>
 
 <p>As shown above, the cross-entropy for a single event with \(M\) classes is:</p>
 
 \[H(y, p) = -\sum_{j=1}^M{y_j log (p(y_j))}\]
 
-<p>If there are multiple trials, you just need to sum up the cross-entropies from all the trials so that the total cross-entropy is:</p>
+<p>If there are multiple events, you just need to sum up the cross-entropies from all the events so that the total cross-entropy is:</p>
 
 \[H(y, p) = -\sum_{i=1}^N \sum_{j=1}^M{y_j^{(i)} log (p(y_j^{(i)}))}\]
 
-<p>… where \(N\) is the number of trials.</p>
+<p>… where \(N\) is the number of events.</p>
 
 <p>This all makes notational sense. Unfortunately, confusion arises when people use non-compact notation for summing over binary classes. When dealing with binary classification, it’s common to see cross-entropy defined as:</p>
 
@@ -146,9 +146,9 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
 
 <p>Superficially, this looks a lot like the first formula, but it’s actually just a clever and somewhat confusing way of writing the second formula for binary classes. Its notation differs from previous formulas in a few ways:</p>
 <ul>
-  <li>First, \(p(y_i)\) always refers to the probability of a positive result. In previous formulas, \(p(y_j)\) referred to the probability of the particular class being considered in the summation loop.</li>
-  <li>Second, \(y_i\) (when not wrapped by a \(p\)) is a <em>label</em>, not an indicator! When the event has an outcome of 1, \(y_i\) is 1. When it has an outcome of 0, \(y_i\) is 0. In previous formulas, as you loop through classes you would set \(y_j\) to be 1 whenever the outcome was the class being considered; otherwise you set it to 0.</li>
-  <li>While not a notational difference, this formula sums over events (and then enumerates a sum over classes), whereas the first formula in this section only sums over classes.</li>
+  <li>First, this formula sums over events, whereas the first formula in this section only sums over classes.</li>
+  <li>Second, because it is summing over events, it uses \(p(y_i)\) rather than \(p(y_j)\). Here, \(p(y_i)\) refers to the probability of a positive result on an event. In previous formulas, \(p(y_j)\) referred to the probability of the particular class being considered in the summation loop for that event.</li>
+  <li>Third, it’s easier to think of \(y_i\) (when not wrapped by a \(p\)) as a <em>label</em>, rather than an indicator variable. When the event has an outcome of 1, \(y_i\) is 1. When it has an outcome of 0, \(y_i\) is 0. In previous formulas, as you loop through classes you would set \(y_j\) to be 1 whenever the outcome was the class being considered; otherwise you set it to 0.</li>
 </ul>
 
 <p>The image below summarizes the many confusing differences between these formulas.</p>
@@ -156,12 +156,12 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
 <p><img src="/assets/2020_cross_entropy/cross-entropy.png" /></p>
 
 <h3 id="where-to-learn-about-cross-entropy">Where to learn about cross-entropy</h3>
-<p>I don’t know if there is a single best place to learn about cross-entropy, but below are a few places that were helpful. If you read them make sure you think about (a) how they are notating the true distribution and the approximating distribution (b) whether they are writing about single trials or multiple trials (c) whether they are writing about binary classes or multi classes and (d) whether the \(y\)’s are indicators or labels.</p>
+<p>I don’t know if there is a single best place to learn about cross-entropy, but below are a few places that were helpful. If you read them make sure you think about (a) how they are notating the true distribution and the approximating distribution (b) whether they are writing about single events or multiple events (c) whether they are writing about binary classes or multi classes and (d) whether the \(y\)’s are indicators or labels.</p>
 
 <ul>
-  <li><a href="https://xcelab.net/rm/statistical-rethinking">Statistical Rethinking</a>. Information theory notation, single trial case, multiple classes.</li>
-  <li><a href="http://www.awebb.info/probability/2017/05/18/cross-entropy-and-log-likelihood.html">Andrew Webb</a>. Both notations, both the single and multiple trial case, multiple classes.</li>
-  <li><a href="https://towardsdatascience.com/log-loss-function-math-explained-5b83cd8d9c83">Harshith</a>. ML notation, multiple trials, binary classes.</li>
+  <li><a href="https://xcelab.net/rm/statistical-rethinking">Statistical Rethinking</a>. Information theory notation, single event case, multiple classes.</li>
+  <li><a href="http://www.awebb.info/probability/2017/05/18/cross-entropy-and-log-likelihood.html">Andrew Webb</a>. Both notations, both the single and multiple event case, multiple classes.</li>
+  <li><a href="https://towardsdatascience.com/log-loss-function-math-explained-5b83cd8d9c83">Harshith</a>. ML notation, multiple events, binary classes.</li>
 </ul>
 
 

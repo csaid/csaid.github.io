@@ -4,7 +4,7 @@
  <title>Chris Said</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2022-05-10T13:15:41-04:00</updated>
+ <updated>2022-09-04T12:35:08-04:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -939,17 +939,17 @@ Under the linear model, almost all transmission would occur around the peak of i
 
 &lt;p&gt;This points to a key difference between generic information theory and machine learning applications. In information theory, the target distribution \(p\) is a probability distribution where the probability mass can be distributed broadly over the classes. In machine learning, the target distribution \(y\) has all of its mass allocated to a known label.&lt;/p&gt;
 
-&lt;h3 id=&quot;multiple-classes-vs-multiple-trials-and-indicators-vs-labels&quot;&gt;Multiple classes vs multiple trials, and indicators vs labels&lt;/h3&gt;
+&lt;h3 id=&quot;multiple-classes-vs-multiple-events-and-indicators-vs-labels&quot;&gt;Multiple classes vs multiple events, and indicators vs labels&lt;/h3&gt;
 
 &lt;p&gt;As shown above, the cross-entropy for a single event with \(M\) classes is:&lt;/p&gt;
 
 \[H(y, p) = -\sum_{j=1}^M{y_j log (p(y_j))}\]
 
-&lt;p&gt;If there are multiple trials, you just need to sum up the cross-entropies from all the trials so that the total cross-entropy is:&lt;/p&gt;
+&lt;p&gt;If there are multiple events, you just need to sum up the cross-entropies from all the events so that the total cross-entropy is:&lt;/p&gt;
 
 \[H(y, p) = -\sum_{i=1}^N \sum_{j=1}^M{y_j^{(i)} log (p(y_j^{(i)}))}\]
 
-&lt;p&gt;… where \(N\) is the number of trials.&lt;/p&gt;
+&lt;p&gt;… where \(N\) is the number of events.&lt;/p&gt;
 
 &lt;p&gt;This all makes notational sense. Unfortunately, confusion arises when people use non-compact notation for summing over binary classes. When dealing with binary classification, it’s common to see cross-entropy defined as:&lt;/p&gt;
 
@@ -957,9 +957,9 @@ Under the linear model, almost all transmission would occur around the peak of i
 
 &lt;p&gt;Superficially, this looks a lot like the first formula, but it’s actually just a clever and somewhat confusing way of writing the second formula for binary classes. Its notation differs from previous formulas in a few ways:&lt;/p&gt;
 &lt;ul&gt;
-  &lt;li&gt;First, \(p(y_i)\) always refers to the probability of a positive result. In previous formulas, \(p(y_j)\) referred to the probability of the particular class being considered in the summation loop.&lt;/li&gt;
-  &lt;li&gt;Second, \(y_i\) (when not wrapped by a \(p\)) is a &lt;em&gt;label&lt;/em&gt;, not an indicator! When the event has an outcome of 1, \(y_i\) is 1. When it has an outcome of 0, \(y_i\) is 0. In previous formulas, as you loop through classes you would set \(y_j\) to be 1 whenever the outcome was the class being considered; otherwise you set it to 0.&lt;/li&gt;
-  &lt;li&gt;While not a notational difference, this formula sums over events (and then enumerates a sum over classes), whereas the first formula in this section only sums over classes.&lt;/li&gt;
+  &lt;li&gt;First, this formula sums over events, whereas the first formula in this section only sums over classes.&lt;/li&gt;
+  &lt;li&gt;Second, because it is summing over events, it uses \(p(y_i)\) rather than \(p(y_j)\). Here, \(p(y_i)\) refers to the probability of a positive result on an event. In previous formulas, \(p(y_j)\) referred to the probability of the particular class being considered in the summation loop for that event.&lt;/li&gt;
+  &lt;li&gt;Third, it’s easier to think of \(y_i\) (when not wrapped by a \(p\)) as a &lt;em&gt;label&lt;/em&gt;, rather than an indicator variable. When the event has an outcome of 1, \(y_i\) is 1. When it has an outcome of 0, \(y_i\) is 0. In previous formulas, as you loop through classes you would set \(y_j\) to be 1 whenever the outcome was the class being considered; otherwise you set it to 0.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;The image below summarizes the many confusing differences between these formulas.&lt;/p&gt;
@@ -967,12 +967,12 @@ Under the linear model, almost all transmission would occur around the peak of i
 &lt;p&gt;&lt;img src=&quot;/assets/2020_cross_entropy/cross-entropy.png&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;where-to-learn-about-cross-entropy&quot;&gt;Where to learn about cross-entropy&lt;/h3&gt;
-&lt;p&gt;I don’t know if there is a single best place to learn about cross-entropy, but below are a few places that were helpful. If you read them make sure you think about (a) how they are notating the true distribution and the approximating distribution (b) whether they are writing about single trials or multiple trials (c) whether they are writing about binary classes or multi classes and (d) whether the \(y\)’s are indicators or labels.&lt;/p&gt;
+&lt;p&gt;I don’t know if there is a single best place to learn about cross-entropy, but below are a few places that were helpful. If you read them make sure you think about (a) how they are notating the true distribution and the approximating distribution (b) whether they are writing about single events or multiple events (c) whether they are writing about binary classes or multi classes and (d) whether the \(y\)’s are indicators or labels.&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://xcelab.net/rm/statistical-rethinking&quot;&gt;Statistical Rethinking&lt;/a&gt;. Information theory notation, single trial case, multiple classes.&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://www.awebb.info/probability/2017/05/18/cross-entropy-and-log-likelihood.html&quot;&gt;Andrew Webb&lt;/a&gt;. Both notations, both the single and multiple trial case, multiple classes.&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://towardsdatascience.com/log-loss-function-math-explained-5b83cd8d9c83&quot;&gt;Harshith&lt;/a&gt;. ML notation, multiple trials, binary classes.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://xcelab.net/rm/statistical-rethinking&quot;&gt;Statistical Rethinking&lt;/a&gt;. Information theory notation, single event case, multiple classes.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.awebb.info/probability/2017/05/18/cross-entropy-and-log-likelihood.html&quot;&gt;Andrew Webb&lt;/a&gt;. Both notations, both the single and multiple event case, multiple classes.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://towardsdatascience.com/log-loss-function-math-explained-5b83cd8d9c83&quot;&gt;Harshith&lt;/a&gt;. ML notation, multiple events, binary classes.&lt;/li&gt;
 &lt;/ul&gt;
 
 </content>
