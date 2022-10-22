@@ -7,7 +7,7 @@ image: /assets/2021_pandemic_virus_prediction/dna_costs.png
 
 At this moment, a growing number of scientists are studying viruses that have not yet infected human populations, seeking to understand and publish information about how deadly they are. Some of these viruses are found in animal populations. Others are partially engineered by scientists, often specifically to make them more deadly or more transmissible. Scientists who conduct this type of research, which has been called **pandemic virus prediction**, say it could help us get ahead of the next pandemic. Critics say it’s risky.
 
-I am here to tell you that the risks are far higher than you think, and the benefits far lower than you think. Much of this post is based on [congressional testimony](https://drive.google.com/file/d/1v9SYi_SsGbE-H4RrtEqHT9JlRe4HzmFa/view) and an extraordinary [interview](http://rationallyspeakingpodcast.org/261-dangerous-biological-research-is-it-worth-it-kevin-esvelt/) on Julia Galef’s podcast with MIT biosecurity researcher [Kevin Esvelt](https://www.sculptingevolution.org/kevin-m-esvelt).
+The risks are far higher than you think, and the benefits far lower than you think. Much of this post is based on [congressional testimony](https://drive.google.com/file/d/1v9SYi_SsGbE-H4RrtEqHT9JlRe4HzmFa/view) and an extraordinary [interview](http://rationallyspeakingpodcast.org/261-dangerous-biological-research-is-it-worth-it-kevin-esvelt/) on Julia Galef’s podcast with MIT biosecurity researcher [Kevin Esvelt](https://www.sculptingevolution.org/kevin-m-esvelt).
 
 ### The risks: It’s not the lab leaks, it’s the mail-order DNA
 Much of the debate about pandemic virus prediction centers around lab leaks. Lab leaks are [common](https://twitter.com/Chris_Said/status/1396827966395625474), and many biosecurity experts believe that risk alone outweighs the benefits. 
@@ -20,7 +20,7 @@ But do you know what’s scarier than lab leaks? Exponentially decreasing costs 
   </div>
 </div>
 
-The risk here is unfathomable. Unlike nuclear warfare, which had the comforting stability of large rational actors, bioterrorism can be untraceable and asymmetric. It just takes one crazy person to create a pandemic. All they have to do is look up the published sequence to a deadly pandemic virus, order the nucleic acids in the mail, and assemble a virus using known protocols. This is scary stuff.
+The risk here is unfathomable. Unlike nuclear warfare, which had the comforting stability of large rational actors, bioterrorism can be untraceable and asymmetric. It just takes one crazy person to create a pandemic. All they have to do is look up the published sequence to a deadly pandemic virus, order the nucleic acids in the mail, and assemble a virus using known protocols.
 
 ### The benefits
 Researchers who conduct pandemic virus prediction say it will help us “get ahead” of the next pandemic. But upon deeper inspection, these claims are rather weak.
