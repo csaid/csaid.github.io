@@ -16,7 +16,7 @@ The American Biological Safety Association hosts a [database](https://my.absa.or
 </div>
 
 
-As you can see, lab accidents are common and have probably occurred close to where you live. Some of these pathogens are extremely virulent or transmissible, including Polio, Ebola, HIV, and Smallpox. Some of the infections [spread](https://twitter.com/Chris_Said/status/1396827966395625474) beyond the lab, including SARS-1, which has [escaped several times from sophisticated labs in Asia](https://thebulletin.org/2014/03/threatened-pandemics-and-laboratory-escapes-self-fulfilling-prophecies/). 
+As you can see, lab accidents are common and have probably occurred close to where you live. Some of these pathogens are extremely virulent or transmissible, including Polio, Ebola, HIV, and Smallpox. Some of the accidents caused outbreaks that [spread](https://twitter.com/Chris_Said/status/1396827966395625474) beyond the lab, including SARS-1, which has [escaped several times from sophisticated labs in Asia](https://thebulletin.org/2014/03/threatened-pandemics-and-laboratory-escapes-self-fulfilling-prophecies/). 
 
 Current regulations are [riddled with loopholes](https://www.nytimes.com/2022/10/22/science/covid-virus-laboratory-experiments.html). Many highly transmissible diseases are exempt, as is research that does not go through the NIH. There is no centralized tracking of what pathogens are being studied, nor is there any centralized tracking of accidents. The database that I used was [cobbled together](https://www.liebertpub.com/doi/full/10.1177/1535676016683194) by volunteers uploading published papers to a web form. 
 
