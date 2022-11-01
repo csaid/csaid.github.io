@@ -30,3 +30,5 @@ future: true
 
 kramdown: 
   parse_block_html: true
+
+repository: csaid/csaid.github.io
