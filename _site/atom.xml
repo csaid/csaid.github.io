@@ -4,7 +4,7 @@
  <title>Chris Said</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2022-10-31T20:52:03-04:00</updated>
+ <updated>2022-10-31T20:52:38-04:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -19,7 +19,7 @@
    <id>http://localhost:4000/2022/11/01/map-of-laboratory-acquired-infections</id>
    <content type="html">&lt;p&gt;Across the world, thousands of labs perform research on infectious pathogens. How risky is this research?&lt;/p&gt;
 
-&lt;p&gt;The American Biological Safety Association hosts a &lt;a href=&quot;https://my.absa.org/LAI&quot;&gt;database&lt;/a&gt; of all published laboratory-acquired infections through 2016, which represents only a fraction of all infections, many of which were never published. To make it easier to see, I have plotted the data on an interactive map. As you can see, lab accidents are very common.&lt;/p&gt;
+&lt;p&gt;The American Biological Safety Association hosts a &lt;a href=&quot;https://my.absa.org/LAI&quot;&gt;database&lt;/a&gt; of all published laboratory-acquired infections through 2016, which represents only a fraction of all infections, many of which were never published. To make it easier to see, I have plotted the data on an interactive map. As you can see, lab accidents are common.&lt;/p&gt;
 
 &lt;iframe title=&quot;Laboratory-Acquired Infections through 2016&quot; aria-label=&quot;Map&quot; id=&quot;datawrapper-chart-hEHfJ&quot; src=&quot;https://datawrapper.dwcdn.net/hEHfJ/5/&quot; scrolling=&quot;no&quot; frameborder=&quot;0&quot; style=&quot;width: 0; min-width: 100% !important; border: none;&quot; height=&quot;294&quot;&gt;&lt;/iframe&gt;
 &lt;script type=&quot;text/javascript&quot;&gt;!function(){&quot;use strict&quot;;window.addEventListener(&quot;message&quot;,(function(e){if(void 0!==e.data[&quot;datawrapper-height&quot;]){var t=document.querySelectorAll(&quot;iframe&quot;);for(var a in e.data[&quot;datawrapper-height&quot;])for(var r=0;r&lt;t.length;r++){if(t[r].contentWindow===e.source)t[r].style.height=e.data[&quot;datawrapper-height&quot;][a]+&quot;px&quot;}}}))}();&lt;/script&gt;
