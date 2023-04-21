@@ -50,7 +50,7 @@ Children display a U-shaped learning curve in understanding physical properties 
 </div>
 
 
-A similar result was found with water temperature [(Strauss, 1981)](https://psycnet.apa.org/doi/10.1016/0010-0277(81)90060-3).
+A similar result was found with water temperature [(Strauss, 1981)](https://doi.org/10.1016/0010-0277(81)90060-3).
 
 The regression occurs because children try to generalize a newly-learned principle (additivity) to a domain where it shouldn’t apply (concentration of a solution or temperature). 
 
