@@ -3,6 +3,21 @@
   
     
     <url>
+      <loc>http://localhost:4000/2023/04/21/double-descent-in-human-learning/</loc>
+      
+        <lastmod>2023-04-21T00:00:00-04:00</lastmod>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.5</priority>
+      
+    </url>
+    
+  
+    
+    <url>
       <loc>http://localhost:4000/2022/11/01/map-of-laboratory-acquired-infections/</loc>
       
         <lastmod>2022-11-01T00:00:00-04:00</lastmod>
@@ -381,36 +396,6 @@
       <loc>http://localhost:4000/2017/12/02/religions-as-firms/</loc>
       
         <lastmod>2017-12-02T00:00:00-05:00</lastmod>
-      
-      
-        <changefreq>monthly</changefreq>
-      
-      
-        <priority>0.5</priority>
-      
-    </url>
-    
-  
-    
-    <url>
-      <loc>http://localhost:4000/2017/07/09/part-2-a-bipartisan-list-of-people-who-argue-in-good-faith/</loc>
-      
-        <lastmod>2017-07-09T00:00:00-04:00</lastmod>
-      
-      
-        <changefreq>monthly</changefreq>
-      
-      
-        <priority>0.5</priority>
-      
-    </url>
-    
-  
-    
-    <url>
-      <loc>http://localhost:4000/2017/07/09/part-1-a-bipartisan-list-of-people-who-are-bad-for-america/</loc>
-      
-        <lastmod>2017-07-09T00:00:00-04:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -865,7 +850,7 @@
     <url>
       <loc>http://localhost:4000404.html</loc>
       
-        <lastmod>2022-10-31T21:22:12-04:00</lastmod>
+        <lastmod>2023-04-20T23:12:02-04:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -1278,32 +1263,6 @@
         </url>
       
         <url>
-          <loc>http://localhost:4000/2017/07/09/part-1-a-bipartisan-list-of-people-who-are-bad-for-america/</loc>
-          
-            <lastmod>2017-07-09T00:00:00-04:00</lastmod>
-          
-          
-            <changefreq>monthly</changefreq>
-          
-          
-            <priority>0.3</priority>
-          
-        </url>
-      
-        <url>
-          <loc>http://localhost:4000/2017/07/09/part-2-a-bipartisan-list-of-people-who-argue-in-good-faith/</loc>
-          
-            <lastmod>2017-07-09T00:00:00-04:00</lastmod>
-          
-          
-            <changefreq>monthly</changefreq>
-          
-          
-            <priority>0.3</priority>
-          
-        </url>
-      
-        <url>
           <loc>http://localhost:4000/2017/12/02/religions-as-firms/</loc>
           
             <lastmod>2017-12-02T00:00:00-05:00</lastmod>
@@ -1632,6 +1591,19 @@
           <loc>http://localhost:4000/2022/11/01/map-of-laboratory-acquired-infections/</loc>
           
             <lastmod>2022-11-01T00:00:00-04:00</lastmod>
+          
+          
+            <changefreq>monthly</changefreq>
+          
+          
+            <priority>0.3</priority>
+          
+        </url>
+      
+        <url>
+          <loc>http://localhost:4000/2023/04/21/double-descent-in-human-learning/</loc>
+          
+            <lastmod>2023-04-21T00:00:00-04:00</lastmod>
           
           
             <changefreq>monthly</changefreq>
