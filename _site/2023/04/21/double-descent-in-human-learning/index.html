@@ -20,19 +20,19 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
   
-    <meta name="description" content="The eerie resemblance between U-shaped learning in humans and double descent in machine learning">
+    <meta name="description" content="The uncanny resemblance between double descent a 50-year old theory from psychology">
   
 
   <!-- To get a link preview image, just set the image attribute in your _post -->
   
-    <meta content="http://localhost:4000/assets/2023_double_descent/fig_double_descent.png" property="og:image"/>
+    <meta content="http://localhost:4000/assets/2023_double_descent/fig_preview.png" property="og:image"/>
   
 
   <!-- twitter standard -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@chris_said" />
   <meta name="twitter:title" content="Double descent in human learning" />
-  <meta name="twitter:description" content="The eerie resemblance between U-shaped learning in humans and double descent in machine learning" />
+  <meta name="twitter:description" content="The uncanny resemblance between double descent a 50-year old theory from psychology" />
 
 
   <title>
@@ -159,7 +159,7 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
 <h3 id="other-examples-of-u-shaped-learning">Other examples of U-shaped learning</h3>
 <p>U-shaped learning has also been reported in a social cognition task (<a href="https://books.google.com/books/about/U_shaped_behavioral_growth.html?id=Iy5-AAAAMAAJ">Emmerich, 1982</a>), a motor coordination task (<a href="https://doi.org/10.1016/0001-6918(91)90035-X">Hay et al., 1991</a> and <a href="https://doi.org/10.1016/0022-0965(90)90034-6">Bard et al., 1990</a>), and a gesture recognition memory task (<a href="https://doi.org/10.1207/s15327647jcd0501_3">Namy et al, 2004</a>). For those who want to learn more about the history of U-shaped learning, this <a href="https://www.nytimes.com/1979/09/25/archives/ushaped-behavior-challenges-basic-concept-of-development-group.html">1979 New York Times article</a> is really interesting. They sent a reporter to a U-shaped learning conference in Tel Aviv!</p>
 
-<h3 id="do-u-shaped-human-learning-curves-teach-us-anything-about-double-descent">Do U-shaped human learning curves teach us anything about double descent?</h3>
+<h3 id="does-u-shaped-human-learning-teach-us-anything-about-double-descent">Does U-shaped human learning teach us anything about double descent?</h3>
 <p>U-shaped learning curves are an interesting curiosity with clear relevance to psychology. But do they teach us anything about double descent in artificial neural networks?</p>
 
 <p>Maybe! While some of the examples bear only a superficial relationship to double descent, there is a stronger relationship with the language learning example (“went”→”goed”, “mice”→”mouses”), although not in the way double descent is normally presented.</p>
@@ -177,10 +177,12 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
 
 <p>I’m not ready to say that U-shape learning in human brains is <em>identical</em> to double descent in machine learning, but it is still a great example of how switching between different regimes can cause performance degradations, whether in artificial neural networks or in the largest neural net in the known universe.</p>
 
-<h3 id="reading-recommendations">Reading recommendations</h3>
-<p>For those who want to learn more about double descent, the clearest and most accessible explanations are in <a href="https://arxiv.org/pdf/2303.14151.pdf">Schaeffer et al. (2023)</a> and in <a href="https://twitter.com/daniela_witten/status/1292293102103748609">this thread by Daniela Witten</a>, both of which describe the linear regression case.</p>
+<h3 id="appendix-a-direct-explanation-of-double-descent">Appendix: A direct explanation of double descent</h3>
+<p>If you want a more direct explanation of double descent, the clearest and most accessible are in <a href="https://arxiv.org/pdf/2303.14151.pdf">Schaeffer et al. (2023)</a> and in <a href="https://twitter.com/daniela_witten/status/1292293102103748609">this thread by Daniela Witten</a>, both of which describe the linear regression case.</p>
 
-<p>In brief, when the model is just barely able to fit the training data perfectly, it’s likely to pick a bad set of coefficients that don’t generalize well, at least under a set of fairly common conditions that Schaeffer outlines. But as even more parameters are added in the overparameterized regime, the model can consider multiple different ways of perfectly fitting the training data. At this point it has the luxury of picking the set of coefficients with minimum norm, achieving better generalization via regularization. I was surprised to learn that this sort of regularization happens naturally even without explicit regularization. But as Schaeffer shows in Appendix A, that’s because gradient descent will implicitly find the best fit with minimum norm. And since deep learning finds its parameters with an optimization method similar to gradient descent, it too can experience double descent.</p>
+<p>When a model is just barely able to fit the training data perfectly, it’s likely to pick a bad set of coefficients that don’t generalize well, at least under a set of fairly common conditions that Schaeffer outlines. But as even more parameters are added in the overparameterized regime, the model can consider multiple different ways of perfectly fitting the training data. At this point it has the luxury of picking the set of coefficients with minimum norm, achieving better generalization via regularization.</p>
+
+<p>I was surprised to learn that this sort of regularization happens naturally even without explicit regularization. But as Schaeffer shows, that’s because gradient descent will implicitly find the best fit with minimum norm. And since deep learning finds its parameters with an optimization method similar to gradient descent, it too can experience double descent.</p>
 
   <div>
     <a class="twitter-share-button"

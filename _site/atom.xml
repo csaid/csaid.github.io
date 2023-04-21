@@ -4,7 +4,7 @@
  <title>Chris Said</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2023-04-21T00:04:43-04:00</updated>
+ <updated>2023-04-21T08:36:11-04:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -70,7 +70,7 @@
 &lt;h3 id=&quot;other-examples-of-u-shaped-learning&quot;&gt;Other examples of U-shaped learning&lt;/h3&gt;
 &lt;p&gt;U-shaped learning has also been reported in a social cognition task (&lt;a href=&quot;https://books.google.com/books/about/U_shaped_behavioral_growth.html?id=Iy5-AAAAMAAJ&quot;&gt;Emmerich, 1982&lt;/a&gt;), a motor coordination task (&lt;a href=&quot;https://doi.org/10.1016/0001-6918(91)90035-X&quot;&gt;Hay et al., 1991&lt;/a&gt; and &lt;a href=&quot;https://doi.org/10.1016/0022-0965(90)90034-6&quot;&gt;Bard et al., 1990&lt;/a&gt;), and a gesture recognition memory task (&lt;a href=&quot;https://doi.org/10.1207/s15327647jcd0501_3&quot;&gt;Namy et al, 2004&lt;/a&gt;). For those who want to learn more about the history of U-shaped learning, this &lt;a href=&quot;https://www.nytimes.com/1979/09/25/archives/ushaped-behavior-challenges-basic-concept-of-development-group.html&quot;&gt;1979 New York Times article&lt;/a&gt; is really interesting. They sent a reporter to a U-shaped learning conference in Tel Aviv!&lt;/p&gt;
 
-&lt;h3 id=&quot;do-u-shaped-human-learning-curves-teach-us-anything-about-double-descent&quot;&gt;Do U-shaped human learning curves teach us anything about double descent?&lt;/h3&gt;
+&lt;h3 id=&quot;does-u-shaped-human-learning-teach-us-anything-about-double-descent&quot;&gt;Does U-shaped human learning teach us anything about double descent?&lt;/h3&gt;
 &lt;p&gt;U-shaped learning curves are an interesting curiosity with clear relevance to psychology. But do they teach us anything about double descent in artificial neural networks?&lt;/p&gt;
 
 &lt;p&gt;Maybe! While some of the examples bear only a superficial relationship to double descent, there is a stronger relationship with the language learning example (“went”→”goed”, “mice”→”mouses”), although not in the way double descent is normally presented.&lt;/p&gt;
@@ -88,10 +88,12 @@
 
 &lt;p&gt;I’m not ready to say that U-shape learning in human brains is &lt;em&gt;identical&lt;/em&gt; to double descent in machine learning, but it is still a great example of how switching between different regimes can cause performance degradations, whether in artificial neural networks or in the largest neural net in the known universe.&lt;/p&gt;
 
-&lt;h3 id=&quot;reading-recommendations&quot;&gt;Reading recommendations&lt;/h3&gt;
-&lt;p&gt;For those who want to learn more about double descent, the clearest and most accessible explanations are in &lt;a href=&quot;https://arxiv.org/pdf/2303.14151.pdf&quot;&gt;Schaeffer et al. (2023)&lt;/a&gt; and in &lt;a href=&quot;https://twitter.com/daniela_witten/status/1292293102103748609&quot;&gt;this thread by Daniela Witten&lt;/a&gt;, both of which describe the linear regression case.&lt;/p&gt;
+&lt;h3 id=&quot;appendix-a-direct-explanation-of-double-descent&quot;&gt;Appendix: A direct explanation of double descent&lt;/h3&gt;
+&lt;p&gt;If you want a more direct explanation of double descent, the clearest and most accessible are in &lt;a href=&quot;https://arxiv.org/pdf/2303.14151.pdf&quot;&gt;Schaeffer et al. (2023)&lt;/a&gt; and in &lt;a href=&quot;https://twitter.com/daniela_witten/status/1292293102103748609&quot;&gt;this thread by Daniela Witten&lt;/a&gt;, both of which describe the linear regression case.&lt;/p&gt;
 
-&lt;p&gt;In brief, when the model is just barely able to fit the training data perfectly, it’s likely to pick a bad set of coefficients that don’t generalize well, at least under a set of fairly common conditions that Schaeffer outlines. But as even more parameters are added in the overparameterized regime, the model can consider multiple different ways of perfectly fitting the training data. At this point it has the luxury of picking the set of coefficients with minimum norm, achieving better generalization via regularization. I was surprised to learn that this sort of regularization happens naturally even without explicit regularization. But as Schaeffer shows in Appendix A, that’s because gradient descent will implicitly find the best fit with minimum norm. And since deep learning finds its parameters with an optimization method similar to gradient descent, it too can experience double descent.&lt;/p&gt;
+&lt;p&gt;When a model is just barely able to fit the training data perfectly, it’s likely to pick a bad set of coefficients that don’t generalize well, at least under a set of fairly common conditions that Schaeffer outlines. But as even more parameters are added in the overparameterized regime, the model can consider multiple different ways of perfectly fitting the training data. At this point it has the luxury of picking the set of coefficients with minimum norm, achieving better generalization via regularization.&lt;/p&gt;
+
+&lt;p&gt;I was surprised to learn that this sort of regularization happens naturally even without explicit regularization. But as Schaeffer shows, that’s because gradient descent will implicitly find the best fit with minimum norm. And since deep learning finds its parameters with an optimization method similar to gradient descent, it too can experience double descent.&lt;/p&gt;
 </content>
  </entry>
  
