@@ -4,7 +4,7 @@
  <title>Chris Said</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2023-04-20T23:34:03-04:00</updated>
+ <updated>2023-04-21T00:04:43-04:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -17,7 +17,7 @@
    <link href="http://localhost:4000/2023/04/21/double-descent-in-human-learning/"/>
    <updated>2023-04-21T00:00:00-04:00</updated>
    <id>http://localhost:4000/2023/04/21/double-descent-in-human-learning</id>
-   <content type="html">&lt;p&gt;In machine learning, double descent is a surprising phenomenon where increasing the number of model parameters causes test performance to get worse before it gets better. It refutes the classical overfitting finding that if you have too many parameters in your model, your test error will always keep getting worse with more parameters. For a surprisingly &lt;a href=&quot;https://arxiv.org/pdf/2303.14151.pdf&quot;&gt;wide&lt;/a&gt; &lt;a href=&quot;https://arxiv.org/pdf/1912.02292.pdf&quot;&gt;range&lt;/a&gt; of models and datasets, you can just keep on adding more parameters after you’ve gotten over the hump, and performance will start getting better again.&lt;/p&gt;
+   <content type="html">&lt;p&gt;In machine learning, double descent is a surprising phenomenon where increasing the number of model parameters causes test performance to get better, then worse, and then better again. It refutes the classical overfitting finding that if you have too many parameters in your model, your test error will always keep getting worse with more parameters. For a surprisingly &lt;a href=&quot;https://arxiv.org/pdf/2303.14151.pdf&quot;&gt;wide&lt;/a&gt; &lt;a href=&quot;https://arxiv.org/pdf/1912.02292.pdf&quot;&gt;range&lt;/a&gt; of models and datasets, you can just keep on adding more parameters after you’ve gotten over the hump, and performance will start getting better again.&lt;/p&gt;
 
 &lt;div class=&quot;wrapper&quot;&gt;
   &lt;p&gt;&lt;img src=&quot;/assets/2023_double_descent/fig_double_descent.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:100%;&quot; /&gt;&lt;/p&gt;
@@ -42,7 +42,7 @@
 &lt;p&gt;This blog post describes examples of U-shaped learning, drawn primarily from the 1982 book &lt;a href=&quot;https://books.google.com/books/about/U_shaped_behavioral_growth.html?id=Iy5-AAAAMAAJ&quot;&gt;U-Shaped Behavior Growth&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h3 id=&quot;language-learning-and-overregularization&quot;&gt;Language learning and overregularization&lt;/h3&gt;
-&lt;p&gt;When kids are learning to talk they can often use the correct form of regular nouns and verbs (“shoes”, “dogs”, “walked”, “jumped”) as well as irregular nouns and verbs (“feet”, “mice”, “went”, “broke”). But at a second stage of development, they start to overgeneralize certain grammatical rules to words that should remain irregular. For example, “feet” becomes “foots”, “mice” becomes “mouses”, “went” becomes “goes”, and “broke” becomes “breaks”. Only at a third stage of development do the correct words reemerge.&lt;/p&gt;
+&lt;p&gt;When kids are learning to talk they can often use the correct form of regular nouns and verbs (“shoes”, “dogs”, “walked”, “jumped”) as well as irregular nouns and verbs (“feet”, “mice”, “went”, “broke”). But at a second stage of development, they start to overgeneralize certain grammatical rules to words that should remain irregular. For example, “feet” becomes “foots”, “mice” becomes “mouses”, “went” becomes “goed”, and “broke” becomes “breaks”. Only at a third stage of development do the correct words reemerge.&lt;/p&gt;
 
 &lt;div class=&quot;wrapper&quot;&gt;
   &lt;p&gt;&lt;img src=&quot;/assets/2023_double_descent/fig_overregularization.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:40%;&quot; /&gt;&lt;/p&gt;
@@ -89,7 +89,9 @@
 &lt;p&gt;I’m not ready to say that U-shape learning in human brains is &lt;em&gt;identical&lt;/em&gt; to double descent in machine learning, but it is still a great example of how switching between different regimes can cause performance degradations, whether in artificial neural networks or in the largest neural net in the known universe.&lt;/p&gt;
 
 &lt;h3 id=&quot;reading-recommendations&quot;&gt;Reading recommendations&lt;/h3&gt;
-&lt;p&gt;For those who want to learn more about double descent, the clearest and most accessible explanations are in &lt;a href=&quot;https://arxiv.org/pdf/2303.14151.pdf&quot;&gt;Schaeffer et al. (2023)&lt;/a&gt; and in &lt;a href=&quot;https://twitter.com/daniela_witten/status/1292293102103748609&quot;&gt;this thread by Daniela Witten&lt;/a&gt;, both of which describe the linear regression case. In brief, when the model is just barely able to fit the training data perfectly, it’s likely to pick a bad set of coefficients that don’t generalize well, at least under a set of fairly common conditions that Schaeffer outlines. But as even more parameters are added in the overparameterized regime, the model can consider multiple different ways of perfectly fitting the training data. At this point it has the luxury of picking the set of coefficients with minimum norm, achieving better generalization via regularization. I was surprised to learn that this sort of regularization happens naturally even without explicit regularization. But as Schaeffer shows in Appendix A, that’s because gradient descent will implicitly find the best fit with minimum norm. And since deep learning finds its parameters with an optimization method similar to gradient descent, it too can experience double descent.&lt;/p&gt;
+&lt;p&gt;For those who want to learn more about double descent, the clearest and most accessible explanations are in &lt;a href=&quot;https://arxiv.org/pdf/2303.14151.pdf&quot;&gt;Schaeffer et al. (2023)&lt;/a&gt; and in &lt;a href=&quot;https://twitter.com/daniela_witten/status/1292293102103748609&quot;&gt;this thread by Daniela Witten&lt;/a&gt;, both of which describe the linear regression case.&lt;/p&gt;
+
+&lt;p&gt;In brief, when the model is just barely able to fit the training data perfectly, it’s likely to pick a bad set of coefficients that don’t generalize well, at least under a set of fairly common conditions that Schaeffer outlines. But as even more parameters are added in the overparameterized regime, the model can consider multiple different ways of perfectly fitting the training data. At this point it has the luxury of picking the set of coefficients with minimum norm, achieving better generalization via regularization. I was surprised to learn that this sort of regularization happens naturally even without explicit regularization. But as Schaeffer shows in Appendix A, that’s because gradient descent will implicitly find the best fit with minimum norm. And since deep learning finds its parameters with an optimization method similar to gradient descent, it too can experience double descent.&lt;/p&gt;
 </content>
  </entry>
  
