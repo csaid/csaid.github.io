@@ -182,7 +182,7 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
 
 <p>When a model is just barely able to fit the training data perfectly, it’s likely to pick a bad set of coefficients that don’t generalize well, at least under a set of fairly common conditions that Schaeffer outlines. But as even more parameters are added in the overparameterized regime, the model can consider multiple different ways of perfectly fitting the training data. At this point it has the luxury of picking the set of coefficients with minimum norm, achieving better generalization via regularization.</p>
 
-<p>I was surprised to learn that this sort of regularization happens naturally even without explicit regularization. But as Schaeffer shows, that’s because gradient descent will implicitly find the best fit with minimum norm. And since deep learning finds its parameters with an optimization method similar to gradient descent, it too can experience double descent.</p>
+<p>I was surprised to learn that this sort of regularization happens naturally even without explicit regularization. But as Schaeffer shows, that’s because two common solutions to linear regression (gradient descent and minimum norm least squares) will both implicitly find the best fit with minimum norm. And since deep learning finds its parameters with an optimization method similar to gradient descent, it too can experience double descent.</p>
 
   <div>
     <a class="twitter-share-button"
