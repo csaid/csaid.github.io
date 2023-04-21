@@ -27,7 +27,7 @@ Similar to classical overfitting, double descent happens both as a function of t
 
 This raises an interesting question. If an artificial neural network can get worse before it gets better, what about humans? To find out, we’ll need to look back at psychology research from 50 years ago, when the phenomenon of “U-shaped learning” was all the rage.
 
-This blog post describes examples of U-shaped learning, drawn primarily from the 1982 book [U-Shaped Behavior Growth](https://books.google.com/books/about/U_shaped_behavioral_growth.html?id=Iy5-AAAAMAAJ).
+This blog post describes two examples of U-shaped learning, drawn primarily from the 1982 book [U-Shaped Behavior Growth](https://books.google.com/books/about/U_shaped_behavioral_growth.html?id=Iy5-AAAAMAAJ).
 
 ### Language learning and overregularization
 When kids are learning to talk they can often use the correct form of regular nouns and verbs (“shoes”, “dogs”, “walked”, “jumped”) as well as irregular nouns and verbs (“feet”, “mice”, “went”, “broke”). But at a second stage of development, they start to overgeneralize certain grammatical rules to words that should remain irregular. For example, “feet” becomes “foots”, “mice” becomes “mouses”, “went” becomes “goed”, and “broke” becomes “breaks”. Only at a third stage of development do the correct words reemerge.
