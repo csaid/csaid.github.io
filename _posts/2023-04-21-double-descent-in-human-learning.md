@@ -5,7 +5,7 @@ description: The eerie resemblance between U-shaped learning in humans and doubl
 image: /assets/2023_double_descent/fig_double_descent.png
 ---
 
-In machine learning, double descent is a surprising phenomenon where increasing the number of model parameters causes test performance to get worse before it gets better. It refutes the classical overfitting finding that if you have too many parameters in your model, your test error will keep getting worse with more parameters. For a surprisingly [wide](https://arxiv.org/pdf/2303.14151.pdf) [range](https://arxiv.org/pdf/1912.02292.pdf) of models and datasets, you can just keep on adding more parameters after you’ve gotten over the hump, and performance will start getting better again. 
+In machine learning, double descent is a surprising phenomenon where increasing the number of model parameters causes test performance to get worse before it gets better. It refutes the classical overfitting finding that if you have too many parameters in your model, your test error will always keep getting worse with more parameters. For a surprisingly [wide](https://arxiv.org/pdf/2303.14151.pdf) [range](https://arxiv.org/pdf/1912.02292.pdf) of models and datasets, you can just keep on adding more parameters after you’ve gotten over the hump, and performance will start getting better again. 
 
 
 <div class="wrapper">

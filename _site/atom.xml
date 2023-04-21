@@ -4,7 +4,7 @@
  <title>Chris Said</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2023-04-20T23:19:00-04:00</updated>
+ <updated>2023-04-20T23:25:29-04:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -17,7 +17,7 @@
    <link href="http://localhost:4000/2023/04/21/double-descent-in-human-learning/"/>
    <updated>2023-04-21T00:00:00-04:00</updated>
    <id>http://localhost:4000/2023/04/21/double-descent-in-human-learning</id>
-   <content type="html">&lt;p&gt;In machine learning, double descent is a surprising phenomenon where increasing the number of model parameters causes test performance to get worse before it gets better. It refutes the classical overfitting finding that if you have too many parameters in your model, your test error will keep getting worse with more parameters. For a surprisingly &lt;a href=&quot;https://arxiv.org/pdf/2303.14151.pdf&quot;&gt;wide&lt;/a&gt; &lt;a href=&quot;https://arxiv.org/pdf/1912.02292.pdf&quot;&gt;range&lt;/a&gt; of models and datasets, you can just keep on adding more parameters after you’ve gotten over the hump, and performance will start getting better again.&lt;/p&gt;
+   <content type="html">&lt;p&gt;In machine learning, double descent is a surprising phenomenon where increasing the number of model parameters causes test performance to get worse before it gets better. It refutes the classical overfitting finding that if you have too many parameters in your model, your test error will always keep getting worse with more parameters. For a surprisingly &lt;a href=&quot;https://arxiv.org/pdf/2303.14151.pdf&quot;&gt;wide&lt;/a&gt; &lt;a href=&quot;https://arxiv.org/pdf/1912.02292.pdf&quot;&gt;range&lt;/a&gt; of models and datasets, you can just keep on adding more parameters after you’ve gotten over the hump, and performance will start getting better again.&lt;/p&gt;
 
 &lt;div class=&quot;wrapper&quot;&gt;
   &lt;p&gt;&lt;img src=&quot;/assets/2023_double_descent/fig_double_descent.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:100%;&quot; /&gt;&lt;/p&gt;
