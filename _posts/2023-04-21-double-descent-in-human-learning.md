@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Double descent in human learning
-description: The uncanny resemblance between double descent a 50-year old theory from psychology 
+description: The uncanny resemblance between double descent a 50 year old theory from psychology 
 image: /assets/2023_double_descent/fig_preview.png
 ---
 
