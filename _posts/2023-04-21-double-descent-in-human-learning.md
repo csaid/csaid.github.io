@@ -10,7 +10,7 @@ In machine learning, double descent is a surprising phenomenon where increasing 
 
 <div class="wrapper">
   <img src='/assets/2023_double_descent/fig_double_descent.png' class="inner" style="position:relative border: #222 2px solid; max-width:100%;" >
-  <div class="caption">**Figure 1**. Parameter double descent in machine learning. As more parameters are added to a model, test error decreases, then increases, and then decreases again. Figure adapted from [Schaeffer et al. (2023)](https://arxiv.org/pdf/2303.14151.pdf)
+  <div class="caption">**Figure 1**. Parameter double descent in machine learning. As more parameters are added to a model, test error decreases, then increases, and then decreases again. Figure adapted from [Rocks et al. (2022)](https://arxiv.org/pdf/2010.13933.pdf)
   </div>
 </div>
 
