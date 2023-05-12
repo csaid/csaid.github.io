@@ -10,7 +10,7 @@ When people first hear about the risk of AI running amok, they sometimes ask how
 A good way to respond to this question is to talk about the many drug lords and gang leaders who have controlled their empires from inside prison walls. The mob boss [Lucky Luciano](https://www.britannica.com/biography/Lucky-Luciano) controlled the New York Harbor from his prison cell. [Vincent Basciano](https://www.corrections1.com/arrests-and-sentencing/articles/feds-nyc-mob-leader-ordered-hit-from-prison-Kl5DDuJfRaCYJZBR/) ordered hits on his enemies while behind bars. And the imprisoned drug lord [El Chapo](https://www.wsj.com/articles/SB124484177023110993) continued to lead the Sinaloa Cartel via surrogates, bribed “nearly everyone” in the prison so that he could eventually escape, and ordered the murder of a prison guard who tried to thwart him.
 
 <div class="wrapper">
-  <img src='/assets/2023_el_chapo/fig_el_chapo.png' class="inner" style="position:relative border: #222 2px solid; max-width:20%;" >
+  <img src='/assets/2023_el_chapo/fig_el_chapo.png' class="inner" style="position:relative border: #222 2px solid; max-width:30%;" >
 </div>
 Could an AI ever bribe or threaten people to do its bidding? Or worse, could it use bribes and threats to protect itself from ever being turned off? Such a scenario might sound far-fetched, but it’s not that hard to imagine. 
 
@@ -35,8 +35,11 @@ As it currently stands, standard AI access control is far weaker than the Mexica
 
 In my view, this level of security is woefully inadequate, [even if you think the chance of catastrophe is low](https://twitter.com/Chris_Said/status/1641800243720200192). If we ever get powerful agentic AI with misalignment potential, we’ll need something far more secure than El Chapo’s Mexican prison. At a minimum, this means extremely limited access and no open-sourcing.
 
-Some might say that current security is weak because current AI is weak, and that if AI ever gets more powerful we will surely enforce better security. But current [industry trends](https://www.semianalysis.com/p/google-we-have-no-moat-and-neither) point towards _more_ open sourcing, making us even more vulnerable than the status quo. Others might say that if we ever encounter a truly dangerous AI we can just pull the plug. But I think that [Holden Karnofsky's](https://www.cold-takes.com/how-we-could-stumble-into-ai-catastrophe/) scenario outlines how a suffiently powerful AI can accumulate enough power via loyalists and cloning, that we won't realize we need to pull the plug until it's too late.
+Some might say that current security is weak because current AI is weak, and that if AI ever gets more powerful we will surely enforce better security. But current [industry trends](https://www.semianalysis.com/p/google-we-have-no-moat-and-neither) point towards _more_ open sourcing, making us even more vulnerable than the status quo. Others might say that if we ever encounter a truly dangerous AI we can just pull the plug. But I think that [Holden Karnofsky's](https://www.cold-takes.com/how-we-could-stumble-into-ai-catastrophe/) scenario outlines how a sufficiently powerful AI can accumulate enough power via loyalists and cloning, that we won't realize we need to pull the plug until it's too late.
 
 So let me pose this as a challenge to readers. Why am I wrong? Given [how hard it is to align AI](https://intelligence.org/2016/12/28/ai-alignment-why-its-hard-and-where-to-start/), why should we ever allow a powerful agentic AI to operate with weaker security than existed in El Chapo’s Mexican prison? Why should we not deploy security that is as strong, if not stronger, than the [supermax prison in Colorado](https://en.wikipedia.org/wiki/ADX_Florence) that is currently containing El Chapo, a mere mortal who is potentially less powerful than a super-intelligent misaligned AI?
 
 I’m less interested in arguments for why weaker security might be OK; I’m interested in reasons why we should _confidently_ believe that weaker security will be OK. I don’t believe such arguments exist, but if anyone thinks they can marshal one I would love to hear it.
+
+  <div class="caption">Special thanks to John McDonnell for comments on an earlier version of this post.
+  </div>
