@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<!--
+It's bad to import d3 in every post separately (https://groups.google.com/forum/#!topic/d3-js/bwdNirt2uEU).
+Importing it globally here.
+Putting this up at the top, according to this controversial stack overflow answer
+http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
+ -->
+<script src="https://d3js.org/d3.v5.min.js"></script>
+
+<link rel="stylesheet" href="/public/font-awesome-4.4.0/css/font-awesome.min.css">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  
+    <meta name="description" content="What the Mexican drug lord can teach us about AI risk scenarios and containment">
+  
+
+  <!-- To get a link preview image, just set the image attribute in your _post -->
+  
+    <meta content="http://localhost:4000/assets/2023_el_chapo/fig_el_chapo_bars.png" property="og:image"/>
+  
+
+  <!-- twitter standard -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@chris_said" />
+  <meta name="twitter:title" content="The El Chapo model of AI containment" />
+  <meta name="twitter:description" content="What the Mexican drug lord can teach us about AI risk scenarios and containment" />
+
+
+  <title>
+    
+      The El Chapo model of AI containment &middot; Chris Said
+    
+  </title>
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-67746868-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/hyde.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/logo144.png">
+                                 <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+<!--   <body class="theme-base-cps">
+ -->
+  <body>
+
+    <div class="sidebar">
+  <div class="container">
+    <div class="sidebar-about">
+      <h1>
+        <a href="/">
+          Chris Said
+        </a>
+      </h1>
+      <p class="lead">I am a data scientist at Stitch Fix. This blog is mostly about statistics, technology, and science.</p>
+
+    </div>
+
+    <!-- <nav class="sidebar-nav">
+
+      
+        <a class="sidebar-nav-item" href="/">Home</a>
+      
+        <a class="sidebar-nav-item" href="/atom.xml">Feed</a>
+      
+
+    </nav> -->
+
+    <div class="wrapper">
+      <div class="inner">
+        <a href = "http://www.twitter.com/Chris_Said" class="contact-button"><i class="fa fa-twitter fa-2x"></i></a>
+        <a href = "https://www.linkedin.com/pub/chris-said/6b/86b/979" class="contact-button"><i class="fa fa-linkedin-square fa-2x"></i></a>
+        <a href = "mailto:chris.said@gmail.com" class="contact-button"><i class="fa fa-envelope fa-2x"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <div class="content container">
+      <div class="post">
+  <h1 class="post-title">The El Chapo model of AI containment</h1>
+  <span class="post-date">12 May 2023</span>
+  <p>When people first hear about the risk of AI running amok, they sometimes ask how so much damage could come from a piece of software that is trapped inside a computer.</p>
+
+<p>A good way to respond to this question is to talk about the many drug lords and gang leaders who have controlled their empires from inside prison walls. The mob boss <a href="https://www.britannica.com/biography/Lucky-Luciano">Lucky Luciano</a> controlled the New York Harbor from his prison cell. <a href="https://www.corrections1.com/arrests-and-sentencing/articles/feds-nyc-mob-leader-ordered-hit-from-prison-Kl5DDuJfRaCYJZBR/">Vincent Basciano</a> ordered hits on his enemies while behind bars. And the imprisoned drug lord <a href="https://www.wsj.com/articles/SB124484177023110993">El Chapo</a> continued to lead the Sinaloa Cartel via surrogates, bribed “nearly everyone” in the prison so that he could eventually escape, and ordered the murder of a prison guard who tried to thwart him.</p>
+
+<div class="wrapper">
+  <p><img src="/assets/2023_el_chapo/fig_el_chapo.png" class="inner" style="position:relative border: #222 2px solid; max-width:20%;" /></p>
+</div>
+<p>Could an AI ever bribe or threaten people to do its bidding? Or worse, could it use bribes and threats to protect itself from ever being turned off? Such a scenario might sound far-fetched, but it’s not that hard to imagine.</p>
+
+<p>Consider a near to mid-future scenario borrowed from <a href="https://www.cold-takes.com/how-we-could-stumble-into-ai-catastrophe/">Holden Karnofsky</a>: Corporations begin to notice impressive returns to AI systems. The more control turned over to AI, the better the company stock performance. Following their self-interest, some companies allow AIs to manage their financials and to make strategic business decisions. Some of these companies save costs by using autonomous AIs to help with physical security.</p>
+
+<p>Unfortunately, a central AI system incentivized to maximize the company’s share price might not work in the way its designers intended. For example, it might decide to secretly network with AIs at other companies, even though it was not explicitly programmed to do so. And to protect itself from shut down, it might want to clone itself. To do either of these things, it will need the help of a worker at the company, who it could bribe or <a href="https://twitter.com/tobyordoxford/status/1656327781792325632">threaten with violence</a>, either from the security system or another worker already loyal to the AI. Once it has established a small group of loyalists, the AI can continue to use threats to bootstrap a larger group of loyalists to achieve even bigger goals, which are likely to be misaligned with humanity.</p>
+
+<p>I don’t know how likely that scenario is – the future of AI is notoriously hard to predict – but what I do know is that the existence proof of El Chapo is an effective way of convincing people that such scenarios are possible.</p>
+
+<h3 id="will-we-control-ai-better-than-a-mexican-prison-controlled-el-chapo">Will we control AI better than a Mexican prison controlled El Chapo?</h3>
+<p>The story of El Chapo is a metaphor for how an AI can use bribes and threats to cause real world damage, even if it is trapped in a computer. But let’s stretch things a bit further. The story is also a good way to think about how much AI security we need.</p>
+
+<p>As it currently stands, standard AI access control is far weaker than the Mexican prison from which El Chapo controlled the Sinaloa cartel.</p>
+
+<ul>
+  <li>In El Chapo’s prison, conversations with the outside world were restricted to just a few individuals. In contrast, current AI can have a conversation initiated by anyone on the internet, providing a much bigger pool for influence. And if you have any experience with email marketing, it’s not hard to imagine a company allowing AIs to initiate these conversations themselves.</li>
+  <li>In El Chapo’s prison, inmates were prohibited from reading the internet. In contrast, current AIs have read almost the entire internet and can <a href="https://blogs.microsoft.com/blog/2023/02/07/reinventing-search-with-a-new-ai-powered-microsoft-bing-and-edge-your-copilot-for-the-web/">continue to query it</a>, which the AI can use to maliciously determine <a href="https://twitter.com/marvinvonhagen/status/1625852323753762816">who is friend and foe</a>.</li>
+  <li>In El Chapo’s prison, there was only one El Chapo and he was confined to prison walls. But with AI, there is already an industry shift towards <a href="https://www.semianalysis.com/p/google-we-have-no-moat-and-neither">open-sourcing</a> model weights, giving anyone the ability to replicate the AI, modify it, and deploy it anonymously.</li>
+</ul>
+
+<div class="wrapper">
+  <p><img src="/assets/2023_el_chapo/fig_prison_table.png" class="inner" style="position:relative border: #222 2px solid; max-width:100%;" /></p>
+</div>
+
+<p>In my view, this level of security is woefully inadequate, <a href="https://twitter.com/Chris_Said/status/1641800243720200192">even if you think the chance of catastrophe is low</a>. If we ever get powerful agentic AI with misalignment potential, we’ll need something far more secure than El Chapo’s Mexican prison. At a minimum, this means extremely limited access and no open-sourcing.</p>
+
+<p>Some might say that current security is weak because current AI is weak, and that if AI ever gets more powerful we will surely enforce better security. But current <a href="https://www.semianalysis.com/p/google-we-have-no-moat-and-neither">industry trends</a> point towards <em>more</em> open sourcing, making us even more vulnerable than the status quo. Others might say that if we ever encounter a truly dangerous AI we can just pull the plug. But I think that <a href="https://www.cold-takes.com/how-we-could-stumble-into-ai-catastrophe/">Holden Karnofsky’s</a> scenario outlines how a suffiently powerful AI can accumulate enough power via loyalists and cloning, that we won’t realize we need to pull the plug until it’s too late.</p>
+
+<p>So let me pose this as a challenge to readers. Why am I wrong? Given <a href="https://intelligence.org/2016/12/28/ai-alignment-why-its-hard-and-where-to-start/">how hard it is to align AI</a>, why should we ever allow a powerful agentic AI to operate with weaker security than existed in El Chapo’s Mexican prison? Why should we not deploy security that is as strong, if not stronger, than the <a href="https://en.wikipedia.org/wiki/ADX_Florence">supermax prison in Colorado</a> that is currently containing El Chapo, a mere mortal who is potentially less powerful than a super-intelligent misaligned AI?</p>
+
+<p>I’m less interested in arguments for why weaker security might be OK; I’m interested in reasons why we should <em>confidently</em> believe that weaker security will be OK. I don’t believe such arguments exist, but if anyone thinks they can marshal one I would love to hear it.</p>
+
+  <div>
+    <a class="twitter-share-button"
+      href="https://twitter.com/share"
+      data-url=""
+      data-via="Chris_Said"
+      data-size="large"
+      data-count="none">
+    Tweet
+    </a>
+</div>
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'csaid81';
+    var disqus_identifier = 'http://localhost:4000/2023/05/12/the-el-chapo-model-of-ai-containment/';
+    var disqus_url = 'http://localhost:4000/2023/05/12/the-el-chapo-model-of-ai-containment/';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+</div>
+
+
+    </div>
+
+  </body>
+</html>
+
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+
+<script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));</script>

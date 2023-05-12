@@ -3,6 +3,21 @@
   
     
     <url>
+      <loc>http://localhost:4000/2023/05/12/the-el-chapo-model-of-ai-containment/</loc>
+      
+        <lastmod>2023-05-12T00:00:00-04:00</lastmod>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.5</priority>
+      
+    </url>
+    
+  
+    
+    <url>
       <loc>http://localhost:4000/2023/04/21/double-descent-in-human-learning/</loc>
       
         <lastmod>2023-04-21T00:00:00-04:00</lastmod>
@@ -850,7 +865,7 @@
     <url>
       <loc>http://localhost:4000404.html</loc>
       
-        <lastmod>2023-04-26T08:45:05-04:00</lastmod>
+        <lastmod>2023-05-12T08:30:15-04:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -1604,6 +1619,19 @@
           <loc>http://localhost:4000/2023/04/21/double-descent-in-human-learning/</loc>
           
             <lastmod>2023-04-21T00:00:00-04:00</lastmod>
+          
+          
+            <changefreq>monthly</changefreq>
+          
+          
+            <priority>0.3</priority>
+          
+        </url>
+      
+        <url>
+          <loc>http://localhost:4000/2023/05/12/the-el-chapo-model-of-ai-containment/</loc>
+          
+            <lastmod>2023-05-12T00:00:00-04:00</lastmod>
           
           
             <changefreq>monthly</changefreq>
