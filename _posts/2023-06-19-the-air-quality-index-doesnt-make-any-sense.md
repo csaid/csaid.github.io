@@ -11,7 +11,7 @@ The first thing to know about AQI is that it is different for every country. I�
 
 The second thing to know about AQI is that it aggregates levels from different pollutants in an unusual way. There are separate AQIs for PM<sub>2.5</sub> (small particles), PM<sub>10</sub> (coarse particles), Ozone, CO, SO<sub>2</sub>, and NO<sub>2</sub>. The overall AQI is just the maximum of the pollutant-specific AQIs. So when you hear that overall AQI is 140, you won’t know _which_ of the pollutants was the cause. I’ll focus on the PM<sub>2.5</sub> version here.
 
-The third thing to know about AQI is that the relationship between AQI and PM<sub>2.5</sub> is a fascinating case study in how decisions are made at federal agencies. This is the focus on this blog post.
+The third thing to know about AQI is that the relationship between AQI and PM<sub>2.5</sub> is a fascinating case study in how decisions are made at federal agencies. This is the focus of this blog post.
 
 Based on the [AQI calculation rules](https://www.airnow.gov/sites/default/files/2020-05/aqi-technical-assistance-document-sept2018.pdf), the relationship between PM<sub>2.5</sub> and AQI looks like this.
 
