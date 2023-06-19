@@ -4,7 +4,7 @@
  <title>Chris Said</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2023-06-19T14:08:35-04:00</updated>
+ <updated>2023-06-19T14:38:59-04:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -65,6 +65,10 @@
 &lt;p&gt;But still, I can’t shake the feeling that our AQI curve represents a failure of government process. There is no principled reason why annual and 24-hour NAAQS standards – representing two different durations – should be points on a curve that represents point-in-time air quality. The only justification I could find was that it is the “historical approach” (&lt;a href=&quot;https://www.govinfo.gov/content/pkg/FR-2013-01-15/pdf/2012-30946.pdf&quot;&gt;p. 3180&lt;/a&gt;). Nor is there any reason for the clashing mix of linearity and rounding used at higher concentrations.&lt;/p&gt;
 
 &lt;p&gt;Better ways are possible. The Canadians use a &lt;a href=&quot;https://en.wikipedia.org/wiki/Air_Quality_Health_Index_(Canada)&quot;&gt;modern exponential curve&lt;/a&gt; for their AQI metric. So if Canada is going to &lt;a href=&quot;https://www.nytimes.com/live/2023/06/07/us/canada-wildfires-air-quality-smoke&quot;&gt;share their air with us&lt;/a&gt;, maybe we could also share their AQI standards. Or perhaps we should abandon the notion of AQI altogether and just report the raw components (PM&lt;sub&gt;2.5&lt;/sub&gt;, Ozone, etc) individually, just like we do with temperature and humidity.&lt;/p&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/assets/2023_aqi/us_canada.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:100%;&quot; /&gt;&lt;/p&gt;
+&lt;/div&gt;
 </content>
  </entry>
  
