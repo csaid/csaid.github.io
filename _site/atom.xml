@@ -4,7 +4,7 @@
  <title>Chris Said</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2023-06-19T14:02:26-04:00</updated>
+ <updated>2023-06-19T14:08:35-04:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -38,7 +38,7 @@
 &lt;p&gt;To investigate, I turned to the latest (2012) revision of the &lt;a href=&quot;https://www.govinfo.gov/content/pkg/FR-2013-01-15/pdf/2012-30946.pdf&quot;&gt;National Ambient Air Quality Standards (NAAQS) for Particulate Matter&lt;/a&gt;, which is used primarily to set air quality standards that have some legal force, but secondarily to inform the AQI. The justification for each breakpoint is laid out in over 200 pages. This is what I learned:&lt;/p&gt;
 
 &lt;h3 id=&quot;the-first-breakpoint-12-μgm3&quot;&gt;The first breakpoint: 12 μg/m3&lt;/h3&gt;
-&lt;p&gt;The first breakpoint is defined as the &lt;strong&gt;annual&lt;/strong&gt; NAAQS standard, which is the PM&lt;sub&gt;2.5&lt;/sub&gt; level each U.S. state is &lt;a href=&quot;https://ww2.arb.ca.gov/resources/national-ambient-air-quality-standards&quot;&gt;required&lt;/a&gt; to attain, when averaging over a year. Up until 2012, the standard was 15 μg/m3, based somewhat arbitrarily on the empirical average of PM&lt;sub&gt;2.5&lt;/sub&gt;s in the US. But after a lawsuit from the farm lobby, a federal judge &lt;a href=&quot;https://casetext.com/case/american-farm-v-epa&quot;&gt;remanded&lt;/a&gt; the standard. After multiple public hearings, testimony from 168 individuals, comments from &lt;a href=&quot;https://www.regulations.gov/docket/EPA-HQ-OAR-2007-0492&quot;&gt;230,000&lt;/a&gt; members of the public, and a review of the scientific literature, the EPA decided in 2012 to reduce the value to 12 μg/m3, moving it in the opposite direction of what the farm lobby wanted.&lt;/p&gt;
+&lt;p&gt;The first breakpoint is defined as the &lt;strong&gt;annual&lt;/strong&gt; NAAQS standard, which is the PM&lt;sub&gt;2.5&lt;/sub&gt; level each U.S. state is &lt;a href=&quot;https://ww2.arb.ca.gov/resources/national-ambient-air-quality-standards&quot;&gt;required&lt;/a&gt; to attain, when averaging over a year. Up until 2012, the standard was 15 μg/m3, based somewhat arbitrarily on the empirical average of PM&lt;sub&gt;2.5&lt;/sub&gt; values in the US. But after a lawsuit from the farm lobby, a federal judge &lt;a href=&quot;https://casetext.com/case/american-farm-v-epa&quot;&gt;remanded&lt;/a&gt; the standard. After multiple public hearings, testimony from 168 individuals, comments from &lt;a href=&quot;https://www.regulations.gov/docket/EPA-HQ-OAR-2007-0492&quot;&gt;230,000&lt;/a&gt; members of the public, and a review of the scientific literature, the EPA decided in 2012 to reduce the value to 12 μg/m3, moving it in the opposite direction of what the farm lobby wanted.&lt;/p&gt;
 
 &lt;h3 id=&quot;the-second-breakpoint-35-μgm3&quot;&gt;The second breakpoint: 35 μg/m3&lt;/h3&gt;
 &lt;p&gt;The second breakpoint is defined as the &lt;strong&gt;24-hour&lt;/strong&gt; NAAQS standard. As far as I can tell, there is no principled reason that this breakpoint should be based on the 24-hour standard while the first breakpoint was based on the annual standard, except that the 24-hour standard is stricter.&lt;/p&gt;
