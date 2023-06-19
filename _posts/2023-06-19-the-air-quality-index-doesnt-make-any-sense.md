@@ -2,7 +2,7 @@
 layout: post
 title: The Air Quality Index doesn’t make any sense
 description: A metric designed by committee 
-image: /assets/2023_aqi/aqi_annotated.png
+image: /assets/2023_aqi/aqi_annotated_bounded.png
 ---
 
 Have you ever felt a little hazy on what the Air Quality Index (AQI) actually means? I have, which is why I decided to deep dive on it. What I found was a bizarre Frankensteinian metric emerging from a web of federal judges, EPA employees, interest groups, and random members of the public. 
