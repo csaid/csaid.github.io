@@ -92,6 +92,19 @@ html {
  * out above content in mobile and later moves to the side with wider viewports.
  */
 
+
+
+.hide-on-mobile {
+    display: none
+  }
+
+ @media (min-width: 48em) {
+  .hide-on-mobile {
+    display: block
+  }
+}
+
+
 .sidebar {
   text-align: center;
   padding: 2rem 1rem;

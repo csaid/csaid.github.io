@@ -4,7 +4,7 @@
  <title>Chris Said</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2023-06-19T16:42:43-04:00</updated>
+ <updated>2023-06-25T21:08:08-04:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -23,7 +23,7 @@
 
 &lt;p&gt;The second thing to know about AQI is that it aggregates levels from different pollutants in an unusual way. There are separate AQIs for PM&lt;sub&gt;2.5&lt;/sub&gt; (small particles), PM&lt;sub&gt;10&lt;/sub&gt; (coarse particles), Ozone, CO, SO&lt;sub&gt;2&lt;/sub&gt;, and NO&lt;sub&gt;2&lt;/sub&gt;. The overall AQI is just the maximum of the pollutant-specific AQIs. So when you hear that overall AQI is 140, you won’t know &lt;em&gt;which&lt;/em&gt; of the pollutants was the cause. I’ll focus on the PM&lt;sub&gt;2.5&lt;/sub&gt; version here.&lt;/p&gt;
 
-&lt;p&gt;The third thing to know about AQI is that the relationship between AQI and PM&lt;sub&gt;2.5&lt;/sub&gt; is a fascinating case study in how decisions are made at federal agencies. This is the focus on this blog post.&lt;/p&gt;
+&lt;p&gt;The third thing to know about AQI is that the relationship between AQI and PM&lt;sub&gt;2.5&lt;/sub&gt; is a fascinating case study in how decisions are made at federal agencies. This is the focus of this blog post.&lt;/p&gt;
 
 &lt;p&gt;Based on the &lt;a href=&quot;https://www.airnow.gov/sites/default/files/2020-05/aqi-technical-assistance-document-sept2018.pdf&quot;&gt;AQI calculation rules&lt;/a&gt;, the relationship between PM&lt;sub&gt;2.5&lt;/sub&gt; and AQI looks like this.&lt;/p&gt;
 

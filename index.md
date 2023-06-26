@@ -15,7 +15,7 @@ Below are links to blog posts I've written, as well as some other projects. I ca
 * [Variance after scaling and summing: One of the most useful facts from statistics](/2019/05/18/variance_after_scaling_and_summing/) (18 May 2019)
 * [Empirical Bayes for multiple sample sizes](/2017/05/03/empirical-bayes-for-multiple-sample-sizes/) (03 May 2017)
 * [Optimizing things in the USSR](/2016/05/11/optimizing-things-in-the-ussr/) (11 May 2016)
-* [Four pitfalls of hill climbing](/2016/02/28/four-pitfalls-of-hill-climbing/) (28 Feb 2016)
+* [Small correlations can drive large increases in teen depression](2022/05/10/social-media-and-teen-depression/) (10 May 2022)
 
 #### Full Blog Archive
 
