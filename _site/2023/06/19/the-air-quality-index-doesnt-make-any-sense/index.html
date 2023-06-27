@@ -131,20 +131,20 @@ http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
 
 <p>To investigate, I turned to the latest (2012) revision of the <a href="https://www.govinfo.gov/content/pkg/FR-2013-01-15/pdf/2012-30946.pdf">National Ambient Air Quality Standards (NAAQS) for Particulate Matter</a>, which is used primarily to set air quality standards that have some legal force, but secondarily to inform the AQI. The justification for each breakpoint is laid out in over 200 pages. This is what I learned:</p>
 
-<h3 id="the-first-breakpoint-12-μgm3">The first breakpoint: 12 μg/m3</h3>
-<p>The first breakpoint is defined as the <strong>annual</strong> NAAQS standard, which is the PM<sub>2.5</sub> level each U.S. state is <a href="https://ww2.arb.ca.gov/resources/national-ambient-air-quality-standards">required</a> to attain, when averaging over a year. Up until 2012, the standard was 15 μg/m3, based somewhat arbitrarily on the empirical average of PM<sub>2.5</sub> values in the US. But after a lawsuit from the farm lobby, a federal judge <a href="https://casetext.com/case/american-farm-v-epa">remanded</a> the standard. After multiple public hearings, testimony from 168 individuals, comments from <a href="https://www.regulations.gov/docket/EPA-HQ-OAR-2007-0492">230,000</a> members of the public, and a review of the scientific literature, the EPA decided in 2012 to reduce the value to 12 μg/m3, moving it in the opposite direction of what the farm lobby wanted.</p>
+<h3 id="the-first-breakpoint-12-μgm3">The first breakpoint: 12 μg/m<sup>3</sup></h3>
+<p>The first breakpoint is defined as the <strong>annual</strong> NAAQS standard, which is the PM<sub>2.5</sub> level each U.S. state is <a href="https://ww2.arb.ca.gov/resources/national-ambient-air-quality-standards">required</a> to attain, when averaging over a year. Up until 2012, the standard was 15 μg/m<sup>3</sup>, based somewhat arbitrarily on the empirical average of PM<sub>2.5</sub> values in the US. But after a lawsuit from the farm lobby, a federal judge <a href="https://casetext.com/case/american-farm-v-epa">remanded</a> the standard. After multiple public hearings, testimony from 168 individuals, comments from <a href="https://www.regulations.gov/docket/EPA-HQ-OAR-2007-0492">230,000</a> members of the public, and a review of the scientific literature, the EPA decided in 2012 to reduce the value to 12 μg/m<sup>3</sup>, moving it in the opposite direction of what the farm lobby wanted.</p>
 
-<h3 id="the-second-breakpoint-35-μgm3">The second breakpoint: 35 μg/m3</h3>
+<h3 id="the-second-breakpoint-35-μgm3">The second breakpoint: 35 μg/m<sup>3</sup></h3>
 <p>The second breakpoint is defined as the <strong>24-hour</strong> NAAQS standard. As far as I can tell, there is no principled reason that this breakpoint should be based on the 24-hour standard while the first breakpoint was based on the annual standard, except that the 24-hour standard is stricter.</p>
 
-<h3 id="the-third-breakpoint-55-μgm3">The third breakpoint: 55 μg/m3</h3>
+<h3 id="the-third-breakpoint-55-μgm3">The third breakpoint: 55 μg/m<sup>3</sup></h3>
 <p>This breakpoint was based on an arbitrary scalar extension of the 24-hour standard (<a href="https://www.govinfo.gov/content/pkg/FR-2013-01-15/pdf/2012-30946.pdf">p. 3181</a>). Since no interest groups or members of the public objected to it, the EPA codified it.</p>
 
-<h3 id="the-last-breakpoint-500-μgm3">The last breakpoint: 500 μg/m3</h3>
+<h3 id="the-last-breakpoint-500-μgm3">The last breakpoint: 500 μg/m<sup>3</sup></h3>
 <p>This breakpoint was initially picked somewhat arbitrarily. Since no interest groups or members of the public objected to it, the EPA codified it.</p>
 
 <h3 id="the-other-breakpoints">The other breakpoints</h3>
-<p>The EPA decided that the breakpoints between 55 and 500 μg/m3 should produce a linear relationship to AQI. Unfortunately, this clashed with their preference for round number multiples of 50, which is why there are elbows at 150 and 350 μg/m3. In a world with software, I don’t understand why there is any benefit to round numbers. But even weirder, if there were any benefits to round numbers, they are partially nullified by the EPA’s inexplicable decision to append a decimal point of 0.4 to each cutoff, so that the actual breakpoints are 55.4, 150.4, 250.4, etc.</p>
+<p>The EPA decided that the breakpoints between 55 and 500 μg/m<sup>3</sup> should produce a linear relationship to AQI. Unfortunately, this clashed with their preference for round number multiples of 50, which is why there are elbows at 150 and 350 μg/m<sup>3</sup>. In a world with software, I don’t understand why there is any benefit to round numbers. But even weirder, if there were any benefits to round numbers, they are partially nullified by the EPA’s inexplicable decision to append a decimal point of 0.4 to each cutoff, so that the actual breakpoints are 55.4, 150.4, 250.4, etc.</p>
 
 <p>Here’s the graph again with annotations.</p>
 
