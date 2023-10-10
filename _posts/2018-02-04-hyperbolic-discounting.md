@@ -59,7 +59,7 @@ A key insight here is that the survival function can also be interpreted as a di
 
 ##### Rationality of hyperbolic discounting
 
-The problem with assuming an exponential survival function is that it assumes you know the hazard rate $$ \lambda $$. In most situations, you don't know exactly what the hazard rate is. Instead you have uncertainty around the parameter. [Souza (2015)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1689473/pdf/T9KA20YDP8PB1QP4_265_2015.pdf) proposes an exponential prior distribution over the hazard rate.
+The problem with assuming an exponential survival function is that it assumes you know the hazard rate $$ \lambda $$. In most situations, you don't know exactly what the hazard rate is. Instead you have uncertainty around the parameter. [Souza (1998)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1689473/pdf/T9KA20YDP8PB1QP4_265_2015.pdf) proposes an exponential prior distribution over the hazard rate.
 
 $$ p(\lambda) = \frac{1}{k} e^{-\frac{\lambda}{k}} $$
 
@@ -95,5 +95,5 @@ The previous paragraph assumed that the interest rate was constant but unknown. 
 Is the geometric random walk a process that was cherry picked by the authors to produce this outcome? Not really. [Newell and Pizer (2003)](https://dukespace.lib.duke.edu/dspace/bitstream/handle/10161/7542/NewellPizerDiscountingPew.pdf?sequence=1) studied US bond rates in the 19th and 20th century and found that the geometric random walk provided a better fit than any of the other interest rate models tested.
 
 ## Summary
-When interpreting discounting as a survival function, a hyperbolic discounting function is rational if you introduce uncertainty into the hazard parameter via an exponential prior ([Souza, 2015](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1689473/pdf/T9KA20YDP8PB1QP4_265_2015.pdf)). When interpreting the discount rate as an interest rate, a hyperbolic discounting function is asymptotically rational if you introduce uncertainty in the interest rate via a geometric random walk ([Farmer and Geanakoplos, 2009](https://campuspress.yale.edu/johngeanakoplos/files/2017/07/Hyperbolic-Discounting-is-Rational-Valuing-the-Far-Future-with-Uncertain-Discount-Rates-1uc47ft.pdf)). 
+When interpreting discounting as a survival function, a hyperbolic discounting function is rational if you introduce uncertainty into the hazard parameter via an exponential prior ([Souza, 1998](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1689473/pdf/T9KA20YDP8PB1QP4_265_2015.pdf)). When interpreting the discount rate as an interest rate, a hyperbolic discounting function is asymptotically rational if you introduce uncertainty in the interest rate via a geometric random walk ([Farmer and Geanakoplos, 2009](https://campuspress.yale.edu/johngeanakoplos/files/2017/07/Hyperbolic-Discounting-is-Rational-Valuing-the-Far-Future-with-Uncertain-Discount-Rates-1uc47ft.pdf)). 
 
