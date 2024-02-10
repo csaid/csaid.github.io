@@ -4,13 +4,137 @@
  <title>Chris Said</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2023-06-27T07:55:54-04:00</updated>
+ <updated>2024-02-10T09:54:56-05:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
    <email></email>
  </author>
 
+ 
+ <entry>
+   <title>The respiratory infection study to end all respiratory infection studies</title>
+   <link href="http://localhost:4000/2024/02/11/the-respiratory-infection-experiment-to-end-all-respiratory-infection-experiments/"/>
+   <updated>2024-02-11T00:00:00-05:00</updated>
+   <id>http://localhost:4000/2024/02/11/the-respiratory-infection-experiment-to-end-all-respiratory-infection-experiments</id>
+   <content type="html">&lt;div class=&quot;caption&quot;&gt;
+  &lt;p&gt;[&lt;a href=&quot;https://github.com/csaid/ventilation-experiment/blob/main/Respiratory%20infection%20experiment%20model%20fits%20and%20power%20analysis.ipynb&quot;&gt;Notebook&lt;/a&gt;]&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;The most basic question one might have about respiratory infections like Covid is &lt;em&gt;when are you infectious&lt;/em&gt;? Some researchers believe that people with low viral RNA counts\(^1\) like \(10^3\) cp/mL are meaningfully infectious. Others believe that almost all spread occurs during the brief peak of viral count, at around \(10^9\) cp/mL. The answer will determine whether you typically stop being infectious after 8-9 days or something more like 1-2 days.&lt;/p&gt;
+
+&lt;p&gt;With over &lt;a href=&quot;https://www.bmj.com/content/380/bmj.p689&quot;&gt;700,000 papers&lt;/a&gt; published papers on Covid, you’d think we’d have a solid answer to such a basic and practically useful question. But the reality is we don’t. Some epidemiological papers have attempted to measure this. But since they can’t measure precisely &lt;em&gt;when&lt;/em&gt; people were infected or even by &lt;em&gt;whom&lt;/em&gt;, their estimates of infectiousness thresholds are biased downwards by an unknown amount.&lt;/p&gt;
+
+&lt;p&gt;The second most basic question someone might ask is &lt;em&gt;how well does ventilation / filtration / UVC work&lt;/em&gt;? While there is broad agreement these might work a little bit, we do not have the type of precise quantitative estimate that is needed for rational decision making or investment. Will an air filter in a school room reduce infection by 2% or by 30%? Nobody knows! All we have are &lt;a href=&quot;https://www.fondazionehume.it/data-analysis/controlled-mechanical-ventilation-cmv-works/&quot;&gt;unconvincing non-experiments&lt;/a&gt;, and some experiments that test only &lt;a href=&quot;https://academic.oup.com/jid/article/226/2/199/6582941&quot;&gt;part&lt;/a&gt; of the infection pathway, leaving us with much uncertainty.&lt;/p&gt;
+
+&lt;p&gt;To really nail an answer to these questions, we don’t need another hundred thousand unconvincing studies. We just need one study. It will be a single, career-defining study of historical importance that will live forever in textbooks and convince experts and laypeople alike. It will be a large experiment where infected participants (“donors”) get in a room with uninfected participants (“recipients”), and we measure how much transmission happens under experimentally manipulated conditions.&lt;/p&gt;
+
+&lt;p&gt;Concerned about ethics? Just use the common cold! If you model things right, you can generalize much of the findings to other viruses.&lt;/p&gt;
+
+&lt;p&gt;I’ve simulated this type of experiment pretty extensively (&lt;a href=&quot;https://github.com/csaid/ventilation-experiment/blob/main/Respiratory%20infection%20experiment%20model%20fits%20and%20power%20analysis.ipynb&quot;&gt;see code&lt;/a&gt;). This blog post proposes how to optimally design and analyze it.&lt;/p&gt;
+
+&lt;h3 id=&quot;how-to-design-the-experiment&quot;&gt;How to design the experiment&lt;/h3&gt;
+&lt;p&gt;Suppose you want to compare transmission rates under high ventilation versus low ventilation conditions. &lt;a href=&quot;https://royalsocietypublishing.org/doi/10.1098/rsfs.2021.0076#RSFS20210076F3&quot;&gt;Modeling&lt;/a&gt; shows that donor viral count will dominate the effect of other variables, which makes it hard to detect ventilation effects without very large sample sizes. It’s therefore critical that the experiment controls this variation. Each donor should have a chance to infect participants in each condition. To further reduce variance, any variable you don’t want to measure (e.g. distance, duration, talking vs silence) should be held constant in all interactions. A schematic design is below.&lt;/p&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/assets/2024_ventilation_experiment/fig_design.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:80%;&quot; /&gt;&lt;/p&gt;
+  &lt;div class=&quot;caption&quot;&gt;
+    &lt;p&gt;&lt;strong&gt;Figure 1&lt;/strong&gt;. Schematic of a high ventilation vs low ventilation experiment. Each donor (red) must participate in both conditions. Each recipient (green) should only be exposed to one &amp;lt;donor, condition&amp;gt; pair.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;how-to-model-the-results&quot;&gt;How to model the results&lt;/h3&gt;
+&lt;p&gt;The simplest and least useful way to analyze the results is to measure the infection rates in each condition. If you want to really reap the benefits of the experiment and enable yourself to quantitatively generalize to other interventions and even other viruses, you need to computationally model the data in the same way that transmission happens.&lt;/p&gt;
+
+&lt;p&gt;Under steady state conditions the amount of live virus inhaled per unit time is a &lt;a href=&quot;https://pubs.acs.org/doi/pdf/10.1021/acs.est.1c06531&quot;&gt;linear function&lt;/a&gt; of the product of donor viral count, emission constants, filtration constants, and ventilation constants. This value is then scaled to a hazard rate of infection, via a scaling constant that depends on how easily each inhaled virus can cause an infection. As with any survival model, the probability of infection is an exponential function of this hazard rate.&lt;/p&gt;
+
+&lt;p&gt;For those who want to see the math, the probability of transmission between donor \(i\) and a recipient is&lt;/p&gt;
+
+\[p_{i} = 1 - e^{-{\lambda}_{i}t}\]
+
+&lt;p&gt;where the hazard rate \(\lambda_{i}\) is the product of donor viral count \(V_i\), and air quality and transmissibility constants captured in \(\beta\).&lt;/p&gt;
+
+\[\lambda_{i} = \beta V_{i}\]
+
+&lt;p&gt;In the figure below, I generated some simulated data and fit it with the model above. You can see how ventilation doesn’t matter for very low viral counts (when no one gets infected) or very high viral counts (where everyone gets infected), but it can help for intermediate viral counts.&lt;/p&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/assets/2024_ventilation_experiment/fig_no_suscept.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:80%;&quot; /&gt;&lt;/p&gt;
+  &lt;div class=&quot;caption&quot;&gt;
+    &lt;p&gt;&lt;strong&gt;Figure 2&lt;/strong&gt;: Simulated data and model fits showing the effect of strong ventilation designed to reduce viral concentration in the air by a factor of 10. Each point represents a donor.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;While the model above should work well if every recipient is equally susceptible, it may fail if there is variance in recipient susceptibilities. When this happens, the curve is &lt;em&gt;flattened&lt;/em&gt; because highly susceptible recipients will get infected by low viral count donors and highly immune recipients will avoid infection even from high viral count donors.&lt;/p&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/assets/2024_ventilation_experiment/fig_suscept.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:80%;&quot; /&gt;&lt;/p&gt;
+  &lt;div class=&quot;caption&quot;&gt;
+    &lt;p&gt;&lt;strong&gt;Figure 3&lt;/strong&gt;: Simulated data showing the effect of strong ventilation designed to reduce viral concentration in the air by a factor of 10. Unlike Figure 2, the simulated data and model fits both allow for variation in the susceptibility of recipients.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;To model this, I introduced a susceptibility variance term \(S_j\) to simulate the unknown variance in susceptibilities across participants, and fit it with hierarchical Bayesian methods (&lt;a href=&quot;https://github.com/csaid/ventilation-experiment/blob/main/Respiratory%20infection%20experiment%20model%20fits%20and%20power%20analysis.ipynb&quot;&gt;see code&lt;/a&gt;).&lt;/p&gt;
+
+&lt;h3 id=&quot;how-many-participants-are-needed&quot;&gt;How many participants are needed?&lt;/h3&gt;
+&lt;p&gt;If you don’t measure viral count or use each donor in each condition, you will need hundreds of donors and thousands of participants, which is infeasible, even for a 4x reduction in inhaled virus. But if each donor participates in all conditions and if you measure viral count, you can achieve 80% power with about 40 donors and 5 recipients per &amp;lt;donor, condition&amp;gt;. Getting donors is much more important than getting recipients, as there are diminishing returns for adding more participants after about 7-8 recipients per &amp;lt;donor, condition&amp;gt;.&lt;/p&gt;
+
+&lt;p&gt;The plots below show statistical power under various scenarios.&lt;/p&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/assets/2024_ventilation_experiment/fig_power.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:100%;&quot; /&gt;&lt;/p&gt;
+  &lt;div class=&quot;caption&quot;&gt;
+    &lt;p&gt;&lt;strong&gt;Figure 4&lt;/strong&gt;. Power as a function of donor count and recipients per donor for an experiment that reduces viral concentration by a factor of 4 (left) and one that reduces viral concentration by a factor of 10 (right).&lt;/p&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;generalizing-to-other-interventions-and-other-viruses&quot;&gt;Generalizing to other interventions and other viruses&lt;/h3&gt;
+&lt;p&gt;An experiment with 40 donors and 400 recipients is pretty expensive. But in addition to the primary benefits of telling us (1) when people are meaningfully infectious and (2) how well the tested intervention works, the experiment results can also be generalized to other interventions and even to other viruses!&lt;/p&gt;
+
+&lt;p&gt;The graph below shows the transmission probability / viral load curve for different values of \(\beta\), which is the product of several multiplicative terms (ventilation constants, filtration constants, constants, emission constants, baseline susceptibility). For every 10x you reduce viral concentration in the air (e.g. by increasing ventilation), the curve shifts right by one log.&lt;/p&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/assets/2024_ventilation_experiment/fig_logs.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:80%;&quot; /&gt;&lt;/p&gt;
+  &lt;div class=&quot;caption&quot;&gt;
+    &lt;p&gt;&lt;strong&gt;Figure 5&lt;/strong&gt;. Infection probability as a function of viral count for various values of \(\beta\), which is a product of several multiplicative terms (ventilation constants, filtration constants, constants, emission constants, baseline susceptibility).&lt;/p&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;This means that you can generalize to other interventions.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;If ventilation can shift the curve by K logs, then 10X’ing the ventilation intervention should shift the curve by 10*K logs.&lt;/li&gt;
+  &lt;li&gt;If a separate intervention like UVC provides 10X the viral concentration reduction as ventilation, then it should also shift the curve by 10*K logs.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/assets/2024_ventilation_experiment/fig_3_logs.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:80%;&quot; /&gt;&lt;/p&gt;
+  &lt;div class=&quot;caption&quot;&gt;
+    &lt;p&gt;&lt;strong&gt;Figure 6&lt;/strong&gt;. Hypothetical curves for three different conditions.&lt;/p&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;So once we have completed this experiment, we don’t need to repeat it for other types of interventions on human recipients. We just need to measure the reduction in virus concentration in the air during whatever intervention we want to test, which will be proportional to the reduction in \(\beta\).&lt;/p&gt;
+
+&lt;p&gt;To a lesser extent, we can even generalize to other viruses, which is nice since it allows you to run this experiment on the common cold. Because \(\lambda\) is proportional to a virus-specific baseline susceptibility constant and air quality constants, you’ll know that if an air quality intervention shifts the curve for the common cold by K log units, then it should also shift the curve for the other virus by K log units. This is true even if the other virus has a flatter curve due to higher variance in baseline susceptibility (see &lt;a href=&quot;https://github.com/csaid/ventilation-experiment/blob/main/Respiratory%20infection%20experiment%20model%20fits%20and%20power%20analysis.ipynb&quot;&gt;code&lt;/a&gt;). The only limitation is that if you want to quantify the aggregate reduction in infections, you’ll still need to measure the dose-response curve for the other virus once and then integrate over the distribution of viral counts.&lt;/p&gt;
+
+&lt;h3 id=&quot;summary&quot;&gt;Summary&lt;/h3&gt;
+&lt;p&gt;If anyone has $10 million lying around and is able to run this experiment and model it correctly, you will:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Conclusively establish the viral counts at which people become meaningfully infectious with the virus you’re testing&lt;/li&gt;
+  &lt;li&gt;Conclusively establish the effectiveness of your intervention, convincing experts and laypeople alike&lt;/li&gt;
+  &lt;li&gt;Generalize these results to other interventions, without needing to infect anyone else.&lt;/li&gt;
+  &lt;li&gt;Partially generalize these results to other viruses&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;footnote&quot;&gt;Footnote&lt;/h5&gt;
+&lt;div class=&quot;caption&quot;&gt;
+  &lt;p&gt;\(^1\)To a first approximation, viral RNA count is proportional to infectious virus count and claims otherwise have been overstated. See the “Live virus count is mostly proportional to RNA count” section of &lt;a href=&quot;https://chris-said.io/2022/02/10/viral-count-and-infectiousness/&quot;&gt;this post&lt;/a&gt; for evidence.&lt;/p&gt;
+&lt;/div&gt;
+</content>
+ </entry>
  
  <entry>
    <title>The Air Quality Index doesn’t make any sense</title>
@@ -2629,7 +2753,7 @@ and we can use Inverse Variance Weighting to obtain weights \(w_1=0.4, w_2=0.4, 
 
 &lt;h5 id=&quot;rationality-of-hyperbolic-discounting&quot;&gt;Rationality of hyperbolic discounting&lt;/h5&gt;
 
-&lt;p&gt;The problem with assuming an exponential survival function is that it assumes you know the hazard rate \(\lambda\). In most situations, you don’t know exactly what the hazard rate is. Instead you have uncertainty around the parameter. &lt;a href=&quot;https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1689473/pdf/T9KA20YDP8PB1QP4_265_2015.pdf&quot;&gt;Souza (2015)&lt;/a&gt; proposes an exponential prior distribution over the hazard rate.&lt;/p&gt;
+&lt;p&gt;The problem with assuming an exponential survival function is that it assumes you know the hazard rate \(\lambda\). In most situations, you don’t know exactly what the hazard rate is. Instead you have uncertainty around the parameter. &lt;a href=&quot;https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1689473/pdf/T9KA20YDP8PB1QP4_265_2015.pdf&quot;&gt;Sozou (1998)&lt;/a&gt; proposes an exponential prior distribution over the hazard rate.&lt;/p&gt;
 
 \[p(\lambda) = \frac{1}{k} e^{-\frac{\lambda}{k}}\]
 
@@ -2637,7 +2761,7 @@ and we can use Inverse Variance Weighting to obtain weights \(w_1=0.4, w_2=0.4, 
 
 &lt;p&gt;&lt;img src=&quot;/assets/2018_hyperbolic_discounting/fig_hazard_prior.png&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;According to Souza, if you average over all the possible exponential survival functions generated by this prior, you get a hyperbolic survival function, or equivalently, a hyperbolic discount function. Let’s see this in action.&lt;/p&gt;
+&lt;p&gt;According to Sozou, if you average over all the possible exponential survival functions generated by this prior, you get a hyperbolic survival function, or equivalently, a hyperbolic discount function. Let’s see this in action.&lt;/p&gt;
 
 &lt;p&gt;In the plot below, I’ve drawn 30 exponential survival functions in blue, each with a \(\lambda\) sampled from the \(p(\lambda)\) prior distribution defined above. The pink curve is the mean of all of them. Notice that whereas the individual survival curves are all exponential, their mean is hyperbolic, with a distant future characterized by a flat slope and relatively high survival values.&lt;/p&gt;
 
@@ -2664,7 +2788,7 @@ and we can use Inverse Variance Weighting to obtain weights \(w_1=0.4, w_2=0.4, 
 &lt;p&gt;Is the geometric random walk a process that was cherry picked by the authors to produce this outcome? Not really. &lt;a href=&quot;https://dukespace.lib.duke.edu/dspace/bitstream/handle/10161/7542/NewellPizerDiscountingPew.pdf?sequence=1&quot;&gt;Newell and Pizer (2003)&lt;/a&gt; studied US bond rates in the 19th and 20th century and found that the geometric random walk provided a better fit than any of the other interest rate models tested.&lt;/p&gt;
 
 &lt;h2 id=&quot;summary&quot;&gt;Summary&lt;/h2&gt;
-&lt;p&gt;When interpreting discounting as a survival function, a hyperbolic discounting function is rational if you introduce uncertainty into the hazard parameter via an exponential prior (&lt;a href=&quot;https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1689473/pdf/T9KA20YDP8PB1QP4_265_2015.pdf&quot;&gt;Souza, 2015&lt;/a&gt;). When interpreting the discount rate as an interest rate, a hyperbolic discounting function is asymptotically rational if you introduce uncertainty in the interest rate via a geometric random walk (&lt;a href=&quot;https://campuspress.yale.edu/johngeanakoplos/files/2017/07/Hyperbolic-Discounting-is-Rational-Valuing-the-Far-Future-with-Uncertain-Discount-Rates-1uc47ft.pdf&quot;&gt;Farmer and Geanakoplos, 2009&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;When interpreting discounting as a survival function, a hyperbolic discounting function is rational if you introduce uncertainty into the hazard parameter via an exponential prior (&lt;a href=&quot;https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1689473/pdf/T9KA20YDP8PB1QP4_265_2015.pdf&quot;&gt;Sozou, 1998&lt;/a&gt;). When interpreting the discount rate as an interest rate, a hyperbolic discounting function is asymptotically rational if you introduce uncertainty in the interest rate via a geometric random walk (&lt;a href=&quot;https://campuspress.yale.edu/johngeanakoplos/files/2017/07/Hyperbolic-Discounting-is-Rational-Valuing-the-Far-Future-with-Uncertain-Discount-Rates-1uc47ft.pdf&quot;&gt;Farmer and Geanakoplos, 2009&lt;/a&gt;).&lt;/p&gt;
 
 </content>
  </entry>

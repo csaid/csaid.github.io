@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<!--
+It's bad to import d3 in every post separately (https://groups.google.com/forum/#!topic/d3-js/bwdNirt2uEU).
+Importing it globally here.
+Putting this up at the top, according to this controversial stack overflow answer
+http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
+ -->
+<script src="https://d3js.org/d3.v5.min.js"></script>
+
+<link rel="stylesheet" href="/public/font-awesome-4.4.0/css/font-awesome.min.css">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  
+    <meta name="description" content="A metric designed by committee">
+  
+
+  <!-- To get a link preview image, just set the image attribute in your _post -->
+  
+    <meta content="http://localhost:4000/assets/2024_ventilation_experiment/aqi_annotated_bounded.png" property="og:image"/>
+  
+
+  <!-- twitter standard -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@chris_said" />
+  <meta name="twitter:title" content="The respiratory infection study to end all respiratory infection studies" />
+  <meta name="twitter:description" content="A metric designed by committee" />
+
+
+  <title>
+    
+      The respiratory infection study to end all respiratory infection studies &middot; Chris Said
+    
+  </title>
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-67746868-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/hyde.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/logo144.png">
+                                 <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+<!--   <body class="theme-base-cps">
+ -->
+  <body>
+
+    <div class="sidebar">
+  <div class="container">
+    <div class="sidebar-about">
+      <h1>
+        <a href="/">
+          Chris Said
+        </a>
+      </h1>
+      <p class="lead">I am a data scientist at Propel. This blog is mostly about statistics, technology, and science.</p>
+
+    </div>
+
+    <!-- <nav class="sidebar-nav">
+
+      
+        <a class="sidebar-nav-item" href="/">Home</a>
+      
+        <a class="sidebar-nav-item" href="/atom.xml">Feed</a>
+      
+
+    </nav> -->
+
+
+    <div class="wrapper hide-on-mobile ">
+      <img src='/assets/chris-said-2022-small.jpg'>
+    </div>
+
+    <div class="wrapper">
+      <div class="inner">
+        <a href="http://www.twitter.com/Chris_Said" class="contact-button"><i class="fa fa-twitter fa-2x"></i></a>
+        <a href="https://www.linkedin.com/pub/chris-said/6b/86b/979" class="contact-button"><i
+            class="fa fa-linkedin-square fa-2x"></i></a>
+        <a href="mailto:chris.said@gmail.com" class="contact-button"><i class="fa fa-envelope fa-2x"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="content container">
+      <div class="post">
+  <h1 class="post-title">The respiratory infection study to end all respiratory infection studies</h1>
+  <span class="post-date">11 Feb 2024</span>
+  <div class="caption">
+  <p>[<a href="https://github.com/csaid/ventilation-experiment/blob/main/Respiratory%20infection%20experiment%20model%20fits%20and%20power%20analysis.ipynb">Notebook</a>]</p>
+</div>
+
+<p>The most basic question one might have about respiratory infections like Covid is <em>when are you infectious</em>? Some researchers believe that people with low viral RNA counts\(^1\) like \(10^3\) cp/mL are meaningfully infectious. Others believe that almost all spread occurs during the brief peak of viral count, at around \(10^9\) cp/mL. The answer will determine whether you typically stop being infectious after 8-9 days or something more like 1-2 days.</p>
+
+<p>With over <a href="https://www.bmj.com/content/380/bmj.p689">700,000 papers</a> published papers on Covid, you’d think we’d have a solid answer to such a basic and practically useful question. But the reality is we don’t. Some epidemiological papers have attempted to measure this. But since they can’t measure precisely <em>when</em> people were infected or even by <em>whom</em>, their estimates of infectiousness thresholds are biased downwards by an unknown amount.</p>
+
+<p>The second most basic question someone might ask is <em>how well does ventilation / filtration / UVC work</em>? While there is broad agreement these might work a little bit, we do not have the type of precise quantitative estimate that is needed for rational decision making or investment. Will an air filter in a school room reduce infection by 2% or by 30%? Nobody knows! All we have are <a href="https://www.fondazionehume.it/data-analysis/controlled-mechanical-ventilation-cmv-works/">unconvincing non-experiments</a>, and some experiments that test only <a href="https://academic.oup.com/jid/article/226/2/199/6582941">part</a> of the infection pathway, leaving us with much uncertainty.</p>
+
+<p>To really nail an answer to these questions, we don’t need another hundred thousand unconvincing studies. We just need one study. It will be a single, career-defining study of historical importance that will live forever in textbooks and convince experts and laypeople alike. It will be a large experiment where infected participants (“donors”) get in a room with uninfected participants (“recipients”), and we measure how much transmission happens under experimentally manipulated conditions.</p>
+
+<p>Concerned about ethics? Just use the common cold! If you model things right, you can generalize much of the findings to other viruses.</p>
+
+<p>I’ve simulated this type of experiment pretty extensively (<a href="https://github.com/csaid/ventilation-experiment/blob/main/Respiratory%20infection%20experiment%20model%20fits%20and%20power%20analysis.ipynb">see code</a>). This blog post proposes how to optimally design and analyze it.</p>
+
+<h3 id="how-to-design-the-experiment">How to design the experiment</h3>
+<p>Suppose you want to compare transmission rates under high ventilation versus low ventilation conditions. <a href="https://royalsocietypublishing.org/doi/10.1098/rsfs.2021.0076#RSFS20210076F3">Modeling</a> shows that donor viral count will dominate the effect of other variables, which makes it hard to detect ventilation effects without very large sample sizes. It’s therefore critical that the experiment controls this variation. Each donor should have a chance to infect participants in each condition. To further reduce variance, any variable you don’t want to measure (e.g. distance, duration, talking vs silence) should be held constant in all interactions. A schematic design is below.</p>
+
+<div class="wrapper">
+  <p><img src="/assets/2024_ventilation_experiment/fig_design.png" class="inner" style="position:relative border: #222 2px solid; max-width:80%;" /></p>
+  <div class="caption">
+    <p><strong>Figure 1</strong>. Schematic of a high ventilation vs low ventilation experiment. Each donor (red) must participate in both conditions. Each recipient (green) should only be exposed to one &lt;donor, condition&gt; pair.</p>
+  </div>
+</div>
+
+<h3 id="how-to-model-the-results">How to model the results</h3>
+<p>The simplest and least useful way to analyze the results is to measure the infection rates in each condition. If you want to really reap the benefits of the experiment and enable yourself to quantitatively generalize to other interventions and even other viruses, you need to computationally model the data in the same way that transmission happens.</p>
+
+<p>Under steady state conditions the amount of live virus inhaled per unit time is a <a href="https://pubs.acs.org/doi/pdf/10.1021/acs.est.1c06531">linear function</a> of the product of donor viral count, emission constants, filtration constants, and ventilation constants. This value is then scaled to a hazard rate of infection, via a scaling constant that depends on how easily each inhaled virus can cause an infection. As with any survival model, the probability of infection is an exponential function of this hazard rate.</p>
+
+<p>For those who want to see the math, the probability of transmission between donor \(i\) and a recipient is</p>
+
+\[p_{i} = 1 - e^{-{\lambda}_{i}t}\]
+
+<p>where the hazard rate \(\lambda_{i}\) is the product of donor viral count \(V_i\), and air quality and transmissibility constants captured in \(\beta\).</p>
+
+\[\lambda_{i} = \beta V_{i}\]
+
+<p>In the figure below, I generated some simulated data and fit it with the model above. You can see how ventilation doesn’t matter for very low viral counts (when no one gets infected) or very high viral counts (where everyone gets infected), but it can help for intermediate viral counts.</p>
+
+<div class="wrapper">
+  <p><img src="/assets/2024_ventilation_experiment/fig_no_suscept.png" class="inner" style="position:relative border: #222 2px solid; max-width:80%;" /></p>
+  <div class="caption">
+    <p><strong>Figure 2</strong>: Simulated data and model fits showing the effect of strong ventilation designed to reduce viral concentration in the air by a factor of 10. Each point represents a donor.</p>
+  </div>
+</div>
+
+<p>While the model above should work well if every recipient is equally susceptible, it may fail if there is variance in recipient susceptibilities. When this happens, the curve is <em>flattened</em> because highly susceptible recipients will get infected by low viral count donors and highly immune recipients will avoid infection even from high viral count donors.</p>
+
+<div class="wrapper">
+  <p><img src="/assets/2024_ventilation_experiment/fig_suscept.png" class="inner" style="position:relative border: #222 2px solid; max-width:80%;" /></p>
+  <div class="caption">
+    <p><strong>Figure 3</strong>: Simulated data showing the effect of strong ventilation designed to reduce viral concentration in the air by a factor of 10. Unlike Figure 2, the simulated data and model fits both allow for variation in the susceptibility of recipients.</p>
+  </div>
+</div>
+
+<p>To model this, I introduced a susceptibility variance term \(S_j\) to simulate the unknown variance in susceptibilities across participants, and fit it with hierarchical Bayesian methods (<a href="https://github.com/csaid/ventilation-experiment/blob/main/Respiratory%20infection%20experiment%20model%20fits%20and%20power%20analysis.ipynb">see code</a>).</p>
+
+<h3 id="how-many-participants-are-needed">How many participants are needed?</h3>
+<p>If you don’t measure viral count or use each donor in each condition, you will need hundreds of donors and thousands of participants, which is infeasible, even for a 4x reduction in inhaled virus. But if each donor participates in all conditions and if you measure viral count, you can achieve 80% power with about 40 donors and 5 recipients per &lt;donor, condition&gt;. Getting donors is much more important than getting recipients, as there are diminishing returns for adding more participants after about 7-8 recipients per &lt;donor, condition&gt;.</p>
+
+<p>The plots below show statistical power under various scenarios.</p>
+
+<div class="wrapper">
+  <p><img src="/assets/2024_ventilation_experiment/fig_power.png" class="inner" style="position:relative border: #222 2px solid; max-width:100%;" /></p>
+  <div class="caption">
+    <p><strong>Figure 4</strong>. Power as a function of donor count and recipients per donor for an experiment that reduces viral concentration by a factor of 4 (left) and one that reduces viral concentration by a factor of 10 (right).</p>
+
+  </div>
+</div>
+
+<h3 id="generalizing-to-other-interventions-and-other-viruses">Generalizing to other interventions and other viruses</h3>
+<p>An experiment with 40 donors and 400 recipients is pretty expensive. But in addition to the primary benefits of telling us (1) when people are meaningfully infectious and (2) how well the tested intervention works, the experiment results can also be generalized to other interventions and even to other viruses!</p>
+
+<p>The graph below shows the transmission probability / viral load curve for different values of \(\beta\), which is the product of several multiplicative terms (ventilation constants, filtration constants, constants, emission constants, baseline susceptibility). For every 10x you reduce viral concentration in the air (e.g. by increasing ventilation), the curve shifts right by one log.</p>
+
+<div class="wrapper">
+  <p><img src="/assets/2024_ventilation_experiment/fig_logs.png" class="inner" style="position:relative border: #222 2px solid; max-width:80%;" /></p>
+  <div class="caption">
+    <p><strong>Figure 5</strong>. Infection probability as a function of viral count for various values of \(\beta\), which is a product of several multiplicative terms (ventilation constants, filtration constants, constants, emission constants, baseline susceptibility).</p>
+
+  </div>
+</div>
+
+<p>This means that you can generalize to other interventions.</p>
+<ul>
+  <li>If ventilation can shift the curve by K logs, then 10X’ing the ventilation intervention should shift the curve by 10*K logs.</li>
+  <li>If a separate intervention like UVC provides 10X the viral concentration reduction as ventilation, then it should also shift the curve by 10*K logs.</li>
+</ul>
+
+<div class="wrapper">
+  <p><img src="/assets/2024_ventilation_experiment/fig_3_logs.png" class="inner" style="position:relative border: #222 2px solid; max-width:80%;" /></p>
+  <div class="caption">
+    <p><strong>Figure 6</strong>. Hypothetical curves for three different conditions.</p>
+
+  </div>
+</div>
+
+<p>So once we have completed this experiment, we don’t need to repeat it for other types of interventions on human recipients. We just need to measure the reduction in virus concentration in the air during whatever intervention we want to test, which will be proportional to the reduction in \(\beta\).</p>
+
+<p>To a lesser extent, we can even generalize to other viruses, which is nice since it allows you to run this experiment on the common cold. Because \(\lambda\) is proportional to a virus-specific baseline susceptibility constant and air quality constants, you’ll know that if an air quality intervention shifts the curve for the common cold by K log units, then it should also shift the curve for the other virus by K log units. This is true even if the other virus has a flatter curve due to higher variance in baseline susceptibility (see <a href="https://github.com/csaid/ventilation-experiment/blob/main/Respiratory%20infection%20experiment%20model%20fits%20and%20power%20analysis.ipynb">code</a>). The only limitation is that if you want to quantify the aggregate reduction in infections, you’ll still need to measure the dose-response curve for the other virus once and then integrate over the distribution of viral counts.</p>
+
+<h3 id="summary">Summary</h3>
+<p>If anyone has $10 million lying around and is able to run this experiment and model it correctly, you will:</p>
+<ul>
+  <li>Conclusively establish the viral counts at which people become meaningfully infectious with the virus you’re testing</li>
+  <li>Conclusively establish the effectiveness of your intervention, convincing experts and laypeople alike</li>
+  <li>Generalize these results to other interventions, without needing to infect anyone else.</li>
+  <li>Partially generalize these results to other viruses</li>
+</ul>
+
+<h5 id="footnote">Footnote</h5>
+<div class="caption">
+  <p>\(^1\)To a first approximation, viral RNA count is proportional to infectious virus count and claims otherwise have been overstated. See the “Live virus count is mostly proportional to RNA count” section of <a href="https://chris-said.io/2022/02/10/viral-count-and-infectiousness/">this post</a> for evidence.</p>
+</div>
+
+  <div>
+    <a class="twitter-share-button"
+      href="https://twitter.com/share"
+      data-url=""
+      data-via="Chris_Said"
+      data-size="large"
+      data-count="none">
+    Tweet
+    </a>
+</div>
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'csaid81';
+    var disqus_identifier = 'http://localhost:4000/2024/02/11/the-respiratory-infection-experiment-to-end-all-respiratory-infection-experiments/';
+    var disqus_url = 'http://localhost:4000/2024/02/11/the-respiratory-infection-experiment-to-end-all-respiratory-infection-experiments/';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+</div>
+
+
+    </div>
+
+  </body>
+</html>
+
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+
+<script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));</script>
