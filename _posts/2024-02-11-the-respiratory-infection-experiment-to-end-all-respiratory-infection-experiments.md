@@ -1,8 +1,8 @@
 ---
 layout: post
 title: The respiratory infection study to end all respiratory infection studies
-description: A metric designed by committee 
-image: /assets/2024_ventilation_experiment/aqi_annotated_bounded.png
+description: Learn once and for all when someone stops being infectious, and how well ventilation / masks work. 
+image: /assets/2024_ventilation_experiment/fig_3_logs.png
 ---
 
 <div class="caption">[[Notebook](https://github.com/csaid/ventilation-experiment/blob/main/Respiratory%20infection%20experiment%20model%20fits%20and%20power%20analysis.ipynb)]
