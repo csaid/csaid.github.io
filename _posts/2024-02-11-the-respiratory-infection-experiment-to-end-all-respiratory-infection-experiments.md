@@ -1,7 +1,7 @@
 ---
 layout: post
 title: The respiratory infection study to end all respiratory infection studies
-description: Learn once and for all when someone stops being infectious, and how well ventilation / masks work. 
+description: Establish once and for all when someone stops being infectious, and how well ventilation / masks work. 
 image: /assets/2024_ventilation_experiment/fig_3_logs.png
 ---
 
