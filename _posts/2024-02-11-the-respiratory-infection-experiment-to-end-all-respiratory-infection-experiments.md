@@ -47,7 +47,7 @@ In the figure below, I generated some simulated data and fit it with the model a
 
 <div class="wrapper">
   <img src='/assets/2024_ventilation_experiment/fig_no_suscept.png' class="inner" style="position:relative border: #222 2px solid; max-width:80%;" >
-  <div class="caption"> **Figure 2**: Simulated data and model fits showing the effect of strong ventilation designed to reduce viral concentration in the air by a factor of 10. Each point represents a donor. Shaded region is the 95% credible interval.
+  <div class="caption"> **Figure 2**: Simulated data and model fits showing the effect of strong ventilation designed to reduce viral concentration in the air by a factor of 10. Each point represents the transmission rate for donor exposed to 10 recipients. Shaded region is the 95% credible interval.
   </div>
 </div>
 
