@@ -86,8 +86,8 @@ The graph below shows the transmission probability / viral load curve for differ
 </div>
 
 This means that you can generalize to other interventions.
-* If ventilation can shift the curve by K logs, then 10X’ing the ventilation intervention should shift the curve by 10*K logs. 
-* If a separate intervention like UVC provides 10X the viral concentration reduction as ventilation, then it should also shift the curve by 10*K logs.
+* If ventilation can shift the curve by K logs, then 10X’ing the ventilation intervention should shift the curve by K+1 logs. 
+* If a separate intervention like UVC provides 10X the viral concentration reduction as ventilation, then it should also shift the curve by K+1 logs.
 
 <div class="wrapper">
   <img src='/assets/2024_ventilation_experiment/fig_3_logs.png' class="inner" style="position:relative border: #222 2px solid; max-width:80%;" >
