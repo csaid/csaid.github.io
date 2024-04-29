@@ -8,7 +8,7 @@ image: /assets/2024_ventilation_experiment/fig_3_logs.png
 <div class="caption">[[Notebook](https://github.com/csaid/ventilation-experiment/blob/main/Respiratory%20infection%20experiment%20model%20fits%20and%20power%20analysis.ipynb)]
 </div>
 
-The most basic question one might have about respiratory infections like Covid is _when are you infectious_? Some researchers believe that people with low viral RNA counts$$^1$$ like $$ 10^3 $$ cp/mL are meaningfully infectious. Others believe that almost all spread occurs during the brief peak of viral count, at around $$ 10^9 $$ cp/mL. The answer will determine whether you typically stop being infectious after 8-9 days or something more like 1-2 days.
+The most basic question one might have about respiratory infections like Covid is _when are you infectious_? Some researchers believe that people with low viral RNA counts like $$ 10^3 $$ cp/mL are meaningfully infectious$$^1$$. Others believe that almost all spread occurs during the brief peak of viral count, at around $$ 10^9 $$ cp/mL. The answer will determine whether you typically stop being infectious after 8-9 days or something more like 1-2 days.
 
 With over [700,000 papers](https://www.bmj.com/content/380/bmj.p689) published papers on Covid, you’d think we’d have a solid answer to such a basic and practically useful question. But the reality is we don’t. Some epidemiological papers have attempted to measure this. But since they can’t measure precisely _when_ people were infected or even by _whom_, their estimates of infectiousness thresholds are biased downwards by an unknown amount. 
 
