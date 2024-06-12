@@ -87,11 +87,11 @@ At long last, we can answer the question, "How long should we run this experimen
 **Figure 4**.
 </div>
 
-Note also that a set of simulated experiment and post-experiment periods (in blue) confirm the predictions of the closed form solution (in gray). See the [notebook](https://github.com/csaid/BlogProjects/blob/master/2020_optimizing_sample_sizes/Optimizing%20sample%20sizes%20in%20AB%20testing.ipynb) for details.
+Note also that a set of simulated experiment and post-experiment periods (in blue) confirm the predictions of the closed form solution (in gray). See the [notebook](https://github.com/csaid/optimizing-sample-sizes-in-AB-testing/blob/master/Optimizing%20sample%20sizes%20in%20AB%20testing.ipynb) for details.
 
 ## Examples in Python
 ### Example 1: Continuous variable metric
-Let's say you want to run an experiment comparing two different versions of a website, and your main metric is revenue per session. You know in advance that the within-group variance of this metric is $$\sigma_X^2 = 100$$. You don't know which version is better but you have a prior that the true difference in means is normally distributed with variance $$\sigma_\Delta^2 = 1$$. You have 200 sessions per day and plan to bucket 100 sessions into Version A and 100 sessions into Version B, running the experiment for $$\tau=20$$ days. Your discount rate is fairly aggressive at 1.0 annually, or $$r = 1/365$$ per day. Using the function in the [notebook](https://github.com/csaid/BlogProjects/blob/master/2020_optimizing_sample_sizes/Optimizing%20sample%20sizes%20in%20AB%20testing.ipynb), you can find $$\hat{L}_a$$ with this command:
+Let's say you want to run an experiment comparing two different versions of a website, and your main metric is revenue per session. You know in advance that the within-group variance of this metric is $$\sigma_X^2 = 100$$. You don't know which version is better but you have a prior that the true difference in means is normally distributed with variance $$\sigma_\Delta^2 = 1$$. You have 200 sessions per day and plan to bucket 100 sessions into Version A and 100 sessions into Version B, running the experiment for $$\tau=20$$ days. Your discount rate is fairly aggressive at 1.0 annually, or $$r = 1/365$$ per day. Using the function in the [notebook](https://github.com/csaid/optimizing-sample-sizes-in-AB-testing/blob/master/Optimizing%20sample%20sizes%20in%20AB%20testing.ipynb), you can find $$\hat{L}_a$$ with this command:
 
 ```python
 get_agg_lift_via_closed_form(var_D=1, var_X=100, m=100, tau=25, r=1/365, M=200)

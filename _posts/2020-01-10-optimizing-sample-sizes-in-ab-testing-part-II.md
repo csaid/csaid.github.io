@@ -95,7 +95,7 @@ There's three things to notice about this formula.
 * As the within-group variance $$\sigma_X^2$$ increases, $$\hat{L}$$ decreases. That's because a high within-group variance makes experiments less informative -- they're more likely to give you the wrong answer.
 * As the variance prior on $$\Delta$$ increases, $$\hat{L}$$ increases. This also make sense. The more impactful (positive or negative) you think the product change might be, the more value you will get from experimentation.
 
-You can try this out using the `get_lift_via_closed_form` formula in the [Notebook](https://github.com/csaid/BlogProjects/blob/master/2020_optimizing_sample_sizes/Optimizing%20sample%20sizes%20in%20AB%20testing.ipynb).
+You can try this out using the `get_lift_via_closed_form` formula in the [Notebook](https://github.com/csaid/optimizing-sample-sizes-in-AB-testing/blob/master/Optimizing%20sample%20sizes%20in%20AB%20testing.ipynb).
 
 ## Demonstration via simulation
 In the previous section, we derived a formula for $$\hat{L}$$. Should you trust a formula you found on a random internet blog? Yes! Let's put the formula to the test, by comparing its predictions to actual simulations.
@@ -113,7 +113,7 @@ Loop through thousands of simulated experiments. On each each experiment doing t
 * If $$\delta <= 0$$, stick with A and accrue zero lift.
 * If $$\delta > 0$$, ship B and accrue the per-user lift of $$\Delta$$, which will probably, but not necessarily, be positive.
 
-We run these experiments thousands of times, each time computing the per-user lift. Finally, we average all the per-user lifts together to get $$\hat{L}$$. See the get_lift_via_simulations_continuous function in the [notebook](https://github.com/csaid/BlogProjects/blob/master/2020_optimizing_sample_sizes/Optimizing%20sample%20sizes%20in%20AB%20testing.ipynb) for an implementation.
+We run these experiments thousands of times, each time computing the per-user lift. Finally, we average all the per-user lifts together to get $$\hat{L}$$. See the get_lift_via_simulations_continuous function in the [notebook](https://github.com/csaid/optimizing-sample-sizes-in-AB-testing/blob/master/Optimizing%20sample%20sizes%20in%20AB%20testing.ipynb) for an implementation.
 </div>
 
 
