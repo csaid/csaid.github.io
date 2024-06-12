@@ -16,7 +16,7 @@ Defenders of the FDA say that critics aren’t thinking about the long term. If 
 
 ---
 
-I understand the point about long term credibility, but it feels hand-wavy and non-quantitative. So I decided to do some [back-of-the-envelope math](https://github.com/csaid/fda_and_vaccines/blob/main/FDA%20and%20Vaccines.ipynb) to see how much it matters.
+I understand the point about long term credibility, but it feels hand-wavy and non-quantitative. So I decided to do some [back-of-the-envelope math](https://github.com/csaid/BlogProjects/blob/master/2021_fda_and_vaccines/FDA%20and%20Vaccines.ipynb) to see how much it matters.
 
 As a simplifying assumption, let’s suppose we’ll need a new Covid vaccine every year for the next 10 years, similar to the flu shot. Let’s generously assume that the FDA fully approves each vaccine from 2022 onwards in a timely manner. The only decision it faces is whether to do “fast” approval or “slow” approval for the 2021 vaccine, where fast approval means that the vaccine would be fully approved 1 year earlier than under slow approval. The figure below shows these two policies.
 
@@ -83,7 +83,7 @@ Now let’s add up these outcomes weighted by their probability:
 
 Based on this back-of-the-envelope analysis, FDA could gain 38 million vaccinated person-years if they had fully approved the 2021 vaccine, even when accounting for long term risks. Assuming that [0.2% of unvaccinated people will die each year](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7721859/) because they are not vaccinated, this decision would save 80,000 lives in expectation. **To put it more starkly, an FDA decision to not fully approve in 2021 will cost 80,000 lives.** I have no doubt that the FDA is well-intentioned, but I really think they should reconsider their extreme cautiousness on this issue.
 
-Under the model outlined above, the decision to delay full approval would only make sense if you thought the probability-weighted long-term risks were [5 times higher](https://github.com/csaid/fda_and_vaccines/blob/main/FDA%20and%20Vaccines.ipynb) than I think are reasonable.
+Under the model outlined above, the decision to delay full approval would only make sense if you thought the probability-weighted long-term risks were [5 times higher](https://github.com/csaid/BlogProjects/blob/master/2021_fda_and_vaccines/FDA%20and%20Vaccines.ipynb) than I think are reasonable.
 
 ### But what about…
 Readers should absolutely question my assumptions. This post is a simplified back-of-the-envelope exercise because I believe all of the discussion so far has only been qualitative. If you think any of my assumptions are substantively wrong (and I’m sure some are!), it’s best to propose a _quantitative_ alternative. And be sure to explicitly consider the difference between a 2021 EUA and full approval. For example, perhaps you might think that hesitancy could persist for decades in a catastrophic safety scenario. Maybe so. But if that happens, will anybody decades from now care whether the 2021 vaccine had an EUA versus full approval? I don’t think so.
@@ -93,5 +93,5 @@ Finally, note that two of my most important assumptions were generous to the FDA
 Second, I assumed that all of the damage from slow approval would be confined to 2021 and that by 2022 the FDA would adopt fast approval. If that is not the case, and the FDA continues to take well over a year to approve each vaccine, the damage could be much greater.
 
 <div class="caption">
-Special thanks to Fábio Rocha and Abhinav Nellore for comments on a draft. My code is available [here](https://github.com/csaid/fda_and_vaccines/blob/main/FDA%20and%20Vaccines.ipynb).
+Special thanks to Fábio Rocha and Abhinav Nellore for comments on a draft. My code is available [here](https://github.com/csaid/BlogProjects/blob/master/2021_fda_and_vaccines/FDA%20and%20Vaccines.ipynb).
 </div>

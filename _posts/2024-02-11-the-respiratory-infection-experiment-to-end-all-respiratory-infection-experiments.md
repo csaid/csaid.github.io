@@ -5,7 +5,7 @@ description: Establish once and for all when someone stops being infectious, and
 image: /assets/2024_ventilation_experiment/fig_3_logs.png
 ---
 
-<div class="caption">[[Notebook](https://github.com/csaid/ventilation-experiment/blob/main/Respiratory%20infection%20experiment%20model%20fits%20and%20power%20analysis.ipynb)]
+<div class="caption">[[Notebook](https://github.com/csaid/BlogProjects/blob/master/2024_ventilation_experiment/Respiratory%20infection%20experiment%20model%20fits%20and%20power%20analysis.ipynb)]
 </div>
 
 The most basic question one might have about respiratory infections like Covid is _when are you infectious_? Some researchers believe that people with low viral RNA counts like $$ 10^3 $$ cp/mL are meaningfully infectious$$^1$$. Others believe that almost all spread occurs during the brief peak of viral count, at around $$ 10^9 $$ cp/mL. The answer will determine whether you typically stop being infectious after 8-9 days or something more like 1-2 days.
@@ -18,7 +18,7 @@ To really nail an answer to these questions, we don’t need another hundred tho
 
 Concerned about ethics? Just use the common cold! If you model things right, you can generalize much of the findings to other viruses.
 
-I’ve simulated this type of experiment pretty extensively ([see code](https://github.com/csaid/ventilation-experiment/blob/main/Respiratory%20infection%20experiment%20model%20fits%20and%20power%20analysis.ipynb)). This blog post proposes how to optimally design and analyze it.
+I’ve simulated this type of experiment pretty extensively ([see code](https://github.com/csaid/BlogProjects/blob/master/2024_ventilation_experiment/Respiratory%20infection%20experiment%20model%20fits%20and%20power%20analysis.ipynb)). This blog post proposes how to optimally design and analyze it.
 
 ### How to design the experiment
 Suppose you want to compare transmission rates under high ventilation versus low ventilation conditions. [Modeling](https://royalsocietypublishing.org/doi/10.1098/rsfs.2021.0076#RSFS20210076F3) shows that donor viral count will dominate the effect of other variables, which makes it hard to detect ventilation effects without very large sample sizes. It’s therefore critical that the experiment controls this variation. Each donor should have a chance to infect participants in each condition. To further reduce variance, any variable you don’t want to measure (e.g. distance, duration, talking vs silence) should be held constant in all interactions. A schematic design is below. 
@@ -59,7 +59,7 @@ While the model above should work well if every recipient is equally susceptible
   </div>
 </div>
 
-To model this, I introduced a susceptibility variance term $$ S_j $$ to simulate the unknown variance in susceptibilities across participants, and fit it with hierarchical Bayesian methods ([see code](https://github.com/csaid/ventilation-experiment/blob/main/Respiratory%20infection%20experiment%20model%20fits%20and%20power%20analysis.ipynb)).
+To model this, I introduced a susceptibility variance term $$ S_j $$ to simulate the unknown variance in susceptibilities across participants, and fit it with hierarchical Bayesian methods ([see code](https://github.com/csaid/BlogProjects/blob/master/2024_ventilation_experiment/Respiratory%20infection%20experiment%20model%20fits%20and%20power%20analysis.ipynb)).
 
 ### How many participants are needed?
 If you don’t measure viral count or use each donor in each condition, you will need hundreds of donors and thousands of participants, which is infeasible, even for a 4x reduction in inhaled virus. But if each donor participates in all conditions and if you measure viral count, you can achieve 80% power with about 40 donors and 5 recipients per <donor, condition>. Getting donors is much more important than getting recipients, as there are diminishing returns for adding more participants after about 7-8 recipients per <donor, condition>.
@@ -98,7 +98,7 @@ This means that you can generalize to other interventions.
 
 So once we have completed this experiment, we don’t need to repeat it for other types of interventions on human recipients. We just need to measure the reduction in virus concentration in the air during whatever intervention we want to test, which will be proportional to the reduction in $$ \beta $$.
 
-To a lesser extent, we can even generalize to other viruses, which is nice since it allows you to run this experiment on the common cold. Because $$ \lambda $$ is proportional to a virus-specific baseline susceptibility constant and air quality constants, you’ll know that if an air quality intervention shifts the curve for the common cold by K log units, then it should also shift the curve for the other virus by K log units. This is true even if the other virus has a flatter curve due to higher variance in baseline susceptibility (see [code](https://github.com/csaid/ventilation-experiment/blob/main/Respiratory%20infection%20experiment%20model%20fits%20and%20power%20analysis.ipynb)). The only limitation is that if you want to quantify the aggregate reduction in infections, you’ll still need to measure the dose-response curve for the other virus once and then integrate over the distribution of viral counts. 
+To a lesser extent, we can even generalize to other viruses, which is nice since it allows you to run this experiment on the common cold. Because $$ \lambda $$ is proportional to a virus-specific baseline susceptibility constant and air quality constants, you’ll know that if an air quality intervention shifts the curve for the common cold by K log units, then it should also shift the curve for the other virus by K log units. This is true even if the other virus has a flatter curve due to higher variance in baseline susceptibility (see [code](https://github.com/csaid/BlogProjects/blob/master/2024_ventilation_experiment/Respiratory%20infection%20experiment%20model%20fits%20and%20power%20analysis.ipynb)). The only limitation is that if you want to quantify the aggregate reduction in infections, you’ll still need to measure the dose-response curve for the other virus once and then integrate over the distribution of viral counts. 
 
 ### Summary
 If anyone has $10 million lying around and is able to run this experiment and model it correctly, you will:
