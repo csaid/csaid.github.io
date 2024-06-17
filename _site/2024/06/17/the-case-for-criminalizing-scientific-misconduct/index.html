@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<!--
+It's bad to import d3 in every post separately (https://groups.google.com/forum/#!topic/d3-js/bwdNirt2uEU).
+Importing it globally here.
+Putting this up at the top, according to this controversial stack overflow answer
+http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
+ -->
+<script src="https://d3js.org/d3.v5.min.js"></script>
+
+<link rel="stylesheet" href="/public/font-awesome-4.4.0/css/font-awesome.min.css">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  
+    <meta name="description" content="For a crime that could cost millions of lives, universities have failed to police themselves">
+  
+
+  <!-- To get a link preview image, just set the image attribute in your _post -->
+  
+    <meta content="http://localhost:4000/assets/2024_scientific_misconduct/fig_table_800_418.png" property="og:image"/>
+  
+
+  <!-- twitter standard -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@chris_said" />
+  <meta name="twitter:title" content="The case for criminalizing scientific misconduct" />
+  <meta name="twitter:description" content="For a crime that could cost millions of lives, universities have failed to police themselves" />
+
+
+  <title>
+    
+      The case for criminalizing scientific misconduct &middot; Chris Said
+    
+  </title>
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-67746868-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/hyde.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/logo144.png">
+                                 <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+<!--   <body class="theme-base-cps">
+ -->
+  <body>
+
+    <div class="sidebar">
+  <div class="container">
+    <div class="sidebar-about">
+      <h1>
+        <a href="/">
+          Chris Said
+        </a>
+      </h1>
+      <p class="lead">I am a data scientist at Propel. This blog is mostly about statistics, technology, and science.</p>
+
+    </div>
+
+    <!-- <nav class="sidebar-nav">
+
+      
+        <a class="sidebar-nav-item" href="/">Home</a>
+      
+        <a class="sidebar-nav-item" href="/atom.xml">Feed</a>
+      
+
+    </nav> -->
+
+
+    <div class="wrapper hide-on-mobile ">
+      <img src='/assets/chris-said-2022-small.jpg'>
+    </div>
+
+    <div class="wrapper">
+      <div class="inner">
+        <a href="http://www.twitter.com/Chris_Said" class="contact-button"><i class="fa fa-twitter fa-2x"></i></a>
+        <a href="https://www.linkedin.com/pub/chris-said/6b/86b/979" class="contact-button"><i
+            class="fa fa-linkedin-square fa-2x"></i></a>
+        <a href="mailto:chris.said@gmail.com" class="contact-button"><i class="fa fa-envelope fa-2x"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="content container">
+      <div class="post">
+  <h1 class="post-title">The case for criminalizing scientific misconduct</h1>
+  <span class="post-date">17 Jun 2024</span>
+  <p>[<a href="https://github.com/csaid/BlogProjects/blob/master/2024_research_misconduct/Impact%20of%20Scientific%20Misconduct.ipynb">Notebook</a>]</p>
+
+<p>In 2006, Sylvain Lesné published an influential <em>Nature</em> paper showing how amyloid oligomers could cause Alzheimer’s disease. With over 2,300 citations, the study was the <a href="https://www.science.org/content/article/potential-fabrication-research-images-threatens-key-theory-alzheimers-disease">4th most cited paper</a> in Alzheimer’s basic research since 2006, helping spur up to <a href="https://www.science.org/content/article/potential-fabrication-research-images-threatens-key-theory-alzheimers-disease">$287 million</a> of research into the oligomer hypothesis, according to the NIH.</p>
+
+<p>Sixteen years later, <em>Science</em> reported that key images of the paper were <a href="https://www.science.org/content/article/potential-fabrication-research-images-threatens-key-theory-alzheimers-disease">faked</a>, almost certainly by Lesné himself, and all co-authors except him have agreed to <a href="https://www.science.org/content/article/researchers-plan-retract-landmark-alzheimers-paper-containing-doctored-images">retract</a> the paper. The oligomer hypothesis has failed every clinical trial.</p>
+
+<p>Lesné’s alleged misconduct misled a field for over a decade. We don’t know how much it has delayed an eventual treatment for Alzheimer’s, and it was <a href="https://www.science.org/content/blog-post/faked-beta-amyloid-data-what-does-it-mean">not the only</a> paper supporting the oligomer hypothesis. But if it delayed a successful treatment by just 1 year, I estimate that it would have caused the loss of <a href="https://github.com/csaid/BlogProjects/blob/master/2024_research_misconduct/Impact%20of%20Scientific%20Misconduct.ipynb"><strong>36 million QALYs</strong></a> (Quality Adjusted Life Years), which is more than the QALYs lost by Americans in World War II. (See <a href="https://github.com/csaid/BlogProjects/blob/master/2024_research_misconduct/Impact%20of%20Scientific%20Misconduct.ipynb">my notebook</a> for an explanation.)</p>
+
+<p>Lesné is not alone. This year we learned of <a href="https://www.vox.com/future-perfect/24086809/fake-cancer-research-data-scientific-fraud">rampant image manipulation</a> at Harvard’s Dana-Farber Cancer Institute, including in multiple papers published by the institute’s CEO and COO. So far 6 papers have been <a href="https://www.statnews.com/2024/01/22/dana-farber-research-retractions-corrections/">retracted</a> and 31 corrected. The 6 retracted papers alone have 1,400 citations and have surely polluted the field and slowed down progress. If they delayed a successful cancer drug by just 1 year, I estimate they would have caused the loss of <a href="https://github.com/csaid/BlogProjects/blob/master/2024_research_misconduct/Impact%20of%20Scientific%20Misconduct.ipynb"><strong>15 million QALYs</strong></a>, or twice the number of QALYs lost by Americans in World War I.</p>
+
+<p>More examples are below.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Alleged research misconduct</th>
+      <th style="text-align: left">Citations</th>
+      <th style="text-align: left">Hypothetical delay in an effective treatment caused by misconduct</th>
+      <th style="text-align: left">Potential QALYs lost</th>
+      <th style="text-align: left">Outcome</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><a href="https://www.science.org/content/article/potential-fabrication-research-images-threatens-key-theory-alzheimers-disease">Sylvain Lesné (Alzheimer’s)</a></td>
+      <td style="text-align: left">2,300<sup>1</sup></td>
+      <td style="text-align: left">1 year</td>
+      <td style="text-align: left">36 Million</td>
+      <td style="text-align: left">Lesné still at UMN</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="https://www.science.org/content/article/misconduct-concerns-possible-drug-risks-should-stop-stroke-trial-whistleblowers-say">Berislav Zlokovic (Alzheimer’s)</a></td>
+      <td style="text-align: left">11,500<sup>2</sup></td>
+      <td style="text-align: left">0.5 years</td>
+      <td style="text-align: left">18 Million</td>
+      <td style="text-align: left">Ongoing investigation</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="https://www.vox.com/future-perfect/24086809/fake-cancer-research-data-scientific-fraud">Harvard’s Dana-Farber Cancer Institute (Cancer)</a></td>
+      <td style="text-align: left">1,400<sup>3</sup></td>
+      <td style="text-align: left">1 year</td>
+      <td style="text-align: left">15 Million</td>
+      <td style="text-align: left">Ongoing investigation</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="https://www.nytimes.com/2017/03/08/science/cancer-carlo-croce.html">Carlo Croce (Cancer)</a></td>
+      <td style="text-align: left">3,374<sup>4</sup></td>
+      <td style="text-align: left">0.5 years</td>
+      <td style="text-align: left">8 Million</td>
+      <td style="text-align: left">Croce still at OSU</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="caption">
+  <p><strong>Table 1.</strong> Examples of alleged research misconduct and the hypothetical delay they may have caused to the development of effective treatments. Citation counts are outlined in <a href="https://docs.google.com/spreadsheets/d/1t73_ltI_9dU9mJpbB3JUwuy3Z_ys9FHzJZia73uOoyo/edit?gid=924241386#gid=924241386">this spreadsheet</a> and QALY calculations based on <a href="https://github.com/csaid/BlogProjects/blob/master/2024_research_misconduct/Impact%20of%20Scientific%20Misconduct.ipynb">this notebook</a>. Disclaimer: Views expressed are my own.
+<br /><sup>1</sup>Citations of the <a href="https://www.nature.com/articles/nature04533">Nature paper</a>, not including the <a href="https://www.science.org/content/article/potential-fabrication-research-images-threatens-key-theory-alzheimers-disease">19 other papers</a> suspected to contain doctored images.
+<br /><sup>2</sup>Citations of <a href="https://www.science.org/content/article/misconduct-concerns-possible-drug-risks-should-stop-stroke-trial-whistleblowers-say">35 papers</a> where whistleblowers have raised concerns.
+<br /><sup>3</sup>Citations of the 4 papers publicly listed as retracted so far.
+<br /><sup>4</sup>Citations of <a href="http://retractiondatabase.org/RetractionSearch.aspx#?auth%3dCroce%252c%2bCarlo%2bM">15 retracted papers</a>.</p>
+</div>
+
+<h2 id="what-happens-to-researchers-accused-of-misconduct">What happens to researchers accused of misconduct?</h2>
+<p>To put it bluntly, scientists who commit research misconduct extract money from a trusting public so that they may enrich themselves and gain prestige. Along the way they knowingly pollute future research, undermine the credibility of science, and may cause the deaths of millions of people.</p>
+
+<p>And yet, researchers who commit misconduct <a href="https://www.nytimes.com/2014/07/11/opinion/crack-down-on-scientific-fraudsters.html">rarely face any consequences</a>. The vast majority are <a href="https://www.theguardian.com/commentisfree/2023/aug/09/scientific-misconduct-retraction-watch">never caught</a>. Sylvain Lesné, the lead author on the Alzheimer’s paper, <a href="https://www.science.org/content/article/researchers-plan-retract-landmark-alzheimers-paper-containing-doctored-images">remains a professor</a> at the University of Minnesota and still receives NIH funding. Despite <a href="https://www.science.org/content/article/potential-fabrication-research-images-threatens-key-theory-alzheimers-disease">clear evidence of image manipulation</a> and <a href="https://www.science.org/content/article/researchers-plan-retract-landmark-alzheimers-paper-containing-doctored-images">all co-authors agreeing to a retraction</a>, the university “has closed this review with no findings of research misconduct pertaining to these figures.”</p>
+
+<p>It is common for university investigations to let these researchers off the hook. Universities have a “<a href="https://www.nytimes.com/2017/03/08/science/cancer-carlo-croce.html">tremendous conflict of interest</a>”, says Dr. Richard Smith, a former editor of The British Medical Journal. Scientists who conduct research misconduct tend to bring in <a href="https://journals.sagepub.com/doi/abs/10.1111/j.1748-720X.2005.tb00498.x">millions of dollars of grant money</a>.</p>
+
+<p>Academic journals have little incentive to correct the record either. While some of the most egregious cases of misconduct eventually result in retractions, the vast majority of cases result in no action. The prominent science investigator Elizabeth Bik has sent over 700 papers with clear image manipulation to academic journals. <a href="https://www.nytimes.com/2017/03/08/science/cancer-carlo-croce.html">600 of these have resulted in no action, not even a correction</a>.</p>
+
+<h2 id="what-can-be-done">What can be done?</h2>
+<p>Since universities and journals have failed to regulate themselves, we should strengthen our external layers of oversight. Below are two complementary ideas.</p>
+
+<h3 id="danish-style-independent-committees">Danish-style independent committees</h3>
+<p>As with many things in life, we could start by copying the Danish. In 2017, Denmark passed a law establishing a non-criminal <a href="https://ufm.dk/en/research-and-innovation/councils-and-commissions/The-Danish-Board-on-Research-Misconduct"><em>independent</em> expert committee</a> to investigate scientific misconduct, a stronger alternative to in-house investigations. If the committee determines misconduct occurred, it may take <a href="https://dg.dk/en/research-integrity/">actions</a> like notifying the university, publisher, and funding agency, and sometimes even the police. Due to its independence, expertise, and narrowly defined scope, committee decisions are considered more credible than decisions from universities. The U.S. Congress could accomplish this by <a href="https://www.nytimes.com/2014/07/11/opinion/crack-down-on-scientific-fraudsters.html">giving more teeth to the existing Office of Research Integrity</a>, a federal committee that currently lets universities <a href="https://www.science.org/doi/10.1126/science.adn9352">drive</a> the investigations.</p>
+
+<h3 id="a-federal-criminal-statute-on-scientific-misconduct">A federal criminal statute on scientific misconduct</h3>
+<p>While a Danish system would be an improvement over our current system, I think we should go even further. For sufficient deterrence, we need stricter criminal enforcement.</p>
+
+<p>The laws available to prosecute scientific misconduct are mail fraud, wire fraud, and false statements to the federal government. Yet, these are <a href="https://en.wikipedia.org/wiki/List_of_scientific_misconduct_incidents">barely ever used</a> and are typically limited to grant applications. Susan Kuzma, a lawyer for the Department of Justice, argues that the existing laws are too generic and often require complex scientific knowledge from judges and juries. Instead she proposes a <a href="https://repository.law.umich.edu/cgi/viewcontent.cgi?article=1738&amp;context=mjlr">new criminal statute directed explicitly at scientific misconduct</a>. This would offer several advantages.</p>
+
+<ul>
+  <li>It would have clear definitions of scientific misconduct, which would include falsification in scientific papers, not just in grant applications. Courts would work with the expert committee described above to follow these standards.</li>
+  <li>It would close the “I didn’t keep records” loophole that has allowed fraudulent scientists to escape prosecution under other statutes.</li>
+  <li>Unlike with the false statements statute, which only considers harms to the government, courts could consider the additional harm caused to others by “reliance on the falsified research”.</li>
+</ul>
+
+<p><img src="/assets/2024_scientific_misconduct/fig1.png" /></p>
+
+<h2 id="response-to-objections">Response to objections</h2>
+<p>Some researchers say that the prospect of jail time will not deter scientific fraudsters (<a href="https://journals.sagepub.com/doi/pdf/10.1177/1745691612460687">1</a>, <a href="https://ecommons.aku.edu/cgi/viewcontent.cgi?article=1192&amp;context=pakistan_fhs_mc_women_childhealth_paediatr">2</a>). But why would scientific fraudsters behave any differently than other fraudsters?</p>
+
+<p>Others worry that criminal courts could extend prosecution to more moderate forms of misconduct, such as selective reporting of data. But Denmark shows how the law can be <a href="https://ufm.dk/en/research-and-innovation/councils-and-commissions/The-Danish-Board-on-Research-Misconduct">scoped</a> to fabrication and falsification, explicitly leaving the more moderate “questionable research practices” to the universities.</p>
+
+<p>Finally, some worry that some scientists might be falsely accused of fraud. But this risk exists for any crime. Why should science get an exception? Committees or courts dealing with scientific misconduct should have due process. As the case of <a href="https://en.wikipedia.org/wiki/Thereza_Imanishi-Kari">Thereza Imanishi-Kari</a> shows, we should not identically clone earlier government committees that lacked these safeguards, such as the right of appeal.</p>
+
+<p>Scientists who commit research misconduct betray the public trust for their own selfish gain, and along the way may remove tens of millions of QALYs, far worse than other crimes that receive more serious sentences. Those who commit these acts should face steep criminal sentences.</p>
+
+  <div>
+    <a class="twitter-share-button"
+      href="https://twitter.com/share"
+      data-url=""
+      data-via="Chris_Said"
+      data-size="large"
+      data-count="none">
+    Tweet
+    </a>
+</div>
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'csaid81';
+    var disqus_identifier = 'http://localhost:4000/2024/06/17/the-case-for-criminalizing-scientific-misconduct/';
+    var disqus_url = 'http://localhost:4000/2024/06/17/the-case-for-criminalizing-scientific-misconduct/';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+</div>
+
+
+    </div>
+
+  </body>
+</html>
+
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+
+<script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));</script>
