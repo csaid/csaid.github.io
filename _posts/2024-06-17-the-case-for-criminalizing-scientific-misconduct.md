@@ -43,7 +43,7 @@ And yet, researchers who commit misconduct [rarely face any consequences](https:
 
 It is common for university investigations to let these researchers off the hook. Universities have a “[tremendous conflict of interest](https://www.nytimes.com/2017/03/08/science/cancer-carlo-croce.html)”, says Dr. Richard Smith, a former editor of The British Medical Journal. Scientists who conduct research misconduct tend to bring in [millions of dollars of grant money](https://journals.sagepub.com/doi/abs/10.1111/j.1748-720X.2005.tb00498.x). 
 
-Academic journals have little incentive to correct the record either. While some of the most egregious cases of misconduct eventually result in retractions, the vast majority of cases result in no action. The prominent science investigator Elizabeth Bik has sent over 700 papers with clear image manipulation to academic journals. [600 of these have resulted in no action, not even a correction](https://www.nytimes.com/2017/03/08/science/cancer-carlo-croce.html). 
+Academic journals have little incentive to correct the record either. While some of the most egregious cases of misconduct eventually result in retractions, the vast majority of cases result in no action. The prominent science investigator Elisabeth Bik has sent over 700 papers with clear image manipulation to academic journals. [600 of these have resulted in no action, not even a correction](https://www.nytimes.com/2017/03/08/science/cancer-carlo-croce.html). 
 
 ## What can be done?
 Since universities and journals have failed to regulate themselves, we should strengthen our external layers of oversight. Below are two complementary ideas.
