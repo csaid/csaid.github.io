@@ -4,7 +4,7 @@
  <title>Chris Said</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2024-02-12T17:14:32-05:00</updated>
+ <updated>2024-06-17T08:10:11-04:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -13,15 +13,121 @@
 
  
  <entry>
+   <title>The case for criminalizing scientific misconduct</title>
+   <link href="http://localhost:4000/2024/06/17/the-case-for-criminalizing-scientific-misconduct/"/>
+   <updated>2024-06-17T00:00:00-04:00</updated>
+   <id>http://localhost:4000/2024/06/17/the-case-for-criminalizing-scientific-misconduct</id>
+   <content type="html">&lt;p&gt;[&lt;a href=&quot;https://github.com/csaid/BlogProjects/blob/master/2024_research_misconduct/Impact%20of%20Scientific%20Misconduct.ipynb&quot;&gt;Notebook&lt;/a&gt;]&lt;/p&gt;
+
+&lt;p&gt;In 2006, Sylvain Lesné published an influential &lt;em&gt;Nature&lt;/em&gt; paper showing how amyloid oligomers could cause Alzheimer’s disease. With over 2,300 citations, the study was the &lt;a href=&quot;https://www.science.org/content/article/potential-fabrication-research-images-threatens-key-theory-alzheimers-disease&quot;&gt;4th most cited paper&lt;/a&gt; in Alzheimer’s basic research since 2006, helping spur up to &lt;a href=&quot;https://www.science.org/content/article/potential-fabrication-research-images-threatens-key-theory-alzheimers-disease&quot;&gt;$287 million&lt;/a&gt; of research into the oligomer hypothesis, according to the NIH.&lt;/p&gt;
+
+&lt;p&gt;Sixteen years later, &lt;em&gt;Science&lt;/em&gt; reported that key images of the paper were &lt;a href=&quot;https://www.science.org/content/article/potential-fabrication-research-images-threatens-key-theory-alzheimers-disease&quot;&gt;faked&lt;/a&gt;, almost certainly by Lesné himself, and all co-authors except him have agreed to &lt;a href=&quot;https://www.science.org/content/article/researchers-plan-retract-landmark-alzheimers-paper-containing-doctored-images&quot;&gt;retract&lt;/a&gt; the paper. The oligomer hypothesis has failed every clinical trial.&lt;/p&gt;
+
+&lt;p&gt;Lesné’s alleged misconduct misled a field for over a decade. We don’t know how much it has delayed an eventual treatment for Alzheimer’s, and it was &lt;a href=&quot;https://www.science.org/content/blog-post/faked-beta-amyloid-data-what-does-it-mean&quot;&gt;not the only&lt;/a&gt; paper supporting the oligomer hypothesis. But if it delayed a successful treatment by just 1 year, I estimate that it would have caused the loss of &lt;a href=&quot;https://github.com/csaid/BlogProjects/blob/master/2024_research_misconduct/Impact%20of%20Scientific%20Misconduct.ipynb&quot;&gt;&lt;strong&gt;36 million QALYs&lt;/strong&gt;&lt;/a&gt; (Quality Adjusted Life Years), which is more than the QALYs lost by Americans in World War II. (See &lt;a href=&quot;https://github.com/csaid/BlogProjects/blob/master/2024_research_misconduct/Impact%20of%20Scientific%20Misconduct.ipynb&quot;&gt;my notebook&lt;/a&gt; for an explanation.)&lt;/p&gt;
+
+&lt;p&gt;Lesné is not alone. This year we learned of &lt;a href=&quot;https://www.vox.com/future-perfect/24086809/fake-cancer-research-data-scientific-fraud&quot;&gt;rampant image manipulation&lt;/a&gt; at Harvard’s Dana-Farber Cancer Institute, including in multiple papers published by the institute’s CEO and COO. So far 6 papers have been &lt;a href=&quot;https://www.statnews.com/2024/01/22/dana-farber-research-retractions-corrections/&quot;&gt;retracted&lt;/a&gt; and 31 corrected. The 6 retracted papers alone have 1,400 citations and have surely polluted the field and slowed down progress. If they delayed a successful cancer drug by just 1 year, I estimate they would have caused the loss of &lt;a href=&quot;https://github.com/csaid/BlogProjects/blob/master/2024_research_misconduct/Impact%20of%20Scientific%20Misconduct.ipynb&quot;&gt;&lt;strong&gt;15 million QALYs&lt;/strong&gt;&lt;/a&gt;, or twice the number of QALYs lost by Americans in World War I.&lt;/p&gt;
+
+&lt;p&gt;More examples are below.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Alleged research misconduct&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Citations&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Hypothetical delay in an effective treatment caused by misconduct&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Potential QALYs lost&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Outcome&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;a href=&quot;https://www.science.org/content/article/potential-fabrication-research-images-threatens-key-theory-alzheimers-disease&quot;&gt;Sylvain Lesné (Alzheimer’s)&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;2,300&lt;sup&gt;1&lt;/sup&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;1 year&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;36 Million&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Lesné still at UMN&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;a href=&quot;https://www.science.org/content/article/misconduct-concerns-possible-drug-risks-should-stop-stroke-trial-whistleblowers-say&quot;&gt;Berislav Zlokovic (Alzheimer’s)&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;11,500&lt;sup&gt;2&lt;/sup&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;0.5 years&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;18 Million&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Ongoing investigation&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;a href=&quot;https://www.vox.com/future-perfect/24086809/fake-cancer-research-data-scientific-fraud&quot;&gt;Harvard’s Dana-Farber Cancer Institute (Cancer)&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;1,400&lt;sup&gt;3&lt;/sup&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;1 year&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;15 Million&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Ongoing investigation&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;a href=&quot;https://www.nytimes.com/2017/03/08/science/cancer-carlo-croce.html&quot;&gt;Carlo Croce (Cancer)&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;3,374&lt;sup&gt;4&lt;/sup&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;0.5 years&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;8 Million&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Croce still at OSU&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;div class=&quot;caption&quot;&gt;
+  &lt;p&gt;&lt;strong&gt;Table 1.&lt;/strong&gt; Examples of alleged research misconduct and the hypothetical delay they may have caused to the development of effective treatments. Citation counts are outlined in &lt;a href=&quot;https://docs.google.com/spreadsheets/d/1t73_ltI_9dU9mJpbB3JUwuy3Z_ys9FHzJZia73uOoyo/edit?gid=924241386#gid=924241386&quot;&gt;this spreadsheet&lt;/a&gt; and QALY calculations based on &lt;a href=&quot;https://github.com/csaid/BlogProjects/blob/master/2024_research_misconduct/Impact%20of%20Scientific%20Misconduct.ipynb&quot;&gt;this notebook&lt;/a&gt;. Disclaimer: Views expressed are my own.
+&lt;br /&gt;&lt;sup&gt;1&lt;/sup&gt;Citations of the &lt;a href=&quot;https://www.nature.com/articles/nature04533&quot;&gt;Nature paper&lt;/a&gt;, not including the &lt;a href=&quot;https://www.science.org/content/article/potential-fabrication-research-images-threatens-key-theory-alzheimers-disease&quot;&gt;19 other papers&lt;/a&gt; suspected to contain doctored images.
+&lt;br /&gt;&lt;sup&gt;2&lt;/sup&gt;Citations of &lt;a href=&quot;https://www.science.org/content/article/misconduct-concerns-possible-drug-risks-should-stop-stroke-trial-whistleblowers-say&quot;&gt;35 papers&lt;/a&gt; where whistleblowers have raised concerns.
+&lt;br /&gt;&lt;sup&gt;3&lt;/sup&gt;Citations of the 4 papers publicly listed as retracted so far.
+&lt;br /&gt;&lt;sup&gt;4&lt;/sup&gt;Citations of &lt;a href=&quot;http://retractiondatabase.org/RetractionSearch.aspx#?auth%3dCroce%252c%2bCarlo%2bM&quot;&gt;15 retracted papers&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;what-happens-to-researchers-accused-of-misconduct&quot;&gt;What happens to researchers accused of misconduct?&lt;/h2&gt;
+&lt;p&gt;To put it bluntly, scientists who commit research misconduct extract money from a trusting public so that they may enrich themselves and gain prestige. Along the way they knowingly pollute future research, undermine the credibility of science, and may cause the deaths of millions of people.&lt;/p&gt;
+
+&lt;p&gt;And yet, researchers who commit misconduct &lt;a href=&quot;https://www.nytimes.com/2014/07/11/opinion/crack-down-on-scientific-fraudsters.html&quot;&gt;rarely face any consequences&lt;/a&gt;. The vast majority are &lt;a href=&quot;https://www.theguardian.com/commentisfree/2023/aug/09/scientific-misconduct-retraction-watch&quot;&gt;never caught&lt;/a&gt;. Sylvain Lesné, the lead author on the Alzheimer’s paper, &lt;a href=&quot;https://www.science.org/content/article/researchers-plan-retract-landmark-alzheimers-paper-containing-doctored-images&quot;&gt;remains a professor&lt;/a&gt; at the University of Minnesota and still receives NIH funding. Despite &lt;a href=&quot;https://www.science.org/content/article/potential-fabrication-research-images-threatens-key-theory-alzheimers-disease&quot;&gt;clear evidence of image manipulation&lt;/a&gt; and &lt;a href=&quot;https://www.science.org/content/article/researchers-plan-retract-landmark-alzheimers-paper-containing-doctored-images&quot;&gt;all co-authors agreeing to a retraction&lt;/a&gt;, the university “has closed this review with no findings of research misconduct pertaining to these figures.”&lt;/p&gt;
+
+&lt;p&gt;It is common for university investigations to let these researchers off the hook. Universities have a “&lt;a href=&quot;https://www.nytimes.com/2017/03/08/science/cancer-carlo-croce.html&quot;&gt;tremendous conflict of interest&lt;/a&gt;”, says Dr. Richard Smith, a former editor of The British Medical Journal. Scientists who conduct research misconduct tend to bring in &lt;a href=&quot;https://journals.sagepub.com/doi/abs/10.1111/j.1748-720X.2005.tb00498.x&quot;&gt;millions of dollars of grant money&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Academic journals have little incentive to correct the record either. While some of the most egregious cases of misconduct eventually result in retractions, the vast majority of cases result in no action. The prominent science investigator Elizabeth Bik has sent over 700 papers with clear image manipulation to academic journals. &lt;a href=&quot;https://www.nytimes.com/2017/03/08/science/cancer-carlo-croce.html&quot;&gt;600 of these have resulted in no action, not even a correction&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;what-can-be-done&quot;&gt;What can be done?&lt;/h2&gt;
+&lt;p&gt;Since universities and journals have failed to regulate themselves, we should strengthen our external layers of oversight. Below are two complementary ideas.&lt;/p&gt;
+
+&lt;h3 id=&quot;danish-style-independent-committees&quot;&gt;Danish-style independent committees&lt;/h3&gt;
+&lt;p&gt;As with many things in life, we could start by copying the Danish. In 2017, Denmark passed a law establishing a non-criminal &lt;a href=&quot;https://ufm.dk/en/research-and-innovation/councils-and-commissions/The-Danish-Board-on-Research-Misconduct&quot;&gt;&lt;em&gt;independent&lt;/em&gt; expert committee&lt;/a&gt; to investigate scientific misconduct, a stronger alternative to in-house investigations. If the committee determines misconduct occurred, it may take &lt;a href=&quot;https://dg.dk/en/research-integrity/&quot;&gt;actions&lt;/a&gt; like notifying the university, publisher, and funding agency, and sometimes even the police. Due to its independence, expertise, and narrowly defined scope, committee decisions are considered more credible than decisions from universities. The U.S. Congress could accomplish this by &lt;a href=&quot;https://www.nytimes.com/2014/07/11/opinion/crack-down-on-scientific-fraudsters.html&quot;&gt;giving more teeth to the existing Office of Research Integrity&lt;/a&gt;, a federal committee that currently lets universities &lt;a href=&quot;https://www.science.org/doi/10.1126/science.adn9352&quot;&gt;drive&lt;/a&gt; the investigations.&lt;/p&gt;
+
+&lt;h3 id=&quot;a-federal-criminal-statute-on-scientific-misconduct&quot;&gt;A federal criminal statute on scientific misconduct&lt;/h3&gt;
+&lt;p&gt;While a Danish system would be an improvement over our current system, I think we should go even further. For sufficient deterrence, we need stricter criminal enforcement.&lt;/p&gt;
+
+&lt;p&gt;The laws available to prosecute scientific misconduct are mail fraud, wire fraud, and false statements to the federal government. Yet, these are &lt;a href=&quot;https://en.wikipedia.org/wiki/List_of_scientific_misconduct_incidents&quot;&gt;barely ever used&lt;/a&gt; and are typically limited to grant applications. Susan Kuzma, a lawyer for the Department of Justice, argues that the existing laws are too generic and often require complex scientific knowledge from judges and juries. Instead she proposes a &lt;a href=&quot;https://repository.law.umich.edu/cgi/viewcontent.cgi?article=1738&amp;amp;context=mjlr&quot;&gt;new criminal statute directed explicitly at scientific misconduct&lt;/a&gt;. This would offer several advantages.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;It would have clear definitions of scientific misconduct, which would include falsification in scientific papers, not just in grant applications. Courts would work with the expert committee described above to follow these standards.&lt;/li&gt;
+  &lt;li&gt;It would close the “I didn’t keep records” loophole that has allowed fraudulent scientists to escape prosecution under other statutes.&lt;/li&gt;
+  &lt;li&gt;Unlike with the false statements statute, which only considers harms to the government, courts could consider the additional harm caused to others by “reliance on the falsified research”.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2024_scientific_misconduct/fig1.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;response-to-objections&quot;&gt;Response to objections&lt;/h2&gt;
+&lt;p&gt;Some researchers say that the prospect of jail time will not deter scientific fraudsters (&lt;a href=&quot;https://journals.sagepub.com/doi/pdf/10.1177/1745691612460687&quot;&gt;1&lt;/a&gt;, &lt;a href=&quot;https://ecommons.aku.edu/cgi/viewcontent.cgi?article=1192&amp;amp;context=pakistan_fhs_mc_women_childhealth_paediatr&quot;&gt;2&lt;/a&gt;). But why would scientific fraudsters behave any differently than other fraudsters?&lt;/p&gt;
+
+&lt;p&gt;Others worry that criminal courts could extend prosecution to more moderate forms of misconduct, such as selective reporting of data. But Denmark shows how the law can be &lt;a href=&quot;https://ufm.dk/en/research-and-innovation/councils-and-commissions/The-Danish-Board-on-Research-Misconduct&quot;&gt;scoped&lt;/a&gt; to fabrication and falsification, explicitly leaving the more moderate “questionable research practices” to the universities.&lt;/p&gt;
+
+&lt;p&gt;Finally, some worry that some scientists might be falsely accused of fraud. But this risk exists for any crime. Why should science get an exception? Committees or courts dealing with scientific misconduct should have due process. As the case of &lt;a href=&quot;https://en.wikipedia.org/wiki/Thereza_Imanishi-Kari&quot;&gt;Thereza Imanishi-Kari&lt;/a&gt; shows, we should not identically clone earlier government committees that lacked these safeguards, such as the right of appeal.&lt;/p&gt;
+
+&lt;p&gt;Scientists who commit research misconduct betray the public trust for their own selfish gain, and along the way may remove tens of millions of QALYs, far worse than other crimes that receive more serious sentences. Those who commit these acts should face steep criminal sentences.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
    <title>The respiratory infection study to end all respiratory infection studies</title>
    <link href="http://localhost:4000/2024/02/11/the-respiratory-infection-experiment-to-end-all-respiratory-infection-experiments/"/>
    <updated>2024-02-11T00:00:00-05:00</updated>
    <id>http://localhost:4000/2024/02/11/the-respiratory-infection-experiment-to-end-all-respiratory-infection-experiments</id>
    <content type="html">&lt;div class=&quot;caption&quot;&gt;
-  &lt;p&gt;[&lt;a href=&quot;https://github.com/csaid/ventilation-experiment/blob/main/Respiratory%20infection%20experiment%20model%20fits%20and%20power%20analysis.ipynb&quot;&gt;Notebook&lt;/a&gt;]&lt;/p&gt;
+  &lt;p&gt;[&lt;a href=&quot;https://github.com/csaid/BlogProjects/blob/master/2024_ventilation_experiment/Respiratory%20infection%20experiment%20model%20fits%20and%20power%20analysis.ipynb&quot;&gt;Notebook&lt;/a&gt;]&lt;/p&gt;
 &lt;/div&gt;
 
-&lt;p&gt;The most basic question one might have about respiratory infections like Covid is &lt;em&gt;when are you infectious&lt;/em&gt;? Some researchers believe that people with low viral RNA counts\(^1\) like \(10^3\) cp/mL are meaningfully infectious. Others believe that almost all spread occurs during the brief peak of viral count, at around \(10^9\) cp/mL. The answer will determine whether you typically stop being infectious after 8-9 days or something more like 1-2 days.&lt;/p&gt;
+&lt;p&gt;The most basic question one might have about respiratory infections like Covid is &lt;em&gt;when are you infectious&lt;/em&gt;? Some researchers believe that people with low viral RNA counts like \(10^3\) cp/mL are meaningfully infectious\(^1\). Others believe that almost all spread occurs during the brief peak of viral count, at around \(10^9\) cp/mL. The answer will determine whether you typically stop being infectious after 8-9 days or something more like 1-2 days.&lt;/p&gt;
 
 &lt;p&gt;With over &lt;a href=&quot;https://www.bmj.com/content/380/bmj.p689&quot;&gt;700,000 papers&lt;/a&gt; published papers on Covid, you’d think we’d have a solid answer to such a basic and practically useful question. But the reality is we don’t. Some epidemiological papers have attempted to measure this. But since they can’t measure precisely &lt;em&gt;when&lt;/em&gt; people were infected or even by &lt;em&gt;whom&lt;/em&gt;, their estimates of infectiousness thresholds are biased downwards by an unknown amount.&lt;/p&gt;
 
@@ -31,7 +137,7 @@
 
 &lt;p&gt;Concerned about ethics? Just use the common cold! If you model things right, you can generalize much of the findings to other viruses.&lt;/p&gt;
 
-&lt;p&gt;I’ve simulated this type of experiment pretty extensively (&lt;a href=&quot;https://github.com/csaid/ventilation-experiment/blob/main/Respiratory%20infection%20experiment%20model%20fits%20and%20power%20analysis.ipynb&quot;&gt;see code&lt;/a&gt;). This blog post proposes how to optimally design and analyze it.&lt;/p&gt;
+&lt;p&gt;I’ve simulated this type of experiment pretty extensively (&lt;a href=&quot;https://github.com/csaid/BlogProjects/blob/master/2024_ventilation_experiment/Respiratory%20infection%20experiment%20model%20fits%20and%20power%20analysis.ipynb&quot;&gt;see code&lt;/a&gt;). This blog post proposes how to optimally design and analyze it.&lt;/p&gt;
 
 &lt;h3 id=&quot;how-to-design-the-experiment&quot;&gt;How to design the experiment&lt;/h3&gt;
 &lt;p&gt;Suppose you want to compare transmission rates under high ventilation versus low ventilation conditions. &lt;a href=&quot;https://royalsocietypublishing.org/doi/10.1098/rsfs.2021.0076#RSFS20210076F3&quot;&gt;Modeling&lt;/a&gt; shows that donor viral count will dominate the effect of other variables, which makes it hard to detect ventilation effects without very large sample sizes. It’s therefore critical that the experiment controls this variation. Each donor should have a chance to infect participants in each condition. To further reduce variance, any variable you don’t want to measure (e.g. distance, duration, talking vs silence) should be held constant in all interactions. A schematic design is below.&lt;/p&gt;
@@ -74,7 +180,7 @@
   &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;p&gt;To model this, I introduced a susceptibility variance term \(S_j\) to simulate the unknown variance in susceptibilities across participants, and fit it with hierarchical Bayesian methods (&lt;a href=&quot;https://github.com/csaid/ventilation-experiment/blob/main/Respiratory%20infection%20experiment%20model%20fits%20and%20power%20analysis.ipynb&quot;&gt;see code&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;To model this, I introduced a susceptibility variance term \(S_j\) to simulate the unknown variance in susceptibilities across participants, and fit it with hierarchical Bayesian methods (&lt;a href=&quot;https://github.com/csaid/BlogProjects/blob/master/2024_ventilation_experiment/Respiratory%20infection%20experiment%20model%20fits%20and%20power%20analysis.ipynb&quot;&gt;see code&lt;/a&gt;).&lt;/p&gt;
 
 &lt;h3 id=&quot;how-many-participants-are-needed&quot;&gt;How many participants are needed?&lt;/h3&gt;
 &lt;p&gt;If you don’t measure viral count or use each donor in each condition, you will need hundreds of donors and thousands of participants, which is infeasible, even for a 4x reduction in inhaled virus. But if each donor participates in all conditions and if you measure viral count, you can achieve 80% power with about 40 donors and 5 recipients per &amp;lt;donor, condition&amp;gt;. Getting donors is much more important than getting recipients, as there are diminishing returns for adding more participants after about 7-8 recipients per &amp;lt;donor, condition&amp;gt;.&lt;/p&gt;
@@ -104,8 +210,8 @@
 
 &lt;p&gt;This means that you can generalize to other interventions.&lt;/p&gt;
 &lt;ul&gt;
-  &lt;li&gt;If ventilation can shift the curve by K logs, then 10X’ing the ventilation intervention should shift the curve by 10*K logs.&lt;/li&gt;
-  &lt;li&gt;If a separate intervention like UVC provides 10X the viral concentration reduction as ventilation, then it should also shift the curve by 10*K logs.&lt;/li&gt;
+  &lt;li&gt;If ventilation can shift the curve by K logs, then increasing the ventilation to have an additional 10x reduction in viral concentration should shift the curve by K+1 logs.&lt;/li&gt;
+  &lt;li&gt;If a separate intervention like UVC provides the protection of ventilation plus an additional 10x reduction in viral concentration, then it should also shift the curve by K+1 logs.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;div class=&quot;wrapper&quot;&gt;
@@ -118,7 +224,7 @@
 
 &lt;p&gt;So once we have completed this experiment, we don’t need to repeat it for other types of interventions on human recipients. We just need to measure the reduction in virus concentration in the air during whatever intervention we want to test, which will be proportional to the reduction in \(\beta\).&lt;/p&gt;
 
-&lt;p&gt;To a lesser extent, we can even generalize to other viruses, which is nice since it allows you to run this experiment on the common cold. Because \(\lambda\) is proportional to a virus-specific baseline susceptibility constant and air quality constants, you’ll know that if an air quality intervention shifts the curve for the common cold by K log units, then it should also shift the curve for the other virus by K log units. This is true even if the other virus has a flatter curve due to higher variance in baseline susceptibility (see &lt;a href=&quot;https://github.com/csaid/ventilation-experiment/blob/main/Respiratory%20infection%20experiment%20model%20fits%20and%20power%20analysis.ipynb&quot;&gt;code&lt;/a&gt;). The only limitation is that if you want to quantify the aggregate reduction in infections, you’ll still need to measure the dose-response curve for the other virus once and then integrate over the distribution of viral counts.&lt;/p&gt;
+&lt;p&gt;To a lesser extent, we can even generalize to other viruses, which is nice since it allows you to run this experiment on the common cold. Because \(\lambda\) is proportional to a virus-specific baseline susceptibility constant and air quality constants, you’ll know that if an air quality intervention shifts the curve for the common cold by K log units, then it should also shift the curve for the other virus by K log units. This is true even if the other virus has a flatter curve due to higher variance in baseline susceptibility (see &lt;a href=&quot;https://github.com/csaid/BlogProjects/blob/master/2024_ventilation_experiment/Respiratory%20infection%20experiment%20model%20fits%20and%20power%20analysis.ipynb&quot;&gt;code&lt;/a&gt;). The only limitation is that if you want to quantify the aggregate reduction in infections, you’ll still need to measure the dose-response curve for the other virus once and then integrate over the distribution of viral counts.&lt;/p&gt;
 
 &lt;h3 id=&quot;summary&quot;&gt;Summary&lt;/h3&gt;
 &lt;p&gt;If anyone has $10 million lying around and is able to run this experiment and model it correctly, you will:&lt;/p&gt;
@@ -344,7 +450,7 @@
 
 &lt;div class=&quot;wrapper&quot;&gt;
   &lt;div class=&quot;caption&quot;&gt;
-    &lt;p&gt;&lt;strong&gt;Figure 1&lt;/strong&gt;. An interactive map of published laboratory-acquired infections through 2016. Locations are approximate, with added jitter. [&lt;a href=&quot;https://my.absa.org/LAI&quot;&gt;Raw data&lt;/a&gt;, &lt;a href=&quot;https://github.com/csaid/laboratory-acquired-infections&quot;&gt;cleaned data&lt;/a&gt;]&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;Figure 1&lt;/strong&gt;. An interactive map of published laboratory-acquired infections through 2016. Locations are approximate, with added jitter. [&lt;a href=&quot;https://my.absa.org/LAI&quot;&gt;Raw data&lt;/a&gt;, &lt;a href=&quot;https://github.com/csaid/BlogProjects/tree/master/2023_laboratory_acquired_infections&quot;&gt;cleaned data&lt;/a&gt;]&lt;/p&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 
@@ -872,7 +978,7 @@ Under the linear model, almost all transmission would occur around the peak of i
 
 &lt;hr /&gt;
 
-&lt;p&gt;I understand the point about long term credibility, but it feels hand-wavy and non-quantitative. So I decided to do some &lt;a href=&quot;https://github.com/csaid/fda_and_vaccines/blob/main/FDA%20and%20Vaccines.ipynb&quot;&gt;back-of-the-envelope math&lt;/a&gt; to see how much it matters.&lt;/p&gt;
+&lt;p&gt;I understand the point about long term credibility, but it feels hand-wavy and non-quantitative. So I decided to do some &lt;a href=&quot;https://github.com/csaid/BlogProjects/blob/master/2021_fda_and_vaccines/FDA%20and%20Vaccines.ipynb&quot;&gt;back-of-the-envelope math&lt;/a&gt; to see how much it matters.&lt;/p&gt;
 
 &lt;p&gt;As a simplifying assumption, let’s suppose we’ll need a new Covid vaccine every year for the next 10 years, similar to the flu shot. Let’s generously assume that the FDA fully approves each vaccine from 2022 onwards in a timely manner. The only decision it faces is whether to do “fast” approval or “slow” approval for the 2021 vaccine, where fast approval means that the vaccine would be fully approved 1 year earlier than under slow approval. The figure below shows these two policies.&lt;/p&gt;
 
@@ -963,7 +1069,7 @@ Under the linear model, almost all transmission would occur around the peak of i
 
 &lt;p&gt;Based on this back-of-the-envelope analysis, FDA could gain 38 million vaccinated person-years if they had fully approved the 2021 vaccine, even when accounting for long term risks. Assuming that &lt;a href=&quot;https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7721859/&quot;&gt;0.2% of unvaccinated people will die each year&lt;/a&gt; because they are not vaccinated, this decision would save 80,000 lives in expectation. &lt;strong&gt;To put it more starkly, an FDA decision to not fully approve in 2021 will cost 80,000 lives.&lt;/strong&gt; I have no doubt that the FDA is well-intentioned, but I really think they should reconsider their extreme cautiousness on this issue.&lt;/p&gt;
 
-&lt;p&gt;Under the model outlined above, the decision to delay full approval would only make sense if you thought the probability-weighted long-term risks were &lt;a href=&quot;https://github.com/csaid/fda_and_vaccines/blob/main/FDA%20and%20Vaccines.ipynb&quot;&gt;5 times higher&lt;/a&gt; than I think are reasonable.&lt;/p&gt;
+&lt;p&gt;Under the model outlined above, the decision to delay full approval would only make sense if you thought the probability-weighted long-term risks were &lt;a href=&quot;https://github.com/csaid/BlogProjects/blob/master/2021_fda_and_vaccines/FDA%20and%20Vaccines.ipynb&quot;&gt;5 times higher&lt;/a&gt; than I think are reasonable.&lt;/p&gt;
 
 &lt;h3 id=&quot;but-what-about&quot;&gt;But what about…&lt;/h3&gt;
 &lt;p&gt;Readers should absolutely question my assumptions. This post is a simplified back-of-the-envelope exercise because I believe all of the discussion so far has only been qualitative. If you think any of my assumptions are substantively wrong (and I’m sure some are!), it’s best to propose a &lt;em&gt;quantitative&lt;/em&gt; alternative. And be sure to explicitly consider the difference between a 2021 EUA and full approval. For example, perhaps you might think that hesitancy could persist for decades in a catastrophic safety scenario. Maybe so. But if that happens, will anybody decades from now care whether the 2021 vaccine had an EUA versus full approval? I don’t think so.&lt;/p&gt;
@@ -973,7 +1079,7 @@ Under the linear model, almost all transmission would occur around the peak of i
 &lt;p&gt;Second, I assumed that all of the damage from slow approval would be confined to 2021 and that by 2022 the FDA would adopt fast approval. If that is not the case, and the FDA continues to take well over a year to approve each vaccine, the damage could be much greater.&lt;/p&gt;
 
 &lt;div class=&quot;caption&quot;&gt;
-  &lt;p&gt;Special thanks to Fábio Rocha and Abhinav Nellore for comments on a draft. My code is available &lt;a href=&quot;https://github.com/csaid/fda_and_vaccines/blob/main/FDA%20and%20Vaccines.ipynb&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+  &lt;p&gt;Special thanks to Fábio Rocha and Abhinav Nellore for comments on a draft. My code is available &lt;a href=&quot;https://github.com/csaid/BlogProjects/blob/master/2021_fda_and_vaccines/FDA%20and%20Vaccines.ipynb&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 </content>
  </entry>
@@ -1477,7 +1583,7 @@ Under the linear model, almost all transmission would occur around the peak of i
 
 &lt;h3 id=&quot;simulations&quot;&gt;Simulations&lt;/h3&gt;
 
-&lt;p&gt;To test this hypothesis, I built an &lt;a href=&quot;https://github.com/csaid/covid_model_with_testing/blob/master/SIR%20model%20with%20testing.ipynb&quot;&gt;agent-based SIR model&lt;/a&gt; that includes testing and quarantining. I make the following key assumptions:&lt;/p&gt;
+&lt;p&gt;To test this hypothesis, I built an &lt;a href=&quot;https://github.com/csaid/BlogProjects/blob/master/2020_why_low_sensitivity_antigen_testing/SIR%20model%20with%20testing.ipynb&quot;&gt;agent-based SIR model&lt;/a&gt; that includes testing and quarantining. I make the following key assumptions:&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Population of 200 students&lt;/li&gt;
@@ -1486,7 +1592,7 @@ Under the linear model, almost all transmission would occur around the peak of i
   &lt;li&gt;In addition to intra-school infections, each student has a chance of getting infected by someone outside the population.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;I &lt;a href=&quot;https://github.com/csaid/covid_model_with_testing/blob/master/SIR%20model%20with%20testing.ipynb&quot;&gt;simulated&lt;/a&gt; two different scenarios.&lt;/p&gt;
+&lt;p&gt;I &lt;a href=&quot;https://github.com/csaid/BlogProjects/blob/master/2020_why_low_sensitivity_antigen_testing/SIR%20model%20with%20testing.ipynb&quot;&gt;simulated&lt;/a&gt; two different scenarios.&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Regular PCR testing (sensitivity of 98%, testing delay of 5 days)&lt;/li&gt;
@@ -1503,7 +1609,7 @@ Under the linear model, almost all transmission would occur around the peak of i
 
 &lt;p&gt;&lt;img src=&quot;/assets/2020_antigen_testing/fig_test_every_1_day.png&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;This seems very important. &lt;em&gt;Not only are antigen tests cheaper than PCR, they are also more effective in a mass testing regime.&lt;/em&gt; Further simulations in my &lt;a href=&quot;https://github.com/csaid/covid_model_with_testing/blob/master/SIR%20model%20with%20testing.ipynb&quot;&gt;notebook&lt;/a&gt; show that the superiority of antigen tests is maintained even for much lower sensitivities.&lt;/p&gt;
+&lt;p&gt;This seems very important. &lt;em&gt;Not only are antigen tests cheaper than PCR, they are also more effective in a mass testing regime.&lt;/em&gt; Further simulations in my &lt;a href=&quot;https://github.com/csaid/BlogProjects/blob/master/2020_why_low_sensitivity_antigen_testing/SIR%20model%20with%20testing.ipynb&quot;&gt;notebook&lt;/a&gt; show that the superiority of antigen tests is maintained even for much lower sensitivities.&lt;/p&gt;
 
 &lt;h3 id=&quot;why-is-low-sensitivity-better-than-slowness&quot;&gt;Why is low sensitivity better than slowness?&lt;/h3&gt;
 
@@ -1670,7 +1776,7 @@ Under the linear model, almost all transmission would occur around the peak of i
 
 &lt;p&gt;&lt;img src=&quot;/assets/2020_solar_storms/fig_testing.png&quot; /&gt;&lt;/p&gt;
 &lt;div class=&quot;caption&quot;&gt;
-  &lt;p&gt;&lt;strong&gt;Figure 2&lt;/strong&gt;: Setup for EPRI’s free field tests on DPRs. [&lt;a href=&quot;https://www.epri.com/research/products/3002014979&apos;&quot;&gt;EPRI&lt;/a&gt;]&lt;/p&gt;
+  &lt;p&gt;&lt;strong&gt;Figure 2&lt;/strong&gt;: Setup for EPRI’s free field tests on DPRs. [&lt;a href=&quot;https://www.epri.com/research/products/3002014979'&quot;&gt;EPRI&lt;/a&gt;]&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;&lt;strong&gt;Q:&lt;/strong&gt; &lt;em&gt;OK, so these DPR devices could withstand EMPs up to 50 kV/m, but how does this compare to the intensities that could come from an actual EMP attack?&lt;/em&gt;
@@ -3515,42 +3621,42 @@ relative --&gt;
 
 // Names to Index
 var n2i = {
-&apos;petro&apos;: 0,
-&apos;steel&apos;: 1,
-&apos;copper&apos;: 2,
-&apos;aluminum&apos;: 3,
-&apos;ammonia&apos;: 4,
-&apos;food&apos;: 5,
-&apos;textiles&apos;: 6,
-&apos;logging&apos;: 7,
-&apos;automotive&apos;: 8
+'petro': 0,
+'steel': 1,
+'copper': 2,
+'aluminum': 3,
+'ammonia': 4,
+'food': 5,
+'textiles': 6,
+'logging': 7,
+'automotive': 8
 }
 
 var commodities = {
   &quot;nodes&quot;:[
-    {&apos;name&apos;: &apos;Petroleum residuals&apos;},
-    {&apos;name&apos;: &apos;Crude Steel&apos;},
-    {&apos;name&apos;: &apos;Copper&apos;},
-    {&apos;name&apos;: &apos;Aluminum&apos;},
-    {&apos;name&apos;: &apos;Ammonia&apos;},
-    {&apos;name&apos;: &apos;Agriculture and Food&apos;},
-    {&apos;name&apos;: &apos;Textiles and Apparel&apos;},
-    {&apos;name&apos;: &apos;Logging and Paper Products&apos;},
-    {&apos;name&apos;: &apos;Automotive Equipment&apos;}
+    {'name': 'Petroleum residuals'},
+    {'name': 'Crude Steel'},
+    {'name': 'Copper'},
+    {'name': 'Aluminum'},
+    {'name': 'Ammonia'},
+    {'name': 'Agriculture and Food'},
+    {'name': 'Textiles and Apparel'},
+    {'name': 'Logging and Paper Products'},
+    {'name': 'Automotive Equipment'}
   ],
-  &apos;links&apos;:[
-    {&apos;source&apos;:n2i[&apos;petro&apos;],&apos;target&apos;:n2i[&apos;food&apos;],&apos;value&apos;:510},
-    {&apos;source&apos;:n2i[&apos;steel&apos;],&apos;target&apos;:n2i[&apos;food&apos;],&apos;value&apos;:80},
-    {&apos;source&apos;:n2i[&apos;ammonia&apos;],&apos;target&apos;:n2i[&apos;food&apos;],&apos;value&apos;:250},
-    {&apos;source&apos;:n2i[&apos;steel&apos;],&apos;target&apos;:n2i[&apos;textiles&apos;],&apos;value&apos;:10},
-    {&apos;source&apos;:n2i[&apos;ammonia&apos;],&apos;target&apos;:n2i[&apos;textiles&apos;],&apos;value&apos;:10},
-    {&apos;source&apos;:n2i[&apos;petro&apos;],&apos;target&apos;:n2i[&apos;logging&apos;],&apos;value&apos;:30},
-    {&apos;source&apos;:n2i[&apos;steel&apos;],&apos;target&apos;:n2i[&apos;logging&apos;],&apos;value&apos;:40},
-    {&apos;source&apos;:n2i[&apos;ammonia&apos;],&apos;target&apos;:n2i[&apos;logging&apos;],&apos;value&apos;:5},
-    {&apos;source&apos;:n2i[&apos;petro&apos;],&apos;target&apos;:n2i[&apos;automotive&apos;],&apos;value&apos;:60},
-    {&apos;source&apos;:n2i[&apos;steel&apos;],&apos;target&apos;:n2i[&apos;automotive&apos;],&apos;value&apos;:1800},
-    {&apos;source&apos;:n2i[&apos;copper&apos;],&apos;target&apos;:n2i[&apos;automotive&apos;],&apos;value&apos;:14},
-    {&apos;source&apos;:n2i[&apos;aluminum&apos;],&apos;target&apos;:n2i[&apos;automotive&apos;],&apos;value&apos;:3}
+  'links':[
+    {'source':n2i['petro'],'target':n2i['food'],'value':510},
+    {'source':n2i['steel'],'target':n2i['food'],'value':80},
+    {'source':n2i['ammonia'],'target':n2i['food'],'value':250},
+    {'source':n2i['steel'],'target':n2i['textiles'],'value':10},
+    {'source':n2i['ammonia'],'target':n2i['textiles'],'value':10},
+    {'source':n2i['petro'],'target':n2i['logging'],'value':30},
+    {'source':n2i['steel'],'target':n2i['logging'],'value':40},
+    {'source':n2i['ammonia'],'target':n2i['logging'],'value':5},
+    {'source':n2i['petro'],'target':n2i['automotive'],'value':60},
+    {'source':n2i['steel'],'target':n2i['automotive'],'value':1800},
+    {'source':n2i['copper'],'target':n2i['automotive'],'value':14},
+    {'source':n2i['aluminum'],'target':n2i['automotive'],'value':3}
   ]
 }
 
@@ -3866,7 +3972,7 @@ var tooltip = d3.select(&quot;#econ_scatter&quot;).append(&quot;div&quot;)
     // .style(&quot;opacity&quot;, 0);
 
 
-  // don&apos;t want dots overlapping axis, so add in buffer to data domain
+  // don't want dots overlapping axis, so add in buffer to data domain
   xScale.domain([-5, 105]);
   yScale.domain([15, 85]);
 
@@ -4036,7 +4142,7 @@ circle.competitor {
 
 &lt;/style&gt;
 
-&lt;!-- I think Markdown doesn&apos;t like two script tags in a row --&gt;
+&lt;!-- I think Markdown doesn't like two script tags in a row --&gt;
 &lt;div&gt;&lt;/div&gt;
 
 &lt;script&gt;
@@ -4214,7 +4320,7 @@ var get_dot_x_local_max = function(t) {
   return soft_motion(t, .2, .35, .8, .2)
 };
 
-// The horizontal position of your competitor&apos;s dot
+// The horizontal position of your competitor's dot
 var get_competitor_dot_x = function(t) {
   return 0.8;
 };
@@ -4309,18 +4415,18 @@ makeObjectiveGraph(&quot;plot5&quot;, get_competitor_dot_x, objective5, &quot;Do
   &lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;script&amp;gt;&lt;/span&gt;
   &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;code_toggle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;code_shown&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-      &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;div.input&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hide&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;500&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-      &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;#toggleButton&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;Show Code&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;div.input&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hide&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;500&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;#toggleButton&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;Show Code&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
     &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;div.input&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;show&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;500&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-      &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;#toggleButton&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;Hide Code&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;div.input&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;show&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;500&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;#toggleButton&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;Hide Code&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
     &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
     &lt;span class=&quot;nx&quot;&gt;code_shown&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;code_shown&lt;/span&gt;
   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 
   &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ready&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
     &lt;span class=&quot;nx&quot;&gt;code_shown&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;div.input&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hide&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;div.input&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hide&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
   &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;form&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;action=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;javascript:code_toggle()&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;submit&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;toggleButton&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Show Code&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/form&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
@@ -4331,11 +4437,11 @@ makeObjectiveGraph(&quot;plot5&quot;, get_competitor_dot_x, objective5, &quot;Do
 &lt;figure class=&quot;highlight&quot;&gt;
   &lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;script&amp;gt;&lt;/span&gt;
   &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ready&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;div.prompt&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hide&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;div.back-to-top&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hide&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;nav#menubar&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hide&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;.breadcrumb&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hide&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;.hidden-print&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hide&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;div.prompt&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hide&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;div.back-to-top&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hide&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;nav#menubar&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hide&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;.breadcrumb&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hide&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;.hidden-print&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hide&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
   &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
 
@@ -4351,7 +4457,7 @@ Created with Jupyter, delivered by Fastly, rendered by Rackspace.
   &lt;span class=&quot;nx&quot;&gt;jQuery&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ready&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
 
   &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;load&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;#preloader&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fadeOut&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;slow&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;remove&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();});&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;#preloader&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fadeOut&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;slow&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;remove&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();});&lt;/span&gt;
   &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
 
   &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
@@ -4365,7 +4471,7 @@ Created with Jupyter, delivered by Fastly, rendered by Rackspace.
       &lt;span class=&quot;nl&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
       &lt;span class=&quot;nl&quot;&gt;height&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
       &lt;span class=&quot;nl&quot;&gt;overflow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;visible&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-      &lt;span class=&quot;nl&quot;&gt;background&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#fff&lt;/span&gt; &lt;span class=&quot;sx&quot;&gt;url(&apos;http://preloaders.net/preloaders/720/Moving%20line.gif&apos;)&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;no-repeat&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;center&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;center&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+      &lt;span class=&quot;nl&quot;&gt;background&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#fff&lt;/span&gt; &lt;span class=&quot;sx&quot;&gt;url('http://preloaders.net/preloaders/720/Moving%20line.gif')&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;no-repeat&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;center&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;center&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;/style&amp;gt;&lt;/span&gt;
@@ -4557,7 +4663,7 @@ t = \frac{\overline{X_1} - \overline{X_2}}{\sqrt{se_1^2 + se_2^2}}
         &lt;span class=&quot;nb&quot;&gt;rm&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-i&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$MARKPATH&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
     &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;function &lt;/span&gt;marks &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;se&quot;&gt;\l&lt;/span&gt;s &lt;span class=&quot;nt&quot;&gt;-l&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$MARKPATH&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; | &lt;span class=&quot;nb&quot;&gt;tail&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-n&lt;/span&gt; +2 | &lt;span class=&quot;nb&quot;&gt;sed&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;s/  / /g&apos;&lt;/span&gt; | &lt;span class=&quot;nb&quot;&gt;cut&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos; &apos;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-f9-&lt;/span&gt; | &lt;span class=&quot;nb&quot;&gt;awk&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-F&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos; -&amp;gt; &apos;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;{printf &quot;%-10s -&amp;gt; %s\n&quot;, $1, $2}&apos;&lt;/span&gt;
+        &lt;span class=&quot;se&quot;&gt;\l&lt;/span&gt;s &lt;span class=&quot;nt&quot;&gt;-l&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$MARKPATH&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; | &lt;span class=&quot;nb&quot;&gt;tail&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-n&lt;/span&gt; +2 | &lt;span class=&quot;nb&quot;&gt;sed&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'s/  / /g'&lt;/span&gt; | &lt;span class=&quot;nb&quot;&gt;cut&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;' '&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-f9-&lt;/span&gt; | &lt;span class=&quot;nb&quot;&gt;awk&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-F&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;' -&amp;gt; '&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'{printf &quot;%-10s -&amp;gt; %s\n&quot;, $1, $2}'&lt;/span&gt;
     &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 
     _cdd&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
@@ -4968,7 +5074,7 @@ t = \frac{\overline{X_1} - \overline{X_2}}{\sqrt{se_1^2 + se_2^2}}
    &lt;span class=&quot;nb&quot;&gt;plot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;makeLogistic&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c50_mean&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)));&lt;/span&gt;
    &lt;span class=&quot;nb&quot;&gt;hold&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;on&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;ylabel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;Single Neuron Response&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;ylabel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Single Neuron Response'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 
 &lt;span class=&quot;c1&quot;&gt;%fMRI&lt;/span&gt;
 &lt;span class=&quot;nb&quot;&gt;subplot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
@@ -4977,16 +5083,16 @@ t = \frac{\overline{X_1} - \overline{X_2}}{\sqrt{se_1^2 + se_2^2}}
   &lt;span class=&quot;nb&quot;&gt;plot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CRF_fMRI&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
   &lt;span class=&quot;nb&quot;&gt;hold&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;on&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;ylabel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;fMRI Response&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;ylabel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'fMRI Response'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 
 &lt;span class=&quot;c1&quot;&gt;%EEG&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;%Cancellation. Scale factor isn&apos;t necessary but reflects that fact that&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;%Cancellation. Scale factor isn't necessary but reflects that fact that&lt;/span&gt;
 &lt;span class=&quot;c1&quot;&gt;%some areas are likely to activate more than others.&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;R_EEG&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;abs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;R&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;idcs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},:)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;R&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;idcs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},:));&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;CRF_EEG&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;mean&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;R_EEG&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 &lt;span class=&quot;nb&quot;&gt;subplot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;nb&quot;&gt;plot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CRF_EEG&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;ylabel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;EEG Response&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;ylabel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'EEG Response'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 
 &lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;makeLogistic&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c50&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;r&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;1.&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;/(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;exp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c50&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))));&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
