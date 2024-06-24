@@ -66,7 +66,7 @@ The laws available to prosecute scientific misconduct are mail fraud, wire fraud
 ## Response to objections
 Some researchers say that the prospect of jail time will not deter scientific fraudsters ([1](https://journals.sagepub.com/doi/pdf/10.1177/1745691612460687), [2](https://ecommons.aku.edu/cgi/viewcontent.cgi?article=1192&context=pakistan_fhs_mc_women_childhealth_paediatr)). But why would scientific fraudsters behave any differently than other fraudsters?
 
-Others worry that criminal courts could extend prosecution to more murkier forms of misconduct, such as selective reporting of data. But Denmark shows how the law can be [scoped](https://ufm.dk/en/research-and-innovation/councils-and-commissions/The-Danish-Board-on-Research-Misconduct) to fabrication and falsification, explicitly leaving the murkier “questionable research practices” to the universities.
+Others worry that criminal courts could extend prosecution to murkier forms of misconduct, such as selective reporting of data. But Denmark shows how the law can be [scoped](https://ufm.dk/en/research-and-innovation/councils-and-commissions/The-Danish-Board-on-Research-Misconduct) to fabrication and falsification, explicitly leaving the murkier “questionable research practices” to the universities.
 
 Finally, some worry that some scientists might be falsely accused of fraud. But this risk exists for any crime. Why should science get an exception? Committees or courts dealing with scientific misconduct should have due process. As the case of [Thereza Imanishi-Kari](https://en.wikipedia.org/wiki/Thereza_Imanishi-Kari) shows, we should not identically clone earlier government committees that lacked these safeguards, such as the right of appeal.
 
