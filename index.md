@@ -3,11 +3,11 @@ layout: home
 title: Chris Said
 ---
 
-Below are links to blog posts I've written, as well as some other projects. I can also be found on [Twitter](https://twitter.com/Chris_Said), [Threads](https://www.threads.net/@chrissaid82), [Bluesky](https://bsky.app/profile/csaid.bsky.social), and [LinkedIn](https://www.linkedin.com/in/chris-said-97986b6b/).
+Below are links to blog posts I've written, as well as some other projects. I can also be found on [Twitter](https://twitter.com/Chris_Said), [Bluesky](https://bsky.app/profile/csaid.bsky.social), and [LinkedIn](https://www.linkedin.com/in/chris-said-97986b6b/).
 
 #### Sample Projects
 * [Apollo Academic Surveys](https://www.apollosurveys.org/) (2022-present). A nonprofit that aggregates the views of academic experts, making them freely available to everyone.
-* [RapidTests.org](https://www.rapidtests.org/) (2020). All-volunteer group advocating for rapid tests for Covid.
+* RapidTests.org (2020). All-volunteer group advocating for rapid tests for Covid.
 * [Which famous economist are you most similar to?](http://whichfamouseconomistareyoumostsimilarto.com/) (2013-2015). Interactive economics quiz featured in the Washington Post, Wall Street Journal, and NPR.
 
 #### Selected Blog Posts
