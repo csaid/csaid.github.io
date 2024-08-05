@@ -13,7 +13,7 @@ The second thing to know about AQI is that it aggregates levels from different p
 
 The third thing to know about AQI is that the relationship between AQI and PM<sub>2.5</sub> is a fascinating case study in how decisions are made at federal agencies. This is the focus of this blog post.
 
-Based on the [AQI calculation rules](https://www.airnow.gov/sites/default/files/2020-05/aqi-technical-assistance-document-sept2018.pdf), the relationship between PM<sub>2.5</sub> and AQI looks like this.
+Based on the [AQI calculation rules](https://www.airnow.gov/sites/default/files/2020-05/aqi-technical-assistance-document-sept2018.pdf), the relationship between PM<sub>2.5</sub> and AQI is defined like this.
 
 <div class="wrapper">
   <img src='/assets/2023_aqi/aqi.png' class="inner" style="position:relative border: #222 2px solid; max-width:80%;" >
