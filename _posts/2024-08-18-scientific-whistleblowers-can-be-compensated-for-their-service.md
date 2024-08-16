@@ -19,7 +19,7 @@ By all accounts, the SEC whistleblower program has been a [success](https://www.
 
 The SEC program has been so successful that just last week the Department of Justice announced it would be [copying the model](https://www.wsj.com/articles/justice-department-trial-program-offers-millions-for-tips-on-fraud-bribery-5e4c710d) for its own investigations. The idea is even spreading [internationally](https://www.wsj.com/articles/more-regulators-eye-whistleblower-award-programs-hoping-for-insider-tips-3b5d99c5).
 
-Could such a program be extended to science? I hope that one day it might. But in the meantime, I would like to spread the word that there is _already_ a way for scientific whistleblowers to receive financial compensation for their service, one that few scientists know about. 
+Could the DOJ extend the program to scienctific fraud? I hope that one day it will. But in the meantime, I would like to spread the word that there is _already_ a way for scientific whistleblowers to receive financial compensation for their service, one that few scientists know about. 
 
 Under the [_qui tam_ provisions of the False Claims Act](https://en.wikipedia.org/wiki/Qui_tam), whistleblowers may sue on behalf of the government and share between 15-30% of any recovery or settlement. In the case of scientific fraud, the whistleblower would sue fraudulent researchers or their institutions on behalf of defrauded agencies like the NIH or NSF. In this way, the law acts like a whistleblower incentive program. 
 
