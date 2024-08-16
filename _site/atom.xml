@@ -4,13 +4,65 @@
  <title>Chris Said</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2024-06-17T08:10:11-04:00</updated>
+ <updated>2024-08-16T13:16:49-04:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
    <email></email>
  </author>
 
+ 
+ <entry>
+   <title>Scientific whistleblowers can be compensated for their service</title>
+   <link href="http://localhost:4000/2024/08/18/scientific-whistleblowers-can-be-compensated-for-their-service/"/>
+   <updated>2024-08-18T00:00:00-04:00</updated>
+   <id>http://localhost:4000/2024/08/18/scientific-whistleblowers-can-be-compensated-for-their-service</id>
+   <content type="html">&lt;p&gt;Science has a fraud problem. Highly cited research is often based on &lt;a href=&quot;https://chris-said.io/2024/06/17/the-case-for-criminalizing-scientific-misconduct/&quot;&gt;faked data&lt;/a&gt;, which causes other researchers to pursue false leads. In medical research, the time wasted by followup studies can delay the discovery of effective treatments for serious diseases, potentially causing &lt;a href=&quot;https://chris-said.io/2024/06/17/the-case-for-criminalizing-scientific-misconduct/&quot;&gt;millions of lives&lt;/a&gt; to be lost.&lt;/p&gt;
+
+&lt;p&gt;Unfortunately, researchers who witness this type of fraud are often reluctant to speak up. This isn’t surprising given the incentives. Whistleblowers can face pressure to stay silent, both from &lt;a href=&quot;https://retractionwatch.com/2019/12/11/a-long-and-lonely-process-whistleblowers-in-a-misconduct-case-speak-out/&quot;&gt;colleagues&lt;/a&gt; and their &lt;a href=&quot;https://www.medscape.com/viewarticle/854595#vp_1&quot;&gt;institutions&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;To help correct the incentives, &lt;a href=&quot;https://www.palladiummag.com/2024/08/02/the-academic-culture-of-fraud/&quot;&gt;Ben Laundau-Taylor&lt;/a&gt; suggests that science could borrow an idea from the US financial system, where an SEC bounty program pays whistleblowers 10-30% of the fines imposed by the government.&lt;/p&gt;
+
+&lt;p&gt;By all accounts, the SEC whistleblower program has been a &lt;a href=&quot;https://www.wsj.com/articles/more-regulators-eye-whistleblower-award-programs-hoping-for-insider-tips-3b5d99c5&quot;&gt;success&lt;/a&gt;. Not only has it uncovered &lt;a href=&quot;https://www.sec.gov/newsroom/whats-new?type=news&amp;amp;tag=28066&quot;&gt;dozens&lt;/a&gt; of cases of fraud, it has also shifted the culture in finance from a whistleblower-stigmatizing culture to a whistleblower-normalizing culture. From the &lt;a href=&quot;https://www.wsj.com/articles/more-regulators-eye-whistleblower-award-programs-hoping-for-insider-tips-3b5d99c5&quot;&gt;Wall Street Journal&lt;/a&gt;:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Yampolsky said that one change in recent years is that the whistleblower label on individuals doesn’t carry the same stigma as it did in the past and that many foreign regulators, including those in South Korea, are acknowledging the value of whistleblowers and the assistance they provide in aid of enforcement efforts.&lt;/p&gt;
+
+  &lt;p&gt;“It’s a growing acceptance of the notion that people should come forward and there is nothing wrong with motivating people financially—what you are really doing is providing insurance for the risks taken to their life and careers,” he said.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The SEC program has been so successful that just last week the Department of Justice announced it would be &lt;a href=&quot;https://www.wsj.com/articles/justice-department-trial-program-offers-millions-for-tips-on-fraud-bribery-5e4c710d&quot;&gt;copying the model&lt;/a&gt; for its own investigations. The idea is even spreading &lt;a href=&quot;https://www.wsj.com/articles/more-regulators-eye-whistleblower-award-programs-hoping-for-insider-tips-3b5d99c5&quot;&gt;internationally&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Could such a program be extended to science? I hope that one day it might. But in the meantime, I would like to spread the word that there is &lt;em&gt;already&lt;/em&gt; a way for scientific whistleblowers to receive financial compensation for their service, one that few scientists know about.&lt;/p&gt;
+
+&lt;p&gt;Under the &lt;a href=&quot;https://en.wikipedia.org/wiki/Qui_tam&quot;&gt;&lt;em&gt;qui tam&lt;/em&gt; provisions of the False Claims Act&lt;/a&gt;, whistleblowers may sue on behalf of the government and share between 15-30% of any recovery or settlement. In the case of scientific fraud, the whistleblower would sue fraudulent researchers or their institutions on behalf of defrauded agencies like the NIH or NSF. In this way, the law acts like a whistleblower incentive program.&lt;/p&gt;
+
+&lt;p&gt;The False Claims Act has  been used for this purpose before. In 2019, a whistleblower used it to &lt;a href=&quot;https://www.justice.gov/opa/pr/duke-university-agrees-pay-us-1125-million-settle-false-claims-act-allegations-related&quot;&gt;expose&lt;/a&gt; Duke University for falsifying and fabricating data used in 30 grant applications. As compensation, the whistleblower received millions of dollars from the settlement.&lt;/p&gt;
+
+&lt;p&gt;I suspect that many young researchers have witnessed scientific fraud but do not feel empowered to speak up, for fear that doing so may harm their career or otherwise be too costly. If any of those researchers are reading this, you should know that the False Claims Act can compensate you for the financial risk you take on, and that there are &lt;a href=&quot;https://www.maxrodriguez.law/&quot;&gt;law firms&lt;/a&gt; &lt;a href=&quot;https://eugeniereichlaw.com/&quot;&gt;specialized for&lt;/a&gt; &lt;a href=&quot;https://www.taf.org/&quot;&gt;whistleblowers&lt;/a&gt; that would happily do the difficult work for you. This would not be a lonely endeavor, and you would be helping make science better&lt;sup&gt;1&lt;/sup&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/assets/2024_whistleblowers/eugenie.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:80%;&quot; /&gt;&lt;/p&gt;
+  &lt;div class=&quot;caption&quot;&gt;
+    &lt;p&gt;&lt;strong&gt;Figure 1.&lt;/strong&gt; Screenshot from a &lt;a href=&quot;https://eugeniereichlaw.com/&quot;&gt;law firm&lt;/a&gt; specializing in scientific whistleblowing&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Critics might say it’s unseemly for whistleblowers to get paid, particularly when the mechanism requires them to initiate a lawsuit, as in the case of the False Claims Act. I understand that feeling. But I also think it is the substrate of an unhealthy stigma. Science is better off if whistleblowing is more normalized.&lt;/p&gt;
+
+&lt;p&gt;Other critics might worry that ambiguous cases of p-hacking could be caught up in lawsuits. But the law is clearly restricted to materially important cases of &lt;a href=&quot;https://retractionwatch.com/2015/05/06/so-you-want-to-be-a-whistleblower-part-ii/&quot;&gt;fabrication and falsification&lt;/a&gt;, not murkier forms of misconduct.&lt;/p&gt;
+
+&lt;p&gt;I don’t think that the False Claims Act is the only way to improve science, nor do I think it’s the best way. The SEC model would be a better and more orderly way to compensate whistleblowers, and there are even more promising ways to &lt;a href=&quot;https://f1000research.com/articles/13-883/v1&quot;&gt;encourage high quality, reproducible science&lt;/a&gt;. But in a world where fraudulent researchers are &lt;a href=&quot;https://www.theguardian.com/commentisfree/2023/aug/09/scientific-misconduct-retraction-watch&quot;&gt;hardly ever reported&lt;/a&gt;, we should empower whistleblowers with whatever tools we have.&lt;/p&gt;
+
+&lt;div class=&quot;caption&quot;&gt;
+  &lt;p&gt;Special thanks to &lt;a href=&quot;https://retractionwatch.com/meet-the-retraction-watch-staff/about/&quot;&gt;Ivan Oransky&lt;/a&gt; for discussions about this post.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;caption&quot;&gt;
+  &lt;p&gt;&lt;sup&gt;1&lt;/sup&gt;The False Claims Act brings several benefits to science. It exposes fraudulent research, it may provide some deterrent to future fraud, and it incentivizes universities to take internal whistleblowers more seriously (similar to &lt;a href=&quot;https://www.wsj.com/articles/more-regulators-eye-whistleblower-award-programs-hoping-for-insider-tips-3b5d99c5&quot;&gt;finance&lt;/a&gt;). When Harvard &lt;a href=&quot;https://retractionwatch.com/2017/04/27/harvard-teaching-hospital-pay-10-million-settle-research-misconduct-allegations/&quot;&gt;took seriously&lt;/a&gt; its internal whistleblowers in the 2017 stem cell scandal and promptly reported the issue to the government, the university received relatively small penalties from the False Claims Act. But when Duke &lt;a href=&quot;https://www.medscape.com/viewarticle/910922?st=fpf&amp;amp;scode=msp&amp;amp;socialSite=google&amp;amp;form=fpf&amp;amp;icd=login_success_gg_match_fpf&quot;&gt;tried to cover up&lt;/a&gt; its pulmonary research scandal, the government imposed far steeper penalties, even though the magnitude of fraud was similar to the Harvard case.&lt;/p&gt;
+&lt;/div&gt;
+</content>
+ </entry>
  
  <entry>
    <title>The case for criminalizing scientific misconduct</title>
@@ -86,16 +138,16 @@
 
 &lt;p&gt;It is common for university investigations to let these researchers off the hook. Universities have a “&lt;a href=&quot;https://www.nytimes.com/2017/03/08/science/cancer-carlo-croce.html&quot;&gt;tremendous conflict of interest&lt;/a&gt;”, says Dr. Richard Smith, a former editor of The British Medical Journal. Scientists who conduct research misconduct tend to bring in &lt;a href=&quot;https://journals.sagepub.com/doi/abs/10.1111/j.1748-720X.2005.tb00498.x&quot;&gt;millions of dollars of grant money&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;Academic journals have little incentive to correct the record either. While some of the most egregious cases of misconduct eventually result in retractions, the vast majority of cases result in no action. The prominent science investigator Elizabeth Bik has sent over 700 papers with clear image manipulation to academic journals. &lt;a href=&quot;https://www.nytimes.com/2017/03/08/science/cancer-carlo-croce.html&quot;&gt;600 of these have resulted in no action, not even a correction&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Academic journals have little incentive to correct the record either. While some of the most egregious cases of misconduct eventually result in retractions, the vast majority of cases result in no action. The prominent science investigator Elisabeth Bik has sent over 700 papers with clear image manipulation to academic journals. &lt;a href=&quot;https://www.nytimes.com/2017/03/08/science/cancer-carlo-croce.html&quot;&gt;600 of these have resulted in no action, not even a correction&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h2 id=&quot;what-can-be-done&quot;&gt;What can be done?&lt;/h2&gt;
 &lt;p&gt;Since universities and journals have failed to regulate themselves, we should strengthen our external layers of oversight. Below are two complementary ideas.&lt;/p&gt;
 
 &lt;h3 id=&quot;danish-style-independent-committees&quot;&gt;Danish-style independent committees&lt;/h3&gt;
-&lt;p&gt;As with many things in life, we could start by copying the Danish. In 2017, Denmark passed a law establishing a non-criminal &lt;a href=&quot;https://ufm.dk/en/research-and-innovation/councils-and-commissions/The-Danish-Board-on-Research-Misconduct&quot;&gt;&lt;em&gt;independent&lt;/em&gt; expert committee&lt;/a&gt; to investigate scientific misconduct, a stronger alternative to in-house investigations. If the committee determines misconduct occurred, it may take &lt;a href=&quot;https://dg.dk/en/research-integrity/&quot;&gt;actions&lt;/a&gt; like notifying the university, publisher, and funding agency, and sometimes even the police. Due to its independence, expertise, and narrowly defined scope, committee decisions are considered more credible than decisions from universities. The U.S. Congress could accomplish this by &lt;a href=&quot;https://www.nytimes.com/2014/07/11/opinion/crack-down-on-scientific-fraudsters.html&quot;&gt;giving more teeth to the existing Office of Research Integrity&lt;/a&gt;, a federal committee that currently lets universities &lt;a href=&quot;https://www.science.org/doi/10.1126/science.adn9352&quot;&gt;drive&lt;/a&gt; the investigations.&lt;/p&gt;
+&lt;p&gt;As with many things in life, we could start by copying the Danish. In 2017, Denmark passed a law establishing a non-criminal &lt;a href=&quot;https://ufm.dk/en/research-and-innovation/councils-and-commissions/The-Danish-Board-on-Research-Misconduct&quot;&gt;&lt;em&gt;independent&lt;/em&gt; expert committee&lt;/a&gt; to investigate scientific misconduct, a stronger alternative to in-house investigations. If the committee determines misconduct occurred, it may take &lt;a href=&quot;https://dg.dk/en/research-integrity/&quot;&gt;actions&lt;/a&gt; like notifying the university, publisher, and funding agency, and sometimes even the police. Due to its independence, expertise, and narrowly defined scope, committee decisions are considered more credible than decisions from universities. The U.S. Congress could accomplish this by &lt;a href=&quot;https://www.nytimes.com/2014/07/11/opinion/crack-down-on-scientific-fraudsters.html&quot;&gt;giving more teeth to the existing Office of Research Integrity&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h3 id=&quot;a-federal-criminal-statute-on-scientific-misconduct&quot;&gt;A federal criminal statute on scientific misconduct&lt;/h3&gt;
-&lt;p&gt;While a Danish system would be an improvement over our current system, I think we should go even further. For sufficient deterrence, we need stricter criminal enforcement.&lt;/p&gt;
+&lt;p&gt;While a Danish system would be an improvement over our current system, we should go even further. For sufficient deterrence, we need stricter criminal enforcement.&lt;/p&gt;
 
 &lt;p&gt;The laws available to prosecute scientific misconduct are mail fraud, wire fraud, and false statements to the federal government. Yet, these are &lt;a href=&quot;https://en.wikipedia.org/wiki/List_of_scientific_misconduct_incidents&quot;&gt;barely ever used&lt;/a&gt; and are typically limited to grant applications. Susan Kuzma, a lawyer for the Department of Justice, argues that the existing laws are too generic and often require complex scientific knowledge from judges and juries. Instead she proposes a &lt;a href=&quot;https://repository.law.umich.edu/cgi/viewcontent.cgi?article=1738&amp;amp;context=mjlr&quot;&gt;new criminal statute directed explicitly at scientific misconduct&lt;/a&gt;. This would offer several advantages.&lt;/p&gt;
 
@@ -110,7 +162,7 @@
 &lt;h2 id=&quot;response-to-objections&quot;&gt;Response to objections&lt;/h2&gt;
 &lt;p&gt;Some researchers say that the prospect of jail time will not deter scientific fraudsters (&lt;a href=&quot;https://journals.sagepub.com/doi/pdf/10.1177/1745691612460687&quot;&gt;1&lt;/a&gt;, &lt;a href=&quot;https://ecommons.aku.edu/cgi/viewcontent.cgi?article=1192&amp;amp;context=pakistan_fhs_mc_women_childhealth_paediatr&quot;&gt;2&lt;/a&gt;). But why would scientific fraudsters behave any differently than other fraudsters?&lt;/p&gt;
 
-&lt;p&gt;Others worry that criminal courts could extend prosecution to more moderate forms of misconduct, such as selective reporting of data. But Denmark shows how the law can be &lt;a href=&quot;https://ufm.dk/en/research-and-innovation/councils-and-commissions/The-Danish-Board-on-Research-Misconduct&quot;&gt;scoped&lt;/a&gt; to fabrication and falsification, explicitly leaving the more moderate “questionable research practices” to the universities.&lt;/p&gt;
+&lt;p&gt;Others worry that criminal courts could extend prosecution to murkier forms of misconduct, such as selective reporting of data. But Denmark shows how the law can be &lt;a href=&quot;https://ufm.dk/en/research-and-innovation/councils-and-commissions/The-Danish-Board-on-Research-Misconduct&quot;&gt;scoped&lt;/a&gt; to fabrication and falsification, explicitly leaving the murkier “questionable research practices” to the universities.&lt;/p&gt;
 
 &lt;p&gt;Finally, some worry that some scientists might be falsely accused of fraud. But this risk exists for any crime. Why should science get an exception? Committees or courts dealing with scientific misconduct should have due process. As the case of &lt;a href=&quot;https://en.wikipedia.org/wiki/Thereza_Imanishi-Kari&quot;&gt;Thereza Imanishi-Kari&lt;/a&gt; shows, we should not identically clone earlier government committees that lacked these safeguards, such as the right of appeal.&lt;/p&gt;
 
@@ -255,7 +307,7 @@
 
 &lt;p&gt;The third thing to know about AQI is that the relationship between AQI and PM&lt;sub&gt;2.5&lt;/sub&gt; is a fascinating case study in how decisions are made at federal agencies. This is the focus of this blog post.&lt;/p&gt;
 
-&lt;p&gt;Based on the &lt;a href=&quot;https://www.airnow.gov/sites/default/files/2020-05/aqi-technical-assistance-document-sept2018.pdf&quot;&gt;AQI calculation rules&lt;/a&gt;, the relationship between PM&lt;sub&gt;2.5&lt;/sub&gt; and AQI looks like this.&lt;/p&gt;
+&lt;p&gt;Based on the &lt;a href=&quot;https://www.airnow.gov/sites/default/files/2020-05/aqi-technical-assistance-document-sept2018.pdf&quot;&gt;AQI calculation rules&lt;/a&gt;, the relationship between PM&lt;sub&gt;2.5&lt;/sub&gt; and AQI is defined like this.&lt;/p&gt;
 
 &lt;div class=&quot;wrapper&quot;&gt;
   &lt;p&gt;&lt;img src=&quot;/assets/2023_aqi/aqi.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:80%;&quot; /&gt;&lt;/p&gt;
@@ -1776,7 +1828,7 @@ Under the linear model, almost all transmission would occur around the peak of i
 
 &lt;p&gt;&lt;img src=&quot;/assets/2020_solar_storms/fig_testing.png&quot; /&gt;&lt;/p&gt;
 &lt;div class=&quot;caption&quot;&gt;
-  &lt;p&gt;&lt;strong&gt;Figure 2&lt;/strong&gt;: Setup for EPRI’s free field tests on DPRs. [&lt;a href=&quot;https://www.epri.com/research/products/3002014979'&quot;&gt;EPRI&lt;/a&gt;]&lt;/p&gt;
+  &lt;p&gt;&lt;strong&gt;Figure 2&lt;/strong&gt;: Setup for EPRI’s free field tests on DPRs. [&lt;a href=&quot;https://www.epri.com/research/products/3002014979&apos;&quot;&gt;EPRI&lt;/a&gt;]&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;&lt;strong&gt;Q:&lt;/strong&gt; &lt;em&gt;OK, so these DPR devices could withstand EMPs up to 50 kV/m, but how does this compare to the intensities that could come from an actual EMP attack?&lt;/em&gt;
@@ -3621,42 +3673,42 @@ relative --&gt;
 
 // Names to Index
 var n2i = {
-'petro': 0,
-'steel': 1,
-'copper': 2,
-'aluminum': 3,
-'ammonia': 4,
-'food': 5,
-'textiles': 6,
-'logging': 7,
-'automotive': 8
+&apos;petro&apos;: 0,
+&apos;steel&apos;: 1,
+&apos;copper&apos;: 2,
+&apos;aluminum&apos;: 3,
+&apos;ammonia&apos;: 4,
+&apos;food&apos;: 5,
+&apos;textiles&apos;: 6,
+&apos;logging&apos;: 7,
+&apos;automotive&apos;: 8
 }
 
 var commodities = {
   &quot;nodes&quot;:[
-    {'name': 'Petroleum residuals'},
-    {'name': 'Crude Steel'},
-    {'name': 'Copper'},
-    {'name': 'Aluminum'},
-    {'name': 'Ammonia'},
-    {'name': 'Agriculture and Food'},
-    {'name': 'Textiles and Apparel'},
-    {'name': 'Logging and Paper Products'},
-    {'name': 'Automotive Equipment'}
+    {&apos;name&apos;: &apos;Petroleum residuals&apos;},
+    {&apos;name&apos;: &apos;Crude Steel&apos;},
+    {&apos;name&apos;: &apos;Copper&apos;},
+    {&apos;name&apos;: &apos;Aluminum&apos;},
+    {&apos;name&apos;: &apos;Ammonia&apos;},
+    {&apos;name&apos;: &apos;Agriculture and Food&apos;},
+    {&apos;name&apos;: &apos;Textiles and Apparel&apos;},
+    {&apos;name&apos;: &apos;Logging and Paper Products&apos;},
+    {&apos;name&apos;: &apos;Automotive Equipment&apos;}
   ],
-  'links':[
-    {'source':n2i['petro'],'target':n2i['food'],'value':510},
-    {'source':n2i['steel'],'target':n2i['food'],'value':80},
-    {'source':n2i['ammonia'],'target':n2i['food'],'value':250},
-    {'source':n2i['steel'],'target':n2i['textiles'],'value':10},
-    {'source':n2i['ammonia'],'target':n2i['textiles'],'value':10},
-    {'source':n2i['petro'],'target':n2i['logging'],'value':30},
-    {'source':n2i['steel'],'target':n2i['logging'],'value':40},
-    {'source':n2i['ammonia'],'target':n2i['logging'],'value':5},
-    {'source':n2i['petro'],'target':n2i['automotive'],'value':60},
-    {'source':n2i['steel'],'target':n2i['automotive'],'value':1800},
-    {'source':n2i['copper'],'target':n2i['automotive'],'value':14},
-    {'source':n2i['aluminum'],'target':n2i['automotive'],'value':3}
+  &apos;links&apos;:[
+    {&apos;source&apos;:n2i[&apos;petro&apos;],&apos;target&apos;:n2i[&apos;food&apos;],&apos;value&apos;:510},
+    {&apos;source&apos;:n2i[&apos;steel&apos;],&apos;target&apos;:n2i[&apos;food&apos;],&apos;value&apos;:80},
+    {&apos;source&apos;:n2i[&apos;ammonia&apos;],&apos;target&apos;:n2i[&apos;food&apos;],&apos;value&apos;:250},
+    {&apos;source&apos;:n2i[&apos;steel&apos;],&apos;target&apos;:n2i[&apos;textiles&apos;],&apos;value&apos;:10},
+    {&apos;source&apos;:n2i[&apos;ammonia&apos;],&apos;target&apos;:n2i[&apos;textiles&apos;],&apos;value&apos;:10},
+    {&apos;source&apos;:n2i[&apos;petro&apos;],&apos;target&apos;:n2i[&apos;logging&apos;],&apos;value&apos;:30},
+    {&apos;source&apos;:n2i[&apos;steel&apos;],&apos;target&apos;:n2i[&apos;logging&apos;],&apos;value&apos;:40},
+    {&apos;source&apos;:n2i[&apos;ammonia&apos;],&apos;target&apos;:n2i[&apos;logging&apos;],&apos;value&apos;:5},
+    {&apos;source&apos;:n2i[&apos;petro&apos;],&apos;target&apos;:n2i[&apos;automotive&apos;],&apos;value&apos;:60},
+    {&apos;source&apos;:n2i[&apos;steel&apos;],&apos;target&apos;:n2i[&apos;automotive&apos;],&apos;value&apos;:1800},
+    {&apos;source&apos;:n2i[&apos;copper&apos;],&apos;target&apos;:n2i[&apos;automotive&apos;],&apos;value&apos;:14},
+    {&apos;source&apos;:n2i[&apos;aluminum&apos;],&apos;target&apos;:n2i[&apos;automotive&apos;],&apos;value&apos;:3}
   ]
 }
 
@@ -3972,7 +4024,7 @@ var tooltip = d3.select(&quot;#econ_scatter&quot;).append(&quot;div&quot;)
     // .style(&quot;opacity&quot;, 0);
 
 
-  // don't want dots overlapping axis, so add in buffer to data domain
+  // don&apos;t want dots overlapping axis, so add in buffer to data domain
   xScale.domain([-5, 105]);
   yScale.domain([15, 85]);
 
@@ -4142,7 +4194,7 @@ circle.competitor {
 
 &lt;/style&gt;
 
-&lt;!-- I think Markdown doesn't like two script tags in a row --&gt;
+&lt;!-- I think Markdown doesn&apos;t like two script tags in a row --&gt;
 &lt;div&gt;&lt;/div&gt;
 
 &lt;script&gt;
@@ -4320,7 +4372,7 @@ var get_dot_x_local_max = function(t) {
   return soft_motion(t, .2, .35, .8, .2)
 };
 
-// The horizontal position of your competitor's dot
+// The horizontal position of your competitor&apos;s dot
 var get_competitor_dot_x = function(t) {
   return 0.8;
 };
@@ -4415,18 +4467,18 @@ makeObjectiveGraph(&quot;plot5&quot;, get_competitor_dot_x, objective5, &quot;Do
   &lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;script&amp;gt;&lt;/span&gt;
   &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;code_toggle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;code_shown&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-      &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;div.input&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hide&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;500&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-      &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;#toggleButton&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;Show Code&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;div.input&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hide&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;500&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;#toggleButton&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;Show Code&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
     &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;div.input&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;show&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;500&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-      &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;#toggleButton&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;Hide Code&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;div.input&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;show&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;500&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;#toggleButton&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;Hide Code&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
     &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
     &lt;span class=&quot;nx&quot;&gt;code_shown&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;code_shown&lt;/span&gt;
   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 
   &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ready&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
     &lt;span class=&quot;nx&quot;&gt;code_shown&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;div.input&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hide&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;div.input&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hide&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
   &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;form&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;action=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;javascript:code_toggle()&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;submit&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;toggleButton&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Show Code&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/form&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
@@ -4437,11 +4489,11 @@ makeObjectiveGraph(&quot;plot5&quot;, get_competitor_dot_x, objective5, &quot;Do
 &lt;figure class=&quot;highlight&quot;&gt;
   &lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;script&amp;gt;&lt;/span&gt;
   &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ready&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;div.prompt&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hide&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;div.back-to-top&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hide&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;nav#menubar&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hide&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;.breadcrumb&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hide&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;.hidden-print&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hide&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;div.prompt&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hide&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;div.back-to-top&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hide&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;nav#menubar&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hide&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;.breadcrumb&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hide&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;.hidden-print&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hide&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
   &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
 
@@ -4457,7 +4509,7 @@ Created with Jupyter, delivered by Fastly, rendered by Rackspace.
   &lt;span class=&quot;nx&quot;&gt;jQuery&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ready&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
 
   &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;load&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;#preloader&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fadeOut&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;slow&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;remove&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();});&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;#preloader&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fadeOut&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;slow&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;remove&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();});&lt;/span&gt;
   &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
 
   &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
@@ -4471,7 +4523,7 @@ Created with Jupyter, delivered by Fastly, rendered by Rackspace.
       &lt;span class=&quot;nl&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
       &lt;span class=&quot;nl&quot;&gt;height&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
       &lt;span class=&quot;nl&quot;&gt;overflow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;visible&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-      &lt;span class=&quot;nl&quot;&gt;background&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#fff&lt;/span&gt; &lt;span class=&quot;sx&quot;&gt;url('http://preloaders.net/preloaders/720/Moving%20line.gif')&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;no-repeat&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;center&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;center&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+      &lt;span class=&quot;nl&quot;&gt;background&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#fff&lt;/span&gt; &lt;span class=&quot;sx&quot;&gt;url(&apos;http://preloaders.net/preloaders/720/Moving%20line.gif&apos;)&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;no-repeat&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;center&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;center&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;/style&amp;gt;&lt;/span&gt;
@@ -4663,7 +4715,7 @@ t = \frac{\overline{X_1} - \overline{X_2}}{\sqrt{se_1^2 + se_2^2}}
         &lt;span class=&quot;nb&quot;&gt;rm&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-i&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$MARKPATH&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
     &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;function &lt;/span&gt;marks &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;se&quot;&gt;\l&lt;/span&gt;s &lt;span class=&quot;nt&quot;&gt;-l&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$MARKPATH&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; | &lt;span class=&quot;nb&quot;&gt;tail&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-n&lt;/span&gt; +2 | &lt;span class=&quot;nb&quot;&gt;sed&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'s/  / /g'&lt;/span&gt; | &lt;span class=&quot;nb&quot;&gt;cut&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;' '&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-f9-&lt;/span&gt; | &lt;span class=&quot;nb&quot;&gt;awk&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-F&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;' -&amp;gt; '&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'{printf &quot;%-10s -&amp;gt; %s\n&quot;, $1, $2}'&lt;/span&gt;
+        &lt;span class=&quot;se&quot;&gt;\l&lt;/span&gt;s &lt;span class=&quot;nt&quot;&gt;-l&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$MARKPATH&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; | &lt;span class=&quot;nb&quot;&gt;tail&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-n&lt;/span&gt; +2 | &lt;span class=&quot;nb&quot;&gt;sed&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;s/  / /g&apos;&lt;/span&gt; | &lt;span class=&quot;nb&quot;&gt;cut&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos; &apos;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-f9-&lt;/span&gt; | &lt;span class=&quot;nb&quot;&gt;awk&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-F&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos; -&amp;gt; &apos;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;{printf &quot;%-10s -&amp;gt; %s\n&quot;, $1, $2}&apos;&lt;/span&gt;
     &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 
     _cdd&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
@@ -5074,7 +5126,7 @@ t = \frac{\overline{X_1} - \overline{X_2}}{\sqrt{se_1^2 + se_2^2}}
    &lt;span class=&quot;nb&quot;&gt;plot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;makeLogistic&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c50_mean&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)));&lt;/span&gt;
    &lt;span class=&quot;nb&quot;&gt;hold&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;on&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;ylabel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Single Neuron Response'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;ylabel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;Single Neuron Response&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 
 &lt;span class=&quot;c1&quot;&gt;%fMRI&lt;/span&gt;
 &lt;span class=&quot;nb&quot;&gt;subplot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
@@ -5083,16 +5135,16 @@ t = \frac{\overline{X_1} - \overline{X_2}}{\sqrt{se_1^2 + se_2^2}}
   &lt;span class=&quot;nb&quot;&gt;plot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CRF_fMRI&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
   &lt;span class=&quot;nb&quot;&gt;hold&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;on&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;ylabel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'fMRI Response'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;ylabel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;fMRI Response&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 
 &lt;span class=&quot;c1&quot;&gt;%EEG&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;%Cancellation. Scale factor isn't necessary but reflects that fact that&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;%Cancellation. Scale factor isn&apos;t necessary but reflects that fact that&lt;/span&gt;
 &lt;span class=&quot;c1&quot;&gt;%some areas are likely to activate more than others.&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;R_EEG&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;abs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;R&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;idcs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},:)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;R&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;idcs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},:));&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;CRF_EEG&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;mean&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;R_EEG&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 &lt;span class=&quot;nb&quot;&gt;subplot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;nb&quot;&gt;plot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CRF_EEG&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;ylabel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'EEG Response'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;ylabel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;EEG Response&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 
 &lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;makeLogistic&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c50&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;r&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;1.&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;/(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;exp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c50&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))));&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;

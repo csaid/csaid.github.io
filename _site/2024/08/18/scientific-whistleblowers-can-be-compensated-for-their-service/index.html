@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<!--
+It's bad to import d3 in every post separately (https://groups.google.com/forum/#!topic/d3-js/bwdNirt2uEU).
+Importing it globally here.
+Putting this up at the top, according to this controversial stack overflow answer
+http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
+ -->
+<script src="https://d3js.org/d3.v5.min.js"></script>
+
+<link rel="stylesheet" href="/public/font-awesome-4.4.0/css/font-awesome.min.css">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  
+    <meta name="description" content="How the U.S. financial system is a model of integrity that science could learn from">
+  
+
+  <!-- To get a link preview image, just set the image attribute in your _post -->
+  
+    <meta content="http://localhost:4000/assets/2024_whistleblowers/whistle.webp" property="og:image"/>
+  
+
+  <!-- twitter standard -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@chris_said" />
+  <meta name="twitter:title" content="Scientific whistleblowers can be compensated for their service" />
+  <meta name="twitter:description" content="How the U.S. financial system is a model of integrity that science could learn from" />
+
+
+  <title>
+    
+      Scientific whistleblowers can be compensated for their service &middot; Chris Said
+    
+  </title>
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-67746868-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/hyde.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/logo144.png">
+                                 <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+<!--   <body class="theme-base-cps">
+ -->
+  <body>
+
+    <div class="sidebar">
+  <div class="container">
+    <div class="sidebar-about">
+      <h1>
+        <a href="/">
+          Chris Said
+        </a>
+      </h1>
+      <p class="lead">I am a data scientist at Propel. This blog is mostly about statistics, technology, and science.</p>
+
+    </div>
+
+    <!-- <nav class="sidebar-nav">
+
+      
+        <a class="sidebar-nav-item" href="/">Home</a>
+      
+        <a class="sidebar-nav-item" href="/atom.xml">Feed</a>
+      
+
+    </nav> -->
+
+
+    <div class="wrapper hide-on-mobile ">
+      <img src='/assets/chris-said-2022-small.jpg'>
+    </div>
+
+    <div class="wrapper">
+      <div class="inner">
+        <a href="http://www.twitter.com/Chris_Said" class="contact-button"><i class="fa fa-twitter fa-2x"></i></a>
+        <a href="https://www.linkedin.com/pub/chris-said/6b/86b/979" class="contact-button"><i
+            class="fa fa-linkedin-square fa-2x"></i></a>
+        <a href="mailto:chris.said@gmail.com" class="contact-button"><i class="fa fa-envelope fa-2x"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="content container">
+      <div class="post">
+  <h1 class="post-title">Scientific whistleblowers can be compensated for their service</h1>
+  <span class="post-date">18 Aug 2024</span>
+  <p>Science has a fraud problem. Highly cited research is often based on <a href="https://chris-said.io/2024/06/17/the-case-for-criminalizing-scientific-misconduct/">faked data</a>, which causes other researchers to pursue false leads. In medical research, the time wasted by followup studies can delay the discovery of effective treatments for serious diseases, potentially causing <a href="https://chris-said.io/2024/06/17/the-case-for-criminalizing-scientific-misconduct/">millions of lives</a> to be lost.</p>
+
+<p>Unfortunately, researchers who witness this type of fraud are often reluctant to speak up. This isn’t surprising given the incentives. Whistleblowers can face pressure to stay silent, both from <a href="https://retractionwatch.com/2019/12/11/a-long-and-lonely-process-whistleblowers-in-a-misconduct-case-speak-out/">colleagues</a> and their <a href="https://www.medscape.com/viewarticle/854595#vp_1">institutions</a>.</p>
+
+<p>To help correct the incentives, <a href="https://www.palladiummag.com/2024/08/02/the-academic-culture-of-fraud/">Ben Laundau-Taylor</a> suggests that science could borrow an idea from the US financial system, where an SEC bounty program pays whistleblowers 10-30% of the fines imposed by the government.</p>
+
+<p>By all accounts, the SEC whistleblower program has been a <a href="https://www.wsj.com/articles/more-regulators-eye-whistleblower-award-programs-hoping-for-insider-tips-3b5d99c5">success</a>. Not only has it uncovered <a href="https://www.sec.gov/newsroom/whats-new?type=news&amp;tag=28066">dozens</a> of cases of fraud, it has also shifted the culture in finance from a whistleblower-stigmatizing culture to a whistleblower-normalizing culture. From the <a href="https://www.wsj.com/articles/more-regulators-eye-whistleblower-award-programs-hoping-for-insider-tips-3b5d99c5">Wall Street Journal</a>:</p>
+
+<blockquote>
+  <p>Yampolsky said that one change in recent years is that the whistleblower label on individuals doesn’t carry the same stigma as it did in the past and that many foreign regulators, including those in South Korea, are acknowledging the value of whistleblowers and the assistance they provide in aid of enforcement efforts.</p>
+
+  <p>“It’s a growing acceptance of the notion that people should come forward and there is nothing wrong with motivating people financially—what you are really doing is providing insurance for the risks taken to their life and careers,” he said.</p>
+</blockquote>
+
+<p>The SEC program has been so successful that just last week the Department of Justice announced it would be <a href="https://www.wsj.com/articles/justice-department-trial-program-offers-millions-for-tips-on-fraud-bribery-5e4c710d">copying the model</a> for its own investigations. The idea is even spreading <a href="https://www.wsj.com/articles/more-regulators-eye-whistleblower-award-programs-hoping-for-insider-tips-3b5d99c5">internationally</a>.</p>
+
+<p>Could such a program be extended to science? I hope that one day it might. But in the meantime, I would like to spread the word that there is <em>already</em> a way for scientific whistleblowers to receive financial compensation for their service, one that few scientists know about.</p>
+
+<p>Under the <a href="https://en.wikipedia.org/wiki/Qui_tam"><em>qui tam</em> provisions of the False Claims Act</a>, whistleblowers may sue on behalf of the government and share between 15-30% of any recovery or settlement. In the case of scientific fraud, the whistleblower would sue fraudulent researchers or their institutions on behalf of defrauded agencies like the NIH or NSF. In this way, the law acts like a whistleblower incentive program.</p>
+
+<p>The False Claims Act has  been used for this purpose before. In 2019, a whistleblower used it to <a href="https://www.justice.gov/opa/pr/duke-university-agrees-pay-us-1125-million-settle-false-claims-act-allegations-related">expose</a> Duke University for falsifying and fabricating data used in 30 grant applications. As compensation, the whistleblower received millions of dollars from the settlement.</p>
+
+<p>I suspect that many young researchers have witnessed scientific fraud but do not feel empowered to speak up, for fear that doing so may harm their career or otherwise be too costly. If any of those researchers are reading this, you should know that the False Claims Act can compensate you for the financial risk you take on, and that there are <a href="https://www.maxrodriguez.law/">law firms</a> <a href="https://eugeniereichlaw.com/">specialized for</a> <a href="https://www.taf.org/">whistleblowers</a> that would happily do the difficult work for you. This would not be a lonely endeavor, and you would be helping make science better<sup>1</sup>.</p>
+
+<div class="wrapper">
+  <p><img src="/assets/2024_whistleblowers/eugenie.png" class="inner" style="position:relative border: #222 2px solid; max-width:80%;" /></p>
+  <div class="caption">
+    <p><strong>Figure 1.</strong> Screenshot from a <a href="https://eugeniereichlaw.com/">law firm</a> specializing in scientific whistleblowing</p>
+  </div>
+</div>
+
+<p>Critics might say it’s unseemly for whistleblowers to get paid, particularly when the mechanism requires them to initiate a lawsuit, as in the case of the False Claims Act. I understand that feeling. But I also think it is the substrate of an unhealthy stigma. Science is better off if whistleblowing is more normalized.</p>
+
+<p>Other critics might worry that ambiguous cases of p-hacking could be caught up in lawsuits. But the law is clearly restricted to materially important cases of <a href="https://retractionwatch.com/2015/05/06/so-you-want-to-be-a-whistleblower-part-ii/">fabrication and falsification</a>, not murkier forms of misconduct.</p>
+
+<p>I don’t think that the False Claims Act is the only way to improve science, nor do I think it’s the best way. The SEC model would be a better and more orderly way to compensate whistleblowers, and there are even more promising ways to <a href="https://f1000research.com/articles/13-883/v1">encourage high quality, reproducible science</a>. But in a world where fraudulent researchers are <a href="https://www.theguardian.com/commentisfree/2023/aug/09/scientific-misconduct-retraction-watch">hardly ever reported</a>, we should empower whistleblowers with whatever tools we have.</p>
+
+<div class="caption">
+  <p>Special thanks to <a href="https://retractionwatch.com/meet-the-retraction-watch-staff/about/">Ivan Oransky</a> for discussions about this post.</p>
+</div>
+
+<div class="caption">
+  <p><sup>1</sup>The False Claims Act brings several benefits to science. It exposes fraudulent research, it may provide some deterrent to future fraud, and it incentivizes universities to take internal whistleblowers more seriously (similar to <a href="https://www.wsj.com/articles/more-regulators-eye-whistleblower-award-programs-hoping-for-insider-tips-3b5d99c5">finance</a>). When Harvard <a href="https://retractionwatch.com/2017/04/27/harvard-teaching-hospital-pay-10-million-settle-research-misconduct-allegations/">took seriously</a> its internal whistleblowers in the 2017 stem cell scandal and promptly reported the issue to the government, the university received relatively small penalties from the False Claims Act. But when Duke <a href="https://www.medscape.com/viewarticle/910922?st=fpf&amp;scode=msp&amp;socialSite=google&amp;form=fpf&amp;icd=login_success_gg_match_fpf">tried to cover up</a> its pulmonary research scandal, the government imposed far steeper penalties, even though the magnitude of fraud was similar to the Harvard case.</p>
+</div>
+
+  <div>
+    <a class="twitter-share-button"
+      href="https://twitter.com/share"
+      data-url=""
+      data-via="Chris_Said"
+      data-size="large"
+      data-count="none">
+    Tweet
+    </a>
+</div>
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'csaid81';
+    var disqus_identifier = 'http://localhost:4000/2024/08/18/scientific-whistleblowers-can-be-compensated-for-their-service/';
+    var disqus_url = 'http://localhost:4000/2024/08/18/scientific-whistleblowers-can-be-compensated-for-their-service/';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+</div>
+
+
+    </div>
+
+  </body>
+</html>
+
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+
+<script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));</script>
