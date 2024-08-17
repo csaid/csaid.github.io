@@ -37,7 +37,7 @@ Critics might say it’s unseemly for whistleblowers to get paid, particularly w
 
 Other critics might worry that ambiguous cases of p-hacking could be caught up in lawsuits. But the law is clearly restricted to [fabrication and falsification](https://retractionwatch.com/2015/05/06/so-you-want-to-be-a-whistleblower-part-ii/), not murkier forms of misconduct.
 
-I don’t think that the False Claims Act is the only way to improve science, nor do I think it’s the best way. The SEC model would be a better and more orderly way to compensate whistleblowers, and there are even more promising ways to [encourage high quality, reproducible science](https://f1000research.com/articles/13-883/v1). But in a world where fraudulent researchers are [hardly ever reported](https://www.theguardian.com/commentisfree/2023/aug/09/scientific-misconduct-retraction-watch), we should empower whistleblowers with whatever tools we have.
+The False Claims Act is not an ideal way to reform science. The SEC model would be a better and more orderly way to compensate whistleblowers, and there are even more promising ways to [encourage high quality, reproducible science](https://f1000research.com/articles/13-883/v1). But in a world where fraudulent researchers are [hardly ever reported](https://www.theguardian.com/commentisfree/2023/aug/09/scientific-misconduct-retraction-watch), we should empower whistleblowers with whatever tools we have.
 
 <div class="caption">Special thanks to [Ivan Oransky](https://retractionwatch.com/meet-the-retraction-watch-staff/about/) for discussions about this post.
 </div>
