@@ -13,7 +13,7 @@ To help correct the incentives, [Ben Laundau-Taylor](https://www.palladiummag.co
 
 By all accounts, the SEC whistleblower program has been a [success](https://www.wsj.com/articles/more-regulators-eye-whistleblower-award-programs-hoping-for-insider-tips-3b5d99c5). Not only has it uncovered [dozens](https://www.sec.gov/newsroom/whats-new?type=news&tag=28066) of cases of fraud, it has also shifted the culture in finance from a whistleblower-stigmatizing culture to a whistleblower-normalizing culture. From the [Wall Street Journal](https://www.wsj.com/articles/more-regulators-eye-whistleblower-award-programs-hoping-for-insider-tips-3b5d99c5):
 
-> Yampolsky said that one change in recent years is that the whistleblower label on individuals doesn’t carry the same stigma as it did in the past and that many foreign regulators, including those in South Korea, are acknowledging the value of whistleblowers and the assistance they provide in aid of enforcement efforts. 
+> Yampolsky said that one change in recent years is that the whistleblower label on individuals doesn’t carry the same stigma as it did in the past and that many foreign regulators ... are acknowledging the value of whistleblowers and the assistance they provide in aid of enforcement efforts. 
 >
 > “It’s a growing acceptance of the notion that people should come forward and there is nothing wrong with motivating people financially—what you are really doing is providing insurance for the risks taken to their life and careers,” he said.
 
