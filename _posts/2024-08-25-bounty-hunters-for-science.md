@@ -26,6 +26,9 @@ As I argued last week, we can correct these incentives by [borrowing an idea fro
 
 ## Bounties for spurious artifact detection in the social sciences
 Sometimes I’ll see an interesting trend graph circulating around the internet, showing that some social problem has increased or decreased. People spend years debating the causes until eventually we learn it was due to a change in how the data was counted.
+<div class="wrapper">
+  <img src='/assets/2024_bounty_programs/fig_2014.png' class="inner" style="position:relative border: #222 2px solid; max-width:80%;" >
+</div>
 
 For instance, we recently learned that the increase in U.S maternal mortality was caused by more states adding a [pregnancy checkbox](https://ourworldindata.org/rise-us-maternal-mortality-rates-measurement) in death certificates. Similarly, part of the increase in teen suicide-related hospital visits was due to [new coding rules for suicidal ideation](https://jhr.uwpress.org/content/59/S/S14) and changes in screening recommendations. Both of these revelations emerged several years after the trends had been publicized and debated.
 
@@ -37,11 +40,6 @@ It’s fun to debate grand theories about major social changes, but it’s less 
 
 ## Bounties to catch non-transparent deviations from preregistration
 Researchers often deviate from pre-registered analysis plans. This is often necessary for clearly labeled exploratory analysis or for situations where the pre-registration was unclear and the deviation is explained transparently. But it becomes misleading when deviations are applied to confirmatory analysis in a non-transparent way.
-
-<div class="wrapper">
-  <img src='/assets/2024_bounty_programs/fig_2014.png' class="inner" style="position:relative border: #222 2px solid; max-width:80%;" >
-</div>
-
 
 Spotting these deviations is undersupplied, as most readers and reviewers do not have enough incentive to inspect research plans. A bounty program could plug this gap. Sponsors would place bounties on high-profile influential papers, with rewards based on the severity of the deviation. Papers with significant deviations could be listed on a public website.
 
