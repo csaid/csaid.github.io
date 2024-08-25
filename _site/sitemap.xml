@@ -3,6 +3,21 @@
   
     
     <url>
+      <loc>http://localhost:4000/2024/08/25/bounty-hunters-for-science/</loc>
+      
+        <lastmod>2024-08-25T00:00:00-04:00</lastmod>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.5</priority>
+      
+    </url>
+    
+  
+    
+    <url>
       <loc>http://localhost:4000/2024/08/18/scientific-whistleblowers-can-be-compensated-for-their-service/</loc>
       
         <lastmod>2024-08-18T00:00:00-04:00</lastmod>
@@ -925,7 +940,7 @@
     <url>
       <loc>http://localhost:4000404.html</loc>
       
-        <lastmod>2024-08-18T10:48:25-04:00</lastmod>
+        <lastmod>2024-08-25T12:54:59-04:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -1744,6 +1759,19 @@
           <loc>http://localhost:4000/2024/08/18/scientific-whistleblowers-can-be-compensated-for-their-service/</loc>
           
             <lastmod>2024-08-18T00:00:00-04:00</lastmod>
+          
+          
+            <changefreq>monthly</changefreq>
+          
+          
+            <priority>0.3</priority>
+          
+        </url>
+      
+        <url>
+          <loc>http://localhost:4000/2024/08/25/bounty-hunters-for-science/</loc>
+          
+            <lastmod>2024-08-25T00:00:00-04:00</lastmod>
           
           
             <changefreq>monthly</changefreq>

@@ -4,13 +4,79 @@
  <title>Chris Said</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2024-08-18T10:48:25-04:00</updated>
+ <updated>2024-08-25T12:54:59-04:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
    <email></email>
  </author>
 
+ 
+ <entry>
+   <title>Bounty hunters for science</title>
+   <link href="http://localhost:4000/2024/08/25/bounty-hunters-for-science/"/>
+   <updated>2024-08-25T00:00:00-04:00</updated>
+   <id>http://localhost:4000/2024/08/25/bounty-hunters-for-science</id>
+   <content type="html">&lt;p&gt;Last year we learned that 20 papers from Hoau-Yan Wang, an influential Alzheimer’s researcher, were marred by &lt;a href=&quot;https://www.science.org/content/article/co-developer-cassava-s-potential-alzheimer-s-drug-cited-egregious-misconduct&quot;&gt;doctored images and other scientific misconduct&lt;/a&gt;. Shockingly, his body of work led to the development of a drug that was tested on &lt;a href=&quot;https://alzheimersnewstoday.com/news/topline-results-phase-3-studies-simufilam-alzheimers-due-this-year/&quot;&gt;2,000 patients&lt;/a&gt;. A colleague described the situation as &lt;a href=&quot;https://www.science.org/content/article/co-developer-cassava-s-potential-alzheimer-s-drug-cited-egregious-misconduct&quot;&gt;“embarrassing beyond words”&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;We are told that science is self-correcting. But what’s interesting about this case is that the scientist who uncovered this fraud was not driven by the usual academic incentives. He was being paid by Wall Street short sellers who were betting against the drug company!&lt;/p&gt;
+
+&lt;p&gt;This was not an isolated incident. The most notorious example of Alzheimer’s research misconduct – &lt;a href=&quot;https://www.science.org/content/article/potential-fabrication-research-images-threatens-key-theory-alzheimers-disease&quot;&gt;doctored images in Sylvain Lesné’s papers&lt;/a&gt; – was also discovered with the help of short sellers.&lt;/p&gt;
+
+&lt;p&gt;These cases show how a critical part of the scientific ecosystem – the exposure of faked research – can be undersupplied by ordinary science. Unmasking fraud is a difficult and awkward task, and few people want to do it. But financial incentives can help close those gaps.&lt;/p&gt;
+
+&lt;p&gt;Financial incentives could plug other gaps in science, including areas unrelated to research misconduct. In particular, science could benefit from more &lt;em&gt;bounty programs&lt;/em&gt;. Here are three ways such programs could be put to use.&lt;/p&gt;
+
+&lt;h2 id=&quot;bounties-for-fraud-whistleblowers&quot;&gt;Bounties for fraud whistleblowers&lt;/h2&gt;
+&lt;p&gt;People who witness scientific fraud often stay silent due to perceived pressure from their &lt;a href=&quot;https://retractionwatch.com/2019/12/11/a-long-and-lonely-process-whistleblowers-in-a-misconduct-case-speak-out/&quot;&gt;colleagues&lt;/a&gt; and &lt;a href=&quot;https://www.medscape.com/viewarticle/854595#vp_1&quot;&gt;institutions&lt;/a&gt;. Whistleblowing is an undersupplied part of the scientific ecosystem.&lt;/p&gt;
+
+&lt;p&gt;As I argued last week, we can correct these incentives by &lt;a href=&quot;https://docs.google.com/document/d/1OSALTxNLbmM2V9SzA5Zh5zRpvqqwLeHBihpeppL35Yo/edit#heading=h.kthbh8zg343e&quot;&gt;borrowing an idea from the SEC&lt;/a&gt;, whose bounty program pays whistleblowers 10-30% of the fines imposed by the government. The program has been a &lt;a href=&quot;https://www.wsj.com/articles/more-regulators-eye-whistleblower-award-programs-hoping-for-insider-tips-3b5d99c5&quot;&gt;huge success&lt;/a&gt;, catching dozens of fraudsters and reducing the stigma around whistleblowing. The Department of Justice has recently &lt;a href=&quot;https://www.wsj.com/articles/justice-department-trial-program-offers-millions-for-tips-on-fraud-bribery-5e4c710d&quot;&gt;copied&lt;/a&gt; the model for other types of fraud, such as healthcare fraud. I hope they will extend the program to scientific fraud.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Funder:&lt;/strong&gt; The US Government&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Eligibility:&lt;/strong&gt; Research employees with insider knowledge&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Cost:&lt;/strong&gt; The program pays for itself, as bounties are a percentage of the funds reclaimed by the government.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;bounties-for-spurious-artifact-detection-in-the-social-sciences&quot;&gt;Bounties for spurious artifact detection in the social sciences&lt;/h2&gt;
+&lt;p&gt;Sometimes I’ll see an interesting trend graph circulating around the internet, showing that some social problem has increased or decreased. People spend years debating the causes until eventually we learn it was due to a change in how the data was counted.&lt;/p&gt;
+
+&lt;p&gt;For instance, we recently learned that the increase in U.S maternal mortality was caused by more states adding a &lt;a href=&quot;https://ourworldindata.org/rise-us-maternal-mortality-rates-measurement&quot;&gt;pregnancy checkbox&lt;/a&gt; in death certificates. Similarly, part of the increase in teen suicide-related hospital visits was due to &lt;a href=&quot;https://jhr.uwpress.org/content/59/S/S14&quot;&gt;new coding rules for suicidal ideation&lt;/a&gt; and changes in screening recommendations. Both of these revelations emerged several years after the trends had been publicized and debated.&lt;/p&gt;
+
+&lt;p&gt;It’s fun to debate grand theories about major social changes, but it’s less fun to pore over obscure changes to record-keeping practices. We could fix these incentives by offering bounties to anyone who can identify these types of artifacts in trends of major interest. Bounties could target specific trends, with payouts based on how persuasive the case is or how much of the trend can be explained. Anyone would be eligible, including non-scientists who may better understand where the data comes from.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Funder:&lt;/strong&gt; Private philanthropy, perhaps &lt;a href=&quot;https://ourworldindata.org/&quot;&gt;Our World in Data&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Eligibility:&lt;/strong&gt; Everyone is eligible, not just scientists&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Cost:&lt;/strong&gt; $1000-$5000 per trend&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;bounties-to-catch-non-transparent-deviations-from-preregistration&quot;&gt;Bounties to catch non-transparent deviations from preregistration&lt;/h2&gt;
+&lt;p&gt;Researchers often deviate from pre-registered analysis plans. This is often necessary for clearly labeled exploratory analysis or for situations where the pre-registration was unclear and the deviation is explained transparently. But it becomes misleading when deviations are applied to confirmatory analysis in a non-transparent way.&lt;/p&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/assets/2024_bounty_programs/fig_2014.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:80%;&quot; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Spotting these deviations is undersupplied, as most readers and reviewers do not have enough incentive to inspect research plans. A bounty program could plug this gap. Sponsors would place bounties on high-profile influential papers, with rewards based on the severity of the deviation. Papers with significant deviations could be listed on a public website.&lt;/p&gt;
+
+&lt;p&gt;Not only would this program identify influential pre-registered papers that are not as reliable as we think, it would also incentivize future researchers to be more transparent and stick to their original plans where appropriate.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Funder:&lt;/strong&gt; Private philanthropy&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Eligibility:&lt;/strong&gt; Everyone is eligible, not just professional scientists&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Cost:&lt;/strong&gt; $200-500 per paper found with a deviation&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Some critics might say that science works best when it’s driven by people who are passionate about truth for truth’s sake, not for the money. But by this point it’s pretty clear that like anyone else, scientists can be driven by &lt;a href=&quot;https://chris-said.io/2012/04/17/its-the-incentives-structure-people-why-science-reform-must-come-from-the-granting-agencies/&quot;&gt;incentives&lt;/a&gt; that are not always aligned with the truth. Where those incentives fall short, bounty programs can help. We’re already beginning to see some programs &lt;a href=&quot;https://error.reviews/&quot;&gt;start to emerge&lt;/a&gt;. I hope they succeed and that more models will be developed.&lt;/p&gt;
+
+&lt;div class=&quot;caption&quot;&gt;
+  &lt;p&gt;Special thanks to Tim Vickery and Alex Holcombe for discussions.&lt;/p&gt;
+&lt;/div&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Scientific whistleblowers can be compensated for their service</title>
