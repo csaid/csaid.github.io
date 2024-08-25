@@ -4,7 +4,7 @@
  <title>Chris Said</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2024-08-25T13:13:08-04:00</updated>
+ <updated>2024-08-25T13:14:08-04:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -27,7 +27,7 @@
 
 &lt;p&gt;Financial incentives could plug other gaps in science, including areas unrelated to research misconduct. In particular, science could benefit from more &lt;em&gt;bounty programs&lt;/em&gt;. Here are three ways such programs could be put to use.&lt;/p&gt;
 
-&lt;h2 id=&quot;bounties-for-fraud-whistleblowers&quot;&gt;Bounties for fraud whistleblowers&lt;/h2&gt;
+&lt;h3 id=&quot;bounties-for-fraud-whistleblowers&quot;&gt;Bounties for fraud whistleblowers&lt;/h3&gt;
 &lt;p&gt;People who witness scientific fraud often stay silent due to perceived pressure from their &lt;a href=&quot;https://retractionwatch.com/2019/12/11/a-long-and-lonely-process-whistleblowers-in-a-misconduct-case-speak-out/&quot;&gt;colleagues&lt;/a&gt; and &lt;a href=&quot;https://www.medscape.com/viewarticle/854595#vp_1&quot;&gt;institutions&lt;/a&gt;. Whistleblowing is an undersupplied part of the scientific ecosystem.&lt;/p&gt;
 
 &lt;p&gt;As I argued last week, we can correct these incentives by &lt;a href=&quot;https://docs.google.com/document/d/1OSALTxNLbmM2V9SzA5Zh5zRpvqqwLeHBihpeppL35Yo/edit#heading=h.kthbh8zg343e&quot;&gt;borrowing an idea from the SEC&lt;/a&gt;, whose bounty program pays whistleblowers 10-30% of the fines imposed by the government. The program has been a &lt;a href=&quot;https://www.wsj.com/articles/more-regulators-eye-whistleblower-award-programs-hoping-for-insider-tips-3b5d99c5&quot;&gt;huge success&lt;/a&gt;, catching dozens of fraudsters and reducing the stigma around whistleblowing. The Department of Justice has recently &lt;a href=&quot;https://www.wsj.com/articles/justice-department-trial-program-offers-millions-for-tips-on-fraud-bribery-5e4c710d&quot;&gt;copied&lt;/a&gt; the model for other types of fraud, such as healthcare fraud. I hope they will extend the program to scientific fraud.&lt;/p&gt;
@@ -38,7 +38,7 @@
   &lt;li&gt;&lt;strong&gt;Cost:&lt;/strong&gt; The program pays for itself, as bounties are a percentage of the funds reclaimed by the government.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;bounties-for-spurious-artifact-detection-in-the-social-sciences&quot;&gt;Bounties for spurious artifact detection in the social sciences&lt;/h2&gt;
+&lt;h3 id=&quot;bounties-for-spurious-artifact-detection-in-the-social-sciences&quot;&gt;Bounties for spurious artifact detection in the social sciences&lt;/h3&gt;
 &lt;p&gt;Sometimes I’ll see an interesting trend graph circulating around the internet, showing that some social problem has increased or decreased. People spend years debating the causes until eventually we learn it was due to a change in how the data was counted.&lt;/p&gt;
 &lt;div class=&quot;wrapper&quot;&gt;
   &lt;p&gt;&lt;img src=&quot;/assets/2024_bounty_programs/fig_2014.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:80%;&quot; /&gt;&lt;/p&gt;
@@ -54,7 +54,7 @@
   &lt;li&gt;&lt;strong&gt;Cost:&lt;/strong&gt; $1000-$5000 per trend&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;bounties-to-catch-non-transparent-deviations-from-preregistration&quot;&gt;Bounties to catch non-transparent deviations from preregistration&lt;/h2&gt;
+&lt;h3 id=&quot;bounties-to-catch-non-transparent-deviations-from-preregistration&quot;&gt;Bounties to catch non-transparent deviations from preregistration&lt;/h3&gt;
 &lt;p&gt;Researchers often deviate from pre-registered analysis plans. This is often necessary for clearly labeled exploratory analysis or for situations where the pre-registration was unclear and the deviation is explained transparently. But it becomes misleading when deviations are applied to confirmatory analysis in a non-transparent way.&lt;/p&gt;
 
 &lt;p&gt;Spotting these deviations is undersupplied, as most readers and reviewers do not have enough incentive to inspect research plans. A bounty program could plug this gap. Sponsors would place bounties on high-profile influential papers, with rewards based on the severity of the deviation. Papers with significant deviations could be listed on a public website.&lt;/p&gt;

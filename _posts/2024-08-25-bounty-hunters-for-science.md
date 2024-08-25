@@ -15,7 +15,7 @@ These cases show how a critical part of the scientific ecosystem – the exposur
 
 Financial incentives could plug other gaps in science, including areas unrelated to research misconduct. In particular, science could benefit from more _bounty programs_. Here are three ways such programs could be put to use.
 
-## Bounties for fraud whistleblowers
+### Bounties for fraud whistleblowers
 People who witness scientific fraud often stay silent due to perceived pressure from their [colleagues](https://retractionwatch.com/2019/12/11/a-long-and-lonely-process-whistleblowers-in-a-misconduct-case-speak-out/) and [institutions](https://www.medscape.com/viewarticle/854595#vp_1). Whistleblowing is an undersupplied part of the scientific ecosystem.
 
 As I argued last week, we can correct these incentives by [borrowing an idea from the SEC](https://docs.google.com/document/d/1OSALTxNLbmM2V9SzA5Zh5zRpvqqwLeHBihpeppL35Yo/edit#heading=h.kthbh8zg343e), whose bounty program pays whistleblowers 10-30% of the fines imposed by the government. The program has been a [huge success](https://www.wsj.com/articles/more-regulators-eye-whistleblower-award-programs-hoping-for-insider-tips-3b5d99c5), catching dozens of fraudsters and reducing the stigma around whistleblowing. The Department of Justice has recently [copied](https://www.wsj.com/articles/justice-department-trial-program-offers-millions-for-tips-on-fraud-bribery-5e4c710d) the model for other types of fraud, such as healthcare fraud. I hope they will extend the program to scientific fraud.
@@ -24,7 +24,7 @@ As I argued last week, we can correct these incentives by [borrowing an idea fro
 * **Eligibility:** Research employees with insider knowledge
 * **Cost:** The program pays for itself, as bounties are a percentage of the funds reclaimed by the government.
 
-## Bounties for spurious artifact detection in the social sciences
+### Bounties for spurious artifact detection in the social sciences
 Sometimes I’ll see an interesting trend graph circulating around the internet, showing that some social problem has increased or decreased. People spend years debating the causes until eventually we learn it was due to a change in how the data was counted.
 <div class="wrapper">
   <img src='/assets/2024_bounty_programs/fig_2014.png' class="inner" style="position:relative border: #222 2px solid; max-width:80%;" >
@@ -38,7 +38,7 @@ It’s fun to debate grand theories about major social changes, but it’s less 
 * **Eligibility:** Everyone is eligible, not just scientists
 * **Cost:** $1000-$5000 per trend
 
-## Bounties to catch non-transparent deviations from preregistration
+### Bounties to catch non-transparent deviations from preregistration
 Researchers often deviate from pre-registered analysis plans. This is often necessary for clearly labeled exploratory analysis or for situations where the pre-registration was unclear and the deviation is explained transparently. But it becomes misleading when deviations are applied to confirmatory analysis in a non-transparent way.
 
 Spotting these deviations is undersupplied, as most readers and reviewers do not have enough incentive to inspect research plans. A bounty program could plug this gap. Sponsors would place bounties on high-profile influential papers, with rewards based on the severity of the deviation. Papers with significant deviations could be listed on a public website.
