@@ -4,7 +4,7 @@
  <title>Chris Said</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2024-08-25T13:14:08-04:00</updated>
+ <updated>2024-08-26T08:47:50-04:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -44,7 +44,7 @@
   &lt;p&gt;&lt;img src=&quot;/assets/2024_bounty_programs/fig_2014.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:80%;&quot; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 
-&lt;p&gt;For instance, we recently learned that the increase in U.S maternal mortality was caused by more states adding a &lt;a href=&quot;https://ourworldindata.org/rise-us-maternal-mortality-rates-measurement&quot;&gt;pregnancy checkbox&lt;/a&gt; in death certificates. Similarly, part of the increase in teen suicide-related hospital visits was due to &lt;a href=&quot;https://jhr.uwpress.org/content/59/S/S14&quot;&gt;new coding rules for suicidal ideation&lt;/a&gt; and changes in screening recommendations. Both of these revelations emerged several years after the trends had been publicized and debated.&lt;/p&gt;
+&lt;p&gt;For instance, we recently learned that the increase in U.S. maternal mortality was caused by more states adding a &lt;a href=&quot;https://ourworldindata.org/rise-us-maternal-mortality-rates-measurement&quot;&gt;pregnancy checkbox&lt;/a&gt; in death certificates. Similarly, part of the increase in teen suicide-related hospital visits was due to &lt;a href=&quot;https://jhr.uwpress.org/content/59/S/S14&quot;&gt;new coding rules for suicidal ideation&lt;/a&gt; and changes in screening recommendations. Both of these revelations emerged several years after the trends had been publicized and debated.&lt;/p&gt;
 
 &lt;p&gt;It’s fun to debate grand theories about major social changes, but it’s less fun to pore over obscure changes to record-keeping practices. We could fix these incentives by offering bounties to anyone who can identify these types of artifacts in trends of major interest. Bounties could target specific trends, with payouts based on how persuasive the case is or how much of the trend can be explained. Anyone would be eligible, including non-scientists who may better understand where the data comes from.&lt;/p&gt;
 
