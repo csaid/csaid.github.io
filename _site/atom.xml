@@ -4,7 +4,7 @@
  <title>Chris Said</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2024-08-26T08:47:50-04:00</updated>
+ <updated>2024-09-08T12:32:41-04:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -55,7 +55,7 @@
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;bounties-to-catch-non-transparent-deviations-from-preregistration&quot;&gt;Bounties to catch non-transparent deviations from preregistration&lt;/h3&gt;
-&lt;p&gt;Researchers often deviate from pre-registered analysis plans. This is often necessary for clearly labeled exploratory analysis or for situations where the pre-registration was unclear and the deviation is explained transparently. But it becomes misleading when deviations are applied to confirmatory analysis in a non-transparent way.&lt;/p&gt;
+&lt;p&gt;Researchers often deviate from pre-registered analysis plans. This is often necessary for clearly labeled exploratory analysis or for situations where the pre-registration was unclear and the deviation is explained transparently. But it becomes misleading when deviations are not transparent.&lt;/p&gt;
 
 &lt;p&gt;Spotting these deviations is undersupplied, as most readers and reviewers do not have enough incentive to inspect research plans. A bounty program could plug this gap. Sponsors would place bounties on high-profile influential papers, with rewards based on the severity of the deviation. Papers with significant deviations could be listed on a public website.&lt;/p&gt;
 

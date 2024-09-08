@@ -39,7 +39,7 @@ It’s fun to debate grand theories about major social changes, but it’s less 
 * **Cost:** $1000-$5000 per trend
 
 ### Bounties to catch non-transparent deviations from preregistration
-Researchers often deviate from pre-registered analysis plans. This is often necessary for clearly labeled exploratory analysis or for situations where the pre-registration was unclear and the deviation is explained transparently. But it becomes misleading when deviations are applied to confirmatory analysis in a non-transparent way.
+Researchers often deviate from pre-registered analysis plans. This is often necessary for clearly labeled exploratory analysis or for situations where the pre-registration was unclear and the deviation is explained transparently. But it becomes misleading when deviations are not transparent.
 
 Spotting these deviations is undersupplied, as most readers and reviewers do not have enough incentive to inspect research plans. A bounty program could plug this gap. Sponsors would place bounties on high-profile influential papers, with rewards based on the severity of the deviation. Papers with significant deviations could be listed on a public website.
 
