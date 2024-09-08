@@ -5,7 +5,7 @@ description: Bounty hunters can take care of what science undersupplies
 image: /assets/2024_bounty_programs/fig_2014.png
 
 ---
-Last year we learned that 20 papers from Hoau-Yan Wang, an influential Alzheimer’s researcher, were marred by [doctored images and other scientific misconduct](https://www.science.org/content/article/co-developer-cassava-s-potential-alzheimer-s-drug-cited-egregious-misconduct). Shockingly, his body of work led to the development of a drug that was tested on [2,000 patients](https://alzheimersnewstoday.com/news/topline-results-phase-3-studies-simufilam-alzheimers-due-this-year/). A colleague described the situation as [“embarrassing beyond words”](https://www.science.org/content/article/co-developer-cassava-s-potential-alzheimer-s-drug-cited-egregious-misconduct).
+Last year we learned that 20 papers from Hoau-Yan Wang, an influential Alzheimer’s researcher, were marred by [doctored images and other scientific misconduct](https://www.science.org/content/article/co-developer-cassava-s-potential-alzheimer-s-drug-cited-egregious-misconduct). Shockingly, his research led to the development of a drug that was tested on [2,000 patients](https://alzheimersnewstoday.com/news/topline-results-phase-3-studies-simufilam-alzheimers-due-this-year/). A colleague described the situation as [“embarrassing beyond words”](https://www.science.org/content/article/co-developer-cassava-s-potential-alzheimer-s-drug-cited-egregious-misconduct).
 
 We are told that science is self-correcting. But what’s interesting about this case is that the scientist who uncovered this fraud was not driven by the usual academic incentives. He was being paid by Wall Street short sellers who were betting against the drug company!
 
