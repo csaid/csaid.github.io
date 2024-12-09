@@ -4,13 +4,63 @@
  <title>Chris Said</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2024-09-08T12:34:31-04:00</updated>
+ <updated>2024-12-09T09:22:35-05:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
    <email></email>
  </author>
 
+ 
+ <entry>
+   <title>No, we are not underinvested in squishy charities</title>
+   <link href="http://localhost:4000/2024/12/09/squishy-charities/"/>
+   <updated>2024-12-09T00:00:00-05:00</updated>
+   <id>http://localhost:4000/2024/12/09/squishy-charities</id>
+   <content type="html">&lt;p&gt;This weekend the New York Times published an essay by Emma Goldberg titled, &lt;a href=&quot;https://www.nytimes.com/2024/12/07/business/charity-holiday-giving-optimized.html&quot;&gt;What if Charity Shouldn’t Be Optimized?&lt;/a&gt;. It argued that giving to effective altruism (EA) – which uses cost/benefit analysis to fund easily quantified causes like malaria prevention and lead abatement – might detract from “squishier” causes like museums and community groups.&lt;/p&gt;
+
+&lt;p&gt;In the comments, Goldberg praised readers who choose to donate to &lt;a href=&quot;https://www.nytimes.com/shared/comment/43n2sk?rsrc=cshare&amp;amp;smid=url-share&quot;&gt;American universities&lt;/a&gt;, &lt;a href=&quot;https://www.nytimes.com/shared/comment/43n1j2?rsrc=cshare&amp;amp;smid=url-share&quot;&gt;libraries&lt;/a&gt;, and local animal shelters instead of EA causes. One commenter, contrasting themselves with EA, wrote “&lt;a href=&quot;https://www.nytimes.com/shared/comment/43n22d?rsrc=cshare&amp;amp;smid=url-share&quot;&gt;I give to organizations it feels good to give to&lt;/a&gt;” and another said they donate “&lt;a href=&quot;https://www.nytimes.com/shared/comment/43muo6?rsrc=cshare&amp;amp;smid=url-share&quot;&gt;based on my heart, not metrics&lt;/a&gt;”. Goldberg responded positively to both.&lt;/p&gt;
+
+&lt;p&gt;The essay stresses that there is nothing wrong with trying to optimize charitable giving. But it expresses concern that too much “hyper-rational” giving may shift focus away from local charities that foster community or are harder to measure.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Goldberg is right that there is value in hard-to-quantify causes, and that charitable giving should reflect a diversity of priorities, including community-based initiatives. Most people agree, including &lt;a href=&quot;https://x.com/albrgr/status/1865546361653084567&quot;&gt;leaders&lt;/a&gt; of the EA movement. But the idea that the global charity budget has shifted too far toward EA is preposterous.&lt;/p&gt;
+
+&lt;p&gt;Consider the following:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Americans give &lt;a href=&quot;https://www.americansforthearts.org/sites/default/files/documents/2023/Private%20Sector%20Giving%202023%20--%20Giving%20USA%20Report%20%282021%20data%29.pdf&quot;&gt;$23 billion&lt;/a&gt; to the arts and humanities every year. That’s 30 times the &lt;a href=&quot;https://www.openphilanthropy.org/research/our-progress-in-2023-and-plans-for-2024/&quot;&gt;$750 million&lt;/a&gt; budget for Open Philanthropy and 1,000 times the &lt;a href=&quot;https://blog.givewell.org/2024/07/18/what-if-we-have-extra/#:~:text=We%20implemented%20these%20two%20policies,%244.6%20million%20to%20%2418.8%20million.&quot;&gt;$18 million&lt;/a&gt; budget for GiveWell, the two most prominent EA foundations.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/assets/2024_squishy_charities/fig_bars.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:80%;&quot; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;While only 0.007% of U.S. animals killed are in companion animal shelters, 95% of animal charity donations go to this cause. Meanwhile, just 3% of animal charity donations, all EA-related, go to the much larger problem of factory farming. (&lt;a href=&quot;https://animalcharityevaluators.org/charity-reviews/causes-we-consider/why-farmed-animals/&quot;&gt;Source&lt;/a&gt;)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Americans gave &lt;a href=&quot;https://philanthropy.indianapolis.iu.edu/news-events/news/_news/2024/giving-usa-us-charitable-giving-totaled-557.16-billion-in-2023.html&quot;&gt;$557 billion&lt;/a&gt; to charities in 2023. If we generously assume $15 billion were to EA causes (i.e including &lt;a href=&quot;https://www.gatesfoundation.org/ideas/media-center/press-releases/2023/01/gates-foundations-largest-budget-to-fight-poverty-and-disease&quot;&gt;$8 billion&lt;/a&gt; from the EA-adjacent Gates Foundation), that accounts for just 2.5% of total U.S. giving.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;I can find no evidence that donation dollars to squishier causes has decreased, and none was presented in Goldberg’s essay.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;So contra Goldberg’s essay, these numbers show we are overindexed on squishier causes, particularly when you consider &lt;a href=&quot;https://www.astralcodexten.com/p/in-continued-defense-of-effective&quot;&gt;how much EA has done&lt;/a&gt; with its limited resources. GiveWell alone has saved the lives of &lt;a href=&quot;https://www.givewell.org/sources/blog-post/giving-recommendations-2022#19&quot;&gt;200,000 human beings&lt;/a&gt;, and EA-aligned animal welfare orgs have convinced farmers to move &lt;a href=&quot;https://www.astralcodexten.com/p/in-continued-defense-of-effective#footnote-7-86909076&quot;&gt;400 million chickens&lt;/a&gt; out of gruesome cages.&lt;/p&gt;
+
+&lt;p&gt;Defenders of the squishier charities might say their causes should not be quantified. But when you donate &lt;a href=&quot;https://tucson.com/news/local/a-year-after-stolen-de-kooning-s-return-to-tucson/article_74316ee9-7e8e-5969-a32d-357f38643586.html&quot;&gt;$1 million to restore a painting&lt;/a&gt;, while GiveWell estimates you could save a life for &lt;a href=&quot;https://www.givewell.org/how-much-does-it-cost-to-save-a-life&quot;&gt;$3,000&lt;/a&gt;, you are &lt;em&gt;implicitly&lt;/em&gt; valuing the painting’s restoration at 333 human lives. That’s not my quantification. That’s &lt;em&gt;your&lt;/em&gt; quantification, based on your own choices!&lt;/p&gt;
+
+&lt;p&gt;A balanced charitable portfolio that includes both community organizations and global health initiatives is worth striving for, even if some of the causes are hard to quantify. But the balance Goldberg is encouraging is indefensible. Imagine, for a moment, being a person in Africa dying of a preventable tropical disease. As you lie there, you learn that your life could have been saved by a modest donation. But instead, a powerful American newspaper encouraged those funds – along with 97% of all funds – to go to causes that “felt a little warmer” to donors. How would you feel about that line of thinking?&lt;/p&gt;
+
+&lt;p&gt;The world doesn’t need less optimization in charitable giving; it needs more awareness of the extraordinary good that can be done when we take the time to quantify impact.&lt;/p&gt;
+
+&lt;div class=&quot;caption&quot;&gt;
+  &lt;p&gt;Special thanks to Alexander Berger for his &lt;a href=&quot;https://x.com/albrgr/status/1865546158237778111&quot;&gt;tweet thread&lt;/a&gt; inspiring this post.&lt;/p&gt;
+&lt;/div&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Bounty hunters for science</title>
@@ -30,7 +80,7 @@
 &lt;h3 id=&quot;bounties-for-fraud-whistleblowers&quot;&gt;Bounties for fraud whistleblowers&lt;/h3&gt;
 &lt;p&gt;People who witness scientific fraud often stay silent due to perceived pressure from their &lt;a href=&quot;https://retractionwatch.com/2019/12/11/a-long-and-lonely-process-whistleblowers-in-a-misconduct-case-speak-out/&quot;&gt;colleagues&lt;/a&gt; and &lt;a href=&quot;https://www.medscape.com/viewarticle/854595#vp_1&quot;&gt;institutions&lt;/a&gt;. Whistleblowing is an undersupplied part of the scientific ecosystem.&lt;/p&gt;
 
-&lt;p&gt;As I argued last week, we can correct these incentives by &lt;a href=&quot;https://docs.google.com/document/d/1OSALTxNLbmM2V9SzA5Zh5zRpvqqwLeHBihpeppL35Yo/edit#heading=h.kthbh8zg343e&quot;&gt;borrowing an idea from the SEC&lt;/a&gt;, whose bounty program pays whistleblowers 10-30% of the fines imposed by the government. The program has been a &lt;a href=&quot;https://www.wsj.com/articles/more-regulators-eye-whistleblower-award-programs-hoping-for-insider-tips-3b5d99c5&quot;&gt;huge success&lt;/a&gt;, catching dozens of fraudsters and reducing the stigma around whistleblowing. The Department of Justice has recently &lt;a href=&quot;https://www.wsj.com/articles/justice-department-trial-program-offers-millions-for-tips-on-fraud-bribery-5e4c710d&quot;&gt;copied&lt;/a&gt; the model for other types of fraud, such as healthcare fraud. I hope they will extend the program to scientific fraud.&lt;/p&gt;
+&lt;p&gt;As I argued last week, we can correct these incentives by &lt;a href=&quot;https://chris-said.io/2024/08/18/scientific-whistleblowers-can-be-compensated-for-their-service/&quot;&gt;borrowing an idea from the SEC&lt;/a&gt;, whose bounty program pays whistleblowers 10-30% of the fines imposed by the government. The program has been a &lt;a href=&quot;https://www.wsj.com/articles/more-regulators-eye-whistleblower-award-programs-hoping-for-insider-tips-3b5d99c5&quot;&gt;huge success&lt;/a&gt;, catching dozens of fraudsters and reducing the stigma around whistleblowing. The Department of Justice has recently &lt;a href=&quot;https://www.wsj.com/articles/justice-department-trial-program-offers-millions-for-tips-on-fraud-bribery-5e4c710d&quot;&gt;copied&lt;/a&gt; the model for other types of fraud, such as healthcare fraud. I hope they will extend the program to scientific fraud.&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;strong&gt;Funder:&lt;/strong&gt; The US Government&lt;/li&gt;

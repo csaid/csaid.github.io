@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<!--
+It's bad to import d3 in every post separately (https://groups.google.com/forum/#!topic/d3-js/bwdNirt2uEU).
+Importing it globally here.
+Putting this up at the top, according to this controversial stack overflow answer
+http://stackoverflow.com/questions/7169370/d3-js-and-document-onready
+ -->
+<script src="https://d3js.org/d3.v5.min.js"></script>
+
+<link rel="stylesheet" href="/public/font-awesome-4.4.0/css/font-awesome.min.css">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  
+    <meta name="description" content="The New York Times defends an indefensible portfolio of charitable giving">
+  
+
+  <!-- To get a link preview image, just set the image attribute in your _post -->
+  
+    <meta content="http://localhost:4000/assets/2024_squishy_charities/fig_bars.png" property="og:image"/>
+  
+
+  <!-- twitter standard -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@chris_said" />
+  <meta name="twitter:title" content="No, we are not underinvested in squishy charities" />
+  <meta name="twitter:description" content="The New York Times defends an indefensible portfolio of charitable giving" />
+
+
+  <title>
+    
+      No, we are not underinvested in squishy charities &middot; Chris Said
+    
+  </title>
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-67746868-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/hyde.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/logo144.png">
+                                 <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+<!--   <body class="theme-base-cps">
+ -->
+  <body>
+
+    <div class="sidebar">
+  <div class="container">
+    <div class="sidebar-about">
+      <h1>
+        <a href="/">
+          Chris Said
+        </a>
+      </h1>
+      <p class="lead">I am a data scientist at Propel. This blog is mostly about statistics, technology, and science.</p>
+
+    </div>
+
+    <!-- <nav class="sidebar-nav">
+
+      
+        <a class="sidebar-nav-item" href="/">Home</a>
+      
+        <a class="sidebar-nav-item" href="/atom.xml">Feed</a>
+      
+
+    </nav> -->
+
+
+    <div class="wrapper hide-on-mobile ">
+      <img src='/assets/chris-said-2022-small.jpg'>
+    </div>
+
+    <div class="wrapper">
+      <div class="inner">
+        <a href="http://www.twitter.com/Chris_Said" class="contact-button"><i class="fa fa-twitter fa-2x"></i></a>
+        <a href="https://www.linkedin.com/pub/chris-said/6b/86b/979" class="contact-button"><i
+            class="fa fa-linkedin-square fa-2x"></i></a>
+        <a href="mailto:chris.said@gmail.com" class="contact-button"><i class="fa fa-envelope fa-2x"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="content container">
+      <div class="post">
+  <h1 class="post-title">No, we are not underinvested in squishy charities</h1>
+  <span class="post-date">09 Dec 2024</span>
+  <p>This weekend the New York Times published an essay by Emma Goldberg titled, <a href="https://www.nytimes.com/2024/12/07/business/charity-holiday-giving-optimized.html">What if Charity Shouldn’t Be Optimized?</a>. It argued that giving to effective altruism (EA) – which uses cost/benefit analysis to fund easily quantified causes like malaria prevention and lead abatement – might detract from “squishier” causes like museums and community groups.</p>
+
+<p>In the comments, Goldberg praised readers who choose to donate to <a href="https://www.nytimes.com/shared/comment/43n2sk?rsrc=cshare&amp;smid=url-share">American universities</a>, <a href="https://www.nytimes.com/shared/comment/43n1j2?rsrc=cshare&amp;smid=url-share">libraries</a>, and local animal shelters instead of EA causes. One commenter, contrasting themselves with EA, wrote “<a href="https://www.nytimes.com/shared/comment/43n22d?rsrc=cshare&amp;smid=url-share">I give to organizations it feels good to give to</a>” and another said they donate “<a href="https://www.nytimes.com/shared/comment/43muo6?rsrc=cshare&amp;smid=url-share">based on my heart, not metrics</a>”. Goldberg responded positively to both.</p>
+
+<p>The essay stresses that there is nothing wrong with trying to optimize charitable giving. But it expresses concern that too much “hyper-rational” giving may shift focus away from local charities that foster community or are harder to measure.</p>
+
+<hr />
+
+<p>Goldberg is right that there is value in hard-to-quantify causes, and that charitable giving should reflect a diversity of priorities, including community-based initiatives. Most people agree, including <a href="https://x.com/albrgr/status/1865546361653084567">leaders</a> of the EA movement. But the idea that the global charity budget has shifted too far toward EA is preposterous.</p>
+
+<p>Consider the following:</p>
+
+<ul>
+  <li>Americans give <a href="https://www.americansforthearts.org/sites/default/files/documents/2023/Private%20Sector%20Giving%202023%20--%20Giving%20USA%20Report%20%282021%20data%29.pdf">$23 billion</a> to the arts and humanities every year. That’s 30 times the <a href="https://www.openphilanthropy.org/research/our-progress-in-2023-and-plans-for-2024/">$750 million</a> budget for Open Philanthropy and 1,000 times the <a href="https://blog.givewell.org/2024/07/18/what-if-we-have-extra/#:~:text=We%20implemented%20these%20two%20policies,%244.6%20million%20to%20%2418.8%20million.">$18 million</a> budget for GiveWell, the two most prominent EA foundations.</li>
+</ul>
+<div class="wrapper">
+  <p><img src="/assets/2024_squishy_charities/fig_bars.png" class="inner" style="position:relative border: #222 2px solid; max-width:80%;" /></p>
+</div>
+
+<ul>
+  <li>
+    <p>While only 0.007% of U.S. animals killed are in companion animal shelters, 95% of animal charity donations go to this cause. Meanwhile, just 3% of animal charity donations, all EA-related, go to the much larger problem of factory farming. (<a href="https://animalcharityevaluators.org/charity-reviews/causes-we-consider/why-farmed-animals/">Source</a>)</p>
+  </li>
+  <li>
+    <p>Americans gave <a href="https://philanthropy.indianapolis.iu.edu/news-events/news/_news/2024/giving-usa-us-charitable-giving-totaled-557.16-billion-in-2023.html">$557 billion</a> to charities in 2023. If we generously assume $15 billion were to EA causes (i.e including <a href="https://www.gatesfoundation.org/ideas/media-center/press-releases/2023/01/gates-foundations-largest-budget-to-fight-poverty-and-disease">$8 billion</a> from the EA-adjacent Gates Foundation), that accounts for just 2.5% of total U.S. giving.</p>
+  </li>
+  <li>
+    <p>I can find no evidence that donation dollars to squishier causes has decreased, and none was presented in Goldberg’s essay.</p>
+  </li>
+</ul>
+
+<p>So contra Goldberg’s essay, these numbers show we are overindexed on squishier causes, particularly when you consider <a href="https://www.astralcodexten.com/p/in-continued-defense-of-effective">how much EA has done</a> with its limited resources. GiveWell alone has saved the lives of <a href="https://www.givewell.org/sources/blog-post/giving-recommendations-2022#19">200,000 human beings</a>, and EA-aligned animal welfare orgs have convinced farmers to move <a href="https://www.astralcodexten.com/p/in-continued-defense-of-effective#footnote-7-86909076">400 million chickens</a> out of gruesome cages.</p>
+
+<p>Defenders of the squishier charities might say their causes should not be quantified. But when you donate <a href="https://tucson.com/news/local/a-year-after-stolen-de-kooning-s-return-to-tucson/article_74316ee9-7e8e-5969-a32d-357f38643586.html">$1 million to restore a painting</a>, while GiveWell estimates you could save a life for <a href="https://www.givewell.org/how-much-does-it-cost-to-save-a-life">$3,000</a>, you are <em>implicitly</em> valuing the painting’s restoration at 333 human lives. That’s not my quantification. That’s <em>your</em> quantification, based on your own choices!</p>
+
+<p>A balanced charitable portfolio that includes both community organizations and global health initiatives is worth striving for, even if some of the causes are hard to quantify. But the balance Goldberg is encouraging is indefensible. Imagine, for a moment, being a person in Africa dying of a preventable tropical disease. As you lie there, you learn that your life could have been saved by a modest donation. But instead, a powerful American newspaper encouraged those funds – along with 97% of all funds – to go to causes that “felt a little warmer” to donors. How would you feel about that line of thinking?</p>
+
+<p>The world doesn’t need less optimization in charitable giving; it needs more awareness of the extraordinary good that can be done when we take the time to quantify impact.</p>
+
+<div class="caption">
+  <p>Special thanks to Alexander Berger for his <a href="https://x.com/albrgr/status/1865546158237778111">tweet thread</a> inspiring this post.</p>
+</div>
+
+  <div>
+    <a class="twitter-share-button"
+      href="https://twitter.com/share"
+      data-url=""
+      data-via="Chris_Said"
+      data-size="large"
+      data-count="none">
+    Tweet
+    </a>
+</div>
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'csaid81';
+    var disqus_identifier = 'http://localhost:4000/2024/12/09/squishy-charities/';
+    var disqus_url = 'http://localhost:4000/2024/12/09/squishy-charities/';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+</div>
+
+
+    </div>
+
+  </body>
+</html>
+
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+
+<script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));</script>
