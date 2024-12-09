@@ -4,7 +4,7 @@
  <title>Chris Said</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2024-12-09T09:22:35-05:00</updated>
+ <updated>2024-12-09T10:02:13-05:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -30,7 +30,7 @@
 &lt;p&gt;Consider the following:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Americans give &lt;a href=&quot;https://www.americansforthearts.org/sites/default/files/documents/2023/Private%20Sector%20Giving%202023%20--%20Giving%20USA%20Report%20%282021%20data%29.pdf&quot;&gt;$23 billion&lt;/a&gt; to the arts and humanities every year. That’s 30 times the &lt;a href=&quot;https://www.openphilanthropy.org/research/our-progress-in-2023-and-plans-for-2024/&quot;&gt;$750 million&lt;/a&gt; budget for Open Philanthropy and 1,000 times the &lt;a href=&quot;https://blog.givewell.org/2024/07/18/what-if-we-have-extra/#:~:text=We%20implemented%20these%20two%20policies,%244.6%20million%20to%20%2418.8%20million.&quot;&gt;$18 million&lt;/a&gt; budget for GiveWell, the two most prominent EA foundations.&lt;/li&gt;
+  &lt;li&gt;Americans give &lt;a href=&quot;https://www.americansforthearts.org/sites/default/files/documents/2023/Private%20Sector%20Giving%202023%20--%20Giving%20USA%20Report%20%282021%20data%29.pdf&quot;&gt;$23 billion&lt;/a&gt; to the arts and humanities every year. That’s 30 times the &lt;a href=&quot;https://www.openphilanthropy.org/research/our-progress-in-2023-and-plans-for-2024/&quot;&gt;$750 million&lt;/a&gt; budget for Open Philanthropy and 60 times the &lt;a href=&quot;https://x.com/albrgr/status/1866135261043966107&quot;&gt;$400 million&lt;/a&gt; budget for GiveWell, the two most prominent EA foundations.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class=&quot;wrapper&quot;&gt;
   &lt;p&gt;&lt;img src=&quot;/assets/2024_squishy_charities/fig_bars.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:80%;&quot; /&gt;&lt;/p&gt;
