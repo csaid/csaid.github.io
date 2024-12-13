@@ -14,7 +14,7 @@ The essay stresses that there is nothing wrong with trying to optimize charitabl
 
 ---
 
-Goldberg is right that there is value in hard-to-quantify causes, and that charitable giving should reflect a diversity of priorities, including community-based initiatives. Most people agree, including [leaders](https://x.com/albrgr/status/1865546361653084567) of the EA movement. But the idea that the global charity budget has shifted too far toward EA is preposterous. 
+Goldberg is right that there is value in hard-to-quantify causes, and that charitable giving should reflect a diversity of priorities, including community-based initiatives. Most people would agree with her, including [leaders](https://x.com/albrgr/status/1865546361653084567) of the EA movement. But the idea that the global charity budget has shifted too far toward EA is preposterous. 
 
 Consider the following:
 
