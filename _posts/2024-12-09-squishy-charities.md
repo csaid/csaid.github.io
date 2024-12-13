@@ -32,12 +32,11 @@ Consider the following:
 
 So contra Goldberg’s essay, these numbers show we are overindexed on squishier causes, particularly when you consider [how much EA has done](https://www.astralcodexten.com/p/in-continued-defense-of-effective) with its limited resources. GiveWell alone has saved the lives of [200,000 human beings](https://www.givewell.org/sources/blog-post/giving-recommendations-2022#19), and EA-aligned animal welfare orgs have convinced farmers to move [400 million chickens](https://www.astralcodexten.com/p/in-continued-defense-of-effective#footnote-7-86909076) out of cages.
 
-Defenders of the squishier charities might say their causes should not be quantified. But when you donate [$1 million to restore a painting](https://tucson.com/news/local/a-year-after-stolen-de-kooning-s-return-to-tucson/article_74316ee9-7e8e-5969-a32d-357f38643586.html), while GiveWell estimates you could save a life for [$3,000](https://www.givewell.org/how-much-does-it-cost-to-save-a-life), you are _implicitly_ valuing the painting’s restoration at more than 333 human lives. That’s not my quantification. That’s _your_ quantification, based on your own choices!
+Defenders of the squishier charities might say their causes should not be quantified. But when they donate [$1 million to restore a painting](https://tucson.com/news/local/a-year-after-stolen-de-kooning-s-return-to-tucson/article_74316ee9-7e8e-5969-a32d-357f38643586.html), while GiveWell estimates they could save a life for [$3,000](https://www.givewell.org/how-much-does-it-cost-to-save-a-life), they are _implicitly_ valuing the painting’s restoration at more than 333 human lives. That’s not my quantification. That’s _their_ quantification, based on their own choices!
 
+A balanced charitable portfolio that includes both community organizations and global health initiatives is worth striving for, even if some of the causes are hard to quantify. But the balance Goldberg is encouraging is indefensible.
 
-A balanced charitable portfolio that includes both community organizations and global health initiatives is worth striving for, even if some of the causes are hard to quantify. But the balance Goldberg is encouraging is indefensible. Imagine, for a moment, being a person in Africa dying of a preventable tropical disease. As you lie there, you learn that your life could have been saved by a modest donation. But instead, a powerful American newspaper encouraged those funds – along with 97% of all funds – to go to causes that “felt a little warmer” to donors. How would you feel about that line of thinking?
-
-The world doesn’t need less optimization in charitable giving; it needs more awareness of the extraordinary good that can be done when we take the time to quantify impact. 
+The world doesn’t need less optimization in charitable giving; it needs more awareness of the extraordinary good that can be done when we take the time to quantify impact.
 
 <div class="caption">Special thanks to Alexander Berger for his [tweet thread](https://x.com/albrgr/status/1865546158237778111) inspiring this post.
 </div>
