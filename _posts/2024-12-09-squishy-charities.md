@@ -6,7 +6,7 @@ image: /assets/2024_squishy_charities/fig_bars.png
 
 ---
 
-This weekend the New York Times published an essay by Emma Goldberg titled, [What if Charity Shouldn’t Be Optimized?](https://www.nytimes.com/2024/12/07/business/charity-holiday-giving-optimized.html). It argued that giving to effective altruism (EA) – which uses cost/benefit analysis to fund easily quantified causes like malaria prevention and lead abatement – might detract from “squishier” causes like museums and community groups. 
+This weekend the New York Times published an essay by Emma Goldberg titled, [What if Charity Shouldn’t Be Optimized?](https://www.nytimes.com/2024/12/07/business/charity-holiday-giving-optimized.html). It argued that effective altruism (EA) – which uses cost/benefit analysis to fund easily quantified causes like malaria prevention and lead abatement – might detract from “squishier” causes like museums and community groups. 
 
 In the comments, Goldberg praised readers who choose to donate to [American universities](https://www.nytimes.com/shared/comment/43n2sk?rsrc=cshare&smid=url-share), [libraries](https://www.nytimes.com/shared/comment/43n1j2?rsrc=cshare&smid=url-share), and local animal shelters instead of EA causes. One commenter, contrasting themselves with EA, wrote “[I give to organizations it feels good to give to](https://www.nytimes.com/shared/comment/43n22d?rsrc=cshare&smid=url-share)” and another said they donate “[based on my heart, not metrics](https://www.nytimes.com/shared/comment/43muo6?rsrc=cshare&smid=url-share)”. Goldberg responded positively to both. 
 
