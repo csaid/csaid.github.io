@@ -14,9 +14,9 @@ The essay stresses that there is nothing wrong with trying to optimize charitabl
 
 ---
 
-Goldberg is right that there is value in hard-to-quantify causes, and that charitable giving should reflect a diversity of priorities, including community-based initiatives. Most people would agree with her, including [leaders](https://x.com/albrgr/status/1865546361653084567) of the EA movement. But the idea that the global charity budget has shifted too far toward EA is preposterous. 
+Goldberg is right that there is value in hard-to-quantify causes, and that charitable giving should reflect a diversity of priorities, including community-based initiatives. Most people would agree with her, including [leaders](https://x.com/albrgr/status/1865546361653084567) of the EA movement. 
 
-Consider the following:
+But the idea that the global charity budget has shifted too far toward EA is preposterous. Consider the following:
 
 * Americans give [$23 billion](https://www.americansforthearts.org/sites/default/files/documents/2023/Private%20Sector%20Giving%202023%20--%20Giving%20USA%20Report%20%282021%20data%29.pdf) to the arts and humanities every year. That’s 30 times the [$750 million](https://www.openphilanthropy.org/research/our-progress-in-2023-and-plans-for-2024/) budget for Open Philanthropy and 60 times the [$400 million](https://x.com/albrgr/status/1866135261043966107) budget for GiveWell, the two most prominent EA foundations. 
 <div class="wrapper">
