@@ -27,7 +27,7 @@ Hot take, but eating animals reduces their welfare. So if you want to eat a cert
 I’ll explain more about what I mean in the rest of this post.
 
 ## Beef is the best farmed animal food
-Factory farming is – let’s face it – pretty [inhumane](https://awionline.org/content/inhumane-practices-factory-farms). Because of these poor conditions, most species of farmed animals lead negative lives. Eating farmed animals is wrong not so much because we kill the animal, but because we create demand for more of these animals, which leads to more suffering.
+Factory farming is pretty [inhumane](https://awionline.org/content/inhumane-practices-factory-farms). Because of these poor conditions, most species of farmed animals lead negative lives. Eating farmed animals is wrong not so much because we kill the animal, but because we create demand for more of these animals, which leads to more suffering.
 
 But among these animals, cows provide the best outcome for animal welfare.
 
