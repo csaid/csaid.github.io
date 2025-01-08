@@ -2,7 +2,7 @@
 layout: post
 title: Beef-o-tuna-tarianism&#58; The low effort way to improve animal welfare
 description: Eat bigger animals. Save more welfare per calorie.
-image: /assets/2025_beefotunatarianism/tunacow.png
+image: /assets/2025_beefotunatarianism/tunacow.jpg
 
 ---
 
@@ -15,7 +15,7 @@ Why beef and tuna? The core idea behind beefotunatarianism is that bigger animal
 This post isn’t meant to judge or tell anyone what they must eat. But as we ring in the new year, I’d like to make a case that if you want to eat meat while minimizing animal suffering, beef-o-tuna-tarianism is the way to go. 
 
 <div class="wrapper">
-  <img src='/assets/2025_beefotunatarianism/tunacow.png' class="inner" style="position:relative border: #222 2px solid; max-width:30%;" >
+  <img src='/assets/2025_beefotunatarianism/tunacow.jpg' class="inner" style="position:relative border: #222 2px solid; max-width:30%;" >
 </div>
 
 ## Minimizing welfare lost per calorie
