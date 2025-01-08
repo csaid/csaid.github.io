@@ -101,5 +101,5 @@ Like anyone thinking about animal welfare, I have a huge amount of uncertainty. 
 * [Foodimpacts.org](http://Foodimpacts.org): Nifty site that allows you to incorporate how much you prioritize animal welfare and climate change. Many of my parameters were drawn from this site. However, for animal welfare they [do not incorporate any estimate](https://docs.google.com/document/d/1uFxgcfYCh269Ooe-LQLaPOhOke4lrcRKPZYlZogDW34/edit?tab=t.0#heading=h.t0tbvjww5ms7) on how much each animal actually suffers.
 * [Brian Tomasik’s interactive calculator](https://reducing-suffering.org/how-much-direct-suffering-is-caused-by-various-animal-foods/): Influential calculator from 2007, periodically updated since then. Limited to farmed animals.
 
-<div class="caption">Thanks to Aaron Bergman for discussions.
+<div class="caption">Thanks to <a href="https://x.com/AaronBergman18">Aaron Bergman</a> for discussions.
 </div>
