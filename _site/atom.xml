@@ -4,7 +4,7 @@
  <title>Chris Said</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2025-01-07T21:18:01-05:00</updated>
+ <updated>2025-01-07T21:22:34-05:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -30,7 +30,7 @@
 &lt;/div&gt;
 
 &lt;h2 id=&quot;minimizing-welfare-lost-per-calorie&quot;&gt;Minimizing welfare lost per calorie&lt;/h2&gt;
-&lt;p&gt;Hot take here, but eating animals reduces their welfare. So if you want to eat a certain number of calories from animals, you might want to minimize the &lt;em&gt;welfare lost per calorie&lt;/em&gt;. But as we’ll see, there’s an interesting distinction between how this works for farmed animals and wild animals.&lt;/p&gt;
+&lt;p&gt;Hot take, but eating animals reduces their welfare. So if you want to eat a certain number of calories from animals, you might want to minimize the &lt;em&gt;welfare lost per calorie&lt;/em&gt;. But as we’ll see, there’s an interesting distinction between how this works for farmed animals and wild animals.&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;For farmed animals, beef minimizes the &lt;em&gt;suffering per calorie&lt;/em&gt;&lt;/li&gt;

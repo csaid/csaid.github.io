@@ -19,7 +19,7 @@ This post isn’t meant to judge or tell anyone what they must eat. But as we ri
 </div>
 
 ## Minimizing welfare lost per calorie
-Hot take here, but eating animals reduces their welfare. So if you want to eat a certain number of calories from animals, you might want to minimize the _welfare lost per calorie_. But as we’ll see, there’s an interesting distinction between how this works for farmed animals and wild animals. 
+Hot take, but eating animals reduces their welfare. So if you want to eat a certain number of calories from animals, you might want to minimize the _welfare lost per calorie_. But as we’ll see, there’s an interesting distinction between how this works for farmed animals and wild animals. 
 
 * For farmed animals, beef minimizes the _suffering per calorie_
 * For wild animals, tuna minimizes the _welfare deprived per calorie_
