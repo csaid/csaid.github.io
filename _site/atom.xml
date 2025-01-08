@@ -4,7 +4,7 @@
  <title>Chris Said</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2025-01-07T22:02:26-05:00</updated>
+ <updated>2025-01-08T08:28:00-05:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -21,7 +21,7 @@
 
 &lt;p&gt;For a while now, I’ve been a &lt;em&gt;beef-o-tuna-tarian&lt;/em&gt;. As a beefotunatarian I can eat beef, tuna, and dairy, although in practice I only have beef or tuna once a week. This diet drives &lt;strong&gt;thousands of times&lt;/strong&gt; less animal suffering than conventional diets, while still providing a reasonable amount of meat. It’s a low-effort, high-impact way of improving animal welfare.&lt;/p&gt;
 
-&lt;p&gt;Why beef and tuna? The core idea behind beefotunatarianism is that bigger animals probably only have somewhat higher moral weight than smaller animals, yet provide thousands of times more calories. That makes big animals like cows and tuna a good option.&lt;/p&gt;
+&lt;p&gt;Why beef and tuna? The core idea behind beefotunatarianism is that bigger animals probably have only somewhat higher moral weight than smaller animals, yet provide thousands of times more calories. That makes big animals like cows and tuna a good option.&lt;/p&gt;
 
 &lt;p&gt;This post isn’t meant to judge or tell anyone what they must eat. But as we ring in the new year, I’d like to make a case that if you want to eat meat while minimizing animal suffering, beef-o-tuna-tarianism is the way to go.&lt;/p&gt;
 
@@ -78,7 +78,7 @@
 &lt;p&gt;As seen in the graph above, smaller fish like flounder and mackerel are deprived of more welfare than larger fish like tuna. Similar results would be obtained if we used the number of painful deaths per 1,000 calories as our metric.&lt;/p&gt;
 
 &lt;h3 id=&quot;details-1&quot;&gt;Details&lt;/h3&gt;
-&lt;p&gt;To make these estimates, I started with the number of individual animals per 1,000 calories (green). These are high for small fish like mackerel and small for large fish like tuna. If we multiply by the life days deprived per animal killed, we can calculate the number of life days we deprive for every 1,000 calories (orange). Finally, we can use subjective estimates of each animal’s welfare per day to compute the &lt;em&gt;adjusted welfare deprived per 1,000 calories&lt;/em&gt; (blue). More details are in the &lt;a href=&quot;https://docs.google.com/document/d/1uFxgcfYCh269Ooe-LQLaPOhOke4lrcRKPZYlZogDW34/edit?tab=t.0&quot;&gt;Methods doc&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;To make these estimates, I started with the number of individual animals per 1,000 calories (green). These are high for small fish like mackerel and low for large fish like tuna. If we multiply by the life days deprived per animal killed, we can calculate the number of life days we deprive for every 1,000 calories (orange). Finally, we can use subjective estimates of each animal’s welfare per day to compute the &lt;em&gt;adjusted welfare deprived per 1,000 calories&lt;/em&gt; (blue). More details are in the &lt;a href=&quot;https://docs.google.com/document/d/1uFxgcfYCh269Ooe-LQLaPOhOke4lrcRKPZYlZogDW34/edit?tab=t.0&quot;&gt;Methods doc&lt;/a&gt;.&lt;/p&gt;
 &lt;div class=&quot;wrapper&quot;&gt;
   &lt;p&gt;&lt;img src=&quot;/assets/2025_beefotunatarianism/fig_wild_animals_breakdown.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:100%;&quot; /&gt;&lt;/p&gt;
 &lt;/div&gt;
