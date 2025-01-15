@@ -51,7 +51,7 @@ Not only would this program identify influential pre-registered papers that are 
 
 ---
 
-Some critics might say that science works best when it’s driven by people who are passionate about truth for truth’s sake, not for the money. But by this point it’s pretty clear that like anyone else, scientists can be driven by [incentives](https://chris-said.io/2012/04/17/its-the-incentives-structure-people-why-science-reform-must-come-from-the-granting-agencies/) that are not always aligned with the truth. Where those incentives fall short, bounty programs can help. We’re already beginning to see some programs [start to emerge](https://error.reviews/). I hope they succeed and that more models will be developed.
+Some critics might say that science works best when it’s driven by people who are passionate about truth for truth’s sake, not for the money. But by this point it’s pretty clear that like anyone else, scientists can be driven by [incentives](https://chris-said.io/2012/04/17/its-the-incentives-structure-people-why-science-reform-must-come-from-the-granting-agencies/) that are not always aligned with the truth. Where those incentives fall short, bounty programs can help. We’re already beginning to see some programs, like [Error](https://error.reviews/), start to emerge. I hope they succeed and that more models will be developed.
 
 <div class="caption">Special thanks to Tim Vickery and Alex Holcombe for discussions.
 </div>
