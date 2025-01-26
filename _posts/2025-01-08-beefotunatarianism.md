@@ -74,7 +74,7 @@ To make these estimates, I started with the number of individual animals per 1,0
 ## Beef and tuna are best overall
 If cows are the best farmed animal and tuna are the best wild animal, are they the two best animals overall? Fortunately, the scores for farmed and wild animals can be directly compared because they are already on the same scale. Suffering is negative welfare, which means both metrics measure welfare lost per 1,000 calories.
 
-Putting them all on the same graph, we see that cows and tuna emerge as the best choices for minimizing animal suffering.
+Putting them all on the same graph, we see that cows and tuna emerge as the best choices for minimizing animal welfare loss.
 
 <div class="wrapper">
   <img src='/assets/2025_beefotunatarianism/fig_combined.png' class="inner" style="position:relative border: #222 2px solid; max-width:100%;" >
