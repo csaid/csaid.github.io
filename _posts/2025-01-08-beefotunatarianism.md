@@ -41,7 +41,7 @@ Let’s try to capture this quantitatively. With a few assumptions (described be
   <img src='/assets/2025_beefotunatarianism/fig_farmed_animals_main.png' class="inner" style="position:relative border: #222 2px solid; max-width:100%;" >
 </div>
 
-As shown above, chickens and caged hens suffer a lot for every 1,000 calories we consume. Shrimp (not shown) fare even worse. Cows suffer far less, and may in fact experience _negative_ suffering per calorie. 
+As shown above, chickens and caged hens suffer a lot for every 1,000 calories we consume. Shrimp (not shown) fare even worse. Cows suffer far less, and may in fact experience _negative_ suffering per calorie (i.e. positive welfare).
 
 
 ### Details
