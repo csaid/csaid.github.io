@@ -3,12 +3,7 @@ layout: home
 title: Chris Said
 ---
 
-Below are links to blog posts I've written, as well as some other projects. I can also be found on [Twitter](https://twitter.com/Chris_Said) and [LinkedIn](https://www.linkedin.com/in/chris-said-97986b6b/).
-
-#### Sample Projects
-* [Apollo Academic Surveys](https://www.apollosurveys.org/) (2022-present). A nonprofit that aggregates the views of academic experts, making them freely available to everyone.
-* RapidTests.org (2020). All-volunteer group advocating for rapid tests for Covid.
-* [Which famous economist are you most similar to?](http://whichfamouseconomistareyoumostsimilarto.com/) (2013-2015). Interactive economics quiz featured in the Washington Post, Wall Street Journal, and NPR.
+Below are links to blog posts I've written. I can also be found on [Twitter](https://twitter.com/Chris_Said) and [LinkedIn](https://www.linkedin.com/in/chris-said-97986b6b/).
 
 #### Selected Blog Posts
 * [Optimizing sample sizes in A/B testing, Part I: General summary](/2020/01/10/optimizing-sample-sizes-in-ab-testing-part-I/) ([Part II](/2020/01/10/optimizing-sample-sizes-in-ab-testing-part-II/), [Part III](/2020/01/10/optimizing-sample-sizes-in-ab-testing-part-III/)) (10 Jan 2020)

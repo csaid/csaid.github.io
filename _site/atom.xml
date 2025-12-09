@@ -4,7 +4,7 @@
  <title>Chris Said</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2025-01-27T20:47:34-05:00</updated>
+ <updated>2025-12-08T22:07:17-05:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -54,7 +54,7 @@
   &lt;p&gt;&lt;img src=&quot;/assets/2025_beefotunatarianism/fig_farmed_animals_main.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:100%;&quot; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 
-&lt;p&gt;As shown above, chickens and caged hens suffer a lot for every 1,000 calories we consume. Shrimp (not shown) fare even worse. Cows suffer far less, and may in fact experience &lt;em&gt;negative&lt;/em&gt; suffering per calorie.&lt;/p&gt;
+&lt;p&gt;As shown above, chickens and caged hens suffer a lot for every 1,000 calories we consume. Shrimp (not shown) fare even worse. Cows suffer far less, and may in fact experience &lt;em&gt;negative&lt;/em&gt; suffering per calorie (i.e. positive welfare).&lt;/p&gt;
 
 &lt;h3 id=&quot;details&quot;&gt;Details&lt;/h3&gt;
 &lt;p&gt;I reached these estimates by starting with the number of individual animals per 1,000 calories (green graph, below). Then, based on the animal’s lifespan, I calculated the number of days lived per 1,000 calories (orange). Then, based on subjective estimates of each animal’s adjusted suffering per day, I calculated the aggregate adjusted suffering per 1,000 calories (blue). The suffering per day estimates are adjusted for estimates of each species’ &lt;a href=&quot;https://rethinkpriorities.org/research-area/welfare-range-estimates/&quot;&gt;welfare range&lt;/a&gt;, which you can loosely think of as moral worth. More details are in the &lt;a href=&quot;https://docs.google.com/document/d/1uFxgcfYCh269Ooe-LQLaPOhOke4lrcRKPZYlZogDW34/edit?tab=t.0&quot;&gt;Methods doc&lt;/a&gt;, where you can input your own assumptions and create your own graphs.&lt;/p&gt;
