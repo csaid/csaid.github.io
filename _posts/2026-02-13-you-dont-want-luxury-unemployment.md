@@ -1,7 +1,7 @@
 ---
 layout: post
 title: You don't want luxury unemployment
-description: Unemployment causes a profound drop in life satisfaction and material prosperity doesn't change that
+description: Unemployment causes a profound drop in life satisfaction, even with material prosperity
 image: /assets/2026_luxury_unemployment/isolation.jpg
 
 ---
