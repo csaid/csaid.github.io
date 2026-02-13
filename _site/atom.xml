@@ -4,13 +4,40 @@
  <title>Chris Said</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2025-12-08T22:07:17-05:00</updated>
+ <updated>2026-02-13T13:50:40-05:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
    <email></email>
  </author>
 
+ 
+ <entry>
+   <title>You don't want luxury unemployment</title>
+   <link href="http://localhost:4000/2026/02/13/you-dont-want-luxury-unemployment/"/>
+   <updated>2026-02-13T00:00:00-05:00</updated>
+   <id>http://localhost:4000/2026/02/13/you-dont-want-luxury-unemployment</id>
+   <content type="html">&lt;p&gt;With the rise of Claude Code, the prospect of widespread white collar unemployment feels increasingly real, and it seems like a bad outcome. Unemployment causes a profound reduction in life satisfaction, &lt;a href=&quot;https://www.jstor.org/stable/pdf/2234639.pdf?casa_token=6NgjLHAQQvIAAAAA:ieBy9Vw8sTMjX1P80ydxqsUIsbyY7gtNQpz_9IDV3icKa7wi1C8s-LXNQBifiQqH8zTIxBHd-QCROq8SF2rci8BjPBpXkRaGwHtnFb8-d9uAzWQLXNGM&quot;&gt;larger than the reduction caused by divorce&lt;/a&gt; and &lt;a href=&quot;https://www.jstor.org/stable/pdf/2555127&quot;&gt;3 times larger than that of bad health&lt;/a&gt;. The US alone has 25 million white collar workers. If AI displaces a significant share of them, the result could be a massive increase in poor mental health. And if automation also takes jobs from blue collar workers, the burden would be even greater.&lt;/p&gt;
+
+&lt;p&gt;Supporters of AI say we don’t need to worry. Yes, some people may lose their jobs, but the increase in GDP will usher in a period of prosperity, where all of our material needs are met and we can focus on the hobbies and relationships that give us real meaning.&lt;/p&gt;
+
+&lt;p&gt;I’m skeptical, and the data we have points in the opposite direction. If material prosperity could make up for job loss, you would expect that the historical harms of unemployment were driven mostly by lost income. But Winkelmann (1998) showed that the effects of unemployment are &lt;a href=&quot;https://www.jstor.org/stable/pdf/2555127&quot;&gt;driven almost entirely by non-pecuniary costs&lt;/a&gt;. When unemployment caused a large drop in household income in percentage terms, the drop in mental health was only slightly worse than when the income loss was small. Instead the main drivers are less tangible things like &lt;a href=&quot;https://pmc.ncbi.nlm.nih.gov/articles/PMC4553243/&quot;&gt;idleness and lowered sense of purpose&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Those who think material prosperity can make up for job loss might also expect that unemployment should be harder for blue collar workers, who have less reserve wealth than white collar workers. But &lt;a href=&quot;https://www.jstor.org/stable/pdf/2234639.pdf&quot;&gt;Clark (1994)&lt;/a&gt; finds the opposite. Unemployment drives a 77% increase in the rate of poor well-being for those with low education, but a 100% increase for those with high education. While this result was based on cross-sectional data, Winkelmann (1998) used panel data to show the effect was almost entirely causal. &lt;a href=&quot;https://sci-hub.ru/https://pubmed.ncbi.nlm.nih.gov/7594355/&quot;&gt;Turner (1995)&lt;/a&gt; replicated the effect.&lt;/p&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/assets/2026_luxury_unemployment/fig_bars.png&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:75%;&quot; /&gt;&lt;/p&gt;
+  &lt;div class=&quot;caption&quot;&gt;
+    &lt;p&gt;&lt;strong&gt;Figure 1.&lt;/strong&gt; Adapted from Table 1 of &lt;a href=&quot;https://www.jstor.org/stable/pdf/2234639.pdf&quot;&gt;Clark (1994)&lt;/a&gt;&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Supporters of AI might say that unemployment stings hard because it’s humiliating to lose your job when your peers still have one. In a world where everyone is unemployed, perhaps there will be no change in relative status and things will be fine. Again, the data we have does not support this. When people voluntarily stop working, which should not be associated with any humiliation, they still experience a &lt;a href=&quot;https://www.jstor.org/stable/pdf/2555127&quot;&gt;large drop in life satisfaction&lt;/a&gt;, 64% as big as those who stop work involuntarily.&lt;/p&gt;
+
+&lt;p&gt;Of course we can’t be certain that these trends will generalize to the very different world that AI may create. But if they do, we should expect a large drop in mental health targeted precisely at the people who will experience the greatest effects. Ironically, this scenario is considered to be one of the &lt;a href=&quot;https://podcasts.apple.com/ca/podcast/anthropics-chief-on-a-i-we-dont-know-if-the-models/id1438024613?i=1000749412887&quot;&gt;better outcomes&lt;/a&gt; of an AI future, which makes me wonder why we are doing this at all.&lt;/p&gt;
+
+</content>
+ </entry>
  
  <entry>
    <title>Beef-o-tuna-tarianism&#58; The low effort way to improve animal welfare</title>
