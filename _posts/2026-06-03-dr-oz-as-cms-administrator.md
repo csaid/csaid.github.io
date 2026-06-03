@@ -20,7 +20,7 @@ He is also “a good hang” and “hard not to like”. From the Washington Pos
 
 Multiple CMS career staffers say he has been [good for morale](https://www.washingtonpost.com/health/2025/12/13/mehmet-dr-oz-cms-leadership/), even though they disapprove of the Trump administration overall.
 
-But while he may be smart and fun, what is he doing with the insurance systems he administers? Let’s take each of them in turn. As we’ll see, Oz is a surprisingly competent and serious administrator whose agenda is coherent and often defensible.
+But while he may be smart and fun, what is he doing with the insurance systems he administers? Let’s take each of them in turn. As we’ll see, Oz is a surprisingly competent and serious administrator whose agenda is coherent and at times defensible.
 
 ### Traditional Medicare
 Traditional Medicare is “fee for service”, meaning doctors and other healthcare providers are paid for each service they provide. In practice, this can encourage providers to do [more care than the patient needs](https://kffhealthnews.org/medicare/health-202-expensive-useless-medical-care).  For example, a patient with back pain might receive extra scans, additional consultations, and more follow-up appointments than are truly needed.
