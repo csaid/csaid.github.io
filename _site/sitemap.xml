@@ -3,6 +3,21 @@
   
     
     <url>
+      <loc>http://localhost:4000/2026/06/03/dr-oz-as-cms-administrator/</loc>
+      
+        <lastmod>2026-06-03T00:00:00-04:00</lastmod>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.5</priority>
+      
+    </url>
+    
+  
+    
+    <url>
       <loc>http://localhost:4000/2026/02/13/you-dont-want-luxury-unemployment/</loc>
       
         <lastmod>2026-02-13T00:00:00-05:00</lastmod>
@@ -985,7 +1000,7 @@
     <url>
       <loc>http://localhost:4000404.html</loc>
       
-        <lastmod>2026-02-13T14:22:27-05:00</lastmod>
+        <lastmod>2026-06-03T12:34:43-04:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -1856,6 +1871,19 @@
           <loc>http://localhost:4000/2026/02/13/you-dont-want-luxury-unemployment/</loc>
           
             <lastmod>2026-02-13T00:00:00-05:00</lastmod>
+          
+          
+            <changefreq>monthly</changefreq>
+          
+          
+            <priority>0.3</priority>
+          
+        </url>
+      
+        <url>
+          <loc>http://localhost:4000/2026/06/03/dr-oz-as-cms-administrator/</loc>
+          
+            <lastmod>2026-06-03T00:00:00-04:00</lastmod>
           
           
             <changefreq>monthly</changefreq>

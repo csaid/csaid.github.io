@@ -4,7 +4,7 @@
  <title>Chris Said</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2026-02-13T14:22:27-05:00</updated>
+ <updated>2026-06-03T12:34:43-04:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Chris Said</name>
@@ -13,11 +13,94 @@
 
  
  <entry>
+   <title>Dr. Oz as CMS Administrator&#58; A review</title>
+   <link href="http://localhost:4000/2026/06/03/dr-oz-as-cms-administrator/"/>
+   <updated>2026-06-03T00:00:00-04:00</updated>
+   <id>http://localhost:4000/2026/06/03/dr-oz-as-cms-administrator</id>
+   <content type="html">&lt;p&gt;Every day you see a headline about a celebrity official in the Trump administration. One day Robert F. Kennedy is promoting junk science. The next day, Pete Hegseth is retweeting Christian nationalists. But the one celebrity administrator you don’t hear much about is Dr. Oz, the peddler of dubious remedies who now heads the CMS (Centers for Medicare and Medicaid Services). What ever happened to him?&lt;/p&gt;
+
+&lt;p&gt;By most accounts, Dr. Oz is smart and hardworking. Even Democrats who were initially skeptical have had to acknowledge his rare ability to master arcane details within a complex federal agency. “I’ve been impressed,” &lt;a href=&quot;https://www.washingtonpost.com/health/2025/12/13/mehmet-dr-oz-cms-leadership/&quot;&gt;said&lt;/a&gt; Andy Slavitt, who led CMS during the Obama administration. Many have also noticed how much he has helped modernize IT systems in a sector that even today relies heavily on the fax machine.&lt;/p&gt;
+
+&lt;p&gt;He is also “a good hang” and “hard not to like”. From the Washington Post:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;He attended an employee Zumba class. Last spring, he was “mobbed” by staff during a lunchtime walk around the Baltimore campus.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/assets/2026_oz/cms.jpg&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:50%;&quot; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Multiple CMS career staffers say he has been &lt;a href=&quot;https://www.washingtonpost.com/health/2025/12/13/mehmet-dr-oz-cms-leadership/&quot;&gt;good for morale&lt;/a&gt;, even though they disapprove of the Trump administration overall.&lt;/p&gt;
+
+&lt;p&gt;But while he may be smart and fun, what is he doing with the insurance systems he administers? Let’s take each of them in turn. As we’ll see, Oz is a surprisingly competent and serious administrator whose agenda is coherent and often defensible.&lt;/p&gt;
+
+&lt;h3 id=&quot;traditional-medicare&quot;&gt;Traditional Medicare&lt;/h3&gt;
+&lt;p&gt;Traditional Medicare is “fee for service”, meaning doctors and other healthcare providers are paid for each service they provide. In practice, this can encourage providers to do &lt;a href=&quot;https://kffhealthnews.org/medicare/health-202-expensive-useless-medical-care&quot;&gt;more care than the patient needs&lt;/a&gt;.  For example, a patient with back pain might receive extra scans, additional consultations, and more follow-up appointments than are truly needed.&lt;/p&gt;
+
+&lt;p&gt;Dr. Oz and the CMS are taking on several initiatives to constrain these expenses. Two of these stand out to me.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Some procedures are particularly vulnerable to waste and fraud. Think deep brain stimulation for Parkinson’s Disease or cervical fusion. Starting this year, doctors will have to &lt;a href=&quot;https://www.beckershospitalreview.com/finance/cms-to-add-prior-authorization-for-traditional-medicare-services/&quot;&gt;get approval&lt;/a&gt; from the agency before doing each of these debatable procedures. This process, known as prior authorization, is commonplace in private health insurance plans but until now has never been a part of traditional Medicare.&lt;/li&gt;
+  &lt;li&gt;A &lt;a href=&quot;https://www.beckerspayer.com/policy-updates/14-payers-pledge-support-for-access-model/&quot;&gt;new pilot program&lt;/a&gt; for chronic conditions will start linking payments to outcomes, rather than just services provided. While these pilot programs are not new, it’s notable how aggressively CMS is pushing in this direction. CMS has released &lt;a href=&quot;https://www.aafp.org/fpm/blogs/getting-paid/new-cmmi-models&quot;&gt;nine new value-based payment models&lt;/a&gt; in the final weeks of 2025, a rate much higher than previous administrations.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Both of these changes seem quite positive to me.&lt;/p&gt;
+
+&lt;h3 id=&quot;medicare-advantage&quot;&gt;Medicare Advantage&lt;/h3&gt;
+&lt;p&gt;Because the traditional Medicare model can incentivize too many procedures, an alternative system called Medicare Advantage was developed 30 years ago. Under the managed care model of Medicare Advantage, private health plans receive a fixed payment to manage each member’s care, varying by how sick the member is, instead of being paid per procedure. The plans are incentivized to reduce costs, while still meeting mandatory standards. Patients tend to prefer Medicare Advantage since it is cheaper for them and comes with more coordinated care. &lt;a href=&quot;https://www.kff.org/medicare/medicare-advantage-enrollment-update-and-key-trends&quot;&gt;More than half&lt;/a&gt; of Medicare beneficiaries are now on Medicare Advantage.&lt;/p&gt;
+
+&lt;p&gt;Dr. Oz likes Medicare Advantage as well, and intends to increase payments to the plans by &lt;a href=&quot;https://www.beckerspayer.com/policy-updates/cms-boosts-medicare-advantage-payments-by-25b/&quot;&gt;$25 billion&lt;/a&gt; in 2026, more than double what the Biden administration proposed.&lt;/p&gt;
+
+&lt;p&gt;Unfortunately, while Medicare Advantage was supposed to lower costs, it has in fact increased costs. While the member fees may be lower, the overall cost of Medicare Advantage is &lt;a href=&quot;https://www.healthcare-brew.com/stories/2025/03/18/medicare-advantage-cost-government-84-billion-2025&quot;&gt;20% higher per member&lt;/a&gt; than traditional Medicare, when controlling for member health.&lt;/p&gt;
+
+&lt;p&gt;Why is Medicare Advantage more expensive? Well, the government payment that plans receive for each member depends on how sick the member is (more sick = higher payments). So somewhat predictably, these plans have been &lt;a href=&quot;https://oig.hhs.gov/reports/all/2024/medicare-advantage-questionable-use-of-health-risk-assessments-continues-to-drive-up-payments-to-plans-by-billions&quot;&gt;exaggerating&lt;/a&gt; how sick their members are.&lt;/p&gt;
+
+&lt;p&gt;To cut down on these overpayments, Dr. Oz plans to &lt;a href=&quot;https://www.beckerspayer.com/policy-updates/cms-plans-aggressive-medicare-advantage-audits&quot;&gt;“aggressively”&lt;/a&gt; audit every Medicare Advantage plan. Currently, the agency has a team of 40 medical coders to make sure patients are properly categorized according to their actual health status. Dr. Oz plans to bump that up to 2,000.&lt;/p&gt;
+
+&lt;p&gt;More aggressive auditing will slow the growth of Medicare Advantage costs, although it likely won’t be enough to make Medicare Advantage as low cost as traditional Medicare. Overall though, I think it is reasonable to shift payments towards the popular managed care model while more carefully scrutinizing how the plans behave.&lt;/p&gt;
+
+&lt;h3 id=&quot;medicaid&quot;&gt;Medicaid&lt;/h3&gt;
+&lt;p&gt;Medicaid is CMS’s insurance program for low-income Americans. Under Oz’s leadership, the biggest change to Medicaid is the introduction of work requirements for able-bodied adults of working age. In theory, incentivizing people to work or receive training should encourage self-sufficiency while preserving resources for the elderly, disabled, and other vulnerable populations.&lt;/p&gt;
+
+&lt;p&gt;In reality, work requirements are a terrible idea. They do not accomplish their goal of incentivizing work. When they were implemented in Arkansas in 2018, there was &lt;a href=&quot;https://pmc.ncbi.nlm.nih.gov/articles/PMC7497731/&quot;&gt;no increase&lt;/a&gt; in employment for the targeted population. Even worse, the additional administrative burdens imposed on users meant that at least half of the people kicked off were not even supposed to be kicked off!&lt;sup&gt;1&lt;/sup&gt; In short, work requirements pointlessly deny health insurance to poor people, many of whom are working or otherwise eligible, without succeeding at incentivizing work.&lt;/p&gt;
+
+&lt;p&gt;During his nomination hearing, Dr. Oz &lt;a href=&quot;https://www.healthcaredive.com/news/dr-oz-cms-nominee-support-medicaid-work-requirements/742605&quot;&gt;recognized&lt;/a&gt; that work requirements could be used as a cynical way to cut costs. “I don’t think that should be used as an obstacle, a disingenuous effort to block people from getting on Medicaid”. But he went on to say that they are still a healthy way to encourage people to work and contribute to society.&lt;/p&gt;
+
+&lt;p&gt;As we saw in Arkansas, though, it doesn’t actually encourage people to work. Overall this initiative seems quite bad to me.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;Dr. Oz’s record on CMS services is therefore something of a mixed bag. When it comes to Medicare he is pushing towards the managed care model of Medicare Advantage. He is doing this both within Medicare Advantage, by making it better funded and better controlled, and even within traditional Medicare, by importing some of the accountability practices from Medicare Advantage. But when it comes to Medicaid he is implementing a harmful work requirements initiative that will hurt low-income Americans without accomplishing its stated goals.&lt;/p&gt;
+
+&lt;p&gt;And yet, a question nags at me. Why did an entertainer with a history of promoting pseudoscience decide to dedicate the rest of his career to auditing Medicare Advantage, adding accountability to traditional Medicare, and kicking people off Medicaid? Oz is a wealthy man who could have retired comfortably. Why did he choose one of the most technocratic jobs in Washington?&lt;/p&gt;
+
+&lt;p&gt;He’s not using it as a stepping stone to becoming president. He was born in Turkey and is therefore ineligible for the role. Nor is he using it to satisfy any serious conflicts of interest. The Washington Post mentioned that he once held &lt;a href=&quot;https://www.washingtonpost.com/health/2025/12/13/mehmet-dr-oz-cms-leadership/&quot;&gt;millions of dollars in stock&lt;/a&gt; in an herbal supplement company that could benefit from his public platform. But he sold those stocks before becoming director. And more importantly, becoming director of a technocratic agency is one of the least fun and least effective ways for Oz, a talented television entertainer, to promote an herbal supplement company.&lt;/p&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/assets/2026_oz/aspen.jpg&quot; class=&quot;inner&quot; style=&quot;position:relative border: #222 2px solid; max-width:50%;&quot; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Instead, Dr. Oz’s motivations appear to be more mundane. He has a sincere interest in health policy and a real ideological commitment to Medicare Advantage. Going back to 2020, he co-wrote an &lt;a href=&quot;https://www.forbes.com/sites/steveforbes/2020/06/11/medicare-advantage-for-all-can-save-our-health-care-system/&quot;&gt;op-ed&lt;/a&gt; calling for “Medicare Advantage for all”, favorably citing similar systems in Switzerland and the Netherlands. His interest in these types of plans dovetails with his longstanding interest in reducing chronic disease burden. Writing in Forbes,&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Standard Medicare providers make more money when their patients are in poor health. […]In contrast, Medicare Advantage plans benefit financially when people have fewer heart attacks, lower levels of diabetic complications, fewer asthma attacks and lower levels of chronic diseases.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;What remains mysterious about Oz is that the person with sincere and mostly benevolent interests in health policy is the same person who spent a career hawking pseudoscientific cures to a trusting public. How can a person be so sincere and so cynical at the same time?&lt;/p&gt;
+
+&lt;p&gt;Perhaps the answer is that he has not been sincere and cynical at the same time. Perhaps he was cynical, and then he became sincere. With an eye on his legacy, Dr. Oz pores over Medicare reimbursement formulas as penance for his earlier sins.&lt;/p&gt;
+
+&lt;div class=&quot;caption&quot;&gt;
+  &lt;p&gt;&lt;sup&gt;1&lt;/sup&gt;Napkin math: When work requirements were tried in Arkansas, &lt;a href=&quot;https://pmc.ncbi.nlm.nih.gov/articles/PMC7497731/&quot;&gt;10% of targeted people lost coverage&lt;/a&gt;. Surveys of the targeted population show that 95% should have met the work requirements or should be eligible for an exemption. Put these numbers together, and half of those who lost coverage were actually supposed to lose coverage.&lt;/p&gt;
+&lt;/div&gt;
+</content>
+ </entry>
+ 
+ <entry>
    <title>You don't want luxury unemployment</title>
    <link href="http://localhost:4000/2026/02/13/you-dont-want-luxury-unemployment/"/>
    <updated>2026-02-13T00:00:00-05:00</updated>
    <id>http://localhost:4000/2026/02/13/you-dont-want-luxury-unemployment</id>
-   <content type="html">&lt;p&gt;With the rise of Claude Code, the prospect of widespread white collar unemployment feels increasingly real, and it seems like a bad outcome. Unemployment causes a profound reduction in life satisfaction, &lt;a href=&quot;https://www.jstor.org/stable/pdf/2234639.pdf?casa_token=6NgjLHAQQvIAAAAA:ieBy9Vw8sTMjX1P80ydxqsUIsbyY7gtNQpz_9IDV3icKa7wi1C8s-LXNQBifiQqH8zTIxBHd-QCROq8SF2rci8BjPBpXkRaGwHtnFb8-d9uAzWQLXNGM&quot;&gt;larger than the reduction caused by divorce&lt;/a&gt; and &lt;a href=&quot;https://www.jstor.org/stable/pdf/2555127&quot;&gt;3 times larger than that of bad health&lt;/a&gt;. The US alone has 25 million white collar workers. If AI displaces a significant share of them, the result could be a massive increase in poor mental health. And if automation also takes jobs from blue collar workers, the burden would be even greater.&lt;/p&gt;
+   <content type="html">&lt;p&gt;With the rise of Claude Code, the prospect of widespread white collar unemployment feels increasingly real, and it seems like a bad outcome. Unemployment causes a profound reduction in life satisfaction, &lt;a href=&quot;https://www.jstor.org/stable/pdf/2234639.pdf?casa_token=6NgjLHAQQvIAAAAA:ieBy9Vw8sTMjX1P80ydxqsUIsbyY7gtNQpz_9IDV3icKa7wi1C8s-LXNQBifiQqH8zTIxBHd-QCROq8SF2rci8BjPBpXkRaGwHtnFb8-d9uAzWQLXNGM&quot;&gt;larger than the reduction caused by divorce&lt;/a&gt; and &lt;a href=&quot;https://www.jstor.org/stable/pdf/2555127&quot;&gt;3 times larger than that of bad health&lt;/a&gt;. The US alone has 25 million white collar workers. If AI displaces a significant share of them, the result could be a massive drop in well-being. And if automation also takes jobs from blue collar workers, the burden would be even greater.&lt;/p&gt;
 
 &lt;p&gt;Supporters of AI say we don’t need to worry. Yes, some people may lose their jobs, but the increase in GDP will usher in a period of prosperity, where all of our material needs are met and we can focus on the hobbies and relationships that give us real meaning.&lt;/p&gt;
 
@@ -34,7 +117,7 @@
 
 &lt;p&gt;Supporters of AI might say that unemployment stings hard because it’s humiliating to lose your job when your peers still have one. In a world where everyone is unemployed, perhaps there will be no change in relative status and things will be fine. Again, the data we have does not support this. When people voluntarily stop working, which should not be associated with any humiliation, they still experience a &lt;a href=&quot;https://www.jstor.org/stable/pdf/2555127&quot;&gt;large drop in life satisfaction&lt;/a&gt;, 64% as big as those who stop work involuntarily.&lt;/p&gt;
 
-&lt;p&gt;Of course we can’t be certain that these trends will generalize to the very different world that AI may create. But if they do, we should expect a large drop in mental health targeted precisely at the people who will experience the greatest effects. Ironically, this scenario is considered to be one of the &lt;a href=&quot;https://podcasts.apple.com/ca/podcast/anthropics-chief-on-a-i-we-dont-know-if-the-models/id1438024613?i=1000749412887&quot;&gt;better outcomes&lt;/a&gt; of an AI future, which makes me wonder why we are doing this at all.&lt;/p&gt;
+&lt;p&gt;Of course we can’t be certain that these trends will generalize to the very different world that AI may create. But if they do, we should expect a large drop in well-being targeted precisely at the people who will experience the greatest effects. Ironically, this scenario is considered to be one of the &lt;a href=&quot;https://podcasts.apple.com/ca/podcast/anthropics-chief-on-a-i-we-dont-know-if-the-models/id1438024613?i=1000749412887&quot;&gt;better outcomes&lt;/a&gt; of an AI future, which makes me wonder why we are doing this at all.&lt;/p&gt;
 
 </content>
  </entry>
