@@ -1,8 +1,8 @@
 ---
 layout: post
 title: Dr. Oz as CMS Administrator&#58; A review
-description: 
-image: /assets/2026_luxury_unemployment/isolation.jpg
+description: A surprisingly competent turn from a peddler of dubious remedies
+image: /assets/2026_oz/glasses.png
 
 ---
 
