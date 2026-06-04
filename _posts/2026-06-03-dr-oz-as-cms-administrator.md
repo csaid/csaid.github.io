@@ -20,7 +20,7 @@ He is also “a good hang” and “hard not to like”. From the Washington Pos
 
 Multiple CMS career staffers say he has been [good for morale](https://www.washingtonpost.com/health/2025/12/13/mehmet-dr-oz-cms-leadership/), even though they disapprove of the Trump administration overall.
 
-But while he may be smart and fun, what is he doing with the insurance systems he administers? Let’s take each of them in turn. As we’ll see, Oz is a surprisingly competent and serious administrator whose agenda is coherent and at times defensible.
+But while he may be smart and fun, what is he doing with the insurance systems he administers? As we’ll see, Oz is a surprisingly competent and serious administrator whose agenda is coherent and at times defensible.
 
 ### Traditional Medicare
 Traditional Medicare is “fee for service”, meaning doctors and other healthcare providers are paid for each service they provide. In practice, this can encourage providers to do [more care than the patient needs](https://kffhealthnews.org/medicare/health-202-expensive-useless-medical-care).  For example, a patient with back pain might receive extra scans, additional consultations, and more follow-up appointments than are truly needed.
@@ -29,7 +29,7 @@ Dr. Oz and the CMS are taking on several initiatives to constrain these expenses
 * Some procedures are particularly vulnerable to waste and fraud. Think deep brain stimulation for Parkinson’s Disease or cervical fusion. Starting this year, doctors will have to [get approval](https://www.beckershospitalreview.com/finance/cms-to-add-prior-authorization-for-traditional-medicare-services/) from the agency before doing each of these debatable procedures. This process, known as prior authorization, is commonplace in private health insurance plans but until now has never been a part of traditional Medicare. 
 * A [new pilot program](https://www.beckerspayer.com/policy-updates/14-payers-pledge-support-for-access-model/) for chronic conditions will start linking payments to outcomes, rather than just services provided. While these pilot programs are not new, it's notable how aggressively CMS is pushing in this direction. CMS has released [nine new value-based payment models](https://www.aafp.org/fpm/blogs/getting-paid/new-cmmi-models) in the final weeks of 2025, a rate much higher than previous administrations.
 
-Both of these changes seem quite positive to me. 
+Both of these changes seem quite positive and are significant departures from how traditional Medicare works.
 
 ### Medicare Advantage
 Because the traditional Medicare model can incentivize too many procedures, an alternative system called Medicare Advantage was developed 30 years ago. Under the managed care model of Medicare Advantage, private health plans receive a fixed payment to manage each member's care, varying by how sick the member is, instead of being paid per procedure. The plans are incentivized to reduce costs, while still meeting mandatory standards. Patients tend to prefer Medicare Advantage since it is cheaper for them and comes with more coordinated care. [More than half](https://www.kff.org/medicare/medicare-advantage-enrollment-update-and-key-trends) of Medicare beneficiaries are now on Medicare Advantage.
