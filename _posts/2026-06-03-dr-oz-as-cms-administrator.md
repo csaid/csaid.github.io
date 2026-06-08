@@ -8,7 +8,7 @@ image: /assets/2026_oz/glasses.png
 
 Every day you see a headline about a celebrity official in the Trump administration. One day Robert F. Kennedy is promoting junk science. The next day, Pete Hegseth is retweeting Christian nationalists. But the one celebrity administrator you don’t hear much about is Dr. Oz, the peddler of dubious remedies who now heads the CMS (Centers for Medicare and Medicaid Services). What ever happened to him?
 
-By most accounts, Dr. Oz is smart and hardworking. Even Democrats who were initially skeptical have had to acknowledge his rare ability to master arcane details within a complex federal agency. “I’ve been impressed,” [said](https://www.washingtonpost.com/health/2025/12/13/mehmet-dr-oz-cms-leadership/) Andy Slavitt, who led CMS during the Obama administration. Many have also noticed how much he has helped modernize IT systems in a sector that even today relies heavily on the fax machine.
+By most accounts, Dr. Oz is smart and hardworking. Even Democrats who were initially skeptical have acknowledged his rare ability to master arcane details within a complex federal agency. “I’ve been impressed,” [said](https://www.washingtonpost.com/health/2025/12/13/mehmet-dr-oz-cms-leadership/) Andy Slavitt, who led CMS during the Obama administration. Many have also noticed how much he has helped modernize IT systems in a sector that even today relies heavily on the fax machine.
 
 He is also “a good hang” and “hard not to like”. From the Washington Post:
 
